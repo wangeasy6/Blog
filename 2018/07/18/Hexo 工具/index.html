@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Hexo 工具使用小结 | EasyW</title>
+  <title>方便的 Hexo 博客工具 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
 <meta name="keywords" content="tools">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 工具使用小结">
+<meta property="og:title" content="方便的 Hexo 博客工具">
 <meta property="og:url" content="http://www.wangeasy.com/2018/07/18/Hexo 工具/index.html">
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
@@ -24,9 +24,9 @@
 <meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/settings.png">
 <meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/ssh-key.png">
 <meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/hexo-init.png">
-<meta property="og:updated_time" content="2018-07-19T09:41:04.376Z">
+<meta property="og:updated_time" content="2018-07-19T09:58:43.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 工具使用小结">
+<meta name="twitter:title" content="方便的 Hexo 博客工具">
 <meta name="twitter:description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
 <meta name="twitter:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/new-repo.png">
   
@@ -159,7 +159,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo 工具使用小结
+      方便的 Hexo 博客工具
     </h1>
   
 
@@ -299,6 +299,9 @@
 <li><p>配置之后，重新发布。在目录中就会出现 “技术”、“关于” 这两项，<br>链接分别会打开 [site]/about 、 [site]/categories/tech 页面，但是，这个时候这两个链接为空<br>所以得创建:<br>  <code>hexo new page about</code><br>当我们在 文章 中声明了 categories 这一项，如前面声明的 tech，hexo 就会在 /categories 目录中创建一个目录为 tech，将所有类别声明中带有 tech 的 md 转为静态页面存放在此，所以 “技术” 这一栏会列出所有类别为 tech 的文章。</p>
 <h4 id="4-文章只显示一部分"><a href="#4-文章只显示一部分" class="headerlink" title="4. 文章只显示一部分"></a>4. 文章只显示一部分</h4></li>
 <li>这个只要在文章中加上 <!--more--> 标记 ，该标记以后部分就不在显示了，只有展开全部才显示，这是hexo定义的。 </li>
+</ul>
+<h4 id="4-避免-deploy-的时候删除-CNAME、README-md"><a href="#4-避免-deploy-的时候删除-CNAME、README-md" class="headerlink" title="4. 避免 deploy 的时候删除 CNAME、README.md"></a>4. 避免 deploy 的时候删除 CNAME、README.md</h4><ul>
+<li>将 CNAME、README.md 放到 /source 中，在这里更新在发布的时候能同步到 GitHub。</li>
 </ul>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">https://www.cnblogs.com/visugar/p/6821777.html</a></li>
