@@ -83,7 +83,8 @@ deploy:
   type: git
   repo: https://github.com/wangeasy6/Blog.git
   branch: master
-  message: "Blog updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+  message: "Blog updated"
+# {{ now('YYYY-MM-DD HH:mm:ss') }}
 #  type: ftpsync
 #  host: 167.88.180.97
 #  user: ftp.easy
@@ -92,29 +93,6 @@ deploy:
 #  port: 21
 #  connections: 1
 #  verbose: false
-
-# Header
-
-#你的头像url
-avatar:
-
-menu:
-  生活: /
-  技术: /categories
-
-# Content
-
-# 文章太长，截断按钮文字
-excerpt_link: more
-# 文章卡片右下角常驻链接，不需要请设置为false
-show_all_link: '展开全文'
-# 数学公式
-mathjax: false
-# 是否在新窗口打开链接
-open_in_new: false
-
-# 是否有快速回到顶部的按钮
-top: true
 
 #hexo-generator-json-content
 jsonContent:
