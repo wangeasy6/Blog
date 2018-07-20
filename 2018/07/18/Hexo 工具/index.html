@@ -16,19 +16,19 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/new-repo.png">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/create-repo.png">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/username.png">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/email.png">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/ssh.png">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/settings.png">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/ssh-key.png">
-<meta property="og:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/hexo-init.png">
-<meta property="og:updated_time" content="2018-07-19T10:01:05.216Z">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/new-repo.png">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/create-repo.png">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/username.png">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/email.png">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/ssh.png">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/settings.png">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/ssh-key.png">
+<meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/hexo-init.png">
+<meta property="og:updated_time" content="2018-07-20T01:38:53.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="方便的 Hexo 博客工具">
 <meta name="twitter:description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
-<meta name="twitter:image" content="http://www.wangeasy.com/2018/07/18/images/Hexo%20工具/new-repo.png">
+<meta name="twitter:image" content="http://www.wangeasy.com/images/Hexo%20工具/new-repo.png">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -218,19 +218,19 @@
 <ul>
 <li>没账号的先创建账号。</li>
 <li><p>在 GitHub 上创建一个repo，用于发布博客，如下：</p>
-<p><img src="..\images\Hexo 工具\new-repo.png" alt="new-repo"></p>
-<p><img src="..\images\Hexo 工具\create-repo.png" alt="create-repo"></p>
+<p><img src="/images/Hexo 工具/new-repo.png" alt="new-repo"></p>
+<p><img src="/images/Hexo 工具/create-repo.png" alt="create-repo"></p>
 </li>
 <li><p>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：</p>
-<p><img src="..\images\Hexo 工具\username.png" alt="username"><br><img src="..\images\Hexo 工具\email.png" alt="email"></p>
+<p><img src="/images/Hexo 工具/username.png" alt="username"><br><img src="/images/Hexo 工具/email.png" alt="email"></p>
 </li>
 <li><p>创建SSH<br>在gitbash中输入：<code>ssh-keygen -t rsa -C &quot;youremail@example.com</code>，生成ssh。<br>然后按下图的方式找到 id_rsa.pub 文件的内容。</p>
-<p><img src="..\images\Hexo 工具\ssh.png" alt="ssh-key"></p>
+<p><img src="/images/Hexo 工具/ssh.png" alt="ssh-key"></p>
 </li>
 <li><p>将上面获取的ssh放到github中：</p>
-<p><img src="..\images\Hexo 工具\settings.png" alt="settings"></p>
+<p><img src="/images/Hexo 工具/settings.png" alt="settings"></p>
 </li>
-<li><p>添加一个 New SSH key ，title随便取，key就填刚刚那一段。<br><img src="..\images\Hexo 工具\ssh-key.png" alt="ssh-key"></p>
+<li><p>添加一个 New SSH key ，title随便取，key就填刚刚那一段。<br><img src="/images/Hexo 工具/ssh-key.png" alt="ssh-key"></p>
 </li>
 <li><p>在gitbash中验证是否添加成功：<code>ssh -T git@github.com</code></p>
 </li>
@@ -239,7 +239,7 @@
 <ul>
 <li>CMD：<code>hexo init</code></li>
 <li><p>初始化完成之后打开所在的文件夹可以看到以下文件： </p>
-<p><img src="..\images\Hexo 工具\hexo-init.png" alt="hexo-init"></p>
+<p><img src="/images/Hexo 工具/hexo-init.png" alt="hexo-init"></p>
 </li>
 <li><p>解释： </p>
 <ul>
@@ -302,6 +302,10 @@
 </ul>
 <h4 id="5-避免-deploy-的时候删除-CNAME、README-md"><a href="#5-避免-deploy-的时候删除-CNAME、README-md" class="headerlink" title="5. 避免 deploy 的时候删除 CNAME、README.md"></a>5. 避免 deploy 的时候删除 CNAME、README.md</h4><ul>
 <li>将 CNAME、README.md 放到 /source 中，在这里更新在发布的时候能同步到 GitHub。</li>
+</ul>
+<h4 id="6-上传了图片链接不到"><a href="#6-上传了图片链接不到" class="headerlink" title="6. 上传了图片链接不到"></a>6. 上传了图片链接不到</h4><ul>
+<li>踩了个坑，在本地的时候使用了相对于文本的路径，如 ../images/xx.png<br>传到 GitHub 上就无法链接了。</li>
+<li>这个时候应该使用网站的相对路径，所有之前的图片文件夹都会被复制到网站的根目录<br>所以，这是时候应该使用相对于网站的路径， /images/xx.png</li>
 </ul>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">https://www.cnblogs.com/visugar/p/6821777.html</a></li>
