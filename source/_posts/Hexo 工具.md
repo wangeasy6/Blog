@@ -1,5 +1,5 @@
 ---
-title: Hexo 工具使用小结
+title: 方便的 Hexo 博客工具
 date: 2018-07-18 16:57:00
 categories:
   - tech
@@ -46,27 +46,27 @@ tags:
   * 没账号的先创建账号。
   * 在 GitHub 上创建一个repo，用于发布博客，如下：
 
-  ![new-repo](..\images\Hexo 工具\new-repo.png)
+  ![new-repo](/images/Hexo 工具/new-repo.png)
 
-  ![create-repo](..\images\Hexo 工具\create-repo.png)
+  ![create-repo](/images/Hexo 工具/create-repo.png)
 
   * 回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：
 
-  ![username](..\images\Hexo 工具\username.png)
-  ![email](..\images\Hexo 工具\email.png)
+  ![username](/images/Hexo 工具/username.png)
+  ![email](/images/Hexo 工具/email.png)
 
   * 创建SSH
     在gitbash中输入：`ssh-keygen -t rsa -C "youremail@example.com`，生成ssh。
     然后按下图的方式找到 id_rsa.pub 文件的内容。
 
-  ![ssh-key](..\images\Hexo 工具\ssh.png)
+  ![ssh-key](/images/Hexo 工具/ssh.png)
 
   * 将上面获取的ssh放到github中：
 
-  ![settings](..\images\Hexo 工具\settings.png)
+  ![settings](/images/Hexo 工具/settings.png)
 
   * 添加一个 New SSH key ，title随便取，key就填刚刚那一段。
-    ![ssh-key](..\images\Hexo 工具\ssh-key.png)
+    ![ssh-key](/images/Hexo 工具/ssh-key.png)
 
   * 在gitbash中验证是否添加成功：`ssh -T git@github.com`
 
@@ -75,7 +75,7 @@ tags:
   * CMD：`hexo init`
   * 初始化完成之后打开所在的文件夹可以看到以下文件： 
 
-  ![hexo-init](..\images\Hexo 工具\hexo-init.png)
+  ![hexo-init](/images/Hexo 工具/hexo-init.png)
 
   * 解释： 
     * node_modules：是依赖包
@@ -172,6 +172,14 @@ menu:
 #### 4. 文章只显示一部分
 * 这个只要在文章中加上 <!--more--> 标记 ，该标记以后部分就不在显示了，只有展开全部才显示，这是hexo定义的。 
 
+#### 5. 避免 deploy 的时候删除 CNAME、README.md
+* 将 CNAME、README.md 放到 /source 中，在这里更新在发布的时候能同步到 GitHub。
+
+#### 6. 上传了图片链接不到
+* 踩了个坑，在本地的时候使用了相对于文本的路径，如 ../images/xx.png
+  传到 GitHub 上就无法链接了。
+* 这个时候应该使用网站的相对路径，所有之前的图片文件夹都会被复制到网站的根目录
+  所以，这是时候应该使用相对于网站的路径， /images/xx.png
 
 ### 参考
 
