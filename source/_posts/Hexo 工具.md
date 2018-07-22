@@ -5,6 +5,7 @@ categories:
   - tech
 tags:
   - tools
+  - Hexo
 ---
 
 * Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。 
