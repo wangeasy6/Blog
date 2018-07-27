@@ -2,10 +2,8 @@
 title: 方便的 Hexo 博客工具
 date: 2018-07-18 16:57:00
 categories:
-  - tech
-tags:
   - tools
-  - Hexo
+toc: true
 ---
 
 * Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。 
@@ -14,6 +12,8 @@ tags:
   * 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。
   * 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。
 <!--more-->
+
+<br/>
 ### 一、安装（基于Windows）
 
 使用 Hexo 框架，整体思路是用电脑编辑了 md 文档，然后使用 hexo 生成静态页面，最后上传到 GitHub，由 GitHub 服务器提供网页解析。
@@ -22,27 +22,28 @@ tags:
   * Windows 电脑 * 1
   * GitHub 账号 * 1
 
-1.安装 Git
+#### 1.安装 Git
   * [下载地址]( https://git-scm.com)
   * 安装步骤：双击下载好的exe文件，一路next就好啦
   * 安装好后，在任意文件浏览器位置右键打开gitbash，查看版本： 
     * 命令：`git version`
 
-2.Hexo 是基于 NodeJs 的，所以第二步是：**安装 NodeJs**
+#### 2.安装 NodeJs
+Hexo 是基于 NodeJs 开发的。
    * [下载地址](https://nodejs.org/en/)(说明：LTS为长期支持版，Current为当前最新版) 
    * 安装步骤：下载好msi文件后，双击打开安装，也是一路next 
    * 查看版本：
      * 打开CMD：`node -v`
 
-3.安装 Hexo
+#### 3.安装 Hexo
    * 打开CMD：`npm i -g hexo`
    * 安装完成后，查看版本：
      * `hexo -v`
 
-
+<br/>
 ### 二、配置
 
-1.GitHub配置
+#### 1.GitHub配置
 
   * 没账号的先创建账号。
   * 在 GitHub 上创建一个repo，用于发布博客，如下：
@@ -71,7 +72,7 @@ tags:
 
   * 在gitbash中验证是否添加成功：`ssh -T git@github.com`
 
-2.初始化 Hexo 仓库
+#### 2.初始化 Hexo 仓库
 
   * CMD：`hexo init`
   * 初始化完成之后打开所在的文件夹可以看到以下文件： 
@@ -88,7 +89,7 @@ tags:
     * db.json：source解析所得到的
     * package.json：项目所需模块项目的配置信息
 
-3.Hexo 初次使用
+#### 3.Hexo 初次使用
 
   * 执行 CMD:
 ```
@@ -100,7 +101,7 @@ tags:
 
   接着你就可以看见一个默认 landscape 主题的博客了。
 
-4.上传到 GitHub
+#### 4.上传到 GitHub
 
   * 先安装 Hexo 的 git上传工具：`npm install hexo-deployer-git  --save`
   * 用编辑器打开你的blog项目，修改 "_config.yml" 文件的发布配置(冒号之后都是有一个半角空格的)
@@ -121,6 +122,7 @@ tags:
 
   上传完后，在浏览器中输入 [http://yourgithubname.github.io/YourRepository](http://yourgithubname.github.io/YourRepository) 就可以看到你的个人博客啦！
 
+<br/>
 ### 三、使用
 
 #### 1. 写文章

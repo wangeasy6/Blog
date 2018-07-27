@@ -10,3 +10,10 @@
 
 ## Theme
 :palm_tree: [Yilia](https://github.com/litten/hexo-theme-yilia)
+
+## 待加入功能
+
+* aboutme 显示时间
+* 目录自动生成
+* 有序列表 顺序问题
+
