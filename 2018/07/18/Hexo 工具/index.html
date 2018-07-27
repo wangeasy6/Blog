@@ -9,7 +9,6 @@
   <title>方便的 Hexo 博客工具 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
-<meta name="keywords" content="tools,Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="方便的 Hexo 博客工具">
 <meta property="og:url" content="http://www.wangeasy.com/2018/07/18/Hexo 工具/index.html">
@@ -24,7 +23,7 @@
 <meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/settings.png">
 <meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/ssh-key.png">
 <meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/hexo-init.png">
-<meta property="og:updated_time" content="2018-07-21T14:56:26.718Z">
+<meta property="og:updated_time" content="2018-07-27T19:17:38.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="方便的 Hexo 博客工具">
 <meta name="twitter:description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
@@ -71,7 +70,13 @@
 			
 				<li><a href="/my-recommendation">推荐</a></li>
 	        
+				<li><a href="/categories/books">读后</a></li>
+	        
+				<li><a href="/categories/tools">工具</a></li>
+	        
 				<li><a href="/categories/tech">技术</a></li>
+	        
+				<li><a href="/categories/thoughts">随笔</a></li>
 	        
 				<li><a href="/about">关于</a></li>
 	        
@@ -127,6 +132,12 @@
 			
 				
 			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -143,11 +154,17 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/my-recommendation">推荐</a></li>
+					<li style="width: 16.666666666666668%"><a href="/my-recommendation">推荐</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/tech">技术</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/books">读后</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/about">关于</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/tools">工具</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/tech">技术</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/thoughts">随笔</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/about">关于</a></li>
 		        
 				</ul>
 			</nav>
@@ -188,18 +205,18 @@
 <li>我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。</li>
 <li>我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。</li>
 <li>之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。<a id="more"></a>
-<h3 id="一、安装（基于Windows）"><a href="#一、安装（基于Windows）" class="headerlink" title="一、安装（基于Windows）"></a>一、安装（基于Windows）</h3></li>
+</li>
 </ul>
 </li>
 </ul>
-<p>使用 Hexo 框架，整体思路是用电脑编辑了 md 文档，然后使用 hexo 生成静态页面，最后上传到 GitHub，由 GitHub 服务器提供网页解析。</p>
+<p><br></p>
+<h3 id="一、安装（基于Windows）"><a href="#一、安装（基于Windows）" class="headerlink" title="一、安装（基于Windows）"></a>一、安装（基于Windows）</h3><p>使用 Hexo 框架，整体思路是用电脑编辑了 md 文档，然后使用 hexo 生成静态页面，最后上传到 GitHub，由 GitHub 服务器提供网页解析。</p>
 <p>0.原料</p>
 <ul>
 <li>Windows 电脑 * 1</li>
 <li>GitHub 账号 * 1</li>
 </ul>
-<p>1.安装 Git</p>
-<ul>
+<h4 id="1-安装-Git"><a href="#1-安装-Git" class="headerlink" title="1.安装 Git"></a>1.安装 Git</h4><ul>
 <li><a href="https://git-scm.com" target="_blank" rel="noopener">下载地址</a></li>
 <li>安装步骤：双击下载好的exe文件，一路next就好啦</li>
 <li>安装好后，在任意文件浏览器位置右键打开gitbash，查看版本： <ul>
@@ -207,7 +224,7 @@
 </ul>
 </li>
 </ul>
-<p>2.Hexo 是基于 NodeJs 的，所以第二步是：<strong>安装 NodeJs</strong></p>
+<h4 id="2-安装-NodeJs"><a href="#2-安装-NodeJs" class="headerlink" title="2.安装 NodeJs"></a>2.安装 NodeJs</h4><p>Hexo 是基于 NodeJs 开发的。</p>
 <ul>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a>(说明：LTS为长期支持版，Current为当前最新版) </li>
 <li>安装步骤：下载好msi文件后，双击打开安装，也是一路next </li>
@@ -216,16 +233,15 @@
 </ul>
 </li>
 </ul>
-<p>3.安装 Hexo</p>
-<ul>
+<h4 id="3-安装-Hexo"><a href="#3-安装-Hexo" class="headerlink" title="3.安装 Hexo"></a>3.安装 Hexo</h4><ul>
 <li>打开CMD：<code>npm i -g hexo</code></li>
 <li>安装完成后，查看版本：<ul>
 <li><code>hexo -v</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h3><p>1.GitHub配置</p>
-<ul>
+<p><br></p>
+<h3 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h3><h4 id="1-GitHub配置"><a href="#1-GitHub配置" class="headerlink" title="1.GitHub配置"></a>1.GitHub配置</h4><ul>
 <li>没账号的先创建账号。</li>
 <li><p>在 GitHub 上创建一个repo，用于发布博客，如下：</p>
 <p><img src="/images/Hexo 工具/new-repo.png" alt="new-repo"></p>
@@ -245,8 +261,7 @@
 <li><p>在gitbash中验证是否添加成功：<code>ssh -T git@github.com</code></p>
 </li>
 </ul>
-<p>2.初始化 Hexo 仓库</p>
-<ul>
+<h4 id="2-初始化-Hexo-仓库"><a href="#2-初始化-Hexo-仓库" class="headerlink" title="2.初始化 Hexo 仓库"></a>2.初始化 Hexo 仓库</h4><ul>
 <li>CMD：<code>hexo init</code></li>
 <li><p>初始化完成之后打开所在的文件夹可以看到以下文件： </p>
 <p><img src="/images/Hexo 工具/hexo-init.png" alt="hexo-init"></p>
@@ -264,16 +279,14 @@
 </ul>
 </li>
 </ul>
-<p>3.Hexo 初次使用</p>
-<ul>
+<h4 id="3-Hexo-初次使用"><a href="#3-Hexo-初次使用" class="headerlink" title="3.Hexo 初次使用"></a>3.Hexo 初次使用</h4><ul>
 <li><p>执行 CMD:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>打开浏览器输入：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
 <p>接着你就可以看见一个默认 landscape 主题的博客了。</p>
 </li>
 </ul>
-<p>4.上传到 GitHub</p>
-<ul>
+<h4 id="4-上传到-GitHub"><a href="#4-上传到-GitHub" class="headerlink" title="4.上传到 GitHub"></a>4.上传到 GitHub</h4><ul>
 <li>先安装 Hexo 的 git上传工具：<code>npm install hexo-deployer-git  --save</code></li>
 <li><p>用编辑器打开你的blog项目，修改 “_config.yml” 文件的发布配置(冒号之后都是有一个半角空格的)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/YourgithubName/c.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
@@ -284,6 +297,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 <p>  deploy 的过程中需要输入你的GitHub username 及 passward 。</p>
 <p>  上传完后，在浏览器中输入 <a href="http://yourgithubname.github.io/YourRepository" target="_blank" rel="noopener">http://yourgithubname.github.io/YourRepository</a> 就可以看到你的个人博客啦！</p>
+<p><br></p>
 <h3 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h3><h4 id="1-写文章"><a href="#1-写文章" class="headerlink" title="1. 写文章"></a>1. 写文章</h4><ul>
 <li>新建文章：<code>hexo new &quot;文章名&quot;</code>，然后你就可以在 source/_posts 路径下看到你创建的文章 —— “文章名.md”</li>
 <li><p>可在开头添加文章信息，如：</p>
@@ -359,28 +373,13 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">tools</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
         		</li>
       		
 		</ul>
@@ -447,6 +446,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2018/07/28/raspberryPi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          树莓派
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -460,6 +473,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、安装（基于Windows）"><span class="toc-number">1.</span> <span class="toc-text">一、安装（基于Windows）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-安装-Git"><span class="toc-number">1.1.</span> <span class="toc-text">1.安装 Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-安装-NodeJs"><span class="toc-number">1.2.</span> <span class="toc-text">2.安装 NodeJs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-安装-Hexo"><span class="toc-number">1.3.</span> <span class="toc-text">3.安装 Hexo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、配置"><span class="toc-number">2.</span> <span class="toc-text">二、配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-GitHub配置"><span class="toc-number">2.1.</span> <span class="toc-text">1.GitHub配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-初始化-Hexo-仓库"><span class="toc-number">2.2.</span> <span class="toc-text">2.初始化 Hexo 仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Hexo-初次使用"><span class="toc-number">2.3.</span> <span class="toc-text">3.Hexo 初次使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-上传到-GitHub"><span class="toc-number">2.4.</span> <span class="toc-text">4.上传到 GitHub</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、使用"><span class="toc-number">3.</span> <span class="toc-text">三、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-写文章"><span class="toc-number">3.1.</span> <span class="toc-text">1. 写文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-切换主题"><span class="toc-number">3.2.</span> <span class="toc-text">2. 切换主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-编辑目录"><span class="toc-number">3.3.</span> <span class="toc-text">3. 编辑目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-文章只显示一部分"><span class="toc-number">3.4.</span> <span class="toc-text">4. 文章只显示一部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-避免-deploy-的时候删除-CNAME、README-md"><span class="toc-number">3.5.</span> <span class="toc-text">5. 避免 deploy 的时候删除 CNAME、README.md</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-上传了图片链接不到"><span class="toc-number">3.6.</span> <span class="toc-text">6. 上传了图片链接不到</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -557,14 +583,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
