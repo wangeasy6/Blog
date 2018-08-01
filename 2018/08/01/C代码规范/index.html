@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>电脑安装应用 | EasyW</title>
+  <title>C代码规范 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="电脑安装应用及链接  必装WiFi 密码FirefoxQQSublimeTyporaSumatra PDF360压缩迅雷打印机驱动">
+  <meta name="description" content="编码规范 ANSI 编码。 一行一条语句。 行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。 缩进,统一采用 6 个空格，避免使用 Table。 换行,统一使用 Windows 风格，”\r\n”。 圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。 for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="电脑安装应用">
-<meta property="og:url" content="http://www.wangeasy.com/2018/07/31/电脑安装应用/index.html">
+<meta property="og:title" content="C代码规范">
+<meta property="og:url" content="http://www.wangeasy.com/2018/08/01/C代码规范/index.html">
 <meta property="og:site_name" content="EasyW">
-<meta property="og:description" content="电脑安装应用及链接  必装WiFi 密码FirefoxQQSublimeTyporaSumatra PDF360压缩迅雷打印机驱动">
+<meta property="og:description" content="编码规范 ANSI 编码。 一行一条语句。 行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。 缩进,统一采用 6 个空格，避免使用 Table。 换行,统一使用 Windows 风格，”\r\n”。 圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。 for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-01T15:29:04.208Z">
+<meta property="og:updated_time" content="2018-08-01T15:48:19.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="电脑安装应用">
-<meta name="twitter:description" content="电脑安装应用及链接  必装WiFi 密码FirefoxQQSublimeTyporaSumatra PDF360压缩迅雷打印机驱动">
+<meta name="twitter:title" content="C代码规范">
+<meta name="twitter:description" content="编码规范 ANSI 编码。 一行一条语句。 行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。 缩进,统一采用 6 个空格，避免使用 Table。 换行,统一使用 Windows 风格，”\r\n”。 圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。 for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -170,32 +170,129 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-电脑安装应用" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C代码规范" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      电脑安装应用
+      C代码规范
     </h1>
   
 
         
-        <a href="/2018/07/31/电脑安装应用/" class="archive-article-date">
-  	<time datetime="2018-07-31T02:06:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+        <a href="/2018/08/01/C代码规范/" class="archive-article-date">
+  	<time datetime="2018-08-01T15:06:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>电脑安装应用及链接</li>
+        <h3 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h3><ul>
+<li>ANSI 编码。</li>
+<li>一行一条语句。</li>
+<li>行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。</li>
+<li>缩进,统一采用 6 个空格，避免使用 Table。</li>
+<li>换行,统一使用 Windows 风格，”\r\n”。</li>
+<li>圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。</li>
+<li>for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化，或for循环末尾使用单独的语句。</li>
+<li>灵活使用 const、static</li>
+<li>禁止调用 exit 等终止程序类代码。<a id="more"></a></li>
+<li><p>switch语句</p>
+<ul>
+<li>switch语句中必须包含default分支。</li>
+<li>每个分支必须包含break。</li>
+<li>命中率高的case分支写在命中率低的分支前面。</li>
 </ul>
-<h2 id="必装"><a href="#必装" class="headerlink" title="必装"></a>必装</h2><p>WiFi 密码<br><a href="http://www.firefox.com.cn/" target="_blank" rel="noopener">Firefox</a><br><a href="https://im.qq.com/download/" target="_blank" rel="noopener">QQ</a><br><a href="https://www.sublimetext.com/3" target="_blank" rel="noopener">Sublime</a><br><a href="https://www.typora.io/#download" target="_blank" rel="noopener">Typora</a><br><a href="https://www.sumatrapdfreader.org/download-free-pdf-viewer.html" target="_blank" rel="noopener">Sumatra PDF</a><br><a href="http://yasuo.360.cn/" target="_blank" rel="noopener">360压缩</a><br><a href="http://www.xunlei.com/" target="_blank" rel="noopener">迅雷</a><br>打印机驱动<br><a id="more"></a></p>
-<h3 id="娱乐影音"><a href="#娱乐影音" class="headerlink" title="娱乐影音"></a>娱乐影音</h3><p><a href="https://music.163.com/#/download" target="_blank" rel="noopener">网易云音乐</a><br><a href="http://www.foobar2000.org/download" target="_blank" rel="noopener">Foobar2000</a><br><a href="http://www.iqiyi.com/" target="_blank" rel="noopener">爱奇艺</a><br><a href="https://mirillis.com/download-splash-free-hd-video-player" target="_blank" rel="noopener">Splash</a></p>
-<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p><a href="http://www.netsarang.com/download/software.html" target="_blank" rel="noopener">XShell</a> 选学生版，需要填写信息，下载链接会发送到Email。（导出Session配置文件）<br><a href="https://www.sourceinsight.com/download/" target="_blank" rel="noopener">SourceInsight</a><br>Keil<br><a href="https://visualstudio.microsoft.com/zh-hans/" target="_blank" rel="noopener">Visual Studio</a><br><a href="https://www.qt.io/download" target="_blank" rel="noopener">QT</a><br><a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html" target="_blank" rel="noopener">VMware</a><br>赛风/Shadowsocks<br><a href="http://www.voidtools.com/" target="_blank" rel="noopener">Everything</a><br><a href="https://sourceforge.net/projects/astyle/files/" target="_blank" rel="noopener">AStyle</a><br><a href="https://nmap.org/download.html" target="_blank" rel="noopener">nmap</a><br><a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">WireShark</a><br><a href="http://www.scootersoftware.com/download.php" target="_blank" rel="noopener">BeyondCompare</a><br><a href="www.python.org">Python</a><br><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git</a> - <a href="/2018/08/01/git/">Git使用手记</a></p>
+</li>
+<li><p>初始化</p>
+<ul>
+<li>在声明局部变量的同时初始化。</li>
+<li>禁止直接使用未定义变量。</li>
+<li>避免使用空指针。</li>
+<li>避免在一个语句中给多个变量赋相同的值。 (foo_bar.fchar = bar_foo.lchar = ‘c’;)</li>
+<li>避免赋值运算放置于判断中。 ( if(a = b) )</li>
+<li>避免使用内嵌(embedded)赋值运算符试图提高运行时的效率，这是编译器的工作。(d = (a = b + c) + r;)</li>
+</ul>
+</li>
+<li><p>指针使用</p>
+<ul>
+<li>定义指针的时候必须要初始化。</li>
+<li>指针使用之前需要判断其是否为空。</li>
+<li>动态分配的内存一定要释放，并且释放后的指针需要设置为空。</li>
+<li>使用指针需要注意内存的分配和边界。</li>
+</ul>
+</li>
+<li><p>花括号{}</p>
+<ul>
+<li>if/for/while 不可缺省(哪怕只有一行)。</li>
+<li>块包含。</li>
+<li>如果存在else if分支，则禁止省略else分支。</li>
+</ul>
+</li>
+<li><p>空格，应用于下列情况：</p>
+<ul>
+<li>运算符前后。</li>
+<li>非行尾的分号’;’ 逗号’,’之后。</li>
+<li>‘(‘之后，’)’之前。</li>
+</ul>
+</li>
+<li><p>空行，用于将逻辑关联度相对较低的代码段分隔，应用于下列情况：</p>
+<ul>
+<li>两个函数之间。</li>
+<li>函数内的局部变量和第一条语句之间。</li>
+<li>块注释前后。</li>
+<li>函数内明显的逻辑不同。</li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>若有多个短注释出现在一大段代码中，它们应该具有相同的缩进。</li>
+</ul>
+</li>
+<li><p>文档注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@func 说明 ...</span><br><span class="line">*@author 作者 </span><br><span class="line">date 日期 </span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@func 说明 ...</span><br><span class="line">*@param 类型 变量1 说明</span><br><span class="line">*@param 类型 变量2 说明</span><br><span class="line">*@return 说明</span><br><span class="line">*@autuor 作者</span><br><span class="line">*@date 日期</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>review注释，reviewer在code review时如果发现代码中的问题，在问题代码前一行添加注释，说明问题，供开发人员参考使用；开发人员在更正问题后记录更正时间和作者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">*&lt;code_review&gt; date codereviewer</span><br><span class="line">*&lt;question&gt; 问题描述</span><br><span class="line">*&lt;update&gt; data developer[附加说明]</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><ul>
+<li><p>采用统一命名( 文件名、函数名、变量名、结构体名、宏值 )。</p>
+<ul>
+<li>命名简洁,命名要能表达出函数的用途，统一使用英文单词或常用缩写，禁止拼音。</li>
+<li>函数、变量：驼峰式( getVolume )、小写+下划线( get_volume )。</li>
+<li>结构体、宏：大写+下划线( MAX_LENGTH )。</li>
+<li>函数名、结构体、全局变量、宏：使用模块名作为统一前缀，如 “nn_”。</li>
+<li>全局变量用 “g_” 作为前缀，控制全局变量数量，要加详细的注释说明。</li>
+<li>公用函数声明在 .h 文件中，使用 extern 修饰符。</li>
+<li>私用函数声明在 .c 文件中，使用 static 修饰符。</li>
+</ul>
+</li>
+<li><p>常用后缀</p>
+<ul>
+<li>max – 含义为某实体所能赋予的最大值。  (retry_max     //最多重试次数)</li>
+<li>count – 一个运行中的计数变量的当前值。(retry_count   //当前重试次数)</li>
+<li>key – 键值。</li>
+</ul>
+</li>
+<li><p>常用前缀</p>
+<ul>
+<li>is – 含义为代表一个问题，将获取答案。  (is_mute       //是否静音)</li>
+<li>get – 含义为取得一个数值。</li>
+<li>set – 含义为设定一个数值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Log规范"><a href="#Log规范" class="headerlink" title="Log规范"></a>Log规范</h3><ul>
+<li>出错类Log(必需) + 调试类Log(可通过宏控制)。</li>
+<li>LOG_TAG ( <strong>FUNCTION</strong>, <strong>LINE</strong> )。</li>
+</ul>
 
       
 
@@ -241,7 +338,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
         		</li>
       		
 		</ul>
@@ -296,7 +393,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/2018/07/31/电脑安装应用/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/2018/08/01/C代码规范/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +407,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/01/git/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Git使用手记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/29/娱乐至死/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《娱乐至死》</div>
+    <a href="/2018/08/01/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git使用手记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -348,7 +436,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必装"><span class="toc-number">1.</span> <span class="toc-text">必装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#娱乐影音"><span class="toc-number">1.1.</span> <span class="toc-text">娱乐影音</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发"><span class="toc-number">2.</span> <span class="toc-text">开发</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#编码规范"><span class="toc-number">1.</span> <span class="toc-text">编码规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命名规范"><span class="toc-number">2.</span> <span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Log规范"><span class="toc-number">3.</span> <span class="toc-text">Log规范</span></a></li></ol>
                     </div>
                 </span>
             </div>
