@@ -8,7 +8,7 @@ toc: true
 
 ### 主题
 * 常用软件
-* 树莓派开启SSH
+* 开机启动SSH
 * 更换源地址到国内镜像
 * 更换pip源到国内镜像
 * 开启Root权限
@@ -20,7 +20,7 @@ toc: true
 `sudo apt-get install vim`
 
 <br/>
-### 树莓派开启SSH
+### 开机启动SSH
 1.SSH服务安装
 
 `sudo apt-get install openssh-server`
@@ -102,3 +102,6 @@ openssh-server配置文件为“/etc/ssh/sshd_config”，可以配置SSH服务�
 
 8.unrar 解压命令
   `unrar x xxx.part1.rar`
+
+<br/>
+### 中文输入法

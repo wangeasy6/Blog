@@ -1,6 +1,7 @@
 ---
 title: Python学习笔记
 date: 2018-08-06 16:14:01
+toc: true
 categories:
   - tech
 ---
@@ -30,7 +31,7 @@ categories:
 **临时使用：**
 
   使用 -i 指定源：
-  例： sudo pip3 install cython -i  https://pypi.mirrors.ustc.edu.cn/simple/ 
+  例： sudo pip3 install cython -i  https://pypi.mirrors.ustc.edu.cn/simple/
 
 **永久修改：**
 
