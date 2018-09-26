@@ -6,6 +6,7 @@ categories:
   - tech
 tags:
   - Linux
+  - 持续更新
 ---
 
 ### 学习环境
@@ -49,7 +50,7 @@ tags:
 ### U-Boot
 #### 简介
 * Das U-Boot 是一套在GNU通用公共许可证之下发布的自由软件，可以支持多种不同的计算机系统结构，包括PPC、ARM、AVR32、MIPS、x86、68k、Nios与MicroBlaze。支持的文件系统包括： Cramfs、 ext2、 FAT、 FDOS、 JFFS2、 ReiserFS、 UBIFS、 YAFFS2。
-* Das U-Boot可以在x86计算机上建构，但这部x86计算机必须安装有可支持特定平台结构的交互发展GNU工具链，例如crosstool、Embedded Linux Development Kit (ELDK)或OSELAS.Toolchain。 
+* Das U-Boot可以在x86计算机上建构，但这部x86计算机必须安装有可支持特定平台结构的交互发展GNU工具链，例如crosstool、Embedded Linux Development Kit (ELDK)或OSELAS.Toolchain。
 * 在线资源：
   * [HomePage](http://www.denx.de/wiki/U-Boot/WebHome)
   * [GitHub](https://github.com/u-boot/u-boot)
@@ -58,7 +59,7 @@ tags:
 
 * 从 GitHub 上下载 u-boot 工程
 * 文件目录说明：--
-* 更改 
+* 更改
   * build_uboot.sh —— 针对Samsung 4412 进行引导编译和封装的一个脚本
   * config.mk
   * MakeFile

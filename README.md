@@ -3,7 +3,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)
 
 ## Introduction
-:computer: This is my own website at [www.wangeasy.com](https://www.wangeasy.com) since 2018.07.19 
+:computer: This is my own website at [www.wangeasy.com](https://www.wangeasy.com) since 2018.07.19
 
 ## Framework
 :white_check_mark: [Hexo](https://github.com/hexojs/hexo)
@@ -13,7 +13,6 @@
 
 ## 待加入功能
 
-* aboutme 显示时间
 * 目录自动生成
 * 有序列表 顺序问题
 
