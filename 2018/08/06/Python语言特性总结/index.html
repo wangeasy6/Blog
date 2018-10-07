@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>Python语言特性总结 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python 语言特性总结。">
+  <meta name="description" content="Python 语言特性总结及基础概念。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python语言特性总结">
 <meta property="og:url" content="http://www.wangeasy.com/2018/08/06/Python语言特性总结/index.html">
 <meta property="og:site_name" content="EasyW">
-<meta property="og:description" content="Python 语言特性总结。">
+<meta property="og:description" content="Python 语言特性总结及基础概念。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-06T08:25:38.697Z">
+<meta property="og:updated_time" content="2018-09-13T06:31:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python语言特性总结">
-<meta name="twitter:description" content="Python 语言特性总结。">
+<meta name="twitter:description" content="Python 语言特性总结及基础概念。">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -53,7 +53,7 @@
 		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">人 的意义需要自己来定义</p>
+		<p class="header-subtitle">哪有什么有意思的事情</p>
 		
 
 		<nav class="header-menu">
@@ -63,13 +63,13 @@
 	        
 				<li><a href="/categories/books">读后</a></li>
 	        
-				<li><a href="/categories/tools">工具</a></li>
-	        
 				<li><a href="/categories/tech">技术</a></li>
 	        
-				<li><a href="/categories/thoughts">随笔</a></li>
+				<li><a href="/categories/tools">工具</a></li>
 	        
-				<li><a href="/about">关于</a></li>
+				<li><a href="/categories/Finance">金融</a></li>
+	        
+				<li><a href="/categories/thoughts">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -77,10 +77,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -113,7 +109,7 @@
 			  <h1 class="header-author js-header-author">Easy Wang</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>人 的意义需要自己来定义<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>哪有什么有意思的事情<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -149,13 +145,13 @@
 		        
 					<li style="width: 16.666666666666668%"><a href="/categories/books">读后</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/tools">工具</a></li>
-		        
 					<li style="width: 16.666666666666668%"><a href="/categories/tech">技术</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/thoughts">随笔</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/tools">工具</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/about">关于</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Finance">金融</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/thoughts">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -190,22 +186,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Python 语言特性总结。</p>
+        <p>Python 语言特性总结及基础概念。</p>
 <a id="more"></a>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
-<li><p>脚本语言</p>
+<li><p>解释型语言<br>解释型语言（英语：Interpreted language），是一种编程语言。这种类型的编程语言，会将代码一句一句直接运行，不需要像编译语言（Compiled language）一样，经过编译器先行编译为机器码，之后再运行。这种编程语言需要利用解释器，在运行期，动态将代码逐句解释（interpret）为机器码，或是已经预先编译为机器码的的子程序，之后再运行。</p>
 </li>
-<li><p>交互式编程 / Python 解释器</p>
+<li><p>Python 解释器<br>解释器（英语：interpreter），是一种计算机程序，能够把高阶编程语言一行一行解释运行。解释器像是一位“中间人”，每次运行程序时都要先转成另一种语言再作运行，因此解释器的程序运行速度比较缓慢。它不会一次把整个程序翻译出来，而是每翻译一行程序叙述就立刻运行，然后再翻译下一行，再运行，如此不停地进行下去。</p>
 </li>
-<li><p>面向对象</p>
+<li><p>面向对象<br>面向对象程序设计（英语：Object-oriented programming，缩写：OOP）是种具有对象概念的程序编程典范，同时也是一种程序开发的抽象方法。它将对象作为程序的基本单元，将程序和数据封装其中，以提高软件的重用性、灵活性和扩展性，对象里的程序可以访问及经常修改对象相关连的数据。</p>
 </li>
 <li><p>输入/输出<br>标准输出为终端窗口，标准输入为键盘。</p>
+</li>
+<li><p>缩进<br>Python开发者有意让违反了缩进规则的程序不能通过解释，以此来强迫程序员养成良好的编程习惯，也方便所有人查找和阅读。并且Python语言利用缩进表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键字。增加缩进表示语句块的开始，而减少缩进则表示语句块的结束。缩进成为了语法的一部分。</p>
 </li>
 <li><p>变量<br>Python 使用赋值声明变量类型</p>
 </li>
 <li><p>变量作用域<br>作用于表示变量在哪些位置可以访问。<br>Python 中有 4 种基础作用域：<br>  L （Local） 局部作用域<br>  E （Enclosing） 闭包函数外的函数中<br>  G （Global） 全局作用域<br>  B （Built-in） 内建作用域<br>  以 L –&gt; E –&gt; G –&gt;B 的规则查找<br>Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域。</p>
 </li>
-<li><p>Python3 包含六个标准数据类型<br>不可变数据（3 个）：Number（数字）、String（字符串）、Tuple（元组）；<br>可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合）。 </p>
+<li><p>Python3 包含六个标准数据类型<br>不可变数据（3 个）：Number（数字）、String（字符串）、Tuple（元组）；<br>可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合）。</p>
 </li>
 <li><p>Number（数字）<br>Python3 支持 int、float、bool、complex（复数）。</p>
 </li>
@@ -215,7 +213,7 @@
 </li>
 <li><p>Set（集合）<br>集合（set）是一个无序不重复元素的序列。<br>基本功能是进行成员关系测试和删除重复元素。</p>
 </li>
-<li><p>Dictionary（字典）<br>字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。<br>字典是一种映射类型，字典用”{ }”标识，它是一个无序的键(key) : 值(value)对集合。<br>键(key)必须使用不可变类型。<br>在同一个字典中，键(key)必须是唯一的。 </p>
+<li><p>Dictionary（字典）<br>字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。<br>字典是一种映射类型，字典用”{ }”标识，它是一个无序的键(key) : 值(value)对集合。<br>键(key)必须使用不可变类型。<br>在同一个字典中，键(key)必须是唯一的。</p>
 </li>
 <li><p>顺序、循环、分支<br>这3种执行结构，则包含了所有的程序运行情景。</p>
 </li>
@@ -225,7 +223,7 @@
 </li>
 <li><p>函数、传参<br>函数使程序模块化、结构化，提供了可复用的调用模块。<br>传参包含了传入、传回。</p>
 </li>
-<li><p>匿名函数 / lambda表达式<br>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。 </p>
+<li><p>匿名函数 / lambda表达式<br>lambda的主体是一个表达式，而不是一个代码块。仅仅能在lambda表达式中封装有限的逻辑进去。</p>
 </li>
 <li><p>文件操作<br>读写磁盘中的文件，更改文件属性。</p>
 </li>
@@ -245,7 +243,7 @@
 </li>
 <li><p>实例变量<br>定义在方法中的变量，只作用于当前实例的类。</p>
 </li>
-<li><p>继承<br>即一个派生类（derived class）继承基类（base class）的字段和方法。<br>Python允许多重继承、继承多个基类，派生类可以覆盖基类中的任何方法，方法中可以调用基类中的同名方法。 </p>
+<li><p>继承<br>即一个派生类（derived class）继承基类（base class）的字段和方法。<br>Python允许多重继承、继承多个基类，派生类可以覆盖基类中的任何方法，方法中可以调用基类中的同名方法。</p>
 </li>
 <li><p>方法重写<br>如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重写。</p>
 </li>
@@ -468,21 +466,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
-      
-        
-      
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
     </ul>
@@ -501,6 +491,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">持续更新</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -547,12 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">[object Object]</div>
-  	  	
-    	</section>
     
   </div>
   

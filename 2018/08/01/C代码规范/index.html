@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="编码规范 ANSI 编码。 一行一条语句。 行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。 缩进,统一采用 6 个空格，避免使用 Table。 换行,统一使用 Windows 风格，”\r\n”。 圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。 for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-01T15:48:19.944Z">
+<meta property="og:updated_time" content="2018-08-01T15:48:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C代码规范">
 <meta name="twitter:description" content="编码规范 ANSI 编码。 一行一条语句。 行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。 缩进,统一采用 6 个空格，避免使用 Table。 换行,统一使用 Windows 风格，”\r\n”。 圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。 for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化">
@@ -53,7 +53,7 @@
 		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">人 的意义需要自己来定义</p>
+		<p class="header-subtitle">哪有什么有意思的事情</p>
 		
 
 		<nav class="header-menu">
@@ -63,13 +63,13 @@
 	        
 				<li><a href="/categories/books">读后</a></li>
 	        
-				<li><a href="/categories/tools">工具</a></li>
-	        
 				<li><a href="/categories/tech">技术</a></li>
 	        
-				<li><a href="/categories/thoughts">随笔</a></li>
+				<li><a href="/categories/tools">工具</a></li>
 	        
-				<li><a href="/about">关于</a></li>
+				<li><a href="/categories/Finance">金融</a></li>
+	        
+				<li><a href="/categories/thoughts">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -77,10 +77,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -113,7 +109,7 @@
 			  <h1 class="header-author js-header-author">Easy Wang</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>人 的意义需要自己来定义<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>哪有什么有意思的事情<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -149,13 +145,13 @@
 		        
 					<li style="width: 16.666666666666668%"><a href="/categories/books">读后</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/tools">工具</a></li>
-		        
 					<li style="width: 16.666666666666668%"><a href="/categories/tech">技术</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/thoughts">随笔</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/tools">工具</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/about">关于</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Finance">金融</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/thoughts">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -514,21 +510,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
-      
-        
-      
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
     </ul>
@@ -547,6 +535,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">持续更新</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -593,12 +589,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">[object Object]</div>
-  	  	
-    	</section>
     
   </div>
   

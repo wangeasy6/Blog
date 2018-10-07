@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>C语言特性总结 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同的语言其实是同一种”法”的不同变种。在这里总结一下最基础的，也是我最熟悉的 C语言 中包含的所有语法特性。">
+  <meta name="description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。在这里总结一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言特性总结">
 <meta property="og:url" content="http://www.wangeasy.com/2018/08/06/C语言特性总结/index.html">
 <meta property="og:site_name" content="EasyW">
-<meta property="og:description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同的语言其实是同一种”法”的不同变种。在这里总结一下最基础的，也是我最熟悉的 C语言 中包含的所有语法特性。">
+<meta property="og:description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。在这里总结一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-06T07:22:21.948Z">
+<meta property="og:updated_time" content="2018-09-13T06:31:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言特性总结">
-<meta name="twitter:description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同的语言其实是同一种”法”的不同变种。在这里总结一下最基础的，也是我最熟悉的 C语言 中包含的所有语法特性。">
+<meta name="twitter:description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。在这里总结一">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -53,7 +53,7 @@
 		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">人 的意义需要自己来定义</p>
+		<p class="header-subtitle">哪有什么有意思的事情</p>
 		
 
 		<nav class="header-menu">
@@ -63,13 +63,13 @@
 	        
 				<li><a href="/categories/books">读后</a></li>
 	        
-				<li><a href="/categories/tools">工具</a></li>
-	        
 				<li><a href="/categories/tech">技术</a></li>
 	        
-				<li><a href="/categories/thoughts">随笔</a></li>
+				<li><a href="/categories/tools">工具</a></li>
 	        
-				<li><a href="/about">关于</a></li>
+				<li><a href="/categories/Finance">金融</a></li>
+	        
+				<li><a href="/categories/thoughts">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -77,10 +77,6 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -113,7 +109,7 @@
 			  <h1 class="header-author js-header-author">Easy Wang</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>人 的意义需要自己来定义<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>哪有什么有意思的事情<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -149,13 +145,13 @@
 		        
 					<li style="width: 16.666666666666668%"><a href="/categories/books">读后</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/tools">工具</a></li>
-		        
 					<li style="width: 16.666666666666668%"><a href="/categories/tech">技术</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/categories/thoughts">随笔</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/tools">工具</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/about">关于</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Finance">金融</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/thoughts">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -190,12 +186,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同的语言其实是同一种”法”的不同变种。<br>在这里总结一下最基础的，也是我最熟悉的 C语言 中包含的所有语法特性。</p>
+        <p>学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。<br>在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。<br>在这里总结一下 C语言 中包含的所有语法特性及基础概念。</p>
 <a id="more"></a>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
-<li><p>面向过程</p>
+<li><p>面向过程<br>“面向过程” 是一种以过程为中心的编程思想。它考虑的是实际地实现。拿开门为例，“面向过程”的写法大概是 走到门前，旋下把手，往外推门。而“面向对象”则是以对象为中心，还是开门，“面向对象”会先构建一个门的对象，里面包含了门的属性和方法，属性如材料、样式，方法则为开门、关门，使用时直接调用即可，当然其中的封装方式任是“面向过程”的。所以面向过程是一种基础的思想，而面向对象的主要特性在于类、封装、继承。</p>
 </li>
-<li><p>注释</p>
+<li><p>头文件<br>一般而言，每个C++/C程序通常由头文件(header files)和定义文件(definition files)组成。头文件作为一种包含功能函数、数据接口声明的载体文件，主要用于保存程序的声明(declaration)，而定义文件用于保存程序的实现 (implementation)。</p>
+</li>
+<li><p>宏定义<br>允许重定义数据名称或数据类型别名。</p>
+</li>
+<li><p>注释<br>如同在古文的学习中的注释一样，用于在源代码中解释代码的功用，可以增强程序的可读性，可维护性，或者用于在源代码中处理不需运行的代码段，来调试程序的功能执行。</p>
 </li>
 <li><p>输入/输出<br>标准输出为终端窗口，标准输入为键盘。</p>
 </li>
@@ -436,21 +436,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
-      
-        
-      
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 100%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
     </ul>
@@ -469,6 +461,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">持续更新</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -515,12 +515,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">[object Object]</div>
-  	  	
-    	</section>
     
   </div>
   
