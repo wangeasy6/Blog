@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-13T06:31:38.000Z">
+<meta property="og:updated_time" content="2018-10-21T11:18:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用手记">
 <meta name="twitter:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
@@ -216,6 +216,10 @@
 <li><p>从服务器拉回本地，即更新本地文件<br>git pull</p>
 </li>
 <li><p>回退commit<br>git reset –hard commit_id , 找到需要回退到的版本的 哈希值</p>
+</li>
+<li><p>修改最近一次未提交的commit Log信息<br>git commit –amend  （如果你此时想要更新作者提交时间等也可以在amend之后加上 –date=”$(date -R)”）</p>
+</li>
+<li><p>批量修改提交历史<br><a href="http://www.cnblogs.com/rickyk/p/3981083.html" target="_blank" rel="noopener">http://www.cnblogs.com/rickyk/p/3981083.html</a><br><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages" target="_blank" rel="noopener">https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages</a></p>
 </li>
 </ul>
 <h3 id="字符编码统一设置"><a href="#字符编码统一设置" class="headerlink" title="字符编码统一设置"></a>字符编码统一设置</h3><p>1 设置git gui的界面编码<br>git config –global gui.encoding utf-8</p>
