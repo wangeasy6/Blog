@@ -25,7 +25,7 @@ toc: true
 #### 1.安装 Git
   * [下载地址]( https://git-scm.com)
   * 安装步骤：双击下载好的exe文件，一路next就好啦
-  * 安装好后，在任意文件浏览器位置右键打开gitbash，查看版本： 
+  * 安装好后，在桌面右键打开gitbash，查看版本： 
     * 命令：`git version`
 
 #### 2.安装 NodeJs
