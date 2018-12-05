@@ -1,9 +1,9 @@
 ---
 title: 方便的 Hexo 博客工具
 date: 2018-07-18 16:57:00
+toc: true
 categories:
   - tools
-toc: true
 ---
 
 * Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。 

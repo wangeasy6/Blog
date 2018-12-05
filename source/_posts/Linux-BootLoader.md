@@ -6,12 +6,17 @@ categories:
   - tech
 tags:
   - Linux
-  - 持续更新
+  - 待续
 ---
 
 ### 学习环境
 
 [4412开发板 POP/1G DDR](https://item.taobao.com/item.htm?spm=a1z09.2.0.0.802a2e8dPjyDS3&id=38712193806&_u=i1nungt958cc)
+
+### 基础前提
+
+* bash
+* Makefile
 
 ### 简介
 
@@ -33,15 +38,15 @@ tags:
 
 | BootLoader | Monitor | 描述                            | X86  | ARM  | PowerPC |
 | ---------- | ------- | ------------------------------- | ---- | ---- | ------- |
-| LILO       | 否      | Linux 磁盘引导程序              | 是   | 否   | 否      |
-| GRUB       | 否      | GNU 的 LILO 替代程序            | 是   | 否   | 否      |
-| Loadlin    | 否      | 从 DOS 引导 Linux               | 是   | 否   | 否      |
-| ROLO       | 否      | 从 ROM 引导 Linux 而不需要 BIOS | 是   | 否   | 否      |
-| EtherBoot  | 否      | 通过以太网卡启动 Linux 系统     | 是   | 否   | 否      |
-| LinuxBIOS  | 否      | 完全替代 BUIS 的 Linux 引导程序 | 是   | 否   | 否      |
-| BLOB       | 否      | LART 等硬件平台的引导程序       | 否   | 是   | 否      |
-| U-Boot     | 是      | 通用引导程序                    | 是   | 是   | 是      |
-| RedBoot    | 是      | 基于 eCos 的引导程序            | 是   | 是   | 是      |
+| LILO       | 否      | Linux 磁盘引导程序               | 是   | 否   | 否      |
+| GRUB       | 否      | GNU 的 LILO 替代程序             | 是   | 否   | 否      |
+| Loadlin    | 否      | 从 DOS 引导 Linux                | 是   | 否   | 否      |
+| ROLO       | 否      | 从 ROM 引导 Linux 而不需要 BIOS   | 是   | 否   | 否      |
+| EtherBoot  | 否      | 通过以太网卡启动 Linux 系统       | 是   | 否   | 否      |
+| LinuxBIOS  | 否      | 完全替代 BUIS 的 Linux 引导程序   | 是   | 否   | 否      |
+| BLOB       | 否      | LART 等硬件平台的引导程序         | 否   | 是   | 否      |
+| U-Boot     | 是      | 通用引导程序                      | 是   | 是   | 是      |
+| RedBoot    | 是      | 基于 eCos 的引导程序              | 是   | 是   | 是      |
 
   在嵌入式系统中，我们最常见和使用的就是 U-Boot。
 
@@ -63,10 +68,6 @@ tags:
   * build_uboot.sh —— 针对Samsung 4412 进行引导编译和封装的一个脚本
   * config.mk
   * MakeFile
-
-#### 下载
-
-
 
 
 ### 参考书籍

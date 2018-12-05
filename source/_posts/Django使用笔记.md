@@ -1,10 +1,11 @@
 ---
 title: Django使用笔记
 date: 2018-08-07 15:23:10
+toc: true
 categories:
   - tech
 tags:
-  - 持续更新
+  - 待续
 ---
 
 ### 安装

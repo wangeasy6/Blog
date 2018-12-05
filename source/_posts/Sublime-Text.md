@@ -1,9 +1,11 @@
 ---
 title: Sublime Text
 date: 2018-10-17 16:57:00
+toc: true
 categories:
   - tools
-toc: true
+tags:
+  - 待续
 ---
 
 响应超快，超好用的文本编辑器。

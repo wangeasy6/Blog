@@ -1,9 +1,11 @@
 ---
 title: Git使用手记
 date: 2018-08-01 22:04:12
+toc: true
 categories:
   - tools
-toc: true
+tags:
+  - 待续
 ---
 
 git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。
@@ -28,23 +30,35 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
 
 ### 常用命令
 * 查看远程路径
-`git remote -v`
+  `git remote -v`
 
 * 本地提交到服务器
-git push/ git push origin master , 通常在commit之后
+  git push/ git push origin master , 通常在commit之后
 
 * 从服务器拉回本地，即更新本地文件
-git pull
-
-* 回退commit
-git reset --hard commit_id , 找到需要回退到的版本的 哈希值
+  git pull
 
 * 修改最近一次未提交的commit Log信息
-git commit --amend  （如果你此时想要更新作者提交时间等也可以在amend之后加上 --date="$(date -R)"）
+  git commit --amend  （如果你此时想要更新作者提交时间等也可以在amend之后加上 --date="$(date -R)"）
 
 * 批量修改提交历史
-http://www.cnblogs.com/rickyk/p/3981083.html
-https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages
+  http://www.cnblogs.com/rickyk/p/3981083.html
+  https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages
+
+* 切换历史版本
+
+  1、 查找历史版本
+
+    使用git log命令查看所有的历史版本，获取你git的某个历史版本的id
+    假设查到历史版本的id是fae6966548e3ae76cfa7f38a461c438cf75ba965。
+  2、 恢复到历史版本
+
+  `$ git reset --hard fae6966548e3ae76cfa7f38a461c438cf75ba965`
+
+  3、 把修改推到远程服务器
+
+  `$ git push -f -u origin master`
+
 
 ### 字符编码统一设置
 1 设置git gui的界面编码
