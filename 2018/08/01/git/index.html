@@ -9,13 +9,14 @@
   <title>Git使用手记 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
+<meta name="keywords" content="待续">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git使用手记">
 <meta property="og:url" content="http://www.wangeasy.com/2018/08/01/git/index.html">
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-21T11:18:08.000Z">
+<meta property="og:updated_time" content="2018-12-05T18:14:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用手记">
 <meta name="twitter:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
@@ -215,11 +216,16 @@
 </li>
 <li><p>从服务器拉回本地，即更新本地文件<br>git pull</p>
 </li>
-<li><p>回退commit<br>git reset –hard commit_id , 找到需要回退到的版本的 哈希值</p>
-</li>
 <li><p>修改最近一次未提交的commit Log信息<br>git commit –amend  （如果你此时想要更新作者提交时间等也可以在amend之后加上 –date=”$(date -R)”）</p>
 </li>
 <li><p>批量修改提交历史<br><a href="http://www.cnblogs.com/rickyk/p/3981083.html" target="_blank" rel="noopener">http://www.cnblogs.com/rickyk/p/3981083.html</a><br><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages" target="_blank" rel="noopener">https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages</a></p>
+</li>
+<li><p>切换历史版本</p>
+<p>1、 查找历史版本</p>
+<p>  使用git log命令查看所有的历史版本，获取你git的某个历史版本的id<br>  假设查到历史版本的id是fae6966548e3ae76cfa7f38a461c438cf75ba965。<br>2、 恢复到历史版本</p>
+<p><code>$ git reset --hard fae6966548e3ae76cfa7f38a461c438cf75ba965</code></p>
+<p>3、 把修改推到远程服务器</p>
+<p><code>$ git push -f -u origin master</code></p>
 </li>
 </ul>
 <h3 id="字符编码统一设置"><a href="#字符编码统一设置" class="headerlink" title="字符编码统一设置"></a>字符编码统一设置</h3><p>1 设置git gui的界面编码<br>git config –global gui.encoding utf-8</p>
@@ -252,6 +258,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">待续</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -461,11 +478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">持续更新</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>

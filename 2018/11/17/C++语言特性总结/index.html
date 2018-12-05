@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Linux BootLoader | EasyW</title>
+  <title>C++语言特性总结 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习环境4412开发板 POP/1G DDR 基础前提 bash Makefile  简介 引导加载程序是系统上电后运行的第一段代码。 在 Windows 主机上，引导程序由 BIOS 和位于硬盘 MBR 中的 OS BootLoader（LILO、GRUB等）组成。BIOS 完成硬件检测和资源分配后，将硬盘 MBR 中的 OS BootLoader 读到系统的 RAM 中，然后将控制权交到 Bo">
-<meta name="keywords" content="待续,Linux">
+  <meta name="description" content="比雅尼·斯特劳斯特鲁普博士在贝尔实验室工作期间在20世纪80年代发明并实现了C++。起初，这种语言被称作“C with Classes”（“包含‘类’的C语言”），作为C语言的增强版出现。随后，C++不断增加新特性。虚函数（virtual function）、运算符重载（operator overloading）、多继承（multiple inheritance）、标准模板库（standard t">
+<meta name="keywords" content="待续">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux BootLoader">
-<meta property="og:url" content="http://www.wangeasy.com/2018/08/18/Linux-BootLoader/index.html">
+<meta property="og:title" content="C++语言特性总结">
+<meta property="og:url" content="http://www.wangeasy.com/2018/11/17/C++语言特性总结/index.html">
 <meta property="og:site_name" content="EasyW">
-<meta property="og:description" content="学习环境4412开发板 POP/1G DDR 基础前提 bash Makefile  简介 引导加载程序是系统上电后运行的第一段代码。 在 Windows 主机上，引导程序由 BIOS 和位于硬盘 MBR 中的 OS BootLoader（LILO、GRUB等）组成。BIOS 完成硬件检测和资源分配后，将硬盘 MBR 中的 OS BootLoader 读到系统的 RAM 中，然后将控制权交到 Bo">
+<meta property="og:description" content="比雅尼·斯特劳斯特鲁普博士在贝尔实验室工作期间在20世纪80年代发明并实现了C++。起初，这种语言被称作“C with Classes”（“包含‘类’的C语言”），作为C语言的增强版出现。随后，C++不断增加新特性。虚函数（virtual function）、运算符重载（operator overloading）、多继承（multiple inheritance）、标准模板库（standard t">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-05T18:15:18.000Z">
+<meta property="og:updated_time" content="2018-12-05T18:14:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux BootLoader">
-<meta name="twitter:description" content="学习环境4412开发板 POP/1G DDR 基础前提 bash Makefile  简介 引导加载程序是系统上电后运行的第一段代码。 在 Windows 主机上，引导程序由 BIOS 和位于硬盘 MBR 中的 OS BootLoader（LILO、GRUB等）组成。BIOS 完成硬件检测和资源分配后，将硬盘 MBR 中的 OS BootLoader 读到系统的 RAM 中，然后将控制权交到 Bo">
+<meta name="twitter:title" content="C++语言特性总结">
+<meta name="twitter:description" content="比雅尼·斯特劳斯特鲁普博士在贝尔实验室工作期间在20世纪80年代发明并实现了C++。起初，这种语言被称作“C with Classes”（“包含‘类’的C语言”），作为C语言的增强版出现。随后，C++不断增加新特性。虚函数（virtual function）、运算符重载（operator overloading）、多继承（multiple inheritance）、标准模板库（standard t">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -167,159 +167,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux-BootLoader" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-C++语言特性总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux BootLoader
+      C++语言特性总结
     </h1>
   
 
         
-        <a href="/2018/08/18/Linux-BootLoader/" class="archive-article-date">
-  	<time datetime="2018-08-18T14:26:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-18</time>
+        <a href="/2018/11/17/C++语言特性总结/" class="archive-article-date">
+  	<time datetime="2018-11-17T07:35:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="学习环境"><a href="#学习环境" class="headerlink" title="学习环境"></a>学习环境</h3><p><a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.802a2e8dPjyDS3&amp;id=38712193806&amp;_u=i1nungt958cc" target="_blank" rel="noopener">4412开发板 POP/1G DDR</a></p>
-<h3 id="基础前提"><a href="#基础前提" class="headerlink" title="基础前提"></a>基础前提</h3><ul>
-<li>bash</li>
-<li>Makefile</li>
-</ul>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
-<li>引导加载程序是系统上电后运行的第一段代码。</li>
-<li>在 Windows 主机上，引导程序由 BIOS 和位于硬盘 MBR 中的 OS BootLoader（LILO、GRUB等）组成。BIOS 完成硬件检测和资源分配后，将硬盘 MBR 中的 OS BootLoader 读到系统的 RAM 中，然后将控制权交到 BootLoader。BootLoader 的主要任务就是将内核镜像从硬盘上读到 RAM 中，然后跳转到内核入口，开始启动操作系统。</li>
-<li><p>在 Linux 上，通常没有 BIOS 这样的固件程序，因此整个系统的加载启动任务就完全由 BootLoader 来完成了。</p>
-</li>
-<li><p>通常 Linux BootLoader 包含以下任务：</p>
-<ul>
-<li>初始化硬件设备</li>
-<li>建立内存空间的映射</li>
-</ul>
-</li>
-<li><p>严格来说，“BootLoader” 只是引导设备并且执行主程序的固件；而有的还提供了更多的命令行接口，可以进行调试、读写内存、烧写 Flash、配置环境变量等，提供了更好的调试功能，这种我们称为”Monitor”，这些都统称为 BootLoader。</p>
-</li>
-</ul>
+        <p>比雅尼·斯特劳斯特鲁普博士在贝尔实验室工作期间在20世纪80年代发明并实现了C++。起初，这种语言被称作“C with Classes”（“包含‘类’的C语言”），作为C语言的增强版出现。<br>随后，C++不断增加新特性。虚函数（virtual function）、运算符重载（operator overloading）、多继承（multiple inheritance）、标准模板库（standard template library, STL）、异常处理（exception）、运行时类型信息（Runtime type information）、名字空间（namespace）等概念逐渐纳入标准。这些新技术的出现以及和原有技术的融合，使C++已经成为当今主流程序设计语言中最复杂的一员。</p>
+<p>作为C语言的增强版，C++包含了C语言的所有基本概念，所以这里不再复数C语言的特性，而是专注于和C的不同和扩展部分。想了解C的特性请看我之前的一篇总结： <a href="/2018/08/06/C语言特性总结">C语言特性总结</a></p>
 <a id="more"></a>
-<h3 id="BootLoader-的种类"><a href="#BootLoader-的种类" class="headerlink" title="BootLoader 的种类"></a>BootLoader 的种类</h3><ul>
-<li><p>除了按照处理器体系结构不同划分以外，还有功能复杂程度的不同。</p>
+<h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
+<li><p>名字空间<br>一个标识符可在多个名字空间中定义，它在不同名字空间中的含义是互不相干的。此方法通过将逻辑上相关的标识符组织成相应的名字空间，可使整个系统更加模块化。</p>
 </li>
-<li><p>下表列出了 Linux 的开源引导程序及其支持的体系结构：</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>BootLoader</th>
-<th>Monitor</th>
-<th>描述</th>
-<th>X86</th>
-<th>ARM</th>
-<th>PowerPC</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LILO</td>
-<td>否</td>
-<td>Linux 磁盘引导程序</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>GRUB</td>
-<td>否</td>
-<td>GNU 的 LILO 替代程序</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>Loadlin</td>
-<td>否</td>
-<td>从 DOS 引导 Linux</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>ROLO</td>
-<td>否</td>
-<td>从 ROM 引导 Linux 而不需要 BIOS</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>EtherBoot</td>
-<td>否</td>
-<td>通过以太网卡启动 Linux 系统</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>LinuxBIOS</td>
-<td>否</td>
-<td>完全替代 BUIS 的 Linux 引导程序</td>
-<td>是</td>
-<td>否</td>
-<td>否</td>
-</tr>
-<tr>
-<td>BLOB</td>
-<td>否</td>
-<td>LART 等硬件平台的引导程序</td>
-<td>否</td>
-<td>是</td>
-<td>否</td>
-</tr>
-<tr>
-<td>U-Boot</td>
-<td>是</td>
-<td>通用引导程序</td>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-</tr>
-<tr>
-<td>RedBoot</td>
-<td>是</td>
-<td>基于 eCos 的引导程序</td>
-<td>是</td>
-<td>是</td>
-<td>是</td>
-</tr>
-</tbody>
-</table>
-<p>  在嵌入式系统中，我们最常见和使用的就是 U-Boot。</p>
-<h3 id="U-Boot"><a href="#U-Boot" class="headerlink" title="U-Boot"></a>U-Boot</h3><h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><ul>
-<li>Das U-Boot 是一套在GNU通用公共许可证之下发布的自由软件，可以支持多种不同的计算机系统结构，包括PPC、ARM、AVR32、MIPS、x86、68k、Nios与MicroBlaze。支持的文件系统包括： Cramfs、 ext2、 FAT、 FDOS、 JFFS2、 ReiserFS、 UBIFS、 YAFFS2。</li>
-<li>Das U-Boot可以在x86计算机上建构，但这部x86计算机必须安装有可支持特定平台结构的交互发展GNU工具链，例如crosstool、Embedded Linux Development Kit (ELDK)或OSELAS.Toolchain。</li>
-<li>在线资源：<ul>
-<li><a href="http://www.denx.de/wiki/U-Boot/WebHome" target="_blank" rel="noopener">HomePage</a></li>
-<li><a href="https://github.com/u-boot/u-boot" target="_blank" rel="noopener">GitHub</a></li>
-</ul>
+<li><p>auto类型<br>和C一样，C++是静态类型语言，需要先声明变量类型，才能使用。但C++提供了一种auto类型，允许编译器根据表达式的值来推算变量的类型。这里让语言具有了一些动态类型语言的特性。</p>
 </li>
 </ul>
-<h4 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h4><ul>
-<li>从 GitHub 上下载 u-boot 工程</li>
-<li>文件目录说明：–</li>
-<li>更改<ul>
-<li>build_uboot.sh —— 针对Samsung 4412 进行引导编译和封装的一个脚本</li>
-<li>config.mk</li>
-<li>MakeFile</li>
-</ul>
-</li>
-</ul>
-<h3 id="参考书籍"><a href="#参考书籍" class="headerlink" title="参考书籍"></a>参考书籍</h3><p>《iTOP-4412系列开发板实战教程》</p>
 
       
 
@@ -334,10 +210,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">待续</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -404,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/2018/08/18/Linux-BootLoader/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/2018/11/17/C++语言特性总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -418,18 +290,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/22/香帅的北大金融学课/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/24/Makefile学习/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          香帅的北大金融学课
+          Makefile学习
         
       </div>
     </a>
   
   
-    <a href="/2018/08/07/Django使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Django使用笔记</div>
+    <a href="/2018/10/21/《人性的弱点》/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《人性的弱点》</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -456,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#学习环境"><span class="toc-number">1.</span> <span class="toc-text">学习环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础前提"><span class="toc-number">2.</span> <span class="toc-text">基础前提</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">3.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BootLoader-的种类"><span class="toc-number">4.</span> <span class="toc-text">BootLoader 的种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U-Boot"><span class="toc-number">5.</span> <span class="toc-text">U-Boot</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介-1"><span class="toc-number">5.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移植"><span class="toc-number">5.2.</span> <span class="toc-text">移植</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考书籍"><span class="toc-number">6.</span> <span class="toc-text">参考书籍</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li></ol>
                     </div>
                 </span>
             </div>
