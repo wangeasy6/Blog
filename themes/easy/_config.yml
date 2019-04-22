@@ -2,7 +2,7 @@
 
 menu:
   推荐: /my-recommendation
-  读后: /categories/books
+  读/观后: /categories/reflections
   技术: /categories/tech
   工具: /categories/tools
   金融: /categories/Finance

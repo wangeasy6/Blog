@@ -174,6 +174,16 @@ static domian_name_servers=114.114.115.115
 
 或重启树莓派就生效了：`sudo reboot`
 
+#### Check一下：
+
+使用 `route -n` 检查网关是否设置成功。
+
+如没有，使用 `route add default gw 192.168.1.1` 添加网关。
+
+* PS：电脑直连树莓派出现 Windows能ping通树莓派，但树莓派无法ping通Windows 的情况
+
+  将防火墙关闭即可。
+
 <br/>
 
 ### 树莓派3B使用UART
