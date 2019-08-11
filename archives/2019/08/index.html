@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Makefile学习 | EasyW</title>
+  <title>Archives: 2019/8 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习 BootLoader 和 Linux 的时候，make 都是他们默认的自动化编译工具，所以makefile是对理解系统架构、了解编译流程绕不开的槛。对make工具的掌握也间接决定了构建大型项目的能力。">
-<meta name="keywords" content="待续">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Makefile学习">
-<meta property="og:url" content="http://www.wangeasy.com/2018/11/24/Makefile学习/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="EasyW">
+<meta property="og:url" content="http://www.wangeasy.com/archives/2019/08/index.html">
 <meta property="og:site_name" content="EasyW">
-<meta property="og:description" content="在学习 BootLoader 和 Linux 的时候，make 都是他们默认的自动化编译工具，所以makefile是对理解系统架构、了解编译流程绕不开的槛。对make工具的掌握也间接决定了构建大型项目的能力。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-05T18:25:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Makefile学习">
-<meta name="twitter:description" content="在学习 BootLoader 和 Linux 的时候，make 都是他们默认的自动化编译工具，所以makefile是对理解系统架构、了解编译流程绕不开的槛。对make工具的掌握也间接决定了构建大型项目的能力。">
+<meta name="twitter:title" content="EasyW">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -167,320 +162,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Makefile学习" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Makefile学习
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/08/06/人人都是产品经理2-0/" class="archive-article-date">
+  	<time datetime="2019-08-06T12:57:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/08/06/人人都是产品经理2-0/">《人人都是产品经理2.0》读后笔记</a>
     </h1>
   
 
-        
-        <a href="/2018/11/24/Makefile学习/" class="archive-article-date">
-  	<time datetime="2018-11-24T02:56:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习 BootLoader 和 Linux 的时候，make 都是他们默认的自动化编译工具，所以makefile是对理解系统架构、了解编译流程绕不开的槛。<br>对make工具的掌握也间接决定了构建大型项目的能力。</p>
-<a id="more"></a>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>一个工程中的源文件不计其数，其按类型、功能、模块分别放在若干个目录中，Make 工具能够使用一行命令来完成“自动化编译”。</p>
-<p>make是一个命令工具，它解释Makefile 中的指令。</p>
-<p>Makefile 文件描述了整个工程的编译、连接等规则。其中包括：工程中的哪些源文件需要编译以及如何编译、需要创建哪些库文件以及如何创建这些库文件、如何最后产生我们想要的可执行文件。</p>
-<p>Makefile 有自己的书写格式、关键字、函数。像C 语言有自己的格式、关键字和函数一样。而且在Makefile 中可以使用系统shell所提供的任何命令来完成想要的工作。</p>
-<h3 id="基本形式"><a href="#基本形式" class="headerlink" title="基本形式"></a>基本形式</h3><p>每一项 Makefile 都是由 目标、依赖、命令 组成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target: prerequisites</span><br><span class="line">	command</span><br></pre></td></tr></table></figure>
-<p>依赖项可以展开为另一个拥有依赖的目标，以此递归地构建整个项目，生成目标文件。</p>
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>=</strong></td>
-<td>用 “=” 定义的变量是递归展开的变量</td>
-</tr>
-<tr>
-<td><strong>:=</strong></td>
-<td>用 “: =” 或 “: =” 定义的变量只是展开的变量</td>
-</tr>
-<tr>
-<td><strong>::=</strong></td>
-<td>在GNU make 中，同”:=”，2012年被添加到POSIX标准，之前的版本不支持</td>
-</tr>
-<tr>
-<td><strong>?=</strong></td>
-<td>用 “?=” 定义的变量仅在尚未设置变量的情况下将其设置为值</td>
-</tr>
-<tr>
-<td><strong>!=</strong></td>
-<td>shell 赋值运算符 ‘! = ‘ 可用于执行 shell 脚本并为其输出设置变量。此运算符首先计算右侧, 然后将该结果传递给用于执行的 shell</td>
-</tr>
-<tr>
-<td><strong>+=</strong></td>
-<td>向已定义的变量的值添加文本</td>
-</tr>
-</tbody>
-</table>
-<h3 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h3><table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$@</td>
-<td>目标项，例： <code>cc -c $(CFLAGS) $&lt; -o $@</code></td>
-</tr>
-<tr>
-<td>$&lt;</td>
-<td>第一个依赖项</td>
-</tr>
-<tr>
-<td>$^</td>
-<td>所有依赖项</td>
-</tr>
-<tr>
-<td>$+</td>
-<td>也是所有依赖项，但是这个不去除重复的项</td>
-</tr>
-<tr>
-<td>$%</td>
-<td>仅当目标是函数库文件中，</td>
-</tr>
-<tr>
-<td>$*</td>
-<td>这个变量表示目标模式中“%”及其之前的部分</td>
-</tr>
-<tr>
-<td>$?</td>
-<td>表示比目标还要新的依赖文件列表</td>
-</tr>
-<tr>
-<td>$(@D) / $(@F)</td>
-<td>$@ 中的目录+文件名部分</td>
-</tr>
-<tr>
-<td>$(*D) / $(*F)</td>
-<td>$* 中的目录+文件名部分</td>
-</tr>
-<tr>
-<td>$(%D) / $(%F)</td>
-<td>$% 中的目录+文件名部分</td>
-</tr>
-<tr>
-<td>$(&lt;D) / $(&lt;F)</td>
-<td>$&lt; 中的目录+文件名部分</td>
-</tr>
-<tr>
-<td>$(^D) / $(^F)</td>
-<td>$^ 中的目录+文件名部分</td>
-</tr>
-<tr>
-<td>$(+D) / $(+F)</td>
-<td>$+ 中的目录+文件名部分</td>
-</tr>
-<tr>
-<td>$(?D) / $(?F)</td>
-<td>$? 中的目录+文件名部分</td>
-</tr>
-</tbody>
-</table>
-<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><table>
-<thead>
-<tr>
-<th>示例</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$(wildcard *.cpp)</td>
-<td>在Makefile规则中，通配符会被自动展开。但在变量的定义和函数引用时，通配符将失效。此时则使用函数 wildcard</td>
-</tr>
-<tr>
-<td>$(patsubst %c, %o, $(SRC_C))</td>
-<td>替换函数，把 $SRC_C中每一项的c换为 o</td>
-</tr>
-<tr>
-<td>$(SRC_C:%.c=%.o)</td>
-<td>效果同上</td>
-</tr>
-<tr>
-<td>$(notdir $(src))</td>
-<td>去除路径，去除变量中的文件路径部分</td>
-</tr>
-</tbody>
-</table>
-<h3 id="递归make子文件夹"><a href="#递归make子文件夹" class="headerlink" title="递归make子文件夹"></a>递归make子文件夹</h3><p><code>$(MAKE) -C subdir</code></p>
-<p>其等价于：</p>
-<p><code>cd subdir &amp;&amp; $(MAKE)</code></p>
-<h3 id="make读取命令行参数"><a href="#make读取命令行参数" class="headerlink" title="make读取命令行参数"></a>make读取命令行参数</h3><p>使用方法：<br>例：使用 O= 来指定输出目录<br><code>make O=/tmp/build</code></p>
-<p>代码实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ifdef O</span><br><span class="line">ifeq (&quot;$(origin O)&quot;, &quot;command line&quot;)</span><br><span class="line">BUILD_DIR := $(O)</span><br><span class="line">endif</span><br><span class="line">endif</span><br></pre></td></tr></table></figure></p>
-<p>代码分析：<br>真正起作用的是 BUILD_DIR := $(O)<br>${O} 就会把输入里 O= 后面的值取出</p>
-<p>ifdef O，检测变量O是否为空<br>${origin O}，使用origin函数，得到变量的出处<br>ifeq (“$(origin O)”, “command line”)，检测是否是从命令行输入定义</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">待续</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        			<a href="/categories/reflections//" class="article-tag-list-link color2">reflections</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/2018/11/24/Makefile学习/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/23/参《天道》/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          参《天道》
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/10/21/《人性的弱点》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《人性的弱点》</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本形式"><span class="toc-number">2.</span> <span class="toc-text">基本形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值"><span class="toc-number">3.</span> <span class="toc-text">赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊符号"><span class="toc-number">4.</span> <span class="toc-text">特殊符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用函数"><span class="toc-number">5.</span> <span class="toc-text">常用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归make子文件夹"><span class="toc-number">6.</span> <span class="toc-text">递归make子文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#make读取命令行参数"><span class="toc-number">7.</span> <span class="toc-text">make读取命令行参数</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -503,8 +238,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -557,11 +292,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>
