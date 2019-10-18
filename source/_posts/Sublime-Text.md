@@ -26,6 +26,8 @@ tags:
 ##### 设置缩进
 
 * 右下角可进行方便设置 Space/Tab，Width
+* “Preferences”，点击“Settings”，在settings-User中添加行：
+  `"tab_size": 4,"translate_tabs_to_spaces": true,`
 
 ##### 设置删除多余空格
 

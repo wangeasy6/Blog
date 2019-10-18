@@ -19,7 +19,11 @@ tags:
 * [ 树莓派3B使用UART ](/2018/07/28/raspberryPi/#树莓派3B使用UART)
 * [ 树莓派开启SSH ](/2018/07/28/raspberryPi/#树莓派开启SSH)
 * [ 树莓派开启Samba ](/2018/07/28/raspberryPi/#树莓派开启Samba)
+* [ 树莓派横竖屏转换 ](/2018/07/28/raspberryPi/#树莓派横竖屏转换)
+* [中文输入](/2018/07/28/raspberryPi/#树莓派中文输入)
+* [软键盘](/2018/07/28/raspberryPi/#树莓派软键盘)
 * [ rar解压缩 ](/2018/07/28/raspberryPi/#rar解压缩)
+* [Windows 下远程开发 QT 环境搭建]()
 
 <!--more-->
 <br/>
@@ -34,6 +38,7 @@ tags:
 `sudo apt-get install vim`
 
 <br/>
+
 ### 更换源地址到国内镜像
 
 1.lsb_release -a 查看自己的版本类型
@@ -50,6 +55,7 @@ tags:
   deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessis main contrib non-free rpi
 
 <br/>
+
 ### 更换pip源到国内镜像
 **pip国内的一些镜像：**
 
@@ -81,6 +87,7 @@ tags:
   ```
 
 <br/>
+
 ### 开启Root权限
 
 1.`sudo passwd root`
@@ -264,8 +271,6 @@ sudo systemctl disable serial-getty@ttyAMA0.service
 
 使修改生效：`sudo reboot`
 
-
-
 <br/>
 
 ### 树莓派开启SSH
@@ -293,6 +298,193 @@ openssh-server配置文件为“/etc/ssh/sshd_config”，可以配置SSH服务�
 `/etc/init.d/ssh start`
 
 <br/>
+
+### 树莓派横竖屏转换
+
+编辑/boot/config.txt，根据想旋转的角度
+对于触摸屏添加如下内容：
+
+```
+lcd_rotate = 0 //不旋转
+lcd_rotate = 1 //旋转90度
+lcd_rotate = 2 //旋转180
+lcd_rotate = 3 //旋转270
+```
+
+对于HDMI显示输出，添加：
+
+```display_rotate = 0
+display_rotate = 0
+display_rotate = 1
+display_rotate = 2
+display_rotate = 3
+```
+
+对于触摸定位：
+
+**1.安装xinput**
+`sudo apt-get install xinput`
+
+**2.列出所有输入设备信息**
+`xinput --list`
+
+如果远程操作记得在命令前加DISPLAY=:0，`DISPLAY=:0 xinput --list`
+
+得到以下信息：
+
+```
+NTGAGE:~ $ DISPLAY=:0 xinput --list
+⎡ Virtual core pointer                          id=2    [master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
+⎜   ↳ Logitech USB Optical Mouse                id=6    [slave  pointer  (2)]
+⎜   ↳ WaveShare WaveShare Touchscreen           id=7    [slave  pointer  (2)]
+⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
+    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+    ↳ Logitech USB Keyboard                     id=8    [slave  keyboard (3)]
+    ↳ Logitech USB Keyboard                     id=9    [slave  keyboard (3)]
+```
+
+**3.列出目标设备属性**
+
+`DISPLAY=:0 xinput --list-props 7`
+
+得到以下信息：
+
+```
+NTGAGE:~ $ DISPLAY=:0 xinput --list-props 7
+Device 'WaveShare WaveShare Touchscreen':
+        Device Enabled (115):   1
+        Coordinate Transformation Matrix (116): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
+        Device Accel Profile (240):     0
+        Device Accel Constant Deceleration (241):       1.000000
+        Device Accel Adaptive Deceleration (242):       1.000000
+        Device Accel Velocity Scaling (243):    10.000000
+        Device Product ID (244):        3823, 5
+        Device Node (245):      "/dev/input/event3"
+        Evdev Axis Inversion (246):     0, 0
+        Evdev Axis Calibration (247):   <no items>
+        Evdev Axes Swap (248):  0
+        Axis Labels (249):      "Abs MT Position X" (267), "Abs MT Position Y" (268), "Abs MT Pressure" (269), "None" (0), "None" (0), "None" (0)
+        Button Labels (250):    "Button Unknown" (233), "Button Unknown" (233), "Button Unknown" (233), "Button Wheel Up" (121), "Button Wheel Down" (122)
+        Evdev Scrolling Distance (251): 0, 0, 0
+        Evdev Middle Button Emulation (252):    0
+        Evdev Middle Button Timeout (253):      50
+        Evdev Third Button Emulation (254):     0
+        Evdev Third Button Emulation Timeout (255):     1000
+        Evdev Third Button Emulation Button (256):      3
+        Evdev Third Button Emulation Threshold (257):   20
+        Evdev Wheel Emulation (258):    0
+        Evdev Wheel Emulation Axes (259):       0, 0, 4, 5
+        Evdev Wheel Emulation Inertia (260):    10
+        Evdev Wheel Emulation Timeout (261):    200
+        Evdev Wheel Emulation Button (262):     4
+        Evdev Drag Lock Buttons (263):  0
+```
+
+如果执行到这一步，发现并没有以上的Evdev等属性项，请跳转到步骤4。
+
+如果如上所示，则执行修改：
+
+如屏幕显示为翻转90度。/boot/config.txt设置为display_rotate=1
+上述信息中Evdev Axis Inversion 项是每条轴的旋转设置项，后面第一个参数是x,第二个参数是y.
+Evdev Axes Swap项对应的是两条轴的交换。0为不翻转，1为翻转 
+例如，x轴原本是朝向右的，当把Evdev Axis Inversion的第一个参数设置为1，即x轴朝向左。
+
+现在目的是要触摸旋转90度，从坐标轴理解：即目的x轴正向为初始y轴的反向。目的y轴的正方向为初始x轴的正向。
+1）所以先交换x、y轴
+`DISPLAY=:0 xinput --set-prop '7' 'Evdev Axes Swap' 1`
+2）然后反转y轴
+`DISPLAY=:0 xinput --set-prop '7' 'Evdev Axis Inversion' 0 1`
+这样即可完成触摸旋转90度。若要旋转其他角度，推理一下即可。
+显示旋转修改之后需要重启。而触摸旋转不需要重启。
+
+**4.无Evdev操作**
+
+如果查询到的信息如下：
+
+```
+DISPLAY=:0 xinput --list-props 6
+Device 'WaveShare WaveShare Touchscreen':
+        Device Enabled (114):   1
+        Coordinate Transformation Matrix (115): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
+        libinput Calibration Matrix (246):      0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000
+        libinput Calibration Matrix Default (247):      1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
+        libinput Send Events Modes Available (248):     1, 0
+        libinput Send Events Mode Enabled (249):        0, 0
+        libinput Send Events Mode Enabled Default (250):        0, 0
+        Device Node (251):      "/dev/input/event0"
+        Device Product ID (252):        3823, 5
+```
+
+可以看到该驱动方式采用的是libinput。
+
+查看/usr/share/X11/xorg.conf.d/目录下是否有40-libinput.conf这个文件。
+无 则需要安装，`sudo apt-get install xserver-xorg-input-libinput`
+复制该文件到/etc/X11/xorg.conf.d/目录下。一开始xorg.conf.d这个目录在/etc/X11可能没有，需要自己创建。
+修改40-libinput.conf 文件，`sudo vim /etc/X11/xorg.conf.d/40-libinput.conf`
+
+```
+Section "InputClass"
+        Identifier "libinput touchscreen catchall"
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+EndSection
+添加一行  Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1
+结果为
+Section "InputClass"
+        Identifier "libinput touchscreen catchall"
+        Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+EndSection
+```
+
+重启生效。
+
+上述修改以90度为例，如果需要修改为其他角度，参考libinput的算法，对应的值是：
+
+```
+90 度旋转： Option "CalibrationMatrix" "0 1 0 -1 0 1 0 0 1"
+180度旋转： Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1"
+270度旋转： Option "CalibrationMatrix" "0 -1 1 1 0 0 0 0 1"
+```
+
+<br/>
+
+### 树莓派中文输入
+
+1、基于Fcitx输入法框架的google拼音输入法，在命令行中输入以下命令即可安装。
+
+安装命令：`sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin`
+
+
+
+2、SCIM支持多国语言的输入法，默认支持英语键盘、智能拼音、五笔字型、自然码、二笔等。
+
+安装命令：`sudo apt-get install scim-pinyin`
+
+
+
+3、Ibus输入法是一个基于Python开发的全新输入法框架，支持多种语言。
+
+安装命令：`sudo apt-get install ibus ibus-pinyin`
+
+
+
+PS：重启生效。
+
+<br/>
+
+### 树莓派软键盘
+
+安装中文包：`sudo apt-get install ttf-wqy-zenhei`
+
+安装Matchbox-keyboard：`sudo apt-get install matchbox-keyboard`
+
+<br/>
+
 ### 树莓派开启Samba
 1.Samba软件安装
 

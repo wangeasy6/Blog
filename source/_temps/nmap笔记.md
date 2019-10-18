@@ -12,7 +12,7 @@ nmap，也就是Network Mapper，最早是Linux下的网络扫描和嗅探工具
 
 <!--more-->
 
-##### 测试版本为 Nmap 7.70
+**测试版本为 Nmap 7.70**
 
 ### ping 扫描
 
@@ -20,8 +20,10 @@ nmap，也就是Network Mapper，最早是Linux下的网络扫描和嗅探工具
 
 `nmap -sP 192.168.1.0/24` / `nmap -sn 192.168.1.0/24`
 
+结果示例：
+
 ```
-Nmap scan report for Hiwifi.lan (192.168.199.1)
+Nmap scan report for Hiwifi.lan (192.168.1.1)
 Host is up (0.0040s latency).
 MAC Address: D4:EE:07:5E:BF:6A (Hiwifi)
 ```
@@ -35,7 +37,7 @@ MAC Address: D4:EE:07:5E:BF:6A (Hiwifi)
 指令可扫描整个网段，也可以扫描单个地址。
 
 ```
-Nmap scan report for Hiwifi.lan (192.168.199.1)
+Nmap scan report for Hiwifi.lan (192.168.1.1)
 Host is up (0.0064s latency).
 Not shown: 993 closed ports
 PORT     STATE SERVICE
