@@ -69,7 +69,7 @@ top: true
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
-favicon: /favicon.png
+favicon: /images/Logo_wangeasy_2_256.ico
 
 #你的头像url
 avatar: /images/avatar.jpg
