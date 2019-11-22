@@ -19,7 +19,7 @@
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/images/Logo_wangeasy_2_256.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -262,7 +262,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>包干到户解放了农民的生产力，新时代的民工也需要相应的合作模式（方法论体系）才能解放其巨大的生产力。</p>
+        <p>包干到户解放了农民的生产力，作为网络新时代的民工，也需要相应的合作模式（方法论体系）才能解放其巨大的生产力。</p>
         
           <a class="article-more-a" href="/2019/08/06/人人都是产品经理2-0/#more">more >></a>
         
@@ -799,47 +799,35 @@
 
 
   
-    <article id="post-Linux-BootLoader" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/18/Linux-BootLoader/">Linux BootLoader</a>
+      <a class="article-title" href="/2018/08/06/Python学习笔记/">Python学习笔记</a>
     </h1>
   
 
         
-        <a href="/2018/08/18/Linux-BootLoader/" class="archive-article-date">
-  	<time datetime="2018-08-18T14:26:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-18</time>
+        <a href="/2018/08/06/Python学习笔记/" class="archive-article-date">
+  	<time datetime="2018-08-06T08:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="学习环境"><a href="#学习环境" class="headerlink" title="学习环境"></a>学习环境</h3><p><a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.802a2e8dPjyDS3&amp;id=38712193806&amp;_u=i1nungt958cc" target="_blank" rel="noopener">4412开发板 POP/1G DDR</a></p>
-<h3 id="基础前提"><a href="#基础前提" class="headerlink" title="基础前提"></a>基础前提</h3><ul>
-<li>bash</li>
-<li>Makefile</li>
-</ul>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
-<li>引导加载程序是系统上电后运行的第一段代码。</li>
-<li>在 Windows 主机上，引导程序由 BIOS 和位于硬盘 MBR 中的 OS BootLoader（LILO、GRUB等）组成。BIOS 完成硬件检测和资源分配后，将硬盘 MBR 中的 OS BootLoader 读到系统的 RAM 中，然后将控制权交到 BootLoader。BootLoader 的主要任务就是将内核镜像从硬盘上读到 RAM 中，然后跳转到内核入口，开始启动操作系统。</li>
-<li><p>在 Linux 上，通常没有 BIOS 这样的固件程序，因此整个系统的加载启动任务就完全由 BootLoader 来完成了。</p>
+        <ul>
+<li><p>查看包情况： dir() 和 help() 函数非常有用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import os</span><br><span class="line">&gt;&gt;&gt; dir(os)</span><br><span class="line">&lt;returns a list of all module functions&gt;</span><br><span class="line">&gt;&gt;&gt; help(os)</span><br><span class="line">&lt;returns an extensive manual page created from the module&apos;s docstrings&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>通常 Linux BootLoader 包含以下任务：</p>
-<ul>
-<li>初始化硬件设备</li>
-<li>建立内存空间的映射</li>
-</ul>
-</li>
-<li><p>严格来说，“BootLoader” 只是引导设备并且执行主程序的固件；而有的还提供了更多的命令行接口，可以进行调试、读写内存、烧写 Flash、配置环境变量等，提供了更好的调试功能，这种我们称为”Monitor”，这些都统称为 BootLoader。</p>
+<li><p>SyntaxError: Non-ASCII character ‘\xe6’<br>在开头加入：<code># -*- coding: UTF-8 -*-</code></p>
 </li>
 </ul>
         
-          <a class="article-more-a" href="/2018/08/18/Linux-BootLoader/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/06/Python学习笔记/#more">more >></a>
         
       
 
@@ -848,21 +836,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">待续</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -878,7 +851,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/18/Linux-BootLoader/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/06/Python学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -908,35 +881,29 @@
 
 
   
-    <article id="post-Django使用笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Python语言特性总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/07/Django使用笔记/">Django使用笔记</a>
+      <a class="article-title" href="/2018/08/06/Python语言特性总结/">Python语言特性总结</a>
     </h1>
   
 
         
-        <a href="/2018/08/07/Django使用笔记/" class="archive-article-date">
-  	<time datetime="2018-08-07T07:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-07</time>
+        <a href="/2018/08/06/Python语言特性总结/" class="archive-article-date">
+  	<time datetime="2018-08-06T05:56:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code>sudo pip install Django</code></p>
-<ul>
-<li><p>指定版本安装<br><code>sudo pip install Django==1.6.8</code></p>
-</li>
-<li><p>查看版本：<br><code>python -m django --version</code></p>
-</li>
-</ul>
+        <p>Python 语言特性总结及基础概念。</p>
         
-          <a class="article-more-a" href="/2018/08/07/Django使用笔记/#more">more >></a>
+          <a class="article-more-a" href="/2018/08/06/Python语言特性总结/#more">more >></a>
         
       
 
@@ -945,17 +912,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">待续</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -971,7 +927,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/07/Django使用笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/06/Python语言特性总结/">展开全文 >></a>
         </p>
       
 
@@ -1003,7 +959,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1083,10 +1039,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>
