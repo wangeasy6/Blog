@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/settings.png">
 <meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/ssh-key.png">
 <meta property="og:image" content="http://www.wangeasy.com/images/Hexo%20工具/hexo-init.png">
-<meta property="og:updated_time" content="2018-12-05T18:15:10.000Z">
+<meta property="og:updated_time" content="2019-11-24T05:21:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="方便的 Hexo 博客工具">
 <meta name="twitter:description" content="Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。  使用 Hexo 的原因如下： 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。">
@@ -299,7 +299,8 @@
 <p>  上传完后，在浏览器中输入 <a href="http://yourgithubname.github.io/YourRepository" target="_blank" rel="noopener">http://yourgithubname.github.io/YourRepository</a> 就可以看到你的个人博客啦！</p>
 <p><br></p>
 <h3 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h3><h4 id="1-写文章"><a href="#1-写文章" class="headerlink" title="1. 写文章"></a>1. 写文章</h4><ul>
-<li>新建文章：<code>hexo new &quot;文章名&quot;</code>，然后你就可以在 source/_posts 路径下看到你创建的文章 —— “文章名.md”</li>
+<li>新建文章：<code>hexo new &quot;文章名&quot;</code>，然后你就可以在 source/_posts/ 路径下看到你创建的文章 —— “文章名.md”</li>
+<li>也可以使用 <code>hexo new draft &quot;文章名&quot;</code> 建一篇草稿，文章会先放到 source/_drafts/，待写好之后再使用<code>hexo publish &quot;文章名&quot;</code>发布到  source/_posts/</li>
 <li><p>可在开头添加文章信息，如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo 工具使用小结</span><br><span class="line">date: 2018-07-18 16:57:00</span><br><span class="line">categories:</span><br><span class="line">  - tech</span><br><span class="line">tags:</span><br><span class="line">  - tools</span><br><span class="line">  - Hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p><code>---</code> 是 Header 声明；<br>title 是文章标题；<br>date  是文章日期；<br>categories 是文章分类，无需预先创建，可以有多个；<br>tags  是文章标签，无需预先创建，可以有多个；</p>
