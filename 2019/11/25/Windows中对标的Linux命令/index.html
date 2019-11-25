@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Archives: 2019/11 | EasyW</title>
+  <title>Windows中对标的Linux命令 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="EasyW">
-<meta property="og:url" content="http://www.wangeasy.com/archives/2019/11/index.html">
+  <meta name="description" content="在Windows环境下打开工程，找到某个文件引用关系，但是又找不到文件的时候，总是怀念Linux中的find命令。 总结一下 Windows 命令提示符的命令中，哪些是和Linux 常用命令能对标的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows中对标的Linux命令">
+<meta property="og:url" content="http://www.wangeasy.com/2019/11/25/Windows中对标的Linux命令/index.html">
 <meta property="og:site_name" content="EasyW">
+<meta property="og:description" content="在Windows环境下打开工程，找到某个文件引用关系，但是又找不到文件的时候，总是怀念Linux中的find命令。 总结一下 Windows 命令提示符的命令中，哪些是和Linux 常用命令能对标的。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-25T09:20:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EasyW">
+<meta name="twitter:title" content="Windows中对标的Linux命令">
+<meta name="twitter:description" content="在Windows环境下打开工程，找到某个文件引用关系，但是又找不到文件的时候，总是怀念Linux中的find命令。 总结一下 Windows 命令提示符的命令中，哪些是和Linux 常用命令能对标的。">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -166,37 +170,151 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Windows中对标的Linux命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/25/Windows中对标的Linux命令/" class="archive-article-date">
-  	<time datetime="2019-11-25T08:54:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/25/Windows中对标的Linux命令/">Windows中对标的Linux命令</a>
+    <h1 class="article-title" itemprop="name">
+      Windows中对标的Linux命令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2019/11/25/Windows中对标的Linux命令/" class="archive-article-date">
+  	<time datetime="2019-11-25T08:54:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Windows环境下打开工程，找到某个文件引用关系，但是又找不到文件的时候，总是怀念Linux中的find命令。</p>
+<p>总结一下 Windows 命令提示符的命令中，哪些是和Linux 常用命令能对标的。</p>
+<a id="more"></a>
+<p>试用环境：Windows 10</p>
+<p><br></p>
+<h3 id="常用命名"><a href="#常用命名" class="headerlink" title="常用命名"></a>常用命名</h3><table>
+<thead>
+<tr>
+<th>Linux</th>
+<th>Windows</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmd –help</td>
+<td>”help cmd“ or  “cmd /?”</td>
+<td>Help信息</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>cd（切换不同盘需要使用  “D:” 或者加上 “/D”）</td>
+<td>路径切换</td>
+</tr>
+<tr>
+<td>ls</td>
+<td>dir</td>
+<td>文件列表</td>
+</tr>
+<tr>
+<td>rm</td>
+<td>del</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>rm -r</td>
+<td>rd /S</td>
+<td>删除文件夹</td>
+</tr>
+<tr>
+<td>md</td>
+<td>md</td>
+<td>创建文件夹</td>
+</tr>
+<tr>
+<td>mv</td>
+<td>mv</td>
+<td>移动文件/文件夹</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>copy 、 xcopy /S</td>
+<td>复制文件、文件夹</td>
+</tr>
+<tr>
+<td>cat</td>
+<td>type</td>
+<td>输出文本内容</td>
+</tr>
+<tr>
+<td>vim</td>
+<td>文件名（会使用默认打开工具打开文件）</td>
+<td>编辑文本</td>
+</tr>
+<tr>
+<td>diff</td>
+<td>fc</td>
+<td>比较文件差异</td>
+</tr>
+<tr>
+<td>grep</td>
+<td>find</td>
+<td>过滤字符串</td>
+</tr>
+<tr>
+<td>du -d</td>
+<td>-</td>
+<td>文件夹大小</td>
+</tr>
+<tr>
+<td>tree</td>
+<td>tree</td>
+<td>列出文件树</td>
+</tr>
+<tr>
+<td>exit</td>
+<td>exit</td>
+<td>退出</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>dos 中的 find 是在文件中搜索字符串，想要实现和Linux find同样的功能要使用for语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for /r [[drive:]path] %variable in (set) do command [command-parameters]</span><br></pre></td></tr></table></figure>
+<p>1、set中的文件名如果含有通配符(？或*)，则列举/R参数指定的目录及其下面的所用子目录中与set相符合的所有文件，无相符文件的目录则不列举。<br>2、如果set中为具体文件名，不含通配符，则枚举该目录树（即列举该目录及其下面的所有子目录）(并在后面加上具体的文件名)，而不管set中的指定文件是否存在。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for /r c:\ %i in (*.exe *.ini) do @echo %i    --枚举C盘所有目录下的.exe和.ini文件</span><br><span class="line">for /r c:\ %i in (boot.ini) do @echo %i --枚举c盘所有目录+boot.ini</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="文件搜索-amp-文件夹搜索"><a href="#文件搜索-amp-文件夹搜索" class="headerlink" title="文件搜索&amp;文件夹搜索"></a>文件搜索&amp;文件夹搜索</h3><ol>
+<li>搜索文件中是否包含某一字符串，如果有，则输出那一行<ol>
+<li>Linux：<code>grep &quot;test&quot; file1 file2</code> (末尾加 -n：输出行号)</li>
+<li>Windows：<code>find &quot;test&quot; file1 file2</code> (末尾加 /N：输出行号)</li>
+</ol>
+</li>
+<li>搜索整个目录文件，输出包含字符串的所有文件+行<ol>
+<li>Linux：<code>grep -r -e &quot;test&quot; path</code></li>
+<li>Windows：<code>findstr /S &quot;test&quot; *</code> (*代表所有文件 )</li>
+</ol>
+</li>
+</ol>
+<p><br></p>
+<h3 id="右键打开cmd"><a href="#右键打开cmd" class="headerlink" title="右键打开cmd"></a>右键打开cmd</h3><p>在Windows下打开“命令提示符”界面，路径总是从登录目录开始。在执行命令时总要输入一长串路径进行跳转。</p>
+<p>将cmd添加到鼠标右键，在任意一个资源管理界面点击右键打开cmd，自动从当前路径开始，为执行命令节省时间。</p>
+<p><a href="/images/dos-bash/AutoCMD.reg">下载插件</a>，双击运行。你会发现在资源管理点击鼠标右键，列表中多了一个 “cmd_here”。</p>
+<p><br></p>
+<h3 id="git-bash"><a href="#git-bash" class="headerlink" title="git bash"></a>git bash</h3><p>对比dos的命令功能，明显是没有Linux shell那么强的。</p>
+<p>所以建议直接安装一个<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git</a> ，安装的时候勾选将git bash添加到鼠标右键，这样不仅能在任意位置打开bash，还可以无缝使用Linux Bash命令。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -209,55 +327,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/2019/11/25/Windows中对标的Linux命令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/23/《现代艺术》-策论/" class="archive-article-date">
-  	<time datetime="2019-11-23T12:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/23/《现代艺术》-策论/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《现代艺术》 策论</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/23/《现代艺术》-策论/">《现代艺术》 策论</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/games//" class="article-tag-list-link color1">games</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命名"><span class="toc-number">1.</span> <span class="toc-text">常用命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">2.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件搜索-amp-文件夹搜索"><span class="toc-number">3.</span> <span class="toc-text">文件搜索&amp;文件夹搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#右键打开cmd"><span class="toc-number">4.</span> <span class="toc-text">右键打开cmd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-bash"><span class="toc-number">5.</span> <span class="toc-text">git bash</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -280,8 +460,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
