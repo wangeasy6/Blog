@@ -127,7 +127,8 @@ Hexo 是基于 NodeJs 开发的。
 
 #### 1. 写文章
 
-  * 新建文章：`hexo new "文章名"`，然后你就可以在 source/_posts 路径下看到你创建的文章 —— “文章名.md”
+  * 新建文章：`hexo new "文章名"`，然后你就可以在 source/\_posts/ 路径下看到你创建的文章 —— “文章名.md”
+  * 也可以使用 `hexo new draft "文章名"` 建一篇草稿，文章会先放到 source/\_drafts/，待写好之后再使用`hexo publish "文章名"`发布到  source/\_posts/
   * 可在开头添加文章信息，如：
 
   ```

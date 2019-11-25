@@ -3,13 +3,10 @@ title: Git使用手记
 date: 2018-08-01 22:04:12
 toc: true
 categories:
-  - tools
-tags:
-  - 待续
+  - tech
 ---
 
 git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。
-
 
 <!--more-->
 
