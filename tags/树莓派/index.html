@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Sublime Text | EasyW</title>
+  <title>Tag: 树莓派 | EasyW</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="响应超快，超好用的文本编辑器。">
-<meta name="keywords" content="待续">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Sublime Text">
-<meta property="og:url" content="http://www.wangeasy.com/2018/10/17/Sublime-Text/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="EasyW">
+<meta property="og:url" content="http://www.wangeasy.com/tags/树莓派/index.html">
 <meta property="og:site_name" content="EasyW">
-<meta property="og:description" content="响应超快，超好用的文本编辑器。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-28T06:20:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sublime Text">
-<meta name="twitter:description" content="响应超快，超好用的文本编辑器。">
+<meta name="twitter:title" content="EasyW">
   
     <link rel="alternative" href="/atom.xml" title="EasyW" type="application/atom+xml">
   
@@ -171,123 +166,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Sublime-Text" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Sublime Text
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/28/raspberryPi/" class="archive-article-date">
+  	<time datetime="2018-07-27T16:08:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-28</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/28/raspberryPi/">Raspberry Pi 手记</a>
     </h1>
   
 
-        
-        <a href="/2018/10/17/Sublime-Text/" class="archive-article-date">
-  	<time datetime="2018-10-17T08:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>响应超快，超好用的文本编辑器。<br><a id="more"></a></p>
-<p><br></p>
-<h3 id="中文乱码BUG"><a href="#中文乱码BUG" class="headerlink" title="中文乱码BUG"></a>中文乱码BUG</h3><ul>
-<li>Sublime Text 默认采用UTF8编码，这就造成了许多采用GBK编码的文件里的中文显示为乱码。需要安装一个专门解决这个问题的插件：ConvertToUTF8 。要安装这个插件，首先要安装 Sublime Text 的 <strong>Package Control</strong>。</li>
-<li>首先要安装 Sublime Text 的 Package Control<ul>
-<li>打开Sublime Text，<code>Ctrl + ~</code>打开控制台，</li>
-<li><a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">https://packagecontrol.io/installation</a> 根据你的 Sublime Text 版本选择对应的安装代码，将代码输入控制台后回车，之后便会自动下载并安装 Package Control</li>
-<li>安装完成后需要重启Sublime Text 。</li>
-</ul>
-</li>
-<li>接下来就可以安装 ConvertToUTF8 了，按Ctrl + Shift + P打开万能搜索框，然后输入install package回车，这时候会加载所有的packages列表。看到列表之后再输入ConvertToUTF8回车，就会下载安装这个包了。装好之后无需重启Sublime Text你就会惊喜的发现原来的中文乱码都能正常显示了。</li>
-<li><strong>直接安装</strong>：<a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="noopener">https://github.com/seanliang/ConvertToUTF8</a> 项目打包下载并解压，将解压后的文件夹名修改为 <em>ConvertToUTF8</em> ，然后将此文件夹移动到 Sublime Text 的 <em>Packages</em> 文件夹下（可通过 Sublime Text 菜单中的 Preferences &gt; Browse Packages 找到 <em>Packages</em> 文件夹）。</li>
-</ul>
-<p><br></p>
-<h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><h5 id="设置缩进"><a href="#设置缩进" class="headerlink" title="设置缩进"></a>设置缩进</h5><ul>
-<li>右下角可进行方便设置 Space/Tab，Width</li>
-<li>“Preferences”，点击“Settings”，在settings-User中添加行：<br><code>&quot;tab_size&quot;: 4,&quot;translate_tabs_to_spaces&quot;: true,</code></li>
-</ul>
-<h5 id="设置删除多余空格"><a href="#设置删除多余空格" class="headerlink" title="设置删除多余空格"></a>设置删除多余空格</h5><ul>
-<li>“Preferences”，点击“Settings”，在settings-User中添加行：<br><code>&quot;trim_trailing_white_space_on_save&quot;: true,</code></li>
-</ul>
-<h5 id="设置打开文件不覆盖"><a href="#设置打开文件不覆盖" class="headerlink" title="设置打开文件不覆盖"></a>设置打开文件不覆盖</h5><ul>
-<li><p>“Preferences”，点击“Settings”，在settings-User中添加行：</p>
-<p><code>&quot;preview_on_click&quot;: false,</code></p>
-</li>
-</ul>
-<p><br></p>
-<h3 id="工程搜索"><a href="#工程搜索" class="headerlink" title="工程搜索"></a>工程搜索</h3><ul>
-<li><p>在工程中搜索文件：</p>
-<p><code>Ctrl + p</code>，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开</p>
-</li>
-<li><p>在工程中搜索包含某个字符串的文本：</p>
-<p>在文件夹目录中点击右键，选择<code>Find in Folder</code></p>
-</li>
-</ul>
-<p><br></p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alt + [n]</td>
-<td>跳转到文件栏的第n个文件</td>
-</tr>
-<tr>
-<td>Ctrl + Tab</td>
-<td>跳转到文件栏的右边一个文件</td>
-</tr>
-<tr>
-<td>Ctrl + Shift + Tab</td>
-<td>跳转到文件栏的左边一个文件</td>
-</tr>
-<tr>
-<td>Alt + -</td>
-<td>跳转到上一个输入点</td>
-</tr>
-<tr>
-<td>Alt + Shift + -</td>
-<td>跳转到下一个输入点</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h3 id="快捷编译-运行程序"><a href="#快捷编译-运行程序" class="headerlink" title="快捷编译/运行程序"></a>快捷编译/运行程序</h3><ul>
-<li>C<ul>
-<li><a href="https://blog.csdn.net/DragonFreedom/article/details/70159891" target="_blank" rel="noopener">https://blog.csdn.net/DragonFreedom/article/details/70159891</a></li>
-</ul>
-</li>
-<li>C/C++<ul>
-<li><a href="https://blog.csdn.net/shenwanjiang111/article/details/53728941" target="_blank" rel="noopener">https://blog.csdn.net/shenwanjiang111/article/details/53728941</a></li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">待续</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">RaspberryPi</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">3B+</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -300,126 +228,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/2018/10/17/Sublime-Text/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/10/21/《人性的弱点》/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          《人性的弱点》
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/10/08/《奇葩说》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《奇葩说》</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#中文乱码BUG"><span class="toc-number">1.</span> <span class="toc-text">中文乱码BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用设置"><span class="toc-number">2.</span> <span class="toc-text">常用设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#设置缩进"><span class="toc-number">2.0.1.</span> <span class="toc-text">设置缩进</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置删除多余空格"><span class="toc-number">2.0.2.</span> <span class="toc-text">设置删除多余空格</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置打开文件不覆盖"><span class="toc-number">2.0.3.</span> <span class="toc-text">设置打开文件不覆盖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工程搜索"><span class="toc-number">3.</span> <span class="toc-text">工程搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键"><span class="toc-number">4.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷编译-运行程序"><span class="toc-number">5.</span> <span class="toc-text">快捷编译/运行程序</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -442,9 +261,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
