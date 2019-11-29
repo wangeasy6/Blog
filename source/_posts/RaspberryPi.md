@@ -1,11 +1,13 @@
 ---
-title: 树莓派
+title: Raspberry Pi 手记
 date: 2018-07-28 00:08:00
 toc: true
 categories:
   - tools
 tags:
-  - 待续
+  - 树莓派
+  - RaspberryPi
+  - 3B+
 ---
 
 ### 主题
@@ -17,6 +19,7 @@ tags:
 * [ 命令行配置无线网络连接 ](/2018/07/28/raspberryPi/#命令行配置无线网络连接)
 * [ 配置网口为固定IP ](/2018/07/28/raspberryPi/#配置网口为固定IP)
 * [ 树莓派3B使用UART ](/2018/07/28/raspberryPi/#树莓派3B使用UART)
+* [配置固定USB端口名称](/2018/07/28/raspberryPi/#配置固定USB端口名称)
 * [ 树莓派开启SSH ](/2018/07/28/raspberryPi/#树莓派开启SSH)
 * [ 树莓派开启Samba ](/2018/07/28/raspberryPi/#树莓派开启Samba)
 * [ 树莓派横竖屏转换 ](/2018/07/28/raspberryPi/#树莓派横竖屏转换)
@@ -59,28 +62,26 @@ tags:
 ### 更换pip源到国内镜像
 **pip国内的一些镜像：**
 
-  阿里云 http://mirrors.aliyun.com/pypi/simple/
-  中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
-  豆瓣(douban) http://pypi.douban.com/simple/
-  清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/
-  中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/
+* 阿里云 http://mirrors.aliyun.com/pypi/simple/
+* 中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
+* 清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/
+* 中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/
 
 **临时使用：**
 
-  使用 -i 指定源：
-  例： sudo pip3 install cython -i  https://pypi.mirrors.ustc.edu.cn/simple/
+  使用 -i 指定源，例： sudo pip3 install cython -i  https://pypi.mirrors.ustc.edu.cn/simple/
 
 **永久修改：**
 
-  linux:
-  修改 ~/.pip/pip.conf (没有就创建一个)， 内容如下：
+  linux：修改 ~/.pip/pip.conf (没有就创建一个)， 内容如下：
+
   ```
   [global]
   index-url = https://pypi.tuna.tsinghua.edu.cn/simple
   ```
 
-  windows:
-  直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下
+  windows：直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下
+
   ```
   [global]
   index-url = https://pypi.tuna.tsinghua.edu.cn/simple
@@ -270,6 +271,80 @@ sudo systemctl disable serial-getty@ttyAMA0.service
 6.重启树莓派
 
 使修改生效：`sudo reboot`
+
+<br/>
+
+### 配置固定USB端口名称
+
+树莓派的板集上只有一个UART，经常会遇到不够用的情况，那么这个时候就只能使用USB转串口线了。
+
+正常使用USB端口接USB转串口线来发送数据时，会根据拔插的先后顺序为串口分配`ttyUSB*`，这样在程序上就有一个麻烦，需要根据当前的串口名称改动程序或者配置。
+
+为了解决USB端口号的对应问题，我们可以固定端口号设备名。例如，右上角的USB端口插入USB转串口线时，系统会固定命名为`tty_RightUp`，使用`ls /dev`命令，原来会显示`/dev/ttyUSB*`，现在则多了一个固定名称`/dev/tty_RightUp`，在写程序调用open传参的时候就不用更改了。相当于将这个端口和这个端口默认连接的设备做了一一对应，再也不用担心端口号变动了。
+
+#### 实现原理&方法：
+
+Raspberry Pi 使用的设备文件框架是 `udev`，`udev`允许通过配置文件来进行一些规则配置，配置文件放置在`/etc/udev/rules.d/`下，以`.rules`结尾。
+
+`99-com.rules`文件就是对于串行通讯端口（COM口）配置的文件，`99`表示系统应用该规则的顺序。
+
+在这个文件中，我们可以添加此规则来对设备名称新增一个固定的软链接：
+
+`KERNEL=="ttyUSB*",KERNELS=="1-1.3",MODE:="0x777", SYMLINK+="tty_RightUp"`
+
+| 键      | 含义                                                         |
+| ------- | ------------------------------------------------------------ |
+| KERNEL  | 在内核里看到的设备名字，`ttyUSB*`是树莓派默认给USB转串的名称 |
+| KERNELS | 使用`udevadm`命令得到的关于对应端口的绝对信息                |
+| MODE    | 设备文件的权限                                               |
+| SYMLINK | 添加软链接                                                   |
+
+##### udevadm
+
+在编写`udev`规则时，常常使用`udevadm`命令来查看设备属性。当获取到设备特定属性之后，我们便能编写对于特定设备或端口的特殊规则。
+
+在树莓派中，对于同一USB端口插入不同的USB转串口设备，设备的`KERNELS`的部分参数始终不变；而插入不同USB端口，`KERNELS`的参数又都不同，所以在这里我们使用`KERNELS`参数来识别对应的USB端口。
+
+使用：`udevadm info --attribute-walk --name=/dev/ttyUSB0 | grep KERNELS`
+
+得到：
+
+```
+KERNELS=="ttyUSB0"
+KERNELS=="1-1.3:1.0"
+KERNELS=="1-1.3"
+KERNELS=="1-1"
+KERNELS=="usb1"
+KERNELS=="3f980000.usb"
+KERNELS=="soc"
+KERNELS=="platform"
+```
+
+其中的数字部分是层层递进的：
+
+```
+KERNELS=="1-1.3:1.0"
+KERNELS=="1-1.3"
+KERNELS=="1-1"
+```
+
+选取不带`:`的最长的那行数据便是此端口的特定参属性，填入规则中，则最终规则为：
+
+`KERNEL=="ttyUSB*",KERNELS=="1-1.3",MODE:="0x777", SYMLINK+="tty_RightUp"`
+
+重启服务生效：`sudo /etc/init.d/udev restart`
+
+#### 参考：
+
+[树莓派绑定USB串口id](https://blog.csdn.net/qq_26800875/article/details/83302546)
+
+[Linux┊详解udev](https://www.cnblogs.com/sopost/archive/2013/01/09/2853200.html)
+
+[udev wiki][link]
+
+[link]:https://wiki.archlinux.org/index.php/Udev_(简体中文)	"udev wiki"
+
+
 
 <br/>
 

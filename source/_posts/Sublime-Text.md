@@ -11,6 +11,9 @@ tags:
 响应超快，超好用的文本编辑器。
 <!--more-->
 
+
+<br/>
+
 ### 中文乱码BUG
 
 * Sublime Text 默认采用UTF8编码，这就造成了许多采用GBK编码的文件里的中文显示为乱码。需要安装一个专门解决这个问题的插件：ConvertToUTF8 。要安装这个插件，首先要安装 Sublime Text 的 **Package Control**。
@@ -20,6 +23,9 @@ tags:
   * 安装完成后需要重启Sublime Text 。
 * 接下来就可以安装 ConvertToUTF8 了，按Ctrl + Shift + P打开万能搜索框，然后输入install package回车，这时候会加载所有的packages列表。看到列表之后再输入ConvertToUTF8回车，就会下载安装这个包了。装好之后无需重启Sublime Text你就会惊喜的发现原来的中文乱码都能正常显示了。
 * **直接安装**：https://github.com/seanliang/ConvertToUTF8 项目打包下载并解压，将解压后的文件夹名修改为 *ConvertToUTF8* ，然后将此文件夹移动到 Sublime Text 的 *Packages* 文件夹下（可通过 Sublime Text 菜单中的 Preferences > Browse Packages 找到 *Packages* 文件夹）。
+
+
+<br/>
 
 ### 常用设置
 
@@ -40,17 +46,21 @@ tags:
 
   `"preview_on_click": false,`
 
+
+<br/>
+
 ### 工程搜索
 
-1. 在工程中搜索文件：
+* 在工程中搜索文件：
 
-   `Ctrl + p`，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开
+  `Ctrl + p`，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开
 
-2. 在工程中搜索包含某个字符串的文本：
+* 在工程中搜索包含某个字符串的文本：
 
-   在文件夹目录中点击右键，选择“Find in Folder”
+  在文件夹目录中点击右键，选择`Find in Folder`
 
 
+<br/>
 
 ### 快捷键
 
@@ -61,6 +71,9 @@ tags:
 | Ctrl + Shift + Tab | 跳转到文件栏的左边一个文件 |
 | Alt + -            | 跳转到上一个输入点         |
 | Alt + Shift + -    | 跳转到下一个输入点         |
+
+
+<br/>
 
 ### 快捷编译/运行程序
 
