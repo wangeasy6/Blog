@@ -1,6 +1,5 @@
 ---
 title: C++语言特性总结
-date: 2018-11-17 15:35:03
 toc: true
 categories:
   - tech
