@@ -2,7 +2,7 @@
 title: linux-pdf
 date: 2018-07-28 02:44:49
 categories:
-  - tools
+  - tech
 ---
 
 ### MuPDF

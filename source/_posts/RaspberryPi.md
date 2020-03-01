@@ -1,9 +1,9 @@
 ---
 title: Raspberry Pi 手记
-date: 2018-07-28 00:08:00
+date: 2020-02-11 10:08:00
 toc: true
 categories:
-  - tools
+  - tech
 tags:
   - 树莓派
   - RaspberryPi
@@ -11,22 +11,25 @@ tags:
 ---
 
 ### 主题
-* [ 开机更新 ](/2018/07/28/raspberryPi/#开机更新)
-* [ 常用软件 ](/2018/07/28/raspberryPi/#常用软件)
-* [ 更换源地址到国内镜像 ](/2018/07/28/raspberryPi/#更换源地址到国内镜像)
-* [ 更换pip源到国内镜像 ](/2018/07/28/raspberryPi/#更换pip源到国内镜像)
-* [ 开启Root权限 ](/2018/07/28/raspberryPi/#开启Root权限)
-* [ 命令行配置无线网络连接 ](/2018/07/28/raspberryPi/#命令行配置无线网络连接)
-* [ 配置网口为固定IP ](/2018/07/28/raspberryPi/#配置网口为固定IP)
-* [ 树莓派3B使用UART ](/2018/07/28/raspberryPi/#树莓派3B使用UART)
-* [配置固定USB端口名称](/2018/07/28/raspberryPi/#配置固定USB端口名称)
-* [ 树莓派开启SSH ](/2018/07/28/raspberryPi/#树莓派开启SSH)
-* [ 树莓派开启Samba ](/2018/07/28/raspberryPi/#树莓派开启Samba)
-* [ 树莓派横竖屏转换 ](/2018/07/28/raspberryPi/#树莓派横竖屏转换)
-* [中文输入](/2018/07/28/raspberryPi/#树莓派中文输入)
-* [软键盘](/2018/07/28/raspberryPi/#树莓派软键盘)
-* [ rar解压缩 ](/2018/07/28/raspberryPi/#rar解压缩)
-* [Windows 下远程开发 QT 环境搭建]()
+* [ 开机更新 ](/2020/02/11/RaspberryPi/#开机更新)
+* [ 更换源地址到国内镜像 ](/2020/02/11/RaspberryPi/#更换源地址到国内镜像)
+* [ 更换pip源到国内镜像 ](/2020/02/11/RaspberryPi/#更换pip源到国内镜像)
+* [ 开启Root权限 ](/2020/02/11/RaspberryPi/#开启Root权限)
+* [ 命令行配置无线网络连接 ](/2020/02/11/RaspberryPi/#命令行配置无线网络连接)
+* [ 配置网口为固定IP ](/2020/02/11/RaspberryPi/#配置网口为固定IP)
+* [ 树莓派3B使用UART ](/2020/02/11/RaspberryPi/#树莓派3B使用UART)
+* [配置固定USB端口名称](/2020/02/11/RaspberryPi/#配置固定USB端口名称)
+* [ 树莓派开启SSH ](/2020/02/11/RaspberryPi/#树莓派开启SSH)
+* [开启远程桌面](/2020/02/11/RaspberryPi/#开启远程桌面)
+* [ 树莓派开启Samba ](/2020/02/11/RaspberryPi/#树莓派开启Samba)
+* [切换屏幕分辨率](/2020/02/11/RaspberryPi/#切换屏幕分辨率)
+* [ 树莓派横竖屏转换 ](/2020/02/11/RaspberryPi/#树莓派横竖屏转换)
+* [截屏](/2020/02/11/RaspberryPi/#截屏)
+* [中文输入](/2020/02/11/RaspberryPi/#树莓派中文输入)
+* [软键盘](/2020/02/11/RaspberryPi/#树莓派软键盘)
+* [ rar解压缩 ](/2020/02/11/RaspberryPi/#rar解压缩)
+
+硬件环境：**Raspberry Pi 3B+**
 
 <!--more-->
 <br/>
@@ -35,10 +38,6 @@ tags:
 `sudo rpi-update`         // 固件更新
 `sudo apt-get update`     // 软件源更新
 `sudo apt-get upgrade`    // 软件更新
-
-<br/>
-### 常用软件
-`sudo apt-get install vim`
 
 <br/>
 
@@ -208,13 +207,13 @@ static domian_name_servers=114.114.115.115
 
 目前解决方法就是，关闭蓝牙对硬件串口的使用，将硬件串口重新恢复给GPIO的串口使用，也就意味着树莓派3的板载蓝牙和串口，只能二选一使用。
 
-树莓派GPIO中串口的管脚在 p8、p10、GND： 
+树莓派GPIO中串口的管脚在 p8、p10、GND：
 
-![Pin.png](/images/raspberryPi/Pin.png)
+![Pin.png](/images/RaspberryPi/Pin.png)
 
 2.配置设备树
 
-下载 [pi3-miniuart-bt-overlay.dtb](/images/raspberryPi/pi3-miniuart-bt-overlay.dtb) 文件，并将文件拷贝到 /boot/overlays/ 目录下。
+下载 [pi3-miniuart-bt-overlay.dtb](/images/RaspberryPi/pi3-miniuart-bt-overlay.dtb) 文件，并将文件拷贝到 /boot/overlays/ 目录下。
 
 编辑 /boot/config.txt：`sudo vim /boot/config.txt`
 
@@ -374,6 +373,58 @@ openssh-server配置文件为“/etc/ssh/sshd_config”，可以配置SSH服务�
 
 <br/>
 
+### 开启远程桌面
+
+#### VNC远程桌面连接
+
+树莓派**3B+**自带vncserver，所以只要开启就可以进行远程连接。
+
+##### 启动树莓派VNC服务
+
+Enable VNC：`sudo raspi-config` -> `Interfacing Options` -> `VNC` -> `<是>` -> `<确定>` -> `<Finish>`
+
+启动服务：`vncserver`
+
+到这儿在树莓派上的vnc服务就已经启动了，启动服务会给出连接地址，就在“New desktop is ...”后面的括号里。
+
+##### 使用PC连接
+
+1. 下载对应版本的[VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/windows/)，安装好；
+2. 在输入框中输入连接地址，回车，输入树莓派的账号密码，点击连接。
+
+#### RDP远程桌面连接
+
+RDP是“Windows远程桌面连接”所使用的协议，xrdp是一个开源的RDP Server软件。
+
+##### 启动树莓派RDP服务
+
+安装xrdp：`sudoapt-get install xrdp`
+
+##### 使用PC连接
+
+1. 打开Windows “远程桌面连接”；
+2. 输入树莓派IP，点击连接；
+3. session 选择 Xorg，输入用户密码，Ok。
+
+#### VNC/RDP对比
+
+1. VNC可以记住密码，RDP需要每次登录都输入用户名密码；
+2. 都可以在退出后重新连接，原有的工作界面不变；
+3. RDP画质相对好一些。
+4. VNC改变窗口大小，会自己适配；RDP如果显示窗口小于原画，则只会显示部分，会在左边或下边显示拖动条。
+
+<br/>
+
+### 切换屏幕分辨率
+
+命令：`sudo raspi-config` -> `Advanced Options` -> `Resolution`
+
+树莓派**3B+**提供了两种输出模式，**CEA**和**DMT**。
+
+我的显示器分辨率是2560×1440，如果选择**CEA**模式的分辨率，会居中显示在2560×1440的屏幕上，四周会有黑边；如果选择**DMT**模式，无论选择什么分辨率，都会自动拉伸，覆盖到整个屏幕。
+
+<br/>
+
 ### 树莓派横竖屏转换
 
 编辑/boot/config.txt，根据想旋转的角度
@@ -462,7 +513,7 @@ Device 'WaveShare WaveShare Touchscreen':
 
 如屏幕显示为翻转90度。/boot/config.txt设置为display_rotate=1
 上述信息中Evdev Axis Inversion 项是每条轴的旋转设置项，后面第一个参数是x,第二个参数是y.
-Evdev Axes Swap项对应的是两条轴的交换。0为不翻转，1为翻转 
+Evdev Axes Swap项对应的是两条轴的交换。0为不翻转，1为翻转
 例如，x轴原本是朝向右的，当把Evdev Axis Inversion的第一个参数设置为1，即x轴朝向左。
 
 现在目的是要触摸旋转90度，从坐标轴理解：即目的x轴正向为初始y轴的反向。目的y轴的正方向为初始x轴的正向。
@@ -528,21 +579,37 @@ EndSection
 
 <br/>
 
+### 截屏
+
+1.首先在终端中用下面的命令安装名叫**scrot**的截屏工具。
+   `sudo apt-get install scrot`
+
+2.截取全屏幕执行：
+   `sudo scrot`
+
+3.用鼠标选区屏幕区域截取执行：
+   `sudo scrot -s`
+
+4.20秒后截取，参数可以自定义：
+   `sudo scrot -d 20`
+
+<br/>
+
 ### 树莓派中文输入
 
-1、基于Fcitx输入法框架的google拼音输入法，在命令行中输入以下命令即可安装。
+1.基于Fcitx输入法框架的google拼音输入法，在命令行中输入以下命令即可安装。
 
 安装命令：`sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin`
 
 
 
-2、SCIM支持多国语言的输入法，默认支持英语键盘、智能拼音、五笔字型、自然码、二笔等。
+2.SCIM支持多国语言的输入法，默认支持英语键盘、智能拼音、五笔字型、自然码、二笔等。
 
 安装命令：`sudo apt-get install scim-pinyin`
 
 
 
-3、Ibus输入法是一个基于Python开发的全新输入法框架，支持多种语言。
+3.Ibus输入法是一个基于Python开发的全新输入法框架，支持多种语言。
 
 安装命令：`sudo apt-get install ibus ibus-pinyin`
 

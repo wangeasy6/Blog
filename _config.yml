@@ -81,7 +81,9 @@ theme: easy
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/wangeasy6/Blog.git
+  repo: https://gitee.com/EasyW/EasyW.git  # deploy之后要到https://gitee.com/EasyW/EasyW/pages更新一下
+  #https://git.dev.tencent.com/EasyW/Blog.git
+  #https://github.com/wangeasy6/Blog.git
   branch: master
   message: "Blog updated"
 # {{ now('YYYY-MM-DD HH:mm:ss') }}
