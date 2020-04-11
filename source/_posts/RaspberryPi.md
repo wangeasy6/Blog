@@ -41,6 +41,17 @@ tags:
 
 <br/>
 
+### GPIO
+
+#### wiringPi包括一套gpio控制命令
+
+* 查看GPIO图：`gpio readall`
+* 读：`gpio read <pin>`
+* 设置高低：`gpio mode <pin> <in/out/pwm/clock/up/down/tri`
+* `gpio write <pin> <1/0>`
+
+<br/>
+
 ### 更换源地址到国内镜像
 
 1.lsb_release -a 查看自己的版本类型
@@ -415,6 +426,41 @@ RDP是“Windows远程桌面连接”所使用的协议，xrdp是一个开源的
 
 <br/>
 
+### 禁止休眠/屏幕常亮
+
+Raspbian使用了轻量桌面显示管理器即lightdm,通过该管理器可对xserver桌面会话交互、显示等进行设置.
+
+**1.打开lightdm.conf**
+
+```
+sudo vi /etc/lightdm/lightdm.conf
+```
+
+**2.修改lightdm.conf**
+
+找到[SeatDefaults]段下的’xserver-command’,取消注释,修改为如下:
+
+```
+#xserver-command=X
+```
+
+修改为
+
+```
+xserver-command=X -s 0 -dpms
+```
+
+- -s  设置屏幕保护不启用
+- -dpms 关闭电源节能管理
+
+**3.重启**
+
+```
+ sudo reboot
+```
+
+<br/>
+
 ### 切换屏幕分辨率
 
 命令：`sudo raspi-config` -> `Advanced Options` -> `Resolution`
@@ -692,3 +738,11 @@ ps 看到samba进程smbd
 
 8.unrar 解压命令
   `unrar x xxx.part1.rar`
+
+<br/>
+
+### 其它
+
+* [HDMI-VGA转换器黑屏解决方法](https://blog.csdn.net/mdq11111/article/details/50281891)
+* [使用overlayfs打造一个只读的不怕意外关机的树莓派Raspberry Pi](https://blog.csdn.net/zhufu86/article/details/78906046)
+

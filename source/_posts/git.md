@@ -38,6 +38,11 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
 * 修改最近一次未提交的commit Log信息
   git commit --amend  （如果你此时想要更新作者提交时间等也可以在amend之后加上 --date="$(date -R)"）
 
+* 修改已push的commit信息
+  
+* git commit --amend
+  * git push -f（强制提交）
+  
 * 批量修改提交历史
   http://www.cnblogs.com/rickyk/p/3981083.html
   https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages

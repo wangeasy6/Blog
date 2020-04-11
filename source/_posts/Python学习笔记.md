@@ -47,6 +47,8 @@ pip国内的一些镜像地址：
   index-url = https://pypi.tuna.tsinghua.edu.cn/simple
   ```
 
+pip 查询可用版本：`pip insatall xx==`
+
 <br/>
 
 ### 源码加密
@@ -78,3 +80,6 @@ Python 是以文本形式存储和运行的，在发布的时候常常需要将�
 6 patch 版本
 
 `rm -rf *.so* Crypto`
+
+### Log
+

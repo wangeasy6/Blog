@@ -7,6 +7,7 @@ date: 2020-03-29 22:13:56
 tags:
 ---
 
+![PyQt.jpg](/images/PyQt5小结/PyQt.jpg)
 
 基于**PyQt5**的开发项目，代码小结。
 项目界面比较简单，只使用了基础部分，没有使用**QML**、**Qt Quick**等高级用法。
@@ -23,6 +24,7 @@ tags:
 
 * **Python 3.5.3**
 *  **PyQt 5.7.1**（环境安装：`sudo apt-get insatll python3-pyqt5`）
+*  **PyQt 5.14.2**（环境安装：pip3 install PyQt5==5.14.2（[python setup.py egg_info error 解决](https://www.cnblogs.com/qq952693358/p/9592300.html)））
 
 硬件环境：**Windows 10**
 
@@ -47,24 +49,24 @@ from PyQt5.QtGui import QIcon
 
 
 class MainWindow(QWidget):
-    
+
     def __init__(self):
         super().__init__()
         #界面绘制交给InitUi方法
         self.initUI()
-        
+
     def initUI(self):
         #设置窗口的位置和大小
-        self.setGeometry(300, 300, 300, 220)  
+        self.setGeometry(300, 300, 300, 220)
         #设置窗口的标题
         self.setWindowTitle('Simple')
         #设置窗口的图标，引用当前目录下的icon.png图片
-        self.setWindowIcon(QIcon('icon.png'))        
-		
+        self.setWindowIcon(QIcon('icon.png'))
+
         #显示窗口
         self.show()
 
-        
+
 if __name__ == '__main__':
     #创建应用程序和对象
     app = QApplication(sys.argv)
