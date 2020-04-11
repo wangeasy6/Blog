@@ -16,7 +16,7 @@
 <meta property="og:description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/images/Cover/vim.jpg">
-<meta property="og:updated_time" content="2020-03-01T02:23:32.000Z">
+<meta property="og:updated_time" content="2020-04-08T01:44:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim">
 <meta name="twitter:description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
@@ -660,6 +660,22 @@
 <td>将TAB符号以^I显示，行尾显示$字符</td>
 </tr>
 <tr>
+<td><code>:set tabstop=4</code></td>
+<td>设置读取到的tab制表符的显示宽度</td>
+</tr>
+<tr>
+<td><code>:set shftwidth=4</code></td>
+<td>设置tab制表符宽度</td>
+</tr>
+<tr>
+<td><code>:set expandtab</code></td>
+<td>将tab转成space，实际存储也是space</td>
+</tr>
+<tr>
+<td><code>:retab!</code></td>
+<td>将既有的tab转成space，可在上一条命名后调用</td>
+</tr>
+<tr>
 <td><code>:set listchars=tab:&gt;-,trail:-</code></td>
 <td>TAB显示为”&gt;—“，行尾空格显示为”-“（tab:后可设置任意两个字符，trail:后可设置任意一个字符）</td>
 </tr>
@@ -854,7 +870,28 @@
 <h4 id="颜色有误"><a href="#颜色有误" class="headerlink" title="颜色有误"></a>颜色有误</h4><p>Vim处理颜色时并不是通读整个文件进行解析.。它从你浏览的地方开始解析，这样会节省很多时间，但是有时候颜色就会弄错。</p>
 <p> 一个简单的办法是用<code>CTRL-L</code>。或者稍往回滚动几行。</p>
 <p><br></p>
-<h4 id="shell翻页"><a href="#shell翻页" class="headerlink" title="shell翻页"></a>shell翻页</h4><p>在shell中操作时不想插鼠标，那怎么上下页呢，键盘命令操作滚动条命令：<code>Shift + 上下键/PageUp/PageDown</code></p>
+<h4 id="shell翻页"><a href="#shell翻页" class="headerlink" title="shell翻页"></a>shell翻页</h4><p>在shell中操作时不想插鼠标，那怎么上下页呢，键盘命令操作滚动条命令：<code>Shift + PageUp/PageDown</code></p>
+<h3 id="图像编辑器常用功能"><a href="#图像编辑器常用功能" class="headerlink" title="图像编辑器常用功能"></a>图像编辑器常用功能</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多行调整缩进</td>
+<td>(命令模式)<code>:n1,n2&gt; / :n1,n2&lt;</code></td>
+</tr>
+<tr>
+<td></td>
+<td>(可视模式)选中多行，<code>shift+&gt; / shift+&lt;</code></td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
 
       
 
@@ -976,7 +1013,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件"><span class="toc-number">2.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模式介绍及切换"><span class="toc-number">3.</span> <span class="toc-text">模式介绍及切换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-Vim所有模式"><span class="toc-number">3.1.</span> <span class="toc-text">0.Vim所有模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-正常模式"><span class="toc-number">3.2.</span> <span class="toc-text">1.正常模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-插入模式"><span class="toc-number">3.3.</span> <span class="toc-text">2.插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-可视模式"><span class="toc-number">3.4.</span> <span class="toc-text">3.可视模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-命令模式"><span class="toc-number">3.5.</span> <span class="toc-text">4.命令模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正常模式"><span class="toc-number">4.</span> <span class="toc-text">正常模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可视模式"><span class="toc-number">5.</span> <span class="toc-text">可视模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#保存文件"><span class="toc-number">6.1.</span> <span class="toc-text">保存文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜索"><span class="toc-number">6.2.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#替换"><span class="toc-number">6.3.</span> <span class="toc-text">替换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#range："><span class="toc-number">6.3.1.</span> <span class="toc-text">range：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#flags："><span class="toc-number">6.3.2.</span> <span class="toc-text">flags：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置"><span class="toc-number">6.4.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多文件编辑"><span class="toc-number">6.5.</span> <span class="toc-text">多文件编辑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级功能"><span class="toc-number">7.</span> <span class="toc-text">高级功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#系统-换行符格式转换"><span class="toc-number">7.1.</span> <span class="toc-text">系统/换行符格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编码格式转换"><span class="toc-number">7.2.</span> <span class="toc-text">编码格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置"><span class="toc-number">7.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH时从系统复制到vim"><span class="toc-number">7.4.</span> <span class="toc-text">SSH时从系统复制到vim</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vim和shell切换"><span class="toc-number">7.5.</span> <span class="toc-text">vim和shell切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#颜色有误"><span class="toc-number">7.6.</span> <span class="toc-text">颜色有误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shell翻页"><span class="toc-number">7.7.</span> <span class="toc-text">shell翻页</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件"><span class="toc-number">2.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模式介绍及切换"><span class="toc-number">3.</span> <span class="toc-text">模式介绍及切换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-Vim所有模式"><span class="toc-number">3.1.</span> <span class="toc-text">0.Vim所有模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-正常模式"><span class="toc-number">3.2.</span> <span class="toc-text">1.正常模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-插入模式"><span class="toc-number">3.3.</span> <span class="toc-text">2.插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-可视模式"><span class="toc-number">3.4.</span> <span class="toc-text">3.可视模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-命令模式"><span class="toc-number">3.5.</span> <span class="toc-text">4.命令模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正常模式"><span class="toc-number">4.</span> <span class="toc-text">正常模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可视模式"><span class="toc-number">5.</span> <span class="toc-text">可视模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#保存文件"><span class="toc-number">6.1.</span> <span class="toc-text">保存文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜索"><span class="toc-number">6.2.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#替换"><span class="toc-number">6.3.</span> <span class="toc-text">替换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#range："><span class="toc-number">6.3.1.</span> <span class="toc-text">range：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#flags："><span class="toc-number">6.3.2.</span> <span class="toc-text">flags：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置"><span class="toc-number">6.4.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多文件编辑"><span class="toc-number">6.5.</span> <span class="toc-text">多文件编辑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级功能"><span class="toc-number">7.</span> <span class="toc-text">高级功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#系统-换行符格式转换"><span class="toc-number">7.1.</span> <span class="toc-text">系统/换行符格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编码格式转换"><span class="toc-number">7.2.</span> <span class="toc-text">编码格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置"><span class="toc-number">7.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH时从系统复制到vim"><span class="toc-number">7.4.</span> <span class="toc-text">SSH时从系统复制到vim</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vim和shell切换"><span class="toc-number">7.5.</span> <span class="toc-text">vim和shell切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#颜色有误"><span class="toc-number">7.6.</span> <span class="toc-text">颜色有误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shell翻页"><span class="toc-number">7.7.</span> <span class="toc-text">shell翻页</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像编辑器常用功能"><span class="toc-number">8.</span> <span class="toc-text">图像编辑器常用功能</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1072,10 +1109,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -1085,6 +1118,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>

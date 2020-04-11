@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-25T06:56:18.000Z">
+<meta property="og:updated_time" content="2020-04-08T08:31:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用手记">
 <meta name="twitter:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
@@ -214,6 +214,13 @@
 <li><p>从服务器拉回本地，即更新本地文件<br>git pull</p>
 </li>
 <li><p>修改最近一次未提交的commit Log信息<br>git commit –amend  （如果你此时想要更新作者提交时间等也可以在amend之后加上 –date=”$(date -R)”）</p>
+</li>
+<li><p>修改已push的commit信息</p>
+</li>
+<li><p>git commit –amend</p>
+<ul>
+<li>git push -f（强制提交）</li>
+</ul>
 </li>
 <li><p>批量修改提交历史<br><a href="http://www.cnblogs.com/rickyk/p/3981083.html" target="_blank" rel="noopener">http://www.cnblogs.com/rickyk/p/3981083.html</a><br><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages" target="_blank" rel="noopener">https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages</a></p>
 </li>
@@ -464,10 +471,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -477,6 +480,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>

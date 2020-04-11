@@ -17,7 +17,7 @@
 <meta property="og:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART  配置固定USB端口名称  树莓派开启SSH  开启远程桌面  树莓派开启Samba  切换屏幕分辨率  树莓派横竖屏转换  截屏 中文输入 软键盘  rar解压缩   硬件环境：Raspberry Pi 3B+">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/images/RaspberryPi/Pin.png">
-<meta property="og:updated_time" content="2020-02-21T04:30:44.000Z">
+<meta property="og:updated_time" content="2020-04-08T01:22:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 手记">
 <meta name="twitter:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART  配置固定USB端口名称  树莓派开启SSH  开启远程桌面  树莓派开启Samba  切换屏幕分辨率  树莓派横竖屏转换  截屏 中文输入 软键盘  rar解压缩   硬件环境：Raspberry Pi 3B+">
@@ -211,6 +211,13 @@
 <p><br></p>
 <h3 id="开机更新"><a href="#开机更新" class="headerlink" title="开机更新"></a>开机更新</h3><p><code>sudo rpi-update</code>         // 固件更新<br><code>sudo apt-get update</code>     // 软件源更新<br><code>sudo apt-get upgrade</code>    // 软件更新</p>
 <p><br></p>
+<h3 id="GPIO"><a href="#GPIO" class="headerlink" title="GPIO"></a>GPIO</h3><h4 id="wiringPi包括一套gpio控制命令"><a href="#wiringPi包括一套gpio控制命令" class="headerlink" title="wiringPi包括一套gpio控制命令"></a>wiringPi包括一套gpio控制命令</h4><ul>
+<li>查看GPIO图：<code>gpio readall</code></li>
+<li>读：<code>gpio read &lt;pin&gt;</code></li>
+<li>设置高低：<code>gpio mode &lt;pin&gt; &lt;in/out/pwm/clock/up/down/tri</code></li>
+<li><code>gpio write &lt;pin&gt; &lt;1/0&gt;</code></li>
+</ul>
+<p><br></p>
 <h3 id="更换源地址到国内镜像"><a href="#更换源地址到国内镜像" class="headerlink" title="更换源地址到国内镜像"></a>更换源地址到国内镜像</h3><p>1.lsb_release -a 查看自己的版本类型</p>
 <p>2.<code>sudo vim /etc/apt/sources.list</code></p>
 <p>   （1）将文件里的默认的官方软件源用# 注释掉<br>   （2）添加下面的软件源（中国科技大学的软件源 ） （手动添加注意空格）</p>
@@ -374,6 +381,21 @@
 <li>VNC改变窗口大小，会自己适配；RDP如果显示窗口小于原画，则只会显示部分，会在左边或下边显示拖动条。</li>
 </ol>
 <p><br></p>
+<h3 id="禁止休眠-屏幕常亮"><a href="#禁止休眠-屏幕常亮" class="headerlink" title="禁止休眠/屏幕常亮"></a>禁止休眠/屏幕常亮</h3><p>Raspbian使用了轻量桌面显示管理器即lightdm,通过该管理器可对xserver桌面会话交互、显示等进行设置.</p>
+<p><strong>1.打开lightdm.conf</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/lightdm/lightdm.conf</span><br></pre></td></tr></table></figure>
+<p><strong>2.修改lightdm.conf</strong></p>
+<p>找到[SeatDefaults]段下的’xserver-command’,取消注释,修改为如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#xserver-command=X</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xserver-command=X -s 0 -dpms</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-s  设置屏幕保护不启用</li>
+<li>-dpms 关闭电源节能管理</li>
+</ul>
+<p><strong>3.重启</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+<p><br></p>
 <h3 id="切换屏幕分辨率"><a href="#切换屏幕分辨率" class="headerlink" title="切换屏幕分辨率"></a>切换屏幕分辨率</h3><p>命令：<code>sudo raspi-config</code> -&gt; <code>Advanced Options</code> -&gt; <code>Resolution</code></p>
 <p>树莓派<strong>3B+</strong>提供了两种输出模式，<strong>CEA</strong>和<strong>DMT</strong>。</p>
 <p>我的显示器分辨率是2560×1440，如果选择<strong>CEA</strong>模式的分辨率，会居中显示在2560×1440的屏幕上，四周会有黑边；如果选择<strong>DMT</strong>模式，无论选择什么分辨率，都会自动拉伸，覆盖到整个屏幕。</p>
@@ -442,6 +464,11 @@
 <p>6.下载 unrar-nonfree 的源代码并编译成 deb<br>  <code>sudo apt-get source -b unrar-nonfree</code></p>
 <p>7.安裝 unrar-nonfree 的deb套件<br>  <code>sudo dpkg -i unrar*.deb</code></p>
 <p>8.unrar 解压命令<br>  <code>unrar x xxx.part1.rar</code></p>
+<p><br></p>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
+<li><a href="https://blog.csdn.net/mdq11111/article/details/50281891" target="_blank" rel="noopener">HDMI-VGA转换器黑屏解决方法</a></li>
+<li><a href="https://blog.csdn.net/zhufu86/article/details/78906046" target="_blank" rel="noopener">使用overlayfs打造一个只读的不怕意外关机的树莓派Raspberry Pi</a></li>
+</ul>
 
       
 
@@ -582,7 +609,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主题"><span class="toc-number">1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开机更新"><span class="toc-number">2.</span> <span class="toc-text">开机更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换源地址到国内镜像"><span class="toc-number">3.</span> <span class="toc-text">更换源地址到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换pip源到国内镜像"><span class="toc-number">4.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启Root权限"><span class="toc-number">5.</span> <span class="toc-text">开启Root权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行配置无线网络连接"><span class="toc-number">6.</span> <span class="toc-text">命令行配置无线网络连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置网口为固定IP"><span class="toc-number">7.</span> <span class="toc-text">配置网口为固定IP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Check一下："><span class="toc-number">7.1.</span> <span class="toc-text">Check一下：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派3B使用UART"><span class="toc-number">8.</span> <span class="toc-text">树莓派3B使用UART</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置固定USB端口名称"><span class="toc-number">9.</span> <span class="toc-text">配置固定USB端口名称</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实现原理-amp-方法："><span class="toc-number">9.1.</span> <span class="toc-text">实现原理&amp;方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#udevadm"><span class="toc-number">9.1.1.</span> <span class="toc-text">udevadm</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考："><span class="toc-number">9.2.</span> <span class="toc-text">参考：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派开启SSH"><span class="toc-number">10.</span> <span class="toc-text">树莓派开启SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启远程桌面"><span class="toc-number">11.</span> <span class="toc-text">开启远程桌面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC远程桌面连接"><span class="toc-number">11.1.</span> <span class="toc-text">VNC远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#启动树莓派VNC服务"><span class="toc-number">11.1.1.</span> <span class="toc-text">启动树莓派VNC服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用PC连接"><span class="toc-number">11.1.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDP远程桌面连接"><span class="toc-number">11.2.</span> <span class="toc-text">RDP远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#启动树莓派RDP服务"><span class="toc-number">11.2.1.</span> <span class="toc-text">启动树莓派RDP服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用PC连接-1"><span class="toc-number">11.2.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC-RDP对比"><span class="toc-number">11.3.</span> <span class="toc-text">VNC/RDP对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换屏幕分辨率"><span class="toc-number">12.</span> <span class="toc-text">切换屏幕分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派横竖屏转换"><span class="toc-number">13.</span> <span class="toc-text">树莓派横竖屏转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#截屏"><span class="toc-number">14.</span> <span class="toc-text">截屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派中文输入"><span class="toc-number">15.</span> <span class="toc-text">树莓派中文输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派软键盘"><span class="toc-number">16.</span> <span class="toc-text">树莓派软键盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派开启Samba"><span class="toc-number">17.</span> <span class="toc-text">树莓派开启Samba</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rar解压缩"><span class="toc-number">18.</span> <span class="toc-text">rar解压缩</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主题"><span class="toc-number">1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开机更新"><span class="toc-number">2.</span> <span class="toc-text">开机更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO"><span class="toc-number">3.</span> <span class="toc-text">GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wiringPi包括一套gpio控制命令"><span class="toc-number">3.1.</span> <span class="toc-text">wiringPi包括一套gpio控制命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换源地址到国内镜像"><span class="toc-number">4.</span> <span class="toc-text">更换源地址到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换pip源到国内镜像"><span class="toc-number">5.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启Root权限"><span class="toc-number">6.</span> <span class="toc-text">开启Root权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行配置无线网络连接"><span class="toc-number">7.</span> <span class="toc-text">命令行配置无线网络连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置网口为固定IP"><span class="toc-number">8.</span> <span class="toc-text">配置网口为固定IP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Check一下："><span class="toc-number">8.1.</span> <span class="toc-text">Check一下：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派3B使用UART"><span class="toc-number">9.</span> <span class="toc-text">树莓派3B使用UART</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置固定USB端口名称"><span class="toc-number">10.</span> <span class="toc-text">配置固定USB端口名称</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实现原理-amp-方法："><span class="toc-number">10.1.</span> <span class="toc-text">实现原理&amp;方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#udevadm"><span class="toc-number">10.1.1.</span> <span class="toc-text">udevadm</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考："><span class="toc-number">10.2.</span> <span class="toc-text">参考：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派开启SSH"><span class="toc-number">11.</span> <span class="toc-text">树莓派开启SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启远程桌面"><span class="toc-number">12.</span> <span class="toc-text">开启远程桌面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC远程桌面连接"><span class="toc-number">12.1.</span> <span class="toc-text">VNC远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#启动树莓派VNC服务"><span class="toc-number">12.1.1.</span> <span class="toc-text">启动树莓派VNC服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用PC连接"><span class="toc-number">12.1.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDP远程桌面连接"><span class="toc-number">12.2.</span> <span class="toc-text">RDP远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#启动树莓派RDP服务"><span class="toc-number">12.2.1.</span> <span class="toc-text">启动树莓派RDP服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用PC连接-1"><span class="toc-number">12.2.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC-RDP对比"><span class="toc-number">12.3.</span> <span class="toc-text">VNC/RDP对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止休眠-屏幕常亮"><span class="toc-number">13.</span> <span class="toc-text">禁止休眠/屏幕常亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换屏幕分辨率"><span class="toc-number">14.</span> <span class="toc-text">切换屏幕分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派横竖屏转换"><span class="toc-number">15.</span> <span class="toc-text">树莓派横竖屏转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#截屏"><span class="toc-number">16.</span> <span class="toc-text">截屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派中文输入"><span class="toc-number">17.</span> <span class="toc-text">树莓派中文输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派软键盘"><span class="toc-number">18.</span> <span class="toc-text">树莓派软键盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派开启Samba"><span class="toc-number">19.</span> <span class="toc-text">树莓派开启Samba</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rar解压缩"><span class="toc-number">20.</span> <span class="toc-text">rar解压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它"><span class="toc-number">21.</span> <span class="toc-text">其它</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -678,10 +705,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -691,6 +714,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>

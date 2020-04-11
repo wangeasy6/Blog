@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="查看包情况： dir() 和 help() 函数非常有用: 12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-29T01:08:46.000Z">
+<meta property="og:updated_time" content="2020-04-02T02:16:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记">
 <meta name="twitter:description" content="查看包情况： dir() 和 help() 函数非常有用: 12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the m">
@@ -204,6 +204,7 @@
 <p><strong>永久修改：</strong></p>
 <p>  Linux：修改 ~/.pip/pip.conf (没有就创建一个)， 内容如下：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
 <p>  Windows：直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
+<p>pip 查询可用版本：<code>pip insatall xx==</code></p>
 <p><br></p>
 <h3 id="源码加密"><a href="#源码加密" class="headerlink" title="源码加密"></a>源码加密</h3><p>Python 是以文本形式存储和运行的，在发布的时候常常需要将其加密。</p>
 <p>我们使用 <code>pyInstaller</code>方案来加密和生成可执行文件。<a href="http://www.pyinstaller.org" target="_blank" rel="noopener">pyinstaller</a>可以运行在2.7和3.5版本，可在Windows、Linux、Mac OS X(64bit)等系统平台上运行。</p>
@@ -222,7 +223,7 @@
 <p><code>src_name/dist/src_name</code></p>
 <p>6 patch 版本</p>
 <p><code>rm -rf *.so* Crypto</code></p>
-
+<h3 id="Log"><a href="#Log" class="headerlink" title="Log"></a>Log</h3>
       
 
       
@@ -343,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更换pip源到国内镜像"><span class="toc-number">1.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码加密"><span class="toc-number">2.</span> <span class="toc-text">源码加密</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更换pip源到国内镜像"><span class="toc-number">1.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码加密"><span class="toc-number">2.</span> <span class="toc-text">源码加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Log"><span class="toc-number">3.</span> <span class="toc-text">Log</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -439,10 +440,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -452,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>
