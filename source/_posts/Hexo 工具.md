@@ -185,6 +185,25 @@ menu:
 * 这个时候应该使用网站的相对路径，所有之前的图片文件夹都会被复制到网站的根目录
   所以，这是时候应该使用相对于网站的路径， /images/xx.png
 
+#### 7.支持mathjax数学公式
+
+hexo默认的渲染器是marked，并不支持mathjax。kramed是在marked基础上修改的，支持了mathjax。你的hexo工程目录下的node_modules中可以找到对应的渲染器文件夹。同时在你的工程目录下用以下命令安装kramed。
+
+```shell
+npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-kramed --save
+```
+
+到主题配置文件中`_config.yml`，找到`mathjax`，将其修改为`true`:
+
+```yaml
+mathjax: true
+```
+
+最后，在文章标题中加入：
+
+```mathjax: true```
+
 ### 参考
 
 * https://www.cnblogs.com/visugar/p/6821777.html
