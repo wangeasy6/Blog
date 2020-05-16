@@ -16,7 +16,7 @@
 <meta property="og:description" content="用Visual Studio + C#写上位机，获得一份简单的快乐。 Visual Studio提供了非常易用的开发环境，对于Windows.Form来说，控件直接拖拽完成界面开发，点击对应的控件即自动添加click方法，每个控件都有一个事件列表，控件支持哪些事件一目了然，开发速度自然快了。 C#基于Windows .Net，对库的封装程度比较高，还有很多语法糖，VS还提供了自定添加引用，输入提">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/images/CSharp代码小结/vs.jfif">
-<meta property="og:updated_time" content="2020-04-11T15:53:04.000Z">
+<meta property="og:updated_time" content="2020-04-30T06:59:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C#代码小结">
 <meta name="twitter:description" content="用Visual Studio + C#写上位机，获得一份简单的快乐。 Visual Studio提供了非常易用的开发环境，对于Windows.Form来说，控件直接拖拽完成界面开发，点击对应的控件即自动添加click方法，每个控件都有一个事件列表，控件支持哪些事件一目了然，开发速度自然快了。 C#基于Windows .Net，对库的封装程度比较高，还有很多语法糖，VS还提供了自定添加引用，输入提">
@@ -55,7 +55,7 @@
 		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">遇见未知的自己，拥抱所有的可能</p>
+		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -111,7 +111,7 @@
 			  <h1 class="header-author js-header-author">Easy Wang</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>遇见未知的自己，拥抱所有的可能<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -259,6 +259,62 @@
 <p><strong>BitConverter</strong></p>
 <p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.bitconverter?view=netframework-4.8" target="_blank" rel="noopener">BitConverter</a> 类用于整个数组类型的转换。BitConverter 类包括用于在每个基元类型与字节数组之间进行转换的静态方法。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">byte[] btAryTranData = &#123; 0xFA, 0x00, 0x00, 0x00, 0x12, 0x00, 0x01, 0x00, 0xE4, 0x0C, 0xFB &#125;;</span><br><span class="line">Console.WriteLine(BitConverter.ToString(btAryTranData, 0));</span><br></pre></td></tr></table></figure>
+<p><strong>Marshal</strong></p>
+<p> <a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.runtime.interopservices.marshal?view=netframework-4.7.2" target="_blank" rel="noopener">Marshal</a> 类的方法用于分配非托管内存、复制非托管内存块、将托管类型转换为非托管类型，此外还提供了在与非托管代码交互时使用的其他杂项方法。</p>
+<table>
+<thead>
+<tr>
+<th>常用函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AllocHGlobal</td>
+<td>从进程的非托管内存中分配内存</td>
+</tr>
+<tr>
+<td>FreeHGlobal(IntPtr)</td>
+<td>释放以前从进程的非托管内存中分配的内存</td>
+</tr>
+<tr>
+<td>DestroyStructure(IntPtr, Type)</td>
+<td>释放指定的非托管内存块所指向的所有子结构。</td>
+</tr>
+<tr>
+<td>Copy</td>
+<td></td>
+</tr>
+<tr>
+<td>PtrToStringAnsi</td>
+<td>将非托管 ANSI 字符串</td>
+</tr>
+<tr>
+<td>PToStructure</td>
+<td>将数据从非托管内存块封送到托管对象</td>
+</tr>
+<tr>
+<td>ReadByte</td>
+<td>从非托管内存中读取单个字节</td>
+</tr>
+<tr>
+<td>ReadInt16</td>
+<td>从非托管内存中读取单个 16 位带符号整数</td>
+</tr>
+<tr>
+<td>WriteByte</td>
+<td>将单字节写入非托管内存</td>
+</tr>
+<tr>
+<td>WriteInt16</td>
+<td>将一个字符作为16位整数值写入非托管内存</td>
+</tr>
+<tr>
+<td>SizeOf</td>
+<td>返回对象的非托管大小（以字节为单位）</td>
+</tr>
+</tbody>
+</table>
 <p><strong>ToString</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float f = 865.50f;</span><br><span class="line">string strTemp = f.ToString(&quot;0.000&quot;);</span><br></pre></td></tr></table></figure>
 <p><br></p>
