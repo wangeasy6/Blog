@@ -163,6 +163,25 @@ byte[] btAryTranData = { 0xFA, 0x00, 0x00, 0x00, 0x12, 0x00, 0x01, 0x00, 0xE4, 0
 Console.WriteLine(BitConverter.ToString(btAryTranData, 0));
 ```
 
+**Marshal**
+
+ [Marshal](https://docs.microsoft.com/zh-cn/dotnet/api/system.runtime.interopservices.marshal?view=netframework-4.7.2) 类的方法用于分配非托管内存、复制非托管内存块、将托管类型转换为非托管类型，此外还提供了在与非托管代码交互时使用的其他杂项方法。
+
+
+| 常用函数                       | 说明                                       |
+| ------------------------------ | ------------------------------------------ |
+| AllocHGlobal                   | 从进程的非托管内存中分配内存               |
+| FreeHGlobal(IntPtr)            | 释放以前从进程的非托管内存中分配的内存     |
+| DestroyStructure(IntPtr, Type) | 释放指定的非托管内存块所指向的所有子结构。 |
+| Copy                           |                                            |
+| PtrToStringAnsi                | 将非托管 ANSI 字符串                       |
+| PToStructure                   | 将数据从非托管内存块封送到托管对象         |
+| ReadByte                       | 从非托管内存中读取单个字节                 |
+| ReadInt16                      | 从非托管内存中读取单个 16 位带符号整数        |
+| WriteByte                      | 将单字节写入非托管内存                     |
+| WriteInt16                     | 将一个字符作为16位整数值写入非托管内存        |
+| SizeOf                         | 返回对象的非托管大小（以字节为单位）          |
+
 **ToString**
 
 ```c#
