@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-08T08:31:40.000Z">
+<meta property="og:updated_time" content="2020-05-21T06:08:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用手记">
 <meta name="twitter:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
@@ -209,33 +209,39 @@
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
 <li><p>查看远程路径<br><code>git remote -v</code></p>
 </li>
-<li><p>本地提交到服务器<br>git push/ git push origin master , 通常在commit之后</p>
+<li><p>本地提交到服务器<br><code>git push/ git push origin master</code> , 通常在commit之后</p>
 </li>
-<li><p>从服务器拉回本地，即更新本地文件<br>git pull</p>
+<li><p>从服务器拉回本地，即更新本地文件<br><code>git pull</code></p>
 </li>
-<li><p>修改最近一次未提交的commit Log信息<br>git commit –amend  （如果你此时想要更新作者提交时间等也可以在amend之后加上 –date=”$(date -R)”）</p>
+<li><p>将修改的文件恢复为最近提交版本或添加之前</p>
+</li>
+</ul>
+<p><code>git checkout xx_file</code></p>
+<ul>
+<li><p>比较两次commit的差异</p>
+<p><code>git diff fee9f9cf4b cdd577e352 xx_file</code></p>
+</li>
+<li><p>修改最近一次未提交的commit Log信息<br><code>git commit --amend</code>  （如果你此时想要更新作者提交时间等也可以在amend之后加上 –date=”$(date -R)”）</p>
 </li>
 <li><p>修改已push的commit信息</p>
-</li>
-<li><p>git commit –amend</p>
-<ul>
-<li>git push -f（强制提交）</li>
-</ul>
+<p><code>git commit --amend</code></p>
+<p><code>git push -f</code>（强制提交）</p>
 </li>
 <li><p>批量修改提交历史<br><a href="http://www.cnblogs.com/rickyk/p/3981083.html" target="_blank" rel="noopener">http://www.cnblogs.com/rickyk/p/3981083.html</a><br><a href="https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages" target="_blank" rel="noopener">https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages</a></p>
 </li>
 <li><p>切换历史版本</p>
 <p>1、 查找历史版本</p>
-<p>  使用git log命令查看所有的历史版本，获取你git的某个历史版本的id<br>  假设查到历史版本的id是fae6966548e3ae76cfa7f38a461c438cf75ba965。<br>2、 恢复到历史版本</p>
+<p>  使用<code>git log</code>命令查看所有的历史版本，获取你git的某个历史版本的id<br>  假设查到历史版本的id是fae6966548e3ae76cfa7f38a461c438cf75ba965。<br>2、 恢复到历史版本</p>
 <p><code>$ git reset --hard fae6966548e3ae76cfa7f38a461c438cf75ba965</code></p>
 <p>3、 把修改推到远程服务器</p>
 <p><code>$ git push -f -u origin master</code></p>
 </li>
 </ul>
-<h3 id="字符编码统一设置"><a href="#字符编码统一设置" class="headerlink" title="字符编码统一设置"></a>字符编码统一设置</h3><p>1 设置git gui的界面编码<br>git config –global gui.encoding utf-8</p>
-<p>2 设置 commit log 提交时使用 utf-8 编码，可避免服务器上乱码，同时与linux上的提交保持一致！<br>git config –global i18n.commitencoding utf-8</p>
-<p>3 使得在 $ git log 时将 utf-8 编码转换成 gbk 编码，解决Msys bash中git log 乱码。<br>git config –global i18n.logoutputencoding gbk</p>
-<p>4 使得 git log 可以正常显示中文（配合i18n.logoutputencoding = gbk)，在 /etc/profile 中添加：<br>  export LESSCHARSET=utf-8<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global gui.encoding utf-8</span><br><span class="line">git config --global i18n.commitencoding utf-8</span><br><span class="line">git config --global i18n.logoutputencoding utf-8</span><br><span class="line">export LESSCHARSET=utf-8</span><br></pre></td></tr></table></figure></p>
+<h3 id="字符编码统一设置"><a href="#字符编码统一设置" class="headerlink" title="字符编码统一设置"></a>字符编码统一设置</h3><p>1 设置git gui的界面编码<br><code>git config --global gui.encoding utf-8</code></p>
+<p>2 设置 commit log 提交时使用 utf-8 编码，可避免服务器上乱码，同时与linux上的提交保持一致！<br><code>git config --global i18n.commitencoding utf-8</code></p>
+<p>3 使得在 $ git log 时将 utf-8 编码转换成 gbk 编码，解决Msys bash中git log 乱码。<br><code>git config --global i18n.logoutputencoding gbk</code></p>
+<p>4 使得 git log 可以正常显示中文（配合i18n.logoutputencoding = gbk)，在 /etc/profile 中添加：<br>  export LESSCHARSET=utf-8</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global gui.encoding utf-8</span><br><span class="line">git config --global i18n.commitencoding utf-8</span><br><span class="line">git config --global i18n.logoutputencoding utf-8</span><br><span class="line">export LESSCHARSET=utf-8</span><br></pre></td></tr></table></figure>
 <h3 id="记住密码"><a href="#记住密码" class="headerlink" title="记住密码"></a>记住密码</h3><ul>
 <li><p><code>git config --global credential.helper store</code></p>
 </li>
@@ -246,11 +252,11 @@
 </ul>
 <h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ul>
 <li>windows使用git时出现：warning: LF will be replaced by CRLF<ul>
-<li>解决办法：<cmd><br>  $ rm -rf .git  // 删除.git<br>  $ git config –global core.autocrlf false  //禁用自动转换<br>  然后重新执行：<br>  $ git init<br>  $ git add .<br>  </cmd><br>  <a href="http://blog.csdn.net/unityoxb/article/details/20768687" target="_blank" rel="noopener">http://blog.csdn.net/unityoxb/article/details/20768687</a></li>
+<li>解决办法：(cmd)<br>  $ <code>rm -rf .git</code>  // 删除.git<br>  $ <code>git config --global core.autocrlf false</code>  //禁用自动转换<br>  然后重新执行：<br>  $ <code>git init</code><br>  $ <code>git add .</code><br>  <br>  <a href="http://blog.csdn.net/unityoxb/article/details/20768687" target="_blank" rel="noopener">http://blog.csdn.net/unityoxb/article/details/20768687</a></li>
 </ul>
 </li>
-<li>windows Git Bash : git status 中文乱码（如：”\200\346\261\202”）<ul>
-<li>解决办法：git config –global core.quotepath false</li>
+<li>windows Git Bash : <code>git status</code> 中文乱码（如：”\200\346\261\202”）<ul>
+<li>解决办法：<code>git config --global core.quotepath false</code></li>
 </ul>
 </li>
 </ul>
