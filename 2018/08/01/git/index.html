@@ -200,7 +200,7 @@
 </ul>
 </li>
 <li>通过命令 sudo yum install git-core,安装git（gitServer）</li>
-<li>使用命令 git —bare init /home/git/myRep,初始化仓库</li>
+<li>使用命令 git –bare init /home/git/myRep,初始化仓库</li>
 <li>在gitClient上，通过git clone命令进行克隆远程仓库<ul>
 <li>Git clone git@gitServer:/home/git/myRep</li>
 </ul>
@@ -221,7 +221,7 @@
 <li><p>比较两次commit的差异</p>
 <p><code>git diff fee9f9cf4b cdd577e352 xx_file</code></p>
 </li>
-<li><p>修改最近一次未提交的commit Log信息<br><code>git commit --amend</code>  （如果你此时想要更新作者提交时间等也可以在amend之后加上 —date=”$(date -R)”）</p>
+<li><p>修改最近一次未提交的commit Log信息<br><code>git commit --amend</code>  （如果你此时想要更新作者提交时间等也可以在amend之后加上 –date=”$(date -R)”）</p>
 </li>
 <li><p>修改已push的commit信息</p>
 <p><code>git commit --amend</code></p>
@@ -252,7 +252,7 @@
 </ul>
 <h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ul>
 <li>windows使用git时出现：warning: LF will be replaced by CRLF<ul>
-<li>解决办法：(cmd)<br>  $ <code>rm -rf .git</code>  // 删除.git<br>  $ <code>git config --global core.autocrlf false</code>  //禁用自动转换<br>  然后重新执行：<br>  $ <code>git init</code><br>  $ <code>git add .</code><br>  &lt;/cmd&gt;<br>  <a href="http://blog.csdn.net/unityoxb/article/details/20768687" target="_blank" rel="noopener">http://blog.csdn.net/unityoxb/article/details/20768687</a></li>
+<li>解决办法：(cmd)<br>  $ <code>rm -rf .git</code>  // 删除.git<br>  $ <code>git config --global core.autocrlf false</code>  //禁用自动转换<br>  然后重新执行：<br>  $ <code>git init</code><br>  $ <code>git add .</code><br>  <br>  <a href="http://blog.csdn.net/unityoxb/article/details/20768687" target="_blank" rel="noopener">http://blog.csdn.net/unityoxb/article/details/20768687</a></li>
 </ul>
 </li>
 <li>windows Git Bash : <code>git status</code> 中文乱码（如：”\200\346\261\202”）<ul>
