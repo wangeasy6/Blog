@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="Python 语言特性总结及基础概念。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-05T18:15:38.000Z">
+<meta property="og:updated_time" content="2020-07-08T06:06:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python语言特性总结">
 <meta name="twitter:description" content="Python 语言特性总结及基础概念。">
@@ -228,8 +228,14 @@
 <li><p>模块<br>模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用 python 标准库的方法。</p>
 </li>
 <li><p>包<br>使用一个文件夹包含同一类模块，在目录中包含 “<strong>init</strong>.py” 来声明为一个包。</p>
+<p>使用import引用其它包。</p>
 </li>
 <li><p>异常机制<br>异常机制是语言提供的报告错误和处理错误的途径，它可以将这个问题传递给调用方解决。<br>使用异常可以把错误处理代码和正常的业务处理代码区别开，便于开发和维护。</p>
+</li>
+<li><p>with语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with context_expression [as target(s)]:</span><br><span class="line">        with-body</span><br></pre></td></tr></table></figure>
+<p>with基于上下文管理器，context<em>expression返回一个上下文管理器，在进入body之前会调用上下文管理器的\</em>_enter__()函数，整个body执行完后，会自动调用上下文管理器的__exit__()，可以用于自动关闭文件、线程锁的自动获取和释放等。</p>
+<p>如果指定了as语句，会将上下文管理器的 __enter__() 方法的返回值赋值给 target(s)，target(s) 可以是单个变量，或者由“()”括起来的元组。</p>
 </li>
 </ul>
 <h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><ul>
@@ -494,10 +500,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -507,6 +509,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>

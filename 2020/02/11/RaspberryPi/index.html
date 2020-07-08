@@ -307,6 +307,7 @@
 <p><code>99-com.rules</code>文件就是对于串行通讯端口（COM口）配置的文件，<code>99</code>表示系统应用该规则的顺序。</p>
 <p>在这个文件中，我们可以添加此规则来对设备名称新增一个固定的软链接：</p>
 <p><code>KERNEL==&quot;ttyUSB*&quot;,KERNELS==&quot;1-1.3&quot;,MODE:=&quot;0x777&quot;, SYMLINK+=&quot;tty_RightUp&quot;</code></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -333,6 +334,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="udevadm"><a href="#udevadm" class="headerlink" title="udevadm"></a>udevadm</h5><p>在编写<code>udev</code>规则时，常常使用<code>udevadm</code>命令来查看设备属性。当获取到设备特定属性之后，我们便能编写对于特定设备或端口的特殊规则。</p>
 <p>在树莓派中，对于同一USB端口插入不同的USB转串口设备，设备的<code>KERNELS</code>的部分参数始终不变；而插入不同USB端口，<code>KERNELS</code>的参数又都不同，所以在这里我们使用<code>KERNELS</code>参数来识别对应的USB端口。</p>
 <p>使用：<code>udevadm info --attribute-walk --name=/dev/ttyUSB0 | grep KERNELS</code></p>
@@ -726,10 +728,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -739,6 +737,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>

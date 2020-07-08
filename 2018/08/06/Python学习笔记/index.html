@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="查看包情况： dir() 和 help() 函数非常有用: 12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-02T07:22:28.000Z">
+<meta property="og:updated_time" content="2020-07-08T06:40:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记">
 <meta name="twitter:description" content="查看包情况： dir() 和 help() 函数非常有用: 12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the m">
@@ -206,6 +206,31 @@
 <p>  Windows：直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
 <p>pip 查询可用版本：<code>pip insatall xx==</code></p>
 <p><br></p>
+<h3 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h3><p>在Python中，出现在模块、函数、类、方法定义下的第一个语句如果是注释，会自动变成属性__doc__。</p>
+<p>通过访问__doc__属性可以得到注释文档，通过help()方法可以得到类以及类方法的所有信息，而__doc__则只包含类注释。</p>
+<p><strong>pydoc</strong>，是Python自带的一个文档生成工具。可以在线查看或者生成文件的html。</p>
+<p>启动在线服务（python环境变量下的模块内容）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pydoc [-p 1234]</span><br></pre></td></tr></table></figure>
+<p>直接输出类文档（test_py.py）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pydoc test_py</span><br></pre></td></tr></table></figure>
+<p>生成html（test_py.py）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pydoc -w test_py</span><br></pre></td></tr></table></figure>
+<p>查找模块（会在当前工程目录以及python环境变量目录下查找包含关键词的模块信息）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pydoc -k test_py</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="注释风格"><a href="#注释风格" class="headerlink" title="注释风格"></a>注释风格</h4><p>对文档字符串的惯例是使用三重双引号”“”，第一句是以句号， 问号或惊叹号结尾的概述，接着是一个空行(或者该文档字符串单纯只有一行)， 接着是文档字符串剩下的部分。</p>
+<p>以下是人们常用的几种注释文档风格：</p>
+<p><strong>javadoc</strong></p>
+<p>这是曾经比较流行的一直类似于javadoc的风格。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">This is a javadoc style.</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">@param param1: this is a first param</span></span><br><span class="line"><span class="string">@param param2: this is a second param</span></span><br><span class="line"><span class="string">@return: this is a description of what is returned</span></span><br><span class="line"><span class="string">@raise keyError: raises an exception</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p><strong>reST</strong></p>
+<p>这是现在流行的一种风格，reST风格，Sphinx的御用格式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">This is a reST style.</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">:param param1: this is a first param</span></span><br><span class="line"><span class="string">:param param2: this is a second param</span></span><br><span class="line"><span class="string">:returns: this is a description of what is returned</span></span><br><span class="line"><span class="string">:raises keyError: raises an exception</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p><strong>Google风格</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">This is a groups style docs.</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">Parameters:</span></span><br><span class="line"><span class="string">  param1 - this is the first param</span></span><br><span class="line"><span class="string">  param2 - this is a second param</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">Returns:</span></span><br><span class="line"><span class="string">  This is a description of what is returned</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">Raises:</span></span><br><span class="line"><span class="string">  KeyError - raises an exception</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p><strong>Numpy风格</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">My numpydoc description of a kind</span></span><br><span class="line"><span class="string">of very exhautive numpydoc format docstring.</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">Parameters</span></span><br><span class="line"><span class="string">----------</span></span><br><span class="line"><span class="string">first : array_like</span></span><br><span class="line"><span class="string">  the 1st param name `first`</span></span><br><span class="line"><span class="string">second :</span></span><br><span class="line"><span class="string">  the 2nd param</span></span><br><span class="line"><span class="string">third : &#123;'value', 'other'&#125;, optional</span></span><br><span class="line"><span class="string">  the 3rd param, by default 'value'</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">Returns</span></span><br><span class="line"><span class="string">-------</span></span><br><span class="line"><span class="string">string</span></span><br><span class="line"><span class="string">  a value in a string</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">Raises</span></span><br><span class="line"><span class="string">------</span></span><br><span class="line"><span class="string">KeyError</span></span><br><span class="line"><span class="string">  when a key error</span></span><br><span class="line"><span class="string">OtherError</span></span><br><span class="line"><span class="string">  when an other error</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
 <h3 id="源码加密"><a href="#源码加密" class="headerlink" title="源码加密"></a>源码加密</h3><p>Python 是以文本形式存储和运行的，在发布的时候常常需要将其加密。</p>
 <p>我们使用 <code>pyInstaller</code>方案来加密和生成可执行文件。<a href="http://www.pyinstaller.org" target="_blank" rel="noopener">pyinstaller</a>可以运行在2.7和3.5版本，可在Windows、Linux、Mac OS X(64bit)等系统平台上运行。</p>
 <p>以<code>Linux</code> + <code>Python3.5</code>为例：</p>
@@ -250,6 +275,7 @@
 </ul>
 <p>数字越大越严重，当使用低级别时会默认打印此级别及以上级别日志，如使用Info级别是，会默认输出Waring、Error、Critical。</p>
 <p>使用 logging.Formatter来设置日志格式，logging模块中定义好的可以用于format格式字符串说明：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -312,7 +338,7 @@
 </tr>
 <tr>
 <td>%(created)f</td>
-<td>当前时间，用UNIX标准的表示时间的浮点数表示； 日志事件发生的时间–时间戳，就是当时调用time.time()函数返回的值</td>
+<td>当前时间，用UNIX标准的表示时间的浮点数表示； 日志事件发生的时间—时间戳，就是当时调用time.time()函数返回的值</td>
 </tr>
 <tr>
 <td>%(relativeCreated)d</td>
@@ -324,6 +350,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
       
 
@@ -445,7 +472,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更换pip源到国内镜像"><span class="toc-number">1.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码加密"><span class="toc-number">2.</span> <span class="toc-text">源码加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载-ini配置文件"><span class="toc-number">3.</span> <span class="toc-text">加载.ini配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Logging"><span class="toc-number">4.</span> <span class="toc-text">Logging</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#更换pip源到国内镜像"><span class="toc-number">1.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档注释"><span class="toc-number">2.</span> <span class="toc-text">文档注释</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注释风格"><span class="toc-number">2.1.</span> <span class="toc-text">注释风格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码加密"><span class="toc-number">3.</span> <span class="toc-text">源码加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载-ini配置文件"><span class="toc-number">4.</span> <span class="toc-text">加载.ini配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Logging"><span class="toc-number">5.</span> <span class="toc-text">Logging</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -562,10 +589,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -575,6 +598,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>
