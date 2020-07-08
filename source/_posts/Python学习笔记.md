@@ -51,6 +51,128 @@ pip 查询可用版本：`pip insatall xx==`
 
 <br/>
 
+### 文档注释
+
+在Python中，出现在模块、函数、类、方法定义下的第一个语句如果是注释，会自动变成属性\_\_doc\_\_。
+
+通过访问\_\_doc\_\_属性可以得到注释文档，通过help()方法可以得到类以及类方法的所有信息，而\_\_doc\_\_则只包含类注释。
+
+**pydoc**，是Python自带的一个文档生成工具。可以在线查看或者生成文件的html。
+
+启动在线服务（python环境变量下的模块内容）：
+
+```shell
+python -m pydoc [-p 1234]
+```
+
+直接输出类文档（test_py.py）：
+
+```shell
+python -m pydoc test_py
+```
+
+生成html（test_py.py）：
+
+```shell
+python -m pydoc -w test_py
+```
+
+查找模块（会在当前工程目录以及python环境变量目录下查找包含关键词的模块信息）：
+
+```shell
+python3 -m pydoc -k test_py
+```
+
+<br/>
+
+#### 注释风格
+
+对文档字符串的惯例是使用三重双引号”“”，第一句是以句号， 问号或惊叹号结尾的概述，接着是一个空行(或者该文档字符串单纯只有一行)， 接着是文档字符串剩下的部分。
+
+以下是人们常用的几种注释文档风格：
+
+**javadoc**
+
+这是曾经比较流行的一直类似于javadoc的风格。
+
+```python
+"""
+This is a javadoc style.
+ 
+@param param1: this is a first param
+@param param2: this is a second param
+@return: this is a description of what is returned
+@raise keyError: raises an exception
+"""
+```
+
+**reST**
+
+这是现在流行的一种风格，reST风格，Sphinx的御用格式。
+
+```python
+"""
+This is a reST style.
+ 
+:param param1: this is a first param
+:param param2: this is a second param
+:returns: this is a description of what is returned
+:raises keyError: raises an exception
+"""
+```
+
+**Google风格**
+
+```python
+"""
+This is a groups style docs.
+ 
+Parameters:
+  param1 - this is the first param
+  param2 - this is a second param
+ 
+Returns:
+  This is a description of what is returned
+ 
+Raises:
+  KeyError - raises an exception
+"""
+```
+
+**Numpy风格**
+
+```python
+"""
+My numpydoc description of a kind
+of very exhautive numpydoc format docstring.
+ 
+Parameters
+----------
+first : array_like
+  the 1st param name `first`
+second :
+  the 2nd param
+third : {'value', 'other'}, optional
+  the 3rd param, by default 'value'
+ 
+Returns
+-------
+string
+  a value in a string
+ 
+Raises
+------
+KeyError
+  when a key error
+OtherError
+  when an other error
+"""
+```
+
+
+
+<br/>
+
 ### 源码加密
 
 Python 是以文本形式存储和运行的，在发布的时候常常需要将其加密。
