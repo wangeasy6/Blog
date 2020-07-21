@@ -27,23 +27,28 @@ categories:
 
 ### 常用设置
 
-##### 设置缩进
+**设置缩进**
 
 * 右下角可进行方便设置 Space/Tab，Width
 * “Preferences”，点击“Settings”，在settings-User中添加行：
   `"tab_size": 4,"translate_tabs_to_spaces": true,`
 
-##### 设置删除多余空格
+**设置删除多余空格**
 
 * “Preferences”，点击“Settings”，在settings-User中添加行：
 `"trim_trailing_white_space_on_save": true,`
 
-##### 设置打开文件不覆盖
+**设置打开文件不覆盖**
 
 * “Preferences”，点击“Settings”，在settings-User中添加行：
 
   `"preview_on_click": false,`
 
+**设置自动换行**
+
+* “Preferences”，点击“Settings”，在settings-User中添加行：
+
+  `"word_wrap" : true,`
 
 <br/>
 
@@ -51,12 +56,15 @@ categories:
 
 * 在工程中搜索文件：
 
-  `Ctrl + p`，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开
+  `Ctrl + p`，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开。
 
 * 在工程中搜索包含某个字符串的文本：
 
-  在文件夹目录中点击右键，选择`Find in Folder`
+  在文件夹目录中点击右键，选择`Find in Folder`。
 
+* 函数列表跳转：
+
+  `Ctrl + r`，跳出当前文件函数列表，可以输入字符进行模糊查找后跳转。
 
 <br/>
 

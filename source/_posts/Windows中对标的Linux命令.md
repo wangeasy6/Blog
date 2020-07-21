@@ -18,23 +18,26 @@ categories:
 
 ### 常用命名
 
-| Linux      | Windows                                      | 说明             |
-| ---------- | -------------------------------------------- | ---------------- |
-| cmd --help | ”help cmd“ or  “cmd /?”                      | Help信息         |
-| cd         | cd（切换不同盘需要使用  “D:” 或者加上 "/D"） | 路径切换         |
-| ls         | dir                                          | 文件列表         |
-| rm         | del                                          | 删除文件         |
-| rm -r      | rd /S                                        | 删除文件夹       |
-| md         | md                                           | 创建文件夹       |
-| mv         | mv                                           | 移动文件/文件夹  |
-| cp         | copy 、 xcopy /S                             | 复制文件、文件夹 |
-| cat        | type                                         | 输出文本内容     |
-| vim        | 文件名（会使用默认打开工具打开文件）         | 编辑文本         |
-| diff       | fc                                           | 比较文件差异     |
-| grep       | find                                         | 过滤字符串       |
-| du -d      | -                                            | 文件夹大小       |
-| tree       | tree                                         | 列出文件树       |
-| exit       | exit                                         | 退出             |
+| Linux      | Windows                                      | 说明               |
+| ---------- | -------------------------------------------- | ------------------ |
+| cmd --help | ”help cmd“ or  “cmd /?”                      | Help信息           |
+| cd         | cd（切换不同盘需要使用  “D:” 或者加上 "/D"） | 路径切换           |
+| ls         | dir                                          | 文件列表           |
+| rm         | del                                          | 删除文件           |
+| rm -r      | rd /S                                        | 删除文件夹         |
+| md         | md                                           | 创建文件夹         |
+| mv         | mv                                           | 移动文件/文件夹    |
+| cp         | copy 、 xcopy /S                             | 复制文件、文件夹   |
+| cat        | type                                         | 输出文本内容       |
+| vim        | 文件名（会使用默认打开工具打开文件）         | 编辑文本           |
+| diff       | fc                                           | 比较文件差异       |
+| grep       | find                                         | 过滤字符串         |
+| du -d      | -                                            | 文件夹大小         |
+| tree       | tree                                         | 列出文件树         |
+| md5sum     | certutil -hashfile "file_name" MD5           | 获取文件MD5值      |
+| sha1sum    | certutil -hashfile "file_name" SHA1          | 获取文件Hash-1值   |
+| sha256sum  | certutil -hashfile "file_name" SHA256        | 获取文件Hash-256值 |
+| exit       | exit                                         | 退出               |
 
 <br/>
 

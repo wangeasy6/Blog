@@ -143,6 +143,13 @@ public class Person
 
 ### 类型转换
 
+**ToString**
+
+```c#
+float f = 865.50f;
+string strTemp = f.ToString("0.000");
+```
+
 **Covert**
 
 [Convert](https://docs.microsoft.com/zh-cn/dotnet/api/system.convert?view=netframework-4.8) 类的静态方法主要用于支持与 .NET Framework 中的基本数据类型之间的转换。 支持的基类型为 Boolean、Char、SByte、Byte、Int16、Int32、Int64、UInt16、UInt32、UInt64、Single、Double、Decimal、DateTime 和 String。
@@ -159,8 +166,32 @@ char chrNumber = System.Convert.ToChar(strNumber[0]);
 [BitConverter](https://docs.microsoft.com/zh-cn/dotnet/api/system.bitconverter?view=netframework-4.8) 类用于整个数组类型的转换。BitConverter 类包括用于在每个基元类型与字节数组之间进行转换的静态方法。
 
 ```C#
-byte[] btAryTranData = { 0xFA, 0x00, 0x00, 0x00, 0x12, 0x00, 0x01, 0x00, 0xE4, 0x0C, 0xFB };
-Console.WriteLine(BitConverter.ToString(btAryTranData, 0));
+byte[] btAryTranData = { 0xFA, 0x12, 0xFB };
+string str = BitConverter.ToString(btAryTranData, 0);    // "FA-12-FB"
+str = str.Replace("-", "")                               // "FA12FB"
+```
+
+**Encoding**
+
+[Encoding](https://docs.microsoft.com/zh-cn/dotnet/api/system.text.encoding?view=netcore-3.1) 类提供不同编码之间的相互转换，并提供GetBytes、GetString两个方法在byte[]和string之间相互转换。
+
+```c#
+// string类型转成byte[]：
+byte[] byteArray = System.Text.Encoding.Default.GetBytes( str );
+
+// byte[]转成string：
+string str = System.Text.Encoding.Default.GetString( byteArray );
+
+// string类型转成ASCII byte[]：
+// （"01" 转成 byte[] = new byte[]{ 0x30,0x31}）
+byte[] byteArray = System.Text.Encoding.ASCII.GetBytes( str );
+
+// ASCII byte[]转成string：
+// （byte[] = new byte[]{ 0x30, 0x31} 转成"01"）
+string str = System.Text.Encoding.ASCII.GetString ( byteArray );
+
+// Unicode byte[] 转 ASCII byte[]:
+byte[] asciiBytes = Encoding.Convert(Encoding.Unicode, Encoding.ASCII, unicodeBytes);
 ```
 
 **Marshal**
@@ -182,11 +213,172 @@ Console.WriteLine(BitConverter.ToString(btAryTranData, 0));
 | WriteInt16                     | 将一个字符作为16位整数值写入非托管内存        |
 | SizeOf                         | 返回对象的非托管大小（以字节为单位）          |
 
-**ToString**
+<br/>
 
-```c#
-float f = 865.50f;
-string strTemp = f.ToString("0.000");
+### Json字符串解析
+
+```C#
+string json_str = "{\"ip\":\"127.0.0.1\",
+    \"netmask\":\"255.255.255.0\",
+    \"gateway\":\"127.0.0.1\",
+    \"dns\":\"8.8.8.8\"}";
+JsonIPSetting ip = JsonConvert.DeserializeObject<JsonIPSetting>(json_str);
+```
+
+JsonIPSetting 类定义：
+
+```C#
+class JsonIPSetting
+{
+    private string ip;
+    public string IP{
+        get => ip;
+        set
+        {
+            value = value.Trim();
+            if (value == "")
+            {
+                throw new ArgumentException("IP为空");
+            }
+            
+            string pattern = @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$";
+            if (Regex.IsMatch(value, pattern))
+            {
+                ip = value;
+            }
+            else
+            {
+                throw new ArgumentException("IP不合法");
+            }
+        }
+    }
+
+    private string netmask;
+    public string Netmask {
+        get => netmask;
+        set
+        {
+            value = value.Trim();
+            if (value == "")
+            {
+                throw new ArgumentException("掩码为空");
+            }
+
+            // 验证子网掩码是否合法
+            string[] vList = value.Split('.');
+            if (vList.Length != 4)
+                throw new ArgumentException("子网掩码不合法");
+            bool vZero = false; // 出现0 
+            for (int j = 0; j < vList.Length; j++)
+            {
+                int i;
+                if (!int.TryParse(vList[j], out i))
+                    throw new ArgumentException("子网掩码不合法");
+                if ((i < 0) || (i > 255))
+                    throw new ArgumentException("子网掩码不合法");
+                if (vZero)
+                {
+                    if (i != 0)
+                        throw new ArgumentException("子网掩码不合法");
+                }
+                else
+                {
+                    for (int k = 7; k >= 0; k--)
+                    {
+                        if (((i >> k) & 1) == 0) // 出现0 
+                        {
+                            vZero = true;
+                        }
+                        else
+                        {
+                            if (vZero)// 不为0 
+                                throw new ArgumentException("子网掩码不合法");
+                        }
+                    }
+                }
+            }
+            
+            netmask = value;
+        }
+    }
+
+    private string gateway;
+    public string Gateway
+    {
+        get => gateway;
+        set
+        {
+            value = value.Trim();
+            if (value != "")
+            {
+                string pattern = @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$";
+                if (Regex.IsMatch(value, pattern))
+                {
+                    gateway = value;
+                }
+                else
+                {
+                    throw new ArgumentException("网关IP不合法");
+                }
+            }
+        }
+    }
+
+    private string dns;
+    public string Dns
+    {
+        get => dns;
+        set
+        {
+            value = value.Trim();
+            if (value != "")
+            {
+                string pattern = @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$";
+                if (Regex.IsMatch(value, pattern))
+                {
+                    dns = value;
+                }
+                else
+                {
+                    throw new ArgumentException("DNS IP不合法");
+                }
+            }
+        }
+    }
+
+    public string ToJsonStr()
+    {
+        string json_str = "{\"ip\":\"";
+        json_str += ip;
+        json_str += "\",\"netmask\":\"";
+        json_str += netmask;
+        json_str += "\",\"gateway\":\"";
+        json_str += gateway;
+        json_str += "\",\"dns\":\"";
+        json_str += dns;
+        json_str += "\"}";
+
+        return json_str;
+    }
+}
+```
+
+因为想要对输入做一些检查，所以在组Json生成Json string的时候就没有那么方便了。
+
+```C#
+JsonIPSetting ip = new JsonIPSetting();
+try
+{
+    ip.IP = tb_ip.Text;
+    ip.Netmask = tb_netmask.Text;
+    ip.Gateway = tb_gateway.Text;
+    ip.Dns = tb_dns.Text;
+    Console.WriteLine(ip.ToJsonStr());
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
 ```
 
 <br/>
@@ -211,6 +403,32 @@ if( openFileDialog.ShowDialog() == DialogResult.OK)
         textBox_exportFile.Text = openFileDialog.FileName;
     }
 ```
+
+<br/>
+
+### 加载图片文件并显示
+
+![load_pic.png](/images/CSharp代码小结/load_pic.png)
+
+```c#
+// 显示控件：PictureBox， Name: pb_img
+private void bt_load_pic_Click(object sender, EventArgs e)
+{
+    OpenFileDialog openFileDialog = new OpenFileDialog();
+    openFileDialog.Filter = "jpg|*.jpg";
+    string img_file_path = "";
+    if (openFileDialog.ShowDialog() == DialogResult.OK)
+        img_file_path = openFileDialog.FileName;
+    else
+        return;
+
+    FileStream fs = new FileStream(img_file_path, FileMode.Open, FileAccess.Read);
+    pb_img.Image = Image.FromStream(fs);
+    fs.Close();
+}
+```
+
+PictureBox 属性设置：SizeMode - StretchImage，拉伸自适应控件大小；BorderStyle - FixedSingle，无图片的时候显示边框会好看一些。
 
 <br/>
 
