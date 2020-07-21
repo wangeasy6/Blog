@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="EasyW">
 <meta property="og:description" content="响应超快，超好用的文本编辑器。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T01:41:48.000Z">
+<meta property="og:updated_time" content="2020-07-20T08:17:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime Text">
 <meta name="twitter:description" content="响应超快，超好用的文本编辑器。">
@@ -198,25 +198,37 @@
 <li><strong>直接安装</strong>：<a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="noopener">https://github.com/seanliang/ConvertToUTF8</a> 项目打包下载并解压，将解压后的文件夹名修改为 <em>ConvertToUTF8</em> ，然后将此文件夹移动到 Sublime Text 的 <em>Packages</em> 文件夹下（可通过 Sublime Text 菜单中的 Preferences &gt; Browse Packages 找到 <em>Packages</em> 文件夹）。</li>
 </ul>
 <p><br></p>
-<h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><h5 id="设置缩进"><a href="#设置缩进" class="headerlink" title="设置缩进"></a>设置缩进</h5><ul>
+<h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><p><strong>设置缩进</strong></p>
+<ul>
 <li>右下角可进行方便设置 Space/Tab，Width</li>
 <li>“Preferences”，点击“Settings”，在settings-User中添加行：<br><code>&quot;tab_size&quot;: 4,&quot;translate_tabs_to_spaces&quot;: true,</code></li>
 </ul>
-<h5 id="设置删除多余空格"><a href="#设置删除多余空格" class="headerlink" title="设置删除多余空格"></a>设置删除多余空格</h5><ul>
+<p><strong>设置删除多余空格</strong></p>
+<ul>
 <li>“Preferences”，点击“Settings”，在settings-User中添加行：<br><code>&quot;trim_trailing_white_space_on_save&quot;: true,</code></li>
 </ul>
-<h5 id="设置打开文件不覆盖"><a href="#设置打开文件不覆盖" class="headerlink" title="设置打开文件不覆盖"></a>设置打开文件不覆盖</h5><ul>
+<p><strong>设置打开文件不覆盖</strong></p>
+<ul>
 <li><p>“Preferences”，点击“Settings”，在settings-User中添加行：</p>
 <p><code>&quot;preview_on_click&quot;: false,</code></p>
+</li>
+</ul>
+<p><strong>设置自动换行</strong></p>
+<ul>
+<li><p>“Preferences”，点击“Settings”，在settings-User中添加行：</p>
+<p><code>&quot;word_wrap&quot; : true,</code></p>
 </li>
 </ul>
 <p><br></p>
 <h3 id="工程搜索"><a href="#工程搜索" class="headerlink" title="工程搜索"></a>工程搜索</h3><ul>
 <li><p>在工程中搜索文件：</p>
-<p><code>Ctrl + p</code>，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开</p>
+<p><code>Ctrl + p</code>，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开。</p>
 </li>
 <li><p>在工程中搜索包含某个字符串的文本：</p>
-<p>在文件夹目录中点击右键，选择<code>Find in Folder</code></p>
+<p>在文件夹目录中点击右键，选择<code>Find in Folder</code>。</p>
+</li>
+<li><p>函数列表跳转：</p>
+<p><code>Ctrl + r</code>，跳出当前文件函数列表，可以输入字符进行模糊查找后跳转。</p>
 </li>
 </ul>
 <p><br></p>
@@ -382,7 +394,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#中文乱码BUG"><span class="toc-number">1.</span> <span class="toc-text">中文乱码BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用设置"><span class="toc-number">2.</span> <span class="toc-text">常用设置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#设置缩进"><span class="toc-number">2.0.1.</span> <span class="toc-text">设置缩进</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置删除多余空格"><span class="toc-number">2.0.2.</span> <span class="toc-text">设置删除多余空格</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设置打开文件不覆盖"><span class="toc-number">2.0.3.</span> <span class="toc-text">设置打开文件不覆盖</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工程搜索"><span class="toc-number">3.</span> <span class="toc-text">工程搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键"><span class="toc-number">4.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷编译-运行程序"><span class="toc-number">5.</span> <span class="toc-text">快捷编译/运行程序</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#中文乱码BUG"><span class="toc-number">1.</span> <span class="toc-text">中文乱码BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用设置"><span class="toc-number">2.</span> <span class="toc-text">常用设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工程搜索"><span class="toc-number">3.</span> <span class="toc-text">工程搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键"><span class="toc-number">4.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷编译-运行程序"><span class="toc-number">5.</span> <span class="toc-text">快捷编译/运行程序</span></a></li></ol>
                     </div>
                 </span>
             </div>
