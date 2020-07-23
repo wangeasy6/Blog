@@ -234,7 +234,7 @@
 </li>
 <li><p>with语句</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with context_expression [as target(s)]:</span><br><span class="line">        with-body</span><br></pre></td></tr></table></figure>
-<p>with基于上下文管理器，context_expression返回一个上下文管理器，在进入body之前会调用上下文管理器的__enter__()函数，整个body执行完后，会自动调用上下文管理器的__exit__()，可以用于自动关闭文件、线程锁的自动获取和释放等。</p>
+<p>with基于上下文管理器，context<em>expression返回一个上下文管理器，在进入body之前会调用上下文管理器的\</em>_enter__()函数，整个body执行完后，会自动调用上下文管理器的__exit__()，可以用于自动关闭文件、线程锁的自动获取和释放等。</p>
 <p>如果指定了as语句，会将上下文管理器的 __enter__() 方法的返回值赋值给 target(s)，target(s) 可以是单个变量，或者由“()”括起来的元组。</p>
 </li>
 </ul>
