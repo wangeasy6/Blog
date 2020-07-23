@@ -58,7 +58,7 @@ WBS的基本定义 ：以可交付成果为导向对项目任务进行分解，�
 
 在实际使用时，上述树状图在做层级划分的时候比较便利，自上而下的树状图更符合我们思考的习惯，但由于事件卡的项目比较多，需要一些统计和数据分析的工具，所以详细的WBS任务分解表一般使用Excel表。
 
-自上而下的树状图转化成由左到右的表格，如下[示例](/images/pm_tools/WBS任务分解表-示例.xls)所示：
+自上而下的树状图转化成由左到右的表格，如下[WBS任务分解表-示例](/images/pm_tools/WBS任务分解表-示例.xlsx)所示：
 
 ![WBS任务分解表-示例.png](/images/pm_tools/WBS任务分解表-示例.png)
 
@@ -139,9 +139,46 @@ WBS的基本定义 ：以可交付成果为导向对项目任务进行分解，�
 
 ### 甘特图
 
-甘特图（Gantt chart）又称为横道图、条状图(Bar chart)。其通过条状图来显示项目，进度，和其他时间相关的系统进展的内在关系随着时间进展的情况。
+甘特图（Gantt Chart）又称为横道图、条状图(Bar chart)。在图上，项目的每一步在被执行的时间段中用线条标出。完成以后，甘特图能以时间顺序显示所要进行的活动，以及那些可以在同时进行的活动。
 
 甘特图以图示通过活动列表和时间刻度表示出特定项目的顺序与持续时间。一条线条图，横轴表示时间，纵轴表示项目，线条表示期间计划和实际完成情况。直观表明计划何时进行，进展与要求的对比。
+
+以之前的[WBS任务分解表-示例](/images/pm_tools/WBS任务分解表-示例.xlsx)为例，生成的甘特图如下所示:
+
+![WBS任务分解表-甘特图-示例.png](/images/pm_tools/WBS任务分解表-甘特图-示例.png)
+
+Excel好像能直接生成甘特图，但是看了教程，没有学会。而对多个文件的话就更难了，所以花了一点儿时间自己写了一个生成工具（PyQt+openpyxl），如下：
+
+![甘特图生成器.png](/images/pm_tools/甘特图生成器.png)
+
+每一行，文件：文件路径；表名：数据所在的Sheel名称；Line：从多少行开始，到多少行结束；事件列：事件简述所在的列，以数字表示，如D == 4；开始时间列：开始时间所在列，以数字表示；结束时间列：结束时间或者完成时间所在列，以数字表示。
+
+点击“Add Input Line”可以新增一行，如果不想重复输入，可以写成一个Json文件，点击“Load Config”可以加载配置文件。例如，对WBS任务分解表-示例可写如下配置：
+
+```json
+{
+    "Input":
+    [
+        {"file":"./WBS任务分解表-示例.xlsx",
+         "sheet_title":"WBS",
+         "line_start":"3",
+         "line_end":"8",
+         "activity_col":"4", 
+         "start_time_col":"8", 
+         "end_time_col":"9"}
+    ],
+
+    "Output": {"path":".","file":"Gantt.xlsx"}
+}
+```
+
+下方的文件夹、文件名用来指示甘特图表输出的路径及名称。
+
+最后点击“开始生成”。
+
+最后，如果想要使用此程序，可以下载“[GantCharGenerator-EXE.zip](https://gitee.com/EasyW/EasyW/blob/master/images/pm_tools/GantCharGenerator-EXE.zip)”，解压后双击即可运行。
+
+想要自定义功能或者改进的可以下载[源码](https://gitee.com/EasyW/EasyW/blob/master/images/pm_tools/GantCharGenerator.zip)，自行修改。
 
 <br/>
 
