@@ -386,9 +386,27 @@ catch(Exception ex)
 ### 新建线程
 
 ```C#
-Thread threadA = new Thread(loopSwitch);
-threadA.Start();
-static void loopSwitch(){}
+void test()
+{
+    Thread threadA = new Thread(loopSwitch);
+    threadA.Start();
+}
+void loopSwitch(){}
+```
+
+带参数传递的线程：
+
+```C#
+void test()
+{
+    string parm = "test"
+    Thread threadB = new Thread(loopSwitch);
+    threadB.Start(parm);
+}
+void loopSwitch(object p)
+{
+    string parm = (string)p;
+}
 ```
 
 <br/>
