@@ -301,9 +301,7 @@
 <p>函数图像：</p>
 <p><img src="/images/mnist/relu.jpg" alt="relu.jpg"></p>
 <h5 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h5><p><strong>原型</strong>：<code>keras.activations.softmax(x, axis=-1)</code></p>
-<p>Softmax 激活函数：</p>
-<script type="math/tex; mode=display">
-S_i =\frac{e^i}{\sum e^j}</script><p><strong>参数</strong></p>
+<p>Softmax 激活函数：<br>$$<br>S_i =\frac{e^i}{\sum e^j}<br>$$<br><strong>参数</strong></p>
 <ul>
 <li><strong>x</strong>：张量。</li>
 <li><strong>axis</strong>：整数，代表softmax所作用的维度。</li>
@@ -314,43 +312,28 @@ S_i =\frac{e^i}{\sum e^j}</script><p><strong>参数</strong></p>
 <ul>
 <li><strong>ValueError</strong>：如果 <code>dim(x) == 1</code>。</li>
 </ul>
-<h5 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h5><p>也称logistic函数，映射区间（0, 1）。</p>
-<script type="math/tex; mode=display">
-f(x) = \frac1{1 + e^{-x}}</script><p>函数图像：</p>
+<h5 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h5><p>也称logistic函数，映射区间（0, 1）。<br>$$<br>f(x) = \frac1{1 + e^{-x}}<br>$$<br>函数图像：</p>
 <p><img src="/images/mnist/sigmoid.gif" alt="sigmod.png"></p>
-<h5 id="hard-sigmoid"><a href="#hard-sigmoid" class="headerlink" title="hard_sigmoid"></a>hard_sigmoid</h5><script type="math/tex; mode=display">
-f(x) = 
-\begin{cases}
-1, & 1 \leq x \cr
-\frac{x+1}2, & -1 < x < 1 \cr
-0, & x \leq -1
-\end{cases}</script><h5 id="elu"><a href="#elu" class="headerlink" title="elu"></a>elu</h5><p><strong>原型</strong>：<code>keras.activations.elu(x, alpha=1.0)</code></p>
+<h5 id="hard-sigmoid"><a href="#hard-sigmoid" class="headerlink" title="hard_sigmoid"></a>hard_sigmoid</h5><p>$$<br>f(x) =<br>\begin{cases}<br>1, &amp; 1 \leq x \cr<br>\frac{x+1}2, &amp; -1 &lt; x &lt; 1 \cr<br>0, &amp; x \leq -1<br>\end{cases}<br>$$</p>
+<h5 id="elu"><a href="#elu" class="headerlink" title="elu"></a>elu</h5><p><strong>原型</strong>：<code>keras.activations.elu(x, alpha=1.0)</code></p>
 <p><strong>参数</strong></p>
 <ul>
 <li><strong>x</strong>：张量。</li>
 <li><strong>alpha</strong>：一个标量，表示负数部分的斜率。</li>
 </ul>
-<p>融合了sigmoid和ReLU。</p>
-<script type="math/tex; mode=display">
-f(x) =
-\begin{cases}
-x, & x\ge0\cr
-\alpha(e^x - 1), &x < 0
-\end{cases}</script><p>函数图像：</p>
+<p>融合了sigmoid和ReLU。<br>$$<br>f(x) =<br>\begin{cases}<br>x, &amp; x\ge0\cr<br>\alpha(e^x - 1), &amp;x &lt; 0<br>\end{cases}<br>$$<br>函数图像：</p>
 <p><img src="/images/mnist/elu.png" alt="elu.jpg"></p>
 <h5 id="selu"><a href="#selu" class="headerlink" title="selu"></a>selu</h5><p>可伸缩的指数线性单元，等同于：<code>scale * elu(x, alpha)</code>，其中 alpha 和 scale 是预定义的常量。只要正确初始化权重（参见 <code>lecun_normal</code> 初始化方法）并且输入的数量「足够大」（参见参考文献获得更多信息），选择合适的 alpha 和 scale 的值，就可以在两个连续层之间保留输入的均值和方差。</p>
-<h5 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h5><p>也称双切正切函数，映射区间 （-1，1）。</p>
-<script type="math/tex; mode=display">
-f(x) = \frac{e^x-e^{-x}}{e^x + e^{-x}}</script><p>函数图像：</p>
+<h5 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h5><p>也称双切正切函数，映射区间 （-1，1）。<br>$$<br>f(x) = \frac{e^x-e^{-x}}{e^x + e^{-x}}<br>$$<br>函数图像：</p>
 <p><img src="/images/mnist/tanh.png" alt="tanh.jpg"></p>
-<h5 id="softplus"><a href="#softplus" class="headerlink" title="softplus"></a>softplus</h5><script type="math/tex; mode=display">
-f(x)=log(1+e^x)</script><p>函数图像：</p>
+<h5 id="softplus"><a href="#softplus" class="headerlink" title="softplus"></a>softplus</h5><p>$$<br>f(x)=log(1+e^x)<br>$$</p>
+<p>函数图像：</p>
 <p><img src="/images/mnist/softplus.jpg" alt="softplus.jpg"></p>
-<h5 id="softsign"><a href="#softsign" class="headerlink" title="softsign"></a>softsign</h5><script type="math/tex; mode=display">
-f(x)=\frac{x}{1+|x|}</script><p>函数图像：</p>
+<h5 id="softsign"><a href="#softsign" class="headerlink" title="softsign"></a>softsign</h5><p>$$<br>f(x)=\frac{x}{1+|x|}<br>$$</p>
+<p>函数图像：</p>
 <p><img src="/images/mnist/softsign.jpg" alt="softsign.jpg"></p>
-<h5 id="exponential"><a href="#exponential" class="headerlink" title="exponential"></a>exponential</h5><script type="math/tex; mode=display">
-f(x) = 2^{x-1}</script><p><img src="/images/mnist/exponential.png" alt="exponential.png"></p>
+<h5 id="exponential"><a href="#exponential" class="headerlink" title="exponential"></a>exponential</h5><p>$$<br>f(x) = 2^{x-1}<br>$$</p>
+<p><img src="/images/mnist/exponential.png" alt="exponential.png"></p>
 <h5 id="高级激活函数"><a href="#高级激活函数" class="headerlink" title="高级激活函数"></a>高级激活函数</h5><p>对于 Theano/TensorFlow/CNTK 不能表达的复杂激活函数，如含有可学习参数的激活函数，可通过<a href="https://keras.io/zh/layers/advanced-activations/" target="_blank" rel="noopener">高级激活函数</a>实现，可以在 <code>keras.layers.advanced_activations</code> 模块中找到。 这些高级激活函数包括 <code>PReLU</code> 和 <code>LeakyReLU</code>。</p>
 <p><br></p>
 <h3 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h3><p><strong>原型</strong>：<code>Model.summary(line_length=None, positions=None, print_fn=None)</code></p>
@@ -385,14 +368,13 @@ f(x) = 2^{x-1}</script><p><img src="/images/mnist/exponential.png" alt="exponent
 </ul>
 <p><strong>说明</strong></p>
 <p>通过代码可以看出，此模型可以看作是下面这样的一个函数：</p>
-<script type="math/tex; mode=display">
-f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会使用一个随机值作为初始参数，第一次训练后会得到一个结果 ${y\_pred}_1$，<code>loss</code>函数会评估${y\_pred}_1$和实际结果${y\_true}_1$的差距，而<code>metrics</code>则是评估指标，最后根据评估结果，使用<code>optimizer</code>优化器来调整每一层的参数，如此循环。</p>
+<p>$$<br>f(x) = Layer3( Layer2( Layer1(x) ) )<br>$$</p>
+<p>第一次训练，每层都会使用一个随机值作为初始参数，第一次训练后会得到一个结果 ${y\_pred}_1$，<code>loss</code>函数会评估${y\_pred}_1$和实际结果${y\_true}_1$的差距，而<code>metrics</code>则是评估指标，最后根据评估结果，使用<code>optimizer</code>优化器来调整每一层的参数，如此循环。</p>
 <p>训练完成后，得到一个最终的函数，就是我们的训练结果。</p>
 <p><br></p>
 <h4 id="优化器（optimizer）"><a href="#优化器（optimizer）" class="headerlink" title="优化器（optimizer）"></a>优化器（optimizer）</h4><p>上述说明其实是一个简化的训练过程，在实际使用中，为了向最优化的方向一直前进，优化器不仅考虑一个循环所得结果，还会记录反向传播所得得梯度大小和衰减的动量。</p>
 <p>可以在调用<code>model.compile()</code>之前初始化一个优化器对象，然后传入该函数，也可以在调用<code>model.compile()</code>时传递一个预定义优化器名的string。在后者情形下，优化器的参数将使用默认值。</p>
 <p><strong>默认优化器</strong></p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -431,10 +413,8 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
-<h4 id="损失函数（loss）"><a href="#损失函数（loss）" class="headerlink" title="损失函数（loss）"></a>损失函数（loss）</h4><h5 id="概率损失-Probabilistic-losses"><a href="#概率损失-Probabilistic-losses" class="headerlink" title="概率损失(Probabilistic losses)"></a>概率损失(<a href="https://keras.io/api/losses/probabilistic_losses/" target="_blank" rel="noopener">Probabilistic losses</a>)</h5><div class="table-container">
-<table>
+<h4 id="损失函数（loss）"><a href="#损失函数（loss）" class="headerlink" title="损失函数（loss）"></a>损失函数（loss）</h4><h5 id="概率损失-Probabilistic-losses"><a href="#概率损失-Probabilistic-losses" class="headerlink" title="概率损失(Probabilistic losses)"></a>概率损失(<a href="https://keras.io/api/losses/probabilistic_losses/" target="_blank" rel="noopener">Probabilistic losses</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -461,7 +441,7 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 <tr>
 <td>poisson</td>
 <td>泊松分布损失</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>kl_divergence</td>
@@ -470,9 +450,7 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="回归损失-Regression-losses"><a href="#回归损失-Regression-losses" class="headerlink" title="回归损失(Regression losses)"></a>回归损失(<a href="https://keras.io/api/losses/regression_losses/" target="_blank" rel="noopener">Regression losses</a>)</h5><div class="table-container">
-<table>
+<h5 id="回归损失-Regression-losses"><a href="#回归损失-Regression-losses" class="headerlink" title="回归损失(Regression losses)"></a>回归损失(<a href="https://keras.io/api/losses/regression_losses/" target="_blank" rel="noopener">Regression losses</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -518,9 +496,7 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 </tr>
 </tbody>
 </table>
-</div>
 <h5 id="合页损失-Hinge-losses"><a href="#合页损失-Hinge-losses" class="headerlink" title="合页损失(Hinge losses)"></a>合页损失(<a href="https://keras.io/api/losses/hinge_losses/" target="_blank" rel="noopener">Hinge losses</a>)</h5><p>用于“最大间隔”分类。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -547,10 +523,8 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
-<h4 id="度量指标-metrics"><a href="#度量指标-metrics" class="headerlink" title="度量指标(metrics)"></a>度量指标(metrics)</h4><h5 id="准确度指标-Accuracy-metrics"><a href="#准确度指标-Accuracy-metrics" class="headerlink" title="准确度指标(Accuracy metrics)"></a>准确度指标(<a href="https://keras.io/api/metrics/accuracy_metrics" target="_blank" rel="noopener">Accuracy metrics</a>)</h5><div class="table-container">
-<table>
+<h4 id="度量指标-metrics"><a href="#度量指标-metrics" class="headerlink" title="度量指标(metrics)"></a>度量指标(metrics)</h4><h5 id="准确度指标-Accuracy-metrics"><a href="#准确度指标-Accuracy-metrics" class="headerlink" title="准确度指标(Accuracy metrics)"></a>准确度指标(<a href="https://keras.io/api/metrics/accuracy_metrics" target="_blank" rel="noopener">Accuracy metrics</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -577,18 +551,16 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 <tr>
 <td>top_k_categorical_accuracy</td>
 <td>top_k分类准确度</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>sparse_top_k_categorical_accuracy</td>
 <td>稀疏top_k分类准确度</td>
-<td>—</td>
+<td>–</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="概率度量-Probabilistic-metrics"><a href="#概率度量-Probabilistic-metrics" class="headerlink" title="概率度量(Probabilistic metrics)"></a>概率度量(<a href="https://keras.io/api/metrics/probabilistic_metrics" target="_blank" rel="noopener">Probabilistic metrics</a>)</h5><div class="table-container">
-<table>
+<h5 id="概率度量-Probabilistic-metrics"><a href="#概率度量-Probabilistic-metrics" class="headerlink" title="概率度量(Probabilistic metrics)"></a>概率度量(<a href="https://keras.io/api/metrics/probabilistic_metrics" target="_blank" rel="noopener">Probabilistic metrics</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -600,33 +572,31 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 <tr>
 <td>binary_crossentropy</td>
 <td>二元交叉熵</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>categorical_crossentropy</td>
 <td>交叉损失熵</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>sparse_categorical_crossentropy</td>
 <td>稀疏交叉损失熵</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>kullback_leibler_divergence</td>
 <td>KL散度</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>poisson</td>
 <td>泊松散度</td>
-<td>—</td>
+<td>–</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="回归度量-Regression-metrics"><a href="#回归度量-Regression-metrics" class="headerlink" title="回归度量(Regression metrics)"></a>回归度量(<a href="https://keras.io/api/metrics/regression_metrics" target="_blank" rel="noopener">Regression metrics</a>)</h5><div class="table-container">
-<table>
+<h5 id="回归度量-Regression-metrics"><a href="#回归度量-Regression-metrics" class="headerlink" title="回归度量(Regression metrics)"></a>回归度量(<a href="https://keras.io/api/metrics/regression_metrics" target="_blank" rel="noopener">Regression metrics</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -638,43 +608,41 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 <tr>
 <td>mean_squared_error</td>
 <td>均方差</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>root_mean_squared_error</td>
 <td>均方根差</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>mean_absolute_error</td>
 <td>平均绝对差</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>mean_absolute_percentage_error</td>
 <td>平均绝对百分差</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>mean_squared_logarithmic_error</td>
 <td>均方对数差</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>cosine_similarity</td>
 <td>余弦相似性</td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>logcosh</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives"><a href="#基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives" class="headerlink" title="基于真/假阳性和阴性的分类度量(Classification metrics based on True/False positives &amp; negatives)"></a>基于真/假阳性和阴性的分类度量(<a href="https://keras.io/api/metrics/classification_metrics" target="_blank" rel="noopener">Classification metrics based on True/False positives &amp; negatives</a>)</h5><div class="table-container">
-<table>
+<h5 id="基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives"><a href="#基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives" class="headerlink" title="基于真/假阳性和阴性的分类度量(Classification metrics based on True/False positives &amp; negatives)"></a>基于真/假阳性和阴性的分类度量(<a href="https://keras.io/api/metrics/classification_metrics" target="_blank" rel="noopener">Classification metrics based on True/False positives &amp; negatives</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -686,58 +654,56 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 <tr>
 <td>AUC()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>Precision()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>Recall()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>TruePositives()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>TrueNegatives()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>FalsePositives()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>FalseNegatives()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>PrecisionAtRecall(recall=0.8)</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>SensitivityAtSpecificity()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>SpecificityAtSensitivity()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="图像分割度量-Image-segmentation-metrics"><a href="#图像分割度量-Image-segmentation-metrics" class="headerlink" title="图像分割度量(Image segmentation metrics)"></a>图像分割度量(<a href="https://keras.io/api/metrics/segmentation_metrics" target="_blank" rel="noopener">Image segmentation metrics</a>)</h5><div class="table-container">
-<table>
+<h5 id="图像分割度量-Image-segmentation-metrics"><a href="#图像分割度量-Image-segmentation-metrics" class="headerlink" title="图像分割度量(Image segmentation metrics)"></a>图像分割度量(<a href="https://keras.io/api/metrics/segmentation_metrics" target="_blank" rel="noopener">Image segmentation metrics</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -749,13 +715,11 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 <tr>
 <td>MeanIoU(num_classes=2)</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="合页度量-Hinge-metrics-for-“maximum-margin”-classification"><a href="#合页度量-Hinge-metrics-for-“maximum-margin”-classification" class="headerlink" title="合页度量(Hinge metrics for “maximum-margin” classification)"></a>合页度量(<a href="https://keras.io/api/metrics/hinge_metrics" target="_blank" rel="noopener">Hinge metrics for “maximum-margin” classification</a>)</h5><div class="table-container">
-<table>
+<h5 id="合页度量-Hinge-metrics-for-“maximum-margin”-classification"><a href="#合页度量-Hinge-metrics-for-“maximum-margin”-classification" class="headerlink" title="合页度量(Hinge metrics for “maximum-margin” classification)"></a>合页度量(<a href="https://keras.io/api/metrics/hinge_metrics" target="_blank" rel="noopener">Hinge metrics for “maximum-margin” classification</a>)</h5><table>
 <thead>
 <tr>
 <th>name</th>
@@ -767,21 +731,20 @@ f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会�
 <tr>
 <td>Hinge()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>SquaredHinge()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 <tr>
 <td>CategoricalHinge()</td>
 <td></td>
-<td>—</td>
+<td>–</td>
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
 <h3 id="fit"><a href="#fit" class="headerlink" title="fit"></a>fit</h3><p>开始训练模型。</p>
 <p><strong>原型</strong>：</p>
@@ -1185,10 +1148,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -1198,6 +1157,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>
