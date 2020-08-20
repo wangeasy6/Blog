@@ -6,6 +6,7 @@ categories:
 date: 2020-06-17 23:43:02
 ---
 
+![Cover.jpg](/images/Cover/PM_toolbox.png)
 
 《产品经理》是思想工具，而项目管理方法才是真正的锄头。
 
