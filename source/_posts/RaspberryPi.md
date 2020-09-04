@@ -56,16 +56,10 @@ tags:
 
 1.lsb_release -a 查看自己的版本类型
 
-2.`sudo vim /etc/apt/sources.list`
+2.选择以下任意一个国内镜像进行替换
 
-   （1）将文件里的默认的官方软件源用# 注释掉
-   （2）添加下面的软件源（中国科技大学的软件源 ） （手动添加注意空格）
-
-- stretch版本
-  deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi
-
-- jessis版本
-  deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ jessis main contrib non-free rpi
+* [清华大学](https://mirror.tuna.tsinghua.edu.cn/help/raspbian/)
+* [中国科学技术大学](http://mirrors.ustc.edu.cn/help/raspbian.html)
 
 <br/>
 
