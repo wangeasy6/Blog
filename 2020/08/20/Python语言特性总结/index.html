@@ -16,7 +16,7 @@
 <meta property="og:description" content="从C或者其它高级语言转到Python，可能会经历一个适应时期，以熟悉Python特别的语法，所以总结一下Python 语言的特性及其基础概念。 例程基于Python 3.5.4。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/images/Cover/python.jpg">
-<meta property="og:updated_time" content="2020-08-20T08:41:06.000Z">
+<meta property="og:updated_time" content="2020-08-20T08:52:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python语言特性总结">
 <meta name="twitter:description" content="从C或者其它高级语言转到Python，可能会经历一个适应时期，以熟悉Python特别的语法，所以总结一下Python 语言的特性及其基础概念。 例程基于Python 3.5.4。">
@@ -706,7 +706,7 @@
 <li><p>对象<br>通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。</p>
 </li>
 <li><p>构造方法/析构方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__init__ : 构造函数，在生成对象时调用</span><br><span class="line">  __del__ : 析构函数，释放对象时使用</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__init__ : 构造函数，在生成对象时调用</span><br><span class="line">__del__ : 析构函数，释放对象时使用</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>类私有属性/私有方法<br><code>__private_attrs</code>：两个下划线开头，声明该属性为私有，只能在类的内部调用 ，不能在类地外部调用。</p>
 </li>
@@ -842,9 +842,32 @@
 
 
   
-  
+
   
 
+  
+
+  
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
   

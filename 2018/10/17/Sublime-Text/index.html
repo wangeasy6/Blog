@@ -406,9 +406,32 @@
 
 
   
-  
+
   
 
+  
+
+  
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
   

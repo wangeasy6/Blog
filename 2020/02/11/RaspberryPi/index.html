@@ -17,7 +17,7 @@
 <meta property="og:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART  配置固定USB端口名称  树莓派开启SSH  开启远程桌面  树莓派开启Samba  切换屏幕分辨率  树莓派横竖屏转换  截屏 中文输入 软键盘  rar解压缩   硬件环境：Raspberry Pi 3B+">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/images/RaspberryPi/Pin.png">
-<meta property="og:updated_time" content="2020-04-08T01:22:24.000Z">
+<meta property="og:updated_time" content="2020-08-26T07:23:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 手记">
 <meta name="twitter:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART  配置固定USB端口名称  树莓派开启SSH  开启远程桌面  树莓派开启Samba  切换屏幕分辨率  树莓派横竖屏转换  截屏 中文输入 软键盘  rar解压缩   硬件环境：Raspberry Pi 3B+">
@@ -219,13 +219,10 @@
 </ul>
 <p><br></p>
 <h3 id="更换源地址到国内镜像"><a href="#更换源地址到国内镜像" class="headerlink" title="更换源地址到国内镜像"></a>更换源地址到国内镜像</h3><p>1.lsb_release -a 查看自己的版本类型</p>
-<p>2.<code>sudo vim /etc/apt/sources.list</code></p>
-<p>   （1）将文件里的默认的官方软件源用# 注释掉<br>   （2）添加下面的软件源（中国科技大学的软件源 ） （手动添加注意空格）</p>
+<p>2.选择以下任意一个国内镜像进行替换</p>
 <ul>
-<li><p>stretch版本<br>deb <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> stretch main contrib non-free rpi</p>
-</li>
-<li><p>jessis版本<br>deb <a href="http://mirrors.ustc.edu.cn/raspbian/raspbian/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/raspbian/raspbian/</a> jessis main contrib non-free rpi</p>
-</li>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/raspbian/" target="_blank" rel="noopener">清华大学</a></li>
+<li><a href="http://mirrors.ustc.edu.cn/help/raspbian.html" target="_blank" rel="noopener">中国科学技术大学</a></li>
 </ul>
 <p><br></p>
 <h3 id="更换pip源到国内镜像"><a href="#更换pip源到国内镜像" class="headerlink" title="更换pip源到国内镜像"></a>更换pip源到国内镜像</h3><p><strong>pip国内的一些镜像：</strong></p>
@@ -621,9 +618,32 @@
 
 
   
-  
+
   
 
+  
+
+  
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
   
