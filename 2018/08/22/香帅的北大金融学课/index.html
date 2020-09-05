@@ -45,8 +45,10 @@
     var hm = document.createElement("script");
     if (document.domain == "easyw.gitee.io")
       hm.src = "https://hm.baidu.com/hm.js?5240da8f11edccdfa7405589d22a7e3d";
-    else
+    else if(document.domain == "www.wangeasy.com")
       hm.src = "https://hm.baidu.com/hm.js?cc89b5286b78acd05c6fffdb15a28160";
+    else
+      return;
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
   })();
