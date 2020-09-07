@@ -1,12 +1,12 @@
 ---
-title: 方便的 Hexo 博客工具
+title: 方便的 Hexo 博客系统
 date: 2018-07-18 16:57:00
 toc: true
 categories:
-  - tech
+  - Technology
 ---
 
-* Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub。 
+* Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub Pages 服务。
 * 使用 Hexo 的原因如下：
   * 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。
   * 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。
@@ -25,13 +25,13 @@ categories:
 #### 1.安装 Git
   * [下载地址]( https://git-scm.com)
   * 安装步骤：双击下载好的exe文件，一路next就好啦
-  * 安装好后，在桌面右键打开gitbash，查看版本： 
+  * 安装好后，在桌面右键打开gitbash，查看版本：
     * 命令：`git version`
 
 #### 2.安装 NodeJs
 Hexo 是基于 NodeJs 开发的。
-   * [下载地址](https://nodejs.org/en/)(说明：LTS为长期支持版，Current为当前最新版) 
-   * 安装步骤：下载好msi文件后，双击打开安装，也是一路next 
+   * [下载地址](https://nodejs.org/en/)(说明：LTS为长期支持版，Current为当前最新版)
+   * 安装步骤：下载好msi文件后，双击打开安装，也是一路next
    * 查看版本：
      * 打开CMD：`node -v`
 
@@ -41,6 +41,7 @@ Hexo 是基于 NodeJs 开发的。
      * `hexo -v`
 
 <br/>
+
 ### 二、配置
 
 #### 1.GitHub配置
@@ -48,38 +49,38 @@ Hexo 是基于 NodeJs 开发的。
   * 没账号的先创建账号。
   * 在 GitHub 上创建一个repo，用于发布博客，如下：
 
-  ![new-repo](/images/Hexo 工具/new-repo.png)
+  ![new-repo](/images/Hexo/new-repo.png)
 
-  ![create-repo](/images/Hexo 工具/create-repo.png)
+  ![create-repo](/images/Hexo/create-repo.png)
 
   * 回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：
 
-  ![username](/images/Hexo 工具/username.png)
-  ![email](/images/Hexo 工具/email.png)
+  ![username](/images/Hexo/username.png)
+  ![email](/images/Hexo/email.png)
 
   * 创建SSH
     在gitbash中输入：`ssh-keygen -t rsa -C "youremail@example.com`，生成ssh。
     然后按下图的方式找到 id_rsa.pub 文件的内容。
 
-  ![ssh-key](/images/Hexo 工具/ssh.png)
+  ![ssh-key](/images/Hexo/ssh.png)
 
   * 将上面获取的ssh放到github中：
 
-  ![settings](/images/Hexo 工具/settings.png)
+  ![settings](/images/Hexo/settings.png)
 
   * 添加一个 New SSH key ，title随便取，key就填刚刚那一段。
-    ![ssh-key](/images/Hexo 工具/ssh-key.png)
+    ![ssh-key](/images/Hexo/ssh-key.png)
 
   * 在gitbash中验证是否添加成功：`ssh -T git@github.com`
 
 #### 2.初始化 Hexo 仓库
 
   * CMD：`hexo init`
-  * 初始化完成之后打开所在的文件夹可以看到以下文件： 
+  * 初始化完成之后打开所在的文件夹可以看到以下文件：
 
-  ![hexo-init](/images/Hexo 工具/hexo-init.png)
+  ![hexo-init](/images/Hexo/hexo-init.png)
 
-  * 解释： 
+  * 解释：
     * node_modules：是依赖包
     * public：存放的是生成的页面
     * scaffolds：命令生成文章等的模板
@@ -174,7 +175,7 @@ menu:
     `hexo new page about`
   当我们在 文章 中声明了 categories 这一项，如前面声明的 tech，hexo 就会在 /categories 目录中创建一个目录为 tech，将所有类别声明中带有 tech 的 md 转为静态页面存放在此，所以 “技术” 这一栏会列出所有类别为 tech 的文章。
 #### 4. 文章只显示一部分
-* 这个只要在文章中加上 <!--more--> 标记 ，该标记以后部分就不在显示了，只有展开全部才显示，这是hexo定义的。 
+* 这个只要在文章中加上 <!--more--> 标记 ，该标记以后部分就不在显示了，只有展开全部才显示，这是hexo定义的。
 
 #### 5. 避免 deploy 的时候删除 CNAME、README.md
 * 将 CNAME、README.md 放到 /source 中，在这里更新在发布的时候能同步到 GitHub。
@@ -203,6 +204,26 @@ mathjax: true
 最后，在文章标题中加入：
 
 ```mathjax: true```
+
+### 四、Valine评论系统
+
+#### 搭建
+
+Valine 是一款基于[LeanCloud](https://leancloud.cn/)的评论系统，且支持多款博客系统，Hexo当然就在其中。
+
+请先[登录](https://leancloud.cn/dashboard/login.html#/signin)或[注册](https://leancloud.cn/dashboard/login.html#/signup) `LeanCloud`, 使用支付宝实名认证一下，然后进入[控制台](https://leancloud.cn/dashboard/applist.html#/apps)后点击左下角[创建应用](https://leancloud.cn/dashboard/applist.html#/newapp)：
+
+![img](/images/Hexo/leancloud_create_app.webp)
+
+应用创建好以后，进入刚刚创建的应用，选择左下角的`设置`>`应用Key`，然后就能看到你的`APP ID`和`APP Key`了：
+
+![img](/images/Hexo/leancloud_key.webp)
+
+然后根据自己相对应的主题来配置主题。我的主题是`hexo-theme-yilia`，根据它的[issue说明](https://github.com/litten/hexo-theme-yilia/pull/646)来配置就好了。
+
+#### 文章阅读量统计
+
+[Hexo个人博客之yilia主题阅读量和文章字数统计](https://blog.csdn.net/weixin_43864927/article/details/106970576)
 
 ### 参考
 

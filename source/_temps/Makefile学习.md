@@ -3,7 +3,7 @@ title: Makefile学习
 date: 2018-11-24 10:56:46
 toc: true
 categories:
-  - tech
+  - Technology
 tags:
   - 待续
 ---

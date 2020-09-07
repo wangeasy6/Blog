@@ -3,7 +3,7 @@ title: Python学习笔记
 date: 2018-08-06 16:14:01
 toc: true
 categories:
-  - tech
+  - Technology
 ---
 
 * 查看包情况： dir() 和 help() 函数非常有用:
@@ -98,7 +98,7 @@ python3 -m pydoc -k test_py
 ```python
 """
 This is a javadoc style.
- 
+
 @param param1: this is a first param
 @param param2: this is a second param
 @return: this is a description of what is returned
@@ -113,7 +113,7 @@ This is a javadoc style.
 ```python
 """
 This is a reST style.
- 
+
 :param param1: this is a first param
 :param param2: this is a second param
 :returns: this is a description of what is returned
@@ -126,14 +126,14 @@ This is a reST style.
 ```python
 """
 This is a groups style docs.
- 
+
 Parameters:
   param1 - this is the first param
   param2 - this is a second param
- 
+
 Returns:
   This is a description of what is returned
- 
+
 Raises:
   KeyError - raises an exception
 """
@@ -145,7 +145,7 @@ Raises:
 """
 My numpydoc description of a kind
 of very exhautive numpydoc format docstring.
- 
+
 Parameters
 ----------
 first : array_like
@@ -154,12 +154,12 @@ second :
   the 2nd param
 third : {'value', 'other'}, optional
   the 3rd param, by default 'value'
- 
+
 Returns
 -------
 string
   a value in a string
- 
+
 Raises
 ------
 KeyError
@@ -232,7 +232,7 @@ if __name__ == '__main__':
     cfg = ConfigParser()
     cfg.read("config.ini", encoding='utf-8')
     cfg.sections()
-    
+
     print(cfg.get('Ver', 'Version'))
     print_level = int(cfg.get('Log', 'PrintLevel'))
     save_level = int(cfg.get('Log', 'SaveLevel'))

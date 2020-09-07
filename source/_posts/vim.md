@@ -3,7 +3,7 @@ title: vim
 toc: true
 date: 2020-03-01 10:23:06
 categories:
-  - tech
+  - Technology
 ---
 
 
@@ -38,7 +38,7 @@ vim编辑器是在vi的基础上改进的版本，支持语法颜色、正则表
 
 #### 0.Vim所有模式
 
-- 正常模式(normal-mode) 
+- 正常模式(normal-mode)
 - 插入模式(insert-mode)
 - 可视模式(visual-mode)
 - 命令模式(command-mode)
@@ -343,7 +343,7 @@ vim->shell: `ctrl-z `(挂起vim进程，相当于图形界面中的最小化)
 
 shell->vim:` fg `(foreground)
 
- 
+
 
 **方法2：**
 

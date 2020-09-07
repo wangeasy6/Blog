@@ -2,7 +2,7 @@
 title: 'C#代码小结'
 toc: true
 categories:
-  - tech
+  - Technology
 date: 2020-04-11 23:38:01
 ---
 
@@ -240,7 +240,7 @@ class JsonIPSetting
             {
                 throw new ArgumentException("IP为空");
             }
-            
+
             string pattern = @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$";
             if (Regex.IsMatch(value, pattern))
             {
@@ -268,7 +268,7 @@ class JsonIPSetting
             string[] vList = value.Split('.');
             if (vList.Length != 4)
                 throw new ArgumentException("子网掩码不合法");
-            bool vZero = false; // 出现0 
+            bool vZero = false; // 出现0
             for (int j = 0; j < vList.Length; j++)
             {
                 int i;
@@ -285,19 +285,19 @@ class JsonIPSetting
                 {
                     for (int k = 7; k >= 0; k--)
                     {
-                        if (((i >> k) & 1) == 0) // 出现0 
+                        if (((i >> k) & 1) == 0) // 出现0
                         {
                             vZero = true;
                         }
                         else
                         {
-                            if (vZero)// 不为0 
+                            if (vZero)// 不为0
                                 throw new ArgumentException("子网掩码不合法");
                         }
                     }
                 }
             }
-            
+
             netmask = value;
         }
     }

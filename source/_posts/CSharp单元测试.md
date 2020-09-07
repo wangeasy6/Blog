@@ -3,7 +3,7 @@ title: C# - Unit Test
 toc: true
 date: 2020-08-03 15:37:08
 categories:
-  - tech
+  - Technology
 ---
 
 ![Cover.jpg](/images/Cover/csharp_unit_test.jpg)

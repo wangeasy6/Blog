@@ -2,7 +2,7 @@
 title: 项目管理 - 工具箱
 toc: true
 categories:
-  - tech
+  - Technology
 date: 2020-06-17 23:43:02
 ---
 
@@ -164,8 +164,8 @@ Excel好像能直接生成甘特图，但是看了教程，没有学会。而对
          "sheet_title":"WBS",
          "line_start":"3",
          "line_end":"8",
-         "activity_col":"4", 
-         "start_time_col":"8", 
+         "activity_col":"4",
+         "start_time_col":"8",
          "end_time_col":"9"}
     ],
 

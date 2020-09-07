@@ -3,7 +3,7 @@ title: Linux BootLoader
 date: 2018-08-18 22:26:44
 toc: true
 categories:
-  - tech
+  - Technology
 tags:
   - Linux
   - 待续

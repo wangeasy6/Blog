@@ -3,7 +3,7 @@ title: 命名规范-C++
 date: 2019-11-27 17:28:08
 toc: true
 categories:
-  - tech
+  - Technology
 ---
 ![img](/images/Cover/naming_spec.gif)
 

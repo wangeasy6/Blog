@@ -3,7 +3,7 @@ title: Python语言特性总结
 date: 2020-08-20 16:40:00
 toc: true
 categories:
-  - tech
+  - Technology
 ---
 ![Cover.jpg](/images/Cover/python.jpg)
 

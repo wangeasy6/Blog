@@ -3,7 +3,7 @@ title: Raspberry Pi 手记
 date: 2020-02-11 10:08:00
 toc: true
 categories:
-  - tech
+  - Technology
 tags:
   - 树莓派
   - RaspberryPi
@@ -11,23 +11,23 @@ tags:
 ---
 
 ### 主题
-* [ 开机更新 ](/2020/02/11/RaspberryPi/#开机更新)
-* [ 更换源地址到国内镜像 ](/2020/02/11/RaspberryPi/#更换源地址到国内镜像)
-* [ 更换pip源到国内镜像 ](/2020/02/11/RaspberryPi/#更换pip源到国内镜像)
-* [ 开启Root权限 ](/2020/02/11/RaspberryPi/#开启Root权限)
-* [ 命令行配置无线网络连接 ](/2020/02/11/RaspberryPi/#命令行配置无线网络连接)
-* [ 配置网口为固定IP ](/2020/02/11/RaspberryPi/#配置网口为固定IP)
-* [ 树莓派3B使用UART ](/2020/02/11/RaspberryPi/#树莓派3B使用UART)
-* [配置固定USB端口名称](/2020/02/11/RaspberryPi/#配置固定USB端口名称)
-* [ 树莓派开启SSH ](/2020/02/11/RaspberryPi/#树莓派开启SSH)
-* [开启远程桌面](/2020/02/11/RaspberryPi/#开启远程桌面)
-* [ 树莓派开启Samba ](/2020/02/11/RaspberryPi/#树莓派开启Samba)
-* [切换屏幕分辨率](/2020/02/11/RaspberryPi/#切换屏幕分辨率)
-* [ 树莓派横竖屏转换 ](/2020/02/11/RaspberryPi/#树莓派横竖屏转换)
-* [截屏](/2020/02/11/RaspberryPi/#截屏)
-* [中文输入](/2020/02/11/RaspberryPi/#树莓派中文输入)
-* [软键盘](/2020/02/11/RaspberryPi/#树莓派软键盘)
-* [ rar解压缩 ](/2020/02/11/RaspberryPi/#rar解压缩)
+* [ 开机更新 ](/Technology/RaspberryPi/#开机更新)
+* [ 更换源地址到国内镜像 ](/Technology/RaspberryPi/#更换源地址到国内镜像)
+* [ 更换pip源到国内镜像 ](/Technology/RaspberryPi/#更换pip源到国内镜像)
+* [ 开启Root权限 ](/Technology/RaspberryPi/#开启Root权限)
+* [ 命令行配置无线网络连接 ](/Technology/RaspberryPi/#命令行配置无线网络连接)
+* [ 配置网口为固定IP ](/Technology/RaspberryPi/#配置网口为固定IP)
+* [ 树莓派3B使用UART ](/Technology/RaspberryPi/#树莓派3B使用UART)
+* [配置固定USB端口名称](/Technology/RaspberryPi/#配置固定USB端口名称)
+* [ 树莓派开启SSH ](/Technology/RaspberryPi/#树莓派开启SSH)
+* [开启远程桌面](/Technology/RaspberryPi/#开启远程桌面)
+* [ 树莓派开启Samba ](/Technology/RaspberryPi/#树莓派开启Samba)
+* [切换屏幕分辨率](/Technology/RaspberryPi/#切换屏幕分辨率)
+* [ 树莓派横竖屏转换 ](/Technology/RaspberryPi/#树莓派横竖屏转换)
+* [截屏](/Technology/RaspberryPi/#截屏)
+* [中文输入](/Technology/RaspberryPi/#树莓派中文输入)
+* [软键盘](/Technology/RaspberryPi/#树莓派软键盘)
+* [ rar解压缩 ](/Technology/RaspberryPi/#rar解压缩)
 
 硬件环境：**Raspberry Pi 3B+**
 

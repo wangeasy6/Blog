@@ -2,7 +2,7 @@
 title: 'DL - Minst'
 toc: true
 categories:
-  - tech
+  - Technology
 date: 2020-06-15 20:57:08
 ---
 
@@ -48,14 +48,14 @@ Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0
 **程序：**
 
 ```python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 '''
 Trains a simple deep NN on the MNIST dataset.
 Gets to 98.40% test accuracy after 20 epochs
 '''
- 
+
 from __future__ import print_function
- 
+
 import numpy as np
 import keras
 from keras.datasets import mnist
@@ -67,7 +67,7 @@ import matplotlib.pyplot as plt
 batch_size = 128
 num_classes = 10
 epochs = 20
- 
+
 # Keras 官方推荐写法
 # (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
@@ -76,7 +76,7 @@ f = np.load(path)
 x_train, y_train = f['x_train'], f['y_train']
 x_test, y_test = f['x_test'], f['y_test']
 f.close()
- 
+
 x_train = x_train.reshape(60000, 784).astype('float32')
 x_test = x_test.reshape(10000, 784).astype('float32')
 x_train /= 255
@@ -91,7 +91,7 @@ model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(784,)))
 model.add(Dense(512, activation='relu'))
 model.add(Dense(num_classes, activation='softmax'))
- 
+
 model.summary()
 
 model.compile(loss='categorical_crossentropy',
@@ -149,7 +149,7 @@ model.save("mnist.hdf5")
 首先，将手写的数字拍下来，使用下面这个程序来将其转换成28\*28的灰度图片：
 
 ```python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 import cv2
 
 global img
@@ -166,9 +166,9 @@ def on_mouse(event, x, y, flags, param):
         cv2.imshow('image', img2)
     elif event == cv2.EVENT_LBUTTONUP:         #左键释放
         point2 = (x,y)
-        cv2.rectangle(img2, point1, point2, (0,0,255), 5) 
+        cv2.rectangle(img2, point1, point2, (0,0,255), 5)
         cv2.imshow('image', img2)
-        min_x = min(point1[0], point2[0])     
+        min_x = min(point1[0], point2[0])
         min_y = min(point1[1], point2[1])
         width = abs(point1[0] - point2[0])
         height = abs(point1[1] -point2[1])
@@ -393,7 +393,7 @@ $$
 ##### hard_sigmoid
 
 $$
-f(x) = 
+f(x) =
 \begin{cases}
 1, & 1 \leq x \cr
 \frac{x+1}2, & -1 < x < 1 \cr
@@ -910,7 +910,7 @@ Model.predict(
 * **MATLAB**
 
   MATLAB是美国MathWorks公司出品的商业数学软件，用于数据分析、无线通信、深度学习、图像处理与计算机视觉、信号处理、量化金融与风险管理、机器人，控制系统等领域。
-  MATLAB是matrix&laboratory两个词的组合，意为矩阵工厂（矩阵实验室），软件主要面对科学计算、可视化以及交互式程序设计的高科技计算环境。它将数值分析、矩阵计算、科学数据可视化以及非线性动态系统的建模和仿真等诸多强大功能集成在一个易于使用的视窗环境中，为科学研究、工程设计以及必须进行有效数值计算的众多科学领域提供了一种全面的解决方案，并在很大程度上摆脱了传统非交互式程序设计语言（如C、Fortran）的编辑模式。 
+  MATLAB是matrix&laboratory两个词的组合，意为矩阵工厂（矩阵实验室），软件主要面对科学计算、可视化以及交互式程序设计的高科技计算环境。它将数值分析、矩阵计算、科学数据可视化以及非线性动态系统的建模和仿真等诸多强大功能集成在一个易于使用的视窗环境中，为科学研究、工程设计以及必须进行有效数值计算的众多科学领域提供了一种全面的解决方案，并在很大程度上摆脱了传统非交互式程序设计语言（如C、Fortran）的编辑模式。
   MATLAB和Mathematica、Maple并称为三大数学软件。它在数学类科技应用软件中在数值计算方面首屈一指。MATLAB可以进行矩阵运算、绘制函数和数据、实现算法、创建用户界面、连接其他编程语言的程序等。MATLAB的基本数据单位是矩阵，它的指令表达式与数学、工程中常用的形式十分相似，故用MATLAB来解算问题要比用C，FORTRAN等语言完成相同的事情简捷得多，并且MATLAB也吸收了像Maple等软件的优点，使MATLAB成为一个强大的数学软件。在新的版本中也加入了对C，FORTRAN，C++，JAVA的支持。
 
 * **Jupyter**
@@ -920,8 +920,8 @@ Model.predict(
   Jupyter Notebook 本质是一个 Web 应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和markdown。 用途包括：数据清理和转换，数值模拟，统计建模，机器学习等等。
 
   数据挖掘领域中最热门的比赛 Kaggle 里的资料都是 Jupyter 格式。
-  
-* **Scikit-learn** 
+
+* **Scikit-learn**
 
   对Python语言有所了解的科研人员可能都知道SciPy——一个开源的基于Python的科学计算工具包。基于SciPy，目前开发者们针对不同的应用领域已经发展出了为数众多的分支版本，它们被统一称为Scikits，即SciPy工具包的意思。而在这些分支版本中，最有名，也是专门面向机器学习的一个就是Scikit-learn。
 

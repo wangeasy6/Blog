@@ -3,7 +3,7 @@ title: Git使用手记
 date: 2018-08-01 22:04:12
 toc: true
 categories:
-  - tech
+  - Technology
 ---
 
 git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。
@@ -36,9 +36,9 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
   `git pull`
 
 * 将修改的文件恢复为最近提交版本或添加之前
-  
+
 `git checkout xx_file`
-  
+
 * 比较两次commit的差异
 
   `git diff fee9f9cf4b cdd577e352 xx_file`
@@ -47,11 +47,11 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
   `git commit --amend`  （如果你此时想要更新作者提交时间等也可以在amend之后加上 --date="$(date -R)"）
 
 * 修改已push的commit信息
-  
+
   `git commit --amend`
-  
+
   `git push -f`（强制提交）
-  
+
 * 批量修改提交历史
   http://www.cnblogs.com/rickyk/p/3981083.html
   https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages

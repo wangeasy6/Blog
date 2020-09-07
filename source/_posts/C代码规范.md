@@ -3,7 +3,7 @@ title: C代码规范
 date: 2018-08-01 23:06:12
 toc: true
 categories:
-  - tech
+  - Technology
 ---
 
 ### 编码规范
@@ -59,8 +59,8 @@ categories:
 ```
   /**
   *@func 说明 ...
-  *@author 作者 
-  date 日期 
+  *@author 作者
+  date 日期
   */
 ```
 

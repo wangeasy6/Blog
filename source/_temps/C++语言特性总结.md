@@ -2,7 +2,7 @@
 title: C++语言特性总结
 toc: true
 categories:
-  - tech
+  - Technology
 tags:
   - 待续
 ---

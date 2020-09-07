@@ -2,10 +2,9 @@
 
 menu:
   推荐: /my-recommendation
-  读/观后: /categories/reflections
-  技术: /categories/tech
-  金融: /categories/Finance
-  随笔: /categories/thoughts
+  观后: /categories/Reflections
+  技术: /categories/Technology
+  随笔: /categories/Thoughts
 
 # SubNav
 subnav:
