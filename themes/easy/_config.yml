@@ -2,8 +2,8 @@
 
 menu:
   推荐: /my-recommendation
-  观后: /categories/Reflections
   技术: /categories/Technology
+  观后: /categories/Reflections
   随笔: /categories/Thoughts
 
 # SubNav
