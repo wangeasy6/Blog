@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="响应超快，超好用的文本编辑器。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-07T07:23:04.000Z">
+<meta property="og:updated_time" content="2020-09-25T06:26:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime Text">
 <meta name="twitter:description" content="响应超快，超好用的文本编辑器。">
@@ -203,20 +203,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>响应超快，超好用的文本编辑器。<br><a id="more"></a></p>
-<p><br></p>
-<h3 id="中文乱码BUG"><a href="#中文乱码BUG" class="headerlink" title="中文乱码BUG"></a>中文乱码BUG</h3><ul>
-<li>Sublime Text 默认采用UTF8编码，这就造成了许多采用GBK编码的文件里的中文显示为乱码。需要安装一个专门解决这个问题的插件：ConvertToUTF8 。要安装这个插件，首先要安装 Sublime Text 的 <strong>Package Control</strong>。</li>
-<li>首先要安装 Sublime Text 的 Package Control<ul>
-<li>打开Sublime Text，<code>Ctrl + ~</code>打开控制台，</li>
-<li><a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">https://packagecontrol.io/installation</a> 根据你的 Sublime Text 版本选择对应的安装代码，将代码输入控制台后回车，之后便会自动下载并安装 Package Control</li>
-<li>安装完成后需要重启Sublime Text 。</li>
-</ul>
-</li>
-<li>接下来就可以安装 ConvertToUTF8 了，按Ctrl + Shift + P打开万能搜索框，然后输入install package回车，这时候会加载所有的packages列表。看到列表之后再输入ConvertToUTF8回车，就会下载安装这个包了。装好之后无需重启Sublime Text你就会惊喜的发现原来的中文乱码都能正常显示了。</li>
-<li><strong>直接安装</strong>：<a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="noopener">https://github.com/seanliang/ConvertToUTF8</a> 项目打包下载并解压，将解压后的文件夹名修改为 <em>ConvertToUTF8</em> ，然后将此文件夹移动到 Sublime Text 的 <em>Packages</em> 文件夹下（可通过 Sublime Text 菜单中的 Preferences &gt; Browse Packages 找到 <em>Packages</em> 文件夹）。</li>
-</ul>
-<p><br></p>
+        <p>响应超快，超好用的文本编辑器。<br><a id="more"></a><br><br></p>
 <h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><p><strong>设置缩进</strong></p>
 <ul>
 <li>右下角可进行方便设置 Space/Tab，Width</li>
@@ -239,19 +226,8 @@
 </li>
 </ul>
 <p><br></p>
-<h3 id="工程搜索"><a href="#工程搜索" class="headerlink" title="工程搜索"></a>工程搜索</h3><ul>
-<li><p>在工程中搜索文件：</p>
-<p><code>Ctrl + p</code>，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开。</p>
-</li>
-<li><p>在工程中搜索包含某个字符串的文本：</p>
-<p>在文件夹目录中点击右键，选择<code>Find in Folder</code>。</p>
-</li>
-<li><p>函数列表跳转：</p>
-<p><code>Ctrl + r</code>，跳出当前文件函数列表，可以输入字符进行模糊查找后跳转。</p>
-</li>
-</ul>
-<p><br></p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><table>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
@@ -259,6 +235,26 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Ctrl + /</td>
+<td>单行注释</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + /</td>
+<td>多行注释</td>
+</tr>
+<tr>
+<td>Ctrl + b</td>
+<td>快速运行程序</td>
+</tr>
+<tr>
+<td>Alt + -</td>
+<td>跳转到上一个输入点</td>
+</tr>
+<tr>
+<td>Alt + Shift + -</td>
+<td>跳转到下一个输入点</td>
+</tr>
 <tr>
 <td>Alt + [n]</td>
 <td>跳转到文件栏的第n个文件</td>
@@ -271,16 +267,33 @@
 <td>Ctrl + Shift + Tab</td>
 <td>跳转到文件栏的左边一个文件</td>
 </tr>
-<tr>
-<td>Alt + -</td>
-<td>跳转到上一个输入点</td>
-</tr>
-<tr>
-<td>Alt + Shift + -</td>
-<td>跳转到下一个输入点</td>
-</tr>
 </tbody>
 </table>
+</div>
+<p><br></p>
+<h3 id="工程搜索"><a href="#工程搜索" class="headerlink" title="工程搜索"></a>工程搜索</h3><ul>
+<li><p>在工程中搜索文件：</p>
+<p><code>Ctrl + p</code>，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开。</p>
+</li>
+<li><p>在工程中搜索包含某个字符串的文本：</p>
+<p>在文件夹目录中点击右键，选择<code>Find in Folder</code>。</p>
+</li>
+<li><p>函数列表跳转：</p>
+<p><code>Ctrl + r</code>，跳出当前文件函数列表，可以输入字符进行模糊查找后跳转。</p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="中文乱码BUG"><a href="#中文乱码BUG" class="headerlink" title="中文乱码BUG"></a>中文乱码BUG</h3><ul>
+<li>Sublime Text 默认采用UTF8编码，这就造成了许多采用GBK编码的文件里的中文显示为乱码。需要安装一个专门解决这个问题的插件：ConvertToUTF8 。要安装这个插件，首先要安装 Sublime Text 的 <strong>Package Control</strong>。</li>
+<li>首先要安装 Sublime Text 的 Package Control<ul>
+<li>打开Sublime Text，<code>Ctrl + ~</code>打开控制台，</li>
+<li><a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">https://packagecontrol.io/installation</a> 根据你的 Sublime Text 版本选择对应的安装代码，将代码输入控制台后回车，之后便会自动下载并安装 Package Control</li>
+<li>安装完成后需要重启Sublime Text 。</li>
+</ul>
+</li>
+<li>接下来就可以安装 ConvertToUTF8 了，按Ctrl + Shift + P打开万能搜索框，然后输入install package回车，这时候会加载所有的packages列表。看到列表之后再输入ConvertToUTF8回车，就会下载安装这个包了。装好之后无需重启Sublime Text你就会惊喜的发现原来的中文乱码都能正常显示了。</li>
+<li><strong>直接安装</strong>：<a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="noopener">https://github.com/seanliang/ConvertToUTF8</a> 项目打包下载并解压，将解压后的文件夹名修改为 <em>ConvertToUTF8</em> ，然后将此文件夹移动到 Sublime Text 的 <em>Packages</em> 文件夹下（可通过 Sublime Text 菜单中的 Preferences &gt; Browse Packages 找到 <em>Packages</em> 文件夹）。</li>
+</ul>
 <p><br></p>
 <h3 id="快捷编译-运行程序"><a href="#快捷编译-运行程序" class="headerlink" title="快捷编译/运行程序"></a>快捷编译/运行程序</h3><ul>
 <li>C<ul>
@@ -413,7 +426,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#中文乱码BUG"><span class="toc-number">1.</span> <span class="toc-text">中文乱码BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用设置"><span class="toc-number">2.</span> <span class="toc-text">常用设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工程搜索"><span class="toc-number">3.</span> <span class="toc-text">工程搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键"><span class="toc-number">4.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷编译-运行程序"><span class="toc-number">5.</span> <span class="toc-text">快捷编译/运行程序</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用设置"><span class="toc-number">1.</span> <span class="toc-text">常用设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键"><span class="toc-number">2.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工程搜索"><span class="toc-number">3.</span> <span class="toc-text">工程搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文乱码BUG"><span class="toc-number">4.</span> <span class="toc-text">中文乱码BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷编译-运行程序"><span class="toc-number">5.</span> <span class="toc-text">快捷编译/运行程序</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -565,6 +578,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">待续</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
@@ -574,10 +591,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3B+</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
               </li>
             
             <div class="clearfix"></div>
