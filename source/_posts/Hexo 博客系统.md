@@ -6,14 +6,15 @@ categories:
   - Technology
 ---
 
-* Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub Pages 服务。
-* 使用 Hexo 的原因如下：
-  * 我喜欢用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。
-  * 我习惯于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。
+Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub Pages 服务。
+使用 Hexo 的原因如下：
+  * 习惯了用 MarkDown 来记笔记，Hexo 可以很方便的将 MarkDown 文件转主题网页，并发布。
+  * 习惯了于 GitHub 管理文档，GitHub 对 Hexo 有深度的支持，可以节省服务器的开支。
   * 之前用过 WordPress，但是在线编辑和自己管理服务器都不是很让人舒心。
-<!--more-->
 
+<!--more-->
 <br/>
+
 ### 一、安装（基于Windows）
 
 使用 Hexo 框架，整体思路是用电脑编辑了 md 文档，然后使用 hexo 生成静态页面，最后上传到 GitHub，由 GitHub 服务器提供网页解析。
@@ -205,6 +206,20 @@ mathjax: true
 
 ```mathjax: true```
 
+#### 8.文件大小写问题
+
+使用 Hexo 部署博客到 Github Pages 时经常会遇到文件夹大小写问题导致的 404问题。
+
+**原因**
+那是因为 git 默认忽略文件名大小写，所以即使文件夹大小写变更，git 也检测不到。
+
+**解决办法**
+
+- 进入到博客项目中 `.deploy_git`文件夹，修改 `.git` 下的 `config` 文件，将 `ignorecase=true` 改为 `ignorecase=false`
+- 使用 Hexo 再次生成及部署
+
+<br/>
+
 ### 四、Valine评论系统
 
 #### 搭建
@@ -224,6 +239,8 @@ Valine 是一款基于[LeanCloud](https://leancloud.cn/)的评论系统，且支
 #### 文章阅读量统计
 
 [Hexo个人博客之yilia主题阅读量和文章字数统计](https://blog.csdn.net/weixin_43864927/article/details/106970576)
+
+<br/>
 
 ### 参考
 

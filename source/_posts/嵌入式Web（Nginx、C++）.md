@@ -6,6 +6,8 @@ categories:
   - Technology
 ---
 
+![Cover](/images/embedded_web/cover.jpg)
+
 在设备中嵌入Web，作为配置软件的接口是目前嵌入式设备的常见做法了。
 
 由于种种原因，暂定为这个方案，虽然行业中使用这个方案的人不多，但还是记录一下，万一有一样的小伙伴呢。
@@ -242,6 +244,7 @@ http://ip:8080/test.cgi
 
 * 异步获取、设置设备版本参数
 * 上传小于256KB的JPG文件到服务器
+* 文件MD5校验
 
 项目所有文件[Web.tar.gz](/images/embedded_web/Web.tar.gz)：
 
