@@ -5,22 +5,22 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://easyw.gitee.io">
+  <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>vim | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim">
-<meta property="og:url" content="https://easyw.gitee.io/Technology/vim/index.html">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/vim/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://easyw.gitee.io/images/Cover/vim.jpg">
+<meta property="og:image" content="http://www.wangeasy.com/images/Cover/vim.jpg">
 <meta property="og:updated_time" content="2020-09-07T07:23:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim">
 <meta name="twitter:description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
-<meta name="twitter:image" content="https://easyw.gitee.io/images/Cover/vim.jpg">
+<meta name="twitter:image" content="http://www.wangeasy.com/images/Cover/vim.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -211,8 +211,7 @@
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>vi编辑器是所有Unix及Linux系统下标准的编辑器，就相当于windows系统中的记事本一样，但它的强大不逊色于任何最新的文本编辑器。</p>
 <p>vim编辑器是在vi的基础上改进的版本，支持语法颜色、正则表达式、多文件编辑、视图模式等等。</p>
 <p><br></p>
-<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><div class="table-container">
-<table>
+<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -246,7 +245,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
 <h3 id="模式介绍及切换"><a href="#模式介绍及切换" class="headerlink" title="模式介绍及切换"></a>模式介绍及切换</h3><h4 id="0-Vim所有模式"><a href="#0-Vim所有模式" class="headerlink" title="0.Vim所有模式"></a>0.Vim所有模式</h4><ul>
 <li>正常模式(normal-mode)</li>
@@ -258,7 +256,6 @@
 <p> 正常模式主要用来浏览和修改文本内容的，正常模式的修改和编辑文本不同，正常模式下只能使用对应的快捷按钮来执行特定的修改。</p>
 <p>在任何模式下，只要按下 Esc 键就可以返回正常模式。</p>
 <h4 id="2-插入模式"><a href="#2-插入模式" class="headerlink" title="2.插入模式"></a>2.插入模式</h4><p> 插入模式用来编辑文本，在正常模式键入以下字符则进入插入模式。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -301,14 +298,12 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h4 id="3-可视模式"><a href="#3-可视模式" class="headerlink" title="3.可视模式"></a>3.可视模式</h4><p> 可视模式相当于高亮选取文本后的普通模式。</p>
 <p>可视模式具有两个子模式，以行为单位进行选取的可视行模式，使用“V”键进入（也就是<code>SHIFT-v</code>）；和以块为单位进行选取的可视块模式，使用<code>CTRL-v</code>键进入。</p>
 <h4 id="4-命令模式"><a href="#4-命令模式" class="headerlink" title="4.命令模式"></a>4.命令模式</h4><p> 命令模式则多用于操作文本文件（而不是操作文本文件的内容），例如保存文件；或者用来改变编辑器本身的状态，例如设定多栏窗口、标签或者退出编辑器等等。</p>
 <p>在正常模式或可视模式下，输入冒号（:）、反斜杠（/）、问号（?）进入命令模式。</p>
 <p><br></p>
 <h3 id="正常模式"><a href="#正常模式" class="headerlink" title="正常模式"></a>正常模式</h3><p>快捷命令：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -475,10 +470,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
 <h3 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h3><p>在此模式下你可以选择一个矩形的文本块. Vim提供了一些特别的命令来操纵这个文本块：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -533,10 +526,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
-<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><h4 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h4><div class="table-container">
-<table>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><h4 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h4><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -570,10 +561,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
-<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><div class="table-container">
-<table>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -599,12 +588,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
 <h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><p>命令：<code>:[range]substitute/from/to/[flags]</code></p>
 <p>说明：[range]指定的行中的字符串”from”替换为”to”（substitute可缩写为s），例如：<code>:%s/from/to/g</code>  ，将所有”from”替换为”to”。</p>
-<h5 id="range："><a href="#range：" class="headerlink" title="range："></a>range：</h5><div class="table-container">
-<table>
+<h5 id="range："><a href="#range：" class="headerlink" title="range："></a>range：</h5><table>
 <thead>
 <tr>
 <th>range</th>
@@ -642,9 +629,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h5 id="flags："><a href="#flags：" class="headerlink" title="flags："></a>flags：</h5><div class="table-container">
-<table>
+<h5 id="flags："><a href="#flags：" class="headerlink" title="flags："></a>flags：</h5><table>
 <thead>
 <tr>
 <th>flags</th>
@@ -666,12 +651,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>flags-c</strong></p>
 <p>vim会在找到第一个目标字符（“xx”）后显示下面信息并要求你回答：</p>
 <p><code>replace with xx (y/n/a/q/l/^E/^Y)?</code></p>
 <p>此时, 你可以有几种答案 :</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -710,10 +693,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
-<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><div class="table-container">
-<table>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -759,7 +740,7 @@
 </tr>
 <tr>
 <td><code>:set listchars=tab:&gt;-,trail:-</code></td>
-<td>TAB显示为”&gt;—-“，行尾空格显示为”-“（tab:后可设置任意两个字符，trail:后可设置任意一个字符）</td>
+<td>TAB显示为”&gt;—“，行尾空格显示为”-“（tab:后可设置任意两个字符，trail:后可设置任意一个字符）</td>
 </tr>
 <tr>
 <td><code>:set filetype</code></td>
@@ -787,10 +768,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
-<h4 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h4><div class="table-container">
-<table>
+<h4 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h4><table>
 <thead>
 <tr>
 <th>命令</th>
@@ -900,13 +879,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
 <h3 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h3><h4 id="系统-换行符格式转换"><a href="#系统-换行符格式转换" class="headerlink" title="系统/换行符格式转换"></a>系统/换行符格式转换</h4><p>有的脚本文件如果在Windows上编辑，传到Uinx下会出现格式问题而无法执行。</p>
 <p>在vim中使用以下命令，将dos文件格式转换为unix格式：</p>
 <p><code>:set fileformat=unix</code></p>
 <p>fileformat 有三种格式可选:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -929,7 +906,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>查看当前文件系统格式：</p>
 <p><code>:set fileformat?</code></p>
 <p><br></p>
@@ -958,8 +934,7 @@
 <p> 一个简单的办法是用<code>CTRL-L</code>。或者稍往回滚动几行。</p>
 <p><br></p>
 <h4 id="shell翻页"><a href="#shell翻页" class="headerlink" title="shell翻页"></a>shell翻页</h4><p>在shell中操作时不想插鼠标，那怎么上下页呢，键盘命令操作滚动条命令：<code>Shift + PageUp/PageDown</code></p>
-<h3 id="图像编辑器常用功能"><a href="#图像编辑器常用功能" class="headerlink" title="图像编辑器常用功能"></a>图像编辑器常用功能</h3><div class="table-container">
-<table>
+<h3 id="图像编辑器常用功能"><a href="#图像编辑器常用功能" class="headerlink" title="图像编辑器常用功能"></a>图像编辑器常用功能</h3><table>
 <thead>
 <tr>
 <th>功能</th>
@@ -997,7 +972,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h4 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h4><p>Inset模式中，使用<code>Ctrl-N</code>或<code>Ctrl-P</code>键，将按照<a href="https://link.zhihu.com/?target=http%3A//yyq123.github.io/learn-vim/learn-vi-80-03-AutoCompletion-Option.html%23complete" target="_blank" rel="noopener">‘complete’</a>选项指定的范围来搜索匹配的关键字。其默认值为：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> <span class="built_in">complete</span>=.,<span class="keyword">w</span>,<span class="keyword">b</span>,<span class="keyword">u</span>,t,i</span><br></pre></td></tr></table></figure>
 <p>也就是说，默认将在以下来源中查找关键字：</p>
@@ -1108,7 +1082,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://easyw.gitee.io/Technology/vim/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/vim/" alt="微信分享二维码">
     </div>
 </div>
 
