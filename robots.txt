@@ -1,0 +1,21 @@
+# welcome to : www.wangeasy.com
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /Finance/
+Allow: /Games/
+Allow: /my-recommendation/
+Allow: /Reflections/
+Allow: /Technology/
+Allow: /Thoughts/
+
+Disallow: /docs/
+Disallow: /fonts/
+Disallow: /images/
+Disallow: /img/
+Disallow: /page/
+Disallow: /tags/
+
+Sitemap: http://www.wangeasy.com/sitemap.xml
+Sitemap: http://www.wangeasy.com/baidusitemap.xml
