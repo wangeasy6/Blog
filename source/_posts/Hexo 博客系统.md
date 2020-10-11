@@ -220,6 +220,32 @@ mathjax: true
 
 <br/>
 
+#### 9.更改new模板
+
+每次使用`hexo new post "doc-name"`新建一篇文章时，只有title date tags。需要手动添加categories toc等。
+
+可以修改`scaffolds`中的模板（draft、page模板也可以修改），减少工作量。
+
+以下是我常用的post模板：
+
+```markdown
+---
+title: {{ title }}
+date: {{ date }}
+toc: true
+categories:
+tags:
+---
+
+
+
+<!--more-->
+
+<br/>
+```
+
+<br/>
+
 ### 四、Valine评论系统
 
 #### 搭建

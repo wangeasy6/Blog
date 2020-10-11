@@ -29,6 +29,7 @@ i18n_dir: :lang
 skip_render:
   - README.md
   - CNAME
+  - robots.txt
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -80,10 +81,12 @@ theme: easy
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://gitee.com/EasyW/EasyW.git  # deploy之后要到https://gitee.com/EasyW/EasyW/pages更新一下
-  #https://git.dev.tencent.com/EasyW/Blog.git
-  #https://github.com/wangeasy6/Blog.git
+- type: git
+  repo: https://gitee.com/EasyW/EasyW.git    # deploy之后要到https://gitee.com/EasyW/EasyW/pages更新一下
+  branch: master
+  message: "Blog updated"
+- type: git
+  repo: https://github.com/wangeasy6/Blog.git
   branch: master
   message: "Blog updated"
 # {{ now('YYYY-MM-DD HH:mm:ss') }}
@@ -115,3 +118,11 @@ jsonContent:
     excerpt: false
     categories: false
     tags: true
+
+# 自动生成sitemap
+# npm install hexo-generator-sitemap --save
+# npm install hexo-generator-baidu-sitemap --save
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
