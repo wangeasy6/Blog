@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>Python学习笔记 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="查看包情况： dir() 和 help() 函数非常有用: 12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the m">
+  <meta name="description" content="查看包情况： dir() 和 help() 函数非常有用:12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the mo">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习笔记">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/Python学习笔记/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="查看包情况： dir() 和 help() 函数非常有用: 12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the m">
+<meta property="og:description" content="查看包情况： dir() 和 help() 函数非常有用:12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the mo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-07T07:22:50.000Z">
+<meta property="og:updated_time" content="2020-10-13T06:19:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python学习笔记">
-<meta name="twitter:description" content="查看包情况： dir() 和 help() 函数非常有用: 12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the m">
+<meta name="twitter:description" content="查看包情况： dir() 和 help() 函数非常有用:12345&amp;gt;&amp;gt;&amp;gt; import os&amp;gt;&amp;gt;&amp;gt; dir(os)&amp;lt;returns a list of all module functions&amp;gt;&amp;gt;&amp;gt;&amp;gt; help(os)&amp;lt;returns an extensive manual page created from the mo">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -204,10 +205,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><p>查看包情况： dir() 和 help() 函数非常有用:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import os</span><br><span class="line">&gt;&gt;&gt; dir(os)</span><br><span class="line">&lt;returns a list of all module functions&gt;</span><br><span class="line">&gt;&gt;&gt; help(os)</span><br><span class="line">&lt;returns an extensive manual page created from the module&apos;s docstrings&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>SyntaxError: Non-ASCII character ‘\xe6’<br>在开头加入：<code># -*- coding: UTF-8 -*-</code></p>
+<li>查看包情况： dir() 和 help() 函数非常有用:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import os</span><br><span class="line">&gt;&gt;&gt; dir(os)</span><br><span class="line">&lt;returns a list of all module functions&gt;</span><br><span class="line">&gt;&gt;&gt; help(os)</span><br><span class="line">&lt;returns an extensive manual page created from the module&apos;s docstrings&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <a id="more"></a>
@@ -294,6 +292,7 @@
 </ul>
 <p>数字越大越严重，当使用低级别时会默认打印此级别及以上级别日志，如使用Info级别是，会默认输出Waring、Error、Critical。</p>
 <p>使用 logging.Formatter来设置日志格式，logging模块中定义好的可以用于format格式字符串说明：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -356,7 +355,7 @@
 </tr>
 <tr>
 <td>%(created)f</td>
-<td>当前时间，用UNIX标准的表示时间的浮点数表示； 日志事件发生的时间–时间戳，就是当时调用time.time()函数返回的值</td>
+<td>当前时间，用UNIX标准的表示时间的浮点数表示； 日志事件发生的时间—时间戳，就是当时调用time.time()函数返回的值</td>
 </tr>
 <tr>
 <td>%(relativeCreated)d</td>
@@ -368,6 +367,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
       
 
@@ -376,6 +376,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -451,11 +462,11 @@
   
 <nav id="article-nav">
   
-    <a href="/Finance/香帅的北大金融学课/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Thoughts/工作两年回首/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          香帅的北大金融学课
+          工作两年回首
         
       </div>
     </a>
@@ -645,19 +656,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">RaspberryPi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3B+</a>
               </li>
             
             <div class="clearfix"></div>

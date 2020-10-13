@@ -9,6 +9,7 @@
   <title>Python语言特性总结 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="从C或者其它高级语言转到Python，可能会经历一个适应时期，以熟悉Python特别的语法，所以总结一下Python 语言的特性及其基础概念。 例程基于Python 3.5.4。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python语言特性总结">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/Python语言特性总结/index.html">
@@ -16,7 +17,7 @@
 <meta property="og:description" content="从C或者其它高级语言转到Python，可能会经历一个适应时期，以熟悉Python特别的语法，所以总结一下Python 语言的特性及其基础概念。 例程基于Python 3.5.4。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/images/Cover/python.jpg">
-<meta property="og:updated_time" content="2020-09-07T07:22:54.000Z">
+<meta property="og:updated_time" content="2020-10-13T06:26:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python语言特性总结">
 <meta name="twitter:description" content="从C或者其它高级语言转到Python，可能会经历一个适应时期，以熟悉Python特别的语法，所以总结一下Python 语言的特性及其基础概念。 例程基于Python 3.5.4。">
@@ -213,6 +214,10 @@
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="Python-解释器"><a href="#Python-解释器" class="headerlink" title="Python 解释器"></a>Python 解释器</h4><p>Python是一种解释型语言（英语：Interpreted language），这种类型的编程语言，会将代码一句一句直接运行，不需要像编译语言（Compiled language）一样，经过编译器先行编译为机器码，之后再运行。</p>
 <p>这种编程语言需要利用解释器，在运行期，动态将代码逐句解释（interpret）为机器码，或是已经预先编译为机器码的的子程序。它不会一次把整个程序翻译出来，而是每翻译一行程序叙述就立刻运行，然后再翻译下一行，再运行，如此不停地进行下去。</p>
 <p>这一点和Java类似，同时如果你担心解释性语言影响程序执行效率，Python也提供了工具打包编译成相应平台的执行程序。</p>
+<h5 id="开头注释"><a href="#开头注释" class="headerlink" title="开头注释"></a>开头注释</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br></pre></td></tr></table></figure>
+<p>这些注释并不仅仅是写给读者看的注释，也写给操作系统看的，这些注释决定了系统将如何运行这些文件。</p>
+<p>第一句也可以写<code>#!/usr/bin/python</code>，此时使用指定的这个解释器来运行程序。而<code>#!/usr/bin/env python</code>会使用环境变量来决定使用哪个解释器，比较灵活。在windows环境中不检查这句话，直接使用系统环境，但是为了方便跨平台以及兼容，加上是一个好习惯。</p>
+<p><code># -*- coding:utf-8 -*-</code>用于在Linux下指定文件的编码方式。python2需要指定UTF-8才能支持中文，python3开始默认支持中文了，就可以省去这行注释。</p>
 <p><br></p>
 <h4 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h4><p>Python语言利用缩进表示语句块的开始和结束（Off-side规则），而非使用花括号或者某种关键字。增加缩进表示语句块的开始，而减少缩进则表示语句块的结束，同一级语句使用相同缩进。</p>
 <p>if、else、函数、类等，不使用花括号了，换成了“:”加缩进来表示。</p>
@@ -247,6 +252,7 @@
 <p>字符串截取<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">"Hello"</span></span><br><span class="line">b = <span class="string">"World"</span></span><br><span class="line">print(a + b)           <span class="comment"># +    HelloWorld</span></span><br><span class="line">print(a*<span class="number">2</span>)             <span class="comment"># *    HelloHello</span></span><br><span class="line">print(a[<span class="number">1</span>])            <span class="comment"># []   e</span></span><br><span class="line">print(a[<span class="number">-1</span>])           <span class="comment"># []   o</span></span><br><span class="line">print(a[<span class="number">1</span>:<span class="number">4</span>])          <span class="comment"># [:]  ell （左闭右开）</span></span><br><span class="line">print(a[:<span class="number">4</span>])           <span class="comment"># [:]  Hell （缺省左值）</span></span><br></pre></td></tr></table></figure></p>
 <p>格式化字符串（format）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"a=%s,b=%s"</span> % (a,b))           <span class="comment"># a=Hello,b=World （%    格式字符串）</span></span><br><span class="line">print(<span class="string">"a=&#123;&#125;,b=&#123;&#125;"</span>.format(a,b))       <span class="comment"># a=Hello,b=World  按位置格式化</span></span><br><span class="line">print(<span class="string">"a=&#123;1&#125;,b=&#123;0&#125;"</span>.format(b,a))     <span class="comment"># a=Hello,b=World  指定位置</span></span><br><span class="line">print(<span class="string">"a=&#123;a&#125;,b=&#123;b&#125;"</span>.format(b=b,a=a)) <span class="comment"># a=Hello,b=World  指定关键字</span></span><br></pre></td></tr></table></figure></p>
 <p>使用%格式化时的格式化符号：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -309,7 +315,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>格式化操作符辅助指令:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -356,7 +364,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>字符串操作相关函数：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -523,6 +533,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="bytearray"><a href="#bytearray" class="headerlink" title="bytearray"></a>bytearray</h5><p>和bytes和string不同，bytearray是可变序列。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bytearray()                               <span class="comment"># 空字节数组</span></span><br><span class="line">bytearray(int)                            <span class="comment"># 初始化一个指定长度的空数组</span></span><br><span class="line">bytearray(iterable of ints)               <span class="comment"># 从[0,255)的int序列中初始化</span></span><br><span class="line">bytearray(bytes <span class="keyword">or</span> buffer)                <span class="comment"># 从bytes 或者 buffer 初始化</span></span><br><span class="line">bytearray(string, encoding[, errors])     <span class="comment"># 按照指定的 encoding 将字符串转换为字节序列</span></span><br></pre></td></tr></table></figure>
 <p>除了可以更改元素，其它用法和基本bytes相同。</p>
@@ -541,6 +552,7 @@
 <p>可以使用大括号 <strong>{ }</strong> 或者 <strong>set()</strong> 函数创建集合，创建一个空集合必须用 <strong>set()</strong> 而不是 <strong>{ }</strong>，因为 <strong>{ }</strong> 是用来创建一个空字典。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = set(<span class="string">'abr'</span>)         <span class="comment"># &#123;'r', 'b', 'a'&#125;</span></span><br><span class="line">b = set(<span class="string">'ala'</span>)         <span class="comment"># &#123;'l', 'a'&#125;</span></span><br><span class="line">a - b                  <span class="comment"># &#123;'r', 'b'&#125;</span></span><br><span class="line">a | b                  <span class="comment"># &#123;'r', 'l', 'b', 'a'&#125;</span></span><br><span class="line">a &amp; b                  <span class="comment"># &#123;'a'&#125;</span></span><br><span class="line">a ^ b                  <span class="comment"># &#123;'r', 'b', 'l'&#125;</span></span><br></pre></td></tr></table></figure>
 <p>集合内置方法</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -619,6 +631,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h5><p> 推导式可以从一个数据序列构建另一个新的数据序列的结构体。元组、列表、集合都可以使用推导式推导，且在Python2和3中都有支持。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSquare</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*x</span><br><span class="line"></span><br><span class="line">X = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">squares = &#123;i: getSquare(i) <span class="keyword">for</span> i <span class="keyword">in</span> X&#125;        <span class="comment"># &#123;1: 1, 2: 4, 3: 9, 4: 16, 5: 25&#125;</span></span><br></pre></td></tr></table></figure>
 <h5 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h5><p><em>isinstance(object, type)</em>，判断一个对象是否是一个已知的类型。type也可以是类/类型的元组。</p>
@@ -675,7 +688,7 @@
 <p><br></p>
 <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>Python 使用 <code>import</code>和<code>from import</code>语句导入其它模块。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module</span><br><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> fun1[, fun2...]</span><br><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-<p>Python 使用一个文件夹包含同一类模块，在目录中包含 “__init__.py” 来声明为一个包。</p>
+<p>Python 使用一个文件夹包含同一类模块，在目录中包含 “_<em>init_</em>.py” 来声明为一个包。</p>
 <p>引用包中的模块：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> package.module</span><br><span class="line"><span class="keyword">from</span> package.module <span class="keyword">import</span> fun1[, fun2...]</span><br><span class="line"><span class="keyword">from</span> package <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
 <p><br></p>
@@ -701,7 +714,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> NameError(<span class="string">'HiThere'</span>)</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">    print(<span class="string">'An exception flew by!'</span>)</span><br><span class="line">    <span class="keyword">raise</span></span><br><span class="line"></span><br><span class="line">An exception flew by!</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "&lt;stdin&gt;", line 2, in ?</span><br><span class="line">NameError: HiThere</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with context_expression [as target(s)]:</span><br><span class="line">        with-body</span><br></pre></td></tr></table></figure>
-<p>with基于上下文管理器，context_expression返回一个上下文管理器，在进入body之前会调用上下文管理器的__enter__()函数，整个body执行完后，会自动调用上下文管理器的__exit__()，可以用于自动关闭文件、线程锁的自动获取和释放等。</p>
+<p>with基于上下文管理器，context<em>expression返回一个上下文管理器，在进入body之前会调用上下文管理器的\</em>_enter__()函数，整个body执行完后，会自动调用上下文管理器的__exit__()，可以用于自动关闭文件、线程锁的自动获取和释放等。</p>
 <p>如果指定了as语句，会将上下文管理器的 __enter__() 方法的返回值赋值给 target(s)，target(s) 可以是单个变量，或者由“()”括起来的元组。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"myfile.txt"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
 <p><br></p>
@@ -745,6 +758,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -858,7 +882,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-解释器"><span class="toc-number">1.1.</span> <span class="toc-text">Python 解释器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缩进"><span class="toc-number">1.2.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行结尾"><span class="toc-number">1.3.</span> <span class="toc-text">行结尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量"><span class="toc-number">1.4.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#bool"><span class="toc-number">1.4.1.</span> <span class="toc-text">bool</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-number">1.4.2.</span> <span class="toc-text">Number</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#bytes"><span class="toc-number">1.4.3.</span> <span class="toc-text">bytes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#string"><span class="toc-number">1.4.4.</span> <span class="toc-text">string</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#bytearray"><span class="toc-number">1.4.5.</span> <span class="toc-text">bytearray</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tuple"><span class="toc-number">1.4.6.</span> <span class="toc-text">tuple</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#list"><span class="toc-number">1.4.7.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dict"><span class="toc-number">1.4.8.</span> <span class="toc-text">dict</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#set"><span class="toc-number">1.4.9.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#推导式"><span class="toc-number">1.4.10.</span> <span class="toc-text">推导式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类型检查"><span class="toc-number">1.4.11.</span> <span class="toc-text">类型检查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.4.12.</span> <span class="toc-text">变量作用域</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三元表达式"><span class="toc-number">1.5.</span> <span class="toc-text">三元表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数"><span class="toc-number">1.6.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#迭代器"><span class="toc-number">1.7.</span> <span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成器"><span class="toc-number">1.8.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">1.9.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异常机制"><span class="toc-number">1.10.</span> <span class="toc-text">异常机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#with语句"><span class="toc-number">1.11.</span> <span class="toc-text">with语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向对象"><span class="toc-number">2.</span> <span class="toc-text">面向对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-解释器"><span class="toc-number">1.1.</span> <span class="toc-text">Python 解释器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#开头注释"><span class="toc-number">1.1.1.</span> <span class="toc-text">开头注释</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缩进"><span class="toc-number">1.2.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行结尾"><span class="toc-number">1.3.</span> <span class="toc-text">行结尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量"><span class="toc-number">1.4.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#bool"><span class="toc-number">1.4.1.</span> <span class="toc-text">bool</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-number">1.4.2.</span> <span class="toc-text">Number</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#bytes"><span class="toc-number">1.4.3.</span> <span class="toc-text">bytes</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#string"><span class="toc-number">1.4.4.</span> <span class="toc-text">string</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#bytearray"><span class="toc-number">1.4.5.</span> <span class="toc-text">bytearray</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tuple"><span class="toc-number">1.4.6.</span> <span class="toc-text">tuple</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#list"><span class="toc-number">1.4.7.</span> <span class="toc-text">list</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dict"><span class="toc-number">1.4.8.</span> <span class="toc-text">dict</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#set"><span class="toc-number">1.4.9.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#推导式"><span class="toc-number">1.4.10.</span> <span class="toc-text">推导式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#类型检查"><span class="toc-number">1.4.11.</span> <span class="toc-text">类型检查</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#变量作用域"><span class="toc-number">1.4.12.</span> <span class="toc-text">变量作用域</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三元表达式"><span class="toc-number">1.5.</span> <span class="toc-text">三元表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数"><span class="toc-number">1.6.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#迭代器"><span class="toc-number">1.7.</span> <span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成器"><span class="toc-number">1.8.</span> <span class="toc-text">生成器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用"><span class="toc-number">1.9.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异常机制"><span class="toc-number">1.10.</span> <span class="toc-text">异常机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#with语句"><span class="toc-number">1.11.</span> <span class="toc-text">with语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向对象"><span class="toc-number">2.</span> <span class="toc-text">面向对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1014,19 +1038,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">待续</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">RaspberryPi</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3B+</a>
               </li>
             
             <div class="clearfix"></div>
