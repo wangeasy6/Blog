@@ -4,6 +4,8 @@ date: 2018-07-18 16:57:00
 toc: true
 categories:
   - Technology
+tag:
+  - Tools
 ---
 
 Hexo 是一个静态博客生成器，基于 NodeJs 和 GitHub Pages 服务。

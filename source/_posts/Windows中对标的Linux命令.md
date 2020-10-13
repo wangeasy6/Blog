@@ -26,7 +26,7 @@ categories:
 | rm         | del                                          | 删除文件           |
 | rm -r      | rd /S                                        | 删除文件夹         |
 | md         | md                                           | 创建文件夹         |
-| mv         | mv                                           | 移动文件/文件夹    |
+| mv         | move                                         | 移动文件/文件夹    |
 | cp         | copy 、 xcopy /S                             | 复制文件、文件夹   |
 | cat        | type                                         | 输出文本内容       |
 | vim        | 文件名（会使用默认打开工具打开文件）         | 编辑文本           |

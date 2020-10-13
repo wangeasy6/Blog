@@ -6,8 +6,6 @@ categories:
   - Technology
 tags:
   - 树莓派
-  - RaspberryPi
-  - 3B+
 ---
 
 ### 主题

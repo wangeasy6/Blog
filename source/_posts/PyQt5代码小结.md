@@ -1,10 +1,11 @@
 ---
 title: PyQt5代码小结
+date: 2020-03-29 22:13:56
 toc: true
 categories:
   - Technology
-date: 2020-03-29 22:13:56
 tags:
+  - Python
 ---
 
 ![PyQt.jpg](/images/PyQt5小结/PyQt.jpg)

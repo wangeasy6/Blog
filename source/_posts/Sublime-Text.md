@@ -4,6 +4,8 @@ date: 2018-10-17 16:57:00
 toc: true
 categories:
   - Technology
+tag:
+  - Tools
 ---
 
 响应超快，超好用的文本编辑器。

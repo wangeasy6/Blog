@@ -4,6 +4,8 @@ date: 2018-08-06 16:14:01
 toc: true
 categories:
   - Technology
+tags:
+  - Python
 ---
 
 * 查看包情况： dir() 和 help() 函数非常有用:
@@ -14,9 +16,6 @@ categories:
 >>> help(os)
 <returns an extensive manual page created from the module's docstrings>
 ```
-
-* SyntaxError: Non-ASCII character '\xe6'
-在开头加入：`# -*- coding: UTF-8 -*-`
 
 <!--more-->
 
