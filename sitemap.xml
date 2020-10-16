@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.wangeasy.com/Technology/Python%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6/</loc>
+    <loc>http://www.wangeasy.com/Technology/Python%E5%9F%BA%E7%A1%80%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6/</loc>
     
     <lastmod>2020-10-16</lastmod>
     
@@ -249,14 +249,14 @@
 
   
   <url>
-    <loc>http://www.wangeasy.com/tags/Python/</loc>
+    <loc>http://www.wangeasy.com/tags/Tools/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/tags/Tools/</loc>
+    <loc>http://www.wangeasy.com/tags/Python/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -279,13 +279,6 @@
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/categories/Finance/</loc>
-    <lastmod>2020-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.wangeasy.com/categories/Reflections/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
@@ -301,6 +294,13 @@
   
   <url>
     <loc>http://www.wangeasy.com/categories/Thoughts/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/categories/Finance/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

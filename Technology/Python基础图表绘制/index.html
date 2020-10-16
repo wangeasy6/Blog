@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Python图表绘制 | Easy Wang</title>
+  <title>Python基础图表绘制 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Matplotlib是一个综合库，用于在Python中创建静态、动画和交互式可视化。在做数据可视化，尤其是三维图像时，是一个不错的选择。 当前环境：Win10、Python 3.8.5、Matplotlib 3.3.2">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python图表绘制">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/Python图表绘制/index.html">
+<meta property="og:title" content="Python基础图表绘制">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/Python基础图表绘制/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="Matplotlib是一个综合库，用于在Python中创建静态、动画和交互式可视化。在做数据可视化，尤其是三维图像时，是一个不错的选择。 当前环境：Win10、Python 3.8.5、Matplotlib 3.3.2">
 <meta property="og:locale" content="zh-Hans">
@@ -26,9 +26,9 @@
 <meta property="og:image" content="http://www.wangeasy.com/images/python_plots/line_chart.png">
 <meta property="og:image" content="http://www.wangeasy.com/images/python_plots/wireframe.png">
 <meta property="og:image" content="http://www.wangeasy.com/images/python_plots/surface.png">
-<meta property="og:updated_time" content="2020-10-16T07:21:20.000Z">
+<meta property="og:updated_time" content="2020-10-16T07:37:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python图表绘制">
+<meta name="twitter:title" content="Python基础图表绘制">
 <meta name="twitter:description" content="Matplotlib是一个综合库，用于在Python中创建静态、动画和交互式可视化。在做数据可视化，尤其是三维图像时，是一个不错的选择。 当前环境：Win10、Python 3.8.5、Matplotlib 3.3.2">
 <meta name="twitter:image" content="http://www.wangeasy.com/images/python_plots/surface.png">
   
@@ -187,19 +187,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Python图表绘制" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Python基础图表绘制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Python图表绘制
+      Python基础图表绘制
     </h1>
   
 
         
-        <a href="/Technology/Python图表绘制/" class="archive-article-date">
+        <a href="/Technology/Python基础图表绘制/" class="archive-article-date">
   	<time datetime="2020-10-16T07:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
 </a>
         
@@ -220,7 +220,7 @@
 <p>当前环境：<em>Win10</em>、<em>Python 3.8.5</em>、<em>Matplotlib 3.3.2</em></p>
 <a id="more"></a>
 <p><br></p>
-<h3 id="二维函数绘制"><a href="#二维函数绘制" class="headerlink" title="二维函数绘制"></a>二维函数绘制</h3><p>以下程序是一个最简单（$y = x$）的二维函数绘制例程：</p>
+<h3 id="二维函数绘制"><a href="#二维函数绘制" class="headerlink" title="二维函数绘制"></a>二维函数绘制</h3><h4 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h4><p>以下程序是一个最简单（$y = x$）的二维函数绘制例程：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">5</span>, <span class="number">0.1</span>)</span><br><span class="line">y = x</span><br><span class="line"></span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="/images/python_plots/sample.png" alt="sample.png"></p>
 <p>上述示例就是一个最素的函数绘制，没有title，没有坐标系说明，没有指定线的颜色，没有函数说明等等。</p>
@@ -353,7 +353,7 @@
 <p>以上图为例，生成一个4x4x4的方形矩阵，正方形只需要指定一条边的坐标，长方形也只需要指定3条边的坐标，就可以使用For循环来绘图了，这是一种思路。</p>
 <p>还有另外一种思路，这64个点都有x、y、z轴的坐标，所有x轴的坐标存在X里，所有y轴的坐标存在Y里，所以z轴的坐标存在Z里。</p>
 <p>scatter函数支持一个一个点的绘制，也支持传入坐标函数的绘制。而meshgrid就是自动根据每边坐标生成坐标矩阵的函数。</p>
-<h4 id="折线图"><a href="#折线图" class="headerlink" title="折线图"></a>折线图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">ax = plt.axes(projection=<span class="string">'3d'</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"># 楼梯折线图</span></span><br><span class="line"><span class="string">[1,5] [5,5]</span></span><br><span class="line"><span class="string">[1,1] [5,1]</span></span><br><span class="line"><span class="string">一共5楼</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">x = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>] * <span class="number">5</span></span><br><span class="line">y = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>] * <span class="number">5</span></span><br><span class="line">z = np.arange(<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">ax.plot(x, y, z)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h4 id="折线图-1"><a href="#折线图-1" class="headerlink" title="折线图"></a>折线图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">ax = plt.axes(projection=<span class="string">'3d'</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string"># 楼梯折线图</span></span><br><span class="line"><span class="string">[1,5] [5,5]</span></span><br><span class="line"><span class="string">[1,1] [5,1]</span></span><br><span class="line"><span class="string">一共5楼</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">x = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>] * <span class="number">5</span></span><br><span class="line">y = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>] * <span class="number">5</span></span><br><span class="line">z = np.arange(<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">ax.plot(x, y, z)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="/images/python_plots/line_chart.png" alt="line_chart.png"></p>
 <h4 id="线框图"><a href="#线框图" class="headerlink" title="线框图"></a>线框图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">ax = plt.axes(projection=<span class="string">'3d'</span>)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">-5</span>, <span class="number">6</span>, <span class="number">1</span>)</span><br><span class="line">X, Y = np.meshgrid(x, x)</span><br><span class="line">Z = -(X*X + Y*Y)</span><br><span class="line"></span><br><span class="line">ax.plot_wireframe(X, Y, Z)</span><br><span class="line"></span><br><span class="line">ax.set_xlabel(<span class="string">'X'</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">'Y'</span>)</span><br><span class="line">ax.set_zlabel(<span class="string">'Z'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="/images/python_plots/wireframe.png" alt="wireframe.png"></p>
@@ -451,7 +451,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/Python图表绘制/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/Python基础图表绘制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -494,7 +494,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#二维函数绘制"><span class="toc-number">1.</span> <span class="toc-text">二维函数绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#arange"><span class="toc-number">1.0.1.</span> <span class="toc-text">arange</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#color"><span class="toc-number">1.0.2.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linestyle"><span class="toc-number">1.0.3.</span> <span class="toc-text">linestyle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#marker"><span class="toc-number">1.0.4.</span> <span class="toc-text">marker</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#饼图"><span class="toc-number">1.1.</span> <span class="toc-text">饼图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#subplot-多坐标系"><span class="toc-number">1.2.</span> <span class="toc-text">subplot(多坐标系)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三维绘图"><span class="toc-number">2.</span> <span class="toc-text">三维绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#散点图"><span class="toc-number">2.1.</span> <span class="toc-text">散点图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#meshgrid"><span class="toc-number">2.1.1.</span> <span class="toc-text">meshgrid</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#折线图"><span class="toc-number">2.2.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线框图"><span class="toc-number">2.3.</span> <span class="toc-text">线框图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表面图"><span class="toc-number">2.4.</span> <span class="toc-text">表面图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Colormap"><span class="toc-number">2.4.1.</span> <span class="toc-text">Colormap</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#二维函数绘制"><span class="toc-number">1.</span> <span class="toc-text">二维函数绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#折线图"><span class="toc-number">1.1.</span> <span class="toc-text">折线图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#arange"><span class="toc-number">1.1.1.</span> <span class="toc-text">arange</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#color"><span class="toc-number">1.1.2.</span> <span class="toc-text">color</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#linestyle"><span class="toc-number">1.1.3.</span> <span class="toc-text">linestyle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#marker"><span class="toc-number">1.1.4.</span> <span class="toc-text">marker</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#饼图"><span class="toc-number">1.2.</span> <span class="toc-text">饼图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#subplot-多坐标系"><span class="toc-number">1.3.</span> <span class="toc-text">subplot(多坐标系)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三维绘图"><span class="toc-number">2.</span> <span class="toc-text">三维绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#散点图"><span class="toc-number">2.1.</span> <span class="toc-text">散点图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#meshgrid"><span class="toc-number">2.1.1.</span> <span class="toc-text">meshgrid</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#折线图-1"><span class="toc-number">2.2.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线框图"><span class="toc-number">2.3.</span> <span class="toc-text">线框图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表面图"><span class="toc-number">2.4.</span> <span class="toc-text">表面图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Colormap"><span class="toc-number">2.4.1.</span> <span class="toc-text">Colormap</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -646,11 +646,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
