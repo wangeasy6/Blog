@@ -6,31 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>C# - Unit Test | Easy Wang</title>
+  <title>Python编码格式化工具 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在上线了几个产品之后，深刻的领悟到，完备的测试是程序稳定性的唯一保证。 之前一直使用的是Excel测试用例条目来记录测试方法以及测试结果，记录繁琐且不甚完全，尤其对于大量的输入输出，需要大量的记录和操作，面对一个几百行的表，任何一个人都会头大。 在一次搜索单元测试的时候，找到了C# Unit Test测试框架的Blog，用了之后发现真香。 测试输入和测试结果可以程序化比对，每一个输入和输出都清楚">
+  <meta name="description" content="Python由语法简介和自由而著名，如果你不想库里的代码乱七八糟，统一编码规范尤其重要。 比起人来做大量的代码审查，使用软件进行代码检查和优化对于编码规范是一个更好的主意。 以下，主要探索了pylint、flake8、black、yapf、isort等软件的安装及使用。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# - Unit Test">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/CSharp单元测试/index.html">
+<meta property="og:title" content="Python编码格式化工具">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/Python编码格式化工具/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="在上线了几个产品之后，深刻的领悟到，完备的测试是程序稳定性的唯一保证。 之前一直使用的是Excel测试用例条目来记录测试方法以及测试结果，记录繁琐且不甚完全，尤其对于大量的输入输出，需要大量的记录和操作，面对一个几百行的表，任何一个人都会头大。 在一次搜索单元测试的时候，找到了C# Unit Test测试框架的Blog，用了之后发现真香。 测试输入和测试结果可以程序化比对，每一个输入和输出都清楚">
+<meta property="og:description" content="Python由语法简介和自由而著名，如果你不想库里的代码乱七八糟，统一编码规范尤其重要。 比起人来做大量的代码审查，使用软件进行代码检查和优化对于编码规范是一个更好的主意。 以下，主要探索了pylint、flake8、black、yapf、isort等软件的安装及使用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/images/Cover/csharp_unit_test.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/UnitTestDemo.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/UnitTestDemoTest.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/TestWindowOpen.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/TestWindow.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/TestRun.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/TestOk.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/TestFailed.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/TestUnitCreate.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/DataTest.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/CSharp-UnitTest/TestOutput.jpg">
-<meta property="og:updated_time" content="2020-09-07T07:21:48.000Z">
+<meta property="og:image" content="http://www.wangeasy.com/images/Cover/pep8.png">
+<meta property="og:updated_time" content="2020-10-20T09:25:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C# - Unit Test">
-<meta name="twitter:description" content="在上线了几个产品之后，深刻的领悟到，完备的测试是程序稳定性的唯一保证。 之前一直使用的是Excel测试用例条目来记录测试方法以及测试结果，记录繁琐且不甚完全，尤其对于大量的输入输出，需要大量的记录和操作，面对一个几百行的表，任何一个人都会头大。 在一次搜索单元测试的时候，找到了C# Unit Test测试框架的Blog，用了之后发现真香。 测试输入和测试结果可以程序化比对，每一个输入和输出都清楚">
-<meta name="twitter:image" content="http://www.wangeasy.com/images/Cover/csharp_unit_test.jpg">
+<meta name="twitter:title" content="Python编码格式化工具">
+<meta name="twitter:description" content="Python由语法简介和自由而著名，如果你不想库里的代码乱七八糟，统一编码规范尤其重要。 比起人来做大量的代码审查，使用软件进行代码检查和优化对于编码规范是一个更好的主意。 以下，主要探索了pylint、flake8、black、yapf、isort等软件的安装及使用。">
+<meta name="twitter:image" content="http://www.wangeasy.com/images/Cover/pep8.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -187,20 +178,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-CSharp单元测试" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Python编码格式化工具" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C# - Unit Test
+      Python编码格式化工具
     </h1>
   
 
         
-        <a href="/Technology/CSharp单元测试/" class="archive-article-date">
-  	<time datetime="2020-08-03T07:37:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
+        <a href="/Technology/Python编码格式化工具/" class="archive-article-date">
+  	<time datetime="2020-10-20T09:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
 </a>
         
 
@@ -215,223 +206,183 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/Cover/csharp_unit_test.jpg" alt="Cover.jpg"></p>
-<p>在上线了几个产品之后，深刻的领悟到，完备的测试是程序稳定性的唯一保证。</p>
-<p>之前一直使用的是Excel测试用例条目来记录测试方法以及测试结果，记录繁琐且不甚完全，尤其对于大量的输入输出，需要大量的记录和操作，面对一个几百行的表，任何一个人都会头大。</p>
-<p>在一次搜索单元测试的时候，找到了C# Unit Test测试框架的Blog，用了之后发现真香。</p>
-<p>测试输入和测试结果可以程序化比对，每一个输入和输出都清楚明了，且可以重复执行。有了完备的测试，还可以反向推进改进软件接口，提升软件的质量和稳定。</p>
-<p>所以稍微研究了C#的单元测试框架，总结如下。</p>
+        <p><img src="/images/Cover/pep8.png" alt="pep8.png"></p>
+<p>Python由语法简介和自由而著名，如果你不想库里的代码乱七八糟，统一编码规范尤其重要。</p>
+<p>比起人来做大量的代码审查，使用软件进行代码检查和优化对于编码规范是一个更好的主意。</p>
+<p>以下，主要探索了pylint、flake8、black、yapf、isort等软件的安装及使用。</p>
 <a id="more"></a>
 <p><br></p>
-<p>Demo基于VS Community 2017 + MSTest 2.1.2。</p>
-<h3 id="单元测试项目"><a href="#单元测试项目" class="headerlink" title="单元测试项目"></a>单元测试项目</h3><p>1、 新建一个控制台应用。名称叫：UnitTestDemo</p>
-<p><img src="/images/CSharp-UnitTest/UnitTestDemo.jpg" alt="UnitTestDemo.jpg"></p>
-<p>2、 添加一个待测试的方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static int Add(int pNum1,int pNum2)</span><br><span class="line">&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        return pNum1 + pNum2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、 新建一个单元测试项目。名称叫：UnitTestDemoTest</p>
-<p><img src="/images/CSharp-UnitTest/UnitTestDemoTest.jpg" alt="UnitTestDemoTest.jpg"></p>
-<p>写代码。调用要测试的方法。</p>
-<p>修改类名，及方法名。UnitTest1重命名为ProgramTest，方法名：TestMethod1改为：AddTest。</p>
-<p>这里说明一下，方法面上面的特性：[TestMethod]这是必须的。告诉编译器这是一个测试法式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">using System;</span><br><span class="line">using Microsoft.VisualStudio.TestTools.UnitTesting;</span><br><span class="line">using UnitTestDemo;</span><br><span class="line"></span><br><span class="line">namespace UnitTestDemoTest</span><br><span class="line">&#123;</span><br><span class="line">    [TestClass]</span><br><span class="line">    public class ProgramTest</span><br><span class="line">    &#123;</span><br><span class="line">        [TestMethod]</span><br><span class="line">        public void AddTest()</span><br><span class="line">        &#123;</span><br><span class="line">            int a = 100;</span><br><span class="line">            int b = 10;</span><br><span class="line">            Assert.AreEqual(Program.Add(a, b), 110);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4、 打开“测试资源管理器”，在“测试”-&gt;窗口-&gt;测试资源管理器</p>
-<p><img src="/images/CSharp-UnitTest/TestWindowOpen.jpg" alt="TestWindowOpen.jpg"></p>
-<p><img src="/images/CSharp-UnitTest/TestWindow.jpg" alt="TestWindow.jpg"></p>
-<p>在上面右击。选“运行选定测试”，</p>
-<p><img src="/images/CSharp-UnitTest/TestRun.jpg" alt="TestRun.jpg"></p>
-<p>可以看到前面多了一个通过标记。表示测试通过。<br><img src="/images/CSharp-UnitTest/TestOk.jpg" alt="TestOk.jpg"></p>
-<p>如果未通过，是个红色的X。</p>
-<p><img src="/images/CSharp-UnitTest/TestFailed.jpg" alt="TestFailed.jpg"></p>
-<p>5、 以上是手工建立测试项目的。还有一种快捷的方法建立测试项目。在要测试的方法行，右击。选择创建单元测试。可弹出建立单元测试对话框。</p>
-<p><img src="/images/CSharp-UnitTest/TestUnitCreate.jpg" alt="TestUnitCreate.jpg"></p>
-<p>6、对于同一测试的不同输入输出，我们可以使用传值测试，用[DataTestMethod]和[DataRow]来标识数据集。</p>
-<p>对于以下数据类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class StrIP</span><br><span class="line">&#123;</span><br><span class="line">    private string ip;</span><br><span class="line">    public string IP&#123;</span><br><span class="line">        get =&gt; ip;</span><br><span class="line">        set</span><br><span class="line">        &#123;</span><br><span class="line">            value = value.Trim();</span><br><span class="line">            if (value == &quot;&quot;)</span><br><span class="line">            &#123;</span><br><span class="line">                throw new ArgumentException(&quot;IP为空&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            string pattern = @&quot;^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.)&#123;3&#125;(2[0-4]\d|25[0-5]|[01]?\d\d?)$&quot;;</span><br><span class="line">            if (Regex.IsMatch(value, pattern))</span><br><span class="line">            &#123;</span><br><span class="line">                ip = value;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                throw new ArgumentException(&quot;IP非法&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以使用以下用例进行测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[DataTestMethod]</span><br><span class="line">[DataRow(&quot;&quot;, &quot;IP为空&quot;)]</span><br><span class="line">[DataRow(&quot; &quot;, &quot;IP为空&quot;)]</span><br><span class="line">[DataRow(&quot;www.baidu.com&quot;, &quot;IP非法&quot;)]</span><br><span class="line">[DataRow(&quot;中文&quot;, &quot;IP非法&quot;)]</span><br><span class="line">[DataRow(&quot;192.168.0.256&quot;, &quot;IP非法&quot;)]</span><br><span class="line">public void IP_Test(string ip,string str_error)</span><br><span class="line">&#123;</span><br><span class="line">    StrIP str_ip = new StrIP();</span><br><span class="line">    try</span><br><span class="line">    &#123;</span><br><span class="line">        str_ip.IP = ip;</span><br><span class="line">    &#125;</span><br><span class="line">    catch (Exception ex)</span><br><span class="line">    &#123;</span><br><span class="line">        Assert.AreEqual(ex.Message, str_error);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    Assert.Fail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行测试用例：</p>
-<p><img src="/images/CSharp-UnitTest/DataTest.jpg" alt="DataTest.jpg"></p>
-<p>7、在C#调试时，我们经常使用Console类来打印输出，程序调试时可以在“输出”栏看到程序输出。但在运行单元测试的时候，在“输出”栏中看不到输出，输出被移到了“测试资源管理器”中。</p>
-<p><img src="/images/CSharp-UnitTest/TestOutput.jpg" alt="TestOutput.jpg"></p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/visualstudio/test/walkthrough-creating-and-running-CSharp-UnitTests-for-managed-code?view=vs-2019" target="_blank" rel="noopener">Microsoft Docs Example</a></li>
-</ul>
+<h3 id="编码检查"><a href="#编码检查" class="headerlink" title="编码检查"></a>编码检查</h3><p>统一代码的第一步是统一编码，主要有两个方面需要注意，fileencoding和fileformat。</p>
+<p>根据PEP8的规定，Python3使用UTF-8编码，Python2使用ASCII编码。fileformat根据所在系统确定。</p>
+<p>另外，在Python标准库中，所有标识符、字符串文本、注释都必须使用ASCII。</p>
+<h4 id="列出所有文件的编码信息"><a href="#列出所有文件的编码信息" class="headerlink" title="列出所有文件的编码信息"></a>列出所有文件的编码信息</h4><p>如果没有子目录：</p>
+<p><code>file *</code></p>
+<p>如果有子目录：</p>
+<p><code>find . -name &#39;*&#39; | xargs file | grep -v directory</code></p>
+<p>如果有<code>with CRLF line terminators</code>，说明是文件类型是<code>dos</code>。</p>
+<p>列出所有<code>dos</code>编码文件：</p>
+<p><code>find . -name &#39;*&#39; | xargs file | grep CRLF</code></p>
+<h4 id="批量转码"><a href="#批量转码" class="headerlink" title="批量转码"></a>批量转码</h4><p><strong>将所有<code>GBK(ISO-8859)</code>转为<code>UTF-8</code>:</strong></p>
+<p>依赖：<code>enca</code></p>
+<p><code>find . -name &#39;*&#39; | xargs file | grep ISO-8859 |  xargs -d: -n1 | grep .py | xargs enca -L zh_CN -x utf-8</code></p>
+<p><strong>将所有<code>dos</code>转为<code>unix</code>:</strong></p>
+<p>依赖：<code>dos2unix</code></p>
+<p><code>find . -name &#39;*&#39; | xargs file | grep CRLF |  xargs -d: -n1 | grep .py | xargs dos2unix</code></p>
 <p><br></p>
-<h4 id="Assert类"><a href="#Assert类" class="headerlink" title="Assert类"></a>Assert类</h4><p>可以看到，在Demo示例中，我们使用Assert.AreEqual来判断程序结果和预测之间是否相等。而在单元测试项目中，Assert类提供了许多方法来判定输出结果，如下表所示：</p>
+<h3 id="Pylint"><a href="#Pylint" class="headerlink" title="Pylint"></a>Pylint</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p><a href="http://pylint.pycqa.org/en/latest/" target="_blank" rel="noopener">Pylint</a>是一个Python代码检查工具，它使用编码标准来检查代码问题，并提出重构建议。</p>
+<p>在最后Pylint会输出代码全局评分分数，这可以用来测试修改代码后的效果。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install pylint</span><br></pre></td></tr></table></figure>
+<p><code>pylint3 --version</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pylint3 2.2.2</span><br><span class="line">astroid 2.1.0</span><br><span class="line">Python 3.7.3 (default, Jul 25 2020, 13:03:44)</span><br><span class="line">[GCC 8.3.0]</span><br></pre></td></tr></table></figure>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pylint [options] &lt;modules_or_packages&gt;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="flake8"><a href="#flake8" class="headerlink" title="flake8"></a>flake8</h3><h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><p><a href="https://pypi.org/project/flake8/" target="_blank" rel="noopener">Flake8</a> 是由Python官方发布的一款辅助检测Python代码是否规范的工具，相对于目前热度比较高的Pylint来说，Flake8检查规则灵活，支持集成额外插件，扩展性强。</p>
+<p>Flake8是对下面三个工具的封装：</p>
+<p>1）<a href="https://flake8.pycqa.org/en/latest/#" target="_blank" rel="noopener">PyFlakes</a>：静态检查Python代码逻辑错误的工具。</p>
+<p>2）<a href="https://pypi.org/project/pycodestyle/" target="_blank" rel="noopener">pycodestyle</a>： 静态检查PEP8编码风格的工具。</p>
+<p>3）<a href="https://pypi.org/project/mccabe/" target="_blank" rel="noopener">NedBatchelder’s McCabe script</a>：静态分析Python代码复杂度的工具。</p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python -m pip install flake8</span><br></pre></td></tr></table></figure>
+<p>Flake8最好安装在对应的Python版本。如果要想Flake8能够正确地解析 Python 3.5中的新语言特性(例如) ，那么需要将它安装在3.5上，以便Flake8能够理解这些特性。</p>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flake8 &lt;modules_or_packages&gt;</span><br></pre></td></tr></table></figure>
+<p>如果在多个Python版本上安装了Flake8，最好使用<code>Python&lt;version&gt; -m Flake8</code>来运行Flake8。</p>
+<p>如果只想看特定的警告或错误：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flake8 --select E123,W503 &lt;modules_or_packages&gt;</span><br></pre></td></tr></table></figure>
+<p>如果想忽略一个特定的警告或错误：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flake8 --ignore E24,W504 &lt;modules_or_packages&gt;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="Black"><a href="#Black" class="headerlink" title="Black"></a>Black</h3><h4 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h4><p><a href="https://pypi.org/project/black/" target="_blank" rel="noopener">Black</a>是不妥协的Python代码格式化程序。这代表着用户不能细化代码风格。</p>
+<p>Black默认会直接重构文件。</p>
+<h4 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install black / pip install black</span><br></pre></td></tr></table></figure>
+<p>当前版本：<code>black, version 20.8b1</code></p>
+<h4 id="使用-2"><a href="#使用-2" class="headerlink" title="使用"></a>使用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">black [OPTIONS] &#123;source_file_or_directory&#125; / python -m black [OPTIONS] &#123;source_file_or_directory&#125;</span><br></pre></td></tr></table></figure>
+<p>不加参数时，Black默认会直接用新文件覆盖旧文件。</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>方法</th>
+<th>Option</th>
+<th>参数</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>AreEqual</td>
-<td>验证两个值相等，否则测试失败。</td>
+<td>-c</td>
+<td>TEXT</td>
+<td>格式化作为字符串传入的代码</td>
 </tr>
 <tr>
-<td>AreNotEqual</td>
-<td>验证两个值不相等，否则测试失败。</td>
+<td>-l</td>
+<td>INTEGER</td>
+<td>每行允许多少字符</td>
 </tr>
 <tr>
-<td>AreSame</td>
-<td>验证两个内容引用的对象相同，否则测试失败。</td>
+<td>-t</td>
+<td>[py27\py33\py34\py35\py36\py37\py38]</td>
+<td>输出支持的Python版本</td>
 </tr>
 <tr>
-<td>AreNotSame</td>
-<td>验证两个内容引用的对象不相同，否则测试失败。</td>
+<td>—pyi</td>
+<td></td>
+<td>格式化所有输入文件，而不考虑文件扩展名（在将源管道输送到标准输入时很有用）</td>
 </tr>
 <tr>
-<td>IsTrue</td>
-<td>验证条件为True，否则测试失败。</td>
+<td>-S</td>
+<td></td>
+<td>跳过字符串规范化，不规范化字符串引号或前缀</td>
 </tr>
 <tr>
-<td>IsFalse</td>
-<td>验证条件为False，否则测试失败。</td>
+<td>—check</td>
+<td></td>
+<td>不要写回文件，只需返回状态。0表示不会返回任何代码。返回代码1表示某些文件将被重新格式化。返回代码123表示存在内部错误。</td>
 </tr>
 <tr>
-<td>IsNull</td>
-<td>验证对象为null，否则测试失败。</td>
+<td>—diff</td>
+<td></td>
+<td>不要写回文件，只需在stdout上为每个文件输出一个diff</td>
 </tr>
 <tr>
-<td>IsNotNull</td>
-<td>验证对象不为null，否则测试失败。</td>
+<td>—color / —no-color</td>
+<td></td>
+<td>当 —diff设置，此项决定是否着色diff输出</td>
 </tr>
 <tr>
-<td>Fail</td>
-<td>如果运行到此语句，则测试失败。</td>
+<td>—fast / —safe</td>
+<td></td>
+<td>如果有  —fast，跳过临时的健全性检查</td>
 </tr>
 <tr>
-<td>IsInstanceofType</td>
-<td>验证对象是某类型， 否则测试失败。</td>
+<td>—include</td>
+<td>TEXT</td>
+<td>匹配递归搜索中应包含的文件和目录的正则表达式。空值表示包含所有文件，而不考虑其名称。对所有平台（Windows）上的目录使用正斜杠。先计算排除，再计算包含。</td>
 </tr>
 <tr>
-<td>IsNotInstanceofType</td>
-<td>验证对象不是某类型， 否则测试失败。</td>
+<td>—exclude</td>
+<td>TEXT</td>
+<td>匹配递归搜索时应排除的文件和目录的正则表达式。空值表示不排除任何路径。对所有平台（Windows）上的目录使用正斜杠。</td>
 </tr>
 <tr>
-<td>ThrowsException<exception></exception></td>
-<td>验证操作会导致某类异常，否则测试失败。</td>
+<td>—force-exclude</td>
+<td>TEXT</td>
+<td>类似—exclude，但与此正则表达式匹配的文件和目录将被排除，即使它们作为参数显式传递。</td>
+</tr>
+<tr>
+<td>-q</td>
+<td></td>
+<td>不向stderr发出非错误消息。仍会发出错误；使用2&gt;/dev/null使其静音</td>
+</tr>
+<tr>
+<td>-v</td>
+<td></td>
+<td>还向stderr发送有关由于—exclude而未更改或被忽略的文件的消息</td>
+</tr>
+<tr>
+<td>—version</td>
+<td></td>
+<td>输出版本信息</td>
+</tr>
+<tr>
+<td>—config</td>
+<td>FILE</td>
+<td>从文件路径读取配置</td>
+</tr>
+<tr>
+<td>-h</td>
+<td></td>
+<td>输出帮助信息</td>
 </tr>
 </tbody>
 </table>
 </div>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.assert?view=mstest-net-1.2.0" target="_blank" rel="noopener">Microsoft Docs Reference</a></li>
-</ul>
+<p>用这个软件在我的某个pyhton文件试了一下，代码变得好看了不少：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-class DBOperation():</span></span><br><span class="line"><span class="addition">+class DBOperation:</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-        self.conn = sqlite3.connect('acceessrecord.db')</span></span><br><span class="line"><span class="addition">+        self.conn = sqlite3.connect("acceessrecord.db")</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-    def dbSave(self,data,issend):</span></span><br><span class="line"><span class="addition">+    def dbSave(self, data, issend):</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">-        exe_str = 'INSERT INTO records (ftimestamp,person_id,person_name,cap_img,direction,stuff,issend) \</span></span><br><span class="line"><span class="deletion">-      VALUES ("%s","%s","%s","%s","%s","%s","%s")' \</span></span><br><span class="line"><span class="deletion">-                  % (data["timestamp"],data["person_id"],data["person_name"],data["cap_img"],data["direction"],data["stuff"],issend)</span></span><br><span class="line"><span class="addition">+        exe_str = (</span></span><br><span class="line"><span class="addition">+            'INSERT INTO records (ftimestamp,person_id,person_name,cap_img,direction,stuff,issend) \</span></span><br><span class="line"><span class="addition">+      VALUES ("%s","%s","%s","%s","%s","%s","%s")'</span></span><br><span class="line"><span class="addition">+            % (</span></span><br><span class="line"><span class="addition">+                data["timestamp"],</span></span><br><span class="line"><span class="addition">+                data["person_id"],</span></span><br><span class="line"><span class="addition">+                data["person_name"],</span></span><br><span class="line"><span class="addition">+                data["cap_img"],</span></span><br><span class="line"><span class="addition">+                data["direction"],</span></span><br><span class="line"><span class="addition">+                data["stuff"],</span></span><br><span class="line"><span class="addition">+                issend,</span></span><br><span class="line"><span class="addition">+            )</span></span><br><span class="line"><span class="addition">+        )</span></span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h4 id="String-Assert类"><a href="#String-Assert类" class="headerlink" title="String Assert类"></a>String Assert类</h4><p>对于字符串判定，使用StringAssert可能会更方便。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Contains</td>
-<td>验证第一个字符串是否包含第二个字符串。此方法区分大小写。</td>
-</tr>
-<tr>
-<td>Matches</td>
-<td>验证指定的字符串是否与正则表达式匹配。</td>
-</tr>
-<tr>
-<td>DoesNotMatch</td>
-<td>验证指定的字符串是否与正则表达式不匹配。</td>
-</tr>
-<tr>
-<td>StartsWith</td>
-<td>验证第一个字符串是否以第二个字符串开头。此方法区分大小写。</td>
-</tr>
-<tr>
-<td>EndsWith</td>
-<td>验证第一个字符串是否以第二个字符串结尾。此方法区分大小写。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/previous-versions/ms245503(v=vs.120%29" target="_blank" rel="noopener">Microsoft Docs Reference</a></li>
-</ul>
+<h3 id="yapf"><a href="#yapf" class="headerlink" title="yapf"></a>yapf</h3><h4 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h4><p>目前用于 Python 的大多数格式化程序——例如 autopep8和 pep8ify ——都是用来从代码中删除 lint 错误的。这有一些明显的局限性。例如，符合 PEP 8准则的代码可能不会被重新格式化。但这并不意味着代码看起来很好。</p>
+<p><a href="https://pypi.org/project/yapf/" target="_blank" rel="noopener">YAPF</a> 采取了不同的方法。它是基于<a href="https://clang.llvm.org/docs/ClangFormat.html" target="_blank" rel="noopener">Clang格式</a> ，由丹尼尔贾斯珀开发。本质上，算法将代码重新格式化为符合样式指南的最佳格式，即使原始代码没有违反样式指南。</p>
+<p>这个想法也类似于 Go 编程语言的“ gofmt”工具: 结束所有关于格式化的神圣战争——如果一个项目的整个代码库只是简单地通过 YAPF 管道进行修改，那么这种风格在整个项目中保持一致，并且在每次代码审查中争论风格也没有意义。</p>
+<h4 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h4><p>YAPF 支持 Python 2.7 和 3.6.4+。YAPF 需要在程序代码对应的Python版本下运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install yapf</span><br></pre></td></tr></table></figure>
+<p>如果你使用的是Python2.7并且希望启动多进程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install futures</span><br></pre></td></tr></table></figure>
+<h4 id="使用-3"><a href="#使用-3" class="headerlink" title="使用"></a>使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">usage: yapf [-h] [-v] [-d | -i] [-r | -l START-END] [-e PATTERN]</span><br><span class="line">            [--style STYLE] [--style-help] [--no-local-style] [-p]</span><br><span class="line">            [-vv]</span><br><span class="line">            [files [files ...]]</span><br><span class="line"></span><br><span class="line">可选参数:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -v, --version         show version number and exit</span><br><span class="line">  -d, --diff            输出修改代码和原代码的diff</span><br><span class="line">  -i, --in-place        直接替换原代码</span><br><span class="line">  -r, --recursive       在目录上递归运行</span><br><span class="line">  -l START-END, --lines START-END</span><br><span class="line">                        格式化范围（以行为单位）</span><br><span class="line">  -e PATTERN, --exclude PATTERN</span><br><span class="line">                        排除匹配PATTERN的文件</span><br><span class="line">  --style STYLE         指定格式样式：可以是样式名（例如“pep8”或“google”），也可以是具有样式设置的文件的名称。默认值为pep8</span><br><span class="line">  --style-help          显示样式设置并退出; 此输出可以保存到.style.yapf</span><br><span class="line">  --no-local-style      不搜索本地样式定义</span><br><span class="line">  -p, --parallel        格式化多个文件时并行运行yapf。</span><br><span class="line">  -vv, --verbose        处理时打印出文件名</span><br></pre></td></tr></table></figure>
+<p>YAPF默认是输出格式化之后的程序代码，加上-d之后输出的是更改的地方，加上-i之后是直接覆盖原代码。</p>
 <p><br></p>
-<h4 id="Collection-Assert类"><a href="#Collection-Assert类" class="headerlink" title="Collection Assert类"></a>Collection Assert类</h4><p>在单元测试中验证与集合关联的命题。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AllItemsAreNotNull</td>
-<td>验证指定集合中的所有项是否都不为 nullnull 引用。</td>
-</tr>
-<tr>
-<td>AllItemsAreInstancesOfType</td>
-<td>验证指定集合中的所有元素是否为指定类型的实例。</td>
-</tr>
-<tr>
-<td>AllItemsAreUnique</td>
-<td>验证指定集合中的所有项是否都唯一。</td>
-</tr>
-<tr>
-<td>AreEqual</td>
-<td>验证两个指定的集合是否相等。</td>
-</tr>
-<tr>
-<td>AreNotEqual</td>
-<td>验证两个指定的集合是否不相等。</td>
-</tr>
-<tr>
-<td>AreEquivalent</td>
-<td>验证两个指定的集合是否等效。</td>
-</tr>
-<tr>
-<td>AreNotEquivalent</td>
-<td>验证两个指定的集合是否不等效。</td>
-</tr>
-<tr>
-<td>Contains</td>
-<td>验证指定的集合是否包含指定的元素。</td>
-</tr>
-<tr>
-<td>DoesNotContain</td>
-<td>验证指定的集合是否不包含指定的元素。</td>
-</tr>
-<tr>
-<td>IsSubsetOf</td>
-<td>验证第一个集合是否为第二个集合的子集。</td>
-</tr>
-<tr>
-<td>IsNotSubsetOf</td>
-<td>验证第一个集合是否不是第二个集合的子集。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li><a href="https://docs.microsoft.com/zh-cn/previous-versions/ms245294(v=vs.120%29" target="_blank" rel="noopener">Microsoft Docs Reference</a></li>
-</ul>
+<h3 id="isort"><a href="#isort" class="headerlink" title="isort"></a>isort</h3><h4 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h4><p><a href="https://pypi.org/project/isort/" target="_blank" rel="noopener">isort</a>是import sort的缩写，用于自动排序imports。</p>
+<h4 id="安装-4"><a href="#安装-4" class="headerlink" title="安装"></a>安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install isort</span><br></pre></td></tr></table></figure>
+<h4 id="使用-4"><a href="#使用-4" class="headerlink" title="使用"></a>使用</h4><p>示例，优化之前：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> my_lib <span class="keyword">import</span> Object</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> my_lib <span class="keyword">import</span> Object3</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> my_lib <span class="keyword">import</span> Object2</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> third_party <span class="keyword">import</span> lib15, lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10, lib11, lib12, lib13, lib14</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> third_party <span class="keyword">import</span> lib3</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Hey"</span>)</span><br><span class="line">print(<span class="string">"yo"</span>)</span><br></pre></td></tr></table></figure>
+<p>优化之后：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> third_party <span class="keyword">import</span> (lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8,</span><br><span class="line">                         lib9, lib10, lib11, lib12, lib13, lib14, lib15)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> my_lib <span class="keyword">import</span> Object, Object2, Object3</span><br><span class="line"></span><br><span class="line">print(<span class="string">"Hey"</span>)</span><br><span class="line">print(<span class="string">"yo"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">usage: __main__.py [-h] [-a ADD_IMPORTS] [-ac] [-af]</span><br><span class="line">                   [-b KNOWN_STANDARD_LIBRARY] [-c] [-ca] [-cs] [-d] [-df]</span><br><span class="line">                   [-ds] [-dt] [-e] [-f KNOWN_FUTURE_LIBRARY] [-fas] [-fass]</span><br><span class="line">                   [-ff FROM_FIRST] [-fgw [FORCE_GRID_WRAP]] [-fss]</span><br><span class="line">                   [-i INDENT] [-j JOBS] [-k] [-l LINE_LENGTH]</span><br><span class="line">                   [-lai LINES_AFTER_IMPORTS] [-lbt LINES_BETWEEN_TYPES]</span><br><span class="line">                   [-le LINE_ENDING] [-ls] [-m &#123;0,1,2,3,4,5&#125;] [-nis]</span><br><span class="line">                   [-nlb NO_LINES_BEFORE] [-ns NOT_SKIP]</span><br><span class="line">                   [-o KNOWN_THIRD_PARTY] [-ot] [-p KNOWN_FIRST_PARTY] [-q]</span><br><span class="line">                   [-r REMOVE_IMPORTS] [-rc] [-s SKIP] [-sd DEFAULT_SECTION]</span><br><span class="line">                   [-sg SKIP_GLOB] [-sl] [-sp SETTINGS_PATH] [-t FORCE_TO_TOP]</span><br><span class="line">                   [-tc] [-up] [-v] [-vb] [--virtual-env VIRTUAL_ENV] [-vn]</span><br><span class="line">                   [-w LINE_LENGTH] [-wl WRAP_LENGTH] [-ws] [-y]</span><br><span class="line">                   [files [files ...]]</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -a ADD_IMPORTS, --add-import ADD_IMPORTS</span><br><span class="line">                        将指定的导入行添加到所有文件，</span><br><span class="line">                        自动确定正确的位置。</span><br><span class="line">  -ac, --atomic         确保在生成的文件包含语法错误时不保存输出。</span><br><span class="line">  -af, --force-adds     即使原始文件为空，也强制导入添加。</span><br><span class="line">  -b KNOWN_STANDARD_LIBRARY, --builtin KNOWN_STANDARD_LIBRARY</span><br><span class="line">                        强制sortImports将模块识别为python标准库的一部分。</span><br><span class="line">  -c, --check-only      检查文件中是否存在未排序/未格式化的导入，并在不修改文件的情况下将其打印到命令行。</span><br><span class="line">  -ca, --combine-as     在同一行合并为导入。</span><br><span class="line">  -cs, --combine-star   确保如果存在星型导入，则不会从该命名空间导入其他内容。</span><br><span class="line">  -d, --stdout          将结果输出强制到stdout，而不是直接覆盖。</span><br><span class="line">  -df, --diff           打印isort对文件所做的所有更改的差异，而不是直接覆盖。</span><br><span class="line">  -ds, --no-sections    将所有导入放入同一个节段中</span><br><span class="line">  -dt, --dont-order-by-type</span><br><span class="line">                        只按字母顺序导入，不要尝试类型排序</span><br><span class="line">  -e, --balanced        平衡换行以产生尽可能一致的线条长度</span><br><span class="line">  -f KNOWN_FUTURE_LIBRARY, --future KNOWN_FUTURE_LIBRARY</span><br><span class="line">                        强制sortImports将模块识别为未来兼容库的一部分。</span><br><span class="line">  -fas, --force-alphabetical-sort</span><br><span class="line">                        强制将所有导入作为单个节排序</span><br><span class="line">  -fass, --force-alphabetical-sort-within-sections</span><br><span class="line">                        强制在节中按字母顺序对所有导入进行排序</span><br><span class="line">  -ff FROM_FIRST, --from-first FROM_FIRST</span><br><span class="line">                        切换典型的顺序偏好，imports优先</span><br><span class="line">  -fgw [FORCE_GRID_WRAP], --force-grid-wrap [FORCE_GRID_WRAP]</span><br><span class="line">                        强制从导入数（默认为2）进行网格换行，而不考虑行的长度</span><br><span class="line">  -fss, --force-sort-within-sections</span><br><span class="line">                        强制导入按模块排序，与导入类型无关</span><br><span class="line">  -i INDENT, --indent INDENT</span><br><span class="line">                        用于缩进的字符串默认为“”（4个空格）。</span><br><span class="line">  -j JOBS, --jobs JOBS  要并行处理的文件数。</span><br><span class="line">  -k, --keep-direct-and-as</span><br><span class="line">                        关闭在存在导入时删除直接导入的默认行为。</span><br><span class="line">  -lai LINES_AFTER_IMPORTS, --lines-after-imports LINES_AFTER_IMPORTS</span><br><span class="line">  -lbt LINES_BETWEEN_TYPES, --lines-between-types LINES_BETWEEN_TYPES</span><br><span class="line">  -le LINE_ENDING, --line-ending LINE_ENDING</span><br><span class="line">                        强制行尾为指定值。如果未设置，则每个文件将猜测值。</span><br><span class="line">  -ls, --length-sort    按字符串长度对导入进行排序。</span><br><span class="line">  -m &#123;0,1,2,3,4,5&#125;, --multi-line &#123;0,1,2,3,4,5&#125;</span><br><span class="line">                        多行输出（0-网格，1-垂直，2-悬挂，3-垂直悬挂，</span><br><span class="line">                        4-垂直网格，5-垂直网格-分组，6-垂直网格-分组-无逗号）</span><br><span class="line">  -nis, --no-inline-sort</span><br><span class="line">                        保留&quot;from imports with multiple imports&quot;原样</span><br><span class="line">                        (例如 `from foo import a, c ,b`)</span><br><span class="line">  -nlb NO_LINES_BEFORE, --no-lines-before NO_LINES_BEFORE</span><br><span class="line">                        不应与以前的分段用空行分隔的节</span><br><span class="line">  -ns NOT_SKIP, --dont-skip NOT_SKIP</span><br><span class="line">                        对导入进行排序的文件决不能跳过</span><br><span class="line">  -o KNOWN_THIRD_PARTY, --thirdparty KNOWN_THIRD_PARTY</span><br><span class="line">                        强制sortImports将模块识别为第三方库的一部分</span><br><span class="line">  -ot, --order-by-type  除了按字母顺序外，还可以按类型顺序导入</span><br><span class="line">  -p KNOWN_FIRST_PARTY, --project KNOWN_FIRST_PARTY</span><br><span class="line">                        强制sortImports将模块识别为当前python项目的一部分</span><br><span class="line">  -q, --quiet           显示额外的安静输出，只输出错误</span><br><span class="line">  -r REMOVE_IMPORTS, --remove-import REMOVE_IMPORTS</span><br><span class="line">                        从所有文件中删除指定的导入</span><br><span class="line">  -rc, --recursive      递归地查找要对导入进行排序的Python文件</span><br><span class="line">  -s SKIP, --skip SKIP  对导入进行排序的文件应跳过。如果要跳过多个文件，应指定两次：</span><br><span class="line">                        --skip file1 --skip file2.</span><br><span class="line">  -sd DEFAULT_SECTION, --section-default DEFAULT_SECTION</span><br><span class="line">                        设置导入的默认节（默认为FIRSTPARTY）选项： (&apos;FUTURE&apos;,</span><br><span class="line">                         &apos;STDLIB&apos;, &apos;THIRDPARTY&apos;, &apos;FIRSTPARTY&apos;, &apos;LOCALFOLDER&apos;)</span><br><span class="line">  -sg SKIP_GLOB, --skip-glob SKIP_GLOB</span><br><span class="line">                        对导入进行排序的文件应跳过</span><br><span class="line">  -sl, --force-single-line-imports</span><br><span class="line">                        强制所有来自imports的数据都显示在自己的行上</span><br><span class="line">  -sp SETTINGS_PATH, --settings-path SETTINGS_PATH</span><br><span class="line">                        显式设置设置路径，而不是根据文件位置自动确定</span><br><span class="line">  -t FORCE_TO_TOP, --top FORCE_TO_TOP</span><br><span class="line">                        将特定导入强制到其相应部分的顶部</span><br><span class="line">  -tc, --trailing-comma</span><br><span class="line">                        在包含括号的多行导入中包含尾随逗号</span><br><span class="line">  -up, --use-parentheses</span><br><span class="line">                        在长度限制上使用圆括号代替斜杠</span><br><span class="line">  -v, --version</span><br><span class="line">  -vb, --verbose        显示详细的输出，例如跳过文件或检查成功时</span><br><span class="line">  --virtual-env VIRTUAL_ENV</span><br><span class="line">                        用于确定包是否为第三方的虚拟环境</span><br><span class="line">  -vn, --version-number</span><br><span class="line">                        只返回不带logo的当前版本号</span><br><span class="line">  -w LINE_LENGTH, --line-width LINE_LENGTH</span><br><span class="line">                        导入行的最大长度(used for wrapping long imports)</span><br><span class="line">  -wl WRAP_LENGTH, --wrap-length WRAP_LENGTH</span><br><span class="line">                        指定换行的行的长度,如果未设置，使用line_length</span><br><span class="line">  -ws, --ignore-whitespace</span><br><span class="line">                        告诉isort在使用--check-only时忽略空白差异</span><br><span class="line">  -y, --apply           告诉isort递归地应用更改，而无需询问</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h3 id="其它框架"><a href="#其它框架" class="headerlink" title="其它框架"></a>其它框架</h3><p>VS在默认创建Unit Test工程时，默认使用的是MSTest。</p>
-<p>除此之外，C#常用的框架还有NUnit、XUnit，相较于MSTest，它们拥有较好的弹性，在标注测试类和方法上略微不同，在MSTest无法满足应用的时候，可以考虑其它的框架。</p>
-<ul>
-<li><a href="https://nunit.org/" target="_blank" rel="noopener">NUnit</a></li>
-<li><a href="https://xunit.net/" target="_blank" rel="noopener">XUnit</a></li>
-</ul>
+<h3 id="pre-commit"><a href="#pre-commit" class="headerlink" title="pre-commit"></a>pre-commit</h3><h4 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h4><p>Git hooks 可让您在想要提交或推送时运行检查脚本。这使我们能够在每次提交/推送时，对将要提交的代码进行检查、优化代码格式、或者对提交的图片进行压缩等等任务。</p>
+<p>钩子都被存储在 Git 目录下的 hooks 子目录中。 也即绝大部分项目中的 .git/hooks 。 当你用 git init 初始化一个新版本库时，Git 默认会在这个目录中放置一些示例脚本。这些脚本除了本身可以被调用外，它们还透露了被触发时所传入的参数。 所有的示例都是 shell 脚本，其中一些还混杂了 Perl 代码，不过，任何正确命名的可执行脚本都可以正常使用 —— 你可以用 Ruby 或 Python，或其它语言编写它们。 这些示例的名字都是以.sample 结尾，如果你想启用它们，得先移除这个后缀。</p>
+<p>把一个正确命名且可执行的文件放入 Git 目录下的 hooks 子目录中，即可激活该钩子脚本。 这样一来，它就能被 Git 调用。</p>
+<p><a href="https://pre-commit.com/" target="_blank" rel="noopener">pre-commit</a>用于检查即将提交的快照。在<code>git add</code>之后，在执行<code>git commit</code>时执行脚本，如果脚本以0值退出就继续提交，非0就驳回提交的操作。可以用 <code>git commit --no-verify</code> 来绕过这个环节。</p>
 <p><br></p>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><ul>
-<li><p><a href="https://blog.51cto.com/57388/2178761" target="_blank" rel="noopener">https://blog.51cto.com/57388/2178761</a></p>
-</li>
-<li><p><a href="https://docs.python.org/zh-cn/3/library/unittest.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/library/unittest.html</a></p>
-</li>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">PEP8</a></li>
+<li><a href="https://blog.csdn.net/a419240016/article/details/108459618" target="_blank" rel="noopener">如何建立一个完美的 Python 项目_a419240016的专栏-CSDN博客</a></li>
 </ul>
 
       
@@ -441,6 +392,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -502,7 +464,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/CSharp单元测试/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/Python编码格式化工具/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -516,18 +478,9 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/Python语言特性总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Python语言特性总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/Technology/PM-Tools/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">项目管理 - 工具箱</div>
+    <a href="/Technology/Python基础图表绘制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python基础图表绘制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -554,7 +507,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#单元测试项目"><span class="toc-number">1.</span> <span class="toc-text">单元测试项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Assert类"><span class="toc-number">1.1.</span> <span class="toc-text">Assert类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#String-Assert类"><span class="toc-number">1.2.</span> <span class="toc-text">String Assert类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection-Assert类"><span class="toc-number">1.3.</span> <span class="toc-text">Collection Assert类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它框架"><span class="toc-number">2.</span> <span class="toc-text">其它框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考："><span class="toc-number"></span> <span class="toc-text">参考：</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#编码检查"><span class="toc-number">1.</span> <span class="toc-text">编码检查</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#列出所有文件的编码信息"><span class="toc-number">1.1.</span> <span class="toc-text">列出所有文件的编码信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量转码"><span class="toc-number">1.2.</span> <span class="toc-text">批量转码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pylint"><span class="toc-number">2.</span> <span class="toc-text">Pylint</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">2.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-number">2.3.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flake8"><span class="toc-number">3.</span> <span class="toc-text">flake8</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介-1"><span class="toc-number">3.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-1"><span class="toc-number">3.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-1"><span class="toc-number">3.3.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Black"><span class="toc-number">4.</span> <span class="toc-text">Black</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介-2"><span class="toc-number">4.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-2"><span class="toc-number">4.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-2"><span class="toc-number">4.3.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yapf"><span class="toc-number">5.</span> <span class="toc-text">yapf</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介-3"><span class="toc-number">5.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-3"><span class="toc-number">5.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-3"><span class="toc-number">5.3.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isort"><span class="toc-number">6.</span> <span class="toc-text">isort</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介-4"><span class="toc-number">6.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-4"><span class="toc-number">6.2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-4"><span class="toc-number">6.3.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pre-commit"><span class="toc-number">7.</span> <span class="toc-text">pre-commit</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介-5"><span class="toc-number">7.1.</span> <span class="toc-text">简介</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">8.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
