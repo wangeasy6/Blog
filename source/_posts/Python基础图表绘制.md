@@ -25,6 +25,9 @@ Matplotlib是一个综合库，用于在Python中创建静态、动画和交互�
 以下程序是一个最简单（$y = x$）的二维函数绘制例程：
 
 ```Python
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -136,6 +139,9 @@ numpy.arange([start,] stop[, step], dtype=None)
 #### 饼图
 
 ```Python
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+
 import matplotlib.pyplot as plt
 
 ax = plt.axes()
@@ -355,6 +361,9 @@ plt.show()
 #### 表面图
 
 ```Python
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
