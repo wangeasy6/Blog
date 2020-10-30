@@ -8,7 +8,7 @@ tags:
   - Python
 ---
 
-![cover.png](/images/python_plots/surface.png)
+![cover.png](/resources/python_plots/surface.png)
 
 Matplotlib是一个综合库，用于在Python中创建静态、动画和交互式可视化。在做数据可视化，尤其是三维图像时，是一个不错的选择。
 
@@ -38,7 +38,7 @@ plt.plot(x, y)
 plt.show()
 ```
 
-![sample.png](/images/python_plots/sample.png)
+![sample.png](/resources/python_plots/sample.png)
 
 上述示例就是一个最素的函数绘制，没有title，没有坐标系说明，没有指定线的颜色，没有函数说明等等。
 
@@ -85,7 +85,7 @@ plt.grid()  # 显示网格
 plt.show()
 ```
 
-![supply_and_demand_plot.png](/images/python_plots/supply_and_demand_plot.png)
+![supply_and_demand_plot.png](/resources/python_plots/supply_and_demand_plot.png)
 
 ##### arange
 
@@ -158,7 +158,7 @@ ax.axis('equal')  # 等宽高比，确保饼图绘制为圆形
 plt.show()
 ```
 
-![pie.png](/images/python_plots/pie.png)
+![pie.png](/resources/python_plots/pie.png)
 
 #### subplot(多坐标系)
 
@@ -188,7 +188,7 @@ plt.show()
 
 效果如下：
 
-![subplot.png](/images/python_plots/subplot.png)
+![subplot.png](/resources/python_plots/subplot.png)
 
 <br/>
 
@@ -261,7 +261,7 @@ ax.set_zlabel('Z')
 plt.show()
 ```
 
-![square_scatter_1.png](/images/python_plots/square_scatter_1.png)
+![square_scatter_1.png](/resources/python_plots/square_scatter_1.png)
 
 另外，也可以使用meshgrid来快速生成：
 
@@ -291,7 +291,7 @@ ax.set_zlabel('Z')
 plt.show()
 ```
 
-![square_scatter_2.png](/images/python_plots/square_scatter_2.png)
+![square_scatter_2.png](/resources/python_plots/square_scatter_2.png)
 
 ##### meshgrid
 
@@ -330,7 +330,7 @@ ax.plot(x, y, z)
 plt.show()
 ```
 
-![line_chart.png](/images/python_plots/line_chart.png)
+![line_chart.png](/resources/python_plots/line_chart.png)
 
 #### 线框图
 
@@ -356,7 +356,7 @@ ax.set_zlabel('Z')
 plt.show()
 ```
 
-![wireframe.png](/images/python_plots/wireframe.png)
+![wireframe.png](/resources/python_plots/wireframe.png)
 
 #### 表面图
 
@@ -386,7 +386,7 @@ fig.colorbar(surf, shrink=0.5, aspect=5)
 plt.show()
 ```
 
-![surface.png](/images/python_plots/surface.png)
+![surface.png](/resources/python_plots/surface.png)
 
 ##### Colormap
 

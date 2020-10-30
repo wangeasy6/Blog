@@ -52,27 +52,27 @@ Hexo 是基于 NodeJs 开发的。
   * 没账号的先创建账号。
   * 在 GitHub 上创建一个repo，用于发布博客，如下：
 
-  ![new-repo](/images/Hexo/new-repo.png)
+  ![new-repo](/resources/Hexo/new-repo.png)
 
-  ![create-repo](/images/Hexo/create-repo.png)
+  ![create-repo](/resources/Hexo/create-repo.png)
 
   * 回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：
 
-  ![username](/images/Hexo/username.png)
-  ![email](/images/Hexo/email.png)
+  ![username](/resources/Hexo/username.png)
+  ![email](/resources/Hexo/email.png)
 
   * 创建SSH
     在gitbash中输入：`ssh-keygen -t rsa -C "youremail@example.com`，生成ssh。
     然后按下图的方式找到 id_rsa.pub 文件的内容。
 
-  ![ssh-key](/images/Hexo/ssh.png)
+  ![ssh-key](/resources/Hexo/ssh.png)
 
   * 将上面获取的ssh放到github中：
 
-  ![settings](/images/Hexo/settings.png)
+  ![settings](/resources/Hexo/settings.png)
 
   * 添加一个 New SSH key ，title随便取，key就填刚刚那一段。
-    ![ssh-key](/images/Hexo/ssh-key.png)
+    ![ssh-key](/resources/Hexo/ssh-key.png)
 
   * 在gitbash中验证是否添加成功：`ssh -T git@github.com`
 
@@ -81,7 +81,7 @@ Hexo 是基于 NodeJs 开发的。
   * CMD：`hexo init`
   * 初始化完成之后打开所在的文件夹可以看到以下文件：
 
-  ![hexo-init](/images/Hexo/hexo-init.png)
+  ![hexo-init](/resources/Hexo/hexo-init.png)
 
   * 解释：
     * node_modules：是依赖包
@@ -184,10 +184,10 @@ menu:
 * 将 CNAME、README.md 放到 /source 中，在这里更新在发布的时候能同步到 GitHub。
 
 #### 6. 上传了图片链接不到
-* 踩了个坑，在本地的时候使用了相对于文本的路径，如 ../images/xx.png
+* 踩了个坑，在本地的时候使用了相对于文本的路径，如 ../resources/xx.png
   传到 GitHub 上就无法链接了。
 * 这个时候应该使用网站的相对路径，所有之前的图片文件夹都会被复制到网站的根目录
-  所以，这是时候应该使用相对于网站的路径， /images/xx.png
+  所以，这是时候应该使用相对于网站的路径， /resources/xx.png
 
 #### 7.支持mathjax数学公式
 
@@ -256,11 +256,11 @@ Valine 是一款基于[LeanCloud](https://leancloud.cn/)的评论系统，且支
 
 请先[登录](https://leancloud.cn/dashboard/login.html#/signin)或[注册](https://leancloud.cn/dashboard/login.html#/signup) `LeanCloud`, 使用支付宝实名认证一下，然后进入[控制台](https://leancloud.cn/dashboard/applist.html#/apps)后点击左下角[创建应用](https://leancloud.cn/dashboard/applist.html#/newapp)：
 
-![img](/images/Hexo/leancloud_create_app.webp)
+![img](/resources/Hexo/leancloud_create_app.webp)
 
 应用创建好以后，进入刚刚创建的应用，选择左下角的`设置`>`应用Key`，然后就能看到你的`APP ID`和`APP Key`了：
 
-![img](/images/Hexo/leancloud_key.webp)
+![img](/resources/Hexo/leancloud_key.webp)
 
 然后根据自己相对应的主题来配置主题。我的主题是`hexo-theme-yilia`，根据它的[issue说明](https://github.com/litten/hexo-theme-yilia/pull/646)来配置就好了。
 

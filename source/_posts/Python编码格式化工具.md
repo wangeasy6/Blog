@@ -8,7 +8,7 @@ tags:
   - Python
 ---
 
-![pep8.png](/images/Cover/pep8.png)
+![pep8.png](/resources/Cover/pep8.png)
 
 Python由语法简介和自由而著名，如果你不想库里的代码乱七八糟，统一编码规范尤其重要。
 

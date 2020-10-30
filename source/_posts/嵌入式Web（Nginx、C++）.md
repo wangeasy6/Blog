@@ -6,7 +6,7 @@ categories:
   - Technology
 ---
 
-![Cover](/images/embedded_web/cover.jpg)
+![Cover](/resources/embedded_web/cover.jpg)
 
 在设备中嵌入Web，作为配置软件的接口是目前嵌入式设备的常见做法了。
 
@@ -20,7 +20,7 @@ categories:
 
 ### 系统架构
 
-![framework](/images/embedded_web/framework.png)
+![framework](/resources/embedded_web/framework.png)
 
 ### 软件安装
 
@@ -83,7 +83,7 @@ http {
 
 `include fastcgi.conf`是添加引用“fastcgi.conf”的规则，这个规则如下：
 
-在`/etc/nginx/`中添加文件[fastcgi.conf](/images/embedded_web/fastcgi.conf)：
+在`/etc/nginx/`中添加文件[fastcgi.conf](/resources/embedded_web/fastcgi.conf)：
 
 ```
 fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;
@@ -234,7 +234,7 @@ http://ip:8080/test.cgi
 
 浏览器显示：
 
-![test_cgi.jpg](/images/embedded_web/test_env.jpg)
+![test_cgi.jpg](/resources/embedded_web/test_env.jpg)
 
 <br/>
 
@@ -246,7 +246,7 @@ http://ip:8080/test.cgi
 * 上传小于256KB的JPG文件到服务器
 * 文件MD5校验
 
-项目所有文件[Web.tar.gz](/images/embedded_web/Web.tar.gz)：
+项目所有文件[Web.tar.gz](/resources/embedded_web/Web.tar.gz)：
 
 ```shell
 Web

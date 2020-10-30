@@ -6,7 +6,7 @@ categories:
 date: 2020-06-17 23:43:02
 ---
 
-![Cover.jpg](/images/Cover/PM_toolbox.png)
+![Cover.jpg](/resources/Cover/PM_toolbox.png)
 
 《产品经理》是思想工具，而项目管理方法才是真正的锄头。
 
@@ -22,15 +22,15 @@ date: 2020-06-17 23:43:02
 
 在我们开始一个项目之前，第一步是收到需求，如何收集到全面的一手需求是关键。
 
-以下是一个[需求采集卡的模板](/images/pm_tools/原始需求采集卡-模板.xls)，其中包含了详细的用户信息、场景描述、需求挖掘、方案沟通、权重用户自评、用户所用竞品、其他关联信息等等，基本上包含了一手需求的所有需要信息：
+以下是一个[需求采集卡的模板](/resources/pm_tools/原始需求采集卡-模板.xls)，其中包含了详细的用户信息、场景描述、需求挖掘、方案沟通、权重用户自评、用户所用竞品、其他关联信息等等，基本上包含了一手需求的所有需要信息：
 
-![需求采集卡.png](/images/pm_tools/需求采集卡.png)
+![需求采集卡.png](/resources/pm_tools/需求采集卡.png)
 
 由于二手需求是不确定和曲解的，当开始一个项目或者产品的时候，确保一定比例的一手需求是项目成功的关键，上述的需求采集卡则保证了我们采集到的一手需求的质量。
 
 而更多数量的一手需求，我们可以尝试从以下渠道来获取：
 
-![需求收集渠道.png](/images/pm_tools/需求收集渠道.png)
+![需求收集渠道.png](/resources/pm_tools/需求收集渠道.png)
 
 <br/>
 
@@ -44,7 +44,7 @@ WBS的基本定义 ：以可交付成果为导向对项目任务进行分解，�
 
 #### WBS工作分解树
 
-![WBS-树状分解图.png](/images/pm_tools/WBS-树状分解图.png)
+![WBS-树状分解图.png](/resources/pm_tools/WBS-树状分解图.png)
 
 - 分解是从树根开始，自上而下，逐级进行分解的。
 - 上一结点为下一节点的总和。
@@ -59,9 +59,9 @@ WBS的基本定义 ：以可交付成果为导向对项目任务进行分解，�
 
 在实际使用时，上述树状图在做层级划分的时候比较便利，自上而下的树状图更符合我们思考的习惯，但由于事件卡的项目比较多，需要一些统计和数据分析的工具，所以详细的WBS任务分解表一般使用Excel表。
 
-自上而下的树状图转化成由左到右的表格，如下[WBS任务分解表-示例](/images/pm_tools/WBS任务分解表-示例.xlsx)所示：
+自上而下的树状图转化成由左到右的表格，如下[WBS任务分解表-示例](/resources/pm_tools/WBS任务分解表-示例.xlsx)所示：
 
-![WBS任务分解表-示例.png](/images/pm_tools/WBS任务分解表-示例.png)
+![WBS任务分解表-示例.png](/resources/pm_tools/WBS任务分解表-示例.png)
 
 上述表格除了包含WBS任务分解树和事件卡片，还插入了一个自动统计工时和当前进度的公式。
 
@@ -120,9 +120,9 @@ WBS的基本定义 ：以可交付成果为导向对项目任务进行分解，�
 
 燃尽图横坐标为工作日期，纵坐标估计剩余的工作量，每个点代表了在那一天估计剩余的工作量，通过折线依次连接起所有的点形成为估计剩余工作量的**趋势线**。另外还有一条**控制线**，为最初的估计工作量到结束日期的连线，一般用不同的颜色画上边的两根线。
 
-根据自己的理解，我制作了一个基于Excel和工时的[燃尽图-示例.xls](/images/pm_tools/燃尽图-示例.xls)，具体效果如下图：
+根据自己的理解，我制作了一个基于Excel和工时的[燃尽图-示例.xls](/resources/pm_tools/燃尽图-示例.xls)，具体效果如下图：
 
-![burn_down_chart.png](/images/pm_tools/burn_down_chart.png)
+![burn_down_chart.png](/resources/pm_tools/burn_down_chart.png)
 
 **燃尽图的研判规则**
 
@@ -144,13 +144,13 @@ WBS的基本定义 ：以可交付成果为导向对项目任务进行分解，�
 
 甘特图以图示通过活动列表和时间刻度表示出特定项目的顺序与持续时间。一条线条图，横轴表示时间，纵轴表示项目，线条表示期间计划和实际完成情况。直观表明计划何时进行，进展与要求的对比。
 
-以之前的[WBS任务分解表-示例](/images/pm_tools/WBS任务分解表-示例.xlsx)为例，生成的甘特图如下所示:
+以之前的[WBS任务分解表-示例](/resources/pm_tools/WBS任务分解表-示例.xlsx)为例，生成的甘特图如下所示:
 
-![WBS任务分解表-甘特图-示例.png](/images/pm_tools/WBS任务分解表-甘特图-示例.png)
+![WBS任务分解表-甘特图-示例.png](/resources/pm_tools/WBS任务分解表-甘特图-示例.png)
 
 Excel好像能直接生成甘特图，但是看了教程，没有学会。而对多个文件的话就更难了，所以花了一点儿时间自己写了一个生成工具（PyQt+openpyxl），如下：
 
-![甘特图生成器.png](/images/pm_tools/甘特图生成器.png)
+![甘特图生成器.png](/resources/pm_tools/甘特图生成器.png)
 
 每一行，文件：文件路径；表名：数据所在的Sheel名称；Line：从多少行开始，到多少行结束；事件列：事件简述所在的列，以数字表示，如D == 4；开始时间列：开始时间所在列，以数字表示；结束时间列：结束时间或者完成时间所在列，以数字表示。
 
@@ -177,9 +177,9 @@ Excel好像能直接生成甘特图，但是看了教程，没有学会。而对
 
 最后点击“开始生成”。
 
-最后，如果想要使用此程序，可以下载“[GantCharGenerator-EXE.zip](https://gitee.com/EasyW/EasyW/blob/master/images/pm_tools/GantCharGenerator-EXE.zip)”，解压后双击即可运行。
+最后，如果想要使用此程序，可以下载“[GantCharGenerator-EXE.zip](https://gitee.com/EasyW/EasyW/blob/master/resources/pm_tools/GantCharGenerator-EXE.zip)”，解压后双击即可运行。
 
-想要自定义功能或者改进的可以下载[源码](https://gitee.com/EasyW/EasyW/blob/master/images/pm_tools/GantCharGenerator.zip)，自行修改。
+想要自定义功能或者改进的可以下载[源码](https://gitee.com/EasyW/EasyW/blob/master/resources/pm_tools/GantCharGenerator.zip)，自行修改。
 
 <br/>
 

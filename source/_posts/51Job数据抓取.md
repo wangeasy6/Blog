@@ -9,7 +9,7 @@ tags:
   - Data
 ---
 
-![51job.jpg](/images/spider_51job/51job.jpg)
+![51job.jpg](/resources/spider_51job/51job.jpg)
 
 最近想要做一个“嵌入式技能回报率”的分析，本来想使用网上现成的spider，但好像没有满足需要的，只能自己写了。
 
@@ -28,7 +28,7 @@ tags:
 
 ### 代码
 
-* [spider_51job.py](/images/spider_51job/spider_51job.py)
+* [spider_51job.py](/resources/spider_51job/spider_51job.py)
 
 <br/>
 
@@ -123,7 +123,7 @@ URL（keywords="Linux" \-\-city="北京"）:
 
 当我们打开\-\-city="北京"的这个页面的时候，我们可以看到，在这上面还可以指定到某个区：
 
-![city_area.jpg](/images/spider_51job/city_area.jpg)
+![city_area.jpg](/resources/spider_51job/city_area.jpg)
 
 当选择“上城区”的时候，URL变成了：
 
@@ -137,7 +137,7 @@ URL（keywords="Linux" \-\-city="北京"）:
 
 肯定有一个存储这些城市编码的地方，最后找到了这个文件：
 
-![window_area.png](/images/spider_51job/window_area.png)
+![window_area.png](/resources/spider_51job/window_area.png)
 
 而在代码中，`get_city_code()`函数就是用来获取这个列表的。
 
@@ -165,7 +165,7 @@ URL（keywords="Linux" -srs=3000 -sre=10000）：
 
 51job支持使用工作年限来搜索：
 
-![workyear.jpg](/images/spider_51job/workyear.jpg)
+![workyear.jpg](/resources/spider_51job/workyear.jpg)
 
 URL（keywords="Linux" 工作年限="在校生/应届生"）：
 
@@ -183,7 +183,7 @@ URL（keywords="Linux" 工作年限="1-3年"&"5-10年"）：
 
 同工作年限一样，学历要求使用参数degree_from添加在URL的参数列表里，(01-07)分别表示以下意思：
 
-![degree_from.png](/images/spider_51job/degree_from.png)
+![degree_from.png](/resources/spider_51job/degree_from.png)
 
 <br/>
 
@@ -197,7 +197,7 @@ URL（keywords="Linux" 工作年限="1-3年"&"5-10年"）：
 
 同工作年限一样，公司性质使用参数companysize添加在URL的参数列表里，(01-07)分别表示以下意思：
 
-![company_size.png](/images/spider_51job/company_size.png)
+![company_size.png](/resources/spider_51job/company_size.png)
 
 <br/>
 

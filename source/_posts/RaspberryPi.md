@@ -212,11 +212,11 @@ static domian_name_servers=114.114.115.115
 
 树莓派GPIO中串口的管脚在 p8、p10、GND：
 
-![Pin.png](/images/RaspberryPi/Pin.png)
+![Pin.png](/resources/RaspberryPi/Pin.png)
 
 2.配置设备树
 
-下载 [pi3-miniuart-bt-overlay.dtb](/images/RaspberryPi/pi3-miniuart-bt-overlay.dtb) 文件，并将文件拷贝到 /boot/overlays/ 目录下。
+下载 [pi3-miniuart-bt-overlay.dtb](/resources/RaspberryPi/pi3-miniuart-bt-overlay.dtb) 文件，并将文件拷贝到 /boot/overlays/ 目录下。
 
 编辑 /boot/config.txt：`sudo vim /boot/config.txt`
 

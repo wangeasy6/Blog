@@ -6,7 +6,7 @@ categories:
   - Technology
 ---
 
-![Cover.jpg](/images/Cover/csharp_unit_test.jpg)
+![Cover.jpg](/resources/Cover/csharp_unit_test.jpg)
 
 在上线了几个产品之后，深刻的领悟到，完备的测试是程序稳定性的唯一保证。
 
@@ -28,7 +28,7 @@ Demo基于VS Community 2017 + MSTest 2.1.2。
 
 1、 新建一个控制台应用。名称叫：UnitTestDemo
 
-![UnitTestDemo.jpg](/images/CSharp-UnitTest/UnitTestDemo.jpg)
+![UnitTestDemo.jpg](/resources/CSharp-UnitTest/UnitTestDemo.jpg)
 
 2、 添加一个待测试的方法。
 
@@ -43,7 +43,7 @@ public static int Add(int pNum1,int pNum2)
 
 3、 新建一个单元测试项目。名称叫：UnitTestDemoTest
 
-![UnitTestDemoTest.jpg](/images/CSharp-UnitTest/UnitTestDemoTest.jpg)
+![UnitTestDemoTest.jpg](/resources/CSharp-UnitTest/UnitTestDemoTest.jpg)
 
 写代码。调用要测试的方法。
 
@@ -74,27 +74,27 @@ namespace UnitTestDemoTest
 
 4、 打开“测试资源管理器”，在“测试”->窗口->测试资源管理器
 
-![TestWindowOpen.jpg](/images/CSharp-UnitTest/TestWindowOpen.jpg)
+![TestWindowOpen.jpg](/resources/CSharp-UnitTest/TestWindowOpen.jpg)
 
 
-![TestWindow.jpg](/images/CSharp-UnitTest/TestWindow.jpg)
+![TestWindow.jpg](/resources/CSharp-UnitTest/TestWindow.jpg)
 
 在上面右击。选“运行选定测试”，
 
-![TestRun.jpg](/images/CSharp-UnitTest/TestRun.jpg)
+![TestRun.jpg](/resources/CSharp-UnitTest/TestRun.jpg)
 
 可以看到前面多了一个通过标记。表示测试通过。
-![TestOk.jpg](/images/CSharp-UnitTest/TestOk.jpg)
+![TestOk.jpg](/resources/CSharp-UnitTest/TestOk.jpg)
 
 如果未通过，是个红色的X。
 
 
 
-![TestFailed.jpg](/images/CSharp-UnitTest/TestFailed.jpg)
+![TestFailed.jpg](/resources/CSharp-UnitTest/TestFailed.jpg)
 
 5、 以上是手工建立测试项目的。还有一种快捷的方法建立测试项目。在要测试的方法行，右击。选择创建单元测试。可弹出建立单元测试对话框。
 
-![TestUnitCreate.jpg](/images/CSharp-UnitTest/TestUnitCreate.jpg)
+![TestUnitCreate.jpg](/resources/CSharp-UnitTest/TestUnitCreate.jpg)
 
 6、对于同一测试的不同输入输出，我们可以使用传值测试，用[DataTestMethod]和[DataRow]来标识数据集。
 
@@ -155,11 +155,11 @@ public void IP_Test(string ip,string str_error)
 
 运行测试用例：
 
-![DataTest.jpg](/images/CSharp-UnitTest/DataTest.jpg)
+![DataTest.jpg](/resources/CSharp-UnitTest/DataTest.jpg)
 
 7、在C#调试时，我们经常使用Console类来打印输出，程序调试时可以在“输出”栏看到程序输出。但在运行单元测试的时候，在“输出”栏中看不到输出，输出被移到了“测试资源管理器”中。
 
-![TestOutput.jpg](/images/CSharp-UnitTest/TestOutput.jpg)
+![TestOutput.jpg](/resources/CSharp-UnitTest/TestOutput.jpg)
 
 * [Microsoft Docs Example](https://docs.microsoft.com/en-us/visualstudio/test/walkthrough-creating-and-running-CSharp-UnitTests-for-managed-code?view=vs-2019)
 

@@ -7,7 +7,7 @@ date: 2020-04-11 23:38:01
 ---
 
 
-![vs.jpg](/images/CSharp代码小结/vs.jfif)
+![vs.jpg](/resources/CSharp代码小结/vs.jfif)
 
 用Visual Studio + C#写上位机，获得一份简单的快乐。
 
@@ -426,7 +426,7 @@ if( openFileDialog.ShowDialog() == DialogResult.OK)
 
 ### 加载图片文件并显示
 
-![load_pic.png](/images/CSharp代码小结/load_pic.png)
+![load_pic.png](/resources/CSharp代码小结/load_pic.png)
 
 ```c#
 // 显示控件：PictureBox， Name: pb_img
@@ -836,7 +836,7 @@ Console.WriteLine("导出至 \"Out.xlsx\"");
 
 使用DSEG7 Classic Mini字体，来显示数码管效果的数字。
 
-在项目中新建/Resources/Font/目录，将[DSEG7字体文件](/images/CSharp代码小结/DSEG7 Classic Mini.ttf)添加到路径下，以4位数字为例：
+在项目中新建/Resources/Font/目录，将[DSEG7字体文件](/resources/CSharp代码小结/DSEG7 Classic Mini.ttf)添加到路径下，以4位数字为例：
 
 ```xaml
 <TextBlock Text="{Binding Hour, FallbackValue=0000, StringFormat=00}"

@@ -77,7 +77,7 @@ for /r c:\ %i in (boot.ini) do @echo %i --枚举c盘所有目录+boot.ini
 
 将cmd添加到鼠标右键，在任意一个资源管理界面点击右键打开cmd，自动从当前路径开始，为执行命令节省时间。
 
-[下载插件](/images/dos-bash/AutoCMD.zip)，双击运行。你会发现在资源管理点击鼠标右键，列表中多了一个 “cmd_here"。
+[下载插件](/resources/dos-bash/AutoCMD.zip)，双击运行。你会发现在资源管理点击鼠标右键，列表中多了一个 “cmd_here"。
 
 <br/>
 

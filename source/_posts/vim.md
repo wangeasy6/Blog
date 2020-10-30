@@ -9,7 +9,7 @@ tag:
 ---
 
 
-![vim.jpg](/images/Cover/vim.jpg)
+![vim.jpg](/resources/Cover/vim.jpg)
 工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。
 
 <!--more-->

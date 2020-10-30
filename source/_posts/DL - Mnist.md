@@ -6,7 +6,7 @@ categories:
 date: 2020-06-15 20:57:08
 ---
 
-![mnist.jpg](/images/mnist/mnist.jpg)
+![mnist.jpg](/resources/mnist/mnist.jpg)
 
 Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0-9，属于分类问题。训练集提供了60000个训练数据和10000个测试数据，属于监督学习的一种。
 
@@ -125,7 +125,7 @@ model.save("mnist.hdf5")
 
 程序会显示这20次训练的历史精度和准确性的趋势图，如下：
 
-![history.png](/images/mnist/history_.png)
+![history.png](/resources/mnist/history_.png)
 
 输出测试模型下模型的损失值和度量值。
 
@@ -138,7 +138,7 @@ model.save("mnist.hdf5")
    解决方法：此时无法加载的cufft64_10.dll实际命名是cufft64_100.dll，把到程序安装目录里找到cufft64_100.dll，改成cufft64_10.dll就行了。
 2. Downloading mnist.npz速度慢的问题
    Keras默认加载mnist数据的时候会从amazonaws上下载，国内几乎无法下载。
-   解决方法：提前下载[mnist.npz](/images/mnist/mnist.npz)，使用numpy库来加载。
+   解决方法：提前下载[mnist.npz](/resources/mnist/mnist.npz)，使用numpy库来加载。
 
 <br/>
 
@@ -319,7 +319,7 @@ model = Sequential(
 
 被称作全连接层。之所以叫全连接是因为他的每一层和上一层所有单元相连接，如下图所示：
 
-![dense.jpg](/images/mnist/dense.jpg)
+![dense.jpg](/resources/mnist/dense.jpg)
 
 <br/>
 
@@ -357,7 +357,7 @@ model = Sequential(
 
 函数图像：
 
-![relu.jpg](/images/mnist/relu.jpg)
+![relu.jpg](/resources/mnist/relu.jpg)
 
 ##### softmax
 
@@ -388,7 +388,7 @@ f(x) = \frac1{1 + e^{-x}}
 $$
 函数图像：
 
-![sigmod.png](/images/mnist/sigmoid.gif)
+![sigmod.png](/resources/mnist/sigmoid.gif)
 
 ##### hard_sigmoid
 
@@ -420,7 +420,7 @@ x, & x\ge0\cr
 $$
 函数图像：
 
-![elu.jpg](/images/mnist/elu.png)
+![elu.jpg](/resources/mnist/elu.png)
 
 ##### selu
 
@@ -434,7 +434,7 @@ f(x) = \frac{e^x-e^{-x}}{e^x + e^{-x}}
 $$
 函数图像：
 
-![tanh.jpg](/images/mnist/tanh.png)
+![tanh.jpg](/resources/mnist/tanh.png)
 
 ##### softplus
 
@@ -444,7 +444,7 @@ $$
 
 函数图像：
 
-![softplus.jpg](/images/mnist/softplus.jpg)
+![softplus.jpg](/resources/mnist/softplus.jpg)
 
 ##### softsign
 
@@ -454,7 +454,7 @@ $$
 
 函数图像：
 
-![softsign.jpg](/images/mnist/softsign.jpg)
+![softsign.jpg](/resources/mnist/softsign.jpg)
 
 ##### exponential
 
@@ -462,7 +462,7 @@ $$
 f(x) = 2^{x-1}
 $$
 
-![exponential.png](/images/mnist/exponential.png)
+![exponential.png](/resources/mnist/exponential.png)
 
 ##### 高级激活函数
 
@@ -839,7 +839,7 @@ Model.predict(
 
   目前，Keras 有三个后端实现：TensorFlow 后端、Theano 后端和微软认知工具包（CNTK，Microsoft cognitive toolkit）后端。通过TensorFlow（或 Theano、CNTK），Keras 可以在 CPU 和 GPU 上无缝运行。
 
-  ![keras.jpg](/images/mnist/keras soft arch.png)
+  ![keras.jpg](/resources/mnist/keras soft arch.png)
 
 * **TensorFlow**
 

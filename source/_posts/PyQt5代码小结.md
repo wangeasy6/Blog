@@ -8,7 +8,7 @@ tags:
   - Python
 ---
 
-![PyQt.jpg](/images/PyQt5小结/PyQt.jpg)
+![PyQt.jpg](/resources/PyQt5小结/PyQt.jpg)
 
 基于**PyQt5**的开发项目，代码小结。
 项目界面比较简单，只使用了基础部分，没有使用**QML**、**Qt Quick**等高级用法。
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
 示例代码运行会在屏幕上显示一个小窗体，如下：
 
-![Simple](/images/PyQt5小结/simple.png)
+![Simple](/resources/PyQt5小结/simple.png)
 
 #### QApplication
 
@@ -195,7 +195,7 @@ with open('qss/main_window.qss', 'r') as f:
 
 显示效果：
 
-![title_bg](/images/PyQt5小结/title.png)
+![title_bg](/resources/PyQt5小结/title.png)
 
 ```python
 #!/usr/bin/python3
@@ -238,7 +238,7 @@ if __name__ == '__main__':
 
 #### 圆形图片按钮
 
-素材如下：![round_button](/images/PyQt5小结/round_button.png)
+素材如下：![round_button](/resources/PyQt5小结/round_button.png)
 
 ```
 # *.py
@@ -280,7 +280,7 @@ def switch(self):
 
 QTableWidget效果：
 
-![Table](/images/PyQt5小结/table_stretch.png)
+![Table](/resources/PyQt5小结/table_stretch.png)
 
 *.py：
 
@@ -400,7 +400,7 @@ QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
 
 QHeaderView.Stretch模式会根据表的宽度均分设置每列的宽度，但实际中每列的长度是有差异的，且如果每列数据的长度基本一致，可以设置列宽模式为固定的，如上表设置成这样会更合理一些：
 
-![Table](/images/PyQt5小结/table_fixed.png)
+![Table](/resources/PyQt5小结/table_fixed.png)
 
 ```
 self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Fixed)
@@ -416,7 +416,7 @@ self.table.setColumnWidth(3,150)
 
 样式效果：
 
-![calendar](/images/PyQt5小结/calendar.png)
+![calendar](/resources/PyQt5小结/calendar.png)
 
 ```
 self.dt_time = QDateTimeEdit(QDate().currentDate())
@@ -500,7 +500,7 @@ QCalendarWidget QAbstractItemView {
 }
 ```
 
-左右箭头素材：![arrow_left](/images/PyQt5小结/arrow_left.png)![arrow_right](/images/PyQt5小结/arrow_right.png)
+左右箭头素材：![arrow_left](/resources/PyQt5小结/arrow_left.png)![arrow_right](/resources/PyQt5小结/arrow_right.png)
 
 <br/>
 
@@ -579,7 +579,7 @@ if __name__ == '__main__':
 
 Loading动画：
 
-![Loading](/images/PyQt5小结/loading.gif)
+![Loading](/resources/PyQt5小结/loading.gif)
 
 ```python
 # 加载loading动画
@@ -613,7 +613,7 @@ self.gif_label.close()
 
 效果：
 
-![MessageBox](/images/PyQt5小结/messagebox.png)
+![MessageBox](/resources/PyQt5小结/messagebox.png)
 
 使用自定义MessageBox：
 

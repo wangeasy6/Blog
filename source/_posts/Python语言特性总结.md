@@ -7,7 +7,7 @@ categories:
 tags:
   - Python
 ---
-![Cover.jpg](/images/Cover/python.jpg)
+![Cover.jpg](/resources/Cover/python.jpg)
 
 从C或者其它高级语言转到Python，可能会经历一个适应时期，以熟悉Python特别的语法，所以总结一下Python 语言的特性及其基础概念。
 

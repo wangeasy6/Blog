@@ -5,7 +5,7 @@ toc: true
 categories:
   - Technology
 ---
-![img](/images/Cover/naming_spec.gif)
+![img](/resources/Cover/naming_spec.gif)
 
 有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。
 个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。
