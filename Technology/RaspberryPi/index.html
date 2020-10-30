@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART  配置固定USB端口名称  树莓派开启SSH  开启远程桌面  树莓派开启Samba  切换屏幕分辨率  树莓派横竖屏转换  截屏 中文输入 软键盘  rar解压缩   硬件环境：Raspberry Pi 3B+">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/images/RaspberryPi/Pin.png">
-<meta property="og:updated_time" content="2020-10-13T06:32:56.000Z">
+<meta property="og:image" content="http://www.wangeasy.com/resources/RaspberryPi/Pin.png">
+<meta property="og:updated_time" content="2020-10-30T11:49:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Raspberry Pi 手记">
 <meta name="twitter:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART  配置固定USB端口名称  树莓派开启SSH  开启远程桌面  树莓派开启Samba  切换屏幕分辨率  树莓派横竖屏转换  截屏 中文输入 软键盘  rar解压缩   硬件环境：Raspberry Pi 3B+">
-<meta name="twitter:image" content="http://www.wangeasy.com/images/RaspberryPi/Pin.png">
+<meta name="twitter:image" content="http://www.wangeasy.com/resources/RaspberryPi/Pin.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
   
-    <link rel="icon" href="/images/Logo_wangeasy_2_256.ico">
+    <link rel="icon" href="/resources/Logo_wangeasy_2_256.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -67,7 +67,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.jpg" class="js-avatar">
+			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
@@ -121,7 +121,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.jpg" class="js-avatar">
+				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Easy Wang</h1>
@@ -296,9 +296,9 @@
 <p>而树莓派3的设计上，官方在设计时将硬件串口分配给了新增的蓝牙模块上，而将一个没有时钟源，必须由内核提供时钟参考源的“迷你串口”分配给了GPIO的串口，这样以来由于内核的频率本身是变化的，就会导致“迷你串口”的速率不稳定，这样就出现了无法正常使用的情况。</p>
 <p>目前解决方法就是，关闭蓝牙对硬件串口的使用，将硬件串口重新恢复给GPIO的串口使用，也就意味着树莓派3的板载蓝牙和串口，只能二选一使用。</p>
 <p>树莓派GPIO中串口的管脚在 p8、p10、GND：</p>
-<p><img src="/images/RaspberryPi/Pin.png" alt="Pin.png"></p>
+<p><img src="/resources/RaspberryPi/Pin.png" alt="Pin.png"></p>
 <p>2.配置设备树</p>
-<p>下载 <a href="/images/RaspberryPi/pi3-miniuart-bt-overlay.dtb">pi3-miniuart-bt-overlay.dtb</a> 文件，并将文件拷贝到 /boot/overlays/ 目录下。</p>
+<p>下载 <a href="/resources/RaspberryPi/pi3-miniuart-bt-overlay.dtb">pi3-miniuart-bt-overlay.dtb</a> 文件，并将文件拷贝到 /boot/overlays/ 目录下。</p>
 <p>编辑 /boot/config.txt：<code>sudo vim /boot/config.txt</code></p>
 <p>添加：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dtoverlay=pi3-miniuart-bt-overlay</span><br></pre></td></tr></table></figure>
@@ -769,10 +769,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -782,6 +778,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
             
             <div class="clearfix"></div>

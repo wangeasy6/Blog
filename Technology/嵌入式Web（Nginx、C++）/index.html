@@ -15,19 +15,19 @@
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="在设备中嵌入Web，作为配置软件的接口是目前嵌入式设备的常见做法了。 由于种种原因，暂定为这个方案，虽然行业中使用这个方案的人不多，但还是记录一下，万一有一样的小伙伴呢。 实现方案： 树莓派3B+、Nginx、spawn-fcgi、C++。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/images/embedded_web/cover.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/embedded_web/framework.png">
-<meta property="og:image" content="http://www.wangeasy.com/images/embedded_web/test_env.jpg">
-<meta property="og:updated_time" content="2020-10-08T09:23:36.000Z">
+<meta property="og:image" content="http://www.wangeasy.com/resources/embedded_web/cover.jpg">
+<meta property="og:image" content="http://www.wangeasy.com/resources/embedded_web/framework.png">
+<meta property="og:image" content="http://www.wangeasy.com/resources/embedded_web/test_env.jpg">
+<meta property="og:updated_time" content="2020-10-30T11:51:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="嵌入式Web(Nginx、C++)">
 <meta name="twitter:description" content="在设备中嵌入Web，作为配置软件的接口是目前嵌入式设备的常见做法了。 由于种种原因，暂定为这个方案，虽然行业中使用这个方案的人不多，但还是记录一下，万一有一样的小伙伴呢。 实现方案： 树莓派3B+、Nginx、spawn-fcgi、C++。">
-<meta name="twitter:image" content="http://www.wangeasy.com/images/embedded_web/cover.jpg">
+<meta name="twitter:image" content="http://www.wangeasy.com/resources/embedded_web/cover.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
   
-    <link rel="icon" href="/images/Logo_wangeasy_2_256.ico">
+    <link rel="icon" href="/resources/Logo_wangeasy_2_256.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -68,7 +68,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.jpg" class="js-avatar">
+			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
@@ -122,7 +122,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.jpg" class="js-avatar">
+				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Easy Wang</h1>
@@ -207,13 +207,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/embedded_web/cover.jpg" alt="Cover"></p>
+        <p><img src="/resources/embedded_web/cover.jpg" alt="Cover"></p>
 <p>在设备中嵌入Web，作为配置软件的接口是目前嵌入式设备的常见做法了。</p>
 <p>由于种种原因，暂定为这个方案，虽然行业中使用这个方案的人不多，但还是记录一下，万一有一样的小伙伴呢。</p>
 <p>实现方案： <em>树莓派3B+</em>、<em>Nginx</em>、<em>spawn-fcgi</em>、<em>C++</em>。</p>
 <a id="more"></a>
 <p><br></p>
-<h3 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h3><p><img src="/images/embedded_web/framework.png" alt="framework"></p>
+<h3 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h3><p><img src="/resources/embedded_web/framework.png" alt="framework"></p>
 <h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p>树莓派3B+，镜像版本：2020-05-27-raspios-buster-armhf.zip</p>
 <p><strong>1.安装Nginx</strong></p>
 <p><code>sudo apt-get install nginx</code></p>
@@ -233,7 +233,7 @@
 <p>网页的根目录为创建的<code>/home/pi/Web</code>，网页静态文件存在这个目录下；</p>
 <p>所有带有<code>.cgi</code>后缀的访问都转发给fastcgi，fastcgi的地址为<code>127.0.0.1:8000</code>；</p>
 <p><code>include fastcgi.conf</code>是添加引用“fastcgi.conf”的规则，这个规则如下：</p>
-<p>在<code>/etc/nginx/</code>中添加文件<a href="/images/embedded_web/fastcgi.conf">fastcgi.conf</a>：</p>
+<p>在<code>/etc/nginx/</code>中添加文件<a href="/resources/embedded_web/fastcgi.conf">fastcgi.conf</a>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;</span><br><span class="line">fastcgi_param  SERVER_SOFTWARE    nginx;</span><br><span class="line"></span><br><span class="line">fastcgi_param  QUERY_STRING       $query_string;</span><br><span class="line">fastcgi_param  REQUEST_METHOD     $request_method;</span><br><span class="line">fastcgi_param  CONTENT_TYPE       $content_type;</span><br><span class="line">fastcgi_param  CONTENT_LENGTH     $content_length;</span><br><span class="line"></span><br><span class="line">fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;</span><br><span class="line">fastcgi_param  SCRIPT_NAME        $fastcgi_script_name;</span><br><span class="line">fastcgi_param  REQUEST_URI        $request_uri;</span><br><span class="line">fastcgi_param  DOCUMENT_URI       $document_uri;</span><br><span class="line">fastcgi_param  DOCUMENT_ROOT      $document_root;</span><br><span class="line">fastcgi_param  SERVER_PROTOCOL    $server_protocol;</span><br><span class="line"></span><br><span class="line">fastcgi_param  REMOTE_ADDR        $remote_addr;</span><br><span class="line">fastcgi_param  REMOTE_PORT        $remote_port;</span><br><span class="line">fastcgi_param  SERVER_ADDR        $server_addr;</span><br><span class="line">fastcgi_param  SERVER_PORT        $server_port;</span><br><span class="line">fastcgi_param  SERVER_NAME        $server_name;</span><br></pre></td></tr></table></figure>
 <p>以上的<code>fastcgi_param</code>配置，配置了Nginx传递给FCGI程序的环境变量。</p>
 <p>在C++中可以使用<code>FCGX_GetParam</code>函数获取到这些值。编辑一个用来测试的CGI程序，如下所示：</p>
@@ -255,7 +255,7 @@
 <p>现在打开浏览器，输入以下网址进行访问：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ip:8080/test.cgi</span><br></pre></td></tr></table></figure>
 <p>浏览器显示：</p>
-<p><img src="/images/embedded_web/test_env.jpg" alt="test_cgi.jpg"></p>
+<p><img src="/resources/embedded_web/test_env.jpg" alt="test_cgi.jpg"></p>
 <p><br></p>
 <h3 id="异步获取、设置设备参数"><a href="#异步获取、设置设备参数" class="headerlink" title="异步获取、设置设备参数"></a>异步获取、设置设备参数</h3><p>实现功能：</p>
 <ul>
@@ -263,7 +263,7 @@
 <li>上传小于256KB的JPG文件到服务器</li>
 <li>文件MD5校验</li>
 </ul>
-<p>项目所有文件<a href="/images/embedded_web/Web.tar.gz">Web.tar.gz</a>：</p>
+<p>项目所有文件<a href="/resources/embedded_web/Web.tar.gz">Web.tar.gz</a>：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Web</span><br><span class="line">├── cgi-bin</span><br><span class="line">│   ├── makefile</span><br><span class="line">│   ├── main.cpp</span><br><span class="line">│   ├── urls.cpp</span><br><span class="line">│   ├── urls.h</span><br><span class="line">│   ├── char_md5.c</span><br><span class="line">│   ├── char_md5.h</span><br><span class="line">│   ├── md5.c</span><br><span class="line">│   └── md5.h</span><br><span class="line">├── index.html</span><br><span class="line">├── js</span><br><span class="line">│   ├── index.js</span><br><span class="line">│   ├── date.format.js</span><br><span class="line">│   └── spark-md5.js</span><br></pre></td></tr></table></figure>
 <p>makefile</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">all : main.cpp urls.cpp md5.c char_md5.c</span><br><span class="line">	g++ $^ -o main -lfcgi -lfcgi++</span><br><span class="line"></span><br><span class="line">.PHONY : run</span><br><span class="line">run :</span><br><span class="line">	spawn-fcgi -a 127.0.0.1 -p 8888 -f ./main -n</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean :</span><br><span class="line">	sudo killall main</span><br></pre></td></tr></table></figure>
@@ -555,10 +555,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -568,6 +564,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
             
             <div class="clearfix"></div>

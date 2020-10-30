@@ -15,27 +15,27 @@
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0-9，属于分类问题。训练集提供了60000个训练数据和10000个测试数据，属于监督学习的一种。 根据《Python 深度学习》，搭建了Mnist程序环境：  系统：Win10 64位 GPU：GTX 1050Ti Python：3.5.3 Keras：2.3.1 tensorflow-gpu：2.2.0 CUDA：10">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/mnist.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/history_.png">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/dense.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/relu.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/sigmoid.gif">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/elu.png">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/tanh.png">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/softplus.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/softsign.jpg">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/exponential.png">
-<meta property="og:image" content="http://www.wangeasy.com/images/mnist/keras%20soft%20arch.png">
-<meta property="og:updated_time" content="2020-09-07T07:22:06.000Z">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/mnist.jpg">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/history_.png">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/dense.jpg">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/relu.jpg">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/sigmoid.gif">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/elu.png">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/tanh.png">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/softplus.jpg">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/softsign.jpg">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/exponential.png">
+<meta property="og:image" content="http://www.wangeasy.com/resources/mnist/keras%20soft%20arch.png">
+<meta property="og:updated_time" content="2020-10-30T11:47:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DL - Minst">
 <meta name="twitter:description" content="Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0-9，属于分类问题。训练集提供了60000个训练数据和10000个测试数据，属于监督学习的一种。 根据《Python 深度学习》，搭建了Mnist程序环境：  系统：Win10 64位 GPU：GTX 1050Ti Python：3.5.3 Keras：2.3.1 tensorflow-gpu：2.2.0 CUDA：10">
-<meta name="twitter:image" content="http://www.wangeasy.com/images/mnist/mnist.jpg">
+<meta name="twitter:image" content="http://www.wangeasy.com/resources/mnist/mnist.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
   
-    <link rel="icon" href="/images/Logo_wangeasy_2_256.ico">
+    <link rel="icon" href="/resources/Logo_wangeasy_2_256.ico">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -76,7 +76,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/images/avatar.jpg" class="js-avatar">
+			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
@@ -130,7 +130,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/avatar.jpg" class="js-avatar">
+				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Easy Wang</h1>
@@ -215,7 +215,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/images/mnist/mnist.jpg" alt="mnist.jpg"></p>
+        <p><img src="/resources/mnist/mnist.jpg" alt="mnist.jpg"></p>
 <p>Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0-9，属于分类问题。训练集提供了60000个训练数据和10000个测试数据，属于监督学习的一种。</p>
 <p>根据《Python 深度学习》，搭建了Mnist程序环境：</p>
 <ul>
@@ -247,13 +247,13 @@
 <p><strong>程序：</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">Trains a simple deep NN on the MNIST dataset.</span></span><br><span class="line"><span class="string">Gets to 98.40% test accuracy after 20 epochs</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.optimizers <span class="keyword">import</span> RMSprop</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">128</span></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line">epochs = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Keras 官方推荐写法</span></span><br><span class="line"><span class="comment"># (x_train, y_train), (x_test, y_test) = mnist.load_data()</span></span><br><span class="line"></span><br><span class="line">path=<span class="string">'mnist.npz'</span></span><br><span class="line">f = np.load(path)</span><br><span class="line">x_train, y_train = f[<span class="string">'x_train'</span>], f[<span class="string">'y_train'</span>]</span><br><span class="line">x_test, y_test = f[<span class="string">'x_test'</span>], f[<span class="string">'y_test'</span>]</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">x_train = x_train.reshape(<span class="number">60000</span>, <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">x_test = x_test.reshape(<span class="number">10000</span>, <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">x_train /= <span class="number">255</span></span><br><span class="line">x_test /= <span class="number">255</span></span><br><span class="line">print(x_train.shape[<span class="number">0</span>], <span class="string">'train samples'</span>)</span><br><span class="line">print(x_test.shape[<span class="number">0</span>], <span class="string">'test samples'</span>)</span><br><span class="line"></span><br><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">512</span>, activation=<span class="string">'relu'</span>, input_shape=(<span class="number">784</span>,)))</span><br><span class="line">model.add(Dense(<span class="number">512</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(num_classes, activation=<span class="string">'softmax'</span>))</span><br><span class="line"></span><br><span class="line">model.summary()</span><br><span class="line"></span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=RMSprop(),</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line">history = model.fit(x_train, y_train,</span><br><span class="line">                    batch_size=batch_size,</span><br><span class="line">                    epochs=epochs,</span><br><span class="line">                    verbose=<span class="number">1</span>,</span><br><span class="line">                    validation_data=(x_test, y_test))</span><br><span class="line"></span><br><span class="line">history_dict = history.history</span><br><span class="line">loss_values = history_dict[<span class="string">'loss'</span>]</span><br><span class="line">val_loss_values = history_dict[<span class="string">'val_loss'</span>]</span><br><span class="line">epochs = range(<span class="number">1</span>, len(loss_values) + <span class="number">1</span>)</span><br><span class="line">plt.plot(epochs, loss_values, <span class="string">'bo'</span>, label=<span class="string">'Training loss'</span>)</span><br><span class="line">plt.plot(epochs, val_loss_values, <span class="string">'b'</span>, label=<span class="string">'Validation loss'</span>)</span><br><span class="line">plt.title(<span class="string">'Training and validation loss'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Epochs'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Loss'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">score = model.evaluate(x_test, y_test, verbose=<span class="number">0</span>)</span><br><span class="line">print(<span class="string">'Test loss:'</span>, score[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'Test accuracy:'</span>, score[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">model.save(<span class="string">"mnist.hdf5"</span>)</span><br></pre></td></tr></table></figure>
 <p>程序会显示这20次训练的历史精度和准确性的趋势图，如下：</p>
-<p><img src="/images/mnist/history_.png" alt="history.png"></p>
+<p><img src="/resources/mnist/history_.png" alt="history.png"></p>
 <p>输出测试模型下模型的损失值和度量值。</p>
 <p>最后保存此次训练结果到 “mnist.hdf5”，后面可以使用<code>keras.models.load_model</code>加载此训练模型。</p>
 <p><strong>异常</strong></p>
 <ol>
 <li>”Could not load dynamic library ‘cufft64_10.dll’; dlerror: cufft64_10.dll not found“<br>用GPU进行运算时，会加载CUDA和cuDNN库，但是库名称会有一点儿问题，出现如上提示，之后打印：”Skipping registering GPU devices…“，跳过GPU加载，而查看任务管理器会发现只使用了CPU。<br>解决方法：此时无法加载的cufft64_10.dll实际命名是cufft64_100.dll，把到程序安装目录里找到cufft64_100.dll，改成cufft64_10.dll就行了。</li>
-<li>Downloading mnist.npz速度慢的问题<br>Keras默认加载mnist数据的时候会从amazonaws上下载，国内几乎无法下载。<br>解决方法：提前下载<a href="/images/mnist/mnist.npz">mnist.npz</a>，使用numpy库来加载。</li>
+<li>Downloading mnist.npz速度慢的问题<br>Keras默认加载mnist数据的时候会从amazonaws上下载，国内几乎无法下载。<br>解决方法：提前下载<a href="/resources/mnist/mnist.npz">mnist.npz</a>，使用numpy库来加载。</li>
 </ol>
 <p><br></p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>如何使用此模型来识别自己的手写数字呢？</p>
@@ -296,7 +296,7 @@
 <li><strong>bias_constraint</strong>: 运用到偏置向量的约束函数 (详见 <a href="https://keras.io/zh/constraints/" target="_blank" rel="noopener">constraints</a>)。</li>
 </ul>
 <p>被称作全连接层。之所以叫全连接是因为他的每一层和上一层所有单元相连接，如下图所示：</p>
-<p><img src="/images/mnist/dense.jpg" alt="dense.jpg"></p>
+<p><img src="/resources/mnist/dense.jpg" alt="dense.jpg"></p>
 <p><br></p>
 <h4 id="非线性函数-activation"><a href="#非线性函数-activation" class="headerlink" title="非线性函数(activation)"></a>非线性函数(activation)</h4><p>也叫激活函数。如果没有激活函数，Dense层将只包含两个线性运算——点积和加法：<br><code>output = dot(input, k) + b</code><br>这样 Dense 层就只能学习输入数据的线性变换：该层的假设空间是从输入数据到 16 位空间所有可能的线性变换集合。这种假设空间非常有限，无法利用多个表示层的优势，因为多个线性层堆叠实现的仍是线性运算，添加层数并不会扩展假设空间。<br>为了得到更丰富的假设空间，从而充分利用多层表示的优势，需要添加非线性或激活函数。</p>
 <h5 id="relu"><a href="#relu" class="headerlink" title="relu"></a>relu</h5><p><strong>原型</strong>：<code>keras.activations.relu(x, alpha=0.0, max_value=**None**, threshold=0.0)</code></p>
@@ -318,7 +318,7 @@
 <p><strong>返回</strong></p>
 <p>一个张量。</p>
 <p>函数图像：</p>
-<p><img src="/images/mnist/relu.jpg" alt="relu.jpg"></p>
+<p><img src="/resources/mnist/relu.jpg" alt="relu.jpg"></p>
 <h5 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h5><p><strong>原型</strong>：<code>keras.activations.softmax(x, axis=-1)</code></p>
 <p>Softmax 激活函数：<br>$$<br>S_i =\frac{e^i}{\sum e^j}<br>$$<br><strong>参数</strong></p>
 <ul>
@@ -332,7 +332,7 @@
 <li><strong>ValueError</strong>：如果 <code>dim(x) == 1</code>。</li>
 </ul>
 <h5 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h5><p>也称logistic函数，映射区间（0, 1）。<br>$$<br>f(x) = \frac1{1 + e^{-x}}<br>$$<br>函数图像：</p>
-<p><img src="/images/mnist/sigmoid.gif" alt="sigmod.png"></p>
+<p><img src="/resources/mnist/sigmoid.gif" alt="sigmod.png"></p>
 <h5 id="hard-sigmoid"><a href="#hard-sigmoid" class="headerlink" title="hard_sigmoid"></a>hard_sigmoid</h5><p>$$<br>f(x) =<br>\begin{cases}<br>1, &amp; 1 \leq x \cr<br>\frac{x+1}2, &amp; -1 &lt; x &lt; 1 \cr<br>0, &amp; x \leq -1<br>\end{cases}<br>$$</p>
 <h5 id="elu"><a href="#elu" class="headerlink" title="elu"></a>elu</h5><p><strong>原型</strong>：<code>keras.activations.elu(x, alpha=1.0)</code></p>
 <p><strong>参数</strong></p>
@@ -341,18 +341,18 @@
 <li><strong>alpha</strong>：一个标量，表示负数部分的斜率。</li>
 </ul>
 <p>融合了sigmoid和ReLU。<br>$$<br>f(x) =<br>\begin{cases}<br>x, &amp; x\ge0\cr<br>\alpha(e^x - 1), &amp;x &lt; 0<br>\end{cases}<br>$$<br>函数图像：</p>
-<p><img src="/images/mnist/elu.png" alt="elu.jpg"></p>
+<p><img src="/resources/mnist/elu.png" alt="elu.jpg"></p>
 <h5 id="selu"><a href="#selu" class="headerlink" title="selu"></a>selu</h5><p>可伸缩的指数线性单元，等同于：<code>scale * elu(x, alpha)</code>，其中 alpha 和 scale 是预定义的常量。只要正确初始化权重（参见 <code>lecun_normal</code> 初始化方法）并且输入的数量「足够大」（参见参考文献获得更多信息），选择合适的 alpha 和 scale 的值，就可以在两个连续层之间保留输入的均值和方差。</p>
 <h5 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h5><p>也称双切正切函数，映射区间 （-1，1）。<br>$$<br>f(x) = \frac{e^x-e^{-x}}{e^x + e^{-x}}<br>$$<br>函数图像：</p>
-<p><img src="/images/mnist/tanh.png" alt="tanh.jpg"></p>
+<p><img src="/resources/mnist/tanh.png" alt="tanh.jpg"></p>
 <h5 id="softplus"><a href="#softplus" class="headerlink" title="softplus"></a>softplus</h5><p>$$<br>f(x)=log(1+e^x)<br>$$</p>
 <p>函数图像：</p>
-<p><img src="/images/mnist/softplus.jpg" alt="softplus.jpg"></p>
+<p><img src="/resources/mnist/softplus.jpg" alt="softplus.jpg"></p>
 <h5 id="softsign"><a href="#softsign" class="headerlink" title="softsign"></a>softsign</h5><p>$$<br>f(x)=\frac{x}{1+|x|}<br>$$</p>
 <p>函数图像：</p>
-<p><img src="/images/mnist/softsign.jpg" alt="softsign.jpg"></p>
+<p><img src="/resources/mnist/softsign.jpg" alt="softsign.jpg"></p>
 <h5 id="exponential"><a href="#exponential" class="headerlink" title="exponential"></a>exponential</h5><p>$$<br>f(x) = 2^{x-1}<br>$$</p>
-<p><img src="/images/mnist/exponential.png" alt="exponential.png"></p>
+<p><img src="/resources/mnist/exponential.png" alt="exponential.png"></p>
 <h5 id="高级激活函数"><a href="#高级激活函数" class="headerlink" title="高级激活函数"></a>高级激活函数</h5><p>对于 Theano/TensorFlow/CNTK 不能表达的复杂激活函数，如含有可学习参数的激活函数，可通过<a href="https://keras.io/zh/layers/advanced-activations/" target="_blank" rel="noopener">高级激活函数</a>实现，可以在 <code>keras.layers.advanced_activations</code> 模块中找到。 这些高级激活函数包括 <code>PReLU</code> 和 <code>LeakyReLU</code>。</p>
 <p><br></p>
 <h3 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h3><p><strong>原型</strong>：<code>Model.summary(line_length=None, positions=None, print_fn=None)</code></p>
@@ -868,7 +868,7 @@
 <li><p><strong>Keras</strong></p>
 <p>Keras 是一个模型级（model-level）的库，为开发深度学习模型提供了层次的构建模块。它不处理张量操作、求微分等低层次的运算。相反，它依赖于一个专门的、高度优化的张量库来完成这些运算，这个张量库就是 Keras 的后端引擎（backend engine）。Keras 没有选择单个张量库并将 Keras 实现与这个库绑定，而是以模块化的方式处理这个问题。因此，几个不同的后端引擎都可以无缝嵌入到 Keras 中。</p>
 <p>目前，Keras 有三个后端实现：TensorFlow 后端、Theano 后端和微软认知工具包（CNTK，Microsoft cognitive toolkit）后端。通过TensorFlow（或 Theano、CNTK），Keras 可以在 CPU 和 GPU 上无缝运行。</p>
-<p><img src="/images/mnist/keras soft arch.png" alt="keras.jpg"></p>
+<p><img src="/resources/mnist/keras soft arch.png" alt="keras.jpg"></p>
 </li>
 <li><p><strong>TensorFlow</strong></p>
 <p>TensorFlow由谷歌人工智能团队，谷歌大脑（Google Brain）开发和维护。是一个基于数据流编程（dataflow programming）的符号数学系统。</p>
@@ -1210,10 +1210,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -1223,6 +1219,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
             
             <div class="clearfix"></div>
