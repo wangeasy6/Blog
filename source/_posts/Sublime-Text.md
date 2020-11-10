@@ -51,6 +51,23 @@ tag:
 | Alt + [n]          | 跳转到文件栏的第n个文件    |
 | Ctrl + Tab         | 跳转到文件栏的右边一个文件 |
 | Ctrl + Shift + Tab | 跳转到文件栏的左边一个文件 |
+| Ctrl + f           | 查看字符串                 |
+| Ctrl + h           | 替换字符串                 |
+| Alt + Shift + 1    | 单页显示                   |
+| Alt + Shift + 2    | 2列显示                    |
+| Alt + Shift + 3    | 3列显示                    |
+| Alt + Shift + 4    | 4列显示                    |
+| Alt + Shift + 5    | 田字显示                   |
+| Alt + Shift + 8    | 2行显示                    |
+| Alt + Shift + 9    | 3行显示                    |
+
+**查找/替换换行符：**
+
+要先选中正则表达式（regular expression）匹配模式，如图，点中（.*）按钮。
+
+![replace_line_breaks.png](///)
+
+在正则表达式模式下，换行符即为转义字符"\n"，只需要在查找或者换行中输入"\n"即代表换行符。
 
 <br/>
 
