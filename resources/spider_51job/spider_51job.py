@@ -9,6 +9,7 @@
 import re
 import sys
 import csv
+import bs4
 import time
 import json
 import urllib
@@ -16,7 +17,7 @@ import argparse
 import requests
 from bs4 import BeautifulSoup
 
-__version__ = '0.8.0'
+__version__ = '0.8.1'
 __max_line = None
 __store_file = None
 
@@ -35,7 +36,7 @@ def _ParseArguments(argv):
 
     parser.add_argument(
         'keyword',
-        help='搜索关键字')
+        help='搜索关键字，包含空格时用双引号(")引用')
 
     parser.add_argument(
         '-v',
@@ -123,6 +124,11 @@ def main(argv):
 
     参数:
         argv: 命令行参数
+
+    返回:
+        store_file: 数据保存的文件名
+        int: 0，正常结束
+        int: -1，异常结束
     '''
 
     global __store_file
@@ -130,23 +136,41 @@ def main(argv):
 
     args = _ParseArguments(argv)
     if args.version:
-        print('51job_spider {}'.format(__version__))
+        print('spider_51job.py {}'.format(__version__))
         return 0
 
-    __store_file = "51job_" + args.keyword + \
+    __store_file = "51job_" + args.keyword.replace(" ", "-") + \
         time.strftime('_%Y-%m-%d_%H-%M-%S') + ".csv"
-    print(__store_file)
+    print("数据将保存在： ", __store_file)
 
     if args.max_line:
         __max_line = args.max_line
 
     url = get_url(args)
+    if url == -1:
+        return -1
     print("搜索URL：", url)
 
     number_of_pages = get_number_of_pages(url.format(1))
+    if number_of_pages == 0:
+        print("当前页面的职位信息为0条")
+        return 0
+    if number_of_pages == -1:
+        print("页数获取失败")
+        return -1
     print("一共{}页".format(number_of_pages))
+
     sub_urls = get_urls(url, number_of_pages)
     get_info(sub_urls, __store_file)
+
+    return __store_file
+
+
+def convert_str2args(cmd):
+    '''
+    根据命令字符串，返回args参数，可以作为get_url的入参
+    '''
+    return _ParseArguments(cmd.split(" "))
 
 
 def get_url(args):
@@ -157,6 +181,7 @@ def get_url(args):
 
     返回:
         str: URL（其中页数用{}代替）
+        int: -1，代表组URL失败
     '''
 
     if args.url:
@@ -166,8 +191,8 @@ def get_url(args):
         start = url[:end].rfind(",")
 
         if end == -1 or start == -1:
-            print("URL parameter parsing failed.")
-            sys.exit(-1)
+            print("URL参数解析失败，清检查URL。")
+            return -1
 
         new_url = url[:start+1] + "{}"+ url[end:]
         return new_url
@@ -177,12 +202,18 @@ def get_url(args):
     if args.cities:
         if len(args.cities) > 5:
             print(args.cities)
-            print("You can only select 5 cities at most. exit")
+            print("支持最多选择5个城市。")
             return -1
         city_code = get_city_code()
         for city in args.cities:
             if city in city_code.keys():
-                cities += city_code[city] + '%252c'
+                if type(city_code[city]) == float:
+                    cities += str(int(city_code[city])) + '%252c'
+                    continue
+                cities += str(city_code[city]) + '%252c'
+            else:
+                print("指定的城市-[{}]不在支持的城市列表里。".format(city))
+                return -1
 
     if not cities:
         cities = "000000"
@@ -192,7 +223,7 @@ def get_url(args):
     # 薪资范围
     if args.salary_min and args.salary_max \
         and args.salary_min > args.salary_max:
-        print("Salary range start greater than range end. exit")
+        print("薪资起始值应小于最大值。")
         return -1
 
     salary_range = (str(args.salary_min) if args.salary_min else "") \
@@ -259,7 +290,7 @@ def get_number_of_pages(url):
         url: 搜索列表页的URL
 
     返回:
-        int: 页数
+        int: 页数，-1为解析失败
     '''
 
     response = urllib.request.urlopen( url )
@@ -274,17 +305,20 @@ def get_number_of_pages(url):
             script_node = json.loads(script_str)
 
             if "total_page" in script_node.keys():
-                return int(script_node["total_page"])
+                total_page = int(script_node["total_page"])
+                if total_page == 1 and (not script_node['engine_search_result']):
+                    total_page = 0
+                return total_page
 
-    return 0
+    return -1
 
 
 def get_urls(url, page):
     '''获取搜索内容的每个职位的链接列表
 
     参数:
-        url: 爬取页面第一页的URL，页数用{}代替
-        page: 爬取页数
+        url: 获取页面第一页的URL，页数用{}代替
+        page: 获取页数
 
     返回:
         list: 每个职位详细信息的链接列表
@@ -312,7 +346,7 @@ def get_urls(url, page):
                 ret_node = json.loads(result_str)
                 for node in ret_node['engine_search_result']:
                     sub_urls.append(node["job_href"])
-                    print("已获取{}个子网页链接".format(count))
+                    # print("已获取{}个子网页链接".format(count))
                     if __max_line and count >= __max_line:
                         return sub_urls
                     count += 1
@@ -374,13 +408,26 @@ def get_info(sub_urls, filename):
 
             # 职位信息抓取
             try:
-                info_position = info_soup.find("div", class_="bmsg")
+                info_position = info_soup.find("div", class_="job_msg")
                 position_all = info_position.find_all("p")
                 pos = ""
                 positioninfo = []   # 建立存储职位信息列表
                 for i in position_all:
+                    if "class" in i and i["class"] == ["fp"]:
+                        continue
                     positioninfo.append(i.text)
-                pos = pos.join(positioninfo)    # 列表信息合并为一个字符串
+
+                # 有的职位信息并没有放在<p>标签，而是直接在<div>下
+                if len(positioninfo) == 0:
+                    for i in info_position.contents:
+                        if type(i) == bs4.element.Tag:
+                            continue
+                        if i.find("div") != -1:
+                            break
+                        positioninfo.append(i)
+
+                pos = pos.join(positioninfo)  # 列表信息合并为一个字符串
+                pos = pos.strip()
             except Exception as e:  # 异常抛出
                 print('pos', end=" ")
                 print(e, end=" ")
@@ -398,11 +445,12 @@ def get_info(sub_urls, filename):
             with open(filename, 'a', encoding='utf-8') as file:
                 write = csv.writer(file)
                 write.writerow(['None'])
-        print("已爬取{}条数据".format(count))
+        print("已获取{}条数据".format(count))
         if __max_line and count >= __max_line:
             break
         count += 1
 
+__city_code = {}
 
 def get_city_code():
     '''获取每个城市和城市码对应的字典
@@ -410,6 +458,11 @@ def get_city_code():
     返回:
         dict: {"城市名":"city_code"}
     '''
+    global __city_code
+
+    if __city_code:
+        return __city_code
+
     search_url = 'https://search.51job.com/list/000000,000000,0000,00,9,99,%2B,2,1.html'
 
     response = urllib.request.urlopen( search_url )
@@ -429,9 +482,9 @@ def get_city_code():
         end = rstr.find('}',start)
         rrstr = rstr[start:end+1]
         code_city = eval(rrstr)
-        # print(city_dict)
-        # print(len(city_dict))
+
         city_code = dict(zip(code_city.values(), code_city.keys()))
+        __city_code = city_code
         return city_code
 
 
