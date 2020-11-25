@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Archives: 2019 | Easy Wang</title>
+  <title>嵌入式系统(一)-整体组成 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.wangeasy.com/archives/2019/index.html">
+  <meta name="description" content="系统移植，内核裁剪，是嵌入式软件工程师有别于Java、Android等软件工程师的一个重要技能。对于Linux系统的理解和操作能力，体现了一个嵌入式工程师的水平。 作为一个嵌入式软件出道，现在做了横跨C、C#、Python的纯软类工程师来说，一直怕陷入一种模棱两不可的尴尬境地。 而且最近回顾这两年发的Blog，确实技术门槛偏低，想要在一两个领域深耕一下，作为老本行的嵌入式系统就是一个很好的方向。">
+<meta name="keywords" content="嵌入式系统,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嵌入式系统(一)-整体组成">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/嵌入式系统(一)-整体组成/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="系统移植，内核裁剪，是嵌入式软件工程师有别于Java、Android等软件工程师的一个重要技能。对于Linux系统的理解和操作能力，体现了一个嵌入式工程师的水平。 作为一个嵌入式软件出道，现在做了横跨C、C#、Python的纯软类工程师来说，一直怕陷入一种模棱两不可的尴尬境地。 而且最近回顾这两年发的Blog，确实技术门槛偏低，想要在一两个领域深耕一下，作为老本行的嵌入式系统就是一个很好的方向。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.wangeasy.com/resources/Cover/embedded_system_1.jpg">
+<meta property="og:updated_time" content="2020-11-25T14:52:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Easy Wang">
+<meta name="twitter:title" content="嵌入式系统(一)-整体组成">
+<meta name="twitter:description" content="系统移植，内核裁剪，是嵌入式软件工程师有别于Java、Android等软件工程师的一个重要技能。对于Linux系统的理解和操作能力，体现了一个嵌入式工程师的水平。 作为一个嵌入式软件出道，现在做了横跨C、C#、Python的纯软类工程师来说，一直怕陷入一种模棱两不可的尴尬境地。 而且最近回顾这两年发的Blog，确实技术门槛偏低，想要在一两个领域深耕一下，作为老本行的嵌入式系统就是一个很好的方向。">
+<meta name="twitter:image" content="http://www.wangeasy.com/resources/Cover/embedded_system_1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -171,75 +178,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-嵌入式系统(一)-整体组成" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      嵌入式系统(一)-整体组成
+    </h1>
+  
+
+        
+        <a href="/Technology/嵌入式系统(一)-整体组成/" class="archive-article-date">
+  	<time datetime="2020-11-25T14:40:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-25</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/resources/Cover/embedded_system_1.jpg" alt="embedded_system_1.jpg"></p>
+<p>系统移植，内核裁剪，是嵌入式软件工程师有别于Java、Android等软件工程师的一个重要技能。对于Linux系统的理解和操作能力，体现了一个嵌入式工程师的水平。</p>
+<p>作为一个嵌入式软件出道，现在做了横跨C、C#、Python的纯软类工程师来说，一直怕陷入一种模棱两不可的尴尬境地。</p>
+<p>而且最近回顾这两年发的Blog，确实技术门槛偏低，想要在一两个领域深耕一下，作为老本行的嵌入式系统就是一个很好的方向。</p>
+<p>手上有一块iTop-4412的开发板，那么开搞。</p>
+<a id="more"></a>
+<p><br></p>
+<h2 id="一个基础的Linux系统"><a href="#一个基础的Linux系统" class="headerlink" title="一个基础的Linux系统"></a>一个基础的Linux系统</h2><p>花了一天的时间编译并烧写了一个基础的Linux系统。一个基础的Linux系统由3个部分组成：BootLoader、Kernel、File System。</p>
+<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><ul>
+<li>BootLoader基于Uboot，生成uboot.bin文件；</li>
+<li>Kernel基于Linux Kernel 3.x，生成zImage文件；</li>
+<li>File System基于Busybox，生成“bin linuxrc sbin usr”等文件夹，添加一些配置文件，再使用make_ext4fs，生成system.img文件；</li>
+</ul>
+<p><br></p>
+<h3 id="烧写"><a href="#烧写" class="headerlink" title="烧写"></a>烧写</h3><ul>
+<li>首先在Ubuntu中使用mkuboot工具烧写uboot.bin到TF卡，TF卡分区，TF卡启动盘制作完成；</li>
+<li>将其他系统文件放到TF卡”/sdupdate”目录；</li>
+<li>拨码到TF卡启动，使用”sdfuse flashall”命令烧写到eMMC；</li>
+<li>拨码到eMMC启动，启动-系统运行。</li>
+</ul>
+<p><br></p>
+<h3 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h3><ol>
+<li>设备上电后，CPU开始运行，通常CPU会从某一个固定的物理地址开始运行，这个物理地址一般是Flash芯片的起始物理地址，通常存放的是BootLoader，于是设备启动首先运行BootLoader。</li>
+<li>在BootLoader中完成CPU和相关硬件的初始化之后，再将操作系统映像装载到内存中，然后跳转到操作系统所在的空间，启动操作系统运行。</li>
+<li>Linux内核代码开始执行，会先进行内核各个子系统初始化，如果CPU带有MMU单元，完成对MMU的初始化。然后初始化多个驱动程序。接下来Linux内核会挂载根文件系统，要挂载的根文件系统是通过内核启动参数来获取的。</li>
+<li>之后会启动第一个应用程序，它的进程ID为1。这个应用程序一般由内核启动参数传入，如果没有则会默认执行/sbin/init。init进程会读取配置文件/etc/inittab，根据配置文件的内容它会完成两个工作，执行rcS和启动Shell。至此，Linux系统已经启动完成，给用户提供了一个Shell的交互环境，后续的行为就取决于用户的输入或者系统特定应用的加载。</li>
+</ol>
+<p><br></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>《iTOP-4412系列开发板实战教程》</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Games/派对游戏/" class="archive-article-date">
-  	<time datetime="2019-12-08T14:28:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Games/派对游戏/">Party Games</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Games//" class="article-tag-list-link color1">Games</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">嵌入式系统</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/软件版本号规定&软件发布流/" class="archive-article-date">
-  	<time datetime="2019-11-27T12:08:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/软件版本号规定&软件发布流/">软件版本号规定&amp;发布流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -252,245 +271,140 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/嵌入式系统(一)-整体组成/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/命名规范-C++/" class="archive-article-date">
-  	<time datetime="2019-11-27T09:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/Technology/基于51job的嵌入式行业分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于51job的嵌入式软件行业分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/命名规范-C++/">命名规范-C++</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个基础的Linux系统"><span class="toc-number">1.</span> <span class="toc-text">一个基础的Linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组成"><span class="toc-number">1.1.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#烧写"><span class="toc-number">1.2.</span> <span class="toc-text">烧写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动过程"><span class="toc-number">1.3.</span> <span class="toc-text">启动过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Windows中对标的Linux命令/" class="archive-article-date">
-  	<time datetime="2019-11-25T08:54:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Windows中对标的Linux命令/">Windows中对标的Linux命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Games/《现代艺术》-策论/" class="archive-article-date">
-  	<time datetime="2019-11-23T12:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Games/《现代艺术》-策论/">《现代艺术》 策论</a>
-    </h1>
+
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Thoughts/我想当个作家/" class="archive-article-date">
-  	<time datetime="2019-10-18T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Thoughts/我想当个作家/">我想当个作家</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Reflections/人人都是产品经理2-0/" class="archive-article-date">
-  	<time datetime="2019-08-06T12:57:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Reflections/人人都是产品经理2-0/">《人人都是产品经理2.0》读后笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Reflections/参《天道》/" class="archive-article-date">
-  	<time datetime="2019-03-23T02:26:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Reflections/参《天道》/">参《天道》</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -525,8 +439,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

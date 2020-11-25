@@ -252,7 +252,6 @@
 <p>字符串截取<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">"Hello"</span></span><br><span class="line">b = <span class="string">"World"</span></span><br><span class="line">print(a + b)           <span class="comment"># +    HelloWorld</span></span><br><span class="line">print(a*<span class="number">2</span>)             <span class="comment"># *    HelloHello</span></span><br><span class="line">print(a[<span class="number">1</span>])            <span class="comment"># []   e</span></span><br><span class="line">print(a[<span class="number">-1</span>])           <span class="comment"># []   o</span></span><br><span class="line">print(a[<span class="number">1</span>:<span class="number">4</span>])          <span class="comment"># [:]  ell （左闭右开）</span></span><br><span class="line">print(a[:<span class="number">4</span>])           <span class="comment"># [:]  Hell （缺省左值）</span></span><br></pre></td></tr></table></figure></p>
 <p>格式化字符串（format）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"a=%s,b=%s"</span> % (a,b))           <span class="comment"># a=Hello,b=World （%    格式字符串）</span></span><br><span class="line">print(<span class="string">"a=&#123;&#125;,b=&#123;&#125;"</span>.format(a,b))       <span class="comment"># a=Hello,b=World  按位置格式化</span></span><br><span class="line">print(<span class="string">"a=&#123;1&#125;,b=&#123;0&#125;"</span>.format(b,a))     <span class="comment"># a=Hello,b=World  指定位置</span></span><br><span class="line">print(<span class="string">"a=&#123;a&#125;,b=&#123;b&#125;"</span>.format(b=b,a=a)) <span class="comment"># a=Hello,b=World  指定关键字</span></span><br></pre></td></tr></table></figure></p>
 <p>使用%格式化时的格式化符号：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -315,9 +314,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>格式化操作符辅助指令:</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -364,9 +361,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>字符串操作相关函数：</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -533,7 +528,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h5 id="bytearray"><a href="#bytearray" class="headerlink" title="bytearray"></a>bytearray</h5><p>和bytes和string不同，bytearray是可变序列。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bytearray()                               <span class="comment"># 空字节数组</span></span><br><span class="line">bytearray(int)                            <span class="comment"># 初始化一个指定长度的空数组</span></span><br><span class="line">bytearray(iterable of ints)               <span class="comment"># 从[0,255)的int序列中初始化</span></span><br><span class="line">bytearray(bytes <span class="keyword">or</span> buffer)                <span class="comment"># 从bytes 或者 buffer 初始化</span></span><br><span class="line">bytearray(string, encoding[, errors])     <span class="comment"># 按照指定的 encoding 将字符串转换为字节序列</span></span><br></pre></td></tr></table></figure>
 <p>除了可以更改元素，其它用法和基本bytes相同。</p>
@@ -552,7 +546,6 @@
 <p>可以使用大括号 <strong>{ }</strong> 或者 <strong>set()</strong> 函数创建集合，创建一个空集合必须用 <strong>set()</strong> 而不是 <strong>{ }</strong>，因为 <strong>{ }</strong> 是用来创建一个空字典。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = set(<span class="string">'abr'</span>)         <span class="comment"># &#123;'r', 'b', 'a'&#125;</span></span><br><span class="line">b = set(<span class="string">'ala'</span>)         <span class="comment"># &#123;'l', 'a'&#125;</span></span><br><span class="line">a - b                  <span class="comment"># &#123;'r', 'b'&#125;</span></span><br><span class="line">a | b                  <span class="comment"># &#123;'r', 'l', 'b', 'a'&#125;</span></span><br><span class="line">a &amp; b                  <span class="comment"># &#123;'a'&#125;</span></span><br><span class="line">a ^ b                  <span class="comment"># &#123;'r', 'b', 'l'&#125;</span></span><br></pre></td></tr></table></figure>
 <p>集合内置方法</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -631,7 +624,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h5 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h5><p> 推导式可以从一个数据序列构建另一个新的数据序列的结构体。元组、列表、集合都可以使用推导式推导，且在Python2和3中都有支持。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSquare</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x*x</span><br><span class="line"></span><br><span class="line">X = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">squares = &#123;i: getSquare(i) <span class="keyword">for</span> i <span class="keyword">in</span> X&#125;        <span class="comment"># &#123;1: 1, 2: 4, 3: 9, 4: 16, 5: 25&#125;</span></span><br></pre></td></tr></table></figure>
 <h5 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h5><p><em>isinstance(object, type)</em>，判断一个对象是否是一个已知的类型。type也可以是类/类型的元组。</p>
@@ -688,7 +680,7 @@
 <p><br></p>
 <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><p>Python 使用 <code>import</code>和<code>from import</code>语句导入其它模块。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> module</span><br><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> fun1[, fun2...]</span><br><span class="line"><span class="keyword">from</span> module <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-<p>Python 使用一个文件夹包含同一类模块，在目录中包含 “_<em>init_</em>.py” 来声明为一个包。</p>
+<p>Python 使用一个文件夹包含同一类模块，在目录中包含 “__init__.py” 来声明为一个包。</p>
 <p>引用包中的模块：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> package.module</span><br><span class="line"><span class="keyword">from</span> package.module <span class="keyword">import</span> fun1[, fun2...]</span><br><span class="line"><span class="keyword">from</span> package <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
 <p><br></p>
@@ -714,7 +706,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> NameError(<span class="string">'HiThere'</span>)</span><br><span class="line"><span class="keyword">except</span> NameError:</span><br><span class="line">    print(<span class="string">'An exception flew by!'</span>)</span><br><span class="line">    <span class="keyword">raise</span></span><br><span class="line"></span><br><span class="line">An exception flew by!</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "&lt;stdin&gt;", line 2, in ?</span><br><span class="line">NameError: HiThere</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h4 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with context_expression [as target(s)]:</span><br><span class="line">        with-body</span><br></pre></td></tr></table></figure>
-<p>with基于上下文管理器，context<em>expression返回一个上下文管理器，在进入body之前会调用上下文管理器的\</em>_enter__()函数，整个body执行完后，会自动调用上下文管理器的__exit__()，可以用于自动关闭文件、线程锁的自动获取和释放等。</p>
+<p>with基于上下文管理器，context_expression返回一个上下文管理器，在进入body之前会调用上下文管理器的__enter__()函数，整个body执行完后，会自动调用上下文管理器的__exit__()，可以用于自动关闭文件、线程锁的自动获取和释放等。</p>
 <p>如果指定了as语句，会将上下文管理器的 __enter__() 方法的返回值赋值给 target(s)，target(s) 可以是单个变量，或者由“()”括起来的元组。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"myfile.txt"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
 <p><br></p>
@@ -1034,15 +1026,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,7 +1042,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data</a>
               </li>
             
             <div class="clearfix"></div>

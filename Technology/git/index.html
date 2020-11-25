@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-13T06:42:30.000Z">
+<meta property="og:updated_time" content="2020-11-18T10:13:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用手记">
 <meta name="twitter:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
@@ -206,6 +206,10 @@
       
         <p>git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。</p>
 <a id="more"></a>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>git 分为客户端和服务端软件。</p>
+<p>服务端可以自己搭建，也可以使用商业或公共的git服务器。自己搭建可以选择<a href="http://gitblit.github.io/gitblit/" target="_blank" rel="noopener">gitblit</a>、<a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab</a>，公共的平台可以选择<a href="https://github.com/" target="_blank" rel="noopener">github</a>、<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>等平台。</p>
+<p>git的客户端软件直接在<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git官网上下载</a>，原客户端有shell和GUI，但是GUI不好用，Windows可以再安装<a href="https://tortoisegit.org" target="_blank" rel="noopener">TortoiseGit</a>来改善GUI的交互。</p>
+<p><br></p>
 <h3 id="Git仓库-CentOS"><a href="#Git仓库-CentOS" class="headerlink" title="Git仓库(CentOS)"></a>Git仓库(CentOS)</h3><ul>
 <li>创建用户git，用来管理运行git服务<ul>
 <li>useradd <userid></userid></li>
@@ -220,12 +224,13 @@
 </ul>
 </li>
 <li>通过命令 sudo yum install git-core,安装git（gitServer）</li>
-<li>使用命令 git —bare init /home/git/myRep,初始化仓库</li>
+<li>使用命令 git –bare init /home/git/myRep,初始化仓库</li>
 <li>在gitClient上，通过git clone命令进行克隆远程仓库<ul>
 <li>Git clone git@gitServer:/home/git/myRep</li>
 </ul>
 </li>
 </ul>
+<p><br></p>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
 <li><p>查看远程路径<br><code>git remote -v</code></p>
 </li>
@@ -241,7 +246,7 @@
 <li><p>比较两次commit的差异</p>
 <p><code>git diff fee9f9cf4b cdd577e352 xx_file</code></p>
 </li>
-<li><p>修改最近一次未提交的commit Log信息<br><code>git commit --amend</code>  （如果你此时想要更新作者提交时间等也可以在amend之后加上 —date=”$(date -R)”）</p>
+<li><p>修改最近一次未提交的commit Log信息<br><code>git commit --amend</code>  （如果你此时想要更新作者提交时间等也可以在amend之后加上 –date=”$(date -R)”）</p>
 </li>
 <li><p>修改已push的commit信息</p>
 <p><code>git commit --amend</code></p>
@@ -257,6 +262,7 @@
 <p><code>$ git push -f -u origin master</code></p>
 </li>
 </ul>
+<p><br></p>
 <h3 id="字符编码统一设置"><a href="#字符编码统一设置" class="headerlink" title="字符编码统一设置"></a>字符编码统一设置</h3><p>1 设置git gui的界面编码<br><code>git config --global gui.encoding utf-8</code></p>
 <p>2 设置 commit log 提交时使用 utf-8 编码，可避免服务器上乱码，同时与linux上的提交保持一致！<br><code>git config --global i18n.commitencoding utf-8</code></p>
 <p>3 使得在 $ git log 时将 utf-8 编码转换成 gbk 编码，解决Msys bash中git log 乱码。<br><code>git config --global i18n.logoutputencoding gbk</code></p>
@@ -272,13 +278,16 @@
 </ul>
 <h3 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h3><ul>
 <li>windows使用git时出现：warning: LF will be replaced by CRLF<ul>
-<li>解决办法：(cmd)<br>  $ <code>rm -rf .git</code>  // 删除.git<br>  $ <code>git config --global core.autocrlf false</code>  //禁用自动转换<br>  然后重新执行：<br>  $ <code>git init</code><br>  $ <code>git add .</code><br>  &lt;/cmd&gt;<br>  <a href="http://blog.csdn.net/unityoxb/article/details/20768687" target="_blank" rel="noopener">http://blog.csdn.net/unityoxb/article/details/20768687</a></li>
+<li>解决办法：(cmd)<br>  $ <code>rm -rf .git</code>  // 删除.git<br>  $ <code>git config --global core.autocrlf false</code>  //禁用自动转换<br>  然后重新执行：<br>  $ <code>git init</code><br>  $ <code>git add .</code><br>  <br>  <a href="http://blog.csdn.net/unityoxb/article/details/20768687" target="_blank" rel="noopener">http://blog.csdn.net/unityoxb/article/details/20768687</a></li>
 </ul>
 </li>
 <li>windows Git Bash : <code>git status</code> 中文乱码（如：”\200\346\261\202”）<ul>
 <li>解决办法：<code>git config --global core.quotepath false</code></li>
 </ul>
 </li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">Git - Book</a></li>
 </ul>
 
       
@@ -412,7 +421,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git仓库-CentOS"><span class="toc-number">1.</span> <span class="toc-text">Git仓库(CentOS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">2.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符编码统一设置"><span class="toc-number">3.</span> <span class="toc-text">字符编码统一设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记住密码"><span class="toc-number">4.</span> <span class="toc-text">记住密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error"><span class="toc-number">5.</span> <span class="toc-text">Error</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">1.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git仓库-CentOS"><span class="toc-number">2.</span> <span class="toc-text">Git仓库(CentOS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">3.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符编码统一设置"><span class="toc-number">4.</span> <span class="toc-text">字符编码统一设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记住密码"><span class="toc-number">5.</span> <span class="toc-text">记住密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error"><span class="toc-number">6.</span> <span class="toc-text">Error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -564,15 +573,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,7 +589,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data</a>
               </li>
             
             <div class="clearfix"></div>
