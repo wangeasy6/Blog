@@ -327,13 +327,9 @@ vimrc示例：[Example vimrc](https://vim.fandom.com/wiki/Example_vimrc)，网�
 
 #### SSH时从系统复制到vim
 
-SSH远程编辑服务器的文件时，很难从系统直接粘贴到vim中。vim使用的是自己的寄存器，最多可以使用运行的系统的剪切板，但是远程系统上的剪切动作对vim完全没有用。
+使用XShell以SSH远程编辑服务器的文件时，怎么从系统直接复制粘贴到vim中。
 
-暂时只想到了一个蹩脚的办法，利用ssh工具的粘贴功能，将想要复制的东西先通过shell保存到文件，再用vim读取文件。
-
-shell：`echo "复制内容" > copy`
-
-vim：`:read copy`
+系统复制到剪切板，vim进入插入模式，快捷键`shift + insert`粘贴到vim。
 
 <br/>
 

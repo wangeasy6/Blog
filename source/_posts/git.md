@@ -12,6 +12,16 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
 
 <!--more-->
 
+### 环境搭建
+
+git 分为客户端和服务端软件。
+
+服务端可以自己搭建，也可以使用商业或公共的git服务器。自己搭建可以选择[gitblit](http://gitblit.github.io/gitblit/)、[GitLab](https://about.gitlab.com/)，公共的平台可以选择[github](https://github.com/)、[gitee](https://gitee.com/)等平台。
+
+git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads)，原客户端有shell和GUI，但是GUI不好用，Windows可以再安装[TortoiseGit](https://tortoisegit.org)来改善GUI的交互。
+
+<br/>
+
 ### Git仓库(CentOS)
   * 创建用户git，用来管理运行git服务
     * useradd <UserID>
@@ -26,6 +36,7 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
   * 在gitClient上，通过git clone命令进行克隆远程仓库
     * Git clone git@gitServer:/home/git/myRep
 
+<br/>
 
 ### 常用命令
 * 查看远程路径
@@ -72,6 +83,7 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
 
   `$ git push -f -u origin master`
 
+<br/>
 
 ### 字符编码统一设置
 1 设置git gui的界面编码
@@ -114,3 +126,7 @@ git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用�
       http://blog.csdn.net/unityoxb/article/details/20768687
 * windows Git Bash : `git status` 中文乱码（如："\200\346\261\202"）
   * 解决办法：`git config --global core.quotepath false`
+
+### 参考
+
+* [Git - Book](https://git-scm.com/book/zh/v2)
