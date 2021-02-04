@@ -7,13 +7,14 @@ categories:
 tags:
   - Python
   - Data
+  - Embedded
 ---
 
 ![cover.png](/resources/51job_data_analysis/cover.png)
 
-通过之前的[51Job数据抓取](/Technology/51Job数据抓取/)程序，我们能够获取到足够的职位数据，现在是可以对这些数据做一些分析的时候了。
+依靠上一篇的[51Job数据抓取](/Technology/51Job数据抓取/)程序，本篇我以嵌入式软件行业为例，基于51Job上的职位信息进行了一些简单的分析。
 
-本篇以我所在的嵌入式软件行业为例，来进行数据分析。只要稍微更改搜索关键词就可以十分方便的应用在其它行业。
+只要稍微更改搜索关键词就可以十分方便的应用在其它行业。
 
 <!--more-->
 
