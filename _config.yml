@@ -86,7 +86,7 @@ deploy:
   branch: master
   message: "Blog updated"
 - type: git
-  repo: https://github.com/wangeasy6/Blog.git
+  repo: git@github.com:wangeasy6/Blog.git
   branch: master
   message: "Blog updated"
 # {{ now('YYYY-MM-DD HH:mm:ss') }}
