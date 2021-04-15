@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>树莓派QtWidgets软键盘 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。 把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。 Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是用C++调用QML刷新界面，还是QML调用C++处理数据，因为这两种方式实现起来都十分麻烦。还是用Qt Wi">
-<meta name="keywords" content="树莓派,QT">
+  <meta name="description" content="QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。 限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。 把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。 Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是">
+<meta name="keywords" content="QT,树莓派">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派QtWidgets软键盘">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/树莓派QtWidgets软键盘/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。 把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。 Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是用C++调用QML刷新界面，还是QML调用C++处理数据，因为这两种方式实现起来都十分麻烦。还是用Qt Wi">
+<meta property="og:description" content="QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。 限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。 把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。 Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/resources/Cover/qtvirtualkeyboard.png">
-<meta property="og:updated_time" content="2021-02-11T15:56:32.000Z">
+<meta property="og:updated_time" content="2021-04-15T09:05:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树莓派QtWidgets软键盘">
-<meta name="twitter:description" content="限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。 把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。 Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是用C++调用QML刷新界面，还是QML调用C++处理数据，因为这两种方式实现起来都十分麻烦。还是用Qt Wi">
+<meta name="twitter:description" content="QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。 限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。 把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。 Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是">
 <meta name="twitter:image" content="http://www.wangeasy.com/resources/Cover/qtvirtualkeyboard.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -207,10 +207,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/resources/Cover/qtvirtualkeyboard.png" alt="qtvirtualkeyboard.png"></p>
+<p>QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。</p>
 <p>限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。</p>
 <p>把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。</p>
 <p>Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是用C++调用QML刷新界面，还是QML调用C++处理数据，因为这两种方式实现起来都十分麻烦。还是用Qt Widgets吧。</p>
-<p>QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。</p>
 <a id="more"></a>
 <p><br></p>
 <h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
@@ -279,11 +279,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
         		</li>
       		
 		</ul>
@@ -545,15 +545,27 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基金</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">嵌入式系统</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,10 +578,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
