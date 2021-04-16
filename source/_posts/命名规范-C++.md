@@ -4,7 +4,10 @@ date: 2019-11-27 17:28:08
 toc: true
 categories:
   - Technology
+tags:
+  - C++
 ---
+
 ![img](/resources/Cover/naming_spec.gif)
 
 有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。

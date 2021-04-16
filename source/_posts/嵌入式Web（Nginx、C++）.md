@@ -4,6 +4,8 @@ date: 2020-09-25 11:35:01
 toc: true
 categories:
   - Technology
+tags:
+  - C++
 ---
 
 ![Cover](/resources/embedded_web/cover.jpg)

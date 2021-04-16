@@ -12,13 +12,13 @@ date: 2021-02-11 23:56:30
 
 ![qtvirtualkeyboard.png](/resources/Cover/qtvirtualkeyboard.png)
 
+QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。
+
 限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。
 
 把Qt Widgets换成Qt Quick，这个问题可能会比较简单。一开始是想直接用酷炫的Qt Quick的，尝试了几天，妈耶，令人头大。
 
 Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不知道是用C++调用QML刷新界面，还是QML调用C++处理数据，因为这两种方式实现起来都十分麻烦。还是用Qt Widgets吧。
-
-QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。
 
 <!--more-->
 
