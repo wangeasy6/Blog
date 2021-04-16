@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>命名规范-C++ | Easy Wang</title>
+  <title>手写HTTP报文 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。">
-<meta name="keywords" content="C++">
+  <meta name="description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="命名规范-C++">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/命名规范-C++/index.html">
+<meta property="og:title" content="手写HTTP报文">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/手写HTTP报文/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。">
+<meta property="og:description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/resources/Cover/naming_spec.gif">
-<meta property="og:updated_time" content="2021-04-15T01:45:28.000Z">
+<meta property="og:image" content="http://www.wangeasy.com/resources/Cover/http_tcp.jpg">
+<meta property="og:updated_time" content="2021-04-16T13:53:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="命名规范-C++">
-<meta name="twitter:description" content="有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。">
-<meta name="twitter:image" content="http://www.wangeasy.com/resources/Cover/naming_spec.gif">
+<meta name="twitter:title" content="手写HTTP报文">
+<meta name="twitter:description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。">
+<meta name="twitter:image" content="http://www.wangeasy.com/resources/Cover/http_tcp.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -178,20 +177,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-命名规范-C++" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-手写HTTP报文" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      命名规范-C++
+      手写HTTP报文
     </h1>
   
 
         
-        <a href="/Technology/命名规范-C++/" class="archive-article-date">
-  	<time datetime="2019-11-27T09:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
+        <a href="/Technology/手写HTTP报文/" class="archive-article-date">
+  	<time datetime="2021-04-16T13:48:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
 </a>
         
 
@@ -206,316 +205,136 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/resources/Cover/naming_spec.gif" alt="img"></p>
-<p>有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。<br>个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。</p>
+        <p><img src="/resources/Cover/http_tcp.jpg" alt="51job.jpg"></p>
+<p>在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。</p>
+<p>在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。</p>
 <a id="more"></a>
 <p><br></p>
-<h2 id="命名系统设计原则"><a href="#命名系统设计原则" class="headerlink" title="命名系统设计原则"></a>命名系统设计原则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 同一类型命名保持一致；</span><br><span class="line">2. 不同类型命名尽量使用不同的命名规则，通过名称形式就能快速分辨类型；</span><br><span class="line">3. 命名需要简洁，见名知意，通俗易懂；</span><br><span class="line">4. 对于存在过多的同类型名称，应添加表述以消除歧义；</span><br><span class="line">5. 使用正确的美式英语。例如，使用美式英语的 license、color，而非英式英语的 licence、colour；</span><br><span class="line">6. 除了常见的英文缩写，尽量避免使用缩写；</span><br><span class="line">7. 禁止使用中文、中文拼英（除地名）。</span><br></pre></td></tr></table></figure>
+<h3 id="客户端请求消息（Requst"><a href="#客户端请求消息（Requst" class="headerlink" title="客户端请求消息（Requst)"></a>客户端请求消息（Requst)</h3><p>请求消息由以下4个部分组成：</p>
+<ul>
+<li>请求行</li>
+<li>报头</li>
+<li>分割行</li>
+<li>请求数据</li>
+</ul>
+<p>其语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/get_username.cgi</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: www.wangeasy.com</span><br><span class="line"></span><br><span class="line">&#123;"id":"001"&#125;</span><br></pre></td></tr></table></figure>
+<p>在实际收到的报文中，所有的换行都以<code>\r\n</code>表示。</p>
 <p><br></p>
-<h2 id="常见的命名规则"><a href="#常见的命名规则" class="headerlink" title="常见的命名规则"></a>常见的命名规则</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>规则</th>
-<th>示例</th>
-<th>常用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>驼峰命名法</td>
-<td>第一个单词首字母小写，余下的单词首字母大写，无连接符</td>
-<td>openButton</td>
-<td>函数名</td>
-</tr>
-<tr>
-<td>帕斯卡命名法</td>
-<td>单词首字母大写，无连接符</td>
-<td>MainForm</td>
-<td>类名</td>
-</tr>
-<tr>
-<td>下划线法命名</td>
-<td>全小写，单词间使用<code>_</code>作为连接符</td>
-<td>user_id</td>
-<td>文件名、函数名、变量名</td>
-</tr>
-<tr>
-<td>宏命名</td>
-<td>全大写，单词间使用<code>_</code>作为连接符</td>
-<td>USER_TYPE2</td>
-<td>宏名、常量名</td>
-</tr>
-<tr>
-<td>下划线标记</td>
-<td>在名称前/后加上<code>_</code>作为标记</td>
-<td>_user<em>id、user_id\</em></td>
-<td>类的成员变量/私有变量</td>
-</tr>
-<tr>
-<td>匈牙利命名法</td>
-<td>：：</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
+<h3 id="服务器响应消息（Response）"><a href="#服务器响应消息（Response）" class="headerlink" title="服务器响应消息（Response）"></a>服务器响应消息（Response）</h3><p>响应消息由以下4个部分组成：</p>
+<ul>
+<li>状态行</li>
+<li>报头</li>
+<li>分割行</li>
+<li>响应数据</li>
+</ul>
+<p>其语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;version&gt; &lt;status-code&gt; &lt;reason-phrase&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json; charset=UTF-8</span><br><span class="line"></span><br><span class="line">&#123;"result":"Success","username":"Easy Wang"&#125;</span><br></pre></td></tr></table></figure>
 <p><br></p>
-<h4 id="匈牙利命名法"><a href="#匈牙利命名法" class="headerlink" title="匈牙利命名法"></a>匈牙利命名法</h4><p>据说这种命名法是一位叫 Charles Simonyi 的匈牙利程序员发明的，他在微软工作的时候采用了这种命名方法，于是这种命名法就通过微软的各种产品和文档资料向世界传播开来。</p>
-<p>匈牙利命名法的基本形式是：变量名=属性+类型+对象描述。</p>
-<p>核心思想是通过在变量名前面加上相应前缀，标识出变量的作用域，类型等。</p>
-<p>例：m_lpszStr, 表示指向一个以0字符结尾的字符串的长指针成员变量</p>
-<p>属性缩写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g_:全局变量</span><br><span class="line">m_:类成员变量</span><br><span class="line">s_:静态变量</span><br><span class="line">c_:常量</span><br></pre></td></tr></table></figure>
-<p>类型缩写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">b:bool</span><br><span class="line">by:byte</span><br><span class="line">i:int</span><br><span class="line">c/ch:char</span><br><span class="line">s:string</span><br><span class="line">l:long</span><br><span class="line">u:无符号的</span><br><span class="line">d:双精度</span><br><span class="line">a:数组</span><br><span class="line">sz:以零结束的字符串</span><br><span class="line">h:句柄</span><br><span class="line">p:指针</span><br><span class="line">fn:函数</span><br><span class="line">f:flag</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="常用缩写词"><a href="#常用缩写词" class="headerlink" title="常用缩写词"></a>常用缩写词</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>全拼</th>
-<th>缩写</th>
-<th>译文</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>addition</td>
-<td>add</td>
-<td>加</td>
-</tr>
-<tr>
-<td>subtraction</td>
-<td>sub</td>
-<td>减</td>
-</tr>
-<tr>
-<td>multiplication</td>
-<td>mul</td>
-<td>乘</td>
-</tr>
-<tr>
-<td>division</td>
-<td>div</td>
-<td>除</td>
-</tr>
-<tr>
-<td>array</td>
-<td>arr</td>
-<td>数组、集合</td>
-</tr>
-<tr>
-<td>average</td>
-<td>avg</td>
-<td>平均</td>
-</tr>
-<tr>
-<td>buffer</td>
-<td>buf、buff</td>
-<td>缓冲、缓存</td>
-</tr>
-<tr>
-<td>capture</td>
-<td>cap</td>
-<td>捕获</td>
-</tr>
-<tr>
-<td>count</td>
-<td>cnt</td>
-<td>计数</td>
-</tr>
-<tr>
-<td>number</td>
-<td>num</td>
-<td>数量、编号</td>
-</tr>
-<tr>
-<td>column</td>
-<td>col</td>
-<td>列</td>
-</tr>
-<tr>
-<td>control</td>
-<td>ctrl</td>
-<td>控制</td>
-</tr>
-<tr>
-<td>encode</td>
-<td>enc</td>
-<td>编码</td>
-</tr>
-<tr>
-<td>decode</td>
-<td>dec</td>
-<td>解码</td>
-</tr>
-<tr>
-<td>define</td>
-<td>def</td>
-<td>定义</td>
-</tr>
-<tr>
-<td>delete</td>
-<td>del</td>
-<td>删除</td>
-</tr>
-<tr>
-<td>display</td>
-<td>disp</td>
-<td>显示</td>
-</tr>
-<tr>
-<td>environment</td>
-<td>env</td>
-<td>环境</td>
-</tr>
-<tr>
-<td>error</td>
-<td>err</td>
-<td>错误</td>
-</tr>
-<tr>
-<td>frequency</td>
-<td>freq</td>
-<td>频率</td>
-</tr>
-<tr>
-<td>image</td>
-<td>img</td>
-<td>图片、镜像</td>
-</tr>
-<tr>
-<td>initalize</td>
-<td>init</td>
-<td>初始化</td>
-</tr>
-<tr>
-<td>length</td>
-<td>len</td>
-<td>长度</td>
-</tr>
-<tr>
-<td>memory</td>
-<td>mem</td>
-<td>内存</td>
-</tr>
-<tr>
-<td>message</td>
-<td>msg</td>
-<td>消息</td>
-</tr>
-<tr>
-<td>receive</td>
-<td>recv</td>
-<td>接收</td>
-</tr>
-<tr>
-<td>position</td>
-<td>pos</td>
-<td>位置</td>
-</tr>
-<tr>
-<td>previous</td>
-<td>pre、prev</td>
-<td>之前的</td>
-</tr>
-<tr>
-<td>result</td>
-<td>res</td>
-<td>结果</td>
-</tr>
-<tr>
-<td>return</td>
-<td>ret</td>
-<td>返回</td>
-</tr>
-<tr>
-<td>source</td>
-<td>src</td>
-<td>源</td>
-</tr>
-<tr>
-<td>include</td>
-<td>inc</td>
-<td>包括</td>
-</tr>
-<tr>
-<td>table</td>
-<td>tab</td>
-<td>表</td>
-</tr>
-<tr>
-<td>temporary</td>
-<td>tmp、temp</td>
-<td>临时</td>
-</tr>
-<tr>
-<td>value</td>
-<td>val</td>
-<td>值</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<h2 id="C-命名规则"><a href="#C-命名规则" class="headerlink" title="C++命名规则"></a>C++命名规则</h2><p>以C++为例，我设计了一套命名规则。</p>
-<h4 id="文件夹命名"><a href="#文件夹命名" class="headerlink" title="文件夹命名"></a>文件夹命名</h4><ul>
-<li><p>首字母大写，单词间无字符，缩写单词首字母大写</p>
-</li>
-<li><p>通用和常见的小写文件夹保留小写。（如：<code>inc</code>、<code>include</code>、<code>src</code>、<code>lib</code>、<code>env</code>、<code>bin</code>、<code>obj</code>、<code>doc</code>）</p>
-</li>
-<li><p>文件文件夹名称应尽量短，有些开发工具对路径长度要求128B内甚至更短</p>
-<p>例：<code>UsbHub</code>、<code>FileTest</code></p>
-</li>
-</ul>
-<h4 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h4><ul>
-<li><p>全小写，使用<code>_</code>连接单词。</p>
-</li>
-<li><p>C++ 文件要以 <code>.cc</code> 结尾, 头文件以 <code>.h</code> 结尾。定义类时文件名一般成对出现, 如 <code>foo_bar.h</code> 和 <code>foo_bar.cc</code>, 对应于类 <code>FooBar</code>。</p>
-</li>
-<li><p>通用和常见的文件名保留。（如：<code>README.md</code>、<code>.gitignore</code>、<code>CMakeLists.txt</code>）</p>
-<p>例：<code>serial_port.cc</code></p>
-</li>
-</ul>
-<h4 id="名称空间命名"><a href="#名称空间命名" class="headerlink" title="名称空间命名"></a>名称空间命名</h4><ul>
-<li><p>首字母大写，单词间无字符，缩写单词首字母大写</p>
-<p>例：<code>RfHub</code>、<code>FileTest</code></p>
-</li>
-</ul>
-<h4 id="类命名"><a href="#类命名" class="headerlink" title="类命名"></a>类命名</h4><ul>
-<li><p>首字母大写，单词间无字符，缩写单词首字母大写</p>
-<p>例：<code>RfHub</code>、<code>FileTest</code></p>
-</li>
-</ul>
-<h4 id="类变量命名"><a href="#类变量命名" class="headerlink" title="类变量命名"></a>类变量命名</h4><ul>
-<li><p>以<code>_</code>开头，全小写，使用<code>_</code>连接单词</p>
-<p>例：<code>_is_open</code></p>
-</li>
-</ul>
-<h4 id="类函数命名"><a href="#类函数命名" class="headerlink" title="类函数命名"></a>类函数命名</h4><ul>
-<li><p>首字母大写，使用<code>_</code>连接单词，缩写单词使用全大写</p>
-<p>例：<code>USB_Set</code></p>
-</li>
-</ul>
-<h4 id="函数内变量命名"><a href="#函数内变量命名" class="headerlink" title="函数内变量命名"></a>函数内变量命名</h4><ul>
-<li><p>全小写，使用<code>_</code>连接单词</p>
-<p>例：<code>is_open</code></p>
-</li>
-</ul>
-<h4 id="打印字符"><a href="#打印字符" class="headerlink" title="打印字符"></a>打印字符</h4><ul>
-<li><p>全英文，首单词首字母大写，单词间使用空格</p>
-<p>例：<code>“Compile your code with -fPIC.”</code></p>
-</li>
+<h3 id="version"><a href="#version" class="headerlink" title="version"></a>version</h3><p>目前的HTTP存在以下几个版本，点击链接可以跳转到各个协议版本的<a href="https://www.ietf.org/rfc/" target="_blank" rel="noopener">RFC说明</a>：</p>
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html" target="_blank" rel="noopener">HTTP/1.0</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html" target="_blank" rel="noopener">HTTP/1.1</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc7540.html" target="_blank" rel="noopener">HTTP/2</a></li>
 </ul>
 <p><br></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><p><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/" target="_blank" rel="noopener">命名约定 — Google 开源项目风格指南</a></p>
-</li>
-<li><p><a href="https://cloud.google.com/apis/design/naming_convention?hl=zh-cn" target="_blank" rel="noopener">命名惯例 | Google Cloud</a></p>
-</li>
+<h3 id="method"><a href="#method" class="headerlink" title="method"></a>method</h3><p><strong>HTTP/1.0：</strong></p>
+<ul>
+<li>GET —— GET方法指定URI获取对应资源，GET 请求一般（标准）不包含主体。</li>
+<li>HEAD —— HEAD方法与GET相同，但服务器的返回不能包含任何实体。该方法通常用于测试超文本链接的有效性、可访问性和最近的修改。</li>
+<li>POST —— POST方法用于请求目标服务器接受请求中包含的实体。</li>
+</ul>
+<p><strong>HTTP/1.1：</strong></p>
+<ul>
+<li>OPTIONS —— OPTIONS方法表示对请求URI标识的请求/响应链上可用的通信选项的请求。</li>
+<li>GET</li>
+<li>HEAD</li>
+<li>POST</li>
+<li>PUT —— PUT方法要求将所附实体存储在提供的请求URI下。</li>
+<li>DELETE —— DELETE方法请求源服务器删除由请求URI标识的资源。</li>
+<li>TRACE ——TRACE方法允许客户端查看在请求链的另一端收到的内容，并将该数据用于测试或诊断信息。TRACE请求不得包含实体。</li>
+<li>CONNECT —— CONNECT方法可以动态切换为隧道的代理使用（例如SSL隧道）。</li>
+</ul>
+<p><br></p>
+<h3 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h3><p><a href="https://www.ietf.org/rfc/rfc1945.html#section-5.2" target="_blank" rel="noopener">HTTP/1.0 Request Header Fields</a>：</p>
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.2" target="_blank" rel="noopener">Authorization</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.8" target="_blank" rel="noopener">From</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.9" target="_blank" rel="noopener">If-Modified-Since</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-ection-10.13" target="_blank" rel="noopener">Referer</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-ection-10.15" target="_blank" rel="noopener">User-Agent</a></li>
+</ul>
+<p><a href="https://www.ietf.org/rfc/rfc1945.html#section-6.2" target="_blank" rel="noopener">HTTP/1.0 Response Header Fields</a>:</p>
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.11" target="_blank" rel="noopener">Location</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.14" target="_blank" rel="noopener">Server</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.16" target="_blank" rel="noopener">WWW-Authenticate</a></li>
+</ul>
+<p><a href="https://www.ietf.org/rfc/rfc1945.html#section-7.1" target="_blank" rel="noopener">HTTP/1.0 Entity Header Fields</a>:</p>
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.1" target="_blank" rel="noopener">Allow</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.3" target="_blank" rel="noopener">Content-Encoding</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.4" target="_blank" rel="noopener">Content-Length</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.5" target="_blank" rel="noopener">Content-Type</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.7" target="_blank" rel="noopener">Expires</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.10" target="_blank" rel="noopener">Last-Modified</a></li>
+</ul>
+<p><br></p>
+<p><a href="https://www.ietf.org/rfc/rfc2616.html#section-5.3" target="_blank" rel="noopener">HTTP/1.1 Request Header Fields</a>：</p>
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.1" target="_blank" rel="noopener">Accept</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.2" target="_blank" rel="noopener">Accept-Charset</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.3" target="_blank" rel="noopener">Accept-Encoding</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.4" target="_blank" rel="noopener">Accept-Language</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.8" target="_blank" rel="noopener">Authorization</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.20" target="_blank" rel="noopener">Expect</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.22" target="_blank" rel="noopener">From</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.23" target="_blank" rel="noopener">Host</a>(必须包含)</li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.24" target="_blank" rel="noopener">If-Match</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.25" target="_blank" rel="noopener">If-Modified-Since</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.26" target="_blank" rel="noopener">If-None-Match</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.27" target="_blank" rel="noopener">If-Range</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.28" target="_blank" rel="noopener">If-Unmodified-Since</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.31" target="_blank" rel="noopener">Max-Forwards</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.34" target="_blank" rel="noopener">Proxy-Authorization</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.35" target="_blank" rel="noopener">Range</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.36" target="_blank" rel="noopener">Referer</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.39" target="_blank" rel="noopener">TE</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.43" target="_blank" rel="noopener">User-Agent</a></li>
+</ul>
+<p><a href="https://www.ietf.org/rfc/rfc2616.html#section-6.2" target="_blank" rel="noopener">HTTP/1.1 Response Header Fields</a>:</p>
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.5" target="_blank" rel="noopener">Accept-Ranges</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.6" target="_blank" rel="noopener">Age</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.19" target="_blank" rel="noopener">ETag</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.30" target="_blank" rel="noopener">Location</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.33" target="_blank" rel="noopener">Proxy-Authenticate</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.37" target="_blank" rel="noopener">Retry-After</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.38" target="_blank" rel="noopener">Server</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.44" target="_blank" rel="noopener">Vary</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.47" target="_blank" rel="noopener">WWW-Authenticate</a></li>
+</ul>
+<p><a href="https://www.ietf.org/rfc/rfc2616.html#section-7.1" target="_blank" rel="noopener">HTTP/1.1 Entity Header Fields</a>:</p>
+<ul>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.7" target="_blank" rel="noopener">Allow</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.11" target="_blank" rel="noopener">Content-Encoding</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.12" target="_blank" rel="noopener">Content-Language</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.13" target="_blank" rel="noopener">Content-Length</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.14" target="_blank" rel="noopener">Content-Location</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.15" target="_blank" rel="noopener">Content-MD5</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.16" target="_blank" rel="noopener">Content-Range</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.17" target="_blank" rel="noopener">Content-Type</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.21" target="_blank" rel="noopener">Expires</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.29" target="_blank" rel="noopener">Last-Modified</a></li>
+</ul>
+<p><br></p>
+<h3 id="status-code"><a href="#status-code" class="headerlink" title="status-code"></a>status-code</h3><ul>
+<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-6.1.1" target="_blank" rel="noopener">HTTP/1.0</a></li>
+<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-6.1.1" target="_blank" rel="noopener">HTTP/1.1</a></li>
 </ul>
 
       
@@ -525,17 +344,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -597,7 +405,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/命名规范-C++/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/手写HTTP报文/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -611,18 +419,9 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/软件版本号规定&软件发布流/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          软件版本号规定&amp;发布流程
-        
-      </div>
-    </a>
   
-  
-    <a href="/Technology/Windows中对标的Linux命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Windows中对标的Linux命令</div>
+    <a href="/Technology/树莓派QtWidgets软键盘/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">树莓派QtWidgets软键盘</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -649,7 +448,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#命名系统设计原则"><span class="toc-number">1.</span> <span class="toc-text">命名系统设计原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的命名规则"><span class="toc-number">2.</span> <span class="toc-text">常见的命名规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#匈牙利命名法"><span class="toc-number">2.0.1.</span> <span class="toc-text">匈牙利命名法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用缩写词"><span class="toc-number">3.</span> <span class="toc-text">常用缩写词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-命名规则"><span class="toc-number">4.</span> <span class="toc-text">C++命名规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件夹命名"><span class="toc-number">4.0.1.</span> <span class="toc-text">文件夹命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件命名"><span class="toc-number">4.0.2.</span> <span class="toc-text">文件命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#名称空间命名"><span class="toc-number">4.0.3.</span> <span class="toc-text">名称空间命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类命名"><span class="toc-number">4.0.4.</span> <span class="toc-text">类命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类变量命名"><span class="toc-number">4.0.5.</span> <span class="toc-text">类变量命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类函数命名"><span class="toc-number">4.0.6.</span> <span class="toc-text">类函数命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数内变量命名"><span class="toc-number">4.0.7.</span> <span class="toc-text">函数内变量命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打印字符"><span class="toc-number">4.0.8.</span> <span class="toc-text">打印字符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端请求消息（Requst"><span class="toc-number">1.</span> <span class="toc-text">客户端请求消息（Requst)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器响应消息（Response）"><span class="toc-number">2.</span> <span class="toc-text">服务器响应消息（Response）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#version"><span class="toc-number">3.</span> <span class="toc-text">version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method"><span class="toc-number">4.</span> <span class="toc-text">method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#headers"><span class="toc-number">5.</span> <span class="toc-text">headers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#status-code"><span class="toc-number">6.</span> <span class="toc-text">status-code</span></a></li></ol>
                     </div>
                 </span>
             </div>

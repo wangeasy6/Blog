@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>命名规范-C++ | Easy Wang</title>
+  <title>Archives: 2021/4 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。">
-<meta name="keywords" content="C++">
-<meta property="og:type" content="article">
-<meta property="og:title" content="命名规范-C++">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/命名规范-C++/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Easy Wang">
+<meta property="og:url" content="http://www.wangeasy.com/archives/2021/04/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/resources/Cover/naming_spec.gif">
-<meta property="og:updated_time" content="2021-04-15T01:45:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="命名规范-C++">
-<meta name="twitter:description" content="有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。">
-<meta name="twitter:image" content="http://www.wangeasy.com/resources/Cover/naming_spec.gif">
+<meta name="twitter:title" content="Easy Wang">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -178,365 +171,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-命名规范-C++" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      命名规范-C++
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/Technology/手写HTTP报文/" class="archive-article-date">
+  	<time datetime="2021-04-16T13:48:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Technology/手写HTTP报文/">手写HTTP报文</a>
     </h1>
   
 
-        
-        <a href="/Technology/命名规范-C++/" class="archive-article-date">
-  	<time datetime="2019-11-27T09:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-            <span class="archive-article-date">
-                阅读量 <span id="busuanzi_value_page_pv"></span>
-            </span>
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/Cover/naming_spec.gif" alt="img"></p>
-<p>有别于学校的学习，对于一个大型软件项目来说，命名规范是一个必须解决的问题，不规范的命名会严重降低代码的可阅读性和可维护性，快速地让整个项目变成一堆Shit。<br>个人认为，整洁在某种意义上是属于神性的，整洁的代码和优美的设计都带有不可侵犯的神性，在这样的环境下，人们对于自己的思想和行为会做出更高的要求。</p>
-<a id="more"></a>
-<p><br></p>
-<h2 id="命名系统设计原则"><a href="#命名系统设计原则" class="headerlink" title="命名系统设计原则"></a>命名系统设计原则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 同一类型命名保持一致；</span><br><span class="line">2. 不同类型命名尽量使用不同的命名规则，通过名称形式就能快速分辨类型；</span><br><span class="line">3. 命名需要简洁，见名知意，通俗易懂；</span><br><span class="line">4. 对于存在过多的同类型名称，应添加表述以消除歧义；</span><br><span class="line">5. 使用正确的美式英语。例如，使用美式英语的 license、color，而非英式英语的 licence、colour；</span><br><span class="line">6. 除了常见的英文缩写，尽量避免使用缩写；</span><br><span class="line">7. 禁止使用中文、中文拼英（除地名）。</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="常见的命名规则"><a href="#常见的命名规则" class="headerlink" title="常见的命名规则"></a>常见的命名规则</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>规则</th>
-<th>示例</th>
-<th>常用场景</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>驼峰命名法</td>
-<td>第一个单词首字母小写，余下的单词首字母大写，无连接符</td>
-<td>openButton</td>
-<td>函数名</td>
-</tr>
-<tr>
-<td>帕斯卡命名法</td>
-<td>单词首字母大写，无连接符</td>
-<td>MainForm</td>
-<td>类名</td>
-</tr>
-<tr>
-<td>下划线法命名</td>
-<td>全小写，单词间使用<code>_</code>作为连接符</td>
-<td>user_id</td>
-<td>文件名、函数名、变量名</td>
-</tr>
-<tr>
-<td>宏命名</td>
-<td>全大写，单词间使用<code>_</code>作为连接符</td>
-<td>USER_TYPE2</td>
-<td>宏名、常量名</td>
-</tr>
-<tr>
-<td>下划线标记</td>
-<td>在名称前/后加上<code>_</code>作为标记</td>
-<td>_user<em>id、user_id\</em></td>
-<td>类的成员变量/私有变量</td>
-</tr>
-<tr>
-<td>匈牙利命名法</td>
-<td>：：</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<h4 id="匈牙利命名法"><a href="#匈牙利命名法" class="headerlink" title="匈牙利命名法"></a>匈牙利命名法</h4><p>据说这种命名法是一位叫 Charles Simonyi 的匈牙利程序员发明的，他在微软工作的时候采用了这种命名方法，于是这种命名法就通过微软的各种产品和文档资料向世界传播开来。</p>
-<p>匈牙利命名法的基本形式是：变量名=属性+类型+对象描述。</p>
-<p>核心思想是通过在变量名前面加上相应前缀，标识出变量的作用域，类型等。</p>
-<p>例：m_lpszStr, 表示指向一个以0字符结尾的字符串的长指针成员变量</p>
-<p>属性缩写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">g_:全局变量</span><br><span class="line">m_:类成员变量</span><br><span class="line">s_:静态变量</span><br><span class="line">c_:常量</span><br></pre></td></tr></table></figure>
-<p>类型缩写：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">b:bool</span><br><span class="line">by:byte</span><br><span class="line">i:int</span><br><span class="line">c/ch:char</span><br><span class="line">s:string</span><br><span class="line">l:long</span><br><span class="line">u:无符号的</span><br><span class="line">d:双精度</span><br><span class="line">a:数组</span><br><span class="line">sz:以零结束的字符串</span><br><span class="line">h:句柄</span><br><span class="line">p:指针</span><br><span class="line">fn:函数</span><br><span class="line">f:flag</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="常用缩写词"><a href="#常用缩写词" class="headerlink" title="常用缩写词"></a>常用缩写词</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>全拼</th>
-<th>缩写</th>
-<th>译文</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>addition</td>
-<td>add</td>
-<td>加</td>
-</tr>
-<tr>
-<td>subtraction</td>
-<td>sub</td>
-<td>减</td>
-</tr>
-<tr>
-<td>multiplication</td>
-<td>mul</td>
-<td>乘</td>
-</tr>
-<tr>
-<td>division</td>
-<td>div</td>
-<td>除</td>
-</tr>
-<tr>
-<td>array</td>
-<td>arr</td>
-<td>数组、集合</td>
-</tr>
-<tr>
-<td>average</td>
-<td>avg</td>
-<td>平均</td>
-</tr>
-<tr>
-<td>buffer</td>
-<td>buf、buff</td>
-<td>缓冲、缓存</td>
-</tr>
-<tr>
-<td>capture</td>
-<td>cap</td>
-<td>捕获</td>
-</tr>
-<tr>
-<td>count</td>
-<td>cnt</td>
-<td>计数</td>
-</tr>
-<tr>
-<td>number</td>
-<td>num</td>
-<td>数量、编号</td>
-</tr>
-<tr>
-<td>column</td>
-<td>col</td>
-<td>列</td>
-</tr>
-<tr>
-<td>control</td>
-<td>ctrl</td>
-<td>控制</td>
-</tr>
-<tr>
-<td>encode</td>
-<td>enc</td>
-<td>编码</td>
-</tr>
-<tr>
-<td>decode</td>
-<td>dec</td>
-<td>解码</td>
-</tr>
-<tr>
-<td>define</td>
-<td>def</td>
-<td>定义</td>
-</tr>
-<tr>
-<td>delete</td>
-<td>del</td>
-<td>删除</td>
-</tr>
-<tr>
-<td>display</td>
-<td>disp</td>
-<td>显示</td>
-</tr>
-<tr>
-<td>environment</td>
-<td>env</td>
-<td>环境</td>
-</tr>
-<tr>
-<td>error</td>
-<td>err</td>
-<td>错误</td>
-</tr>
-<tr>
-<td>frequency</td>
-<td>freq</td>
-<td>频率</td>
-</tr>
-<tr>
-<td>image</td>
-<td>img</td>
-<td>图片、镜像</td>
-</tr>
-<tr>
-<td>initalize</td>
-<td>init</td>
-<td>初始化</td>
-</tr>
-<tr>
-<td>length</td>
-<td>len</td>
-<td>长度</td>
-</tr>
-<tr>
-<td>memory</td>
-<td>mem</td>
-<td>内存</td>
-</tr>
-<tr>
-<td>message</td>
-<td>msg</td>
-<td>消息</td>
-</tr>
-<tr>
-<td>receive</td>
-<td>recv</td>
-<td>接收</td>
-</tr>
-<tr>
-<td>position</td>
-<td>pos</td>
-<td>位置</td>
-</tr>
-<tr>
-<td>previous</td>
-<td>pre、prev</td>
-<td>之前的</td>
-</tr>
-<tr>
-<td>result</td>
-<td>res</td>
-<td>结果</td>
-</tr>
-<tr>
-<td>return</td>
-<td>ret</td>
-<td>返回</td>
-</tr>
-<tr>
-<td>source</td>
-<td>src</td>
-<td>源</td>
-</tr>
-<tr>
-<td>include</td>
-<td>inc</td>
-<td>包括</td>
-</tr>
-<tr>
-<td>table</td>
-<td>tab</td>
-<td>表</td>
-</tr>
-<tr>
-<td>temporary</td>
-<td>tmp、temp</td>
-<td>临时</td>
-</tr>
-<tr>
-<td>value</td>
-<td>val</td>
-<td>值</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<h2 id="C-命名规则"><a href="#C-命名规则" class="headerlink" title="C++命名规则"></a>C++命名规则</h2><p>以C++为例，我设计了一套命名规则。</p>
-<h4 id="文件夹命名"><a href="#文件夹命名" class="headerlink" title="文件夹命名"></a>文件夹命名</h4><ul>
-<li><p>首字母大写，单词间无字符，缩写单词首字母大写</p>
-</li>
-<li><p>通用和常见的小写文件夹保留小写。（如：<code>inc</code>、<code>include</code>、<code>src</code>、<code>lib</code>、<code>env</code>、<code>bin</code>、<code>obj</code>、<code>doc</code>）</p>
-</li>
-<li><p>文件文件夹名称应尽量短，有些开发工具对路径长度要求128B内甚至更短</p>
-<p>例：<code>UsbHub</code>、<code>FileTest</code></p>
-</li>
-</ul>
-<h4 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h4><ul>
-<li><p>全小写，使用<code>_</code>连接单词。</p>
-</li>
-<li><p>C++ 文件要以 <code>.cc</code> 结尾, 头文件以 <code>.h</code> 结尾。定义类时文件名一般成对出现, 如 <code>foo_bar.h</code> 和 <code>foo_bar.cc</code>, 对应于类 <code>FooBar</code>。</p>
-</li>
-<li><p>通用和常见的文件名保留。（如：<code>README.md</code>、<code>.gitignore</code>、<code>CMakeLists.txt</code>）</p>
-<p>例：<code>serial_port.cc</code></p>
-</li>
-</ul>
-<h4 id="名称空间命名"><a href="#名称空间命名" class="headerlink" title="名称空间命名"></a>名称空间命名</h4><ul>
-<li><p>首字母大写，单词间无字符，缩写单词首字母大写</p>
-<p>例：<code>RfHub</code>、<code>FileTest</code></p>
-</li>
-</ul>
-<h4 id="类命名"><a href="#类命名" class="headerlink" title="类命名"></a>类命名</h4><ul>
-<li><p>首字母大写，单词间无字符，缩写单词首字母大写</p>
-<p>例：<code>RfHub</code>、<code>FileTest</code></p>
-</li>
-</ul>
-<h4 id="类变量命名"><a href="#类变量命名" class="headerlink" title="类变量命名"></a>类变量命名</h4><ul>
-<li><p>以<code>_</code>开头，全小写，使用<code>_</code>连接单词</p>
-<p>例：<code>_is_open</code></p>
-</li>
-</ul>
-<h4 id="类函数命名"><a href="#类函数命名" class="headerlink" title="类函数命名"></a>类函数命名</h4><ul>
-<li><p>首字母大写，使用<code>_</code>连接单词，缩写单词使用全大写</p>
-<p>例：<code>USB_Set</code></p>
-</li>
-</ul>
-<h4 id="函数内变量命名"><a href="#函数内变量命名" class="headerlink" title="函数内变量命名"></a>函数内变量命名</h4><ul>
-<li><p>全小写，使用<code>_</code>连接单词</p>
-<p>例：<code>is_open</code></p>
-</li>
-</ul>
-<h4 id="打印字符"><a href="#打印字符" class="headerlink" title="打印字符"></a>打印字符</h4><ul>
-<li><p>全英文，首单词首字母大写，单词间使用空格</p>
-<p>例：<code>“Compile your code with -fPIC.”</code></p>
-</li>
-</ul>
-<p><br></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><p><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/naming/" target="_blank" rel="noopener">命名约定 — Google 开源项目风格指南</a></p>
-</li>
-<li><p><a href="https://cloud.google.com/apis/design/naming_convention?hl=zh-cn" target="_blank" rel="noopener">命名惯例 | Google Cloud</a></p>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -549,149 +214,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/命名规范-C++/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/Technology/软件版本号规定&软件发布流/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          软件版本号规定&amp;发布流程
-        
-      </div>
-    </a>
   
   
-    <a href="/Technology/Windows中对标的Linux命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Windows中对标的Linux命令</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#命名系统设计原则"><span class="toc-number">1.</span> <span class="toc-text">命名系统设计原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的命名规则"><span class="toc-number">2.</span> <span class="toc-text">常见的命名规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#匈牙利命名法"><span class="toc-number">2.0.1.</span> <span class="toc-text">匈牙利命名法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用缩写词"><span class="toc-number">3.</span> <span class="toc-text">常用缩写词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-命名规则"><span class="toc-number">4.</span> <span class="toc-text">C++命名规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件夹命名"><span class="toc-number">4.0.1.</span> <span class="toc-text">文件夹命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件命名"><span class="toc-number">4.0.2.</span> <span class="toc-text">文件命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#名称空间命名"><span class="toc-number">4.0.3.</span> <span class="toc-text">名称空间命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类命名"><span class="toc-number">4.0.4.</span> <span class="toc-text">类命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类变量命名"><span class="toc-number">4.0.5.</span> <span class="toc-text">类变量命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类函数命名"><span class="toc-number">4.0.6.</span> <span class="toc-text">类函数命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数内变量命名"><span class="toc-number">4.0.7.</span> <span class="toc-text">函数内变量命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打印字符"><span class="toc-number">4.0.8.</span> <span class="toc-text">打印字符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
+    </div></section>
   
 
-  
-
-  
-
-  
-    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
-      <div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'true' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
-            app_key: "qSkWaIIPWzNQirOz8LDaici7",
-            placeholder: "欢迎留言！",
-            avatar:""
-        });
-    }
-</script>
-    </section>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -726,8 +259,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
