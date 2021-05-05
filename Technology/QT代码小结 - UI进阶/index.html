@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>QT代码小结 - UI进阶 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前使用QT Widgets做界面，老是要在UI设计的效果上打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，终于解决了这个难题。随便记录一下其它的几个样式效果。">
+  <meta name="description" content="之前用QT Widgets写界面，在UI设计的效果上要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个样式的效果。">
 <meta name="keywords" content="QT,c++,树莓派">
 <meta property="og:type" content="article">
 <meta property="og:title" content="QT代码小结 - UI进阶">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/QT代码小结 - UI进阶/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="之前使用QT Widgets做界面，老是要在UI设计的效果上打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，终于解决了这个难题。随便记录一下其它的几个样式效果。">
+<meta property="og:description" content="之前用QT Widgets写界面，在UI设计的效果上要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个样式的效果。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.wangeasy.com/resources/qt_widgets_ui_advanced/message_box.png">
-<meta property="og:updated_time" content="2021-05-01T09:30:36.000Z">
+<meta property="og:updated_time" content="2021-05-05T06:34:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="QT代码小结 - UI进阶">
-<meta name="twitter:description" content="之前使用QT Widgets做界面，老是要在UI设计的效果上打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，终于解决了这个难题。随便记录一下其它的几个样式效果。">
+<meta name="twitter:description" content="之前用QT Widgets写界面，在UI设计的效果上要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个样式的效果。">
 <meta name="twitter:image" content="http://www.wangeasy.com/resources/qt_widgets_ui_advanced/message_box.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -206,24 +206,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前使用QT Widgets做界面，老是要在UI设计的效果上打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。</p>
-<p>一度想要换Qt Quick，然而经过不断的探索，终于解决了这个难题。随便记录一下其它的几个样式效果。</p>
+        <p>之前用QT Widgets写界面，在UI设计的效果上要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。</p>
+<p>一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个样式的效果。</p>
 <a id="more"></a>
 <p><br></p>
 <h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>硬件环境：树莓派CM4</p>
 <p>软件环境：Qt 5.11.3</p>
 <p><br></p>
-<h2 id="子界面圆角-透明-阴影效果"><a href="#子界面圆角-透明-阴影效果" class="headerlink" title="子界面圆角+透明+阴影效果"></a>子界面圆角+透明+阴影效果</h2><p><img src="/resources/qt_widgets_ui_advanced/message_box.png" alt="MessageBox"></p>
-<p>以一个提示弹窗为例，<a href="/resources/qt_widgets_ui_advanced/TransparentShadowEffacts.tar.gz">代码实现</a>：</p>
+<h2 id="圆角无锯齿-透明-阴影子界面"><a href="#圆角无锯齿-透明-阴影子界面" class="headerlink" title="圆角无锯齿+透明+阴影子界面"></a>圆角无锯齿+透明+阴影子界面</h2><p><img src="/resources/qt_widgets_ui_advanced/message_box.png" alt="MessageBox"></p>
+<p>以一个提示弹窗为例，主要<a href="/resources/qt_widgets_ui_advanced/TransparentShadowEffacts.tar.gz">代码实现</a>：</p>
 <p>message_box.h</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">paintEvent</span><span class="params">(QPaintEvent *event)</span></span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>message_box.cpp</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"message_box.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"ui_message_box.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QGraphicsDropShadowEffect&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QPainter&gt;</span></span></span><br><span class="line"></span><br><span class="line">MessageBox::MessageBox(QWidget *parent) :</span><br><span class="line">    QDialog(parent),</span><br><span class="line">    ui(<span class="keyword">new</span> Ui::MessageBox)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>-&gt;setWindowFlags(Qt::FramelessWindowHint);          <span class="comment">// 设置无窗体</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;setAttribute(Qt::WA_TranslucentBackground);       <span class="comment">// 设置背景透明</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 相对父窗体居中</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>-&gt;parent() &amp;&amp; <span class="keyword">this</span>-&gt;parent()-&gt;isWidgetType())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;move((<span class="keyword">this</span>-&gt;parentWidget()-&gt;width() - <span class="keyword">this</span>-&gt;width()) / <span class="number">2</span>,</span><br><span class="line">               (<span class="keyword">this</span>-&gt;parentWidget()-&gt;height() - <span class="keyword">this</span>-&gt;height()) / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 阴影效果</span></span><br><span class="line">    QGraphicsDropShadowEffect *shadow_effect = <span class="keyword">new</span> QGraphicsDropShadowEffect(<span class="keyword">this</span>);</span><br><span class="line">    shadow_effect-&gt;setOffset(<span class="number">4</span>,<span class="number">8</span>);                          <span class="comment">// 阴影偏移</span></span><br><span class="line">    shadow_effect-&gt;setColor(QColor(<span class="number">0</span>, <span class="number">0x1E</span>, <span class="number">0x9A</span>, <span class="number">102</span>));    <span class="comment">// 阴影颜色</span></span><br><span class="line">    shadow_effect-&gt;setBlurRadius(<span class="number">40</span>);                       <span class="comment">// 模糊半径</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;setGraphicsEffect(shadow_effect);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> MessageBox::paintEvent(QPaintEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    Q_UNUSED(event);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> radius = <span class="number">10</span>;</span><br><span class="line">    <span class="function">QPainter <span class="title">painter</span><span class="params">(<span class="keyword">this</span>)</span></span>;                                                     <span class="comment">// 圆角大小</span></span><br><span class="line">    painter.setRenderHint(QPainter::Antialiasing);                              <span class="comment">// 抗锯齿</span></span><br><span class="line">    painter.setBrush(QBrush( QColor(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), Qt::SolidPattern));    <span class="comment">// 背景颜色，透明度</span></span><br><span class="line">    painter.setPen(Qt::NoPen);</span><br><span class="line">    painter.drawRoundedRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>-&gt;width(), <span class="keyword">this</span>-&gt;height(), radius, radius);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MessageBox::~MessageBox()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>先设置无窗体和背景透明，此时设置<code>background-image</code>、<code>border-image</code>就不会生效了，所以要使用<code>paintEvent</code>来绘制背景，最后给整体添加阴影效果。</p>
+<p>先要设置无窗体和背景透明，此时设置<code>background-image</code>、<code>border-image</code>就不会生效了，使用<code>paintEvent</code>绘制背景，最后给整体添加阴影效果。</p>
 <p>如果想要使用UI给的非纯色图片作为背景，则可以使用<code>painter.drawPixmap(0, 0, this-&gt;width(), this-&gt;height(), QPixmap(&quot;:/resources/images/message_box_bg.png&quot;));</code>来绘制背景图片，在图片素材中画出圆角边，甚至是带上阴影效果都是可以的。</p>
-<p>这里的阴影效果也可以添加给QPushButton、QLabel等控件。</p>
+<p>阴影效果也可以添加给QPushButton、QLabel等控件。</p>
 <p><br></p>
-<h2 id="图片圆形显示"><a href="#图片圆形显示" class="headerlink" title="图片圆形显示"></a>图片圆形显示</h2><p>一般用于头像图片的圆形显示，使用一般的方法会有锯齿问题。</p>
+<h2 id="图片圆形显示"><a href="#图片圆形显示" class="headerlink" title="图片圆形显示"></a>图片圆形显示</h2><p>一般用于头像图片的圆形显示，使用<code>background-radius</code>或者<code>setMask</code>等方法会有锯齿问题。</p>
 <p>实现代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此方法返回一个width*height的圆形图片</span></span><br><span class="line"><span class="function">QPixmap <span class="title">PixmapToRound</span><span class="params">(<span class="keyword">const</span> QPixmap &amp;src, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (src.isNull()) &#123;</span><br><span class="line">        <span class="keyword">return</span> QPixmap();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩放到指定大小</span></span><br><span class="line">    QPixmap src_scaled= src.scaled(width, height, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 新建一个背景透明的空白图片</span></span><br><span class="line">    <span class="function">QPixmap <span class="title">pixmap</span><span class="params">(width, height)</span></span>;</span><br><span class="line">    pixmap.fill(Qt::transparent);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用图片作为QPainter的绘制平面</span></span><br><span class="line">    <span class="function">QPainter <span class="title">painter</span><span class="params">(&amp;pixmap)</span></span>;</span><br><span class="line">    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造圆形的剪切板</span></span><br><span class="line">    QPainterPath path;</span><br><span class="line">    path.addEllipse(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">    painter.setClipPath(path);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 绘制</span></span><br><span class="line">    painter.drawPixmap(<span class="number">0</span>, <span class="number">0</span>, width, height, src_scaled);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pixmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br></p>
@@ -379,7 +379,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行环境"><span class="toc-number">1.</span> <span class="toc-text">运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子界面圆角-透明-阴影效果"><span class="toc-number">2.</span> <span class="toc-text">子界面圆角+透明+阴影效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片圆形显示"><span class="toc-number">3.</span> <span class="toc-text">图片圆形显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按钮多选一"><span class="toc-number">4.</span> <span class="toc-text">按钮多选一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Button渐变背景"><span class="toc-number">5.</span> <span class="toc-text">Button渐变背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMAC-SHA1"><span class="toc-number">6.</span> <span class="toc-text">HMAC-SHA1</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行环境"><span class="toc-number">1.</span> <span class="toc-text">运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆角无锯齿-透明-阴影子界面"><span class="toc-number">2.</span> <span class="toc-text">圆角无锯齿+透明+阴影子界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片圆形显示"><span class="toc-number">3.</span> <span class="toc-text">图片圆形显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按钮多选一"><span class="toc-number">4.</span> <span class="toc-text">按钮多选一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Button渐变背景"><span class="toc-number">5.</span> <span class="toc-text">Button渐变背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMAC-SHA1"><span class="toc-number">6.</span> <span class="toc-text">HMAC-SHA1</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -535,6 +535,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
@@ -544,10 +548,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>关于QT的几个疑问 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="new的控件需要delete吗？  connect的信号在发送窗体close的情况下还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
+  <meta name="description" content="new的控件需要delete吗？  发送窗体close后信号槽还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
 <meta name="keywords" content="QT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于QT的几个疑问">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/关于QT的几个疑问/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="new的控件需要delete吗？  connect的信号在发送窗体close的情况下还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
+<meta property="og:description" content="new的控件需要delete吗？  发送窗体close后信号槽还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-01T09:26:48.000Z">
+<meta property="og:updated_time" content="2021-05-05T07:40:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于QT的几个疑问">
-<meta name="twitter:description" content="new的控件需要delete吗？  connect的信号在发送窗体close的情况下还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
+<meta name="twitter:description" content="new的控件需要delete吗？  发送窗体close后信号槽还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -207,17 +207,22 @@
         <ul>
 <li><p><a href="/Technology/关于QT的几个疑问#new的控件需要delete吗？">new的控件需要delete吗？</a></p>
 </li>
-<li><p><a href="/Technology/关于QT的几个疑问#connect的信号在发送窗体close的情况下还需要disconnect吗？">connect的信号在发送窗体close的情况下还需要disconnect吗？</a></p>
+<li><p><a href="/Technology/关于QT的几个疑问#发送窗体close后信号槽还需要disconnect吗？">发送窗体close后信号槽还需要disconnect吗？</a></p>
 </li>
 <li><p><a href="/Technology/关于QT的几个疑问/#connect%E6%97%B6%E4%BD%BF%E7%94%A8SIGNAL-clicked-%E8%BF%98%E6%98%AF-amp-QPushButton-clicked%EF%BC%9F">connect时使用SIGNAL(clicked())还是&amp;QPushButton::clicked？</a></p>
 </li>
 </ul>
 <a id="more"></a>
 <p><br></p>
-<h3 id="new的控件需要delete吗？"><a href="#new的控件需要delete吗？" class="headerlink" title="new的控件需要delete吗？"></a>new的控件需要delete吗？</h3><p>1、继承了QObject的子类，并且指定了父类的，不需要手动delete。<br>2、QT中通过addLayout添加到布局控件中的布局或者控件不需要手动delete。<br>3、QT中通过setLayout添加到控件中的，如果setLayout的对象没有添加到其他布局直接显示、或者没有指定父类的，这个需要手动delete。</p>
+<h3 id="软件环境"><a href="#软件环境" class="headerlink" title="软件环境"></a>软件环境</h3><ul>
+<li>Qt 5.14.1</li>
+</ul>
 <p><br></p>
-<h3 id="connect的信号在发送窗体close的情况下还需要disconnect吗？"><a href="#connect的信号在发送窗体close的情况下还需要disconnect吗？" class="headerlink" title="connect的信号在发送窗体close的情况下还需要disconnect吗？"></a>connect的信号在发送窗体close的情况下还需要disconnect吗？</h3><p>在使用connect的时候，多次重复connect之后，信号在发送了一次的时候，会多次调用。这个时候在信号抵达的时候就要调用disconnect。但是，两个窗体之间传递的信号，好像在一个窗口close之后，这个信号绑定就自动解绑了？</p>
-<p>归根到底还是对于信号槽机制了解的不够彻底，在这里，再次梳理一下QT的信号槽机制：</p>
+<h3 id="new的控件需要delete吗？"><a href="#new的控件需要delete吗？" class="headerlink" title="new的控件需要delete吗？"></a>new的控件需要delete吗？</h3><p>1、继承了QObject的子类（所有控件都继承QObject），并且指定了父类，不需要手动delete，此时当父类执行析构函数时由父类销毁。<br>2、通过addLayout添加到布局控件中的布局或者控件不需要手动delete，addLayout会默认将要加入的控件作为父类。<br>3、通过setLayout添加到控件中的，如果setLayout的对象没有添加到其他布局直接显示、或者没有指定父类的，这个需要手动delete。</p>
+<p><br></p>
+<h3 id="发送窗体close后信号槽还需要disconnect吗？"><a href="#发送窗体close后信号槽还需要disconnect吗？" class="headerlink" title="发送窗体close后信号槽还需要disconnect吗？"></a>发送窗体close后信号槽还需要disconnect吗？</h3><p>如果只想要信号调用一次，可以在信号抵达后调用disconnect。</p>
+<p>但是，两个窗体之间连接的信号槽，好像在发送窗口close之后，这个信号连接就自动解绑了？</p>
+<p>这个问题归根到底还是对于信号槽机制了解的不够彻底。在这里再次梳理一下QT的信号槽机制：</p>
 <ol>
 <li>信号槽机制依赖于Qt的元对象系统（Meta-Object System），使用对象必须继承QObject，并在类的顶行声明Q_OBJECT宏；</li>
 <li>信号槽机制提供了connect和disconnect函数，来实现信号槽的连接和断开；</li>
@@ -405,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#new的控件需要delete吗？"><span class="toc-number">1.</span> <span class="toc-text">new的控件需要delete吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connect的信号在发送窗体close的情况下还需要disconnect吗？"><span class="toc-number">2.</span> <span class="toc-text">connect的信号在发送窗体close的情况下还需要disconnect吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connect时使用SIGNAL-clicked-还是-amp-QPushButton-clicked？"><span class="toc-number">3.</span> <span class="toc-text">connect时使用SIGNAL(clicked())还是&amp;QPushButton::clicked？</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件环境"><span class="toc-number">1.</span> <span class="toc-text">软件环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new的控件需要delete吗？"><span class="toc-number">2.</span> <span class="toc-text">new的控件需要delete吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发送窗体close后信号槽还需要disconnect吗？"><span class="toc-number">3.</span> <span class="toc-text">发送窗体close后信号槽还需要disconnect吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#connect时使用SIGNAL-clicked-还是-amp-QPushButton-clicked？"><span class="toc-number">4.</span> <span class="toc-text">connect时使用SIGNAL(clicked())还是&amp;QPushButton::clicked？</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -561,6 +566,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
@@ -570,10 +579,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
