@@ -48,7 +48,7 @@ tags:
 6. 一个信号可以连接多个槽或者信号，多个信号可以连接一个槽；
 7. 如果一个信号连接了多个，信号依据绑定的先后顺序发送给接收者；
 8. 当发送者或接收者被销毁时，连接将自动断开；
-9. 信号函数由MOC自动生成，不要在`.cpp`中实现，且返回值只能是`void`；
+9. 信号函数由MOC自动生成，前面不可加public、private和protected进行修饰，不要在`.cpp`中实现，且返回值只能是`void`；
 10. 槽函数是普通的c++函数，可以正常调用，它们唯一的特点是信号可以与之相连。而使用信号连接的时候，可以连接到私有槽函数而无视其访问级别；
 11. 连接方式有：`Qt::AutoConnection`、`Qt::DirectConnection`、`Qt::QueuedConnection`、`Qt::BlockingQueuedConnection`、`Qt::UniqueConnection`；
 12. 连接方式如不指定，则默认是`Qt::AutoConnection`类型，此时实际的连接类型是在信号发送时决定的，如果槽函数和信号在同一线程，则使用`Qt::DirectConnection`，否则使用`Qt::QueuedConnection`；

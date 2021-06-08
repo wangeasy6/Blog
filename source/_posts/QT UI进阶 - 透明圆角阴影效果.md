@@ -1,5 +1,5 @@
 ---
-title: QT代码小结 - UI进阶
+title: QT UI进阶 - 透明圆角阴影效果
 date: 2021-05-01 13:11:06
 toc: true
 categories:
@@ -10,9 +10,11 @@ tags:
   - 树莓派
 ---
 
+![MessageBox](/resources/qt_widgets_ui_advanced/message_box.png)
+
 之前用QT Widgets写界面，在UI设计的效果上总要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。
 
-一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个样式的效果。
+一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个效果的实现方法。
 
 <!--more-->
 

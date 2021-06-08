@@ -8,7 +8,7 @@ tag:
   - Tools
 ---
 
-git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。
+Git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。
 
 <!--more-->
 
@@ -27,12 +27,12 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
     * useradd <UserID>
     * passwd <UserID>
   * Linux配置无密码SSH登陆
-    * gitClient: ssh-keygen –t rsa -C "user@email"生成密钥，在.ssh目录下，我们可以看到id_rsa和id_rsa.pub文件，id_rsa.pub为公钥（Windows目录：/c/Users/xxx/.ssh/id_rsa;如果是相同服务器地址重新添加，则需要删除原来的 known_hosts 对应的条目）
+    * Git Client: `ssh-keygen -t rsa -C "user@email"`生成密钥，在.ssh目录下，我们可以看到id_rsa和id_rsa.pub文件，id_rsa.pub为公钥（Windows目录：/c/Users/xxx/.ssh/id_rsa;如果是相同服务器地址重新添加，则需要删除原来的 known_hosts 对应的条目）
     * 在gitServer上我们首先查看/home/git/.ssh/authorized_keys，没有则创建
     * 公钥id_rsa.pub的内容追加到authroized_keys中
-    * ssh -l git <ServerIP> ,验证是否可以自动登陆
-  * 通过命令 sudo yum install git-core,安装git（gitServer）
-  * 使用命令 git --bare init /home/git/myRep,初始化仓库
+    * `ssh -l git <ServerIP>` ,验证是否可以自动登陆（GitHub在添加了SSH Key之后，使用`ssh -T git@github.com`验证）
+  * 通过命令 `sudo yum install git-core`,安装git（gitServer）
+  * 使用命令 `git --bare init /home/git/myRep`,初始化仓库
   * 在gitClient上，通过git clone命令进行克隆远程仓库
     * Git clone git@gitServer:/home/git/myRep
 
