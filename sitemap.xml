@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.wangeasy.com/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/</loc>
+    <loc>http://www.wangeasy.com/Technology/%E5%85%B3%E4%BA%8EQT%E7%9A%84%E5%87%A0%E4%B8%AA%E7%96%91%E9%97%AE/</loc>
     
     <lastmod>2021-06-08</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/Technology/%E5%85%B3%E4%BA%8EQT%E7%9A%84%E5%87%A0%E4%B8%AA%E7%96%91%E9%97%AE/</loc>
+    <loc>http://www.wangeasy.com/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/</loc>
     
-    <lastmod>2021-05-18</lastmod>
+    <lastmod>2021-06-08</lastmod>
     
   </url>
   
@@ -23,7 +23,7 @@
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/resources/fund/xiaoh12-fund/Readme.html</loc>
+    <loc>http://www.wangeasy.com/resources/fund/xiaoh12-fund/data/Readme.html</loc>
     
     <lastmod>2021-05-07</lastmod>
     
@@ -37,7 +37,7 @@
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/resources/fund/xiaoh12-fund/data/Readme.html</loc>
+    <loc>http://www.wangeasy.com/resources/fund/xiaoh12-fund/Readme.html</loc>
     
     <lastmod>2021-05-07</lastmod>
     
@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/</loc>
+    <loc>http://www.wangeasy.com/Thoughts/%E6%88%91%E6%83%B3%E5%BD%93%E4%B8%AA%E4%BD%9C%E5%AE%B6/</loc>
     
     <lastmod>2020-09-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/Thoughts/%E6%88%91%E6%83%B3%E5%BD%93%E4%B8%AA%E4%BD%9C%E5%AE%B6/</loc>
+    <loc>http://www.wangeasy.com/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/</loc>
     
     <lastmod>2020-09-07</lastmod>
     
@@ -368,27 +368,6 @@
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/tags/Python/</loc>
-    <lastmod>2021-06-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wangeasy.com/tags/Data/</loc>
-    <lastmod>2021-06-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wangeasy.com/tags/Tools/</loc>
-    <lastmod>2021-06-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.wangeasy.com/tags/QT/</loc>
     <lastmod>2021-06-08</lastmod>
     <changefreq>daily</changefreq>
@@ -410,6 +389,13 @@
   </url>
   
   <url>
+    <loc>http://www.wangeasy.com/tags/Tools/</loc>
+    <lastmod>2021-06-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.wangeasy.com/tags/C/</loc>
     <lastmod>2021-06-08</lastmod>
     <changefreq>daily</changefreq>
@@ -418,6 +404,20 @@
   
   <url>
     <loc>http://www.wangeasy.com/tags/Embedded/</loc>
+    <lastmod>2021-06-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/tags/Python/</loc>
+    <lastmod>2021-06-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/tags/Data/</loc>
     <lastmod>2021-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

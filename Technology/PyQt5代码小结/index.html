@@ -9,7 +9,7 @@
   <title>PyQt5代码小结 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="基于PyQt5的开发项目，代码小结。项目界面比较简单，只使用了基础部分，没有使用QML、Qt Quick等高级用法。">
-<meta name="keywords" content="Python,QT">
+<meta name="keywords" content="QT,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyQt5代码小结">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/PyQt5代码小结/index.html">
@@ -243,6 +243,7 @@
 <p>而对于用<strong>Qt</strong>写的非<strong>GUI</strong>应用，则有且只有一个<strong>QCoreApplication</strong>对象，并且这个应用不依赖<strong>QtGui</strong>库。</p>
 <p><strong>QApplication.exec_()</strong>，开始事件循环，直到<strong>exit()</strong>被调用。</p>
 <h4 id="MainWindow"><a href="#MainWindow" class="headerlink" title="MainWindow"></a>MainWindow</h4><p><strong>MainWindow</strong>是一个继承了<a href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QWidget.html#static-functions" target="_blank" rel="noopener"><strong>QWidget</strong></a>的类，<strong>QWidget</strong>是所有控件的父类，如<strong>QLabel</strong>、<strong>QButton</strong>等，当它的父类为空时，它是一个Window，这个窗体本身就用很多属性和方法，如长宽、在屏幕中的位置等，可以使用<strong>setGeometry()</strong>来设置，除此之外，还用一下方法使用得比较多：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -313,6 +314,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="窗体类型"><a href="#窗体类型" class="headerlink" title="窗体类型"></a>窗体类型</h4><p>本例中，继承的是QWidget，初此之外，还有这些窗体类型：</p>
 <ol>
 <li>Qt.Widget：这是QWidget的默认类型。如果它们有父级，这种类型的部件是子部件，如果没有父控件，则为独立窗口。</li>
@@ -411,11 +413,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -690,18 +692,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
@@ -714,11 +704,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Embedded</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data</a>
               </li>
             
             <div class="clearfix"></div>
