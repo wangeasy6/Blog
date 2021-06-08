@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="new的控件需要delete吗？  发送窗体close后信号槽还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-05T07:40:36.000Z">
+<meta property="og:updated_time" content="2021-05-18T02:27:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于QT的几个疑问">
 <meta name="twitter:description" content="new的控件需要delete吗？  发送窗体close后信号槽还需要disconnect吗？  connect时使用SIGNAL(clicked())还是&amp;amp;QPushButton::clicked？">
@@ -232,7 +232,7 @@
 <li>一个信号可以连接多个槽或者信号，多个信号可以连接一个槽；</li>
 <li>如果一个信号连接了多个，信号依据绑定的先后顺序发送给接收者；</li>
 <li>当发送者或接收者被销毁时，连接将自动断开；</li>
-<li>信号函数由MOC自动生成，不要在<code>.cpp</code>中实现，且返回值只能是<code>void</code>；</li>
+<li>信号函数由MOC自动生成，前面不可加public、private和protected进行修饰，不要在<code>.cpp</code>中实现，且返回值只能是<code>void</code>；</li>
 <li>槽函数是普通的c++函数，可以正常调用，它们唯一的特点是信号可以与之相连。而使用信号连接的时候，可以连接到私有槽函数而无视其访问级别；</li>
 <li>连接方式有：<code>Qt::AutoConnection</code>、<code>Qt::DirectConnection</code>、<code>Qt::QueuedConnection</code>、<code>Qt::BlockingQueuedConnection</code>、<code>Qt::UniqueConnection</code>；</li>
 <li>连接方式如不指定，则默认是<code>Qt::AutoConnection</code>类型，此时实际的连接类型是在信号发送时决定的，如果槽函数和信号在同一线程，则使用<code>Qt::DirectConnection</code>，否则使用<code>Qt::QueuedConnection</code>；</li>
@@ -382,8 +382,8 @@
 <nav id="article-nav">
   
   
-    <a href="/Technology/QT代码小结 - UI进阶/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">QT代码小结 - UI进阶</div>
+    <a href="/Technology/QT UI进阶 - 透明圆角阴影效果/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QT UI进阶 - 透明圆角阴影效果</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -566,6 +566,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
@@ -587,14 +595,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Embedded</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data</a>
               </li>
             
             <div class="clearfix"></div>

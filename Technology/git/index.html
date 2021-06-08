@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>Git使用手记 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
+  <meta name="description" content="Git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta name="keywords" content="Tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git使用手记">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/git/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
+<meta property="og:description" content="Git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-18T10:13:50.000Z">
+<meta property="og:updated_time" content="2021-05-08T02:13:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用手记">
-<meta name="twitter:description" content="git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
+<meta name="twitter:description" content="Git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -204,7 +204,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。</p>
+        <p>Git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。</p>
 <a id="more"></a>
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>git 分为客户端和服务端软件。</p>
 <p>服务端可以自己搭建，也可以使用商业或公共的git服务器。自己搭建可以选择<a href="http://gitblit.github.io/gitblit/" target="_blank" rel="noopener">gitblit</a>、<a href="https://about.gitlab.com/" target="_blank" rel="noopener">GitLab</a>，公共的平台可以选择<a href="https://github.com/" target="_blank" rel="noopener">github</a>、<a href="https://gitee.com/" target="_blank" rel="noopener">gitee</a>等平台。</p>
@@ -217,14 +217,14 @@
 </ul>
 </li>
 <li>Linux配置无密码SSH登陆<ul>
-<li>gitClient: ssh-keygen –t rsa -C “user@email”生成密钥，在.ssh目录下，我们可以看到id_rsa和id_rsa.pub文件，id_rsa.pub为公钥（Windows目录：/c/Users/xxx/.ssh/id_rsa;如果是相同服务器地址重新添加，则需要删除原来的 known_hosts 对应的条目）</li>
+<li>Git Client: <code>ssh-keygen -t rsa -C &quot;user@email&quot;</code>生成密钥，在.ssh目录下，我们可以看到id_rsa和id_rsa.pub文件，id_rsa.pub为公钥（Windows目录：/c/Users/xxx/.ssh/id_rsa;如果是相同服务器地址重新添加，则需要删除原来的 known_hosts 对应的条目）</li>
 <li>在gitServer上我们首先查看/home/git/.ssh/authorized_keys，没有则创建</li>
 <li>公钥id_rsa.pub的内容追加到authroized_keys中</li>
-<li>ssh -l git <serverip> ,验证是否可以自动登陆</serverip></li>
+<li><code>ssh -l git &lt;ServerIP&gt;</code> ,验证是否可以自动登陆（GitHub在添加了SSH Key之后，使用<code>ssh -T git@github.com</code>验证）</li>
 </ul>
 </li>
-<li>通过命令 sudo yum install git-core,安装git（gitServer）</li>
-<li>使用命令 git –bare init /home/git/myRep,初始化仓库</li>
+<li>通过命令 <code>sudo yum install git-core</code>,安装git（gitServer）</li>
+<li>使用命令 <code>git --bare init /home/git/myRep</code>,初始化仓库</li>
 <li>在gitClient上，通过git clone命令进行克隆远程仓库<ul>
 <li>Git clone git@gitServer:/home/git/myRep</li>
 </ul>
@@ -577,6 +577,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
@@ -598,14 +606,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Embedded</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data</a>
               </li>
             
             <div class="clearfix"></div>
