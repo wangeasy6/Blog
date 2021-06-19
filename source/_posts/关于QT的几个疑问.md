@@ -8,6 +8,8 @@ tags:
   - QT
 ---
 
+![Cover.png](/resources/Cover/qt_signal_and_slot.png)
+
 * [new的控件需要delete吗？](/Technology/关于QT的几个疑问#new的控件需要delete吗？)
 
 * [发送窗体close后信号槽还需要disconnect吗？](/Technology/关于QT的几个疑问#发送窗体close后信号槽还需要disconnect吗？)
