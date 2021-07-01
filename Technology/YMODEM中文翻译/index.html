@@ -322,8 +322,7 @@
 <p>如果正在使用1024字节块，则文件可能会“增长”到1024字节的下一个倍数。如果分配粒度为1k或更大，这不会浪费磁盘空间。对于YMODEM批量传输，在文件名块中传输的可选文件长度允许接收方丢弃填充，保留确切的文件长度和内容。</p>
 <p>1024字节块可用于批处理文件传输或单文件传输。CRC-16应与k选项一起使用，以保持电话线上的数据完整性。如果程序希望强制执行此建议，则应取消传输，然后在接收器请求校验和而不是 CRC-16 时发出信息性诊断消息。</p>
 <p>除非接收方命令CRC-16，在任何情况下，发送程序都不能使用CRC-16。</p>
-<h4 id="例1-XMODEM-1k字节块："><a href="#例1-XMODEM-1k字节块：" class="headerlink" title="例1.XMODEM-1k字节块："></a>例1.XMODEM-1k字节块：</h4><div class="table-container">
-<table>
+<h4 id="例1-XMODEM-1k字节块："><a href="#例1-XMODEM-1k字节块：" class="headerlink" title="例1.XMODEM-1k字节块："></a>例1.XMODEM-1k字节块：</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -377,9 +376,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="例2-1024和128字节混合字节块："><a href="#例2-1024和128字节混合字节块：" class="headerlink" title="例2.1024和128字节混合字节块："></a>例2.1024和128字节混合字节块：</h4><div class="table-container">
-<table>
+<h4 id="例2-1024和128字节混合字节块："><a href="#例2-1024和128字节混合字节块：" class="headerlink" title="例2.1024和128字节混合字节块："></a>例2.1024和128字节混合字节块：</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -441,7 +438,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h2 id="5-批量文件传输"><a href="#5-批量文件传输" class="headerlink" title="5.批量文件传输"></a>5.批量文件传输</h2><p>YMODEM Batch协议是XMODEM/CRC协议的一个扩展，它允许用一个命令传输0个或多个文件（如果请求的文件都不可访问，则可以发送零个文件）。YMODEM Batch协议的设计方法是使用普通程序以分层方式发送和接收XMODEM块，类似于分组交换方法。</p>
 <p>当MODEM7中已经存在一个批处理协议时，为什么有必要设计一个新的批处理协议？MODEM7使用的批处理文件模式是不合适的，因为它不允许传输完整的路径名、文件长度、文件日期或其他属性信息。这样一个限制性的设计，只是在考虑CP/M的情况下仓促实施，不允许扩展到当前的个人计算领域，如Unix、DOS和面向对象系统。此外，MODEM7批处理文件模式有点容易受到传输损失。</p>
 <p>与单个文件传输的情况一样，接收方通过发送“C”字符（用于CRC-16）来启动批处理文件传输。</p>
@@ -479,8 +475,7 @@
 <p>请注意，不传输任何文件不一定是错误的。如果无法打开发件人请求的任何文件进行读取，则可能是错误的。</p>
 <p>大多数情况下，YMODEM默认接收方请求CRC-16。</p>
 <p>源代码文件RZSZ.ZOO中包含的Unix程序sz和rz有关于YMODEM批处理协议的其他问题的回答。</p>
-<h4 id="例3-批量传输会话（1个文件）："><a href="#例3-批量传输会话（1个文件）：" class="headerlink" title="例3.批量传输会话（1个文件）："></a>例3.批量传输会话（1个文件）：</h4><div class="table-container">
-<table>
+<h4 id="例3-批量传输会话（1个文件）："><a href="#例3-批量传输会话（1个文件）：" class="headerlink" title="例3.批量传输会话（1个文件）："></a>例3.批量传输会话（1个文件）：</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -490,7 +485,7 @@
 <tbody>
 <tr>
 <td></td>
-<td>“sb foo.*<cr\>“</cr\></td>
+<td>“sb foo.*&lt;CR>“</td>
 </tr>
 <tr>
 <td>“sending in batch mode etc.”</td>
@@ -566,9 +561,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="例7-YMODEM头信息和功能"><a href="#例7-YMODEM头信息和功能" class="headerlink" title="例7.YMODEM头信息和功能"></a>例7.YMODEM头信息和功能</h4><div class="table-container">
-<table>
+<h4 id="例7-YMODEM头信息和功能"><a href="#例7-YMODEM头信息和功能" class="headerlink" title="例7.YMODEM头信息和功能"></a>例7.YMODEM头信息和功能</h4><table>
 <thead>
 <tr>
 <th>Program</th>
@@ -628,10 +621,8 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h2 id="5-1-YMODEM的特例-KD-IMP"><a href="#5-1-YMODEM的特例-KD-IMP" class="headerlink" title="5.1 YMODEM的特例-KD/IMP"></a>5.1 YMODEM的特例-KD/IMP</h2><p>KMD和IMP使用接收方发出的“CK”字符序列触发1024字节块的使用，作为向发送程序指定此选项的替代方法。</p>
-<h4 id="例4-批量传输会话（2个文件）："><a href="#例4-批量传输会话（2个文件）：" class="headerlink" title="例4.批量传输会话（2个文件）："></a>例4.批量传输会话（2个文件）：</h4><div class="table-container">
-<table>
+<h4 id="例4-批量传输会话（2个文件）："><a href="#例4-批量传输会话（2个文件）：" class="headerlink" title="例4.批量传输会话（2个文件）："></a>例4.批量传输会话（2个文件）：</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -641,7 +632,7 @@
 <tbody>
 <tr>
 <td></td>
-<td>“sb foo.c baz.c<cr\>“</cr\></td>
+<td>“sb foo.c baz.c&lt;CR>“</td>
 </tr>
 <tr>
 <td>“sending in batch mode etc.”</td>
@@ -757,9 +748,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="例5-批量传输会话-1k字节块："><a href="#例5-批量传输会话-1k字节块：" class="headerlink" title="例5.批量传输会话-1k字节块："></a>例5.批量传输会话-1k字节块：</h4><div class="table-container">
-<table>
+<h4 id="例5-批量传输会话-1k字节块："><a href="#例5-批量传输会话-1k字节块：" class="headerlink" title="例5.批量传输会话-1k字节块："></a>例5.批量传输会话-1k字节块：</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -769,7 +758,7 @@
 <tbody>
 <tr>
 <td></td>
-<td>“sb -k foo.*<cr\>“</cr\></td>
+<td>“sb -k foo.*&lt;CR>“</td>
 </tr>
 <tr>
 <td>“sending in batch mode etc.”</td>
@@ -845,7 +834,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h4 id="例6-sz传输的YMODEM文件名块："><a href="#例6-sz传输的YMODEM文件名块：" class="headerlink" title="例6. sz传输的YMODEM文件名块："></a>例6. sz传输的YMODEM文件名块：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-rw-r--r-- 6347 Jun 17 1984 20:34 bbcsched.txt</span><br><span class="line"></span><br><span class="line">00 0100FF62 62637363 6865642E 74787400  |...bbcsched.txt.|</span><br><span class="line"></span><br><span class="line">10 36333437 20333331 34373432 35313320  |6347 3314742513 |</span><br><span class="line"></span><br><span class="line">20 31303036 34340000 00000000 00000000  |100644..........|</span><br><span class="line"></span><br><span class="line">30 00000000 00000000 00000000 00000000</span><br><span class="line"></span><br><span class="line">40 00000000 00000000 00000000 00000000</span><br><span class="line"></span><br><span class="line">50 00000000 00000000 00000000 00000000</span><br><span class="line"></span><br><span class="line">60 00000000 00000000 00000000 00000000</span><br><span class="line"></span><br><span class="line">70 00000000 00000000 00000000 00000000</span><br><span class="line"></span><br><span class="line">80 000000CA 56</span><br></pre></td></tr></table></figure>
 <p>此双字符序列通常在直接通信的单进程微型计算机上工作良好，如果程序严格遵守本文中包含的所有XMODEM建议，使用差不多实现的XMODEM程序可能运行得不太好。分时系统和分组交换网络可以分离连续字符，使得这种方法不可靠。</p>
 <p>如果操作环境不妨碍可靠的实现，发送程序可以检测CK序列。</p>
@@ -855,8 +843,7 @@
 <p>事实证明，在这种情况下，对YMODEM的g选项是有效的。g选项由接收方驱动，接收方通过发送g而不是C来启动批处理传输。当发送方识别到g时，它绕过通常等待每个发送的块的ACK，全速发送后续块，受XOFF/XON或介质施加的其他流控制。</p>
 <p>发送方期望inital G启动特定文件的传输，还期望在每个文件的末尾发送EOT上的ACK。此同步允许接收方根据需要打开和关闭文件。</p>
 <p>如果在YMODEM-g传输中检测到错误，接收方将使用多个CAN-abort序列中止传输。ZMODEM协议应在需要流吞吐量和错误恢复的应用程序中使用。</p>
-<h4 id="例8-YMODEM-g传输会话："><a href="#例8-YMODEM-g传输会话：" class="headerlink" title="例8.YMODEM-g传输会话："></a>例8.YMODEM-g传输会话：</h4><div class="table-container">
-<table>
+<h4 id="例8-YMODEM-g传输会话："><a href="#例8-YMODEM-g传输会话：" class="headerlink" title="例8.YMODEM-g传输会话："></a>例8.YMODEM-g传输会话：</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -866,7 +853,7 @@
 <tbody>
 <tr>
 <td></td>
-<td>“sb foo.*<cr\>“</cr\></td>
+<td>“sb foo.*&lt;CR>“</td>
 </tr>
 <tr>
 <td>“sending in batch mode etc…”</td>
@@ -918,15 +905,14 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h2 id="7-XMODEM协议概述"><a href="#7-XMODEM协议概述" class="headerlink" title="7.XMODEM协议概述"></a>7.XMODEM协议概述</h2><p>1982年8月9日，Ward Christensen。</p>
 <p>我将保留此文件的主副本。请通过CBBS/芝加哥电话（312）545-8086、CBBS/CPMUG（312）849-1132或语音电话（312）849-6279传达更改或建议。</p>
-<h2 id="7-1-定义"><a href="#7-1-定义" class="headerlink" title="7.1 定义"></a>7.1 定义</h2><p><soh\> 01H</soh\></p>
-<p><eot\> 04H</eot\></p>
-<p><ack\> 06H</ack\></p>
-<p><nak\> 15H</nak\></p>
-<p><can\> 18H</can\></p>
-<p><c\>  43H</c\></p>
+<h2 id="7-1-定义"><a href="#7-1-定义" class="headerlink" title="7.1 定义"></a>7.1 定义</h2><p>&lt;soh> 01H</p>
+<p>&lt;eot> 04H</p>
+<p>&lt;ack> 06H</p>
+<p>&lt;nak> 15H</p>
+<p>&lt;can> 18H</p>
+<p>&lt;C>  43H</p>
 <h2 id="7-2-传输中级协议"><a href="#7-2-传输中级协议" class="headerlink" title="7.2 传输中级协议"></a>7.2 传输中级协议</h2><p>异步，8个数据位，无奇偶校验，一个停止位。</p>
 <p>该协议对传输的数据内容没有任何限制。在128字节的数据消息中找不到控制字符。绝对可以发送任何类型的数据-二进制、ASCII等。该协议还没有正式应用于仅传输ASCII（或解包十六进制）数据的7位环境，虽然它可以简单地通过两端都同意和协议依赖的数据与7F十六进制之前，验证它。我特别是指校验和，块数和他们的1-补充。</p>
 <p>希望保持CP/M文件结构兼容性，即允许在CP/M系统之间或从CP/M系统中调制ASCII  文件的用户应遵循以下数据格式：</p>
@@ -938,16 +924,15 @@
 <p>l 最后发送的块与其他块没有区别，即没有“短块”。</p>
 <h4 id="例9-XMODEM消息块级协议，传输的每个块看起来像："><a href="#例9-XMODEM消息块级协议，传输的每个块看起来像：" class="headerlink" title="例9.XMODEM消息块级协议，传输的每个块看起来像："></a>例9.XMODEM消息块级协议，传输的每个块看起来像：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;SOH\&gt;&lt;blk #\&gt;&lt;255-blk #\&gt;&lt;--128 data bytes--\&gt;&lt;cksum\&gt;</span><br><span class="line">其中:</span><br><span class="line">&lt;SOH\&gt;         = 01 hex</span><br><span class="line">&lt;blk #\&gt;       = binary number, starts at 01 increments by 1, and</span><br><span class="line">                wraps 0FFH to 00H (not to 01)</span><br><span class="line">&lt;255-blk #\&gt;   = blk # after going thru 8080 &quot;CMA&quot; instr, i.e.</span><br><span class="line">                each bit complemented in the 8-bit block number.</span><br><span class="line">                Formally, this is the &quot;ones complement&quot;.</span><br><span class="line">&lt;cksum\&gt;       = the sum of the data bytes only.  Toss any carry.</span><br></pre></td></tr></table></figure>
 <h2 id="7-3-文件级协议"><a href="#7-3-文件级协议" class="headerlink" title="7.3 文件级协议"></a>7.3 文件级协议</h2><h3 id="7-3-1-通用发送方和接收方"><a href="#7-3-1-通用发送方和接收方" class="headerlink" title="7.3.1 通用发送方和接收方"></a>7.3.1 通用发送方和接收方</h3><p>所有错误都将重试10次。对于带有操作员（即不使用XMODEM）的版本，在10次错误后将询问操作员是“重试还是退出”。</p>
-<p>某些版本的协议使用<can\>、ASCII ^X来取消传输。这从未被作为一个标准采用，因为只有一个“abort”字符使得传输容易由于<ack\><nak\>或<soh\>跳变成<can\>并中止传输而被错误终止。</can\></soh\></nak\></ack\></can\></p>
+<p>某些版本的协议使用&lt;can>、ASCII ^X来取消传输。这从未被作为一个标准采用，因为只有一个“abort”字符使得传输容易由于&lt;ack>&lt;nak>或&lt;soh>跳变成&lt;can>并中止传输而被错误终止。</p>
 <p>该协议可以被认为是“接收方驱动的”，也就是说，发送方不需要自动地重新发送，尽管在当前的实现中它是这样做的。</p>
-<h3 id="7-3-2-接收程序注意事项"><a href="#7-3-2-接收程序注意事项" class="headerlink" title="7.3.2 接收程序注意事项"></a>7.3.2 接收程序注意事项</h3><p>接收方有一个10秒的超时。每次超时时，它都会发送一个<nak\>。接收方的第一个超时，即发送一个<nak\>，向发射器发出启动信号。如果发送方准备就绪，接收方也可以立即发送一个<nak\>。这将节省最初的10秒超时。但是，接收方必须每10秒继续超时一次，以防发送方未准备好。</nak\></nak\></nak\></p>
-<p>一旦进入一个接收块，接收方进入一秒钟的每个字符和校验和超时。如果接收方想要因为一个块的任何原因（无效的头，接收数据超时）回复<nak\>时，它必须等待接收行清除。请参阅“编程提示”的想法</nak\></p>
-<p>同步——收到一个有效的块号时，它将是：1、预期的块号，在这种情况下一切正常；2、重复先前接收到的块。这应该被认为是正常的，并且只表明接收方<ack\>出现故障，发送方重新发送；3、任何其他块号都表示严重的同步丢失，例如发送方出现类似于<ack\>的线路故障的罕见情况。中止传输，发送<can\>。</can\></ack\></ack\></p>
+<h3 id="7-3-2-接收程序注意事项"><a href="#7-3-2-接收程序注意事项" class="headerlink" title="7.3.2 接收程序注意事项"></a>7.3.2 接收程序注意事项</h3><p>接收方有一个10秒的超时。每次超时时，它都会发送一个&lt;nak>。接收方的第一个超时，即发送一个&lt;nak>，向发射器发出启动信号。如果发送方准备就绪，接收方也可以立即发送一个&lt;nak>。这将节省最初的10秒超时。但是，接收方必须每10秒继续超时一次，以防发送方未准备好。</p>
+<p>一旦进入一个接收块，接收方进入一秒钟的每个字符和校验和超时。如果接收方想要因为一个块的任何原因（无效的头，接收数据超时）回复&lt;nak>时，它必须等待接收行清除。请参阅“编程提示”的想法</p>
+<p>同步——收到一个有效的块号时，它将是：1、预期的块号，在这种情况下一切正常；2、重复先前接收到的块。这应该被认为是正常的，并且只表明接收方&lt;ack>出现故障，发送方重新发送；3、任何其他块号都表示严重的同步丢失，例如发送方出现类似于&lt;ack>的线路故障的罕见情况。中止传输，发送&lt;can>。</p>
 <h3 id="7-3-3-发送程序注意事项"><a href="#7-3-3-发送程序注意事项" class="headerlink" title="7.3.3 发送程序注意事项"></a>7.3.3 发送程序注意事项</h3><p>在等待传输开始时，发送方只有一个很长的超时时间，比如一分钟。在当前协议中，发送方在重试前有10秒的超时时间。我建议不要这样做，让协议完全由接收方驱动。这将与现有程序兼容。</p>
-<p>当发送方没有更多的数据时，它发送一个<eot\>，并等待一个<ack\>，如果它没有得到一个<ack\>，则重新发送该<eot\>。同样，该协议可以由接收方驱动，发送方只有高级别的1分钟超时时间去中止。</eot\></ack\></ack\></eot\></p>
-<p>这是数据流的一个示例，发送一个3块消息。它包括两个最常见的行命中-一个垃圾块和一个被垃圾的应答。<xx\>表示校验和字节。</xx\></p>
-<h4 id="例10-包括错误恢复的数据流："><a href="#例10-包括错误恢复的数据流：" class="headerlink" title="例10.包括错误恢复的数据流："></a>例10.包括错误恢复的数据流：</h4><div class="table-container">
-<table>
+<p>当发送方没有更多的数据时，它发送一个&lt;eot>，并等待一个&lt;ack>，如果它没有得到一个&lt;ack>，则重新发送该&lt;eot>。同样，该协议可以由接收方驱动，发送方只有高级别的1分钟超时时间去中止。</p>
+<p>这是数据流的一个示例，发送一个3块消息。它包括两个最常见的行命中-一个垃圾块和一个被垃圾的应答。&lt;xx>表示校验和字节。</p>
+<h4 id="例10-包括错误恢复的数据流："><a href="#例10-包括错误恢复的数据流：" class="headerlink" title="例10.包括错误恢复的数据流："></a>例10.包括错误恢复的数据流：</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -961,46 +946,46 @@
 </tr>
 <tr>
 <td></td>
-<td><nak\></nak\></td>
+<td>&lt;nak></td>
 </tr>
 <tr>
-<td><soh\> 01 FE -data- <xx\></xx\></soh\></td>
+<td>&lt;soh> 01 FE -data- &lt;xx></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><soh\> 02 FD -data- xx</soh\></td>
+<td>&lt;soh> 02 FD -data- xx</td>
 <td>(data gets line hit)</td>
 </tr>
 <tr>
 <td></td>
-<td><nak\></nak\></td>
+<td>&lt;nak></td>
 </tr>
 <tr>
-<td><soh\> 02 FD -data- xx</soh\></td>
+<td>&lt;soh> 02 FD -data- xx</td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><soh\> 03 FC -data- xx</soh\></td>
+<td>&lt;soh> 03 FC -data- xx</td>
 <td></td>
 </tr>
 <tr>
 <td>(ack gets garbaged)</td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><soh\> 03 FC -data- xx</soh\></td>
-<td><ack\></ack\></td>
+<td>&lt;soh> 03 FC -data- xx</td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><eot\></eot\></td>
+<td>&lt;eot></td>
 <td></td>
 </tr>
 <tr>
@@ -1008,12 +993,12 @@
 <td><anything except="" ack\=""></anything></td>
 </tr>
 <tr>
-<td><eot\></eot\></td>
+<td>&lt;eot></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
 <td>(finished)</td>
@@ -1021,31 +1006,29 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="7-4-编程提示"><a href="#7-4-编程提示" class="headerlink" title="7.4 编程提示"></a>7.4 编程提示</h2><p>应使用指定等待秒数的参数调用字符接收子例程。接收方应首先以10秒的时间调用它，回复<nak\>后再试10次。</nak\></p>
-<p>在接收到<soh\>之后，接收方应该调用字符接收子例程，对消息的剩余部分和<cksum\>进行1秒超时。由于它们是作为连续流发送的，因此超时意味着一个严重的故障，例如，导致看到127个字符而不是128个字符。</cksum\></soh\></p>
-<p>当接收者希望<nak\>时，它应该调用一个“清除”子程序，等待行被清除。调用发送者在完成一个块的发送后立即在其UART缓冲区中抛弃任何字符，以确保没有误读的小差错。</nak\></p>
-<p>最常见的技术是“PURGE”调用字符接收子程序，指定1秒超时（应调整这些时间，以便与分时系统一起使用），并循环回PURGE，直到出现超时。然后发送<nak\>，确保另一端看到它。</nak\></p>
-<p>您可能希望将John Mahr推荐的代码添加到您的字符接收例程中，以便在UART显示帧错误时设置错误标志，或溢出。这将有助于捕捉更多的小故障——其中最常见的是两个连续字节中字节高位的命中。<cksum\>则显示正常，因为在1字节中计数产生的结果与在加00H+00H时加80H+80H的结果相同。</cksum\></p>
-<h2 id="8-XMODEM-CRC概述"><a href="#8-XMODEM-CRC概述" class="headerlink" title="8.XMODEM/CRC概述"></a>8.XMODEM/CRC概述</h2><p>Original 1/13/85 by John Byrns — CRC option.</p>
+<h2 id="7-4-编程提示"><a href="#7-4-编程提示" class="headerlink" title="7.4 编程提示"></a>7.4 编程提示</h2><p>应使用指定等待秒数的参数调用字符接收子例程。接收方应首先以10秒的时间调用它，回复&lt;nak>后再试10次。</p>
+<p>在接收到&lt;soh>之后，接收方应该调用字符接收子例程，对消息的剩余部分和&lt;cksum>进行1秒超时。由于它们是作为连续流发送的，因此超时意味着一个严重的故障，例如，导致看到127个字符而不是128个字符。</p>
+<p>当接收者希望&lt;nak>时，它应该调用一个“清除”子程序，等待行被清除。调用发送者在完成一个块的发送后立即在其UART缓冲区中抛弃任何字符，以确保没有误读的小差错。</p>
+<p>最常见的技术是“PURGE”调用字符接收子程序，指定1秒超时（应调整这些时间，以便与分时系统一起使用），并循环回PURGE，直到出现超时。然后发送&lt;nak>，确保另一端看到它。</p>
+<p>您可能希望将John Mahr推荐的代码添加到您的字符接收例程中，以便在UART显示帧错误时设置错误标志，或溢出。这将有助于捕捉更多的小故障——其中最常见的是两个连续字节中字节高位的命中。&lt;cksum>则显示正常，因为在1字节中计数产生的结果与在加00H+00H时加80H+80H的结果相同。</p>
+<h2 id="8-XMODEM-CRC概述"><a href="#8-XMODEM-CRC概述" class="headerlink" title="8.XMODEM/CRC概述"></a>8.XMODEM/CRC概述</h2><p>Original 1/13/85 by John Byrns – CRC option.</p>
 <p>调制解调器协议中使用的CRC是块检查的另一种形式，它提供比原始校验和更健壮的错误检测。安德鲁S。Tanenbaum在他的书《计算机网络》中说，调制解调器协议使用的CRC-CCITT将检测所有的单位和双位错误、所有的奇数位错误、所有长度为16或更少的突发错误、99.997%的17位错误突发以及99.998%的18位和更长的突发错误。（此可靠性数字具有误导性，因为XMODEM的关键监控功能不受此CRC保护）</p>
 <p>用CRC替换校验和的调制解调器协议的改变是直接的。如果我们只做了这些，我们就不能在使用旧校验和协议的程序和使用新CRC协议的程序之间进行通信。添加了初始握手来解决此问题。握手允许具有CRC功能的接收程序确定发送程序是否支持CRC选项，如果支持，则将其切换到CRC模式。这种握手的设计使它能够在只实现原始协议的程序中正常工作。关于这种握手的描述见第10节。</p>
 <h4 id="例11消息块级协议，CRC模式，CRC模式下传输的每个字节块如下所示："><a href="#例11消息块级协议，CRC模式，CRC模式下传输的每个字节块如下所示：" class="headerlink" title="例11消息块级协议，CRC模式，CRC模式下传输的每个字节块如下所示："></a>例11消息块级协议，CRC模式，CRC模式下传输的每个字节块如下所示：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">     &lt;SOH\&gt;&lt;blk #\&gt;&lt;255-blk #\&gt;&lt;--128 data bytes--\&gt;&lt;CRC hi\&gt;&lt;CRC lo\&gt;</span><br><span class="line">其中:</span><br><span class="line">&lt;SOH\&gt;        = 01 hex</span><br><span class="line">&lt;blk #\&gt;      = binary number, starts at 01 increments by 1, and</span><br><span class="line">               wraps 0FFH to 00H (not to 01)</span><br><span class="line">&lt;255-blk #\&gt;  = ones complement of blk #.</span><br><span class="line">&lt;CRC hi\&gt;     = byte containing the 8 hi order coefficients of the CRC.</span><br><span class="line">&lt;CRC lo\&gt;     = byte containing the 8 lo order coefficients of the CRC.</span><br></pre></td></tr></table></figure>
 <h2 id="8-1-CRC计算"><a href="#8-1-CRC计算" class="headerlink" title="8.1 CRC计算"></a>8.1 CRC计算</h2><h3 id="8-1-1-形式定义"><a href="#8-1-1-形式定义" class="headerlink" title="8.1.1 形式定义"></a>8.1.1 形式定义</h3><p>计算16位CRC的形式定义消息位被认为是多项式的系数。此消息多项式首先乘以X^16，然后使用模2算法除以生成器多项式（X^16+X^12+X^5+1）。除法后的剩余部分是所需的CRC。由于调制解调器协议中的消息块是128字节或1024位，因此消息多项式的阶数为X^1023。消息块第一个字节的高阶位是消息多项式中X^1023的系数。消息块最后一个字节的低阶位是消息多项式中X^0的系数。</p>
 <h4 id="例12-用C编写的CRC计算示例"><a href="#例12-用C编写的CRC计算示例" class="headerlink" title="例12.用C编写的CRC计算示例"></a>例12.用C编写的CRC计算示例</h4><p>以下XMODEM crc例程取自“rbsb.c”。有关用法，请参阅这些程序的源代码（包含在RZSZ.ZOO中）。此文件中还包含一个快速表驱动版本。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* update CRC */</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span></span><br><span class="line">updcrc(c, crc)</span><br><span class="line"><span class="keyword">register</span> c;</span><br><span class="line"><span class="keyword">register</span> <span class="keyword">unsigned</span> crc;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">register</span> count;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (count=<span class="number">8</span>; --count\&gt;=<span class="number">0</span>;) &#123;</span><br><span class="line">                <span class="keyword">if</span> (crc &amp; <span class="number">0x8000</span>) &#123;</span><br><span class="line">                        crc &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">                        crc += (((c&lt;&lt;=<span class="number">1</span>) &amp; <span class="number">0400</span>)  !=  <span class="number">0</span>);</span><br><span class="line">                        crc ^= <span class="number">0x1021</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                        crc &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">                        crc += (((c&lt;&lt;=<span class="number">1</span>) &amp; <span class="number">0400</span>)  !=  <span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> crc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="8-2-CRC文件级协议更改"><a href="#8-2-CRC文件级协议更改" class="headerlink" title="8.2 CRC文件级协议更改"></a>8.2 CRC文件级协议更改</h2><h3 id="8-2-1-发送方和接收方的通用协议"><a href="#8-2-1-发送方和接收方的通用协议" class="headerlink" title="8.2.1 发送方和接收方的通用协议"></a>8.2.1 发送方和接收方的通用协议</h3><p>CRC选项文件级协议的唯一变化是初始握手，用于确定发送和接收程序是否都支持CRC模式。所有调制解调器程序都应支持校验和模式，以便与旧版本兼容。希望以CRC模式接收的接收程序通过发送<c\>来代替初始<nak\>来实现模式设置握手。如果发送程序支持CRC模式，它将识别<c\>，并将自己设置为CRC模式，并通过发送第一个块来作出响应，如同已接收到<nak\>。如果发送程序不支持CRC模式，它将根本不响应<c\>。在接收方发送<c\>后，它将等待最多3秒钟，等待启动第一个块的<soh\>。如果它在3秒内收到<soh\>，它将假定发送方支持CRC模式，并将在CRC模式下继续进行文件交换。如果在3秒内未收到<soh\>，接收器将切换到校验和模式，发送<nak\>，并在校验和模式下继续。如果接收方希望使用校验和模式，它应该发送一个初始的<nak\>，并且发送程序应该响应原始调制解调器协议中定义的<nak\>。在通过初始<c\>或<nak\>设置模式后，协议遵循原始调制解调器协议，并且无论使用校验和还是CRC都是相同的。</nak\></c\></nak\></nak\></nak\></soh\></soh\></soh\></c\></c\></nak\></c\></nak\></c\></p>
+<h2 id="8-2-CRC文件级协议更改"><a href="#8-2-CRC文件级协议更改" class="headerlink" title="8.2 CRC文件级协议更改"></a>8.2 CRC文件级协议更改</h2><h3 id="8-2-1-发送方和接收方的通用协议"><a href="#8-2-1-发送方和接收方的通用协议" class="headerlink" title="8.2.1 发送方和接收方的通用协议"></a>8.2.1 发送方和接收方的通用协议</h3><p>CRC选项文件级协议的唯一变化是初始握手，用于确定发送和接收程序是否都支持CRC模式。所有调制解调器程序都应支持校验和模式，以便与旧版本兼容。希望以CRC模式接收的接收程序通过发送&lt;C>来代替初始&lt;nak>来实现模式设置握手。如果发送程序支持CRC模式，它将识别&lt;C>，并将自己设置为CRC模式，并通过发送第一个块来作出响应，如同已接收到&lt;nak>。如果发送程序不支持CRC模式，它将根本不响应&lt;C>。在接收方发送&lt;C>后，它将等待最多3秒钟，等待启动第一个块的&lt;soh>。如果它在3秒内收到&lt;soh>，它将假定发送方支持CRC模式，并将在CRC模式下继续进行文件交换。如果在3秒内未收到&lt;soh>，接收器将切换到校验和模式，发送&lt;nak>，并在校验和模式下继续。如果接收方希望使用校验和模式，它应该发送一个初始的&lt;nak>，并且发送程序应该响应原始调制解调器协议中定义的&lt;nak>。在通过初始&lt;C>或&lt;nak>设置模式后，协议遵循原始调制解调器协议，并且无论使用校验和还是CRC都是相同的。</p>
 <h3 id="8-2-2-接收程序注意事项"><a href="#8-2-2-接收程序注意事项" class="headerlink" title="8.2.2 接收程序注意事项"></a>8.2.2 接收程序注意事项</h3><p>模式设置握手至少有4种情况会出错。</p>
-<p>1.首字母<c\>可能会被混淆或丢失。</c\></p>
-<p>2.首字母<soh\>可能会被混淆。</soh\></p>
-<p>3.初始<c\>可以改变为<nak\>。</nak\></c\></p>
-<p>4.想要在checksum中接收的接收方的初始<nak\>可以改变为<c\>。</c\></nak\></p>
-<p>如果接收方在第一次超时后发送第二个<c\>，第一个问题就可以解决。这个过程可以重复几次。在发送<nak\>并切换到校验和模式之前，不能重复太多次，否则没有CRC支持的发送程序可能会超时并中止。重复<c\>也将解决第二个问题，如果发送程序通过响应来协作，就像接收到<nak\>而不是忽略额外的<c\>。</c\></nak\></c\></nak\></c\></p>
-<p>可以解决问题3和4，但可能不值得麻烦，因为它们很少发生。它们可以通过在大量连续<nak\>之后在发送或接收程序中切换模式来固定。然而，这种解决方案可能会带来其他问题。</nak\></p>
-<h3 id="8-2-3-发送程序注意事项"><a href="#8-2-3-发送程序注意事项" class="headerlink" title="8.2.3 发送程序注意事项"></a>8.2.3 发送程序注意事项</h3><p>发送程序应以校验和模式启动。这将确保与只接收校验和的程序兼容。每当在第一个<nak\>或<ack\>之前接收到<c\>时，发送程序应将自身设置为CRC模式，并像接收到<nak\>一样响应。在收到第一个<ack\>之前，发送方应该像响应<nak\>一样响应额外的<c\>。这将有助于接收程序在<soh\>丢失或乱码时确定正确的模式。收到第一个<ack\>后，发送程序应忽略<c\>。</c\></ack\></soh\></c\></nak\></ack\></nak\></c\></ack\></nak\></p>
-<h2 id="8-3-带CRC选项的数据流示例"><a href="#8-3-带CRC选项的数据流示例" class="headerlink" title="8.3 带CRC选项的数据流示例"></a>8.3 带CRC选项的数据流示例</h2><p>这里是用于接收方请求以CRC模式传输但发送方不支持CRC选项的情况的数据流示例。此示例还包括各种传输错误。<xx\>表示校验和字节。</xx\></p>
-<h4 id="例13-数据流：接收方有CRC选项，发送方没有"><a href="#例13-数据流：接收方有CRC选项，发送方没有" class="headerlink" title="例13.数据流：接收方有CRC选项，发送方没有"></a>例13.数据流：接收方有CRC选项，发送方没有</h4><div class="table-container">
-<table>
+<p>1.首字母&lt;C>可能会被混淆或丢失。</p>
+<p>2.首字母&lt;soh>可能会被混淆。</p>
+<p>3.初始&lt;C>可以改变为&lt;nak>。</p>
+<p>4.想要在checksum中接收的接收方的初始&lt;nak>可以改变为&lt;C>。</p>
+<p>如果接收方在第一次超时后发送第二个&lt;C>，第一个问题就可以解决。这个过程可以重复几次。在发送&lt;nak>并切换到校验和模式之前，不能重复太多次，否则没有CRC支持的发送程序可能会超时并中止。重复&lt;C>也将解决第二个问题，如果发送程序通过响应来协作，就像接收到&lt;nak>而不是忽略额外的&lt;C>。</p>
+<p>可以解决问题3和4，但可能不值得麻烦，因为它们很少发生。它们可以通过在大量连续&lt;nak>之后在发送或接收程序中切换模式来固定。然而，这种解决方案可能会带来其他问题。</p>
+<h3 id="8-2-3-发送程序注意事项"><a href="#8-2-3-发送程序注意事项" class="headerlink" title="8.2.3 发送程序注意事项"></a>8.2.3 发送程序注意事项</h3><p>发送程序应以校验和模式启动。这将确保与只接收校验和的程序兼容。每当在第一个&lt;nak>或&lt;ack>之前接收到&lt;C>时，发送程序应将自身设置为CRC模式，并像接收到&lt;nak>一样响应。在收到第一个&lt;ack>之前，发送方应该像响应&lt;nak>一样响应额外的&lt;C>。这将有助于接收程序在&lt;soh>丢失或乱码时确定正确的模式。收到第一个&lt;ack>后，发送程序应忽略&lt;C>。</p>
+<h2 id="8-3-带CRC选项的数据流示例"><a href="#8-3-带CRC选项的数据流示例" class="headerlink" title="8.3 带CRC选项的数据流示例"></a>8.3 带CRC选项的数据流示例</h2><p>这里是用于接收方请求以CRC模式传输但发送方不支持CRC选项的情况的数据流示例。此示例还包括各种传输错误。&lt;xx>表示校验和字节。</p>
+<h4 id="例13-数据流：接收方有CRC选项，发送方没有"><a href="#例13-数据流：接收方有CRC选项，发送方没有" class="headerlink" title="例13.数据流：接收方有CRC选项，发送方没有"></a>例13.数据流：接收方有CRC选项，发送方没有</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -1055,7 +1038,7 @@
 <tbody>
 <tr>
 <td></td>
-<td><c\></c\></td>
+<td>&lt;C></td>
 </tr>
 <tr>
 <td></td>
@@ -1063,7 +1046,7 @@
 </tr>
 <tr>
 <td></td>
-<td><c\></c\></td>
+<td>&lt;C></td>
 </tr>
 <tr>
 <td></td>
@@ -1071,7 +1054,7 @@
 </tr>
 <tr>
 <td></td>
-<td><c\></c\></td>
+<td>&lt;C></td>
 </tr>
 <tr>
 <td></td>
@@ -1079,7 +1062,7 @@
 </tr>
 <tr>
 <td></td>
-<td><c\></c\></td>
+<td>&lt;C></td>
 </tr>
 <tr>
 <td></td>
@@ -1087,39 +1070,39 @@
 </tr>
 <tr>
 <td></td>
-<td><nak\></nak\></td>
+<td>&lt;nak></td>
 </tr>
 <tr>
-<td><soh\> 01 FE -data- <xx\></xx\></soh\></td>
+<td>&lt;soh> 01 FE -data- &lt;xx></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><soh\> 02 FD -data- <xx\></xx\></soh\></td>
+<td>&lt;soh> 02 FD -data- &lt;xx></td>
 <td>(data gets line hit)</td>
 </tr>
 <tr>
 <td></td>
-<td><nak\></nak\></td>
+<td>&lt;nak></td>
 </tr>
 <tr>
-<td><soh\> 02 FD -data- <xx\></xx\></soh\></td>
+<td>&lt;soh> 02 FD -data- &lt;xx></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><soh\> 03 FC -data- <xx\></xx\></soh\></td>
+<td>&lt;soh> 03 FC -data- &lt;xx></td>
 <td></td>
 </tr>
 <tr>
 <td>(ack gets garbaged)</td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
 <td></td>
@@ -1127,30 +1110,28 @@
 </tr>
 <tr>
 <td></td>
-<td><nak\></nak\></td>
+<td>&lt;nak></td>
 </tr>
 <tr>
-<td><soh\> 03 FC -data- <xx\></xx\></soh\></td>
+<td>&lt;soh> 03 FC -data- &lt;xx></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><eot\></eot\></td>
+<td>&lt;eot></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>以下是一个数据流示例，用于接收端以CRC模式请求传输，而发送端支持CRC选项的情况。此示例还包括各种传输错误。<xxxx\>表示2个CRC字节。</xxxx\></p>
-<h4 id="例14-接收方和发送方都有CRC选项"><a href="#例14-接收方和发送方都有CRC选项" class="headerlink" title="例14.接收方和发送方都有CRC选项"></a>例14.接收方和发送方都有CRC选项</h4><div class="table-container">
-<table>
+<p>以下是一个数据流示例，用于接收端以CRC模式请求传输，而发送端支持CRC选项的情况。此示例还包括各种传输错误。&lt;xxxx>表示2个CRC字节。</p>
+<h4 id="例14-接收方和发送方都有CRC选项"><a href="#例14-接收方和发送方都有CRC选项" class="headerlink" title="例14.接收方和发送方都有CRC选项"></a>例14.接收方和发送方都有CRC选项</h4><table>
 <thead>
 <tr>
 <th>SENDER</th>
@@ -1160,39 +1141,39 @@
 <tbody>
 <tr>
 <td></td>
-<td><c\></c\></td>
+<td>&lt;C></td>
 </tr>
 <tr>
-<td><soh\> 01 FE -data- <xxxx\></xxxx\></soh\></td>
+<td>&lt;soh> 01 FE -data- &lt;xxxx></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><soh\> 02 FD -data- <xxxx\></xxxx\></soh\></td>
+<td>&lt;soh> 02 FD -data- &lt;xxxx></td>
 <td>(data gets line hit)</td>
 </tr>
 <tr>
 <td></td>
-<td><nak\></nak\></td>
+<td>&lt;nak></td>
 </tr>
 <tr>
-<td><soh\> 02 FD -data- <xxxx\></xxxx\></soh\></td>
+<td>&lt;soh> 02 FD -data- &lt;xxxx></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><soh\> 03 FC -data- <xxxx\></xxxx\></soh\></td>
+<td>&lt;soh> 03 FC -data- &lt;xxxx></td>
 <td></td>
 </tr>
 <tr>
 <td>(ack gets garbaged)</td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
 <td></td>
@@ -1200,27 +1181,26 @@
 </tr>
 <tr>
 <td></td>
-<td><nak\></nak\></td>
+<td>&lt;nak></td>
 </tr>
 <tr>
-<td><soh\> 03 FC -data- <xxxx\></xxxx\></soh\></td>
+<td>&lt;soh> 03 FC -data- &lt;xxxx></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 <tr>
-<td><eot\></eot\></td>
+<td>&lt;eot></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td><ack\></ack\></td>
+<td>&lt;ack></td>
 </tr>
 </tbody>
 </table>
-</div>
 <h2 id="9-更多信息"><a href="#9-更多信息" class="headerlink" title="9.更多信息"></a>9.更多信息</h2><p>请联系Omen科技公司获取本文件的troff源文件和排版副本。</p>
 <h2 id="9-1-TeleGodzilla公告栏"><a href="#9-1-TeleGodzilla公告栏" class="headerlink" title="9.1 TeleGodzilla公告栏"></a>9.1 TeleGodzilla公告栏</h2><p>更多信息可致电（503-621-3746）TeleGodzilla获得。（余略）</p>
 <p>有用的文件包括RZSZ.ZOO（C源代码）、YZMODEM.ZOO（官方的XMODEM、YMODEM和ZMODEM协议描述）、ZCOMMEXE.ARC、ZCOMMDOC.ARC和ZCOMMHLP.ARC（PC-DOS共享程序，包括XMODEM、True YMODEM（TM）、ZMODEM、Kermit Sliding Windows、Telink、MODEM7 Batch、script language等）。</p>
@@ -1328,6 +1308,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/Technology/U盘般丝滑的云盘/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          U盘般丝滑的云盘
+        
+      </div>
+    </a>
   
   
     <a href="/Reflections/《刘擎西方现代思想讲义》读书笔记/" id="article-nav-older" class="article-nav-link-wrap">
@@ -1514,19 +1503,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
