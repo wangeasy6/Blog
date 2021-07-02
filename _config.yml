@@ -82,7 +82,7 @@ theme: easy
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repo: https://gitee.com/EasyW/EasyW.git    # deploy之后要到https://gitee.com/EasyW/EasyW/pages更新一下
+  repo: git@gitee.com:EasyW/EasyW.git    # deploy之后要到https://gitee.com/EasyW/EasyW/pages更新一下
   branch: master
   message: "Blog updated"
 - type: git

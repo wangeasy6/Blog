@@ -6,6 +6,7 @@ categories:
   - Technology
 tags:
   - C++
+  - 嵌入式
 ---
 
 ![Cover](/resources/embedded_web/cover.jpg)

@@ -7,7 +7,7 @@ categories:
 tags:
   - Python
   - Data
-  - Embedded
+  - 嵌入式
 ---
 
 ![cover.png](/resources/51job_data_analysis/cover.png)
