@@ -8,7 +8,7 @@ tags:
   - QT
 ---
 
-![Cover.png](/resources/Cover/qt_signal_and_slot.png)
+<img src="/resources/Cover/qt_signal_and_slot.png" width=480 height=240 />
 
 * [new的控件需要delete吗？](/Technology/关于QT的几个疑问#new的控件需要delete吗？)
 
