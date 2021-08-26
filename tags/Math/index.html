@@ -6,21 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>一批产品要达到90%的合格率，需要测试多少个合格？ | Easy Wang</title>
+  <title>Tag: Math | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在做一批硬件产品的合格测试的时候，测到了一半1个有问题的都没有，不禁想不会剩下的都没问题吧！一定要全测完吗？ 为了不浪费时间，我们来稍作思考。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="一批产品要达到90%的合格率，需要测试多少个合格？">
-<meta property="og:url" content="http://www.wangeasy.com/math/产品合格率预估问题/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Easy Wang">
+<meta property="og:url" content="http://www.wangeasy.com/tags/Math/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="最近在做一批硬件产品的合格测试的时候，测到了一半1个有问题的都没有，不禁想不会剩下的都没问题吧！一定要全测完吗？ 为了不浪费时间，我们来稍作思考。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.wangeasy.com/resources/estimated_pass_rate/cover.webp">
-<meta property="og:updated_time" content="2021-04-25T15:53:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一批产品要达到90%的合格率，需要测试多少个合格？">
-<meta name="twitter:description" content="最近在做一批硬件产品的合格测试的时候，测到了一半1个有问题的都没有，不禁想不会剩下的都没问题吧！一定要全测完吗？ 为了不浪费时间，我们来稍作思考。">
-<meta name="twitter:image" content="http://www.wangeasy.com/resources/estimated_pass_rate/cover.webp">
+<meta name="twitter:title" content="Easy Wang">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -177,224 +171,124 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-产品合格率预估问题" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      一批产品要达到90%的合格率，需要测试多少个合格？
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/Technology/LearnMatrixByPython/" class="archive-article-date">
+  	<time datetime="2021-08-26T07:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Technology/LearnMatrixByPython/">线性代数的Python示例</a>
     </h1>
   
 
-        
-        <a href="/math/产品合格率预估问题/" class="archive-article-date">
-  	<time datetime="2021-04-25T15:51:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-25</time>
-</a>
-        
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-        <!-- 不蒜子计数器 -->
-        
-            <span class="archive-article-date">
-                阅读量 <span id="busuanzi_value_page_pv"></span>
-            </span>
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/estimated_pass_rate/cover.webp" alt="Cover"></p>
-<p>最近在做一批硬件产品的合格测试的时候，测到了一半1个有问题的都没有，不禁想不会剩下的都没问题吧！一定要全测完吗？</p>
-<p>为了不浪费时间，我们来稍作思考。</p>
-<a id="more"></a>
-<p><br></p>
-<h3 id="推理"><a href="#推理" class="headerlink" title="推理"></a>推理</h3><p>假设现有一批产品100个，测试顺序完全随机。如果要达到90%的合格率，那么至少就要有90个合格。但如果前90个全部合格，那么按照此时90%的合格率，保守估计剩下的10个里面应该也有9个是合格的，那么此时可预测的合格率就不是90%了，而是99%。</p>
-<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>根据上诉推理，假设产品总数为$N$，已测试为$t$，测试合格为$n$，测试不合格为$m$，可得以下几个公式：</p>
-<ul>
-<li>实际合格率：$\frac n N$</li>
-<li>预估（保守）合格率：$\frac {n+n/N*(N-t)} N$</li>
-<li>预估（激进）合格率：$\frac {n+n/t*(N-t)} N$</li>
-<li>预估（平衡）合格率：$\frac {n + (\frac {n} {2N} + \frac {n} {2t}) *(N-t)} N$</li>
-<li>实际不合格率：$\frac m N$</li>
-<li>预估（保守）不合格率：$\frac {m+m/N*(N-t)} N$</li>
-<li>预估（激进）不合格率：$\frac {m+m/t*(N-t)} N$</li>
-<li>预估（平衡）不合格率：$\frac {m + (\frac {m} {2N} + \frac {m} {2t}) *(N-t)} N$</li>
-</ul>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>预估合格率的中心思想，就是以当前的测试情况来预估剩下未测试的产品中有多少合格/不合格数，再加上已经测试的，除以总数。</p>
-<p>在预估的时候，就有两个情况，一是使用当前的实际合格率作为剩余产品的合格/不合格率来预估，二是使用合格/不合格数在已测试的产品中的占比，作为剩余产品的合格/不合格率来预估。</p>
-<p>按理来说，使用已有的测试数据中的合格/不合格率来预测剩下的产品的合格/不合格数量的第二种预测方式是符合常理的，就是以以往的数据来预测未来嘛。但是这个公式在数量较少的时候往往是比较过激的，比如测试了1个并且这个正好是合格的时候，此时的预估合格率就是100%；而第一种预估方法，在测试了90个合格之后，也不敢说剩下的10个中全是合格的，相对来说就比较保守了。</p>
-<p>所以将二者结合的算法，平均了二者的预测率，是比较平衡的一种估值方式。</p>
-<h3 id="Python脚本"><a href="#Python脚本" class="headerlink" title="Python脚本"></a><a href="/resources/estimated_pass_rate/estimated_pass_rate.py">Python脚本</a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># estimated_pass_rate.py</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">actualPassedRate</span><span class="params">(total, passed)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> passed/total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">estimatedConservativePassedRate</span><span class="params">(total, tested, passed)</span>:</span></span><br><span class="line">    estimated_passed = passed/total * (total - tested)</span><br><span class="line">    <span class="keyword">return</span> (estimated_passed + passed) / total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">estimatedRadicalPassedRate</span><span class="params">(total, tested, passed)</span>:</span></span><br><span class="line">    estimated_passed = passed/tested * (total - tested)</span><br><span class="line">    <span class="keyword">return</span> (estimated_passed + passed) / total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">estimatedBalancedPassedRate</span><span class="params">(total, tested, passed)</span>:</span></span><br><span class="line">    estimated_passed = (passed/tested + passed/total) * (total - tested)</span><br><span class="line">    estimated_passed /= <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> (estimated_passed + passed) / total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">actualFailedRate</span><span class="params">(total, failed)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> failed/total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">estimatedConservativeFailedRate</span><span class="params">(total, tested, failed)</span>:</span></span><br><span class="line">    estimated_failed = failed/total * (total - tested)</span><br><span class="line">    <span class="keyword">return</span> (estimated_failed + failed) / total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">estimatedRadicalFailedRate</span><span class="params">(total, tested, failed)</span>:</span></span><br><span class="line">    estimated_failed = failed/tested * (total - tested)</span><br><span class="line">    <span class="keyword">return</span> (estimated_failed + failed) / total</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">estimatedBalancedFailedRate</span><span class="params">(total, tested, failed)</span>:</span></span><br><span class="line">    estimated_failed = (failed/tested + failed/total) * (total - tested)</span><br><span class="line">    estimated_failed /= <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> (estimated_failed + failed) / total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    N = <span class="number">100</span></span><br><span class="line">    t = <span class="number">60</span></span><br><span class="line">    n = <span class="number">60</span></span><br><span class="line">    m = t - n</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"总测试数：&#123;&#125;  已测试：&#123;&#125;  合格数：&#123;&#125;  不合格数：&#123;&#125;"</span>.format(N, t, n, m))</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"实际合格率：&#123;:.1%&#125;"</span>.format( actualPassedRate(N, n) ))</span><br><span class="line">    print(<span class="string">"预估（保守）合格率：&#123;:.1%&#125;"</span>.format( estimatedConservativePassedRate(N, t, n) ))</span><br><span class="line">    print(<span class="string">"预估（激进）合格率：&#123;:.1%&#125;"</span>.format( estimatedRadicalPassedRate(N, t, n) ))</span><br><span class="line">    print(<span class="string">"预估（平衡）合格率：&#123;:.1%&#125;"</span>.format( estimatedBalancedPassedRate(N, t, n) ))</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"实际不合格率：&#123;:.1%&#125;"</span>.format( actualFailedRate(N, m) ))</span><br><span class="line">    print(<span class="string">"预估（保守）不合格率：&#123;:.1%&#125;"</span>.format( estimatedConservativeFailedRate(N, t, m) ))</span><br><span class="line">    print(<span class="string">"预估（激进）不合格率：&#123;:.1%&#125;"</span>.format( estimatedRadicalFailedRate(N, t, m) ))</span><br><span class="line">    print(<span class="string">"预估（平衡）不合格率：&#123;:.1%&#125;"</span>.format( estimatedBalancedFailedRate(N, t, m) ))</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">总测试数：100  已测试：55  合格数：55  不合格数：0</span><br><span class="line">实际合格率：55.0%</span><br><span class="line">预估（保守）合格率：79.8%</span><br><span class="line">预估（激进）合格率：100.0%</span><br><span class="line">预估（平衡）合格率：89.9%</span><br><span class="line">实际不合格率：0.0%</span><br><span class="line">预估（保守）不合格率：0.0%</span><br><span class="line">预估（激进）不合格率：0.0%</span><br><span class="line">预估（平衡）不合格率：0.0%</span><br></pre></td></tr></table></figure>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>上例就可以回答我们的问题啦，只要连续测试55%个合格的产品，这批产品的合格率预估就已经达到90%了。</p>
-<p>这里的公式有一定的参考意义，但是在测试数量较少的情况下，还是全测吧。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/math//" class="article-tag-list-link color5">math</a>
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/math/产品合格率预估问题/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/Technology/QT UI进阶 - 透明圆角阴影效果/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          QT UI进阶 - 透明圆角阴影效果
-        
-      </div>
-    </a>
-  
-  
-    <a href="/Technology/手写HTTP报文/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">手写HTTP报文</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/Technology/产品合格率预估问题/" class="archive-article-date">
+  	<time datetime="2021-04-25T15:51:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-25</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#推理"><span class="toc-number">1.</span> <span class="toc-text">推理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公式"><span class="toc-number">2.</span> <span class="toc-text">公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#说明"><span class="toc-number">3.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python脚本"><span class="toc-number">4.</span> <span class="toc-text">Python脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最后"><span class="toc-number">5.</span> <span class="toc-text">最后</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Technology/产品合格率预估问题/">一批产品要达到90%的合格率，需要测试多少个合格？</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
-
-  
-    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
-      <div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'true' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
-            app_key: "qSkWaIIPWzNQirOz8LDaici7",
-            placeholder: "欢迎留言！",
-            avatar:""
-        });
-    }
-</script>
-    </section>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -429,9 +323,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -504,6 +398,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基金</a>
               </li>
              
@@ -520,6 +418,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Math</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
@@ -529,10 +431,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
               </li>
              
               <li class="article-tag-list-item">
