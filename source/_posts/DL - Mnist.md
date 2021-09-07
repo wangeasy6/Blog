@@ -3,6 +3,8 @@ title: 'DL - Minst'
 toc: true
 categories:
   - Technology
+tag:
+  - AI
 date: 2020-06-15 20:57:08
 ---
 
@@ -35,8 +37,10 @@ Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0
 
 4.安装对应TensorFlow版本的CUDA
 
-   1. [TensorFlow与CUDA版本对应关系](https://tensorflow.google.cn/install/source_windows#gpu)
-   2. [CUDA下载地址](https://developer.nvidia.com/cuda-toolkit-archive)
+   1. 查询显卡支持的CUDA版本，在终端输入命令`nvidia-smi`，在输出中有“CUDA Version：”
+   2. [TensorFlow与CUDA版本对应关系](https://tensorflow.google.cn/install/source_windows#gpu)
+   3. [CUDA下载地址](https://developer.nvidia.com/cuda-toolkit-archive)
+   4. 在终端输入`nvcc -V`查看是否成功安装
 
 5.安装对应CUDA版本的cuDNN
 
@@ -364,9 +368,11 @@ model = Sequential(
 **原型**：`keras.activations.softmax(x, axis=-1)`
 
 Softmax 激活函数：
+
 $$
 S_i =\frac{e^i}{\sum e^j}
 $$
+
 **参数**
 
 - **x**：张量。
@@ -383,9 +389,11 @@ $$
 ##### sigmoid
 
 也称logistic函数，映射区间（0, 1）。
+
 $$
 f(x) = \frac1{1 + e^{-x}}
 $$
+
 函数图像：
 
 ![sigmod.png](/resources/mnist/sigmoid.gif)

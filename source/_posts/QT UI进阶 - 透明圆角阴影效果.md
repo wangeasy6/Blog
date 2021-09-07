@@ -6,7 +6,7 @@ categories:
   - Technology
 tags:
   - QT
-  - c++
+  - C++
   - 树莓派
 ---
 

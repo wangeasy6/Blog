@@ -101,13 +101,11 @@ print(AT)
 
 只要矩阵的形状一样，我们可以把两个矩阵相加。
 
-两个矩阵相加是指对应位置的元素相加，比如 $C = A + B$，其中 $C_{i,j} = A_{i,j} + B_{i,j}$。
+两个矩阵相加是指对应位置的元素相加，比如$C = A + B$，其中$C_{i,j} = A_{i,j} + B_{i,j}$。
 
-标量和矩阵相加时，我们只需将其与矩阵的每个元素相乘或相加，比如 $D = a · B + c$，其中 $D_{i,j} = a · B_{i,j} + c$。
+标量和矩阵相加时，我们只需将其与矩阵的每个元素相乘或相加，比如$D = a · B + c$，其中$D_{i,j} = a · B_{i,j} + c$。
 
-在深度学习中，我们也使用一些不那么常规的符号。我们允许矩阵和向量相加，产生另一个矩阵：$C = A + b$，其中 $C_{i,j} = A_{i,j} + b_j$。换言之，向量 b 和矩阵
-A 的每一行相加。这个简写方法使我们无需在加法操作前定义一个将向量 b 复制到每一行而生成的矩阵。这种隐式地复制向量 b 到很多位置的方式，被称为 广播
-（broadcasting）。
+在深度学习中，我们也使用一些不那么常规的符号。我们允许矩阵和向量相加，产生另一个矩阵：$C = A + b$，其中$C_{i,j} = A_{i,j} + b_j$。换言之，向量 b 和矩阵 A 的每一行相加。这个简写方法使我们无需在加法操作前定义一个将向量 b 复制到每一行而生成的矩阵。这种隐式地复制向量 b 到很多位置的方式，被称为广播（broadcasting）。
 
 
 ```python
@@ -143,7 +141,7 @@ print(A+b)
 
 如果矩阵 A 的形状是 m × n，矩阵 B 的形状是 n × p，那么矩阵 C 的形状是 m × p。
 
-定义矩阵乘法为 $C = AB$，具体地，该乘法操作定义为： $\begin{equation*} C_{i,j} = \sum_{k}A_{i,k}B_{k,j}\end{equation*}$。
+定义矩阵乘法为 $C = AB$，具体地，该乘法操作定义为： $C_{i,j} = \sum_{k}A_{i,k}B_{k,j}$。
 
 
 ```python
@@ -293,7 +291,7 @@ else:
 形式上，$L_p$ 范数定义如下：
 
 $$
-\begin{equation*} \|x\|_p = (\sum_i \vert x_i\vert^p)^{\frac 1 p} \end{equation*}
+\|x\|_p = (\sum_i \vert x_i\vert^p)^{\frac 1 p}
 $$
 
 其中 p ∈ R，p ≥ 1。
@@ -346,7 +344,7 @@ print(np.linalg.norm(a, np.inf, 1))
 有时候我们可能也希望衡量矩阵的大小。在深度学习中，最常见的做法是使用 Frobenius 范数（Frobenius norm），其类似于向量的 L2 范数。
 
 $$
-\begin{equation*} \|A\|_F = \sqrt {\sum_{i,j} {A_{i,j}}^2} \end{equation*}
+\|A\|_F = \sqrt {\sum_{i,j} {A_{i,j}}^2}
 $$
 
 
@@ -489,7 +487,7 @@ print(np.linalg.pinv(a))   # 求矩阵 A 的伪逆（广义逆矩阵），对应
 迹运算返回的是矩阵对角元素的和：
 
 $$
-\begin{equation*} Tr(A) = \sum_i A_{i,i} \end{equation*}
+Tr(A) = \sum_i A_{i,i}
 $$
 
 

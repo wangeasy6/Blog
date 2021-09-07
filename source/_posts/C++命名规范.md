@@ -1,5 +1,5 @@
 ---
-title: 命名规范-C++
+title: C++命名规范
 date: 2019-11-27 17:28:08
 toc: true
 categories:

@@ -191,12 +191,22 @@ menu:
 
 #### 7.支持mathjax数学公式
 
-hexo默认的渲染器是marked，并不支持mathjax。kramed是在marked基础上修改的，支持了mathjax。你的hexo工程目录下的node_modules中可以找到对应的渲染器文件夹。同时在你的工程目录下用以下命令安装kramed。
+##### 软件插件
+
+安装 Mathjax 插件
+
+```shell
+npm install hexo-math --save
+```
+
+hexo默认的渲染器是marked，并不支持mathjax。kramed是在marked基础上修改的，支持了mathjax。
 
 ```shell
 npm uninstall hexo-renderer-marked --save
 npm install hexo-renderer-kramed --save
 ```
+
+##### 修改配置
 
 到主题配置文件中`_config.yml`，找到`mathjax`，将其修改为`true`:
 
@@ -204,9 +214,33 @@ npm install hexo-renderer-kramed --save
 mathjax: true
 ```
 
-最后，在文章标题中加入：
+在文章标题中加入：
 
-```mathjax: true```
+```yaml
+mathjax: true
+```
+
+##### 解决语义冲突
+
+由于 LaTeX 与 markdown 语法有语义冲突，在 markdown 中，斜体和加粗可以用或者表示，在这里我们修改变量，将用于 LaTeX，而使用表示 markdown 中的斜体和加粗。
+
+在博客根目录下，进入`node_modules\kramed\lib\rules\inline.js`，把第 11 行的 escape 变量的值做相应的修改：
+
+```JavaScript
+//escape: /^\\([\\`*{}[]()#$+-.!_>])/,
+escape: /^\\([`*[]()#$+-.!_>])/,
+```
+
+同时把第20行的em变量也要做相应的修改:
+
+```JavaScript
+//  em: /^b_((?:__|[sS])+?)_b|^*((?:**|[sS])+?)*(?!*)/,
+em: /^*((?:**|[sS])+?)*(?!*)/,
+```
+
+##### 注意写法
+
+如果在公式内连续使用两个花括号，如`\frac{1}{{(2\pi)}^\frac{D}{2}}`，需要将两个花括号用空格分开，如`\frac{1}{ {(2\pi)}^\frac{D}{2} }`。
 
 #### 8.文件大小写问题
 

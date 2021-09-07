@@ -313,7 +313,7 @@ value 可以不唯一，可以取任何数据类型。
 dict = { 'a': 123, 98.6: 37 }
 dict['a']                             # 123
 dict[98.6]                            # 37
-dict['b']                             # KeyError: 'a'
+dict['b']                             # KeyError: 'b'
 dict['a'] = 111                       # {98.6: 37, 'a': 111}
 dict['b'] = 1                         # {98.6: 37, 'b': 1, 'a': 111}
 'a' in dict                           # True
