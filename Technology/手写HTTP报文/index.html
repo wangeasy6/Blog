@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>手写HTTP报文 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。">
+  <meta name="description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求&#x2F;应答报文是怎么样的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手写HTTP报文">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/手写HTTP报文/index.html">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求&#x2F;应答报文是怎么样的。">
+<meta property="og:locale">
 <meta property="og:image" content="http://www.wangeasy.com/resources/Cover/http_tcp.jpg">
-<meta property="og:updated_time" content="2021-04-16T13:53:08.000Z">
+<meta property="article:published_time" content="2021-04-16T13:48:06.000Z">
+<meta property="article:modified_time" content="2021-04-16T13:53:08.000Z">
+<meta property="article:author" content="Easy Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手写HTTP报文">
-<meta name="twitter:description" content="在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。 在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。">
 <meta name="twitter:image" content="http://www.wangeasy.com/resources/Cover/http_tcp.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -55,7 +55,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -69,10 +73,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -123,10 +125,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -189,7 +189,7 @@
   
 
         
-        <a href="/Technology/手写HTTP报文/" class="archive-article-date">
+        <a href="/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/" class="archive-article-date">
   	<time datetime="2021-04-16T13:48:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
 </a>
         
@@ -208,8 +208,8 @@
         <p><img src="/resources/Cover/http_tcp.jpg" alt="51job.jpg"></p>
 <p>在嵌入式系统中，经常使用TCP来模拟一个简易的HTTP Server，所以手动解析和填充HTTP包是常有的事儿。</p>
 <p>在这里记录一下，一个简单的HTTP请求/应答报文是怎么样的。</p>
-<a id="more"></a>
-<p><br></p>
+<span id="more"></span>
+<p><br/></p>
 <h3 id="客户端请求消息（Requst"><a href="#客户端请求消息（Requst" class="headerlink" title="客户端请求消息（Requst)"></a>客户端请求消息（Requst)</h3><p>请求消息由以下4个部分组成：</p>
 <ul>
 <li>请求行</li>
@@ -218,11 +218,11 @@
 <li>请求数据</li>
 </ul>
 <p>其语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br></pre></td></tr></table></figure>
 <p>示例：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/get_username.cgi</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: www.wangeasy.com</span><br><span class="line"></span><br><span class="line">&#123;"id":"001"&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/get_username.cgi</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>www.wangeasy.com</span><br><span class="line"></span><br><span class="line"><span class="json">&#123;<span class="attr">&quot;id&quot;</span>:<span class="string">&quot;001&quot;</span>&#125;</span></span><br></pre></td></tr></table></figure>
 <p>在实际收到的报文中，所有的换行都以<code>\r\n</code>表示。</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="服务器响应消息（Response）"><a href="#服务器响应消息（Response）" class="headerlink" title="服务器响应消息（Response）"></a>服务器响应消息（Response）</h3><p>响应消息由以下4个部分组成：</p>
 <ul>
 <li>状态行</li>
@@ -231,17 +231,17 @@
 <li>响应数据</li>
 </ul>
 <p>其语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;version&gt; &lt;status-code&gt; &lt;reason-phrase&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;version&gt; &lt;status-code&gt; &lt;reason-phrase&gt;</span><br><span class="line">&lt;headers&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br></pre></td></tr></table></figure>
 <p>示例：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Content-Type</span>: application/json; charset=UTF-8</span><br><span class="line"></span><br><span class="line">&#123;"result":"Success","username":"Easy Wang"&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="version"><a href="#version" class="headerlink" title="version"></a>version</h3><p>目前的HTTP存在以下几个版本，点击链接可以跳转到各个协议版本的<a href="https://www.ietf.org/rfc/" target="_blank" rel="noopener">RFC说明</a>：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/json; charset=UTF-8</span><br><span class="line"></span><br><span class="line"><span class="json">&#123;<span class="attr">&quot;result&quot;</span>:<span class="string">&quot;Success&quot;</span>,<span class="attr">&quot;username&quot;</span>:<span class="string">&quot;Easy Wang&quot;</span>&#125;</span></span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="version"><a href="#version" class="headerlink" title="version"></a>version</h3><p>目前的HTTP存在以下几个版本，点击链接可以跳转到各个协议版本的<a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/">RFC说明</a>：</p>
 <ul>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html" target="_blank" rel="noopener">HTTP/1.0</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html" target="_blank" rel="noopener">HTTP/1.1</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc7540.html" target="_blank" rel="noopener">HTTP/2</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html">HTTP/1.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html">HTTP/1.1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc7540.html">HTTP/2</a></li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="method"><a href="#method" class="headerlink" title="method"></a>method</h3><p><strong>HTTP/1.0：</strong></p>
 <ul>
 <li>GET —— GET方法指定URI获取对应资源，GET 请求一般（标准）不包含主体。</li>
@@ -259,82 +259,82 @@
 <li>TRACE ——TRACE方法允许客户端查看在请求链的另一端收到的内容，并将该数据用于测试或诊断信息。TRACE请求不得包含实体。</li>
 <li>CONNECT —— CONNECT方法可以动态切换为隧道的代理使用（例如SSL隧道）。</li>
 </ul>
-<p><br></p>
-<h3 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h3><p><a href="https://www.ietf.org/rfc/rfc1945.html#section-5.2" target="_blank" rel="noopener">HTTP/1.0 Request Header Fields</a>：</p>
+<p><br/></p>
+<h3 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h3><p><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-5.2">HTTP/1.0 Request Header Fields</a>：</p>
 <ul>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.2" target="_blank" rel="noopener">Authorization</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.8" target="_blank" rel="noopener">From</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.9" target="_blank" rel="noopener">If-Modified-Since</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-ection-10.13" target="_blank" rel="noopener">Referer</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-ection-10.15" target="_blank" rel="noopener">User-Agent</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.2">Authorization</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.8">From</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.9">If-Modified-Since</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-ection-10.13">Referer</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-ection-10.15">User-Agent</a></li>
 </ul>
-<p><a href="https://www.ietf.org/rfc/rfc1945.html#section-6.2" target="_blank" rel="noopener">HTTP/1.0 Response Header Fields</a>:</p>
+<p><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-6.2">HTTP/1.0 Response Header Fields</a>:</p>
 <ul>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.11" target="_blank" rel="noopener">Location</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.14" target="_blank" rel="noopener">Server</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.16" target="_blank" rel="noopener">WWW-Authenticate</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.11">Location</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.14">Server</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.16">WWW-Authenticate</a></li>
 </ul>
-<p><a href="https://www.ietf.org/rfc/rfc1945.html#section-7.1" target="_blank" rel="noopener">HTTP/1.0 Entity Header Fields</a>:</p>
+<p><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-7.1">HTTP/1.0 Entity Header Fields</a>:</p>
 <ul>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.1" target="_blank" rel="noopener">Allow</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.3" target="_blank" rel="noopener">Content-Encoding</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.4" target="_blank" rel="noopener">Content-Length</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.5" target="_blank" rel="noopener">Content-Type</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.7" target="_blank" rel="noopener">Expires</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-10.10" target="_blank" rel="noopener">Last-Modified</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.1">Allow</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.3">Content-Encoding</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.4">Content-Length</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.5">Content-Type</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.7">Expires</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-10.10">Last-Modified</a></li>
 </ul>
-<p><br></p>
-<p><a href="https://www.ietf.org/rfc/rfc2616.html#section-5.3" target="_blank" rel="noopener">HTTP/1.1 Request Header Fields</a>：</p>
+<p><br/></p>
+<p><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-5.3">HTTP/1.1 Request Header Fields</a>：</p>
 <ul>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.1" target="_blank" rel="noopener">Accept</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.2" target="_blank" rel="noopener">Accept-Charset</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.3" target="_blank" rel="noopener">Accept-Encoding</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.4" target="_blank" rel="noopener">Accept-Language</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.8" target="_blank" rel="noopener">Authorization</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.20" target="_blank" rel="noopener">Expect</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.22" target="_blank" rel="noopener">From</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.23" target="_blank" rel="noopener">Host</a>(必须包含)</li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.24" target="_blank" rel="noopener">If-Match</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.25" target="_blank" rel="noopener">If-Modified-Since</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.26" target="_blank" rel="noopener">If-None-Match</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.27" target="_blank" rel="noopener">If-Range</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.28" target="_blank" rel="noopener">If-Unmodified-Since</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.31" target="_blank" rel="noopener">Max-Forwards</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.34" target="_blank" rel="noopener">Proxy-Authorization</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.35" target="_blank" rel="noopener">Range</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.36" target="_blank" rel="noopener">Referer</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.39" target="_blank" rel="noopener">TE</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.43" target="_blank" rel="noopener">User-Agent</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.1">Accept</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.2">Accept-Charset</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.3">Accept-Encoding</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.4">Accept-Language</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.8">Authorization</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.20">Expect</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.22">From</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.23">Host</a>(必须包含)</li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.24">If-Match</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.25">If-Modified-Since</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.26">If-None-Match</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.27">If-Range</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.28">If-Unmodified-Since</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.31">Max-Forwards</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.34">Proxy-Authorization</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.35">Range</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.36">Referer</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.39">TE</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.43">User-Agent</a></li>
 </ul>
-<p><a href="https://www.ietf.org/rfc/rfc2616.html#section-6.2" target="_blank" rel="noopener">HTTP/1.1 Response Header Fields</a>:</p>
+<p><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-6.2">HTTP/1.1 Response Header Fields</a>:</p>
 <ul>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.5" target="_blank" rel="noopener">Accept-Ranges</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.6" target="_blank" rel="noopener">Age</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.19" target="_blank" rel="noopener">ETag</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.30" target="_blank" rel="noopener">Location</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.33" target="_blank" rel="noopener">Proxy-Authenticate</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.37" target="_blank" rel="noopener">Retry-After</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.38" target="_blank" rel="noopener">Server</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.44" target="_blank" rel="noopener">Vary</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.47" target="_blank" rel="noopener">WWW-Authenticate</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.5">Accept-Ranges</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.6">Age</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.19">ETag</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.30">Location</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.33">Proxy-Authenticate</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.37">Retry-After</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.38">Server</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.44">Vary</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.47">WWW-Authenticate</a></li>
 </ul>
-<p><a href="https://www.ietf.org/rfc/rfc2616.html#section-7.1" target="_blank" rel="noopener">HTTP/1.1 Entity Header Fields</a>:</p>
+<p><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-7.1">HTTP/1.1 Entity Header Fields</a>:</p>
 <ul>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.7" target="_blank" rel="noopener">Allow</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.11" target="_blank" rel="noopener">Content-Encoding</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.12" target="_blank" rel="noopener">Content-Language</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.13" target="_blank" rel="noopener">Content-Length</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.14" target="_blank" rel="noopener">Content-Location</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.15" target="_blank" rel="noopener">Content-MD5</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.16" target="_blank" rel="noopener">Content-Range</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.17" target="_blank" rel="noopener">Content-Type</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.21" target="_blank" rel="noopener">Expires</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-14.29" target="_blank" rel="noopener">Last-Modified</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.7">Allow</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.11">Content-Encoding</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.12">Content-Language</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.13">Content-Length</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.14">Content-Location</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.15">Content-MD5</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.16">Content-Range</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.17">Content-Type</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.21">Expires</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-14.29">Last-Modified</a></li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="status-code"><a href="#status-code" class="headerlink" title="status-code"></a>status-code</h3><ul>
-<li><a href="https://www.ietf.org/rfc/rfc1945.html#section-6.1.1" target="_blank" rel="noopener">HTTP/1.0</a></li>
-<li><a href="https://www.ietf.org/rfc/rfc2616.html#section-6.1.1" target="_blank" rel="noopener">HTTP/1.1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc1945.html#section-6.1.1">HTTP/1.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ietf.org/rfc/rfc2616.html#section-6.1.1">HTTP/1.1</a></li>
 </ul>
 
       
@@ -405,7 +405,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/手写HTTP报文/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -419,7 +419,7 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/产品合格率预估问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Technology/%E4%BA%A7%E5%93%81%E5%90%88%E6%A0%BC%E7%8E%87%E9%A2%84%E4%BC%B0%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -429,7 +429,7 @@
     </a>
   
   
-    <a href="/Technology/树莓派QtWidgets软键盘/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Technology/%E6%A0%91%E8%8E%93%E6%B4%BEQtWidgets%E8%BD%AF%E9%94%AE%E7%9B%98/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">树莓派QtWidgets软键盘</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -457,7 +457,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端请求消息（Requst"><span class="toc-number">1.</span> <span class="toc-text">客户端请求消息（Requst)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务器响应消息（Response）"><span class="toc-number">2.</span> <span class="toc-text">服务器响应消息（Response）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#version"><span class="toc-number">3.</span> <span class="toc-text">version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method"><span class="toc-number">4.</span> <span class="toc-text">method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#headers"><span class="toc-number">5.</span> <span class="toc-text">headers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#status-code"><span class="toc-number">6.</span> <span class="toc-text">status-code</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%B7%E6%B1%82%E6%B6%88%E6%81%AF%EF%BC%88Requst"><span class="toc-number">1.</span> <span class="toc-text">客户端请求消息（Requst)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%93%8D%E5%BA%94%E6%B6%88%E6%81%AF%EF%BC%88Response%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">服务器响应消息（Response）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#version"><span class="toc-number">3.</span> <span class="toc-text">version</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method"><span class="toc-number">4.</span> <span class="toc-text">method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#headers"><span class="toc-number">5.</span> <span class="toc-text">headers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#status-code"><span class="toc-number">6.</span> <span class="toc-text">status-code</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -613,15 +613,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,11 +641,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

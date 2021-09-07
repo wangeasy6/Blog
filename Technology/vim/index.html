@@ -9,18 +9,18 @@
   <title>vim | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
-<meta name="keywords" content="Tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/vim/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://www.wangeasy.com/resources/Cover/vim.jpg">
-<meta property="og:updated_time" content="2021-07-13T02:09:26.310Z">
+<meta property="article:published_time" content="2020-03-01T02:23:06.000Z">
+<meta property="article:modified_time" content="2021-07-13T02:09:26.310Z">
+<meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim">
-<meta name="twitter:description" content="工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。">
 <meta name="twitter:image" content="http://www.wangeasy.com/resources/Cover/vim.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -56,7 +56,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -70,10 +74,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -124,10 +126,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -207,12 +207,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="/resources/Cover/vim.jpg" alt="vim.jpg"><br>工欲善其事必先利其器，最近常常进行远程开发，vim就是手里的镰刀了，整理和熟悉了vim的一些便捷方法，磨刀霍霍向Code。</p>
-<a id="more"></a>
-<p><br></p>
+<span id="more"></span>
+<p><br/></p>
 <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>vi编辑器是所有Unix及Linux系统下标准的编辑器，就相当于windows系统中的记事本一样，但它的强大不逊色于任何最新的文本编辑器。</p>
 <p>vim编辑器是在vi的基础上改进的版本，支持语法颜色、正则表达式、多文件编辑、视图模式等等。</p>
-<p><br></p>
-<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><table>
+<p><br/></p>
+<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
@@ -246,7 +247,8 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
+</div>
+<p><br/></p>
 <h3 id="模式介绍及切换"><a href="#模式介绍及切换" class="headerlink" title="模式介绍及切换"></a>模式介绍及切换</h3><h4 id="0-Vim所有模式"><a href="#0-Vim所有模式" class="headerlink" title="0.Vim所有模式"></a>0.Vim所有模式</h4><ul>
 <li>正常模式(normal-mode)</li>
 <li>插入模式(insert-mode)</li>
@@ -257,6 +259,7 @@
 <p> 正常模式主要用来浏览和修改文本内容的，正常模式的修改和编辑文本不同，正常模式下只能使用对应的快捷按钮来执行特定的修改。</p>
 <p>在任何模式下，只要按下 Esc 键就可以返回正常模式。</p>
 <h4 id="2-插入模式"><a href="#2-插入模式" class="headerlink" title="2.插入模式"></a>2.插入模式</h4><p> 插入模式用来编辑文本，在正常模式键入以下字符则进入插入模式。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -299,12 +302,14 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="3-可视模式"><a href="#3-可视模式" class="headerlink" title="3.可视模式"></a>3.可视模式</h4><p> 可视模式相当于高亮选取文本后的普通模式。</p>
 <p>可视模式具有两个子模式，以行为单位进行选取的可视行模式，使用“V”键进入（也就是<code>SHIFT-v</code>）；和以块为单位进行选取的可视块模式，使用<code>CTRL-v</code>键进入。</p>
 <h4 id="4-命令模式"><a href="#4-命令模式" class="headerlink" title="4.命令模式"></a>4.命令模式</h4><p> 命令模式则多用于操作文本文件（而不是操作文本文件的内容），例如保存文件；或者用来改变编辑器本身的状态，例如设定多栏窗口、标签或者退出编辑器等等。</p>
 <p>在正常模式或可视模式下，输入冒号（:）、反斜杠（/）、问号（?）进入命令模式。</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="正常模式"><a href="#正常模式" class="headerlink" title="正常模式"></a>正常模式</h3><p>快捷命令：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -471,8 +476,10 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
+</div>
+<p><br/></p>
 <h3 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h3><p>在此模式下你可以选择一个矩形的文本块. Vim提供了一些特别的命令来操纵这个文本块：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -527,8 +534,10 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><h4 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h4><table>
+</div>
+<p><br/></p>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><h4 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
@@ -562,8 +571,10 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><table>
+</div>
+<p><br/></p>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
@@ -589,10 +600,12 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
+</div>
+<p><br/></p>
 <h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><p>命令：<code>:[range]substitute/from/to/[flags]</code></p>
 <p>说明：[range]指定的行中的字符串”from”替换为”to”（substitute可缩写为s），例如：<code>:%s/from/to/g</code>  ，将所有”from”替换为”to”。</p>
-<h5 id="range："><a href="#range：" class="headerlink" title="range："></a>range：</h5><table>
+<h5 id="range："><a href="#range：" class="headerlink" title="range："></a>range：</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>range</th>
@@ -630,7 +643,9 @@
 </tr>
 </tbody>
 </table>
-<h5 id="flags："><a href="#flags：" class="headerlink" title="flags："></a>flags：</h5><table>
+</div>
+<h5 id="flags："><a href="#flags：" class="headerlink" title="flags："></a>flags：</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>flags</th>
@@ -652,10 +667,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>flags-c</strong></p>
 <p>vim会在找到第一个目标字符（“xx”）后显示下面信息并要求你回答：</p>
 <p><code>replace with xx (y/n/a/q/l/^E/^Y)?</code></p>
 <p>此时, 你可以有几种答案 :</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -694,8 +711,10 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><table>
+</div>
+<p><br/></p>
+<h4 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
@@ -741,7 +760,7 @@
 </tr>
 <tr>
 <td><code>:set listchars=tab:&gt;-,trail:-</code></td>
-<td>TAB显示为”&gt;—“，行尾空格显示为”-“（tab:后可设置任意两个字符，trail:后可设置任意一个字符）</td>
+<td>TAB显示为”&gt;—-“，行尾空格显示为”-“（tab:后可设置任意两个字符，trail:后可设置任意一个字符）</td>
 </tr>
 <tr>
 <td><code>:set filetype</code></td>
@@ -769,8 +788,10 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h4 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h4><table>
+</div>
+<p><br/></p>
+<h4 id="多文件编辑"><a href="#多文件编辑" class="headerlink" title="多文件编辑"></a>多文件编辑</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
@@ -779,7 +800,7 @@
 </thead>
 <tbody>
 <tr>
-<td><code>:help {subject}</code></td>
+<td><code>:help &#123;subject&#125;</code></td>
 <td>显示帮助信息，带有子主题则直接进入子主题的Help页面，也可以使用<code>vim turot</code>直接进入指南</td>
 </tr>
 <tr>
@@ -880,11 +901,13 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
+</div>
+<p><br/></p>
 <h3 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h3><h4 id="系统-换行符格式转换"><a href="#系统-换行符格式转换" class="headerlink" title="系统/换行符格式转换"></a>系统/换行符格式转换</h4><p>有的脚本文件如果在Windows上编辑，传到Uinx下会出现格式问题而无法执行。</p>
 <p>在vim中使用以下命令，将dos文件格式转换为unix格式：</p>
 <p><code>:set fileformat=unix</code></p>
 <p>fileformat 有三种格式可选:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -895,49 +918,51 @@
 <tbody>
 <tr>
 <td>dos</td>
-<td><cr><nl> (\r\n)</nl></cr></td>
+<td><CR><NL> (\r\n)</td>
 </tr>
 <tr>
 <td>unix</td>
-<td><nl> (\n)</nl></td>
+<td><NL> (\n)</td>
 </tr>
 <tr>
 <td>mac</td>
-<td><cr> (\r)</cr></td>
+<td><CR> (\r)</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>查看当前文件系统格式：</p>
 <p><code>:set fileformat?</code></p>
-<p><br></p>
+<p><br/></p>
 <h4 id="编码格式转换"><a href="#编码格式转换" class="headerlink" title="编码格式转换"></a>编码格式转换</h4><p>查看当前文件编码格式：</p>
 <p><code>set fileencoding?</code></p>
 <p>转换编码格式：</p>
 <p><code>:set fileencoding=xx</code></p>
-<p><br></p>
+<p><br/></p>
 <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>vim 支持将配置保存，在启动的时候vim会加载这个配置文件。</p>
 <p>Unix和Macintosh的位置：<code>~/.vimrc</code>，Windows的位置在：<code>$HOME/_vimrc</code>或者<code>$VIM/_vimrc</code>。</p>
-<p>vimrc示例：<a href="https://vim.fandom.com/wiki/Example_vimrc" target="_blank" rel="noopener">Example vimrc</a>，网上也有很多酷炫的配置，可以根据自己的需要和喜好找找。</p>
-<p><br></p>
+<p>vimrc示例：<a target="_blank" rel="noopener" href="https://vim.fandom.com/wiki/Example_vimrc">Example vimrc</a>，网上也有很多酷炫的配置，可以根据自己的需要和喜好找找。</p>
+<p><br/></p>
 <h4 id="SSH时从系统复制到vim"><a href="#SSH时从系统复制到vim" class="headerlink" title="SSH时从系统复制到vim"></a>SSH时从系统复制到vim</h4><p>使用XShell以SSH远程编辑服务器的文件时，怎么从系统直接复制粘贴到vim中。</p>
 <p>系统复制到剪切板，vim进入插入模式，快捷键<code>shift + insert</code>粘贴到vim。</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="自动对齐"><a href="#自动对齐" class="headerlink" title="自动对齐"></a>自动对齐</h4><p>在命令模式下（即非“插入”等编辑模式），先输入gg，这时候光标会移动到第一行第一个字符，然后按 “=” 号之后切换成大写，再按一下G，这时候光标会移到最后一行的第一个字符，这时候就可以看到代码被排得整整齐齐了！</p>
 <p>“gg”将光标移动到代码首部,”=”表示对齐指令,”G”表示代码尾部,所以执行”gg=G”后,该文件的所有代码都将对齐。</p>
 <p>如果只需要将一部分代码对齐,可以先用”v”选中要对齐的代码块,然后按”=”进行对齐。或者使用<code>mG=nG</code>，例如：从80行缩进直到100行，你可以用 80G=100G</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="vim和shell切换"><a href="#vim和shell切换" class="headerlink" title="vim和shell切换"></a>vim和shell切换</h4><p><strong>方法1：</strong></p>
 <p>vim-&gt;shell: <code>ctrl-z</code>(挂起vim进程，相当于图形界面中的最小化)</p>
 <p>shell-&gt;vim:<code>fg</code>(foreground)</p>
 <p><strong>方法2：</strong></p>
 <p>vim-&gt;shell: vim下执行<code>:shell”</code>(创建一个新的shell)</p>
 <p>shell-&gt;vim: shell下执行<code>exit</code>（退出创建的shell）</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="颜色有误"><a href="#颜色有误" class="headerlink" title="颜色有误"></a>颜色有误</h4><p>Vim处理颜色时并不是通读整个文件进行解析.。它从你浏览的地方开始解析，这样会节省很多时间，但是有时候颜色就会弄错。</p>
 <p> 一个简单的办法是用<code>CTRL-L</code>。或者稍往回滚动几行。</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="shell翻页"><a href="#shell翻页" class="headerlink" title="shell翻页"></a>shell翻页</h4><p>在shell中操作时不想插鼠标，那怎么上下页呢，键盘命令操作滚动条命令：<code>Shift + PageUp/PageDown</code></p>
-<h3 id="图像编辑器常用功能"><a href="#图像编辑器常用功能" class="headerlink" title="图像编辑器常用功能"></a>图像编辑器常用功能</h3><table>
+<h3 id="图像编辑器常用功能"><a href="#图像编辑器常用功能" class="headerlink" title="图像编辑器常用功能"></a>图像编辑器常用功能</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>功能</th>
@@ -975,7 +1000,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h4><p>Inset模式中，使用<code>Ctrl-N</code>或<code>Ctrl-P</code>键，将按照<a href="https://link.zhihu.com/?target=http%3A//yyq123.github.io/learn-vim/learn-vi-80-03-AutoCompletion-Option.html%23complete" target="_blank" rel="noopener">‘complete’</a>选项指定的范围来搜索匹配的关键字。其默认值为：</p>
+</div>
+<h4 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h4><p>Inset模式中，使用<code>Ctrl-N</code>或<code>Ctrl-P</code>键，将按照<a href="https://link.zhihu.com/?target=http%3A//yyq123.github.io/learn-vim/learn-vi-80-03-AutoCompletion-Option.html%23complete">‘complete’</a>选项指定的范围来搜索匹配的关键字。其默认值为：</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">set</span> <span class="built_in">complete</span>=.,<span class="keyword">w</span>,<span class="keyword">b</span>,<span class="keyword">u</span>,t,i</span><br></pre></td></tr></table></figure>
 <p>也就是说，默认将在以下来源中查找关键字：</p>
 <ul>
@@ -987,7 +1013,7 @@
 <li>在由当前文件（如#include）包含进来的头文件中进行查找。</li>
 </ul>
 <h5 id="X模式（Ctrl-X-Mode）"><a href="#X模式（Ctrl-X-Mode）" class="headerlink" title="^X模式（Ctrl-X Mode）"></a>^X模式（Ctrl-X Mode）</h5><p>在插入模式下，输入<code>Ctrl-X</code>将进入^X模式（插入和替换模式的一个子模式）。屏幕底部将显示以下提示信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- ^X mode (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- ^X mode (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)</span><br></pre></td></tr></table></figure>
 <p>您可以选择以下自动补全方式：</p>
 <ul>
 <li>Ctrl-] ，标签(tags)补全</li>
@@ -1110,7 +1136,7 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/PyQt5代码小结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Technology/PyQt5%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -1148,7 +1174,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打开文件"><span class="toc-number">2.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模式介绍及切换"><span class="toc-number">3.</span> <span class="toc-text">模式介绍及切换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-Vim所有模式"><span class="toc-number">3.1.</span> <span class="toc-text">0.Vim所有模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-正常模式"><span class="toc-number">3.2.</span> <span class="toc-text">1.正常模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-插入模式"><span class="toc-number">3.3.</span> <span class="toc-text">2.插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-可视模式"><span class="toc-number">3.4.</span> <span class="toc-text">3.可视模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-命令模式"><span class="toc-number">3.5.</span> <span class="toc-text">4.命令模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正常模式"><span class="toc-number">4.</span> <span class="toc-text">正常模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可视模式"><span class="toc-number">5.</span> <span class="toc-text">可视模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令模式"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#保存文件"><span class="toc-number">6.1.</span> <span class="toc-text">保存文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜索"><span class="toc-number">6.2.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#替换"><span class="toc-number">6.3.</span> <span class="toc-text">替换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#range："><span class="toc-number">6.3.1.</span> <span class="toc-text">range：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#flags："><span class="toc-number">6.3.2.</span> <span class="toc-text">flags：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置"><span class="toc-number">6.4.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多文件编辑"><span class="toc-number">6.5.</span> <span class="toc-text">多文件编辑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级功能"><span class="toc-number">7.</span> <span class="toc-text">高级功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#系统-换行符格式转换"><span class="toc-number">7.1.</span> <span class="toc-text">系统/换行符格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编码格式转换"><span class="toc-number">7.2.</span> <span class="toc-text">编码格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置"><span class="toc-number">7.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH时从系统复制到vim"><span class="toc-number">7.4.</span> <span class="toc-text">SSH时从系统复制到vim</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动对齐"><span class="toc-number">7.5.</span> <span class="toc-text">自动对齐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vim和shell切换"><span class="toc-number">7.6.</span> <span class="toc-text">vim和shell切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#颜色有误"><span class="toc-number">7.7.</span> <span class="toc-text">颜色有误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shell翻页"><span class="toc-number">7.8.</span> <span class="toc-text">shell翻页</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图像编辑器常用功能"><span class="toc-number">8.</span> <span class="toc-text">图像编辑器常用功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自动补全"><span class="toc-number">8.1.</span> <span class="toc-text">自动补全</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#X模式（Ctrl-X-Mode）"><span class="toc-number">8.1.1.</span> <span class="toc-text">^X模式（Ctrl-X Mode）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#补全弹出菜单"><span class="toc-number">8.1.2.</span> <span class="toc-text">补全弹出菜单</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D%E5%8F%8A%E5%88%87%E6%8D%A2"><span class="toc-number">3.</span> <span class="toc-text">模式介绍及切换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-Vim%E6%89%80%E6%9C%89%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">0.Vim所有模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%AD%A3%E5%B8%B8%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">1.正常模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">2.插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.4.</span> <span class="toc-text">3.可视模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.5.</span> <span class="toc-text">4.命令模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%B8%B8%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">正常模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">可视模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">命令模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">保存文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">6.2.</span> <span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2"><span class="toc-number">6.3.</span> <span class="toc-text">替换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#range%EF%BC%9A"><span class="toc-number">6.3.1.</span> <span class="toc-text">range：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#flags%EF%BC%9A"><span class="toc-number">6.3.2.</span> <span class="toc-text">flags：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.4.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91"><span class="toc-number">6.5.</span> <span class="toc-text">多文件编辑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E5%8A%9F%E8%83%BD"><span class="toc-number">7.</span> <span class="toc-text">高级功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F-%E6%8D%A2%E8%A1%8C%E7%AC%A6%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">7.1.</span> <span class="toc-text">系统&#x2F;换行符格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">7.2.</span> <span class="toc-text">编码格式转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">7.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH%E6%97%B6%E4%BB%8E%E7%B3%BB%E7%BB%9F%E5%A4%8D%E5%88%B6%E5%88%B0vim"><span class="toc-number">7.4.</span> <span class="toc-text">SSH时从系统复制到vim</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%AF%B9%E9%BD%90"><span class="toc-number">7.5.</span> <span class="toc-text">自动对齐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vim%E5%92%8Cshell%E5%88%87%E6%8D%A2"><span class="toc-number">7.6.</span> <span class="toc-text">vim和shell切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E6%9C%89%E8%AF%AF"><span class="toc-number">7.7.</span> <span class="toc-text">颜色有误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shell%E7%BF%BB%E9%A1%B5"><span class="toc-number">7.8.</span> <span class="toc-text">shell翻页</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BC%96%E8%BE%91%E5%99%A8%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD"><span class="toc-number">8.</span> <span class="toc-text">图像编辑器常用功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number">8.1.</span> <span class="toc-text">自动补全</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#X%E6%A8%A1%E5%BC%8F%EF%BC%88Ctrl-X-Mode%EF%BC%89"><span class="toc-number">8.1.1.</span> <span class="toc-text">^X模式（Ctrl-X Mode）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A1%A5%E5%85%A8%E5%BC%B9%E5%87%BA%E8%8F%9C%E5%8D%95"><span class="toc-number">8.1.2.</span> <span class="toc-text">补全弹出菜单</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1304,15 +1330,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1332,11 +1358,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

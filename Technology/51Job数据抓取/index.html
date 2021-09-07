@@ -9,23 +9,24 @@
   <title>51Job数据抓取 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近想要做一个“嵌入式技能回报率”的分析，本来想使用网上现成的spider，但好像没有满足需要的，只能自己写了。 本51job数据抓取程序包含以下功能：  根据传入参数进行搜索、抓取数据 根据关键词搜索 根据地理位置（城市）搜索 根据月薪范围、工作年限、学历要求、公司性质、公司规模搜索 以CSV格式保存 也可以作为库被调用">
-<meta name="keywords" content="Python,Data">
 <meta property="og:type" content="article">
 <meta property="og:title" content="51Job数据抓取">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/51Job数据抓取/index.html">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="最近想要做一个“嵌入式技能回报率”的分析，本来想使用网上现成的spider，但好像没有满足需要的，只能自己写了。 本51job数据抓取程序包含以下功能：  根据传入参数进行搜索、抓取数据 根据关键词搜索 根据地理位置（城市）搜索 根据月薪范围、工作年限、学历要求、公司性质、公司规模搜索 以CSV格式保存 也可以作为库被调用">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://www.wangeasy.com/resources/spider_51job/51job.jpg">
 <meta property="og:image" content="http://www.wangeasy.com/resources/spider_51job/city_area.jpg">
 <meta property="og:image" content="http://www.wangeasy.com/resources/spider_51job/window_area.png">
 <meta property="og:image" content="http://www.wangeasy.com/resources/spider_51job/workyear.jpg">
 <meta property="og:image" content="http://www.wangeasy.com/resources/spider_51job/degree_from.png">
 <meta property="og:image" content="http://www.wangeasy.com/resources/spider_51job/company_size.png">
-<meta property="og:updated_time" content="2020-10-30T11:46:22.000Z">
+<meta property="article:published_time" content="2020-10-30T11:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-30T11:46:22.000Z">
+<meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Data">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="51Job数据抓取">
-<meta name="twitter:description" content="最近想要做一个“嵌入式技能回报率”的分析，本来想使用网上现成的spider，但好像没有满足需要的，只能自己写了。 本51job数据抓取程序包含以下功能：  根据传入参数进行搜索、抓取数据 根据关键词搜索 根据地理位置（城市）搜索 根据月薪范围、工作年限、学历要求、公司性质、公司规模搜索 以CSV格式保存 也可以作为库被调用">
 <meta name="twitter:image" content="http://www.wangeasy.com/resources/spider_51job/51job.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -61,7 +62,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -75,10 +80,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -129,10 +132,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -195,7 +196,7 @@
   
 
         
-        <a href="/Technology/51Job数据抓取/" class="archive-article-date">
+        <a href="/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/" class="archive-article-date">
   	<time datetime="2020-10-30T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
 </a>
         
@@ -222,71 +223,71 @@
 <li>以CSV格式保存</li>
 <li>也可以作为库被调用</li>
 </ul>
-<a id="more"></a>
-<p><br></p>
+<span id="more"></span>
+<p><br/></p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
 <li><a href="/resources/spider_51job/spider_51job.py">spider_51job.py</a></li>
 </ul>
-<p><br></p>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">usage: spider_51job.py [-h] [-v] [-u URL] [-c CITIES] [-smin SALARY_MIN]</span><br><span class="line">                       [-smax SALARY_MAX] [-wy &#123;1,2,3,4,5,6&#125;] [-df &#123;1,2,3,4,5,6,7&#125;]</span><br><span class="line">                       [-cn &#123;1,2,3,4,5,6,7,8,9,10,11&#125;] [-cs &#123;1,2,3,4,5,6,7&#125;]</span><br><span class="line">                       [-ml MAX_LINE] [-sf &#123;csv&#125;]</span><br><span class="line">                       keyword</span><br><span class="line"></span><br><span class="line">"51job.com" spider script.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  keyword               搜索关键字</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -v, --version         show version number and exit</span><br><span class="line">  -u URL, --url URL     根据搜索页的URL直接抓取数据。当指定此参数时，仅参数max_line、save_format生效，keyword仅用作保存</span><br><span class="line">                        文件的命名</span><br><span class="line">  -c CITIES, --cities CITIES</span><br><span class="line">                        工作地点，最多可添加5个</span><br><span class="line">  -smin SALARY_MIN, --salary_min SALARY_MIN</span><br><span class="line">                        最低薪资</span><br><span class="line">  -smax SALARY_MAX, --salary_max SALARY_MAX</span><br><span class="line">                        最高薪资</span><br><span class="line">  -wy &#123;1,2,3,4,5,6&#125;, --workyears &#123;1,2,3,4,5,6&#125;</span><br><span class="line">                        工作年限：(1-6)分别表示("在校生/应届生", "1-3年", "3-5年", "5-10年", "10年以上",</span><br><span class="line">                        "无需经验")</span><br><span class="line">  -df &#123;1,2,3,4,5,6,7&#125;, --degree_from &#123;1,2,3,4,5,6,7&#125;</span><br><span class="line">                        学历要求：(1-7)分别表示("初中及以下", "高中/中技/中专", "大专", "本科", "硕士", "博士",</span><br><span class="line">                        "无学历要求")</span><br><span class="line">  -cn &#123;1,2,3,4,5,6,7,8,9,10,11&#125;, --company_nature &#123;1,2,3,4,5,6,7,8,9,10,11&#125;</span><br><span class="line">                        公司性质：(01-11)分别表示("外资（欧美）", "外资（非欧美）", "合资", "国企", "民营企业",</span><br><span class="line">                        "外企代表处", "政府机关", "事业单位", "非营利组织", "上市公司", "创业公司")</span><br><span class="line">  -cs &#123;1,2,3,4,5,6,7&#125;, --company_size &#123;1,2,3,4,5,6,7&#125;</span><br><span class="line">                        公司规模：(1-7)分别表示("少于50人", "50-150人", "150-500人", "500-1000人",</span><br><span class="line">                        "1000-5000人", "5000-10000人", "10000人以上")</span><br><span class="line">  -ml MAX_LINE, --max_line MAX_LINE</span><br><span class="line">                        设置抓取数据条目的最大数</span><br><span class="line">  -sf &#123;csv&#125;, --save_format &#123;csv&#125;</span><br><span class="line">                        数据保存格式，当前仅支持csv</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<p><br/></p>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">usage: spider_51job.py [-h] [-v] [-u URL] [-c CITIES] [-smin SALARY_MIN]</span><br><span class="line">                       [-smax SALARY_MAX] [-wy &#123;1,2,3,4,5,6&#125;] [-df &#123;1,2,3,4,5,6,7&#125;]</span><br><span class="line">                       [-cn &#123;1,2,3,4,5,6,7,8,9,10,11&#125;] [-cs &#123;1,2,3,4,5,6,7&#125;]</span><br><span class="line">                       [-ml MAX_LINE] [-sf &#123;csv&#125;]</span><br><span class="line">                       keyword</span><br><span class="line"></span><br><span class="line">&quot;51job.com&quot; spider script.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  keyword               搜索关键字</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -v, --version         show version number and exit</span><br><span class="line">  -u URL, --url URL     根据搜索页的URL直接抓取数据。当指定此参数时，仅参数max_line、save_format生效，keyword仅用作保存</span><br><span class="line">                        文件的命名</span><br><span class="line">  -c CITIES, --cities CITIES</span><br><span class="line">                        工作地点，最多可添加5个</span><br><span class="line">  -smin SALARY_MIN, --salary_min SALARY_MIN</span><br><span class="line">                        最低薪资</span><br><span class="line">  -smax SALARY_MAX, --salary_max SALARY_MAX</span><br><span class="line">                        最高薪资</span><br><span class="line">  -wy &#123;1,2,3,4,5,6&#125;, --workyears &#123;1,2,3,4,5,6&#125;</span><br><span class="line">                        工作年限：(1-6)分别表示(&quot;在校生/应届生&quot;, &quot;1-3年&quot;, &quot;3-5年&quot;, &quot;5-10年&quot;, &quot;10年以上&quot;,</span><br><span class="line">                        &quot;无需经验&quot;)</span><br><span class="line">  -df &#123;1,2,3,4,5,6,7&#125;, --degree_from &#123;1,2,3,4,5,6,7&#125;</span><br><span class="line">                        学历要求：(1-7)分别表示(&quot;初中及以下&quot;, &quot;高中/中技/中专&quot;, &quot;大专&quot;, &quot;本科&quot;, &quot;硕士&quot;, &quot;博士&quot;,</span><br><span class="line">                        &quot;无学历要求&quot;)</span><br><span class="line">  -cn &#123;1,2,3,4,5,6,7,8,9,10,11&#125;, --company_nature &#123;1,2,3,4,5,6,7,8,9,10,11&#125;</span><br><span class="line">                        公司性质：(01-11)分别表示(&quot;外资（欧美）&quot;, &quot;外资（非欧美）&quot;, &quot;合资&quot;, &quot;国企&quot;, &quot;民营企业&quot;,</span><br><span class="line">                        &quot;外企代表处&quot;, &quot;政府机关&quot;, &quot;事业单位&quot;, &quot;非营利组织&quot;, &quot;上市公司&quot;, &quot;创业公司&quot;)</span><br><span class="line">  -cs &#123;1,2,3,4,5,6,7&#125;, --company_size &#123;1,2,3,4,5,6,7&#125;</span><br><span class="line">                        公司规模：(1-7)分别表示(&quot;少于50人&quot;, &quot;50-150人&quot;, &quot;150-500人&quot;, &quot;500-1000人&quot;,</span><br><span class="line">                        &quot;1000-5000人&quot;, &quot;5000-10000人&quot;, &quot;10000人以上&quot;)</span><br><span class="line">  -ml MAX_LINE, --max_line MAX_LINE</span><br><span class="line">                        设置抓取数据条目的最大数</span><br><span class="line">  -sf &#123;csv&#125;, --save_format &#123;csv&#125;</span><br><span class="line">                        数据保存格式，当前仅支持csv</span><br></pre></td></tr></table></figure>
+<p><br/></p>
 <h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><h4 id="URL关键字参数"><a href="#URL关键字参数" class="headerlink" title="URL关键字参数"></a>URL关键字参数</h4><p>带有1个关键字参数（嵌入式）的URL：</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>带有3个关键字参数（嵌入式 软件 STM32）的URL：</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F%2520%25E8%25BD%25AF%25E4%25BB%25B6%2520STM32,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F%2520%25E8%25BD%25AF%25E4%25BB%25B6%2520STM32,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F%2520%25E8%25BD%25AF%25E4%25BB%25B6%2520STM32,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,99,%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F%2520%25E8%25BD%25AF%25E4%25BB%25B6%2520STM32,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>可以看出，前面的<code>https://search.51job.com/list/000000,000000,0000,00,9,99,</code>和后面的<code>,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</code>是相同的，提取出不同的是：</p>
 <p><code>%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F</code></p>
 <p><code>%25E5%25B5%258C%25E5%2585%25A5%25E5%25BC%258F%2520%25E8%25BD%25AF%25E4%25BB%25B6%2520STM32</code></p>
-<p>在这里，中文被转成了url编码。以第2条为例，使用<a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">UrlEncode编码/UrlDecode解码 - 站长工具</a>解码，第一次解码之后得<code>%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E8%BD%AF%E4%BB%B6%20STM32</code>，再解码之后得<code>嵌入式 软件 STM32</code>。</p>
+<p>在这里，中文被转成了url编码。以第2条为例，使用<a target="_blank" rel="noopener" href="http://tool.chinaz.com/tools/urlencode.aspx">UrlEncode编码/UrlDecode解码 - 站长工具</a>解码，第一次解码之后得<code>%E5%B5%8C%E5%85%A5%E5%BC%8F%20%E8%BD%AF%E4%BB%B6%20STM32</code>，再解码之后得<code>嵌入式 软件 STM32</code>。</p>
 <p>所以，在Python中把关键词参数加入URL时，可以使用以下方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url = &quot;https://search.51job.com/list/000000,000000,0000,00,9,99,&quot; \</span><br><span class="line">    + urllib.parse.quote(urllib.parse.quote(args.keywords)) + &quot;,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=&quot;</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url = &quot;https://search.51job.com/list/000000,000000,0000,00,9,99,&quot; \</span><br><span class="line">    + urllib.parse.quote(urllib.parse.quote(args.keywords)) + &quot;,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=&quot;</span><br></pre></td></tr></table></figure>
+<p><br/></p>
 <h4 id="URL城市参数"><a href="#URL城市参数" class="headerlink" title="URL城市参数"></a>URL城市参数</h4><p>URL（keywords=”Linux” --city=”全国”）:</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>URL（keywords=”Linux” --city=”南京”）:</p>
-<p><a href="https://search.51job.com/list/070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>URL（keywords=”Linux” --city=”北京”）:</p>
-<p><a href="https://search.51job.com/list/010000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/010000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/010000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/010000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>当我们打开--city=”北京”的这个页面的时候，我们可以看到，在这上面还可以指定到某个区：</p>
 <p><img src="/resources/spider_51job/city_area.jpg" alt="city_area.jpg"></p>
 <p>当选择“上城区”的时候，URL变成了：</p>
-<p><a href="https://search.51job.com/list/010000,010100,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/010000,010100,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/010000,010100,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/010000,010100,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>当同时选择南京、北京（最多选择5项）时，URL变成了：</p>
-<p><a href="https://search.51job.com/list/010000%252c070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/010000%252c070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/010000%252c070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/010000%252c070200,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>可以看到，在上面的这些URL里仅仅改变了2个地方，<code>list/</code>之后的两个字符串，第1个代表城市，而第2个地方表示区号，多个城市之间用<code>%252c</code>分隔（选择多个城市时不可选择区号，至多选择5个城市）。51job对每个城市、分区都编了号。</p>
 <p>肯定有一个存储这些城市编码的地方，最后找到了这个文件：</p>
 <p><img src="/resources/spider_51job/window_area.png" alt="window_area.png"></p>
 <p>而在代码中，<code>get_city_code()</code>函数就是用来获取这个列表的。</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="URL薪酬范围参数"><a href="#URL薪酬范围参数" class="headerlink" title="URL薪酬范围参数"></a>URL薪酬范围参数</h4><p>URL（keywords=”Linux” -srs=3000）：</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,3000-,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,3000-,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,3000-,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,3000-,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>URL（keywords=”Linux” -sre=10000）：</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>URL（keywords=”Linux” -srs=3000 -sre=10000）：</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,3000-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,3000-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,3000-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,3000-10000,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=99&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>从上可以看出，薪资范围在关键词前面一个字段，最低值和最高值之间用’-‘分隔，忽略时为99，当范围起始值大于范围结束值时也会自动忽略。</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="URL工作年限参数"><a href="#URL工作年限参数" class="headerlink" title="URL工作年限参数"></a>URL工作年限参数</h4><p>51job支持使用工作年限来搜索：</p>
 <p><img src="/resources/spider_51job/workyear.jpg" alt="workyear.jpg"></p>
 <p>URL（keywords=”Linux” 工作年限=”在校生/应届生”）：</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=01&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=01&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=01&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=01&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>URL（keywords=”Linux” 工作年限=”1-3年”&amp;”5-10年”）：</p>
-<p><a href="https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=02%252c04&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=" target="_blank" rel="noopener">https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=02%252c04&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
+<p><a target="_blank" rel="noopener" href="https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=02%252c04&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=">https://search.51job.com/list/000000,000000,0000,00,9,99,Linux,2,1.html?lang=c&amp;postchannel=0000&amp;workyear=02%252c04&amp;cotype=99&amp;degreefrom=99&amp;jobterm=99&amp;companysize=99&amp;ord_field=0&amp;dibiaoid=0&amp;line=&amp;welfare=</a></p>
 <p>在URL中使用了参数workyear来指定工作年限，有6个可选项（”在校生/应届生”, “1-3年”, “3-5年”, “5-10年”, “10年以上”, “无需经验”)，分别用(01, 02, 03, 04, 05, 06)来表示。多选用<code>%252c</code>分隔。’=99’时忽略此参数。</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="URL学历要求参数"><a href="#URL学历要求参数" class="headerlink" title="URL学历要求参数"></a>URL学历要求参数</h4><p>同工作年限一样，学历要求使用参数degree_from添加在URL的参数列表里，(01-07)分别表示以下意思：</p>
 <p><img src="/resources/spider_51job/degree_from.png" alt="degree_from.png"></p>
-<p><br></p>
+<p><br/></p>
 <h4 id="URL公司性质参数"><a href="#URL公司性质参数" class="headerlink" title="URL公司性质参数"></a>URL公司性质参数</h4><p>同工作年限一样，公司性质使用参数cotype添加在URL的参数列表里，(01-11)分别表示(“外资（欧美）”, “外资（非欧美）”, “合资”, “国企”, “民营企业”, “外企代表处”, “政府机关”, “事业单位”, “非营利组织”, “上市公司”, “创业公司”)：</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="URL公司规模参数"><a href="#URL公司规模参数" class="headerlink" title="URL公司规模参数"></a>URL公司规模参数</h4><p>同工作年限一样，公司性质使用参数companysize添加在URL的参数列表里，(01-07)分别表示以下意思：</p>
 <p><img src="/resources/spider_51job/company_size.png" alt="company_size.png"></p>
-<p><br></p>
+<p><br/></p>
 <h4 id="作为库使用"><a href="#作为库使用" class="headerlink" title="作为库使用"></a>作为库使用</h4><p>作为库被其它程序引用，传入argv参数，来抓取数据。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> spider_51job <span class="keyword">import</span> main</span><br><span class="line"></span><br><span class="line">cmd = <span class="string">'spider_51job.py url -ml 10 -u http://search.51job.com/list/070200,000000,0000,00,9,99,Linux,2,1.html'</span></span><br><span class="line">main(cmd.split(<span class="string">" "</span>))</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> spider_51job <span class="keyword">import</span> main</span><br><span class="line"></span><br><span class="line">cmd = <span class="string">&#x27;spider_51job.py url -ml 10 -u http://search.51job.com/list/070200,000000,0000,00,9,99,Linux,2,1.html&#x27;</span></span><br><span class="line">main(cmd.split(<span class="string">&quot; &quot;</span>))</span><br></pre></td></tr></table></figure>
+<p><br/></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://docs.python.org/zh-cn/3/howto/argparse.html" target="_blank" rel="noopener">Argparse 教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/howto/argparse.html">Argparse 教程</a></li>
 </ul>
 
       
@@ -372,7 +373,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/51Job数据抓取/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -386,7 +387,7 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/基于51job的嵌入式行业分析/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Technology/%E5%9F%BA%E4%BA%8E51job%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -396,7 +397,7 @@
     </a>
   
   
-    <a href="/Technology/Python编码格式化工具/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Technology/Python%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Python编码格式化工具</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -424,7 +425,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用说明"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码说明"><span class="toc-number">3.</span> <span class="toc-text">代码说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#URL关键字参数"><span class="toc-number">3.1.</span> <span class="toc-text">URL关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL城市参数"><span class="toc-number">3.2.</span> <span class="toc-text">URL城市参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL薪酬范围参数"><span class="toc-number">3.3.</span> <span class="toc-text">URL薪酬范围参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL工作年限参数"><span class="toc-number">3.4.</span> <span class="toc-text">URL工作年限参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL学历要求参数"><span class="toc-number">3.5.</span> <span class="toc-text">URL学历要求参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL公司性质参数"><span class="toc-number">3.6.</span> <span class="toc-text">URL公司性质参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL公司规模参数"><span class="toc-number">3.7.</span> <span class="toc-text">URL公司规模参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#作为库使用"><span class="toc-number">3.8.</span> <span class="toc-text">作为库使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">代码说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#URL%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">URL关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL%E5%9F%8E%E5%B8%82%E5%8F%82%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">URL城市参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL%E8%96%AA%E9%85%AC%E8%8C%83%E5%9B%B4%E5%8F%82%E6%95%B0"><span class="toc-number">3.3.</span> <span class="toc-text">URL薪酬范围参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL%E5%B7%A5%E4%BD%9C%E5%B9%B4%E9%99%90%E5%8F%82%E6%95%B0"><span class="toc-number">3.4.</span> <span class="toc-text">URL工作年限参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL%E5%AD%A6%E5%8E%86%E8%A6%81%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-number">3.5.</span> <span class="toc-text">URL学历要求参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL%E5%85%AC%E5%8F%B8%E6%80%A7%E8%B4%A8%E5%8F%82%E6%95%B0"><span class="toc-number">3.6.</span> <span class="toc-text">URL公司性质参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#URL%E5%85%AC%E5%8F%B8%E8%A7%84%E6%A8%A1%E5%8F%82%E6%95%B0"><span class="toc-number">3.7.</span> <span class="toc-text">URL公司规模参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E4%B8%BA%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="toc-number">3.8.</span> <span class="toc-text">作为库使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -580,15 +581,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,11 +609,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

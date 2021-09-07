@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
   <title>Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Tiantian-Fund-SpiderDesc: 爬取天天基金历史净值数据脚本 说明文档1.数据展示分析点击进入展示页面  2.天天基金的相关接口 查询某个基金的相关信息  1http://fund.eastmoney.com/001938.html?spm=search  其中的001938为基金的代码   查询基金的历史净值页面  1http://fundf10.eastmoney.com/">
+  <meta name="description" content="Tiantian-Fund-SpiderDesc: 爬取天天基金历史净值数据脚本 说明文档1.数据展示分析点击进入展示页面  2.天天基金的相关接口 查询某个基金的相关信息  1http:&#x2F;&#x2F;fund.eastmoney.com&#x2F;001938.html?spm&#x3D;search  其中的001938为基金的代码   查询基金的历史净值页面  1http:&#x2F;&#x2F;fundf10.eastmoney.com&#x2F;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Easy Wang">
 <meta property="og:url" content="http://www.wangeasy.com/resources/fund/Tiantian-Fund-Spider-master/README.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="Tiantian-Fund-SpiderDesc: 爬取天天基金历史净值数据脚本 说明文档1.数据展示分析点击进入展示页面  2.天天基金的相关接口 查询某个基金的相关信息  1http://fund.eastmoney.com/001938.html?spm=search  其中的001938为基金的代码   查询基金的历史净值页面  1http://fundf10.eastmoney.com/">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="Tiantian-Fund-SpiderDesc: 爬取天天基金历史净值数据脚本 说明文档1.数据展示分析点击进入展示页面  2.天天基金的相关接口 查询某个基金的相关信息  1http:&#x2F;&#x2F;fund.eastmoney.com&#x2F;001938.html?spm&#x3D;search  其中的001938为基金的代码   查询基金的历史净值页面  1http:&#x2F;&#x2F;fundf10.eastmoney.com&#x2F;">
+<meta property="og:locale">
 <meta property="og:image" content="https://gitee.com/Ethanyan/pic_data/raw/master/15862635917574.jpg">
-<meta property="og:updated_time" content="2020-05-08T09:32:18.000Z">
+<meta property="article:published_time" content="2021-09-07T03:28:01.825Z">
+<meta property="article:modified_time" content="2020-05-08T09:32:18.000Z">
+<meta property="article:author" content="Easy Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Easy Wang">
-<meta name="twitter:description" content="Tiantian-Fund-SpiderDesc: 爬取天天基金历史净值数据脚本 说明文档1.数据展示分析点击进入展示页面  2.天天基金的相关接口 查询某个基金的相关信息  1http://fund.eastmoney.com/001938.html?spm=search  其中的001938为基金的代码   查询基金的历史净值页面  1http://fundf10.eastmoney.com/">
 <meta name="twitter:image" content="https://gitee.com/Ethanyan/pic_data/raw/master/15862635917574.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -55,7 +55,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -69,10 +73,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -123,10 +125,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -183,48 +183,47 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Tiantian-Fund-Spider"><a href="#Tiantian-Fund-Spider" class="headerlink" title="Tiantian-Fund-Spider"></a>Tiantian-Fund-Spider</h1><p>Desc: 爬取天天基金历史净值数据脚本</p>
-<h1 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h1><h2 id="1-数据展示分析"><a href="#1-数据展示分析" class="headerlink" title="1.数据展示分析"></a>1.数据展示分析</h2><p><a href="https://www.pythonnote.cn/Tiantian-Fund-Spider/" target="_blank" rel="noopener">点击进入展示页面</a></p>
+<h1 id="说明文档"><a href="#说明文档" class="headerlink" title="说明文档"></a>说明文档</h1><h2 id="1-数据展示分析"><a href="#1-数据展示分析" class="headerlink" title="1.数据展示分析"></a>1.数据展示分析</h2><p><a target="_blank" rel="noopener" href="https://www.pythonnote.cn/Tiantian-Fund-Spider/">点击进入展示页面</a></p>
 <p><img src="https://gitee.com/Ethanyan/pic_data/raw/master/15862635917574.jpg" alt="图片预览"></p>
 <h2 id="2-天天基金的相关接口"><a href="#2-天天基金的相关接口" class="headerlink" title="2.天天基金的相关接口"></a>2.天天基金的相关接口</h2><ol>
 <li><p>查询某个基金的相关信息</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fund.eastmoney.com/001938.html?spm=search</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fund.eastmoney.com/001938.html?spm=search</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中的001938为基金的代码</p>
 </blockquote>
 </li>
 <li><p>查询基金的历史净值页面</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fundf10.eastmoney.com/jjjz_001938.html</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fundf10.eastmoney.com/jjjz_001938.html</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中的001938为基金的代码</p>
 </blockquote>
 </li>
 <li><p>查询基金历史净值数据接口</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://api.fund.eastmoney.com/f10/lsjz?callback=jQuery18304038998523093684_1586160530315&amp;fundCode=基金代码&amp;pageIndex=页数&amp;pageSize=每页数据条数</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://api.fund.eastmoney.com/f10/lsjz?callback=jQuery18304038998523093684_1586160530315&amp;fundCode=基金代码&amp;pageIndex=页数&amp;pageSize=每页数据条数</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>由于反爬措施，访问需要携带请求头：Referer，它的值如下</p>
 </blockquote>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fundf10.eastmoney.com/jjjz_基金代码.html</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://fundf10.eastmoney.com/jjjz_基金代码.html</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="3-数据库表"><a href="#3-数据库表" class="headerlink" title="3.数据库表"></a><a id="#数据库表">3.数据库表</a></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> financedb;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> fund(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">int</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">    fundname <span class="built_in">varchar</span>(<span class="number">20</span>),</span><br><span class="line">    funddate <span class="built_in">date</span>,</span><br><span class="line">    NPV <span class="built_in">decimal</span>(<span class="number">9</span>,<span class="number">4</span>),</span><br><span class="line">    rate <span class="built_in">decimal</span>(<span class="number">5</span>,<span class="number">2</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="3-数据库表"><a href="#3-数据库表" class="headerlink" title="3.数据库表"></a><a id="#数据库表">3.数据库表</a></h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> database financedb;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> fund(</span><br><span class="line">    id <span class="type">int</span> auto_increment <span class="keyword">primary</span> key,</span><br><span class="line">    fundname <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">    funddate <span class="type">date</span>,</span><br><span class="line">    NPV <span class="type">decimal</span>(<span class="number">9</span>,<span class="number">4</span>),</span><br><span class="line">    rate <span class="type">decimal</span>(<span class="number">5</span>,<span class="number">2</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h2 id="4-使用方法"><a href="#4-使用方法" class="headerlink" title="4.使用方法"></a>4.使用方法</h2><ol>
 <li><p>安装模块：</p>
  <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br><span class="line">pip install pymysql</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Python</code> 版本为 3.x</p>
+</blockquote>
 </li>
-</ol>
-<pre><code>&gt; `Python` 版本为 3.x
-</code></pre><ol start="2">
 <li><p>在本地数据库 <code>mysql</code> 中创建数据库 <code>financedb</code>，并在该数据库中创建数据库表 <code>fund</code>。（创建语句可查看第二部分 <a href="#数据库表">数据库表</a>）</p>
 </li>
 <li><p>在文件 <code>tiantian.py</code> 中修改如下配置项：</p>
- <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class PureFinance(object):</span><br><span class="line">    def __init__(self, code):</span><br><span class="line">        ...</span><br><span class="line"><span class="meta">---&gt;</span><span class="bash">    self.conn = connect(host=<span class="string">'数据库地址'</span>, port=3306, database=<span class="string">'数据库'</span>, user=<span class="string">'用户名'</span>, password=<span class="string">'密码'</span>)</span></span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class PureFinance(object):</span><br><span class="line">    def __init__(self, code):</span><br><span class="line">        ...</span><br><span class="line"><span class="meta">---&gt;</span><span class="bash">    self.conn = connect(host=<span class="string">&#x27;数据库地址&#x27;</span>, port=3306, database=<span class="string">&#x27;数据库&#x27;</span>, user=<span class="string">&#x27;用户名&#x27;</span>, password=<span class="string">&#x27;密码&#x27;</span>)</span></span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在文件 <code>tiantian.py</code> 如下位置填上需要爬取的基金代码：</p>
- <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">fund = PureFinance('基金代码') &lt;--- 修改此处</span><br><span class="line">mes = fund.getNPV()</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">fund = PureFinance(&#x27;基金代码&#x27;) &lt;--- 修改此处</span><br><span class="line">mes = fund.getNPV()</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<ol start="5">
-<li>执行完毕后，可在对应的数据库表中查看数据是否保存完成。 </li>
+<li><p>执行完毕后，可在对应的数据库表中查看数据是否保存完成。 </p>
+</li>
 </ol>
 
       
@@ -460,15 +459,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,11 +487,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

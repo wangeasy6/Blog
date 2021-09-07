@@ -11,14 +11,14 @@
   <meta name="description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。在这里总结一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言特性总结">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/C语言特性总结/index.html">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。在这里总结一">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-07T07:22:02.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2018-08-06T04:35:01.000Z">
+<meta property="article:modified_time" content="2020-09-07T07:22:02.000Z">
+<meta property="article:author" content="Easy Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言特性总结">
-<meta name="twitter:description" content="学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。在这里总结一">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -53,7 +53,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -67,10 +71,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -121,10 +123,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -187,7 +187,7 @@
   
 
         
-        <a href="/Technology/C语言特性总结/" class="archive-article-date">
+        <a href="/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/" class="archive-article-date">
   	<time datetime="2018-08-06T04:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
 </a>
         
@@ -204,7 +204,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。<br>在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。<br>在这里总结一下 C语言 中包含的所有语法特性及基础概念。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><ul>
 <li><p>面向过程<br>“面向过程” 是一种以过程为中心的编程思想。它考虑的是实际地实现。拿开门为例，“面向过程”的写法大概是 走到门前，旋下把手，往外推门。而“面向对象”则是以对象为中心，还是开门，“面向对象”会先构建一个门的对象，里面包含了门的属性和方法，属性如材料、样式，方法则为开门、关门，使用时直接调用即可，当然其中的封装方式任是“面向过程”的。所以面向过程是一种基础的思想，而面向对象的主要特性在于类、封装、继承。</p>
 </li>
@@ -314,7 +314,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/C语言特性总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -328,7 +328,7 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/Python学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -338,7 +338,7 @@
     </a>
   
   
-    <a href="/Thoughts/自由意志与随机性/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">自由意志与随机性</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -366,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高级"><span class="toc-number">2.</span> <span class="toc-text">高级</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7"><span class="toc-number">2.</span> <span class="toc-text">高级</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -522,15 +522,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,11 +550,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

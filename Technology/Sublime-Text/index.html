@@ -9,18 +9,18 @@
   <title>Sublime Text | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="响应超快，超好用的文本编辑器。">
-<meta name="keywords" content="Tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sublime Text">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/Sublime-Text/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="响应超快，超好用的文本编辑器。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http:///">
-<meta property="og:updated_time" content="2020-11-09T09:02:20.000Z">
+<meta property="article:published_time" content="2018-10-17T08:57:00.000Z">
+<meta property="article:modified_time" content="2020-11-09T09:02:20.000Z">
+<meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sublime Text">
-<meta name="twitter:description" content="响应超快，超好用的文本编辑器。">
 <meta name="twitter:image" content="http:///">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -56,7 +56,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -70,10 +74,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -124,10 +126,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -206,7 +206,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>响应超快，超好用的文本编辑器。<br><a id="more"></a><br><br></p>
+        <p>响应超快，超好用的文本编辑器。<br><span id="more"></span><br><br/></p>
 <h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><p><strong>设置缩进</strong></p>
 <ul>
 <li>右下角可进行方便设置 Space/Tab，Width</li>
@@ -228,8 +228,9 @@
 <p><code>&quot;word_wrap&quot; : true,</code></p>
 </li>
 </ul>
-<p><br></p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><table>
+<p><br/></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
@@ -307,11 +308,12 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>查找/替换换行符：</strong></p>
 <p>要先选中正则表达式（regular expression）匹配模式，如图，点中（.*）按钮。</p>
 <p><img src="///" alt="replace_line_breaks.png"></p>
 <p>在正则表达式模式下，换行符即为转义字符”\n”，只需要在查找或者换行中输入”\n”即代表换行符。</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="工程搜索"><a href="#工程搜索" class="headerlink" title="工程搜索"></a>工程搜索</h3><ul>
 <li><p>在工程中搜索文件：</p>
 <p><code>Ctrl + p</code>，打开搜索框，输入文件名，会自动出现匹配的文件目录，点击即可打开。</p>
@@ -323,26 +325,26 @@
 <p><code>Ctrl + r</code>，跳出当前文件函数列表，可以输入字符进行模糊查找后跳转。</p>
 </li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="中文乱码BUG"><a href="#中文乱码BUG" class="headerlink" title="中文乱码BUG"></a>中文乱码BUG</h3><ul>
 <li>Sublime Text 默认采用UTF8编码，这就造成了许多采用GBK编码的文件里的中文显示为乱码。需要安装一个专门解决这个问题的插件：ConvertToUTF8 。要安装这个插件，首先要安装 Sublime Text 的 <strong>Package Control</strong>。</li>
 <li>首先要安装 Sublime Text 的 Package Control<ul>
 <li>打开Sublime Text，<code>Ctrl + ~</code>打开控制台，</li>
-<li><a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">https://packagecontrol.io/installation</a> 根据你的 Sublime Text 版本选择对应的安装代码，将代码输入控制台后回车，之后便会自动下载并安装 Package Control</li>
+<li><a target="_blank" rel="noopener" href="https://packagecontrol.io/installation">https://packagecontrol.io/installation</a> 根据你的 Sublime Text 版本选择对应的安装代码，将代码输入控制台后回车，之后便会自动下载并安装 Package Control</li>
 <li>安装完成后需要重启Sublime Text 。</li>
 </ul>
 </li>
 <li>接下来就可以安装 ConvertToUTF8 了，按Ctrl + Shift + P打开万能搜索框，然后输入install package回车，这时候会加载所有的packages列表。看到列表之后再输入ConvertToUTF8回车，就会下载安装这个包了。装好之后无需重启Sublime Text你就会惊喜的发现原来的中文乱码都能正常显示了。</li>
-<li><strong>直接安装</strong>：<a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="noopener">https://github.com/seanliang/ConvertToUTF8</a> 项目打包下载并解压，将解压后的文件夹名修改为 <em>ConvertToUTF8</em> ，然后将此文件夹移动到 Sublime Text 的 <em>Packages</em> 文件夹下（可通过 Sublime Text 菜单中的 Preferences &gt; Browse Packages 找到 <em>Packages</em> 文件夹）。</li>
+<li><strong>直接安装</strong>：<a target="_blank" rel="noopener" href="https://github.com/seanliang/ConvertToUTF8">https://github.com/seanliang/ConvertToUTF8</a> 项目打包下载并解压，将解压后的文件夹名修改为 <em>ConvertToUTF8</em> ，然后将此文件夹移动到 Sublime Text 的 <em>Packages</em> 文件夹下（可通过 Sublime Text 菜单中的 Preferences &gt; Browse Packages 找到 <em>Packages</em> 文件夹）。</li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="快捷编译-运行程序"><a href="#快捷编译-运行程序" class="headerlink" title="快捷编译/运行程序"></a>快捷编译/运行程序</h3><ul>
 <li>C<ul>
-<li><a href="https://blog.csdn.net/DragonFreedom/article/details/70159891" target="_blank" rel="noopener">https://blog.csdn.net/DragonFreedom/article/details/70159891</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/DragonFreedom/article/details/70159891">https://blog.csdn.net/DragonFreedom/article/details/70159891</a></li>
 </ul>
 </li>
 <li>C/C++<ul>
-<li><a href="https://blog.csdn.net/shenwanjiang111/article/details/53728941" target="_blank" rel="noopener">https://blog.csdn.net/shenwanjiang111/article/details/53728941</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/shenwanjiang111/article/details/53728941">https://blog.csdn.net/shenwanjiang111/article/details/53728941</a></li>
 </ul>
 </li>
 </ul>
@@ -440,7 +442,7 @@
   
 <nav id="article-nav">
   
-    <a href="/Reflections/《人性的弱点》/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Reflections/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -450,7 +452,7 @@
     </a>
   
   
-    <a href="/Reflections/《奇葩说》/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Reflections/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">《奇葩说》</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -478,7 +480,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用设置"><span class="toc-number">1.</span> <span class="toc-text">常用设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷键"><span class="toc-number">2.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工程搜索"><span class="toc-number">3.</span> <span class="toc-text">工程搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中文乱码BUG"><span class="toc-number">4.</span> <span class="toc-text">中文乱码BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快捷编译-运行程序"><span class="toc-number">5.</span> <span class="toc-text">快捷编译/运行程序</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">常用设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">2.</span> <span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E6%90%9C%E7%B4%A2"><span class="toc-number">3.</span> <span class="toc-text">工程搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81BUG"><span class="toc-number">4.</span> <span class="toc-text">中文乱码BUG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E7%BC%96%E8%AF%91-%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">5.</span> <span class="toc-text">快捷编译&#x2F;运行程序</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -634,15 +636,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,11 +664,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

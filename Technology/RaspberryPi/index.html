@@ -9,18 +9,18 @@
   <title>Raspberry Pi 手记 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART   配置固定USB端口名称   树莓派开启SSH   开启远程桌面   树莓派开启Samba   切换屏幕分辨率   树莓派横竖屏转换   截屏   中文输入   软键盘   rar解压缩   硬件环境：Raspberry P">
-<meta name="keywords" content="树莓派">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Raspberry Pi 手记">
 <meta property="og:url" content="http://www.wangeasy.com/Technology/RaspberryPi/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART   配置固定USB端口名称   树莓派开启SSH   开启远程桌面   树莓派开启Samba   切换屏幕分辨率   树莓派横竖屏转换   截屏   中文输入   软键盘   rar解压缩   硬件环境：Raspberry P">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://www.wangeasy.com/resources/RaspberryPi/Pin.png">
-<meta property="og:updated_time" content="2021-04-19T15:04:02.000Z">
+<meta property="article:published_time" content="2020-02-11T02:08:00.000Z">
+<meta property="article:modified_time" content="2021-04-19T15:04:02.000Z">
+<meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="树莓派">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Raspberry Pi 手记">
-<meta name="twitter:description" content="主题  开机更新   更换源地址到国内镜像   更换pip源到国内镜像   开启Root权限   命令行配置无线网络连接   配置网口为固定IP   树莓派3B使用UART   配置固定USB端口名称   树莓派开启SSH   开启远程桌面   树莓派开启Samba   切换屏幕分辨率   树莓派横竖屏转换   截屏   中文输入   软键盘   rar解压缩   硬件环境：Raspberry P">
 <meta name="twitter:image" content="http://www.wangeasy.com/resources/RaspberryPi/Pin.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -56,7 +56,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -70,10 +74,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -124,10 +126,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -226,58 +226,58 @@
 <li><a href="/Technology/RaspberryPi/#rar解压缩"> rar解压缩 </a></li>
 </ul>
 <p>硬件环境：<strong>Raspberry Pi 3B+</strong></p>
-<a id="more"></a>
-<p><br></p>
+<span id="more"></span>
+<p><br/></p>
 <h3 id="开机更新"><a href="#开机更新" class="headerlink" title="开机更新"></a>开机更新</h3><p><code>sudo rpi-update</code>         // 固件更新<br><code>sudo apt-get update</code>     // 软件源更新<br><code>sudo apt-get upgrade</code>    // 软件更新</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="GPIO"><a href="#GPIO" class="headerlink" title="GPIO"></a>GPIO</h3><h4 id="wiringPi包括一套gpio控制命令"><a href="#wiringPi包括一套gpio控制命令" class="headerlink" title="wiringPi包括一套gpio控制命令"></a>wiringPi包括一套gpio控制命令</h4><ul>
 <li>查看GPIO图：<code>gpio readall</code></li>
 <li>读：<code>gpio read &lt;pin&gt;</code></li>
 <li>设置高低：<code>gpio mode &lt;pin&gt; &lt;in/out/pwm/clock/up/down/tri</code></li>
 <li><code>gpio write &lt;pin&gt; &lt;1/0&gt;</code></li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="更换源地址到国内镜像"><a href="#更换源地址到国内镜像" class="headerlink" title="更换源地址到国内镜像"></a>更换源地址到国内镜像</h3><p>1.lsb_release -a 查看自己的版本类型</p>
 <p>2.选择以下任意一个国内镜像进行替换</p>
 <ul>
-<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/raspbian/" target="_blank" rel="noopener">清华大学</a></li>
-<li><a href="http://mirrors.ustc.edu.cn/help/raspbian.html" target="_blank" rel="noopener">中国科学技术大学</a></li>
+<li><a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/raspbian/">清华大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/help/raspbian.html">中国科学技术大学</a></li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="更换pip源到国内镜像"><a href="#更换pip源到国内镜像" class="headerlink" title="更换pip源到国内镜像"></a>更换pip源到国内镜像</h3><p><strong>pip国内的一些镜像：</strong></p>
 <ul>
-<li>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-<li>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
-<li>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li>阿里云 <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
+<li>中国科技大学 <a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li>清华大学 <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
+<li>中国科学技术大学 <a target="_blank" rel="noopener" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
 </ul>
 <p><strong>临时使用：</strong></p>
-<p>  使用 -i 指定源，例： sudo pip3 install cython -i  <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>  使用 -i 指定源，例： sudo pip3 install cython -i  <a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
 <p><strong>永久修改：</strong></p>
 <p>  linux：修改 ~/.pip/pip.conf (没有就创建一个)， 内容如下：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
 <p>  windows：直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini，内容如下</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-<p><br></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p><br/></p>
 <h3 id="开启Root权限"><a href="#开启Root权限" class="headerlink" title="开启Root权限"></a>开启Root权限</h3><p>1.<code>sudo passwd root</code><br>  输入两遍密码</p>
 <p>2.<code>sudo vim /etc/ssh/sshd_config</code><br>  修改 PermitRootLogin without-password 为 PermitRootLogin yes</p>
 <p>3.<code>sudo reboot</code></p>
-<p><br></p>
+<p><br/></p>
 <h3 id="命令行配置无线网络连接"><a href="#命令行配置无线网络连接" class="headerlink" title="命令行配置无线网络连接"></a>命令行配置无线网络连接</h3><p>使用如下命令可以扫描附件的无线网：</p>
 <p><code>sudo iwlist wlan0 scan</code></p>
 <p>ESSID 是无线网名称，IEEE 是协议版本和加密方式。</p>
 <p>添加有密码的WiFi网络：</p>
 <p><code>sudo vim /etc/wpa_supplicant/wpa_supplicant.conf</code></p>
 <p>在文件末尾出添加一下代码，并替换掉ssid_name以及password即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">        ssid=&quot;ssid_name&quot;</span><br><span class="line">        psk=&quot;password&quot;</span><br><span class="line">        key_mgmt=WPA-PSK</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">        ssid=&quot;ssid_name&quot;</span><br><span class="line">        psk=&quot;password&quot;</span><br><span class="line">        key_mgmt=WPA-PSK</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果要连接的是隐藏的网络，需要在配置文件中添加<code>scan_ssid</code>连接。需要添加的内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;Hidden_ssid&quot;</span><br><span class="line">    psk=&quot;password&quot;</span><br><span class="line">    scan_ssid=1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;Hidden_ssid&quot;</span><br><span class="line">    psk=&quot;password&quot;</span><br><span class="line">    scan_ssid=1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果您有两个网络的范围，可以添加优先级选项来在它们之间进行选择。具有最高优先级的范围内的网络将是连接的网络：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">"ssid_name1"</span></span><br><span class="line">    psk=<span class="string">"password1"</span></span><br><span class="line">    priority=1</span><br><span class="line">    id_str=<span class="string">"homeOne"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">"ssid_name2"</span></span><br><span class="line">    psk=<span class="string">"password2"</span></span><br><span class="line">    priority=2</span><br><span class="line">    id_str=<span class="string">"homeTwo"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">&quot;ssid_name1&quot;</span></span><br><span class="line">    psk=<span class="string">&quot;password1&quot;</span></span><br><span class="line">    priority=1</span><br><span class="line">    id_str=<span class="string">&quot;homeOne&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">&quot;ssid_name2&quot;</span></span><br><span class="line">    psk=<span class="string">&quot;password2&quot;</span></span><br><span class="line">    priority=2</span><br><span class="line">    id_str=<span class="string">&quot;homeTwo&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br/></p>
 <h3 id="配置网口为固定IP"><a href="#配置网口为固定IP" class="headerlink" title="配置网口为固定IP"></a>配置网口为固定IP</h3><p><code>vi /etc/dhcpcd.conf</code></p>
 <p>修改以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#网线</span><br><span class="line">interface eth0</span><br><span class="line">static ip_address=192.168.1.15/24</span><br><span class="line">static routers=192.168.1.1</span><br><span class="line">static domian_name_servers=114.114.114.114</span><br><span class="line">static domian_name_servers=114.114.115.115</span><br><span class="line">#无线</span><br><span class="line">interface wlan0</span><br><span class="line">static ip_address=192.168.2.15/24</span><br><span class="line">static routers=192.168.2.1</span><br><span class="line">static domian_name_servers=114.114.114.114</span><br><span class="line">static domian_name_servers=114.114.115.115</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#网线</span><br><span class="line">interface eth0</span><br><span class="line">static ip_address=192.168.1.15/24</span><br><span class="line">static routers=192.168.1.1</span><br><span class="line">static domian_name_servers=114.114.114.114</span><br><span class="line">static domian_name_servers=114.114.115.115</span><br><span class="line">#无线</span><br><span class="line">interface wlan0</span><br><span class="line">static ip_address=192.168.2.15/24</span><br><span class="line">static routers=192.168.2.1</span><br><span class="line">static domian_name_servers=114.114.114.114</span><br><span class="line">static domian_name_servers=114.114.115.115</span><br></pre></td></tr></table></figure>
 <p>修改完成后，按esc键后输入 :wq 保存。</p>
 <p>重启网络：<code>sudo service network restart</code></p>
 <p>或重启树莓派就生效了：<code>sudo reboot</code></p>
@@ -288,8 +288,8 @@
 <p>将防火墙关闭即可。</p>
 </li>
 </ul>
-<p><br></p>
-<h3 id="树莓派3B使用UART"><a href="#树莓派3B使用UART" class="headerlink" title="树莓派3B使用UART"></a>树莓派3B使用UART</h3><p>参考：<a href="https://blog.csdn.net/asukasmallriver/article/details/76851375" target="_blank" rel="noopener">https://blog.csdn.net/asukasmallriver/article/details/76851375</a></p>
+<p><br/></p>
+<h3 id="树莓派3B使用UART"><a href="#树莓派3B使用UART" class="headerlink" title="树莓派3B使用UART"></a>树莓派3B使用UART</h3><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/asukasmallriver/article/details/76851375">https://blog.csdn.net/asukasmallriver/article/details/76851375</a></p>
 <p>1.前言</p>
 <p>树莓派CPU内部有两个串口，一个是硬件串口(官方称为PL011 UART)，一个是迷你串口(官方成为mini-uart)。</p>
 <p>在树莓派2B/B+这些老版树莓派上，官方设计时都是将“硬件串口”分配给GPIO中的UART(GPIO14&amp;GPIO15)，因此可以独立调整串口的速率和模式。</p>
@@ -315,7 +315,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop serial-getty@ttyAMA0.service</span><br><span class="line">sudo systemctl disable serial-getty@ttyAMA0.service</span><br></pre></td></tr></table></figure>
 <p>6.重启树莓派</p>
 <p>使修改生效：<code>sudo reboot</code></p>
-<p><br></p>
+<p><br/></p>
 <h3 id="配置固定USB端口名称"><a href="#配置固定USB端口名称" class="headerlink" title="配置固定USB端口名称"></a>配置固定USB端口名称</h3><p>树莓派的板集上只有一个UART，经常会遇到不够用的情况，那么这个时候就只能使用USB转串口线了。</p>
 <p>正常使用USB端口接USB转串口线来发送数据时，会根据拔插的先后顺序为串口分配<code>ttyUSB*</code>，这样在程序上就有一个麻烦，需要根据当前的串口名称改动程序或者配置。</p>
 <p>为了解决USB端口号的对应问题，我们可以固定端口号设备名。例如，右上角的USB端口插入USB转串口线时，系统会固定命名为<code>tty_RightUp</code>，使用<code>ls /dev</code>命令，原来会显示<code>/dev/ttyUSB*</code>，现在则多了一个固定名称<code>/dev/tty_RightUp</code>，在写程序调用open传参的时候就不用更改了。相当于将这个端口和这个端口默认连接的设备做了一一对应，再也不用担心端口号变动了。</p>
@@ -323,6 +323,7 @@
 <p><code>99-com.rules</code>文件就是对于串行通讯端口（COM口）配置的文件，<code>99</code>表示系统应用该规则的顺序。</p>
 <p>在这个文件中，我们可以添加此规则来对设备名称新增一个固定的软链接：</p>
 <p><code>KERNEL==&quot;ttyUSB*&quot;,KERNELS==&quot;1-1.3&quot;,MODE:=&quot;0x777&quot;, SYMLINK+=&quot;tty_RightUp&quot;</code></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -349,20 +350,21 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h5 id="udevadm"><a href="#udevadm" class="headerlink" title="udevadm"></a>udevadm</h5><p>在编写<code>udev</code>规则时，常常使用<code>udevadm</code>命令来查看设备属性。当获取到设备特定属性之后，我们便能编写对于特定设备或端口的特殊规则。</p>
 <p>在树莓派中，对于同一USB端口插入不同的USB转串口设备，设备的<code>KERNELS</code>的部分参数始终不变；而插入不同USB端口，<code>KERNELS</code>的参数又都不同，所以在这里我们使用<code>KERNELS</code>参数来识别对应的USB端口。</p>
 <p>使用：<code>udevadm info --attribute-walk --name=/dev/ttyUSB0 | grep KERNELS</code></p>
 <p>得到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">KERNELS==&quot;ttyUSB0&quot;</span><br><span class="line">KERNELS==&quot;1-1.3:1.0&quot;</span><br><span class="line">KERNELS==&quot;1-1.3&quot;</span><br><span class="line">KERNELS==&quot;1-1&quot;</span><br><span class="line">KERNELS==&quot;usb1&quot;</span><br><span class="line">KERNELS==&quot;3f980000.usb&quot;</span><br><span class="line">KERNELS==&quot;soc&quot;</span><br><span class="line">KERNELS==&quot;platform&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">KERNELS==&quot;ttyUSB0&quot;</span><br><span class="line">KERNELS==&quot;1-1.3:1.0&quot;</span><br><span class="line">KERNELS==&quot;1-1.3&quot;</span><br><span class="line">KERNELS==&quot;1-1&quot;</span><br><span class="line">KERNELS==&quot;usb1&quot;</span><br><span class="line">KERNELS==&quot;3f980000.usb&quot;</span><br><span class="line">KERNELS==&quot;soc&quot;</span><br><span class="line">KERNELS==&quot;platform&quot;</span><br></pre></td></tr></table></figure>
 <p>其中的数字部分是层层递进的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">KERNELS==&quot;1-1.3:1.0&quot;</span><br><span class="line">KERNELS==&quot;1-1.3&quot;</span><br><span class="line">KERNELS==&quot;1-1&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">KERNELS==&quot;1-1.3:1.0&quot;</span><br><span class="line">KERNELS==&quot;1-1.3&quot;</span><br><span class="line">KERNELS==&quot;1-1&quot;</span><br></pre></td></tr></table></figure>
 <p>选取不带<code>:</code>的最长的那行数据便是此端口的特定参属性，填入规则中，则最终规则为：</p>
 <p><code>KERNEL==&quot;ttyUSB*&quot;,KERNELS==&quot;1-1.3&quot;,MODE:=&quot;0x777&quot;, SYMLINK+=&quot;tty_RightUp&quot;</code></p>
 <p>重启服务生效：<code>sudo /etc/init.d/udev restart</code></p>
-<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a href="https://blog.csdn.net/qq_26800875/article/details/83302546" target="_blank" rel="noopener">树莓派绑定USB串口id</a></p>
-<p><a href="https://www.cnblogs.com/sopost/archive/2013/01/09/2853200.html" target="_blank" rel="noopener">Linux┊详解udev</a></p>
-<p><a href="https://wiki.archlinux.org/index.php/Udev_(简体中文)" title="udev wiki" target="_blank" rel="noopener">udev wiki</a></p>
-<p><br></p>
+<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26800875/article/details/83302546">树莓派绑定USB串口id</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sopost/archive/2013/01/09/2853200.html">Linux┊详解udev</a></p>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Udev_(简体中文)" title="udev wiki">udev wiki</a></p>
+<p><br/></p>
 <h3 id="树莓派开启SSH"><a href="#树莓派开启SSH" class="headerlink" title="树莓派开启SSH"></a>树莓派开启SSH</h3><p>1.SSH服务安装</p>
 <p><code>sudo apt-get install openssh-server</code></p>
 <p>2.检查树莓派SSH服务是否开启</p>
@@ -374,13 +376,13 @@
 <p>5.树莓派SSH服务开机自动启动</p>
 <p>在终端命令行中启动SSH服务后，如果系统重启或关机后启动，SSH服务默认是关闭的，依然需要手动启动，为了方便可以设置SSH服务开机自动启动，打开/etc/rc.local文件，在语句exit 0之前加入：</p>
 <p><code>/etc/init.d/ssh start</code></p>
-<p><br></p>
+<p><br/></p>
 <h3 id="开启远程桌面"><a href="#开启远程桌面" class="headerlink" title="开启远程桌面"></a>开启远程桌面</h3><h4 id="VNC远程桌面连接"><a href="#VNC远程桌面连接" class="headerlink" title="VNC远程桌面连接"></a>VNC远程桌面连接</h4><p>树莓派<strong>3B+</strong>自带vncserver，所以只要开启就可以进行远程连接。</p>
 <h5 id="启动树莓派VNC服务"><a href="#启动树莓派VNC服务" class="headerlink" title="启动树莓派VNC服务"></a>启动树莓派VNC服务</h5><p>Enable VNC：<code>sudo raspi-config</code> -&gt; <code>Interfacing Options</code> -&gt; <code>VNC</code> -&gt; <code>&lt;是&gt;</code> -&gt; <code>&lt;确定&gt;</code> -&gt; <code>&lt;Finish&gt;</code></p>
 <p>启动服务：<code>vncserver</code></p>
 <p>到这儿在树莓派上的vnc服务就已经启动了，启动服务会给出连接地址，就在“New desktop is …”后面的括号里。</p>
 <h5 id="使用PC连接"><a href="#使用PC连接" class="headerlink" title="使用PC连接"></a>使用PC连接</h5><ol>
-<li>下载对应版本的<a href="https://www.realvnc.com/en/connect/download/viewer/windows/" target="_blank" rel="noopener">VNC Viewer</a>，安装好；</li>
+<li>下载对应版本的<a target="_blank" rel="noopener" href="https://www.realvnc.com/en/connect/download/viewer/windows/">VNC Viewer</a>，安装好；</li>
 <li>在输入框中输入连接地址，回车，输入树莓派的账号密码，点击连接。</li>
 </ol>
 <h4 id="RDP远程桌面连接"><a href="#RDP远程桌面连接" class="headerlink" title="RDP远程桌面连接"></a>RDP远程桌面连接</h4><p>RDP是“Windows远程桌面连接”所使用的协议，xrdp是一个开源的RDP Server软件。</p>
@@ -396,59 +398,59 @@
 <li>RDP画质相对好一些。</li>
 <li>VNC改变窗口大小，会自己适配；RDP如果显示窗口小于原画，则只会显示部分，会在左边或下边显示拖动条。</li>
 </ol>
-<p><br></p>
+<p><br/></p>
 <h3 id="禁止休眠-屏幕常亮"><a href="#禁止休眠-屏幕常亮" class="headerlink" title="禁止休眠/屏幕常亮"></a>禁止休眠/屏幕常亮</h3><p>Raspbian使用了轻量桌面显示管理器即lightdm,通过该管理器可对xserver桌面会话交互、显示等进行设置.</p>
 <p><strong>1.打开lightdm.conf</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/lightdm/lightdm.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/lightdm/lightdm.conf</span><br></pre></td></tr></table></figure>
 <p><strong>2.修改lightdm.conf</strong></p>
 <p>找到[SeatDefaults]段下的’xserver-command’,取消注释,修改为如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#xserver-command=X</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#xserver-command=X</span><br></pre></td></tr></table></figure>
 <p>修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xserver-command=X -s 0 -dpms</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xserver-command=X -s 0 -dpms</span><br></pre></td></tr></table></figure>
 <ul>
 <li>-s  设置屏幕保护不启用</li>
 <li>-dpms 关闭电源节能管理</li>
 </ul>
 <p><strong>3.重启</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+<p><br/></p>
 <h3 id="切换屏幕分辨率"><a href="#切换屏幕分辨率" class="headerlink" title="切换屏幕分辨率"></a>切换屏幕分辨率</h3><p>命令：<code>sudo raspi-config</code> -&gt; <code>Advanced Options</code> -&gt; <code>Resolution</code></p>
 <p>树莓派<strong>3B+</strong>提供了两种输出模式，<strong>CEA</strong>和<strong>DMT</strong>。</p>
 <p>我的显示器分辨率是2560×1440，如果选择<strong>CEA</strong>模式的分辨率，会居中显示在2560×1440的屏幕上，四周会有黑边；如果选择<strong>DMT</strong>模式，无论选择什么分辨率，都会自动拉伸，覆盖到整个屏幕。</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="树莓派横竖屏转换"><a href="#树莓派横竖屏转换" class="headerlink" title="树莓派横竖屏转换"></a>树莓派横竖屏转换</h3><p>编辑/boot/config.txt，根据想旋转的角度<br>对于触摸屏添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lcd_rotate = 0 //不旋转</span><br><span class="line">lcd_rotate = 1 //旋转90度</span><br><span class="line">lcd_rotate = 2 //旋转180</span><br><span class="line">lcd_rotate = 3 //旋转270</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lcd_rotate = 0 //不旋转</span><br><span class="line">lcd_rotate = 1 //旋转90度</span><br><span class="line">lcd_rotate = 2 //旋转180</span><br><span class="line">lcd_rotate = 3 //旋转270</span><br></pre></td></tr></table></figure>
 <p>对于HDMI显示输出，添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display_rotate = 0</span><br><span class="line">display_rotate = 1</span><br><span class="line">display_rotate = 2</span><br><span class="line">display_rotate = 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display_rotate = 0</span><br><span class="line">display_rotate = 1</span><br><span class="line">display_rotate = 2</span><br><span class="line">display_rotate = 3</span><br></pre></td></tr></table></figure>
 <p>对于触摸定位：</p>
 <p><strong>1.安装xinput</strong><br><code>sudo apt-get install xinput</code></p>
 <p><strong>2.列出所有输入设备信息</strong><br><code>xinput --list</code></p>
 <p>如果远程操作记得在命令前加DISPLAY=:0，<code>DISPLAY=:0 xinput --list</code></p>
 <p>得到以下信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NTGAGE:~ $ DISPLAY=:0 xinput --list</span><br><span class="line">⎡ Virtual core pointer                          id=2    [master pointer  (3)]</span><br><span class="line">⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]</span><br><span class="line">⎜   ↳ Logitech USB Optical Mouse                id=6    [slave  pointer  (2)]</span><br><span class="line">⎜   ↳ WaveShare WaveShare Touchscreen           id=7    [slave  pointer  (2)]</span><br><span class="line">⎣ Virtual core keyboard                         id=3    [master keyboard (2)]</span><br><span class="line">    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]</span><br><span class="line">    ↳ Logitech USB Keyboard                     id=8    [slave  keyboard (3)]</span><br><span class="line">    ↳ Logitech USB Keyboard                     id=9    [slave  keyboard (3)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NTGAGE:~ $ DISPLAY=:0 xinput --list</span><br><span class="line">⎡ Virtual core pointer                          id=2    [master pointer  (3)]</span><br><span class="line">⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]</span><br><span class="line">⎜   ↳ Logitech USB Optical Mouse                id=6    [slave  pointer  (2)]</span><br><span class="line">⎜   ↳ WaveShare WaveShare Touchscreen           id=7    [slave  pointer  (2)]</span><br><span class="line">⎣ Virtual core keyboard                         id=3    [master keyboard (2)]</span><br><span class="line">    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]</span><br><span class="line">    ↳ Logitech USB Keyboard                     id=8    [slave  keyboard (3)]</span><br><span class="line">    ↳ Logitech USB Keyboard                     id=9    [slave  keyboard (3)]</span><br></pre></td></tr></table></figure>
 <p><strong>3.列出目标设备属性</strong></p>
 <p><code>DISPLAY=:0 xinput --list-props 7</code></p>
 <p>得到以下信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">NTGAGE:~ $ DISPLAY=:0 xinput --list-props 7</span><br><span class="line">Device &apos;WaveShare WaveShare Touchscreen&apos;:</span><br><span class="line">        Device Enabled (115):   1</span><br><span class="line">        Coordinate Transformation Matrix (116): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        Device Accel Profile (240):     0</span><br><span class="line">        Device Accel Constant Deceleration (241):       1.000000</span><br><span class="line">        Device Accel Adaptive Deceleration (242):       1.000000</span><br><span class="line">        Device Accel Velocity Scaling (243):    10.000000</span><br><span class="line">        Device Product ID (244):        3823, 5</span><br><span class="line">        Device Node (245):      &quot;/dev/input/event3&quot;</span><br><span class="line">        Evdev Axis Inversion (246):     0, 0</span><br><span class="line">        Evdev Axis Calibration (247):   &lt;no items&gt;</span><br><span class="line">        Evdev Axes Swap (248):  0</span><br><span class="line">        Axis Labels (249):      &quot;Abs MT Position X&quot; (267), &quot;Abs MT Position Y&quot; (268), &quot;Abs MT Pressure&quot; (269), &quot;None&quot; (0), &quot;None&quot; (0), &quot;None&quot; (0)</span><br><span class="line">        Button Labels (250):    &quot;Button Unknown&quot; (233), &quot;Button Unknown&quot; (233), &quot;Button Unknown&quot; (233), &quot;Button Wheel Up&quot; (121), &quot;Button Wheel Down&quot; (122)</span><br><span class="line">        Evdev Scrolling Distance (251): 0, 0, 0</span><br><span class="line">        Evdev Middle Button Emulation (252):    0</span><br><span class="line">        Evdev Middle Button Timeout (253):      50</span><br><span class="line">        Evdev Third Button Emulation (254):     0</span><br><span class="line">        Evdev Third Button Emulation Timeout (255):     1000</span><br><span class="line">        Evdev Third Button Emulation Button (256):      3</span><br><span class="line">        Evdev Third Button Emulation Threshold (257):   20</span><br><span class="line">        Evdev Wheel Emulation (258):    0</span><br><span class="line">        Evdev Wheel Emulation Axes (259):       0, 0, 4, 5</span><br><span class="line">        Evdev Wheel Emulation Inertia (260):    10</span><br><span class="line">        Evdev Wheel Emulation Timeout (261):    200</span><br><span class="line">        Evdev Wheel Emulation Button (262):     4</span><br><span class="line">        Evdev Drag Lock Buttons (263):  0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">NTGAGE:~ $ DISPLAY=:0 xinput --list-props 7</span><br><span class="line">Device &#x27;WaveShare WaveShare Touchscreen&#x27;:</span><br><span class="line">        Device Enabled (115):   1</span><br><span class="line">        Coordinate Transformation Matrix (116): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        Device Accel Profile (240):     0</span><br><span class="line">        Device Accel Constant Deceleration (241):       1.000000</span><br><span class="line">        Device Accel Adaptive Deceleration (242):       1.000000</span><br><span class="line">        Device Accel Velocity Scaling (243):    10.000000</span><br><span class="line">        Device Product ID (244):        3823, 5</span><br><span class="line">        Device Node (245):      &quot;/dev/input/event3&quot;</span><br><span class="line">        Evdev Axis Inversion (246):     0, 0</span><br><span class="line">        Evdev Axis Calibration (247):   &lt;no items&gt;</span><br><span class="line">        Evdev Axes Swap (248):  0</span><br><span class="line">        Axis Labels (249):      &quot;Abs MT Position X&quot; (267), &quot;Abs MT Position Y&quot; (268), &quot;Abs MT Pressure&quot; (269), &quot;None&quot; (0), &quot;None&quot; (0), &quot;None&quot; (0)</span><br><span class="line">        Button Labels (250):    &quot;Button Unknown&quot; (233), &quot;Button Unknown&quot; (233), &quot;Button Unknown&quot; (233), &quot;Button Wheel Up&quot; (121), &quot;Button Wheel Down&quot; (122)</span><br><span class="line">        Evdev Scrolling Distance (251): 0, 0, 0</span><br><span class="line">        Evdev Middle Button Emulation (252):    0</span><br><span class="line">        Evdev Middle Button Timeout (253):      50</span><br><span class="line">        Evdev Third Button Emulation (254):     0</span><br><span class="line">        Evdev Third Button Emulation Timeout (255):     1000</span><br><span class="line">        Evdev Third Button Emulation Button (256):      3</span><br><span class="line">        Evdev Third Button Emulation Threshold (257):   20</span><br><span class="line">        Evdev Wheel Emulation (258):    0</span><br><span class="line">        Evdev Wheel Emulation Axes (259):       0, 0, 4, 5</span><br><span class="line">        Evdev Wheel Emulation Inertia (260):    10</span><br><span class="line">        Evdev Wheel Emulation Timeout (261):    200</span><br><span class="line">        Evdev Wheel Emulation Button (262):     4</span><br><span class="line">        Evdev Drag Lock Buttons (263):  0</span><br></pre></td></tr></table></figure>
 <p>如果执行到这一步，发现并没有以上的Evdev等属性项，请跳转到步骤4。</p>
 <p>如果如上所示，则执行修改：</p>
 <p>如屏幕显示为翻转90度。/boot/config.txt设置为display_rotate=1<br>上述信息中Evdev Axis Inversion 项是每条轴的旋转设置项，后面第一个参数是x,第二个参数是y.<br>Evdev Axes Swap项对应的是两条轴的交换。0为不翻转，1为翻转<br>例如，x轴原本是朝向右的，当把Evdev Axis Inversion的第一个参数设置为1，即x轴朝向左。</p>
 <p>现在目的是要触摸旋转90度，从坐标轴理解：即目的x轴正向为初始y轴的反向。目的y轴的正方向为初始x轴的正向。<br>1）所以先交换x、y轴<br><code>DISPLAY=:0 xinput --set-prop &#39;7&#39; &#39;Evdev Axes Swap&#39; 1</code><br>2）然后反转y轴<br><code>DISPLAY=:0 xinput --set-prop &#39;7&#39; &#39;Evdev Axis Inversion&#39; 0 1</code><br>这样即可完成触摸旋转90度。若要旋转其他角度，推理一下即可。<br>显示旋转修改之后需要重启。而触摸旋转不需要重启。</p>
 <p><strong>4.无Evdev操作</strong></p>
 <p>如果查询到的信息如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DISPLAY=:0 xinput --list-props 6</span><br><span class="line">Device &apos;WaveShare WaveShare Touchscreen&apos;:</span><br><span class="line">        Device Enabled (114):   1</span><br><span class="line">        Coordinate Transformation Matrix (115): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        libinput Calibration Matrix (246):      0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        libinput Calibration Matrix Default (247):      1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        libinput Send Events Modes Available (248):     1, 0</span><br><span class="line">        libinput Send Events Mode Enabled (249):        0, 0</span><br><span class="line">        libinput Send Events Mode Enabled Default (250):        0, 0</span><br><span class="line">        Device Node (251):      &quot;/dev/input/event0&quot;</span><br><span class="line">        Device Product ID (252):        3823, 5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DISPLAY=:0 xinput --list-props 6</span><br><span class="line">Device &#x27;WaveShare WaveShare Touchscreen&#x27;:</span><br><span class="line">        Device Enabled (114):   1</span><br><span class="line">        Coordinate Transformation Matrix (115): 1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        libinput Calibration Matrix (246):      0.000000, 1.000000, 0.000000, -1.000000, 0.000000, 1.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        libinput Calibration Matrix Default (247):      1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000</span><br><span class="line">        libinput Send Events Modes Available (248):     1, 0</span><br><span class="line">        libinput Send Events Mode Enabled (249):        0, 0</span><br><span class="line">        libinput Send Events Mode Enabled Default (250):        0, 0</span><br><span class="line">        Device Node (251):      &quot;/dev/input/event0&quot;</span><br><span class="line">        Device Product ID (252):        3823, 5</span><br></pre></td></tr></table></figure>
 <p>可以看到该驱动方式采用的是libinput。</p>
 <p>查看/usr/share/X11/xorg.conf.d/目录下是否有40-libinput.conf这个文件。<br>无 则需要安装，<code>sudo apt-get install xserver-xorg-input-libinput</code><br>复制该文件到/etc/X11/xorg.conf.d/目录下。一开始xorg.conf.d这个目录在/etc/X11可能没有，需要自己创建。<br>修改40-libinput.conf 文件，<code>sudo vim /etc/X11/xorg.conf.d/40-libinput.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Section &quot;InputClass&quot;</span><br><span class="line">        Identifier &quot;libinput touchscreen catchall&quot;</span><br><span class="line">        MatchIsTouchscreen &quot;on&quot;</span><br><span class="line">        MatchDevicePath &quot;/dev/input/event*&quot;</span><br><span class="line">        Driver &quot;libinput&quot;</span><br><span class="line">EndSection</span><br><span class="line">添加一行  Option &quot;CalibrationMatrix&quot; &quot;0 1 0 -1 0 1 0 0 1</span><br><span class="line">结果为</span><br><span class="line">Section &quot;InputClass&quot;</span><br><span class="line">        Identifier &quot;libinput touchscreen catchall&quot;</span><br><span class="line">        Option &quot;CalibrationMatrix&quot; &quot;0 1 0 -1 0 1 0 0 1</span><br><span class="line">        MatchIsTouchscreen &quot;on&quot;</span><br><span class="line">        MatchDevicePath &quot;/dev/input/event*&quot;</span><br><span class="line">        Driver &quot;libinput&quot;</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Section &quot;InputClass&quot;</span><br><span class="line">        Identifier &quot;libinput touchscreen catchall&quot;</span><br><span class="line">        MatchIsTouchscreen &quot;on&quot;</span><br><span class="line">        MatchDevicePath &quot;/dev/input/event*&quot;</span><br><span class="line">        Driver &quot;libinput&quot;</span><br><span class="line">EndSection</span><br><span class="line">添加一行  Option &quot;CalibrationMatrix&quot; &quot;0 1 0 -1 0 1 0 0 1</span><br><span class="line">结果为</span><br><span class="line">Section &quot;InputClass&quot;</span><br><span class="line">        Identifier &quot;libinput touchscreen catchall&quot;</span><br><span class="line">        Option &quot;CalibrationMatrix&quot; &quot;0 1 0 -1 0 1 0 0 1</span><br><span class="line">        MatchIsTouchscreen &quot;on&quot;</span><br><span class="line">        MatchDevicePath &quot;/dev/input/event*&quot;</span><br><span class="line">        Driver &quot;libinput&quot;</span><br><span class="line">EndSection</span><br></pre></td></tr></table></figure>
 <p>重启生效。</p>
 <p>上述修改以90度为例，如果需要修改为其他角度，参考libinput的算法，对应的值是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">90 度旋转： Option &quot;CalibrationMatrix&quot; &quot;0 1 0 -1 0 1 0 0 1&quot;</span><br><span class="line">180度旋转： Option &quot;CalibrationMatrix&quot; &quot;-1 0 1 0 -1 1 0 0 1&quot;</span><br><span class="line">270度旋转： Option &quot;CalibrationMatrix&quot; &quot;0 -1 1 1 0 0 0 0 1&quot;</span><br></pre></td></tr></table></figure>
-<p><br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">90 度旋转： Option &quot;CalibrationMatrix&quot; &quot;0 1 0 -1 0 1 0 0 1&quot;</span><br><span class="line">180度旋转： Option &quot;CalibrationMatrix&quot; &quot;-1 0 1 0 -1 1 0 0 1&quot;</span><br><span class="line">270度旋转： Option &quot;CalibrationMatrix&quot; &quot;0 -1 1 1 0 0 0 0 1&quot;</span><br></pre></td></tr></table></figure>
+<p><br/></p>
 <h3 id="截屏"><a href="#截屏" class="headerlink" title="截屏"></a>截屏</h3><p>1.首先在终端中用下面的命令安装名叫<strong>scrot</strong>的截屏工具。<br>   <code>sudo apt-get install scrot</code></p>
 <p>2.截取全屏幕执行：<br>   <code>sudo scrot</code></p>
 <p>3.用鼠标选区屏幕区域截取执行：<br>   <code>sudo scrot -s</code></p>
 <p>4.20秒后截取，参数可以自定义：<br>   <code>sudo scrot -d 20</code></p>
-<p><br></p>
+<p><br/></p>
 <h3 id="树莓派中文输入"><a href="#树莓派中文输入" class="headerlink" title="树莓派中文输入"></a>树莓派中文输入</h3><p>1.基于Fcitx输入法框架的google拼音输入法，在命令行中输入以下命令即可安装。</p>
 <p>安装命令：<code>sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-cloudpinyin fcitx-sunpinyin</code></p>
 <p>2.SCIM支持多国语言的输入法，默认支持英语键盘、智能拼音、五笔字型、自然码、二笔等。</p>
@@ -456,34 +458,33 @@
 <p>3.Ibus输入法是一个基于Python开发的全新输入法框架，支持多种语言。</p>
 <p>安装命令：<code>sudo apt-get install ibus ibus-pinyin</code></p>
 <p>PS：重启生效。</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="树莓派软键盘"><a href="#树莓派软键盘" class="headerlink" title="树莓派软键盘"></a>树莓派软键盘</h3><p>安装中文包：<code>sudo apt-get install ttf-wqy-zenhei</code></p>
 <p>安装Matchbox-keyboard：<code>sudo apt-get install matchbox-keyboard</code></p>
-<p><br></p>
+<p><br/></p>
 <h3 id="树莓派开启Samba"><a href="#树莓派开启Samba" class="headerlink" title="树莓派开启Samba"></a>树莓派开启Samba</h3><p>1.Samba软件安装</p>
 <p><code>sudo apt-get install samba</code></p>
 <p>2.Samba配置</p>
 <p><code>sudo vim /etc/samba/smb.conf</code></p>
-<p>在smb.conf文件的最后加上如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">  path = /home/pi/</span><br><span class="line">  public = yes</span><br><span class="line">  writable = yes</span><br></pre></td></tr></table></figure></p>
-<p>3.启动Samba服务<br><code>sudo /etc/init.d/samba start</code><br>ps 看到samba进程smbd</p>
+<p>在smb.conf文件的最后加上如下内容：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[share]</span><br><span class="line">  path = /home/pi/</span><br><span class="line">  public = yes</span><br><span class="line">  writable = yes</span><br></pre></td></tr></table></figure><br>3.启动Samba服务<br><code>sudo /etc/init.d/samba start</code><br>ps 看到samba进程smbd</p>
 <p>4.在Window下打开<br>在 “我的电脑” 下，鼠标右键添加一个网络位置，在网络位置输入：<br><code>\\ip\share</code></p>
 <p>5.添加samba共享账户<br>此项是可选项，设置一个用户和密码<br><code>sudo smbpasswd -a pi</code><br>输入password</p>
 <p>在 /etc/samba/smb.conf 中的[share]下加入：<br><code>valid users = pi</code></p>
 <p>重启服务<br><code>sudo /etc/init.d/samba restart</code></p>
-<p><br></p>
+<p><br/></p>
 <h3 id="rar解压缩"><a href="#rar解压缩" class="headerlink" title="rar解压缩"></a>rar解压缩</h3><p><strong>解决方案：裝上unrar-nonfree版本</strong></p>
 <p>1.刪除unrar-free (2014年的Raspbian预设沒有安裝，因此不用再刪除)<br>  <code>sudo apt-get remove unrar-free</code></p>
-<p>2.修改apt的source list<br>   <code>sudo vim /etc/apt/sources.list</code><br>   deb-src <a href="http://archive.raspbian.org/raspbian" target="_blank" rel="noopener">http://archive.raspbian.org/raspbian</a> wheezy main contrib non-free rpi</p>
+<p>2.修改apt的source list<br>   <code>sudo vim /etc/apt/sources.list</code><br>   deb-src <a target="_blank" rel="noopener" href="http://archive.raspbian.org/raspbian">http://archive.raspbian.org/raspbian</a> wheezy main contrib non-free rpi</p>
 <p>3.更新apt源库<br>  <code>sudo apt-get update</code></p>
 <p>4.准备unrar-nonfree的文件夹，我們要从源码构建<br>  <code>mkdir unrar-nonfree</code><br>  <code>cd unrar-nonfree</code></p>
 <p>5.安裝相依套件<br>  <code>sudo apt-get build-dep unrar-nonfree</code></p>
 <p>6.下载 unrar-nonfree 的源代码并编译成 deb<br>  <code>sudo apt-get source -b unrar-nonfree</code></p>
 <p>7.安裝 unrar-nonfree 的deb套件<br>  <code>sudo dpkg -i unrar*.deb</code></p>
 <p>8.unrar 解压命令<br>  <code>unrar x xxx.part1.rar</code></p>
-<p><br></p>
+<p><br/></p>
 <h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
-<li><a href="https://blog.csdn.net/mdq11111/article/details/50281891" target="_blank" rel="noopener">HDMI-VGA转换器黑屏解决方法</a></li>
-<li><a href="https://blog.csdn.net/zhufu86/article/details/78906046" target="_blank" rel="noopener">使用overlayfs打造一个只读的不怕意外关机的树莓派Raspberry Pi</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mdq11111/article/details/50281891">HDMI-VGA转换器黑屏解决方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhufu86/article/details/78906046">使用overlayfs打造一个只读的不怕意外关机的树莓派Raspberry Pi</a></li>
 </ul>
 
       
@@ -589,7 +590,7 @@
     </a>
   
   
-    <a href="/Games/派对游戏/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Games/%E6%B4%BE%E5%AF%B9%E6%B8%B8%E6%88%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Party Games</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -617,7 +618,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主题"><span class="toc-number">1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开机更新"><span class="toc-number">2.</span> <span class="toc-text">开机更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO"><span class="toc-number">3.</span> <span class="toc-text">GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wiringPi包括一套gpio控制命令"><span class="toc-number">3.1.</span> <span class="toc-text">wiringPi包括一套gpio控制命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换源地址到国内镜像"><span class="toc-number">4.</span> <span class="toc-text">更换源地址到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换pip源到国内镜像"><span class="toc-number">5.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启Root权限"><span class="toc-number">6.</span> <span class="toc-text">开启Root权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令行配置无线网络连接"><span class="toc-number">7.</span> <span class="toc-text">命令行配置无线网络连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置网口为固定IP"><span class="toc-number">8.</span> <span class="toc-text">配置网口为固定IP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Check一下："><span class="toc-number">8.1.</span> <span class="toc-text">Check一下：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派3B使用UART"><span class="toc-number">9.</span> <span class="toc-text">树莓派3B使用UART</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置固定USB端口名称"><span class="toc-number">10.</span> <span class="toc-text">配置固定USB端口名称</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实现原理-amp-方法："><span class="toc-number">10.1.</span> <span class="toc-text">实现原理&amp;方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#udevadm"><span class="toc-number">10.1.1.</span> <span class="toc-text">udevadm</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考："><span class="toc-number">10.2.</span> <span class="toc-text">参考：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派开启SSH"><span class="toc-number">11.</span> <span class="toc-text">树莓派开启SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启远程桌面"><span class="toc-number">12.</span> <span class="toc-text">开启远程桌面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC远程桌面连接"><span class="toc-number">12.1.</span> <span class="toc-text">VNC远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#启动树莓派VNC服务"><span class="toc-number">12.1.1.</span> <span class="toc-text">启动树莓派VNC服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用PC连接"><span class="toc-number">12.1.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDP远程桌面连接"><span class="toc-number">12.2.</span> <span class="toc-text">RDP远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#启动树莓派RDP服务"><span class="toc-number">12.2.1.</span> <span class="toc-text">启动树莓派RDP服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用PC连接-1"><span class="toc-number">12.2.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC-RDP对比"><span class="toc-number">12.3.</span> <span class="toc-text">VNC/RDP对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止休眠-屏幕常亮"><span class="toc-number">13.</span> <span class="toc-text">禁止休眠/屏幕常亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#切换屏幕分辨率"><span class="toc-number">14.</span> <span class="toc-text">切换屏幕分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派横竖屏转换"><span class="toc-number">15.</span> <span class="toc-text">树莓派横竖屏转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#截屏"><span class="toc-number">16.</span> <span class="toc-text">截屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派中文输入"><span class="toc-number">17.</span> <span class="toc-text">树莓派中文输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派软键盘"><span class="toc-number">18.</span> <span class="toc-text">树莓派软键盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树莓派开启Samba"><span class="toc-number">19.</span> <span class="toc-text">树莓派开启Samba</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rar解压缩"><span class="toc-number">20.</span> <span class="toc-text">rar解压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它"><span class="toc-number">21.</span> <span class="toc-text">其它</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E6%9B%B4%E6%96%B0"><span class="toc-number">2.</span> <span class="toc-text">开机更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPIO"><span class="toc-number">3.</span> <span class="toc-text">GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wiringPi%E5%8C%85%E6%8B%AC%E4%B8%80%E5%A5%97gpio%E6%8E%A7%E5%88%B6%E5%91%BD%E4%BB%A4"><span class="toc-number">3.1.</span> <span class="toc-text">wiringPi包括一套gpio控制命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E6%BA%90%E5%9C%B0%E5%9D%80%E5%88%B0%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="toc-number">4.</span> <span class="toc-text">更换源地址到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2pip%E6%BA%90%E5%88%B0%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="toc-number">5.</span> <span class="toc-text">更换pip源到国内镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFRoot%E6%9D%83%E9%99%90"><span class="toc-number">6.</span> <span class="toc-text">开启Root权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="toc-number">7.</span> <span class="toc-text">命令行配置无线网络连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8F%A3%E4%B8%BA%E5%9B%BA%E5%AE%9AIP"><span class="toc-number">8.</span> <span class="toc-text">配置网口为固定IP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Check%E4%B8%80%E4%B8%8B%EF%BC%9A"><span class="toc-number">8.1.</span> <span class="toc-text">Check一下：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE3B%E4%BD%BF%E7%94%A8UART"><span class="toc-number">9.</span> <span class="toc-text">树莓派3B使用UART</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%9B%BA%E5%AE%9AUSB%E7%AB%AF%E5%8F%A3%E5%90%8D%E7%A7%B0"><span class="toc-number">10.</span> <span class="toc-text">配置固定USB端口名称</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86-amp-%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number">10.1.</span> <span class="toc-text">实现原理&amp;方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#udevadm"><span class="toc-number">10.1.1.</span> <span class="toc-text">udevadm</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="toc-number">10.2.</span> <span class="toc-text">参考：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%90%AFSSH"><span class="toc-number">11.</span> <span class="toc-text">树莓派开启SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2"><span class="toc-number">12.</span> <span class="toc-text">开启远程桌面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5"><span class="toc-number">12.1.</span> <span class="toc-text">VNC远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E6%9C%8D%E5%8A%A1"><span class="toc-number">12.1.1.</span> <span class="toc-text">启动树莓派VNC服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8PC%E8%BF%9E%E6%8E%A5"><span class="toc-number">12.1.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RDP%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5"><span class="toc-number">12.2.</span> <span class="toc-text">RDP远程桌面连接</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%A0%91%E8%8E%93%E6%B4%BERDP%E6%9C%8D%E5%8A%A1"><span class="toc-number">12.2.1.</span> <span class="toc-text">启动树莓派RDP服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8PC%E8%BF%9E%E6%8E%A5-1"><span class="toc-number">12.2.2.</span> <span class="toc-text">使用PC连接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VNC-RDP%E5%AF%B9%E6%AF%94"><span class="toc-number">12.3.</span> <span class="toc-text">VNC&#x2F;RDP对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%81%E6%AD%A2%E4%BC%91%E7%9C%A0-%E5%B1%8F%E5%B9%95%E5%B8%B8%E4%BA%AE"><span class="toc-number">13.</span> <span class="toc-text">禁止休眠&#x2F;屏幕常亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E5%B1%8F%E5%B9%95%E5%88%86%E8%BE%A8%E7%8E%87"><span class="toc-number">14.</span> <span class="toc-text">切换屏幕分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E6%A8%AA%E7%AB%96%E5%B1%8F%E8%BD%AC%E6%8D%A2"><span class="toc-number">15.</span> <span class="toc-text">树莓派横竖屏转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E5%B1%8F"><span class="toc-number">16.</span> <span class="toc-text">截屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5"><span class="toc-number">17.</span> <span class="toc-text">树莓派中文输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BD%AF%E9%94%AE%E7%9B%98"><span class="toc-number">18.</span> <span class="toc-text">树莓派软键盘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%80%E5%90%AFSamba"><span class="toc-number">19.</span> <span class="toc-text">树莓派开启Samba</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rar%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="toc-number">20.</span> <span class="toc-text">rar解压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">21.</span> <span class="toc-text">其它</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -773,15 +774,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -801,11 +802,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>

@@ -11,10 +11,10 @@
   <meta name="description" content="Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0-9，属于分类问题。训练集提供了60000个训练数据和10000个测试数据，属于监督学习的一种。 根据《Python 深度学习》，搭建了Mnist程序环境：  系统：Win10 64位 GPU：GTX 1050Ti Python：3.5.3 Keras：2.3.1 tensorflow-gpu：2.2.0 CUDA：10">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DL - Minst">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/DL - Mnist/index.html">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/DL%20-%20Mnist/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0-9，属于分类问题。训练集提供了60000个训练数据和10000个测试数据，属于监督学习的一种。 根据《Python 深度学习》，搭建了Mnist程序环境：  系统：Win10 64位 GPU：GTX 1050Ti Python：3.5.3 Keras：2.3.1 tensorflow-gpu：2.2.0 CUDA：10">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
 <meta property="og:image" content="http://www.wangeasy.com/resources/mnist/mnist.jpg">
 <meta property="og:image" content="http://www.wangeasy.com/resources/mnist/history_.png">
 <meta property="og:image" content="http://www.wangeasy.com/resources/mnist/dense.jpg">
@@ -26,10 +26,11 @@
 <meta property="og:image" content="http://www.wangeasy.com/resources/mnist/softsign.jpg">
 <meta property="og:image" content="http://www.wangeasy.com/resources/mnist/exponential.png">
 <meta property="og:image" content="http://www.wangeasy.com/resources/mnist/keras%20soft%20arch.png">
-<meta property="og:updated_time" content="2020-10-30T11:47:54.000Z">
+<meta property="article:published_time" content="2020-06-15T12:57:08.000Z">
+<meta property="article:modified_time" content="2021-09-03T12:04:51.000Z">
+<meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="AI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DL - Minst">
-<meta name="twitter:description" content="Mnist素有深度学习的Hello World之称，其任务是识别手写的数字0-9，属于分类问题。训练集提供了60000个训练数据和10000个测试数据，属于监督学习的一种。 根据《Python 深度学习》，搭建了Mnist程序环境：  系统：Win10 64位 GPU：GTX 1050Ti Python：3.5.3 Keras：2.3.1 tensorflow-gpu：2.2.0 CUDA：10">
 <meta name="twitter:image" content="http://www.wangeasy.com/resources/mnist/mnist.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -65,7 +66,11 @@
   })();
   </script>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -79,10 +84,8 @@
 			<img src="/resources/avatar.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Easy Wang</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">智慧是第一生产力！</p>
 		
 
 		<nav class="header-menu">
@@ -133,10 +136,8 @@
 				<img src="/resources/avatar.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Easy Wang</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>智慧是第一生产力！<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -199,7 +200,7 @@
   
 
         
-        <a href="/Technology/DL - Mnist/" class="archive-article-date">
+        <a href="/Technology/DL%20-%20Mnist/" class="archive-article-date">
   	<time datetime="2020-06-15T12:57:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
 </a>
         
@@ -227,25 +228,27 @@
 <li>CUDA：10.0</li>
 <li>cuDNN：7.6.5,for CUDA 10.0</li>
 </ul>
-<a id="more"></a>
-<p><br></p>
+<span id="more"></span>
+<p><br/></p>
 <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>1.首先需要安装Python环境</p>
 <p>2.其次安装keras，命令：<code>pip install keras</code></p>
 <p>3.安装TensorFlow，命令：<code>pip install tensorflow-gpu</code></p>
 <p>   （如果没有GPU，则执行<code>pip install tensorflow</code>，此版本直接使用CPU进行运算，使用CPU版本则不用安装CUDA和cuDNN）</p>
 <p>4.安装对应TensorFlow版本的CUDA</p>
-<ol>
-<li><a href="https://tensorflow.google.cn/install/source_windows#gpu" target="_blank" rel="noopener">TensorFlow与CUDA版本对应关系</a></li>
-<li><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">CUDA下载地址</a></li>
+<pre><code>  1. 查询显卡支持的CUDA版本，在终端输入命令`nvidia-smi`，在输出中有“CUDA Version：”
+</code></pre><ol>
+<li><a target="_blank" rel="noopener" href="https://tensorflow.google.cn/install/source_windows#gpu">TensorFlow与CUDA版本对应关系</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA下载地址</a></li>
+<li>在终端输入<code>nvcc -V</code>查看是否成功安装</li>
 </ol>
 <p>5.安装对应CUDA版本的cuDNN</p>
 <ol>
-<li><a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">cuDNN下载地址</a>（需要注册一下）</li>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-download">cuDNN下载地址</a>（需要注册一下）</li>
 <li>安装：把解压的三个目录（bin、include、lib）下的文件对应放到CUDA的安装目录下</li>
 </ol>
 <p>6.运行程序</p>
 <p><strong>程序：</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">Trains a simple deep NN on the MNIST dataset.</span></span><br><span class="line"><span class="string">Gets to 98.40% test accuracy after 20 epochs</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.optimizers <span class="keyword">import</span> RMSprop</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">128</span></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line">epochs = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Keras 官方推荐写法</span></span><br><span class="line"><span class="comment"># (x_train, y_train), (x_test, y_test) = mnist.load_data()</span></span><br><span class="line"></span><br><span class="line">path=<span class="string">'mnist.npz'</span></span><br><span class="line">f = np.load(path)</span><br><span class="line">x_train, y_train = f[<span class="string">'x_train'</span>], f[<span class="string">'y_train'</span>]</span><br><span class="line">x_test, y_test = f[<span class="string">'x_test'</span>], f[<span class="string">'y_test'</span>]</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">x_train = x_train.reshape(<span class="number">60000</span>, <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">x_test = x_test.reshape(<span class="number">10000</span>, <span class="number">784</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">x_train /= <span class="number">255</span></span><br><span class="line">x_test /= <span class="number">255</span></span><br><span class="line">print(x_train.shape[<span class="number">0</span>], <span class="string">'train samples'</span>)</span><br><span class="line">print(x_test.shape[<span class="number">0</span>], <span class="string">'test samples'</span>)</span><br><span class="line"></span><br><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">512</span>, activation=<span class="string">'relu'</span>, input_shape=(<span class="number">784</span>,)))</span><br><span class="line">model.add(Dense(<span class="number">512</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(num_classes, activation=<span class="string">'softmax'</span>))</span><br><span class="line"></span><br><span class="line">model.summary()</span><br><span class="line"></span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=RMSprop(),</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line">history = model.fit(x_train, y_train,</span><br><span class="line">                    batch_size=batch_size,</span><br><span class="line">                    epochs=epochs,</span><br><span class="line">                    verbose=<span class="number">1</span>,</span><br><span class="line">                    validation_data=(x_test, y_test))</span><br><span class="line"></span><br><span class="line">history_dict = history.history</span><br><span class="line">loss_values = history_dict[<span class="string">'loss'</span>]</span><br><span class="line">val_loss_values = history_dict[<span class="string">'val_loss'</span>]</span><br><span class="line">epochs = range(<span class="number">1</span>, len(loss_values) + <span class="number">1</span>)</span><br><span class="line">plt.plot(epochs, loss_values, <span class="string">'bo'</span>, label=<span class="string">'Training loss'</span>)</span><br><span class="line">plt.plot(epochs, val_loss_values, <span class="string">'b'</span>, label=<span class="string">'Validation loss'</span>)</span><br><span class="line">plt.title(<span class="string">'Training and validation loss'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Epochs'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Loss'</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">score = model.evaluate(x_test, y_test, verbose=<span class="number">0</span>)</span><br><span class="line">print(<span class="string">'Test loss:'</span>, score[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'Test accuracy:'</span>, score[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">model.save(<span class="string">"mnist.hdf5"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Trains a simple deep NN on the MNIST dataset.</span></span><br><span class="line"><span class="string">Gets to 98.40% test accuracy after 20 epochs</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.optimizers <span class="keyword">import</span> RMSprop</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">128</span></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line">epochs = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Keras 官方推荐写法</span></span><br><span class="line"><span class="comment"># (x_train, y_train), (x_test, y_test) = mnist.load_data()</span></span><br><span class="line"></span><br><span class="line">path=<span class="string">&#x27;mnist.npz&#x27;</span></span><br><span class="line">f = np.load(path)</span><br><span class="line">x_train, y_train = f[<span class="string">&#x27;x_train&#x27;</span>], f[<span class="string">&#x27;y_train&#x27;</span>]</span><br><span class="line">x_test, y_test = f[<span class="string">&#x27;x_test&#x27;</span>], f[<span class="string">&#x27;y_test&#x27;</span>]</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">x_train = x_train.reshape(<span class="number">60000</span>, <span class="number">784</span>).astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line">x_test = x_test.reshape(<span class="number">10000</span>, <span class="number">784</span>).astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line">x_train /= <span class="number">255</span></span><br><span class="line">x_test /= <span class="number">255</span></span><br><span class="line"><span class="built_in">print</span>(x_train.shape[<span class="number">0</span>], <span class="string">&#x27;train samples&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(x_test.shape[<span class="number">0</span>], <span class="string">&#x27;test samples&#x27;</span>)</span><br><span class="line"></span><br><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">512</span>, activation=<span class="string">&#x27;relu&#x27;</span>, input_shape=(<span class="number">784</span>,)))</span><br><span class="line">model.add(Dense(<span class="number">512</span>, activation=<span class="string">&#x27;relu&#x27;</span>))</span><br><span class="line">model.add(Dense(num_classes, activation=<span class="string">&#x27;softmax&#x27;</span>))</span><br><span class="line"></span><br><span class="line">model.summary()</span><br><span class="line"></span><br><span class="line">model.<span class="built_in">compile</span>(loss=<span class="string">&#x27;categorical_crossentropy&#x27;</span>,</span><br><span class="line">              optimizer=RMSprop(),</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line">history = model.fit(x_train, y_train,</span><br><span class="line">                    batch_size=batch_size,</span><br><span class="line">                    epochs=epochs,</span><br><span class="line">                    verbose=<span class="number">1</span>,</span><br><span class="line">                    validation_data=(x_test, y_test))</span><br><span class="line"></span><br><span class="line">history_dict = history.history</span><br><span class="line">loss_values = history_dict[<span class="string">&#x27;loss&#x27;</span>]</span><br><span class="line">val_loss_values = history_dict[<span class="string">&#x27;val_loss&#x27;</span>]</span><br><span class="line">epochs = <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(loss_values) + <span class="number">1</span>)</span><br><span class="line">plt.plot(epochs, loss_values, <span class="string">&#x27;bo&#x27;</span>, label=<span class="string">&#x27;Training loss&#x27;</span>)</span><br><span class="line">plt.plot(epochs, val_loss_values, <span class="string">&#x27;b&#x27;</span>, label=<span class="string">&#x27;Validation loss&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;Training and validation loss&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Epochs&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Loss&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">score = model.evaluate(x_test, y_test, verbose=<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Test loss:&#x27;</span>, score[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Test accuracy:&#x27;</span>, score[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">model.save(<span class="string">&quot;mnist.hdf5&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>程序会显示这20次训练的历史精度和准确性的趋势图，如下：</p>
 <p><img src="/resources/mnist/history_.png" alt="history.png"></p>
 <p>输出测试模型下模型的损失值和度量值。</p>
@@ -255,31 +258,31 @@
 <li>”Could not load dynamic library ‘cufft64_10.dll’; dlerror: cufft64_10.dll not found“<br>用GPU进行运算时，会加载CUDA和cuDNN库，但是库名称会有一点儿问题，出现如上提示，之后打印：”Skipping registering GPU devices…“，跳过GPU加载，而查看任务管理器会发现只使用了CPU。<br>解决方法：此时无法加载的cufft64_10.dll实际命名是cufft64_100.dll，把到程序安装目录里找到cufft64_100.dll，改成cufft64_10.dll就行了。</li>
 <li>Downloading mnist.npz速度慢的问题<br>Keras默认加载mnist数据的时候会从amazonaws上下载，国内几乎无法下载。<br>解决方法：提前下载<a href="/resources/mnist/mnist.npz">mnist.npz</a>，使用numpy库来加载。</li>
 </ol>
-<p><br></p>
+<p><br/></p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>如何使用此模型来识别自己的手写数字呢？</p>
 <p>首先，将手写的数字拍下来，使用下面这个程序来将其转换成28*28的灰度图片：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">global</span> img</span><br><span class="line"><span class="keyword">global</span> point1, point2</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_mouse</span><span class="params">(event, x, y, flags, param)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> img, point1, point2</span><br><span class="line">    img2 = img.copy()</span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDOWN:         <span class="comment">#左键点击</span></span><br><span class="line">        point1 = (x,y)</span><br><span class="line">        cv2.circle(img2, point1, <span class="number">10</span>, (<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>), <span class="number">5</span>)</span><br><span class="line">        cv2.imshow(<span class="string">'image'</span>, img2)</span><br><span class="line">    <span class="keyword">elif</span> event == cv2.EVENT_MOUSEMOVE <span class="keyword">and</span> (flags &amp; cv2.EVENT_FLAG_LBUTTON):   <span class="comment">#按住左键拖曳</span></span><br><span class="line">        cv2.rectangle(img2, point1, (x,y), (<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>), <span class="number">5</span>) <span class="comment"># 图像，矩形顶点，相对顶点，颜色，粗细</span></span><br><span class="line">        cv2.imshow(<span class="string">'image'</span>, img2)</span><br><span class="line">    <span class="keyword">elif</span> event == cv2.EVENT_LBUTTONUP:         <span class="comment">#左键释放</span></span><br><span class="line">        point2 = (x,y)</span><br><span class="line">        cv2.rectangle(img2, point1, point2, (<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>), <span class="number">5</span>)</span><br><span class="line">        cv2.imshow(<span class="string">'image'</span>, img2)</span><br><span class="line">        min_x = min(point1[<span class="number">0</span>], point2[<span class="number">0</span>])</span><br><span class="line">        min_y = min(point1[<span class="number">1</span>], point2[<span class="number">1</span>])</span><br><span class="line">        width = abs(point1[<span class="number">0</span>] - point2[<span class="number">0</span>])</span><br><span class="line">        height = abs(point1[<span class="number">1</span>] -point2[<span class="number">1</span>])</span><br><span class="line">        cut_img = img[min_y:min_y+height, min_x:min_x+width]</span><br><span class="line">        resize_img = cv2.resize(cut_img, (<span class="number">28</span>,<span class="number">28</span>)) <span class="comment"># 调整图像尺寸为28*28</span></span><br><span class="line">        ret, thresh_img = cv2.threshold(resize_img,<span class="number">127</span>,<span class="number">255</span>,cv2.THRESH_BINARY) <span class="comment"># 二值化</span></span><br><span class="line">        cv2.imshow(<span class="string">'result'</span>, thresh_img)</span><br><span class="line">        cv2.imwrite(<span class="string">'new8.jpg'</span>, thresh_img)  <span class="comment"># 预处理后图像保存位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">global</span> img</span><br><span class="line">    img = cv2.imread(<span class="string">'8.jpg'</span>)  <span class="comment"># 手写数字图像所在位置</span></span><br><span class="line">    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) <span class="comment"># 转换图像为单通道(灰度图)</span></span><br><span class="line">    cv2.namedWindow(<span class="string">'image'</span>)</span><br><span class="line">    cv2.setMouseCallback(<span class="string">'image'</span>, on_mouse) <span class="comment"># 调用回调函数</span></span><br><span class="line">    cv2.imshow(<span class="string">'image'</span>, img)</span><br><span class="line">    cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">global</span> img</span><br><span class="line"><span class="keyword">global</span> point1, point2</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_mouse</span>(<span class="params">event, x, y, flags, param</span>):</span></span><br><span class="line">    <span class="keyword">global</span> img, point1, point2</span><br><span class="line">    img2 = img.copy()</span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDOWN:         <span class="comment">#左键点击</span></span><br><span class="line">        point1 = (x,y)</span><br><span class="line">        cv2.circle(img2, point1, <span class="number">10</span>, (<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>), <span class="number">5</span>)</span><br><span class="line">        cv2.imshow(<span class="string">&#x27;image&#x27;</span>, img2)</span><br><span class="line">    <span class="keyword">elif</span> event == cv2.EVENT_MOUSEMOVE <span class="keyword">and</span> (flags &amp; cv2.EVENT_FLAG_LBUTTON):   <span class="comment">#按住左键拖曳</span></span><br><span class="line">        cv2.rectangle(img2, point1, (x,y), (<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>), <span class="number">5</span>) <span class="comment"># 图像，矩形顶点，相对顶点，颜色，粗细</span></span><br><span class="line">        cv2.imshow(<span class="string">&#x27;image&#x27;</span>, img2)</span><br><span class="line">    <span class="keyword">elif</span> event == cv2.EVENT_LBUTTONUP:         <span class="comment">#左键释放</span></span><br><span class="line">        point2 = (x,y)</span><br><span class="line">        cv2.rectangle(img2, point1, point2, (<span class="number">0</span>,<span class="number">0</span>,<span class="number">255</span>), <span class="number">5</span>)</span><br><span class="line">        cv2.imshow(<span class="string">&#x27;image&#x27;</span>, img2)</span><br><span class="line">        min_x = <span class="built_in">min</span>(point1[<span class="number">0</span>], point2[<span class="number">0</span>])</span><br><span class="line">        min_y = <span class="built_in">min</span>(point1[<span class="number">1</span>], point2[<span class="number">1</span>])</span><br><span class="line">        width = <span class="built_in">abs</span>(point1[<span class="number">0</span>] - point2[<span class="number">0</span>])</span><br><span class="line">        height = <span class="built_in">abs</span>(point1[<span class="number">1</span>] -point2[<span class="number">1</span>])</span><br><span class="line">        cut_img = img[min_y:min_y+height, min_x:min_x+width]</span><br><span class="line">        resize_img = cv2.resize(cut_img, (<span class="number">28</span>,<span class="number">28</span>)) <span class="comment"># 调整图像尺寸为28*28</span></span><br><span class="line">        ret, thresh_img = cv2.threshold(resize_img,<span class="number">127</span>,<span class="number">255</span>,cv2.THRESH_BINARY) <span class="comment"># 二值化</span></span><br><span class="line">        cv2.imshow(<span class="string">&#x27;result&#x27;</span>, thresh_img)</span><br><span class="line">        cv2.imwrite(<span class="string">&#x27;new8.jpg&#x27;</span>, thresh_img)  <span class="comment"># 预处理后图像保存位置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">global</span> img</span><br><span class="line">    img = cv2.imread(<span class="string">&#x27;8.jpg&#x27;</span>)  <span class="comment"># 手写数字图像所在位置</span></span><br><span class="line">    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) <span class="comment"># 转换图像为单通道(灰度图)</span></span><br><span class="line">    cv2.namedWindow(<span class="string">&#x27;image&#x27;</span>)</span><br><span class="line">    cv2.setMouseCallback(<span class="string">&#x27;image&#x27;</span>, on_mouse) <span class="comment"># 调用回调函数</span></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;image&#x27;</span>, img)</span><br><span class="line">    cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 <p>使用以下代码，加载生成的这个灰度图片的效果，可以同时加载训练库中的图片，对比看看效果：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="number">0</span>:</span><br><span class="line">    path=<span class="string">'mnist.npz'</span></span><br><span class="line">    f = np.load(path)</span><br><span class="line">    x_train, y_train = f[<span class="string">'x_train'</span>], f[<span class="string">'y_train'</span>]</span><br><span class="line">    x_train = x_train.reshape(<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">    y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">    num = <span class="number">6</span></span><br><span class="line">    print(x_train[num])</span><br><span class="line">    print(type(x_train[num]))</span><br><span class="line">    print(x_train[num].dtype)</span><br><span class="line">    print(x_train[num].shape)</span><br><span class="line">    print(y_train[num])</span><br><span class="line">    plt.imshow(x_train[num], cmap=plt.cm.binary)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">im = Image.open(<span class="string">'new8.jpg'</span>)</span><br><span class="line">data = list(im.getdata())</span><br><span class="line">img_data = [(<span class="number">255</span>-x)*<span class="number">1.0</span> <span class="keyword">for</span> x <span class="keyword">in</span> data]</span><br><span class="line">img_data = np.array( img_data ).reshape(<span class="number">28</span>, <span class="number">28</span>).astype(<span class="string">'float32'</span>)</span><br><span class="line">plt.imshow(img_data, cmap=plt.cm.binary)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">print(img_data)</span><br><span class="line">print(type(img_data))</span><br><span class="line">print(img_data.dtype)</span><br><span class="line">print(img_data.shape)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="number">0</span>:</span><br><span class="line">    path=<span class="string">&#x27;mnist.npz&#x27;</span></span><br><span class="line">    f = np.load(path)</span><br><span class="line">    x_train, y_train = f[<span class="string">&#x27;x_train&#x27;</span>], f[<span class="string">&#x27;y_train&#x27;</span>]</span><br><span class="line">    x_train = x_train.reshape(<span class="number">60000</span>, <span class="number">28</span>, <span class="number">28</span>).astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line">    y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">    num = <span class="number">6</span></span><br><span class="line">    <span class="built_in">print</span>(x_train[num])</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(x_train[num]))</span><br><span class="line">    <span class="built_in">print</span>(x_train[num].dtype)</span><br><span class="line">    <span class="built_in">print</span>(x_train[num].shape)</span><br><span class="line">    <span class="built_in">print</span>(y_train[num])</span><br><span class="line">    plt.imshow(x_train[num], cmap=plt.cm.binary)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">&#x27;new8.jpg&#x27;</span>)</span><br><span class="line">data = <span class="built_in">list</span>(im.getdata())</span><br><span class="line">img_data = [(<span class="number">255</span>-x)*<span class="number">1.0</span> <span class="keyword">for</span> x <span class="keyword">in</span> data]</span><br><span class="line">img_data = np.array( img_data ).reshape(<span class="number">28</span>, <span class="number">28</span>).astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line">plt.imshow(img_data, cmap=plt.cm.binary)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(img_data)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(img_data))</span><br><span class="line"><span class="built_in">print</span>(img_data.dtype)</span><br><span class="line"><span class="built_in">print</span>(img_data.shape)</span><br></pre></td></tr></table></figure>
 <p>通过对比训练库图片发现，最好使用白板笔之类的粗笔，不然转化的图片几乎看不出来；另外，训练库白色的地方值都是0，而自己生成的照片中有很多1、2之类的，最好过滤5以下的灰度值，能更接近训练库图片。</p>
 <p><strong>开始识别：</strong></p>
 <p>加载训练好的模型，来识别我们所写的数字：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">im = Image.open(<span class="string">'new8.jpg'</span>)</span><br><span class="line">data = list(im.getdata())</span><br><span class="line">img_data = [(<span class="number">255</span>-x)*<span class="number">1.0</span> <span class="keyword">for</span> x <span class="keyword">in</span> data]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(img_data)):</span><br><span class="line">    <span class="keyword">if</span> img_data[i] &lt; <span class="number">10</span>:</span><br><span class="line">        img_data[i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">img_data = np.array( img_data ).astype(<span class="string">'float32'</span>)</span><br><span class="line"></span><br><span class="line">model = keras.models.load_model(<span class="string">"mnist.hdf5"</span>)</span><br><span class="line">result = model.predict(img_data.reshape(<span class="number">1</span>,<span class="number">784</span>))</span><br><span class="line"><span class="keyword">if</span> result.any():</span><br><span class="line">    print(result)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"Get None"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">&#x27;new8.jpg&#x27;</span>)</span><br><span class="line">data = <span class="built_in">list</span>(im.getdata())</span><br><span class="line">img_data = [(<span class="number">255</span>-x)*<span class="number">1.0</span> <span class="keyword">for</span> x <span class="keyword">in</span> data]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(img_data)):</span><br><span class="line">    <span class="keyword">if</span> img_data[i] &lt; <span class="number">10</span>:</span><br><span class="line">        img_data[i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">img_data = np.array( img_data ).astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line"></span><br><span class="line">model = keras.models.load_model(<span class="string">&quot;mnist.hdf5&quot;</span>)</span><br><span class="line">result = model.predict(img_data.reshape(<span class="number">1</span>,<span class="number">784</span>))</span><br><span class="line"><span class="keyword">if</span> result.<span class="built_in">any</span>():</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Get None&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>如果一切正常的话，就会得到以下结果：</p>
 <p><code>[0,0,0,0,0,0,0,0,1,0]</code></p>
 <p>程序的输出为One-Hot编码，第9个数字为1，代表程序识别此数字为8。</p>
-<p><br></p>
+<p><br/></p>
 <h2 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h2><h3 id="to-categorical"><a href="#to-categorical" class="headerlink" title="to_categorical"></a>to_categorical</h3><p><strong>原型</strong>：<code>to_categorical(y, num_classes=None, dtype=&#39;float32&#39;)</code></p>
 <p><strong>功能</strong>：将整型的类别标签转为<strong>One-Hot编码</strong>。y为整型数组，num_classes为标签类别总数，大于max(y)（标签从0开始的）。</p>
 <p><strong>返回</strong>：如果num_classes=None，返回len(y) * [max(y)+1]，否则为len(y)* num_classes。</p>
 <p><strong>One-Hot编码</strong>：又称为一位有效编码，主要是采用N位状态寄存器来对N个状态进行编码，每个状态都由他独立的寄存器位，并且在任意时候只有一位有效。One-Hot编码是分类变量作为二进制向量的表示。这首先要求将分类值映射到整数值。然后，每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。例如，此处y_train[0]本来是uint8的5，转换之后的y_train[0]为[0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]。</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><p>Sequential 是 Keras模型中的一种，叫做序贯模型，适用于简单的层堆栈，其中每一层正好具有一个输入张量和一个输出张量。</p>
 <p>整个模型提供的是将单一输入映射为单一输出。对于Mnist这个例子，我们其实的模型做的其实是使用多层结构的映射关系，提供了一个从高维到低维的映射。</p>
 <p>可以通过<code>.add()</code>方法，将layer加入到模型中，也可以向构造函数传递一个layer list 来构造模型，如本例可以改写成：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential(</span><br><span class="line">    [Dense(<span class="number">512</span>, activation=<span class="string">'relu'</span>, input_shape=(<span class="number">784</span>,)),</span><br><span class="line">    Dense(<span class="number">512</span>, activation=<span class="string">'relu'</span>),</span><br><span class="line">    Dense(num_classes, activation=<span class="string">'softmax'</span>)</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model = Sequential(</span><br><span class="line">    [Dense(<span class="number">512</span>, activation=<span class="string">&#x27;relu&#x27;</span>, input_shape=(<span class="number">784</span>,)),</span><br><span class="line">    Dense(<span class="number">512</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">    Dense(num_classes, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure>
 <p>模型需要知道输入数据的shape，因此，Sequential的第一层需要接受一个关于输入数据shape的参数，后面的各个层则可以自动的推导出中间数据的shape，因此不需要为每个层都指定这个参数。</p>
-<p><br></p>
+<p><br/></p>
 <h3 id="Dense层"><a href="#Dense层" class="headerlink" title="Dense层"></a>Dense层</h3><p><strong>原型</strong>：<code>keras.layers.Dense(units, activation=**None**, use_bias=**True**, kernel_initializer=&#39;glorot_uniform&#39;, bias_initializer=&#39;zeros&#39;, kernel_regularizer=**None**, bias_regularizer=**None**, activity_regularizer=**None**, kernel_constraint=**None**, bias_constraint=**None**)</code></p>
 <p><code>Dense</code> 实现以下操作： <code>output = activation(dot(input, kernel) + bias)</code> 其中 <code>activation</code> 是按逐个元素计算的激活函数，<code>kernel</code> 是由网络层创建的权值矩阵，以及 <code>bias</code> 是其创建的偏置向量 (只在 <code>use_bias</code> 为 <code>True</code> 时才有用)。</p>
 <p><strong>参数</strong></p>
@@ -287,17 +290,17 @@
 <li><strong>units</strong>: 正整数，输出空间维度。</li>
 <li><strong>activation</strong>: 激活函数。 若不指定，则不使用激活函数 (即，「线性」激活: <code>a(x) = x</code>)。</li>
 <li><strong>use_bias</strong>: 布尔值，该层是否使用偏置向量。</li>
-<li><strong>kernel_initializer</strong>: <code>kernel</code> 权值矩阵的初始化器 (详见 <a href="https://keras.io/zh/initializers/" target="_blank" rel="noopener">initializers</a>)。</li>
-<li><strong>bias_initializer</strong>: 偏置向量的初始化器 (see <a href="https://keras.io/zh/initializers/" target="_blank" rel="noopener">initializers</a>).</li>
-<li><strong>kernel_regularizer</strong>: 运用到 <code>kernel</code> 权值矩阵的正则化函数 (详见 <a href="https://keras.io/zh/regularizers/" target="_blank" rel="noopener">regularizer</a>)。</li>
-<li><strong>bias_regularizer</strong>: 运用到偏置向的的正则化函数 (详见 <a href="https://keras.io/zh/regularizers/" target="_blank" rel="noopener">regularizer</a>)。</li>
-<li><strong>activity_regularizer</strong>: 运用到层的输出的正则化函数 (它的 “activation”)。 (详见 <a href="https://keras.io/zh/regularizers/" target="_blank" rel="noopener">regularizer</a>)。</li>
-<li><strong>kernel_constraint</strong>: 运用到 <code>kernel</code> 权值矩阵的约束函数 (详见 <a href="https://keras.io/zh/constraints/" target="_blank" rel="noopener">constraints</a>)。</li>
-<li><strong>bias_constraint</strong>: 运用到偏置向量的约束函数 (详见 <a href="https://keras.io/zh/constraints/" target="_blank" rel="noopener">constraints</a>)。</li>
+<li><strong>kernel_initializer</strong>: <code>kernel</code> 权值矩阵的初始化器 (详见 <a target="_blank" rel="noopener" href="https://keras.io/zh/initializers/">initializers</a>)。</li>
+<li><strong>bias_initializer</strong>: 偏置向量的初始化器 (see <a target="_blank" rel="noopener" href="https://keras.io/zh/initializers/">initializers</a>).</li>
+<li><strong>kernel_regularizer</strong>: 运用到 <code>kernel</code> 权值矩阵的正则化函数 (详见 <a target="_blank" rel="noopener" href="https://keras.io/zh/regularizers/">regularizer</a>)。</li>
+<li><strong>bias_regularizer</strong>: 运用到偏置向的的正则化函数 (详见 <a target="_blank" rel="noopener" href="https://keras.io/zh/regularizers/">regularizer</a>)。</li>
+<li><strong>activity_regularizer</strong>: 运用到层的输出的正则化函数 (它的 “activation”)。 (详见 <a target="_blank" rel="noopener" href="https://keras.io/zh/regularizers/">regularizer</a>)。</li>
+<li><strong>kernel_constraint</strong>: 运用到 <code>kernel</code> 权值矩阵的约束函数 (详见 <a target="_blank" rel="noopener" href="https://keras.io/zh/constraints/">constraints</a>)。</li>
+<li><strong>bias_constraint</strong>: 运用到偏置向量的约束函数 (详见 <a target="_blank" rel="noopener" href="https://keras.io/zh/constraints/">constraints</a>)。</li>
 </ul>
 <p>被称作全连接层。之所以叫全连接是因为他的每一层和上一层所有单元相连接，如下图所示：</p>
 <p><img src="/resources/mnist/dense.jpg" alt="dense.jpg"></p>
-<p><br></p>
+<p><br/></p>
 <h4 id="非线性函数-activation"><a href="#非线性函数-activation" class="headerlink" title="非线性函数(activation)"></a>非线性函数(activation)</h4><p>也叫激活函数。如果没有激活函数，Dense层将只包含两个线性运算——点积和加法：<br><code>output = dot(input, k) + b</code><br>这样 Dense 层就只能学习输入数据的线性变换：该层的假设空间是从输入数据到 16 位空间所有可能的线性变换集合。这种假设空间非常有限，无法利用多个表示层的优势，因为多个线性层堆叠实现的仍是线性运算，添加层数并不会扩展假设空间。<br>为了得到更丰富的假设空间，从而充分利用多层表示的优势，需要添加非线性或激活函数。</p>
 <h5 id="relu"><a href="#relu" class="headerlink" title="relu"></a>relu</h5><p><strong>原型</strong>：<code>keras.activations.relu(x, alpha=0.0, max_value=**None**, threshold=0.0)</code></p>
 <p>整流线性单元（Rectified Linear Unit, ReLU），又称修正线性单元。</p>
@@ -320,7 +323,9 @@
 <p>函数图像：</p>
 <p><img src="/resources/mnist/relu.jpg" alt="relu.jpg"></p>
 <h5 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h5><p><strong>原型</strong>：<code>keras.activations.softmax(x, axis=-1)</code></p>
-<p>Softmax 激活函数：<br>$$<br>S_i =\frac{e^i}{\sum e^j}<br>$$<br><strong>参数</strong></p>
+<p>Softmax 激活函数：</p>
+<script type="math/tex; mode=display">
+S_i =\frac{e^i}{\sum e^j}</script><p><strong>参数</strong></p>
 <ul>
 <li><strong>x</strong>：张量。</li>
 <li><strong>axis</strong>：整数，代表softmax所作用的维度。</li>
@@ -331,30 +336,45 @@
 <ul>
 <li><strong>ValueError</strong>：如果 <code>dim(x) == 1</code>。</li>
 </ul>
-<h5 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h5><p>也称logistic函数，映射区间（0, 1）。<br>$$<br>f(x) = \frac1{1 + e^{-x}}<br>$$<br>函数图像：</p>
+<h5 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h5><p>也称logistic函数，映射区间（0, 1）。</p>
+<script type="math/tex; mode=display">
+f(x) = \frac1{1 + e^{-x}}</script><p>函数图像：</p>
 <p><img src="/resources/mnist/sigmoid.gif" alt="sigmod.png"></p>
-<h5 id="hard-sigmoid"><a href="#hard-sigmoid" class="headerlink" title="hard_sigmoid"></a>hard_sigmoid</h5><p>$$<br>f(x) =<br>\begin{cases}<br>1, &amp; 1 \leq x \cr<br>\frac{x+1}2, &amp; -1 &lt; x &lt; 1 \cr<br>0, &amp; x \leq -1<br>\end{cases}<br>$$</p>
-<h5 id="elu"><a href="#elu" class="headerlink" title="elu"></a>elu</h5><p><strong>原型</strong>：<code>keras.activations.elu(x, alpha=1.0)</code></p>
+<h5 id="hard-sigmoid"><a href="#hard-sigmoid" class="headerlink" title="hard_sigmoid"></a>hard_sigmoid</h5><script type="math/tex; mode=display">
+f(x) =
+\begin{cases}
+1, & 1 \leq x \cr
+\frac{x+1}2, & -1 < x < 1 \cr
+0, & x \leq -1
+\end{cases}</script><h5 id="elu"><a href="#elu" class="headerlink" title="elu"></a>elu</h5><p><strong>原型</strong>：<code>keras.activations.elu(x, alpha=1.0)</code></p>
 <p><strong>参数</strong></p>
 <ul>
 <li><strong>x</strong>：张量。</li>
 <li><strong>alpha</strong>：一个标量，表示负数部分的斜率。</li>
 </ul>
-<p>融合了sigmoid和ReLU。<br>$$<br>f(x) =<br>\begin{cases}<br>x, &amp; x\ge0\cr<br>\alpha(e^x - 1), &amp;x &lt; 0<br>\end{cases}<br>$$<br>函数图像：</p>
+<p>融合了sigmoid和ReLU。</p>
+<script type="math/tex; mode=display">
+f(x) =
+\begin{cases}
+x, & x\ge0\cr
+\alpha(e^x - 1), &x < 0
+\end{cases}</script><p>函数图像：</p>
 <p><img src="/resources/mnist/elu.png" alt="elu.jpg"></p>
 <h5 id="selu"><a href="#selu" class="headerlink" title="selu"></a>selu</h5><p>可伸缩的指数线性单元，等同于：<code>scale * elu(x, alpha)</code>，其中 alpha 和 scale 是预定义的常量。只要正确初始化权重（参见 <code>lecun_normal</code> 初始化方法）并且输入的数量「足够大」（参见参考文献获得更多信息），选择合适的 alpha 和 scale 的值，就可以在两个连续层之间保留输入的均值和方差。</p>
-<h5 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h5><p>也称双切正切函数，映射区间 （-1，1）。<br>$$<br>f(x) = \frac{e^x-e^{-x}}{e^x + e^{-x}}<br>$$<br>函数图像：</p>
+<h5 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h5><p>也称双切正切函数，映射区间 （-1，1）。</p>
+<script type="math/tex; mode=display">
+f(x) = \frac{e^x-e^{-x}}{e^x + e^{-x}}</script><p>函数图像：</p>
 <p><img src="/resources/mnist/tanh.png" alt="tanh.jpg"></p>
-<h5 id="softplus"><a href="#softplus" class="headerlink" title="softplus"></a>softplus</h5><p>$$<br>f(x)=log(1+e^x)<br>$$</p>
-<p>函数图像：</p>
+<h5 id="softplus"><a href="#softplus" class="headerlink" title="softplus"></a>softplus</h5><script type="math/tex; mode=display">
+f(x)=log(1+e^x)</script><p>函数图像：</p>
 <p><img src="/resources/mnist/softplus.jpg" alt="softplus.jpg"></p>
-<h5 id="softsign"><a href="#softsign" class="headerlink" title="softsign"></a>softsign</h5><p>$$<br>f(x)=\frac{x}{1+|x|}<br>$$</p>
-<p>函数图像：</p>
+<h5 id="softsign"><a href="#softsign" class="headerlink" title="softsign"></a>softsign</h5><script type="math/tex; mode=display">
+f(x)=\frac{x}{1+|x|}</script><p>函数图像：</p>
 <p><img src="/resources/mnist/softsign.jpg" alt="softsign.jpg"></p>
-<h5 id="exponential"><a href="#exponential" class="headerlink" title="exponential"></a>exponential</h5><p>$$<br>f(x) = 2^{x-1}<br>$$</p>
-<p><img src="/resources/mnist/exponential.png" alt="exponential.png"></p>
-<h5 id="高级激活函数"><a href="#高级激活函数" class="headerlink" title="高级激活函数"></a>高级激活函数</h5><p>对于 Theano/TensorFlow/CNTK 不能表达的复杂激活函数，如含有可学习参数的激活函数，可通过<a href="https://keras.io/zh/layers/advanced-activations/" target="_blank" rel="noopener">高级激活函数</a>实现，可以在 <code>keras.layers.advanced_activations</code> 模块中找到。 这些高级激活函数包括 <code>PReLU</code> 和 <code>LeakyReLU</code>。</p>
-<p><br></p>
+<h5 id="exponential"><a href="#exponential" class="headerlink" title="exponential"></a>exponential</h5><script type="math/tex; mode=display">
+f(x) = 2^{x-1}</script><p><img src="/resources/mnist/exponential.png" alt="exponential.png"></p>
+<h5 id="高级激活函数"><a href="#高级激活函数" class="headerlink" title="高级激活函数"></a>高级激活函数</h5><p>对于 Theano/TensorFlow/CNTK 不能表达的复杂激活函数，如含有可学习参数的激活函数，可通过<a target="_blank" rel="noopener" href="https://keras.io/zh/layers/advanced-activations/">高级激活函数</a>实现，可以在 <code>keras.layers.advanced_activations</code> 模块中找到。 这些高级激活函数包括 <code>PReLU</code> 和 <code>LeakyReLU</code>。</p>
+<p><br/></p>
 <h3 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h3><p><strong>原型</strong>：<code>Model.summary(line_length=None, positions=None, print_fn=None)</code></p>
 <p><strong>功能</strong>：打印模型的字符串摘要。</p>
 <p><strong>参数</strong></p>
@@ -367,10 +387,10 @@
 <ul>
 <li><strong>ValueError</strong>: 如果在生成模型之前调用了“summary()”。</li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="compile"><a href="#compile" class="headerlink" title="compile"></a>compile</h3><p><strong>功能</strong>：用于配置训练模型。</p>
 <p><strong>原型</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Model.compile(</span><br><span class="line">    optimizer=<span class="string">"rmsprop"</span>,</span><br><span class="line">    loss=<span class="keyword">None</span>,</span><br><span class="line">    metrics=<span class="keyword">None</span>,</span><br><span class="line">    loss_weights=<span class="keyword">None</span>,</span><br><span class="line">    weighted_metrics=<span class="keyword">None</span>,</span><br><span class="line">    run_eagerly=<span class="keyword">None</span>,</span><br><span class="line">    **kwargs</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Model.<span class="built_in">compile</span>(</span><br><span class="line">    optimizer=<span class="string">&quot;rmsprop&quot;</span>,</span><br><span class="line">    loss=<span class="literal">None</span>,</span><br><span class="line">    metrics=<span class="literal">None</span>,</span><br><span class="line">    loss_weights=<span class="literal">None</span>,</span><br><span class="line">    weighted_metrics=<span class="literal">None</span>,</span><br><span class="line">    run_eagerly=<span class="literal">None</span>,</span><br><span class="line">    **kwargs</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p><strong>参数</strong></p>
 <ul>
 <li><strong>optimizer</strong>: 优化器，字符串（优化器的名称）或优化器实例。</li>
@@ -387,13 +407,14 @@
 </ul>
 <p><strong>说明</strong></p>
 <p>通过代码可以看出，此模型可以看作是下面这样的一个函数：</p>
-<p>$$<br>f(x) = Layer3( Layer2( Layer1(x) ) )<br>$$</p>
-<p>第一次训练，每层都会使用一个随机值作为初始参数，第一次训练后会得到一个结果 ${y\_pred}_1$，<code>loss</code>函数会评估${y\_pred}_1$和实际结果${y\_true}_1$的差距，而<code>metrics</code>则是评估指标，最后根据评估结果，使用<code>optimizer</code>优化器来调整每一层的参数，如此循环。</p>
+<script type="math/tex; mode=display">
+f(x) = Layer3( Layer2( Layer1(x) ) )</script><p>第一次训练，每层都会使用一个随机值作为初始参数，第一次训练后会得到一个结果 ${y\_pred}_1$，<code>loss</code>函数会评估${y\_pred}_1$和实际结果${y\_true}_1$的差距，而<code>metrics</code>则是评估指标，最后根据评估结果，使用<code>optimizer</code>优化器来调整每一层的参数，如此循环。</p>
 <p>训练完成后，得到一个最终的函数，就是我们的训练结果。</p>
-<p><br></p>
+<p><br/></p>
 <h4 id="优化器（optimizer）"><a href="#优化器（optimizer）" class="headerlink" title="优化器（optimizer）"></a>优化器（optimizer）</h4><p>上述说明其实是一个简化的训练过程，在实际使用中，为了向最优化的方向一直前进，优化器不仅考虑一个循环所得结果，还会记录反向传播所得得梯度大小和衰减的动量。</p>
 <p>可以在调用<code>model.compile()</code>之前初始化一个优化器对象，然后传入该函数，也可以在调用<code>model.compile()</code>时传递一个预定义优化器名的string。在后者情形下，优化器的参数将使用默认值。</p>
 <p><strong>默认优化器</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -432,8 +453,10 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h4 id="损失函数（loss）"><a href="#损失函数（loss）" class="headerlink" title="损失函数（loss）"></a>损失函数（loss）</h4><h5 id="概率损失-Probabilistic-losses"><a href="#概率损失-Probabilistic-losses" class="headerlink" title="概率损失(Probabilistic losses)"></a>概率损失(<a href="https://keras.io/api/losses/probabilistic_losses/" target="_blank" rel="noopener">Probabilistic losses</a>)</h5><table>
+</div>
+<p><br/></p>
+<h4 id="损失函数（loss）"><a href="#损失函数（loss）" class="headerlink" title="损失函数（loss）"></a>损失函数（loss）</h4><h5 id="概率损失-Probabilistic-losses"><a href="#概率损失-Probabilistic-losses" class="headerlink" title="概率损失(Probabilistic losses)"></a>概率损失(<a target="_blank" rel="noopener" href="https://keras.io/api/losses/probabilistic_losses/">Probabilistic losses</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -460,7 +483,7 @@
 <tr>
 <td>poisson</td>
 <td>泊松分布损失</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>kl_divergence</td>
@@ -469,7 +492,9 @@
 </tr>
 </tbody>
 </table>
-<h5 id="回归损失-Regression-losses"><a href="#回归损失-Regression-losses" class="headerlink" title="回归损失(Regression losses)"></a>回归损失(<a href="https://keras.io/api/losses/regression_losses/" target="_blank" rel="noopener">Regression losses</a>)</h5><table>
+</div>
+<h5 id="回归损失-Regression-losses"><a href="#回归损失-Regression-losses" class="headerlink" title="回归损失(Regression losses)"></a>回归损失(<a target="_blank" rel="noopener" href="https://keras.io/api/losses/regression_losses/">Regression losses</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -515,7 +540,9 @@
 </tr>
 </tbody>
 </table>
-<h5 id="合页损失-Hinge-losses"><a href="#合页损失-Hinge-losses" class="headerlink" title="合页损失(Hinge losses)"></a>合页损失(<a href="https://keras.io/api/losses/hinge_losses/" target="_blank" rel="noopener">Hinge losses</a>)</h5><p>用于“最大间隔”分类。</p>
+</div>
+<h5 id="合页损失-Hinge-losses"><a href="#合页损失-Hinge-losses" class="headerlink" title="合页损失(Hinge losses)"></a>合页损失(<a target="_blank" rel="noopener" href="https://keras.io/api/losses/hinge_losses/">Hinge losses</a>)</h5><p>用于“最大间隔”分类。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -542,8 +569,10 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h4 id="度量指标-metrics"><a href="#度量指标-metrics" class="headerlink" title="度量指标(metrics)"></a>度量指标(metrics)</h4><h5 id="准确度指标-Accuracy-metrics"><a href="#准确度指标-Accuracy-metrics" class="headerlink" title="准确度指标(Accuracy metrics)"></a>准确度指标(<a href="https://keras.io/api/metrics/accuracy_metrics" target="_blank" rel="noopener">Accuracy metrics</a>)</h5><table>
+</div>
+<p><br/></p>
+<h4 id="度量指标-metrics"><a href="#度量指标-metrics" class="headerlink" title="度量指标(metrics)"></a>度量指标(metrics)</h4><h5 id="准确度指标-Accuracy-metrics"><a href="#准确度指标-Accuracy-metrics" class="headerlink" title="准确度指标(Accuracy metrics)"></a>准确度指标(<a target="_blank" rel="noopener" href="https://keras.io/api/metrics/accuracy_metrics">Accuracy metrics</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -570,16 +599,18 @@
 <tr>
 <td>top_k_categorical_accuracy</td>
 <td>top_k分类准确度</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>sparse_top_k_categorical_accuracy</td>
 <td>稀疏top_k分类准确度</td>
-<td>–</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<h5 id="概率度量-Probabilistic-metrics"><a href="#概率度量-Probabilistic-metrics" class="headerlink" title="概率度量(Probabilistic metrics)"></a>概率度量(<a href="https://keras.io/api/metrics/probabilistic_metrics" target="_blank" rel="noopener">Probabilistic metrics</a>)</h5><table>
+</div>
+<h5 id="概率度量-Probabilistic-metrics"><a href="#概率度量-Probabilistic-metrics" class="headerlink" title="概率度量(Probabilistic metrics)"></a>概率度量(<a target="_blank" rel="noopener" href="https://keras.io/api/metrics/probabilistic_metrics">Probabilistic metrics</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -591,31 +622,33 @@
 <tr>
 <td>binary_crossentropy</td>
 <td>二元交叉熵</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>categorical_crossentropy</td>
 <td>交叉损失熵</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>sparse_categorical_crossentropy</td>
 <td>稀疏交叉损失熵</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>kullback_leibler_divergence</td>
 <td>KL散度</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>poisson</td>
 <td>泊松散度</td>
-<td>–</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<h5 id="回归度量-Regression-metrics"><a href="#回归度量-Regression-metrics" class="headerlink" title="回归度量(Regression metrics)"></a>回归度量(<a href="https://keras.io/api/metrics/regression_metrics" target="_blank" rel="noopener">Regression metrics</a>)</h5><table>
+</div>
+<h5 id="回归度量-Regression-metrics"><a href="#回归度量-Regression-metrics" class="headerlink" title="回归度量(Regression metrics)"></a>回归度量(<a target="_blank" rel="noopener" href="https://keras.io/api/metrics/regression_metrics">Regression metrics</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -627,41 +660,43 @@
 <tr>
 <td>mean_squared_error</td>
 <td>均方差</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>root_mean_squared_error</td>
 <td>均方根差</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>mean_absolute_error</td>
 <td>平均绝对差</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>mean_absolute_percentage_error</td>
 <td>平均绝对百分差</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>mean_squared_logarithmic_error</td>
 <td>均方对数差</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>cosine_similarity</td>
 <td>余弦相似性</td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>logcosh</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<h5 id="基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives"><a href="#基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives" class="headerlink" title="基于真/假阳性和阴性的分类度量(Classification metrics based on True/False positives &amp; negatives)"></a>基于真/假阳性和阴性的分类度量(<a href="https://keras.io/api/metrics/classification_metrics" target="_blank" rel="noopener">Classification metrics based on True/False positives &amp; negatives</a>)</h5><table>
+</div>
+<h5 id="基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives"><a href="#基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives" class="headerlink" title="基于真/假阳性和阴性的分类度量(Classification metrics based on True/False positives &amp; negatives)"></a>基于真/假阳性和阴性的分类度量(<a target="_blank" rel="noopener" href="https://keras.io/api/metrics/classification_metrics">Classification metrics based on True/False positives &amp; negatives</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -673,56 +708,58 @@
 <tr>
 <td>AUC()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Precision()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Recall()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>TruePositives()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>TrueNegatives()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>FalsePositives()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>FalseNegatives()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>PrecisionAtRecall(recall=0.8)</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>SensitivityAtSpecificity()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>SpecificityAtSensitivity()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<h5 id="图像分割度量-Image-segmentation-metrics"><a href="#图像分割度量-Image-segmentation-metrics" class="headerlink" title="图像分割度量(Image segmentation metrics)"></a>图像分割度量(<a href="https://keras.io/api/metrics/segmentation_metrics" target="_blank" rel="noopener">Image segmentation metrics</a>)</h5><table>
+</div>
+<h5 id="图像分割度量-Image-segmentation-metrics"><a href="#图像分割度量-Image-segmentation-metrics" class="headerlink" title="图像分割度量(Image segmentation metrics)"></a>图像分割度量(<a target="_blank" rel="noopener" href="https://keras.io/api/metrics/segmentation_metrics">Image segmentation metrics</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -734,11 +771,13 @@
 <tr>
 <td>MeanIoU(num_classes=2)</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<h5 id="合页度量-Hinge-metrics-for-“maximum-margin”-classification"><a href="#合页度量-Hinge-metrics-for-“maximum-margin”-classification" class="headerlink" title="合页度量(Hinge metrics for “maximum-margin” classification)"></a>合页度量(<a href="https://keras.io/api/metrics/hinge_metrics" target="_blank" rel="noopener">Hinge metrics for “maximum-margin” classification</a>)</h5><table>
+</div>
+<h5 id="合页度量-Hinge-metrics-for-“maximum-margin”-classification"><a href="#合页度量-Hinge-metrics-for-“maximum-margin”-classification" class="headerlink" title="合页度量(Hinge metrics for “maximum-margin” classification)"></a>合页度量(<a target="_blank" rel="noopener" href="https://keras.io/api/metrics/hinge_metrics">Hinge metrics for “maximum-margin” classification</a>)</h5><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>name</th>
@@ -750,24 +789,25 @@
 <tr>
 <td>Hinge()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>SquaredHinge()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 <tr>
 <td>CategoricalHinge()</td>
 <td></td>
-<td>–</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
+</div>
+<p><br/></p>
 <h3 id="fit"><a href="#fit" class="headerlink" title="fit"></a>fit</h3><p>开始训练模型。</p>
 <p><strong>原型</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Model.fit(</span><br><span class="line">    x=<span class="keyword">None</span>,</span><br><span class="line">    y=<span class="keyword">None</span>,</span><br><span class="line">    batch_size=<span class="keyword">None</span>,</span><br><span class="line">    epochs=<span class="number">1</span>,</span><br><span class="line">    verbose=<span class="number">1</span>,</span><br><span class="line">    callbacks=<span class="keyword">None</span>,</span><br><span class="line">    validation_split=<span class="number">0.0</span>,</span><br><span class="line">    validation_data=<span class="keyword">None</span>,</span><br><span class="line">    shuffle=<span class="keyword">True</span>,</span><br><span class="line">    class_weight=<span class="keyword">None</span>,</span><br><span class="line">    sample_weight=<span class="keyword">None</span>,</span><br><span class="line">    initial_epoch=<span class="number">0</span>,</span><br><span class="line">    steps_per_epoch=<span class="keyword">None</span>,</span><br><span class="line">    validation_steps=<span class="keyword">None</span>,</span><br><span class="line">    validation_batch_size=<span class="keyword">None</span>,</span><br><span class="line">    validation_freq=<span class="number">1</span>,</span><br><span class="line">    max_queue_size=<span class="number">10</span>,</span><br><span class="line">    workers=<span class="number">1</span>,</span><br><span class="line">    use_multiprocessing=<span class="keyword">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Model.fit(</span><br><span class="line">    x=<span class="literal">None</span>,</span><br><span class="line">    y=<span class="literal">None</span>,</span><br><span class="line">    batch_size=<span class="literal">None</span>,</span><br><span class="line">    epochs=<span class="number">1</span>,</span><br><span class="line">    verbose=<span class="number">1</span>,</span><br><span class="line">    callbacks=<span class="literal">None</span>,</span><br><span class="line">    validation_split=<span class="number">0.0</span>,</span><br><span class="line">    validation_data=<span class="literal">None</span>,</span><br><span class="line">    shuffle=<span class="literal">True</span>,</span><br><span class="line">    class_weight=<span class="literal">None</span>,</span><br><span class="line">    sample_weight=<span class="literal">None</span>,</span><br><span class="line">    initial_epoch=<span class="number">0</span>,</span><br><span class="line">    steps_per_epoch=<span class="literal">None</span>,</span><br><span class="line">    validation_steps=<span class="literal">None</span>,</span><br><span class="line">    validation_batch_size=<span class="literal">None</span>,</span><br><span class="line">    validation_freq=<span class="number">1</span>,</span><br><span class="line">    max_queue_size=<span class="number">10</span>,</span><br><span class="line">    workers=<span class="number">1</span>,</span><br><span class="line">    use_multiprocessing=<span class="literal">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p><strong>参数</strong></p>
 <ul>
 <li><strong>x:</strong> 输入数据， 它可以是：<ul>
@@ -804,9 +844,9 @@
 <li><strong>RuntimeError</strong>：如果模型从未编译过。</li>
 <li><strong>ValueError</strong>：如果提供的输入数据与模型期望的不匹配。</li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="evaluate"><a href="#evaluate" class="headerlink" title="evaluate"></a>evaluate</h3><p><strong>原型</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Model.evaluate(</span><br><span class="line">    x=<span class="keyword">None</span>,</span><br><span class="line">    y=<span class="keyword">None</span>,</span><br><span class="line">    batch_size=<span class="keyword">None</span>,</span><br><span class="line">    verbose=<span class="number">1</span>,</span><br><span class="line">    sample_weight=<span class="keyword">None</span>,</span><br><span class="line">    steps=<span class="keyword">None</span>,</span><br><span class="line">    callbacks=<span class="keyword">None</span>,</span><br><span class="line">    max_queue_size=<span class="number">10</span>,</span><br><span class="line">    workers=<span class="number">1</span>,</span><br><span class="line">    use_multiprocessing=<span class="keyword">False</span>,</span><br><span class="line">    return_dict=<span class="keyword">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Model.evaluate(</span><br><span class="line">    x=<span class="literal">None</span>,</span><br><span class="line">    y=<span class="literal">None</span>,</span><br><span class="line">    batch_size=<span class="literal">None</span>,</span><br><span class="line">    verbose=<span class="number">1</span>,</span><br><span class="line">    sample_weight=<span class="literal">None</span>,</span><br><span class="line">    steps=<span class="literal">None</span>,</span><br><span class="line">    callbacks=<span class="literal">None</span>,</span><br><span class="line">    max_queue_size=<span class="number">10</span>,</span><br><span class="line">    workers=<span class="number">1</span>,</span><br><span class="line">    use_multiprocessing=<span class="literal">False</span>,</span><br><span class="line">    return_dict=<span class="literal">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>返回测试模式下模型的损失值和度量值。计算是分批完成的。</p>
 <p><strong>参数</strong></p>
 <ul>
@@ -834,9 +874,9 @@
 <ul>
 <li><strong>ValueError</strong>：如果参数无效。</li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h3 id="predict"><a href="#predict" class="headerlink" title="predict"></a>predict</h3><p><strong>原型</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Model.predict(</span><br><span class="line">    x,</span><br><span class="line">    batch_size=<span class="keyword">None</span>,</span><br><span class="line">    verbose=<span class="number">0</span>,</span><br><span class="line">    steps=<span class="keyword">None</span>,</span><br><span class="line">    callbacks=<span class="keyword">None</span>,</span><br><span class="line">    max_queue_size=<span class="number">10</span>,</span><br><span class="line">    workers=<span class="number">1</span>,</span><br><span class="line">    use_multiprocessing=<span class="keyword">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Model.predict(</span><br><span class="line">    x,</span><br><span class="line">    batch_size=<span class="literal">None</span>,</span><br><span class="line">    verbose=<span class="number">0</span>,</span><br><span class="line">    steps=<span class="literal">None</span>,</span><br><span class="line">    callbacks=<span class="literal">None</span>,</span><br><span class="line">    max_queue_size=<span class="number">10</span>,</span><br><span class="line">    workers=<span class="number">1</span>,</span><br><span class="line">    use_multiprocessing=<span class="literal">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>为输入样本生成输出预测。</p>
 <p>计算是分批进行的。这种方法是为在大规模输入下的性能而设计的。对于一个批处理中的少量输入，建议直接使用<code>__call__</code>以加快执行速度，例如，model(x)或model(x, training=False)，诸如<code>tf.keras.layers.BatchNormalization</code>等表现不同的layer。</p>
 <p>另外，测试损耗不受regularization layers（如noise和dropout）的影响。</p>
@@ -863,7 +903,7 @@
 <ul>
 <li><strong>ValueError</strong>：如果所提供的输入数据与模型的期望不匹配，或者如果有状态模型接收到的样本数不是batch size的倍数。</li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ul>
 <li><p><strong>Keras</strong></p>
 <p>Keras 是一个模型级（model-level）的库，为开发深度学习模型提供了层次的构建模块。它不处理张量操作、求微分等低层次的运算。相反，它依赖于一个专门的、高度优化的张量库来完成这些运算，这个张量库就是 Keras 的后端引擎（backend engine）。Keras 没有选择单个张量库并将 Keras 实现与这个库绑定，而是以模块化的方式处理这个问题。因此，几个不同的后端引擎都可以无缝嵌入到 Keras 中。</p>
@@ -931,11 +971,11 @@
 <p>Scikit-learn的基本功能主要被分为六大部分：分类，回归，聚类，数据降维，模型选择和数据预处理。</p>
 </li>
 </ul>
-<p><br></p>
+<p><br/></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://www.cnblogs.com/XDU-Lakers/p/10526748.html" target="_blank" rel="noopener">TensorFlow下利用MNIST训练模型并识别自己手写的数字 - 控球强迫症 - 博客园</a></li>
-<li><a href="https://keras.io/" target="_blank" rel="noopener">Keras官方文档</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/95293440" target="_blank" rel="noopener">Keras.metrics中的accuracy总结 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/XDU-Lakers/p/10526748.html">TensorFlow下利用MNIST训练模型并识别自己手写的数字 - 控球强迫症 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="https://keras.io/">Keras官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/95293440">Keras.metrics中的accuracy总结 - 知乎</a></li>
 </ul>
 
       
@@ -945,6 +985,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -1006,7 +1057,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/DL - Mnist/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/DL%20-%20Mnist/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -1030,7 +1081,7 @@
     </a>
   
   
-    <a href="/Thoughts/音乐的意义/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Thoughts/%E9%9F%B3%E4%B9%90%E7%9A%84%E6%84%8F%E4%B9%89/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">音乐的意义</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -1058,7 +1109,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境搭建"><span class="toc-number">1.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用"><span class="toc-number">2.</span> <span class="toc-text">应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码说明"><span class="toc-number">3.</span> <span class="toc-text">代码说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#to-categorical"><span class="toc-number">3.1.</span> <span class="toc-text">to_categorical</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequential"><span class="toc-number">3.2.</span> <span class="toc-text">Sequential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dense层"><span class="toc-number">3.3.</span> <span class="toc-text">Dense层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#非线性函数-activation"><span class="toc-number">3.3.1.</span> <span class="toc-text">非线性函数(activation)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#relu"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">relu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#softmax"><span class="toc-number">3.3.1.2.</span> <span class="toc-text">softmax</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sigmoid"><span class="toc-number">3.3.1.3.</span> <span class="toc-text">sigmoid</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hard-sigmoid"><span class="toc-number">3.3.1.4.</span> <span class="toc-text">hard_sigmoid</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#elu"><span class="toc-number">3.3.1.5.</span> <span class="toc-text">elu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#selu"><span class="toc-number">3.3.1.6.</span> <span class="toc-text">selu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tanh"><span class="toc-number">3.3.1.7.</span> <span class="toc-text">tanh</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#softplus"><span class="toc-number">3.3.1.8.</span> <span class="toc-text">softplus</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#softsign"><span class="toc-number">3.3.1.9.</span> <span class="toc-text">softsign</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#exponential"><span class="toc-number">3.3.1.10.</span> <span class="toc-text">exponential</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#高级激活函数"><span class="toc-number">3.3.1.11.</span> <span class="toc-text">高级激活函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">3.4.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compile"><span class="toc-number">3.5.</span> <span class="toc-text">compile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优化器（optimizer）"><span class="toc-number">3.5.1.</span> <span class="toc-text">优化器（optimizer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#损失函数（loss）"><span class="toc-number">3.5.2.</span> <span class="toc-text">损失函数（loss）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#概率损失-Probabilistic-losses"><span class="toc-number">3.5.2.1.</span> <span class="toc-text">概率损失(Probabilistic losses)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#回归损失-Regression-losses"><span class="toc-number">3.5.2.2.</span> <span class="toc-text">回归损失(Regression losses)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#合页损失-Hinge-losses"><span class="toc-number">3.5.2.3.</span> <span class="toc-text">合页损失(Hinge losses)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#度量指标-metrics"><span class="toc-number">3.5.3.</span> <span class="toc-text">度量指标(metrics)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#准确度指标-Accuracy-metrics"><span class="toc-number">3.5.3.1.</span> <span class="toc-text">准确度指标(Accuracy metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#概率度量-Probabilistic-metrics"><span class="toc-number">3.5.3.2.</span> <span class="toc-text">概率度量(Probabilistic metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#回归度量-Regression-metrics"><span class="toc-number">3.5.3.3.</span> <span class="toc-text">回归度量(Regression metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基于真-假阳性和阴性的分类度量-Classification-metrics-based-on-True-False-positives-amp-negatives"><span class="toc-number">3.5.3.4.</span> <span class="toc-text">基于真/假阳性和阴性的分类度量(Classification metrics based on True/False positives &amp; negatives)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#图像分割度量-Image-segmentation-metrics"><span class="toc-number">3.5.3.5.</span> <span class="toc-text">图像分割度量(Image segmentation metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#合页度量-Hinge-metrics-for-“maximum-margin”-classification"><span class="toc-number">3.5.3.6.</span> <span class="toc-text">合页度量(Hinge metrics for “maximum-margin” classification)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fit"><span class="toc-number">3.6.</span> <span class="toc-text">fit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluate"><span class="toc-number">3.7.</span> <span class="toc-text">evaluate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#predict"><span class="toc-number">3.8.</span> <span class="toc-text">predict</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#名词解释"><span class="toc-number">4.</span> <span class="toc-text">名词解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E"><span class="toc-number">3.</span> <span class="toc-text">代码说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#to-categorical"><span class="toc-number">3.1.</span> <span class="toc-text">to_categorical</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequential"><span class="toc-number">3.2.</span> <span class="toc-text">Sequential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dense%E5%B1%82"><span class="toc-number">3.3.</span> <span class="toc-text">Dense层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%87%BD%E6%95%B0-activation"><span class="toc-number">3.3.1.</span> <span class="toc-text">非线性函数(activation)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#relu"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">relu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#softmax"><span class="toc-number">3.3.1.2.</span> <span class="toc-text">softmax</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sigmoid"><span class="toc-number">3.3.1.3.</span> <span class="toc-text">sigmoid</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hard-sigmoid"><span class="toc-number">3.3.1.4.</span> <span class="toc-text">hard_sigmoid</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#elu"><span class="toc-number">3.3.1.5.</span> <span class="toc-text">elu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#selu"><span class="toc-number">3.3.1.6.</span> <span class="toc-text">selu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tanh"><span class="toc-number">3.3.1.7.</span> <span class="toc-text">tanh</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#softplus"><span class="toc-number">3.3.1.8.</span> <span class="toc-text">softplus</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#softsign"><span class="toc-number">3.3.1.9.</span> <span class="toc-text">softsign</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#exponential"><span class="toc-number">3.3.1.10.</span> <span class="toc-text">exponential</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-number">3.3.1.11.</span> <span class="toc-text">高级激活函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#summary"><span class="toc-number">3.4.</span> <span class="toc-text">summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compile"><span class="toc-number">3.5.</span> <span class="toc-text">compile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E5%99%A8%EF%BC%88optimizer%EF%BC%89"><span class="toc-number">3.5.1.</span> <span class="toc-text">优化器（optimizer）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%EF%BC%88loss%EF%BC%89"><span class="toc-number">3.5.2.</span> <span class="toc-text">损失函数（loss）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E6%8D%9F%E5%A4%B1-Probabilistic-losses"><span class="toc-number">3.5.2.1.</span> <span class="toc-text">概率损失(Probabilistic losses)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%8D%9F%E5%A4%B1-Regression-losses"><span class="toc-number">3.5.2.2.</span> <span class="toc-text">回归损失(Regression losses)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%88%E9%A1%B5%E6%8D%9F%E5%A4%B1-Hinge-losses"><span class="toc-number">3.5.2.3.</span> <span class="toc-text">合页损失(Hinge losses)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%A6%E9%87%8F%E6%8C%87%E6%A0%87-metrics"><span class="toc-number">3.5.3.</span> <span class="toc-text">度量指标(metrics)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%87%86%E7%A1%AE%E5%BA%A6%E6%8C%87%E6%A0%87-Accuracy-metrics"><span class="toc-number">3.5.3.1.</span> <span class="toc-text">准确度指标(Accuracy metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%BA%A6%E9%87%8F-Probabilistic-metrics"><span class="toc-number">3.5.3.2.</span> <span class="toc-text">概率度量(Probabilistic metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E5%BA%A6%E9%87%8F-Regression-metrics"><span class="toc-number">3.5.3.3.</span> <span class="toc-text">回归度量(Regression metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%9C%9F-%E5%81%87%E9%98%B3%E6%80%A7%E5%92%8C%E9%98%B4%E6%80%A7%E7%9A%84%E5%88%86%E7%B1%BB%E5%BA%A6%E9%87%8F-Classification-metrics-based-on-True-False-positives-amp-negatives"><span class="toc-number">3.5.3.4.</span> <span class="toc-text">基于真&#x2F;假阳性和阴性的分类度量(Classification metrics based on True&#x2F;False positives &amp; negatives)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E5%BA%A6%E9%87%8F-Image-segmentation-metrics"><span class="toc-number">3.5.3.5.</span> <span class="toc-text">图像分割度量(Image segmentation metrics)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%88%E9%A1%B5%E5%BA%A6%E9%87%8F-Hinge-metrics-for-%E2%80%9Cmaximum-margin%E2%80%9D-classification"><span class="toc-number">3.5.3.6.</span> <span class="toc-text">合页度量(Hinge metrics for “maximum-margin” classification)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fit"><span class="toc-number">3.6.</span> <span class="toc-text">fit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evaluate"><span class="toc-number">3.7.</span> <span class="toc-text">evaluate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#predict"><span class="toc-number">3.8.</span> <span class="toc-text">predict</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"><span class="toc-number">4.</span> <span class="toc-text">名词解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1214,15 +1265,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基金</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1242,11 +1293,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
               </li>
             
             <div class="clearfix"></div>
