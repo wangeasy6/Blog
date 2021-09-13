@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.wangeasy.com/Technology/LearnMatrixByPython/</loc>
+    <loc>http://www.wangeasy.com/Thoughts/%E5%9C%A8%E6%AF%94%E8%BE%83%E4%B8%AD%E5%AD%98%E5%9C%A8/</loc>
+    <lastmod>2021-09-13</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/Sublime-Text/</loc>
+    <lastmod>2021-09-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2021-09-07</lastmod>
   </url>
   <url>
     <loc>http://www.wangeasy.com/Technology/DL%20-%20Mnist/</loc>
-    <lastmod>2021-09-03</lastmod>
+    <lastmod>2021-09-07</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/LearnMatrixByPython/</loc>
+    <lastmod>2021-09-07</lastmod>
   </url>
   <url>
     <loc>http://www.wangeasy.com/Technology/C++%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</loc>
@@ -85,10 +97,6 @@
     <lastmod>2021-02-09</lastmod>
   </url>
   <url>
-    <loc>http://www.wangeasy.com/Technology/Sublime-Text/</loc>
-    <lastmod>2020-11-09</lastmod>
-  </url>
-  <url>
     <loc>http://www.wangeasy.com/Thoughts/%E9%9F%B3%E4%B9%90%E7%9A%84%E6%84%8F%E4%B9%89/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
@@ -122,10 +130,6 @@
   </url>
   <url>
     <loc>http://www.wangeasy.com/Technology/PM-Tools/</loc>
-    <lastmod>2020-10-30</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wangeasy.com/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
