@@ -65,7 +65,7 @@ tag:
 
 要先选中正则表达式（regular expression）匹配模式，如图，点中（.*）按钮。
 
-![replace_line_breaks.png](///)
+![replace_line_breaks.png](/resources/sublime/replace_line_breaks.png)
 
 在正则表达式模式下，换行符即为转义字符"\n"，只需要在查找或者换行中输入"\n"即代表换行符。
 
