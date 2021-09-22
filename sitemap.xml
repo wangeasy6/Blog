@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.wangeasy.com/Technology/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/</loc>
+    
+    <lastmod>2021-09-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/Technology/DL%20-%20Mnist/</loc>
+    
+    <lastmod>2021-09-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.wangeasy.com/Thoughts/%E5%9C%A8%E6%AF%94%E8%BE%83%E4%B8%AD%E5%AD%98%E5%9C%A8/</loc>
     
     <lastmod>2021-09-13</lastmod>
@@ -17,13 +31,6 @@
   
   <url>
     <loc>http://www.wangeasy.com/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</loc>
-    
-    <lastmod>2021-09-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wangeasy.com/Technology/DL%20-%20Mnist/</loc>
     
     <lastmod>2021-09-07</lastmod>
     
@@ -389,7 +396,7 @@
 
   <url>
     <loc>http://www.wangeasy.com/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -397,63 +404,63 @@
   
   <url>
     <loc>http://www.wangeasy.com/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/Python/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/Data/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/C/</loc>
-    <lastmod>2021-09-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.wangeasy.com/tags/Tools/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/Math/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/tags/Tools/</loc>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/QT/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/AI/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -462,28 +469,28 @@
   
   <url>
     <loc>http://www.wangeasy.com/categories/Technology/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/categories/Reflections/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/categories/Games/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/categories/Thoughts/</loc>
-    <lastmod>2021-09-13</lastmod>
+    <lastmod>2021-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
