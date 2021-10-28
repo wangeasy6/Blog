@@ -1,1 +1,1 @@
-{"name":"体检报告","personnel":[{"name":"张三","height":175,"is_married":false,"advice":null},{"name":"李四","height":172,"is_married":true,"advice":"随访观察"}]}
+{"name":"体检报告","personnel":[{"name":"张三","height":175,"is_married":false,"advice":null},{"name":"李四","height":172.5,"is_married":true,"advice":"随访观察"}]}

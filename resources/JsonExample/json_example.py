@@ -37,7 +37,7 @@ def write():
 
     person = {}
     person["name"] = "李四"
-    person["height"] = 172.0
+    person["height"] = 172.5
     person["is_married"] = True
     person["advice"] = "随访观察"
     personnel.append(person)
