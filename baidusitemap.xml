@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.wangeasy.com/Games/%E6%B4%BE%E5%AF%B9%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2022-01-13</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2021-12-23</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/%E6%A0%91%E8%8E%93%E6%B4%BEQtWidgets%E8%BD%AF%E9%94%AE%E7%9B%98/</loc>
+    <lastmod>2021-12-22</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/git/</loc>
+    <lastmod>2021-12-08</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/Windows%E4%B8%AD%E5%AF%B9%E6%A0%87%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2021-11-09</lastmod>
+  </url>
+  <url>
     <loc>http://www.wangeasy.com/Technology/%E5%B8%B8%E7%94%A8%E7%9A%84Latex%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     <lastmod>2021-11-06</lastmod>
   </url>
@@ -93,10 +113,6 @@
     <lastmod>2021-06-19</lastmod>
   </url>
   <url>
-    <loc>http://www.wangeasy.com/Technology/git/</loc>
-    <lastmod>2021-05-08</lastmod>
-  </url>
-  <url>
     <loc>http://www.wangeasy.com/Reflections/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/</loc>
     <lastmod>2021-04-22</lastmod>
   </url>
@@ -107,10 +123,6 @@
   <url>
     <loc>http://www.wangeasy.com/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/</loc>
     <lastmod>2021-04-16</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wangeasy.com/Technology/%E6%A0%91%E8%8E%93%E6%B4%BEQtWidgets%E8%BD%AF%E9%94%AE%E7%9B%98/</loc>
-    <lastmod>2021-04-15</lastmod>
   </url>
   <url>
     <loc>http://www.wangeasy.com/Technology/PyQt5%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/</loc>
@@ -129,15 +141,7 @@
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.wangeasy.com/Games/%E6%B4%BE%E5%AF%B9%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2020-10-30</lastmod>
-  </url>
-  <url>
     <loc>http://www.wangeasy.com/Thoughts/%E5%A4%9A%E5%85%83%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B/</loc>
-    <lastmod>2020-10-30</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wangeasy.com/Technology/Windows%E4%B8%AD%E5%AF%B9%E6%A0%87%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
@@ -170,10 +174,6 @@
   </url>
   <url>
     <loc>http://www.wangeasy.com/Technology/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8/</loc>
-    <lastmod>2020-10-13</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wangeasy.com/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2020-10-13</lastmod>
   </url>
   <url>
