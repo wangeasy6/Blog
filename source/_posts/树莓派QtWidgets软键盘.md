@@ -223,6 +223,25 @@ VirtualKeyboardSettings，locale指定当前的输入语言，activeLocales指�
 
 <br/>
 
+#### 还是没有中文
+
+Qt 5.11.3明明是有中文的呀，为什么一直不显示？是因为`apt-get install`的这个版本中，没有配置编译中文。
+
+所有需要手动编译，重新安装一下：
+
+```shell
+wget https://download.qt.io/new_archive/qt/5.11/5.11.3/single/qt-everywhere-src-5.11.3.tar.xz
+xz -d qt-everywhere-src-5.11.3.tar.xz
+tar xvf qt-everywhere-src-5.11.3.tar
+
+cd qt-everywhere-src-5.11.3/qtvirtualkeyboard
+qmake CONFIG+="lang-en_GB lang-zh_CN"
+make
+sudo make install
+```
+
+<br/>
+
 ### 整个工程
 
 [VirtualKeyboardAtRPi.tar.gz](/resources/VirtualKeyboardAtRPi/VirtualKeyboardAtRPi.tar.gz)

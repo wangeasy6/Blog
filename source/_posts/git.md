@@ -82,6 +82,10 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
   3、 把修改推到远程服务器
 
   `$ git push -f -u origin master`
+  
+* Git 查看某个版本修改了哪些文件
+
+  `git diff hash1 hash2 --stat`
 
 <br/>
 

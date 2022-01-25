@@ -8,19 +8,18 @@ tags:
   - Python
 ---
 
-* 查看包情况： dir() 和 help() 函数非常有用:
-```
->>> import os
->>> dir(os)
-<returns a list of all module functions>
->>> help(os)
-<returns an extensive manual page created from the module's docstrings>
-```
+包含pip的使用、注释文档、源码加密、ini配置、Logging模块等内容。
 
 <!--more-->
 
 ### 更换pip源到国内镜像
-pip国内的一些镜像地址：
+**pip常用命令：**
+
+查询可用版本：`pip insatall xx==`
+
+查看已经安装的Python软件包及其版本：`pip freeze`/`pip list`
+
+**pip国内的一些镜像地址**：
 
 * 阿里云 http://mirrors.aliyun.com/pypi/simple/
 * 中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
@@ -45,8 +44,6 @@ pip国内的一些镜像地址：
   [global]
   index-url = https://pypi.tuna.tsinghua.edu.cn/simple
   ```
-
-pip 查询可用版本：`pip insatall xx==`
 
 <br/>
 
@@ -80,6 +77,50 @@ python -m pydoc -w test_py
 
 ```shell
 python3 -m pydoc -k test_py
+```
+
+查看包情况时，dir() 和 help() 函数非常有用:
+
+```
+>>> import os
+>>> dir(os)
+['DirEntry', 'F_OK', 'MutableMapping', 'O_APPEND', 'O_BINARY', 'O_CREAT', 'O_EXCL', 'O_NOINHERIT', 'O_RANDOM', 'O_RDONLY', 'O_RDWR', 'O_SEQUENTIAL', 'O_SHORT_LIVED', 'O_TEMPORARY', 'O_TEXT', 'O_TRUNC', 'O_WRONLY', 'P_DETACH', 'P_NOWAIT', 'P_NOWAITO', 'P_OVERLAY', 'P_WAIT', 'PathLike', 'R_OK', 'SEEK_CUR', 'SEEK_END', 'SEEK_SET', 'TMP_MAX', 'W_OK', 'X_OK', '_AddedDllDirectory', '_Environ', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_check_methods', '_execvpe', '_exists', '_exit', '_fspath', '_get_exports_list', '_putenv', '_unsetenv', '_wrap_close', 'abc', 'abort', 'access', 'add_dll_directory', 'altsep', 'chdir', 'chmod', 'close', 'closerange', 'cpu_count', 'curdir', 'defpath', 'device_encoding', 'devnull', 'dup', 'dup2', 'environ', 'error', 'execl', 'execle', 'execlp', 'execlpe', 'execv', 'execve', 'execvp', 'execvpe', 'extsep', 'fdopen', 'fsdecode', 'fsencode', 'fspath', 'fstat', 'fsync', 'ftruncate', 'get_exec_path', 'get_handle_inheritable', 'get_inheritable', 'get_terminal_size', 'getcwd', 'getcwdb', 'getenv', 'getlogin', 'getpid', 'getppid', 'isatty', 'kill', 'linesep', 'link', 'listdir', 'lseek', 'lstat', 'makedirs', 'mkdir', 'name', 'open', 'pardir', 'path', 'pathsep', 'pipe', 'popen', 'putenv', 'read', 'readlink', 'remove', 'removedirs', 'rename', 'renames', 'replace', 'rmdir', 'scandir', 'sep', 'set_handle_inheritable', 'set_inheritable', 'spawnl', 'spawnle', 'spawnv', 'spawnve', 'st', 'startfile', 'stat', 'stat_result', 'statvfs_result', 'strerror', 'supports_bytes_environ', 'supports_dir_fd', 'supports_effective_ids', 'supports_fd', 'supports_follow_symlinks', 'symlink', 'sys', 'system', 'terminal_size', 'times', 'times_result', 'truncate', 'umask', 'uname_result', 'unlink', 'urandom', 'utime', 'waitpid', 'walk', 'write']
+>>> help(os)
+Help on module os:
+
+NAME
+    os - OS routines for NT or Posix depending on what system we're on.
+
+MODULE REFERENCE
+    https://docs.python.org/3.8/library/os
+
+    The following documentation is automatically generated from the Python
+    source files.  It may be incomplete, incorrect or include features that
+    are considered implementation detail and may vary between Python
+    implementations.  When in doubt, consult the module reference at the
+    location listed above.
+
+DESCRIPTION
+    This exports:
+      - all functions from posix or nt, e.g. unlink, stat, etc.
+      - os.path is either posixpath or ntpath
+      - os.name is either 'posix' or 'nt'
+      - os.curdir is a string representing the current directory (always '.')
+      - os.pardir is a string representing the parent directory (always '..')
+      - os.sep is the (or a most common) pathname separator ('/' or '\\')
+      - os.extsep is the extension separator (always '.')
+      - os.altsep is the alternate pathname separator (None or '/')
+      - os.pathsep is the component separator used in $PATH etc
+      - os.linesep is the line separator in text files ('\r' or '\n' or '\r\n')
+      - os.defpath is the default search path for executables
+      - os.devnull is the file path of the null device ('/dev/null', etc.)
+
+    Programs that import and use 'os' stand a better chance of being
+    portable between different platforms.  Of course, they must then
+    only use functions that are defined by all platforms (e.g., unlink
+    and opendir), and leave all pathname manipulation to os.path
+    (e.g., split and join).
+...
 ```
 
 <br/>
@@ -167,8 +208,6 @@ OtherError
   when an other error
 """
 ```
-
-
 
 <br/>
 
