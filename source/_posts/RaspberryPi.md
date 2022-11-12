@@ -18,6 +18,7 @@ tags:
 * [ 树莓派3B使用UART ](/Technology/RaspberryPi/#树莓派3B使用UART)
 * [ 配置固定USB端口名称 ](/Technology/RaspberryPi/#配置固定USB端口名称)
 * [ 树莓派开启SSH ](/Technology/RaspberryPi/#树莓派开启SSH)
+* [声音输出设置](Technology/RaspberryPi/#声音输出设置)
 * [ 开启远程桌面 ](/Technology/RaspberryPi/#开启远程桌面)
 * [ 树莓派开启Samba ](/Technology/RaspberryPi/#树莓派开启Samba)
 * [ 切换屏幕分辨率 ](/Technology/RaspberryPi/#切换屏幕分辨率)
@@ -373,6 +374,26 @@ openssh-server配置文件为“/etc/ssh/sshd_config”，可以配置SSH服务�
 在终端命令行中启动SSH服务后，如果系统重启或关机后启动，SSH服务默认是关闭的，依然需要手动启动，为了方便可以设置SSH服务开机自动启动，打开/etc/rc.local文件，在语句exit 0之前加入：
 
 `/etc/init.d/ssh start`
+
+<br/>
+
+### 声音输出设置
+
+树莓派是带有3.5mm音频输出口的。
+
+声音设置面板：`alsamixer`
+
+确定声卡设备是否可以访问，而且没有静音（按m可以切换）。
+
+通过键盘的上下箭头可以调整音量，确定没问题后按Esc退出。
+
+测试命令：`speaker-test -t sine`
+
+如果还不行，输入```sudo raspi-config```，进入了树莓派的设置面板。
+
+选择第7项"Advanced Options"并回车，然后选择第4项"Audio"再回车：
+
+一共有三个选项，一个是Auto，一个是3.5mm耳机，一个是HDMI，选择3.5mm耳机。
 
 <br/>
 
