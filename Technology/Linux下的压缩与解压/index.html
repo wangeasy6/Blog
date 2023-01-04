@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>工作两年回首 | Easy Wang</title>
+  <title>Linux下的压缩与解压 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近感悟颇多，不由得想要把它们整理一下，记录下来，算作总结，也方便以后印证。">
+  <meta name="description" content="Linux中常见压缩格式的压缩与解压方法。 测试环境 Ubuntu 22.04.1 LTS x86_64">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工作两年回首">
-<meta property="og:url" content="http://www.wangeasy.com/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/index.html">
+<meta property="og:title" content="Linux下的压缩与解压">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="最近感悟颇多，不由得想要把它们整理一下，记录下来，算作总结，也方便以后印证。">
+<meta property="og:description" content="Linux中常见压缩格式的压缩与解压方法。 测试环境 Ubuntu 22.04.1 LTS x86_64">
 <meta property="og:locale">
-<meta property="article:published_time" content="2018-09-26T07:14:10.000Z">
-<meta property="article:modified_time" content="2020-09-07T07:27:38.000Z">
+<meta property="article:published_time" content="2023-01-04T07:35:12.000Z">
+<meta property="article:modified_time" content="2023-01-04T08:00:57.670Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -177,20 +178,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-工作两年回首" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux下的压缩与解压" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      工作两年回首
+      Linux下的压缩与解压
     </h1>
   
 
         
-        <a href="/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/" class="archive-article-date">
-  	<time datetime="2018-09-26T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
+        <a href="/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/" class="archive-article-date">
+  	<time datetime="2023-01-04T07:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-04</time>
 </a>
         
 
@@ -205,24 +206,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近感悟颇多，不由得想要把它们整理一下，记录下来，算作总结，也方便以后印证。<br><span id="more"></span></p>
-<h3 id="少年时"><a href="#少年时" class="headerlink" title="少年时"></a>少年时</h3><p>我是一个不太爱回忆过去的人，我的习惯是向前看，过去的事情在我的脑海中留下的并不多。</p>
-<p>整个小学及之前的事情都只有一些片段和感觉，早上蛋炒饭留在嘴里的油滑、晚上耳边此起彼伏的蝉鸣和蛙叫、和小伙伴一起上学的路、弓箭、陀螺和弹珠，整个村子便是我们的游乐园，春夏秋冬，四季流转。</p>
-<p>到了初中，有两件特别值得提的事。<br>一，上学的地方从家附近的乡镇转到了离家很远的一个中学。定主意的是我的母亲，这对于我来说有着”孟母三迁”一样的意义。原本小学旁边是有一所中学的，但校风不好，上学的基本上就是附近村里的孩子，本场作战，调皮捣蛋多了学习自然就少了。离家远重要的意义是让我早早的开始了独立。<br>其实回忆起来，这便是我目前人生中遇到的最大的一个坎儿了，但即使是最开始的独立对我来说也是转换的十分迅速的，也许从小的不受约束也是一种独立能力的培养吧。</p>
-<p>二，《论语》。接触自然是在从课本开始的，但是我有幸能在教育资源贫乏的山区中读到了全本的《论语》，知道了《论语》不仅仅是温故知新和三省吾身，孔子在学习、孝悌、交友、立身立命、为政、治国等各个方面提出了一套君子的行为准则和方法。现在看来，还有比这更好的育儿经吗，还有比圣人更好的老师吗？<br>由此，我的价值观得以逐渐树立。<br>为什么说是有幸，因为对于一个山区的留守儿童来说，基本上没有人教这些，家庭的残缺和父母知识的有限，导致家庭教育其实是山区孩子最大的教育缺陷，而《论语》则相当于提供了一个完美的模板和参照，让我有了一个更高视角，而不只是以身边的人和事作为参照，这对于判别是非对错、形成自己的价值观有重大的意义。</p>
-<p>高中就是平平淡淡，为了考试。</p>
-<h3 id="我的大学"><a href="#我的大学" class="headerlink" title="我的大学"></a>我的大学</h3><p>大学对我来说，最重要的意义是给了我自由。<br>高中的每分每秒都是为了考试，而在这里，考试不再是我们的主要目标。相反，大部分的时间都是由自己自由支配。<br>每个人都得寻找新的目标。<br>于是我沿着C语言、单片机、单片机比赛，一直寻找到嵌入式，终于获得了独立于社会的能力。</p>
-<p>另外，在旅途的中途也收获了爱情和友情。爱情观逐步建立，少了自已为是，多了沟通和理解，确立了双方相互扶协、共同进步的良好恋爱关系。</p>
-<h3 id="工作两年"><a href="#工作两年" class="headerlink" title="工作两年"></a>工作两年</h3><p>独立于社会，才有放眼世界的能力，在这里我才算是真正的独立。<br>不知不觉，工作快两年了。在这两年里，做了两份工作，换了两个地方，去了很多地方，遇上了很多人、很多事。</p>
-<p>离开上一家公司，一是因为女朋友在南京，二是实在受不了成都污染的空气。<br>在成都那灰蒙蒙的天空下，我每天的心情都不美丽，成都的交通规则是我最想吐槽的，人行道的绿灯和汽车左转的灯同时亮，怎么想的。<br>相反，在我去过的这么多城市里，南京的天气和人文环境是最好的，天空湛蓝，街道宽阔干净，两边的梧桐树高大葱郁，建筑既有江南古典的亭台楼阁，也有现代摩登的高楼大厦，总体呈现出六朝古都的大气和端庄。</p>
-<p>回到工作上，其实两家公司是两种不同风格的公司，总结下来，他们的不同主要在于产品所处的行业和阶段不同:</p>
-<ul>
-<li>一个是做电视机顶盒（DTV、IPTV），处于维护阶段。</li>
-<li>一个是做RFID射频识别，处于研发阶段。</li>
+        <p>Linux中常见压缩格式的压缩与解压方法。</p>
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
+<li>Ubuntu 22.04.1 LTS</li>
+<li>x86_64</li>
 </ul>
-<p>维护阶段的产品，在技术上是成熟的，公司在制度上也十分完善，所以在刚毕业就遇到这样一家公司，对我来说起到了非常好的过度作用，同时可以学习到成熟的技术和增长经验。<br>但其实我在这里工作是不太开心的，简单的维护和缺乏使命感，让我对工作缺乏激情。整个行业在我看来也已经是夕阳产业了，流媒体终端的多样化和数字网络正在吞噬这个产业。</p>
-<p>第二份工作，无论在产业上还是公司组织上，都给了我新的视角。<br>公司目前所推出的产品是 RFID读写器设备，但公司却是做系统集成的。系统集成是先收集到市场需求，然后再根据需求分配资源，如人力、资金等等，最后进行组合卖出。在这样的框架下，我看到了一个公司如何快速的整合资源和开发，团队之间的沟通，团队之间的博弈，这些都是除了技术之外的东西。<br>更重要的是，RFID 作为物联网的终端节点，处于行业的上升期，而处在新兴行业，我有机会参与和贡献自己的力量，我们很有可能做出一些革命的产品，成为产业的龙头，这是一种愿景，也是我工作的驱动力。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>刚开始的择业其实都比较盲目和匆忙，但所幸都有所收获。<br>总结下来，一个公司所处的行业前景 和 所处研发阶段 才是一个研发人员最应该关注的。</p>
+<span id="more"></span>
+<h3 id="主要格式简介"><a href="#主要格式简介" class="headerlink" title="主要格式简介"></a>主要格式简介</h3><ul>
+<li><p>.gz：GNU自由软件的文件压缩程序，Gzip的基础是DEFLATE，DEFLATE是LZ77与哈夫曼编码的一个组合体。</p>
+</li>
+<li><p>.bz：Bzip压缩算法合并了块排序压缩算法（Burrows-Wheeler）和行程长度编码（RLE），尽管压缩速度不如Gzip（.gz文件）快，但压缩大小比Gzip小。</p>
+</li>
+<li><p>.xz：采用LZMA SDK压缩，目标文件较.gz文件小30%，较.bz2小15%。</p>
+</li>
+<li><p>.zip：ZIP也使用DEFLATE算法，而且可移植性更好，不需要一个外部的归档工具就可以包容多个文件。但是，由于ZIP对每个文件进行单独压缩而没有利用文件间的冗余信息（即固实压缩），所以ZIP的压缩率会稍逊于gz压缩包。Windows系统内置对zip格式的支持。</p>
+</li>
+<li><p>.rar：RAR是一种专利文件格式，比ZIP格式压缩率高。</p>
+</li>
+</ul>
+<h3 id="tar"><a href="#tar" class="headerlink" title=".tar"></a>.tar</h3><p>打包： tar cvf FileName.tar DirName<br>解包： tar xvf FileName.tar<br>（注：tar只打包，不带压缩！）</p>
+<h3 id="gz"><a href="#gz" class="headerlink" title=".gz"></a>.gz</h3><p>压缩：gzip FileName<br>解压1：gunzip FileName.gz<br>解压2：gzip -d FileName.gz<br>（注：gzip 只能用来压缩文件，不能压缩目录）</p>
+<h3 id="tar-gz-tgz-tar-tgz"><a href="#tar-gz-tgz-tar-tgz" class="headerlink" title=".tar.gz/.tgz/.tar.tgz"></a>.tar.gz/.tgz/.tar.tgz</h3><p>压缩：tar cvfz FileName.tar.gz DirName<br>解压：tar xvfz FileName.tar.gz<br>解压（指定目录）：tar xvfz FileName.tar.gz -C DirName</p>
+<h3 id="bz2"><a href="#bz2" class="headerlink" title=".bz2"></a>.bz2</h3><p>压缩： bzip2 -z FileName<br>解压1：bzip2 -d FileName.bz2<br>解压2：bunzip2 FileName.bz2<br>（注：bzip2 只能用来压缩文件，不能压缩目录）</p>
+<h3 id="tar-bz2"><a href="#tar-bz2" class="headerlink" title=".tar.bz2"></a>.tar.bz2</h3><p>压缩：tar cvfj FileName.tar.bz2 DirName<br>解压：tar xvfj FileName.tar.bz2</p>
+<h3 id="tar-xz"><a href="#tar-xz" class="headerlink" title=".tar.xz"></a>.tar.xz</h3><p>压缩：tar cvfJ FileName.tar.xz DirName<br>解压：tar xvfJ FileName.tar.xz</p>
+<h3 id="Z"><a href="#Z" class="headerlink" title=".Z"></a>.Z</h3><p>安装：sudo apt-get install ncompress<br>卸载：sudo apt-get remove ncompress</p>
+<p>压缩：compress FileName<br>解压：uncompress FileName.Z</p>
+<h3 id="tar-Z"><a href="#tar-Z" class="headerlink" title=".tar.Z"></a>.tar.Z</h3><p>压缩：tar cvfZ FileName.tar.Z DirName<br>解压：tar xvfZ FileName.tar.Z<br>（注：要安装 ncompress）</p>
+<h3 id="zip"><a href="#zip" class="headerlink" title=".zip"></a>.zip</h3><p>压缩：zip FileName.zip DirName/*<br>解压：unzip FileName.zip</p>
+<h3 id="rar"><a href="#rar" class="headerlink" title=".rar"></a>.rar</h3><p>安装：sudo apt-get install rar unrar<br>卸载：sudo apt-get remove rar unrar</p>
+<p>压缩：rar a FileName.rar DirName<br>解压：rar x -y FileName.rar</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.iteye.com/blog/verytiny-165653">tar 打包压缩目录</a></li>
+</ul>
 
       
 
@@ -231,13 +247,24 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
         		</li>
       		
 		</ul>
@@ -292,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/Reflections/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          《奇葩说》
-        
-      </div>
-    </a>
   
-  
-    <a href="/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python学习笔记</div>
+    <a href="/Thoughts/%E6%9C%80%E5%90%8E%E7%9A%84%E5%AE%A3%E8%A8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最后的宣言</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -344,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%91%E5%B9%B4%E6%97%B6"><span class="toc-number">1.</span> <span class="toc-text">少年时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6"><span class="toc-number">2.</span> <span class="toc-text">我的大学</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4"><span class="toc-number">3.</span> <span class="toc-text">工作两年</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%A0%BC%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">主要格式简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar"><span class="toc-number">3.</span> <span class="toc-text">.tar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gz"><span class="toc-number">4.</span> <span class="toc-text">.gz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-gz-tgz-tar-tgz"><span class="toc-number">5.</span> <span class="toc-text">.tar.gz&#x2F;.tgz&#x2F;.tar.tgz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bz2"><span class="toc-number">6.</span> <span class="toc-text">.bz2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-bz2"><span class="toc-number">7.</span> <span class="toc-text">.tar.bz2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-xz"><span class="toc-number">8.</span> <span class="toc-text">.tar.xz</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Z"><span class="toc-number">9.</span> <span class="toc-text">.Z</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-Z"><span class="toc-number">10.</span> <span class="toc-text">.tar.Z</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip"><span class="toc-number">11.</span> <span class="toc-text">.zip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rar"><span class="toc-number">12.</span> <span class="toc-text">.rar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">13.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>

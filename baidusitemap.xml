@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.wangeasy.com/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/</loc>
+    <lastmod>2023-01-04</lastmod>
+  </url>
+  <url>
+    <loc>http://www.wangeasy.com/Technology/PyQt5%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/</loc>
+    <lastmod>2022-12-22</lastmod>
+  </url>
+  <url>
     <loc>http://www.wangeasy.com/Technology/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A4%8D%E6%9D%82%E5%BA%A6/</loc>
     <lastmod>2022-12-13</lastmod>
   </url>
@@ -139,10 +147,6 @@
   <url>
     <loc>http://www.wangeasy.com/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/</loc>
     <lastmod>2021-04-16</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wangeasy.com/Technology/PyQt5%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/</loc>
-    <lastmod>2021-02-09</lastmod>
   </url>
   <url>
     <loc>http://www.wangeasy.com/Thoughts/%E9%9F%B3%E4%B9%90%E7%9A%84%E6%84%8F%E4%B9%89/</loc>
