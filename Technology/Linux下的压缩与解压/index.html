@@ -16,7 +16,7 @@
 <meta property="og:description" content="Linux中常见压缩格式的压缩与解压方法。 测试环境 Ubuntu 22.04.1 LTS x86_64">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-01-04T07:35:12.000Z">
-<meta property="article:modified_time" content="2023-01-04T08:00:57.670Z">
+<meta property="article:modified_time" content="2023-04-20T01:37:08.000Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@
 		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">道阻且长，行则将至</p>
+		<p class="header-subtitle">无惧·无界·无我</p>
 		
 
 		<nav class="header-menu">
@@ -233,9 +233,11 @@
 <h3 id="Z"><a href="#Z" class="headerlink" title=".Z"></a>.Z</h3><p>安装：sudo apt-get install ncompress<br>卸载：sudo apt-get remove ncompress</p>
 <p>压缩：compress FileName<br>解压：uncompress FileName.Z</p>
 <h3 id="tar-Z"><a href="#tar-Z" class="headerlink" title=".tar.Z"></a>.tar.Z</h3><p>压缩：tar cvfZ FileName.tar.Z DirName<br>解压：tar xvfZ FileName.tar.Z<br>（注：要安装 ncompress）</p>
-<h3 id="zip"><a href="#zip" class="headerlink" title=".zip"></a>.zip</h3><p>压缩：zip FileName.zip DirName/*<br>解压：unzip FileName.zip</p>
+<h3 id="zip"><a href="#zip" class="headerlink" title=".zip"></a>.zip</h3><p>压缩：zip FileName.zip DirName/*<br>解压：unzip -O CP936 FileName.zip [-d DirName]</p>
+<p>-O 用于指定编码，CP936 支持中文编码</p>
 <h3 id="rar"><a href="#rar" class="headerlink" title=".rar"></a>.rar</h3><p>安装：sudo apt-get install rar unrar<br>卸载：sudo apt-get remove rar unrar</p>
-<p>压缩：rar a FileName.rar DirName<br>解压：rar x -y FileName.rar</p>
+<p>压缩：rar a FileName.rar DirName<br>解压：rar x -y FileName.rar [DirName]</p>
+<p>Tips：解压到指定的目录，要先创建目录</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://www.iteye.com/blog/verytiny-165653">tar 打包压缩目录</a></li>
 </ul>
@@ -334,8 +336,8 @@
 <nav id="article-nav">
   
   
-    <a href="/Thoughts/%E6%9C%80%E5%90%8E%E7%9A%84%E5%AE%A3%E8%A8%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">最后的宣言</div>
+    <a href="/Technology/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A4%8D%E6%9D%82%E5%BA%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法之复杂度</div>
       <i class="icon-circle-right"></i>
     </a>
   

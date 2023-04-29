@@ -16,7 +16,7 @@
 <meta property="og:description" content="Git 是 Linus Torvalds 除了 Linux 之外的另一杰作，是现如今使用最多的分布式版本管理工具。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-08-01T14:04:12.000Z">
-<meta property="article:modified_time" content="2021-12-08T08:47:13.629Z">
+<meta property="article:modified_time" content="2023-03-28T08:48:16.000Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -75,7 +75,7 @@
 		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">道阻且长，行则将至</p>
+		<p class="header-subtitle">无惧·无界·无我</p>
 		
 
 		<nav class="header-menu">
@@ -223,6 +223,8 @@
 <li>在gitServer上我们首先查看/home/git/.ssh/authorized_keys，没有则创建</li>
 <li>公钥id_rsa.pub的内容追加到authroized_keys中</li>
 <li><code>ssh -l git &lt;ServerIP&gt;</code> ,验证是否可以自动登陆（GitHub在添加了SSH Key之后，使用<code>ssh -T git@github.com</code>验证）</li>
+<li>Windows 配置无密码SSH登陆</li>
+<li>在CMD中运行：<code>ssh-keygen</code>，id_rsa.pub 地址会在生成了之后显示。</li>
 </ul>
 </li>
 <li>通过命令 <code>sudo yum install git-core</code>,安装git（gitServer）</li>
@@ -288,6 +290,10 @@
 </li>
 <li>windows Git Bash : <code>git status</code> 中文乱码（如：”\200\346\261\202”）<ul>
 <li>解决办法：<code>git config --global core.quotepath false</code></li>
+</ul>
+</li>
+<li>Windows 中使用 TortoiseGit 打开 SMB 中的目录时，提示添加safy路径<ul>
+<li>解决方法：<code>git config --global --add safe.directory *</code></li>
 </ul>
 </li>
 </ul>
