@@ -54,23 +54,23 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
-        #界面绘制交给InitUi方法
+        # 界面绘制交给InitUi方法
         self.initUI()
 
     def initUI(self):
-        #设置窗口的位置和大小
+        # 设置窗口的位置和大小
         self.setGeometry(300, 300, 300, 220)
-        #设置窗口的标题
+        # 设置窗口的标题
         self.setWindowTitle('Simple')
-        #设置窗口的图标，引用当前目录下的icon.png图片
+        # 设置窗口的图标，引用当前目录下的icon.png图片
         self.setWindowIcon(QIcon('icon.png'))
 
-        #显示窗口
+        # 显示窗口
         self.show()
 
 
 if __name__ == '__main__':
-    #创建应用程序和对象
+    # 创建应用程序和对象
     app = QApplication(sys.argv)
     mw = MainWindow()
     sys.exit(app.exec_())
@@ -210,7 +210,7 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
-        #界面绘制交给InitUi方法
+        # 界面绘制交给InitUi方法
         self.initUI()
 
     def initUI(self):
@@ -229,7 +229,7 @@ class MainWindow(QWidget):
 
 
 if __name__ == '__main__':
-    #创建应用程序和对象
+    # 创建应用程序和对象
     app = QApplication(sys.argv)
     mw = MainWindow()
     sys.exit(app.exec_())
@@ -298,7 +298,7 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
-        #界面绘制交给InitUi方法
+        # 界面绘制交给InitUi方法
         self.initUI()
 
     def initUI(self):
@@ -347,7 +347,7 @@ class MainWindow(QWidget):
 
 
 if __name__ == '__main__':
-    #创建应用程序和对象
+    # 创建应用程序和对象
     app = QApplication(sys.argv)
     mw = MainWindow()
     sys.exit(app.exec_())
@@ -525,7 +525,7 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
-        #界面绘制交给InitUi方法
+        # 界面绘制交给InitUi方法
         self.initUI()
 
 
@@ -566,7 +566,7 @@ class loadThread(QThread):
 
 
 if __name__ == '__main__':
-    #创建应用程序和对象
+    # 创建应用程序和对象
     app = QApplication(sys.argv)
     mw = MainWindow()
     sys.exit(app.exec_())
@@ -632,7 +632,7 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
-        #界面绘制交给InitUi方法
+        # 界面绘制交给InitUi方法
         self.initUI()
 
 
@@ -640,12 +640,12 @@ class MainWindow(QWidget):
         bt_quit = QPushButton("退出", self)
         bt_quit.clicked.connect(self.closeWindow)
 
-        #设置窗口的位置和大小
+        # 设置窗口的位置和大小
         self.setGeometry(300, 300, 350, 250)
-        #设置窗口的标题
+        # 设置窗口的标题
         self.setWindowTitle('Simple')
 
-        #显示窗口
+        # 显示窗口
         self.show()
 
 
@@ -659,7 +659,7 @@ class MainWindow(QWidget):
 
 
 if __name__ == '__main__':
-    #创建应用程序和对象
+    # 创建应用程序和对象
     app = QApplication(sys.argv)
     mw = MainWindow()
     sys.exit(app.exec_())

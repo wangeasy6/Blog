@@ -28,7 +28,7 @@ Host is up (0.0040s latency).
 MAC Address: D4:EE:07:5E:BF:6A (Hiwifi)
 ```
 
-主机信息可能包含在 report for之后 或者 MAC Address 括号后面。
+主机信息可能包含在 report for 之后 或者 MAC Address 括号后面。
 
 ### 开放端口扫描
 

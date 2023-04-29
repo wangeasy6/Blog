@@ -31,6 +31,8 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
     * 在gitServer上我们首先查看/home/git/.ssh/authorized_keys，没有则创建
     * 公钥id_rsa.pub的内容追加到authroized_keys中
     * `ssh -l git <ServerIP>` ,验证是否可以自动登陆（GitHub在添加了SSH Key之后，使用`ssh -T git@github.com`验证）
+* Windows 配置无密码SSH登陆
+    * 在CMD中运行：`ssh-keygen`，id_rsa.pub 地址会在生成了之后显示。
   * 通过命令 `sudo yum install git-core`,安装git（gitServer）
   * 使用命令 `git --bare init /home/git/myRep`,初始化仓库
   * 在gitClient上，通过git clone命令进行克隆远程仓库
@@ -130,6 +132,8 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
       http://blog.csdn.net/unityoxb/article/details/20768687
 * windows Git Bash : `git status` 中文乱码（如："\200\346\261\202"）
   * 解决办法：`git config --global core.quotepath false`
+* Windows 中使用 TortoiseGit 打开 SMB 中的目录时，提示添加safy路径
+    * 解决方法：`git config --global --add safe.directory *`
 
 ### 参考
 
