@@ -6,25 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>QT UI进阶 - 透明圆角阴影效果 | Easy Wang</title>
+  <title>Category: Technology | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前用QT Widgets写界面，在UI设计的效果上总要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个效果的实现方法。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="QT UI进阶 - 透明圆角阴影效果">
-<meta property="og:url" content="http://www.wangeasy.com/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Easy Wang">
+<meta property="og:url" content="http://www.wangeasy.com/categories/Technology/page/5/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="之前用QT Widgets写界面，在UI设计的效果上总要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。 一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个效果的实现方法。">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.wangeasy.com/resources/qt_widgets_ui_advanced/message_box.png">
-<meta property="og:image" content="http://www.wangeasy.com/resources/qt_widgets_ui_advanced/message_box.png">
-<meta property="article:published_time" content="2021-05-01T05:11:06.000Z">
-<meta property="article:modified_time" content="2021-09-03T02:56:56.740Z">
 <meta property="article:author" content="Easy Wang">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content="QT">
-<meta property="article:tag" content="树莓派">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.wangeasy.com/resources/qt_widgets_ui_advanced/message_box.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -183,96 +173,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-QT UI进阶 - 透明圆角阴影效果" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      QT UI进阶 - 透明圆角阴影效果
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/Technology/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2018-07-31T02:06:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Technology/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8/">电脑安装应用</a>
     </h1>
   
 
-        
-        <a href="/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/" class="archive-article-date">
-  	<time datetime="2021-05-01T05:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-            <span class="archive-article-date">
-                阅读量 <span id="busuanzi_value_page_pv"></span>
-            </span>
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/qt_widgets_ui_advanced/message_box.png" alt="MessageBox"></p>
-<p>之前用QT Widgets写界面，在UI设计的效果上总要打个8折，主要就是卡在透明和阴影这两个效果上，而这两个效果对于界面的高级感又有很大的影响。</p>
-<p>一度想要换Qt Quick，然而经过不断的探索，现在终于解决了这个难题。顺便记录一下其它几个效果的实现方法。</p>
-<span id="more"></span>
-<p><br/></p>
-<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>硬件环境：树莓派CM4</p>
-<p>软件环境：Qt 5.11.3</p>
-<p><br/></p>
-<h2 id="圆角无锯齿-透明-阴影子界面"><a href="#圆角无锯齿-透明-阴影子界面" class="headerlink" title="圆角无锯齿+透明+阴影子界面"></a>圆角无锯齿+透明+阴影子界面</h2><p><img src="/resources/qt_widgets_ui_advanced/message_box.png" alt="MessageBox"></p>
-<p>以一个提示弹窗为例，主要<a href="/resources/qt_widgets_ui_advanced/TransparentShadowEffacts.tar.gz">代码实现</a>：</p>
-<p>message_box.h</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">paintEvent</span><span class="params">(QPaintEvent *event)</span></span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>message_box.cpp</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;message_box.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ui_message_box.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QGraphicsDropShadowEffect&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QPainter&gt;</span></span></span><br><span class="line"></span><br><span class="line">MessageBox::<span class="built_in">MessageBox</span>(QWidget *parent) :</span><br><span class="line">    <span class="built_in">QDialog</span>(parent),</span><br><span class="line">    <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::MessageBox)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">setWindowFlags</span>(Qt::FramelessWindowHint);          <span class="comment">// 设置无窗体</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">setAttribute</span>(Qt::WA_TranslucentBackground);       <span class="comment">// 设置背景透明</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 相对父窗体居中</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>-&gt;<span class="built_in">parent</span>() &amp;&amp; <span class="keyword">this</span>-&gt;<span class="built_in">parent</span>()-&gt;<span class="built_in">isWidgetType</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;<span class="built_in">move</span>((<span class="keyword">this</span>-&gt;<span class="built_in">parentWidget</span>()-&gt;<span class="built_in">width</span>() - <span class="keyword">this</span>-&gt;<span class="built_in">width</span>()) / <span class="number">2</span>,</span><br><span class="line">               (<span class="keyword">this</span>-&gt;<span class="built_in">parentWidget</span>()-&gt;<span class="built_in">height</span>() - <span class="keyword">this</span>-&gt;<span class="built_in">height</span>()) / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 阴影效果</span></span><br><span class="line">    QGraphicsDropShadowEffect *shadow_effect = <span class="keyword">new</span> <span class="built_in">QGraphicsDropShadowEffect</span>(<span class="keyword">this</span>);</span><br><span class="line">    shadow_effect-&gt;<span class="built_in">setOffset</span>(<span class="number">4</span>,<span class="number">8</span>);                          <span class="comment">// 阴影偏移</span></span><br><span class="line">    shadow_effect-&gt;<span class="built_in">setColor</span>(<span class="built_in">QColor</span>(<span class="number">0</span>, <span class="number">0x1E</span>, <span class="number">0x9A</span>, <span class="number">102</span>));    <span class="comment">// 阴影颜色</span></span><br><span class="line">    shadow_effect-&gt;<span class="built_in">setBlurRadius</span>(<span class="number">40</span>);                       <span class="comment">// 模糊半径</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">setGraphicsEffect</span>(shadow_effect);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MessageBox::paintEvent</span><span class="params">(QPaintEvent *event)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">Q_UNUSED</span>(event);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> radius = <span class="number">10</span>;</span><br><span class="line">    <span class="function">QPainter <span class="title">painter</span><span class="params">(<span class="keyword">this</span>)</span></span>;                                                     <span class="comment">// 圆角大小</span></span><br><span class="line">    painter.<span class="built_in">setRenderHint</span>(QPainter::Antialiasing);                              <span class="comment">// 抗锯齿</span></span><br><span class="line">    painter.<span class="built_in">setBrush</span>(<span class="built_in">QBrush</span>( <span class="built_in">QColor</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), Qt::SolidPattern));    <span class="comment">// 背景颜色，透明度</span></span><br><span class="line">    painter.<span class="built_in">setPen</span>(Qt::NoPen);</span><br><span class="line">    painter.<span class="built_in">drawRoundedRect</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>-&gt;<span class="built_in">width</span>(), <span class="keyword">this</span>-&gt;<span class="built_in">height</span>(), radius, radius);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MessageBox::~<span class="built_in">MessageBox</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>先要设置无窗体和背景透明，此时设置<code>background-image</code>、<code>border-image</code>就不会生效了，使用<code>paintEvent</code>绘制背景，最后给整体添加阴影效果。</p>
-<p>如果想要使用UI给的非纯色图片作为背景，则可以使用<code>painter.drawPixmap(0, 0, this-&gt;width(), this-&gt;height(), QPixmap(&quot;:/resources/images/message_box_bg.png&quot;));</code>来绘制背景图片，在图片素材中画出圆角边，甚至是带上阴影效果都是可以的。</p>
-<p>阴影效果也可以添加给QPushButton、QLabel等控件。</p>
-<p><br/></p>
-<h2 id="图片圆形显示"><a href="#图片圆形显示" class="headerlink" title="图片圆形显示"></a>图片圆形显示</h2><p>一般用于头像图片的圆形显示，使用<code>background-radius</code>或者<code>setMask</code>等方法会有锯齿问题。</p>
-<p>实现代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 此方法返回一个width*height的圆形图片</span></span><br><span class="line"><span class="function">QPixmap <span class="title">PixmapToRound</span><span class="params">(<span class="keyword">const</span> QPixmap &amp;src, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (src.<span class="built_in">isNull</span>()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">QPixmap</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缩放到指定大小</span></span><br><span class="line">    QPixmap src_scaled= src.<span class="built_in">scaled</span>(width, height, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 新建一个背景透明的空白图片</span></span><br><span class="line">    <span class="function">QPixmap <span class="title">pixmap</span><span class="params">(width, height)</span></span>;</span><br><span class="line">    pixmap.<span class="built_in">fill</span>(Qt::transparent);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用图片作为QPainter的绘制平面</span></span><br><span class="line">    <span class="function">QPainter <span class="title">painter</span><span class="params">(&amp;pixmap)</span></span>;</span><br><span class="line">    painter.<span class="built_in">setRenderHints</span>(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造圆形的剪切板</span></span><br><span class="line">    QPainterPath path;</span><br><span class="line">    path.<span class="built_in">addEllipse</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">    painter.<span class="built_in">setClipPath</span>(path);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 绘制</span></span><br><span class="line">    painter.<span class="built_in">drawPixmap</span>(<span class="number">0</span>, <span class="number">0</span>, width, height, src_scaled);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pixmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br/></p>
-<h2 id="按钮多选一"><a href="#按钮多选一" class="headerlink" title="按钮多选一"></a>按钮多选一</h2><p>QPushButton也可以像QCheckBox一样做互斥选项和多选一的效果。这样做的方便之处在于不用管QCheckBox的indicator。</p>
-<p>实现代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">QPushButton *btn1 = <span class="keyword">new</span> <span class="built_in">QWidget</span>(<span class="keyword">this</span>);</span><br><span class="line">btn1-&gt;<span class="built_in">setCheckable</span>(<span class="literal">true</span>);</span><br><span class="line">btn1-&gt;<span class="built_in">setAutoExclusive</span>(<span class="literal">true</span>);</span><br><span class="line">btn1-&gt;<span class="built_in">setStyleSheet</span>(<span class="string">&quot;QPushButton&#123;background-color:#2C7AD1;outline: none&#125;&quot;</span></span><br><span class="line">                    <span class="string">&quot;QPushButton:pressed&#123;background-color:#3A3A3F&#125;&quot;</span></span><br><span class="line">                    <span class="string">&quot;QPushButton:checked&#123;background-color:#3A3A3F&#125;&quot;</span></span><br><span class="line">                   );</span><br><span class="line"></span><br><span class="line">QPushButton *btn2 = <span class="keyword">new</span> <span class="built_in">QWidget</span>(<span class="keyword">this</span>);</span><br><span class="line">btn2-&gt;<span class="built_in">setCheckable</span>(<span class="literal">true</span>);</span><br><span class="line">btn2-&gt;<span class="built_in">setAutoExclusive</span>(<span class="literal">true</span>);</span><br><span class="line">btn2-&gt;<span class="built_in">setChecked</span>(<span class="literal">true</span>);					<span class="comment">//只能设置一个为选择状态</span></span><br><span class="line">btn2-&gt;<span class="built_in">setStyleSheet</span>(<span class="string">&quot;QPushButton&#123;background-color:#2C7AD1;outline: none&#125;&quot;</span></span><br><span class="line">                    <span class="string">&quot;QPushButton:pressed&#123;background-color:#3A3A3F&#125;&quot;</span></span><br><span class="line">                    <span class="string">&quot;QPushButton:checked&#123;background-color:#3A3A3F&#125;&quot;</span></span><br><span class="line">                   );</span><br></pre></td></tr></table></figure>
-<p>以上代码也可以直接在设计界面设置，勾选相应的勾选项，添加相应的样式即可。</p>
-<p><br/></p>
-<h2 id="Button渐变背景"><a href="#Button渐变背景" class="headerlink" title="Button渐变背景"></a>Button渐变背景</h2><p>如果UI的按钮只是简单的做了一个渐变效果，而你又不想因为这个添加一个素材，就可以直接用代码生成一个渐变背景的效果。</p>
-<p>对于控件的background样式，除了常见的Qt::SolidPattern（实心模式），还有Qt::RadialGradientPattern（径向渐变）、Qt::LinearGradientPattern（线性渐变）、Qt::ConicalGradientPattern（锥形渐变）。</p>
-<p>样式代码：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* linear gradient from white to green */</span></span><br><span class="line">QTextEdit &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">qlineargradient</span>(x1:<span class="number">0</span>, y1:<span class="number">0</span>, x2:<span class="number">1</span>, y2:<span class="number">1</span>,</span><br><span class="line">                                stop:<span class="number">0</span> white, stop: <span class="number">0.4</span> <span class="built_in">rgba</span>(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>),</span><br><span class="line">                                stop:<span class="number">1</span> <span class="built_in">rgb</span>(<span class="number">0</span>, <span class="number">200</span>, <span class="number">230</span>, <span class="number">200</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* conical gradient from white to green */</span></span><br><span class="line">QTextEdit &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">qconicalgradient</span>(cx:<span class="number">0.5</span>, cy:<span class="number">0.5</span>, angle:<span class="number">30</span>,</span><br><span class="line">                                 stop:<span class="number">0</span> white, stop:<span class="number">1</span> <span class="number">#00FF00</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* radial gradient from white to green */</span></span><br><span class="line">QTextEdit &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">qradialgradient</span>(cx:<span class="number">0</span>, cy:<span class="number">0</span>, radius: <span class="number">1</span>,</span><br><span class="line">                                fx:<span class="number">0.5</span>, fy:<span class="number">0.5</span>, stop:<span class="number">0</span> white, stop:<span class="number">1</span> green);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br/></p>
-<h2 id="HMAC-SHA1"><a href="#HMAC-SHA1" class="headerlink" title="HMAC-SHA1"></a>HMAC-SHA1</h2><p>为什么要记一下这个算法呢，因为网上最多链接的那个算法是错的，google了好几页才找到这个算法。</p>
-<p>实现代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">QString <span class="title">hmac_sha1</span><span class="params">(<span class="keyword">const</span> QString &amp;key, <span class="keyword">const</span> QString &amp;secret)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">int</span> text_length;</span><br><span class="line">   QByteArray K;</span><br><span class="line">   <span class="keyword">int</span> K_length;</span><br><span class="line"></span><br><span class="line">   K_length = secret.<span class="built_in">size</span>();</span><br><span class="line">   text_length = key.<span class="built_in">size</span>();</span><br><span class="line">   K = secret.<span class="built_in">toLatin1</span>();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (K_length &gt; <span class="number">64</span>) &#123;</span><br><span class="line">        QByteArray tempSecret;</span><br><span class="line">        tempSecret.<span class="built_in">append</span>(secret);</span><br><span class="line">        K = QCryptographicHash::<span class="built_in">hash</span>(tempSecret, QCryptographicHash::Sha1);</span><br><span class="line">        K_length = <span class="number">20</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   QByteArray ipad;</span><br><span class="line">   QByteArray opad;</span><br><span class="line">   ipad.<span class="built_in">fill</span>(<span class="number">0</span>, <span class="number">64</span>);</span><br><span class="line">   opad.<span class="built_in">fill</span>(<span class="number">0</span>, <span class="number">64</span>);</span><br><span class="line">   ipad.<span class="built_in">replace</span>(<span class="number">0</span>, K_length, K);</span><br><span class="line">   opad.<span class="built_in">replace</span>(<span class="number">0</span>, K_length, K);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">64</span>; i++) &#123;</span><br><span class="line">        ipad[i] = ipad[i] ^ <span class="number">0x36</span>;</span><br><span class="line">        opad[i] = opad[i] ^ <span class="number">0x5c</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   QByteArray context;</span><br><span class="line">   context.<span class="built_in">append</span>(ipad, <span class="number">64</span>);</span><br><span class="line">   context.<span class="built_in">append</span>(key);</span><br><span class="line"></span><br><span class="line">   QByteArray Sha1 = QCryptographicHash::<span class="built_in">hash</span>(context, QCryptographicHash::Sha1);</span><br><span class="line"></span><br><span class="line">   context.<span class="built_in">clear</span>();</span><br><span class="line">   context.<span class="built_in">append</span>(opad, <span class="number">64</span>);</span><br><span class="line">   context.<span class="built_in">append</span>(Sha1);</span><br><span class="line"></span><br><span class="line">   Sha1.<span class="built_in">clear</span>();</span><br><span class="line">   Sha1 = QCryptographicHash::<span class="built_in">hash</span>(context, QCryptographicHash::Sha1);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> Sha1.<span class="built_in">toHex</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -285,148 +227,69 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/Technology/%E5%85%B3%E4%BA%8EQT%E7%9A%84%E5%87%A0%E4%B8%AA%E7%96%91%E9%97%AE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于QT的几个疑问
-        
-      </div>
-    </a>
-  
-  
-    <a href="/Technology/%E4%BA%A7%E5%93%81%E5%90%88%E6%A0%BC%E7%8E%87%E9%A2%84%E4%BC%B0%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一批产品要达到90%的合格率，需要测试多少个合格？</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
+  	<time datetime="2018-07-18T08:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">运行环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%86%E8%A7%92%E6%97%A0%E9%94%AF%E9%BD%BF-%E9%80%8F%E6%98%8E-%E9%98%B4%E5%BD%B1%E5%AD%90%E7%95%8C%E9%9D%A2"><span class="toc-number">2.</span> <span class="toc-text">圆角无锯齿+透明+阴影子界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%9C%86%E5%BD%A2%E6%98%BE%E7%A4%BA"><span class="toc-number">3.</span> <span class="toc-text">图片圆形显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%89%E9%92%AE%E5%A4%9A%E9%80%89%E4%B8%80"><span class="toc-number">4.</span> <span class="toc-text">按钮多选一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Button%E6%B8%90%E5%8F%98%E8%83%8C%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">Button渐变背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMAC-SHA1"><span class="toc-number">6.</span> <span class="toc-text">HMAC-SHA1</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">方便的 Hexo 博客系统</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
   
 
-  
-
-  
-
-  
-    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
-      <div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'true' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
-            app_key: "qSkWaIIPWzNQirOz8LDaici7",
-            placeholder: "欢迎留言！",
-            avatar:""
-        });
-    }
-</script>
-    </section>
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/categories/Technology/page/4/">« Prev</a><a class="page-number" href="/categories/Technology/">1</a><span class="space">&hellip;</span><a class="page-number" href="/categories/Technology/page/3/">3</a><a class="page-number" href="/categories/Technology/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
   
 
 
@@ -462,10 +325,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
