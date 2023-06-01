@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.wangeasy.com/Technology/C-in-the-project/</loc>
+    <lastmod>2023-06-01</lastmod>
+  </url>
+  <url>
     <loc>http://www.wangeasy.com/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E6%A8%A1%E6%9D%BF/</loc>
-    <lastmod>2023-05-26</lastmod>
+    <lastmod>2023-05-31</lastmod>
   </url>
   <url>
     <loc>http://www.wangeasy.com/Technology/Ubuntu%E7%BC%96%E8%AF%91%E5%B8%A6ffmpeg%E7%9A%84opencv4.7.0/</loc>
@@ -23,10 +27,6 @@
   <url>
     <loc>http://www.wangeasy.com/Technology/Sublime-Text/</loc>
     <lastmod>2023-05-13</lastmod>
-  </url>
-  <url>
-    <loc>http://www.wangeasy.com/Technology/C-in-the-project/</loc>
-    <lastmod>2023-05-08</lastmod>
   </url>
   <url>
     <loc>http://www.wangeasy.com/Technology/PyQt5%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/</loc>
