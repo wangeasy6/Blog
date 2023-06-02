@@ -18,28 +18,33 @@ tags:
 ## Anaconda 安装
 
 
+### 换中科大源地址
+
+```sh
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+conda config --set show_channel_urls yes
+
+conda config --remove channels url
+
+conda config --show-channels
+
+conda config --show-sources
+```
 
 ## conda 常用命令
 
-```bash
-conda env list
+| 说明                         | 命令                                         |
+| ---------------------------- | -------------------------------------------- |
+| 列出环境                     | conda env list                               |
+| 创建环境                     | conda create -n "env_name"                   |
+| 创建环境并指定一个Python版本 | conda create -n "env_name" python==3.7       |
+| 删除环境                     | conda remove -n "env_name" --all             |
+| 克隆环境                     | conda create -n "env_name" --clone ”env_org" |
+| 进入环境                     | conda activate "env_name"                    |
+| 退出环境                     | conda deactivate                             |
+|                              |                                              |
+|                              |                                              |
+|                              |                                              |
 
-conda deactivate
-```
-
-
-
-
-
-| 说明     | 命令                                         |
-| -------- | -------------------------------------------- |
-| 列出环境 | conda env list                               |
-| 创建环境 | conda create -n "env_name"                   |
-| 删除环境 | conda remove -n "env_name" --all             |
-| 克隆环境 | conda create -n "env_name" --clone ”env_org" |
-| 进入环境 | conda activate "env_name"                    |
-| 退出环境 | conda deactivate                             |
-|          |                                              |
-|          |                                              |
-|          |                                              |
 

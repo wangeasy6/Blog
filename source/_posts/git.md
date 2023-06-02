@@ -33,14 +33,18 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
     * `ssh -l git <ServerIP>` ,验证是否可以自动登陆（GitHub在添加了SSH Key之后，使用`ssh -T git@github.com`验证）
 * Windows 配置无密码SSH登陆
     * 在CMD中运行：`ssh-keygen`，id_rsa.pub 地址会在生成了之后显示。
-  * 通过命令 `sudo yum install git-core`,安装git（gitServer）
-  * 使用命令 `git --bare init /home/git/myRep`,初始化仓库
+  * 通过命令 `sudo yum install git-core`，安装git（gitServer）
+  * 使用命令 `git --bare init /home/git/myRep`，初始化仓库
   * 在gitClient上，通过git clone命令进行克隆远程仓库
     * Git clone git@gitServer:/home/git/myRep
 
 <br/>
 
 ### 常用命令
+* 查看系统配置
+
+  `git config -l`
+
 * 查看远程路径
   `git remote -v`
 
@@ -60,6 +64,13 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
 
 * 修改最近一次未提交的commit Log信息
   `git commit --amend`  （如果你此时想要更新作者提交时间等也可以在amend之后加上 --date="$(date -R)"）
+
+* 撤回未push的commit
+
+  ```shell
+  git reset --soft HEAD^
+  git reset HEAD~
+  ```
 
 * 修改已push的commit信息
 

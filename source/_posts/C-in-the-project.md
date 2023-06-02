@@ -1,9 +1,12 @@
 ---
 title: 项目中的 C
+date: 2023-05-08 22:00:00
 toc: true
 categories:
   - Technology
 ---
+
+![C-in-the-project.png](/resources/Cover/C-in-the-project.png)
 
 在项目中或者开源代码中，有很多很实用的 C 代码，总结在此，方便复用。
 
@@ -30,7 +33,7 @@ categories:
 #endif
 ```
 
-直接在宏的定义处检查其是否合法，如不合法，使用 #error 中止编译，打印出错误信息。
+直接在宏的定义处检查其是否合法，如不合法，使用 `#error` 中止编译，打印出错误信息。
 
 `#define` 定义一个宏，`#undef` 删除宏定义。
 
@@ -48,9 +51,13 @@ void onoff() {state = (state == ON) ? OFF : ON; }
 void onoff() {state ^= 1; }
 ```
 
+<br/>
+
 ## C++调用C头文件声明
 
-所有使用 C 实现的函数声明都需要使用如下声明包含。
+`extern "C"` 的作用是让 C++ 编译器将 `extern "C"` 声明的代码当作 C 语言代码处理，可以避免 C++ 因符号修饰导致代码不能和C语言库中的符号进行链接的问题。
+
+在 C++ 中所有使用 C 实现的函数声明都需要使用如下声明包含。
 
 ```c
 #ifdef __cplusplus
@@ -58,32 +65,101 @@ extern "C" {
 #endif
 
 
+
 #ifdef __cplusplus
 }
 #endif
 ```
 
-
+<br/>
 
 ## const 使用总结
 
+### 作用
 
+1. 修饰变量，说明该变量不可以被改变：`const int a;`
+2. 修饰指针，分为：
+   - 指向常量的指针（pointer to const）：`const int* p`
+   - 自身是常量的指针（常量指针，const pointer）：`int* const p`
+
+### 修饰变量
+
+```c
+const int age = 10;
+#define age 10;
+```
+
+**#define VS const 常量**
+
+| 宏定义 #define         | const 常量     |
+| ---------------------- | -------------- |
+| 宏定义，相当于字符替换 | 常量声明       |
+| 预处理器处理           | 编译器处理     |
+| 无类型安全检查         | 有类型安全检查 |
+| 不分配内存             | 要分配内存     |
+| 存储在代码段           | 存储在数据段   |
+| 可通过 `#undef` 取消   | 不可取消       |
+
+### 修饰指针
+
+```c
+int a = 10;
+const int b = 10;
+// b = 20;
+// error: assignment of read-only variable 'b'
+
+const int* p1 = &a;   // p可变，*p不可变，此时不能用*p来修改值，但是p可以转向
+p1 = &b;
+// *p1 = 20;
+// error: assignment of read-only location '*p1'
+
+int* const p2 = &a;   // p不可变，*p可变，此时允许*p修改值，但是p不能转向
+// p2 = &b;
+// error: assignment of read-only variable 'p2'
+*p2 = 20;
+
+const int* const p3 = &a; // p不可变，*p也不可变
+```
+
+赋值时，const指针可以接受const和非const地址，但是非const指针只能接受非const地址。
+
+```c
+const int a = 10;
+const int *p1= &a;  	// 合法
+// int *p1 = &a;      		// 非法
+```
+
+<br/>
 
 ## 回调函数（callback）
 
+简单示例：
 
+```c
+#include <stdio.h>
 
+typedef int (* operation)(int i,int j);
 
+int plus(int i,int j){
+	printf("%s: ",__FUNCTION__ );
+	return j+i;
+}
+int minus(int i,int j){
+	printf("%s: ",__FUNCTION__ );
+	return i-j;
+}
 
-## cJSON
+int opr_cb(int i,int j,operation cb){
+	return cb(i,j);
+}
+int main(){
+	operation cb = plus;
+	printf("%d\n",opr_cb(3,5,cb));
+	return 0;
+}
+```
 
-
-
-## 主模式下的串口协议调试模板
-
-
-
-
+<br/>
 
 ## 使用系统工具获取文件MD5值的C++代码
 
@@ -116,6 +192,8 @@ std::string md5_checksum(std::string file_path, std::string *result)
     return md5;
 }
 ```
+
+<br/>
 
 ## Monitor 程序模板
 

@@ -31,68 +31,69 @@ Linux中常见压缩格式的压缩与解压方法。
 
 ### .tar
 
-打包： tar cvf FileName.tar DirName
-解包： tar xvf FileName.tar
+打包： `tar cvf FileName.tar DirName`
+解包： `tar xvf FileName.tar`
 （注：tar只打包，不带压缩！）
 
 ### .gz
 
-压缩：gzip FileName
-解压1：gunzip FileName.gz
-解压2：gzip -d FileName.gz
+压缩：`gzip FileName`
+解压1：`gunzip FileName.gz`
+解压2：`gzip -d FileName.gz`
 （注：gzip 只能用来压缩文件，不能压缩目录）
 
 ### .tar.gz/.tgz/.tar.tgz
 
-压缩：tar cvfz FileName.tar.gz DirName
-解压：tar xvfz FileName.tar.gz
-解压（指定目录）：tar xvfz FileName.tar.gz -C DirName
+压缩：`tar cvfz FileName.tar.gz DirName`
+压缩（排除某类文件）：`tar cvfz FileName.tar.gz --exclude=*.md DirName`
+解压：`tar xvfz FileName.tar.gz`
+解压（指定目录）：`tar xvfz FileName.tar.gz -C DirName`
 
 ### .bz2
 
-压缩： bzip2 -z FileName
-解压1：bzip2 -d FileName.bz2
-解压2：bunzip2 FileName.bz2
+压缩： `bzip2 -z FileName`
+解压1：`bzip2 -d FileName.bz2`
+解压2：`bunzip2 FileName.bz2`
 （注：bzip2 只能用来压缩文件，不能压缩目录）
 
 ### .tar.bz2
 
-压缩：tar cvfj FileName.tar.bz2 DirName
-解压：tar xvfj FileName.tar.bz2
+压缩：`tar cvfj FileName.tar.bz2 DirName`
+解压：`tar xvfj FileName.tar.bz2`
 
 ### .tar.xz
 
-压缩：tar cvfJ FileName.tar.xz DirName
-解压：tar xvfJ FileName.tar.xz
+压缩：`tar cvfJ FileName.tar.xz DirName`
+解压：`tar xvfJ FileName.tar.xz`
 
 ### .Z
 
-安装：sudo apt-get install ncompress
-卸载：sudo apt-get remove ncompress
+安装：`sudo apt-get install ncompress`
+卸载：`sudo apt-get remove ncompress`
 
-压缩：compress FileName
-解压：uncompress FileName.Z
+压缩：`compress FileName`
+解压：`uncompress FileName.Z`
 
 ### .tar.Z
 
-压缩：tar cvfZ FileName.tar.Z DirName
-解压：tar xvfZ FileName.tar.Z
+压缩：`tar cvfZ FileName.tar.Z DirName`
+解压：`tar xvfZ FileName.tar.Z`
 （注：要安装 ncompress）
 
 ### .zip
 
-压缩：zip FileName.zip DirName/*
-解压：unzip -O CP936 FileName.zip [-d DirName]
+压缩：`zip FileName.zip DirName/*`
+解压：`unzip -O CP936 FileName.zip [-d DirName]`
 
 -O 用于指定编码，CP936 支持中文编码
 
 ### .rar
 
-安装：sudo apt-get install rar unrar
-卸载：sudo apt-get remove rar unrar
+安装：`sudo apt-get install rar unrar`
+卸载：`sudo apt-get remove rar unrar`
 
-压缩：rar a FileName.rar DirName
-解压：rar x -y FileName.rar [DirName]
+压缩：`rar a FileName.rar DirName`
+解压：`rar x -y FileName.rar [DirName]`
 
 Tips：解压到指定的目录，要先创建目录
 

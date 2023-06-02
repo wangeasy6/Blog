@@ -23,7 +23,7 @@ categories:
 | cmd --help      | ”help cmd“ or  “cmd /?”                      | Help信息           |
 | clear           | cls                                          | 清屏               |
 | cd              | cd（切换不同盘需要使用  “D:” 或者加上 "/D"） | 路径切换           |
-| ls              | dir                                          | 文件列表           |
+| ls              | dir /b                                       | 文件列表           |
 | rm              | del                                          | 删除文件           |
 | rm -r           | rd /S                                        | 删除文件夹         |
 | md              | md                                           | 创建文件夹         |

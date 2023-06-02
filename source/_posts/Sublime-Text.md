@@ -14,6 +14,17 @@ tag:
 
 ### 常用设置
 
+**汇总**
+
+```
+{
+	"font_size": 14,
+	"preview_on_click": false,
+	"tab_size": 4,"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
+```
+
 **设置缩进**
 
 * 右下角可进行方便设置 Space/Tab，Width
@@ -127,3 +138,12 @@ tag:
 
 * 直接修改C:\Users\用户\AppData\Roaming\Sublime Text\Packages\User\Preferences.sublime-settings，添加`"remember_open_files": false`
 
+### CMake 语法高亮
+
+**1. 下载 cmake 语法高亮包**
+
+地址：[https://github.com/zyxar/Sublim](https://link.zhihu.com/?target=https%3A//github.com/zyxar/Sublime-CMakeLists)
+
+**2. 放到 Sublime Text 3 插件目录**
+
+Sublime 的插件目录可以通过**首选项--->浏览插件目录**的方式打开。然后将下载的高亮包解压在该目录。
