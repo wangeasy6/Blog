@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.wangeasy.com">
-  <title>Archives | Easy Wang</title>
+  <title>交叉编译带FFMPEG的OpenCV | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.wangeasy.com/archives/page/2/index.html">
+  <meta name="description" content="编译OpenCV版本：  OpenCV 4.7.0（with contribute） FFMPEG 4.2.9（with x264） Eigen 3.4.0  交叉编译目标：  芯片：SD3403 工具链：aarch64-mix210-linux-gcc 版本：gcc version 7.3.0 (HC&amp;C V1R3C00SPC200B042_20221123)  编译环境：  Ubunt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交叉编译带FFMPEG的OpenCV">
+<meta property="og:url" content="http://www.wangeasy.com/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="编译OpenCV版本：  OpenCV 4.7.0（with contribute） FFMPEG 4.2.9（with x264） Eigen 3.4.0  交叉编译目标：  芯片：SD3403 工具链：aarch64-mix210-linux-gcc 版本：gcc version 7.3.0 (HC&amp;C V1R3C00SPC200B042_20221123)  编译环境：  Ubunt">
 <meta property="og:locale">
+<meta property="article:published_time" content="2023-06-05T05:50:00.000Z">
+<meta property="article:modified_time" content="2023-06-05T13:48:20.597Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -173,225 +178,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-交叉编译带FFMPEG的OpenCV" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      交叉编译带FFMPEG的OpenCV
+    </h1>
+  
+
+        
+        <a href="/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/" class="archive-article-date">
+  	<time datetime="2023-06-05T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-05</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>编译OpenCV版本：</p>
+<ul>
+<li>OpenCV 4.7.0（with contribute）</li>
+<li>FFMPEG 4.2.9（with x264）</li>
+<li>Eigen 3.4.0</li>
+</ul>
+<p>交叉编译目标：</p>
+<ul>
+<li>芯片：SD3403</li>
+<li>工具链：aarch64-mix210-linux-gcc</li>
+<li>版本：gcc version 7.3.0 (HC&amp;C V1R3C00SPC200B042_20221123)</li>
+</ul>
+<p>编译环境：</p>
+<ul>
+<li>Ubuntu 18.04.6 LTS</li>
+<li>x86_64-linux-gnu</li>
+</ul>
+<span id="more"></span>
+<p><br/></p>
+<h3 id="编译-zlib"><a href="#编译-zlib" class="headerlink" title="编译 zlib"></a>编译 zlib</h3><p>如果没有此库，编译 GPAC ./configure 会输出：<code>error: zlib not found on system or in local libs</code></p>
+<p>Download ：<a target="_blank" rel="noopener" href="http://www.zlib.net/fossils/">Index of /fossils (zlib.net)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zlib.net/fossils/zlib-1.2.8.tar.gz">https://www.zlib.net/fossils/zlib-1.2.8.tar.gz</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> zlib-1.2.8</span><br><span class="line"><span class="built_in">export</span> CC=aarch64-mix210-linux-gcc</span><br><span class="line">./configure --prefix=../libz_3403</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝库到交叉编译器的 usr 目录下</span></span><br><span class="line"><span class="built_in">cd</span> ../libz_3403</span><br><span class="line">sudo cp -r sudo cp -r include/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/include/</span><br><span class="line">sudo cp -r lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="编译-GPAC"><a href="#编译-GPAC" class="headerlink" title="编译 GPAC"></a>编译 GPAC</h3><p>如果没有此库，编译 libx264 ./configure 会输出：<code>mp4:           no</code></p>
+<p>Download ：<a target="_blank" rel="noopener" href="https://gpac.wp.imt.fr/downloads/">Downloads | GPAC (imt.fr)</a></p>
+<p><code>git clone https://github.com/gpac/gpac.git</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd gpac</span><br><span class="line">./configure --enable-pic --prefix=../libgpac_3403 --cross-prefix=aarch64-mix210-linux-</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 解决 relocation 问题（见后文）</span></span><br><span class="line">vim config.mak</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加 CFLAGS=-fPIC</span></span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 拷贝库到交叉编译器的 usr 目录下</span></span><br><span class="line">cd ../libgpac_3403</span><br><span class="line">sudo cp -r include/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/include/</span><br><span class="line">sudo cp -r lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/</span><br></pre></td></tr></table></figure>
+<p>问题详情：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">make[1]: Entering directory &#x27;/home/easy/code/OpenSources/3403/gpac/src&#x27;</span><br><span class="line">/opt/linux/x86-arm/aarch64-mix210-linux/host_bin/../lib/gcc/aarch64-linux-gnu/7.3.0/../../../../aarch64-linux-gnu/bin/ld: media_tools/mpd.o: relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `stdout@@GLIBC_2.17&#x27; which may bind externally can not be used when making a shared object; recompile with -fPIC</span><br><span class="line">/opt/linux/x86-arm/aarch64-mix210-linux/host_bin/../lib/gcc/aarch64-linux-gnu/7.3.0/../../../../aarch64-linux-gnu/bin/ld: media_tools/mpd.o(.text+0xe6c0): unresolvable R_AARCH64_ADR_PREL_PG_HI21 relocation against symbol `stdout@@GLIBC_2.17&#x27;</span><br><span class="line">/opt/linux/x86-arm/aarch64-mix210-linux/host_bin/../lib/gcc/aarch64-linux-gnu/7.3.0/../../../../aarch64-linux-gnu/bin/ld: final link failed: bad value</span><br><span class="line">collect2: error: ld returned 1 exit status</span><br><span class="line">Makefile:382: recipe for target &#x27;../bin/gcc/libgpac.so&#x27; failed</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="编译-libx264"><a href="#编译-libx264" class="headerlink" title="编译 libx264"></a>编译 libx264</h3><p>如果没有此库，编译 FFMPEG ./configure 会输出：<code>ERROR: libx264 not found</code></p>
+<p>Download ：<a target="_blank" rel="noopener" href="http://download.videolan.org/x264/snapshots/x264-snapshot-20191217-2245.tar.bz2">http://download.videolan.org/x264/snapshots/x264-snapshot-20191217-2245.tar.bz2</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tar xfj x264-snapshot-20191217-2245.tar.bz2</span><br><span class="line"><span class="built_in">cd</span> x264-snapshot-20191217-2245</span><br><span class="line"><span class="comment"># 修改 configure，打开 mp4 支持</span></span><br><span class="line">vim configure</span><br><span class="line"><span class="comment"># mp4=&quot;yes&quot;</span></span><br><span class="line"></span><br><span class="line">./configure --prefix=../libx264_3403 --enable-shared --enable-pic --host=aarch64-linux --cross-prefix=aarch64-mix210-linux-</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝库到交叉编译器的 usr 目录下</span></span><br><span class="line"><span class="built_in">cd</span> ../libx264_3403</span><br><span class="line">sudo cp -r include/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/include/</span><br><span class="line">sudo cp -r lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="编译-FFMPEG"><a href="#编译-FFMPEG" class="headerlink" title="编译 FFMPEG"></a>编译 FFMPEG</h3><p> Download：<a target="_blank" rel="noopener" href="https://ffmpeg.org/releases/ffmpeg-4.2.9.tar.xz">https://ffmpeg.org/releases/ffmpeg-4.2.9.tar.xz</a></p>
+<p>编译 ffmpeg：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">tar xvfJ ffmpeg-4.2.9.tar.xz</span><br><span class="line">cd ffmpeg-4.2.9</span><br><span class="line">mkdir ../libffmpeg_3403</span><br><span class="line">./configure \</span><br><span class="line">--prefix=../libffmpeg_3403 \</span><br><span class="line">--enable-shared \</span><br><span class="line">--enable-static \</span><br><span class="line">--enable-protocol=tcp \</span><br><span class="line">--enable-network \</span><br><span class="line">--enable-protocol=udp \</span><br><span class="line">--enable-demuxer=rtsp \</span><br><span class="line">--enable-demuxer=rtp \</span><br><span class="line">--enable-libx264 \</span><br><span class="line">--enable-avresample \</span><br><span class="line">--enable-swscale \</span><br><span class="line">--enable-avformat \</span><br><span class="line">--enable-avcodec \</span><br><span class="line">--enable-nonfree \</span><br><span class="line">--enable-gpl \</span><br><span class="line">--enable-version3 \</span><br><span class="line">--enable-cross-compile \</span><br><span class="line">--arch=arm64 \</span><br><span class="line">--target-os=linux \</span><br><span class="line">--extra-cflags=-fPIC \</span><br><span class="line">--cross-prefix=aarch64-mix210-linux-</span><br><span class="line"></span><br><span class="line">make -j4</span><br><span class="line">make install</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 拷贝库到交叉编译器的 usr 目录下</span></span><br><span class="line">cd ../libffmpeg_3403</span><br><span class="line">sudo cp -r include/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/include/</span><br><span class="line">sudo cp -r lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="交叉编译-Eigen"><a href="#交叉编译-Eigen" class="headerlink" title="交叉编译 Eigen"></a>交叉编译 Eigen</h3><p>官网：<a target="_blank" rel="noopener" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a></p>
+<p>Download：<a target="_blank" rel="noopener" href="https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz">https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz</a></p>
+<p>vim toolchain_3403.cmake</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(TOOLCHAIN_PRE aarch64-mix210-linux-)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_SYSTEM_NAME Linux)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_SYSTEM_PROCESSOR arm64)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER <span class="variable">$&#123;TOOLCHAIN_PRE&#125;</span>gcc)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER <span class="variable">$&#123;TOOLCHAIN_PRE&#125;</span>g++)</span><br></pre></td></tr></table></figure>
+<p>编译：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p build &amp;&amp; cd build &amp;&amp; mkdir ../../libeigen_3403</span><br><span class="line">cmake -D CMAKE_TOOLCHAIN_FILE=../../toolchain_3403.cmake -D CMAKE_INSTALL_PREFIX=../../libeigen_3403 ..</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="编译-OpenCV"><a href="#编译-OpenCV" class="headerlink" title="编译 OpenCV"></a>编译 OpenCV</h3><p> Download：<a target="_blank" rel="noopener" href="https://opencv.org/releases/">Releases - OpenCV</a></p>
+<p>官方下载地址：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/opencv/opencv/releases">Releases · opencv/opencv (github.com)</a></p>
+<p>镜像下载：</p>
+<p><a target="_blank" rel="noopener" href="https://www.raoyunsoft.com/opencv/opencv-4.7.0/opencv-4.7.0.zip">https://www.raoyunsoft.com/opencv/opencv-4.7.0/opencv-4.7.0.zip</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.raoyunsoft.com/opencv/opencv_contrib/opencv_contrib-4.7.0.zip">https://www.raoyunsoft.com/opencv/opencv_contrib/opencv_contrib-4.7.0.zip</a></p>
+<p>编译：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p build &amp;&amp; cd build</span><br><span class="line"><span class="meta">#</span><span class="bash">FFMPEG 库使用了 pkgpackge</span></span><br><span class="line">export PKG_CONFIG_LIBDIR=$PWD/../../libffmpeg_3403/lib/pkgconfig/</span><br><span class="line">cmake -D CMAKE_TOOLCHAIN_FILE=../../toolchain_3403.cmake \</span><br><span class="line">-D CMAKE_BUILD_TYPE=Release \</span><br><span class="line">-D ENABLE_CXX11=ON \</span><br><span class="line">-D BUILD_opencv_world=ON \</span><br><span class="line">-D WITH_EIGEN=ON \</span><br><span class="line">-D OPENCV_FFMPEG_USE_FIND_PACKAGE=ON \</span><br><span class="line">-D WITH_FFMPEG=ON \</span><br><span class="line">-D WITH_1394=OFF \</span><br><span class="line">-D CMAKE_INSTALL_PREFIX=../../libopencv_3403 \</span><br><span class="line">-D BUILD_opencv_gapi=OFF \</span><br><span class="line">-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.7.0/modules \</span><br><span class="line">..</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>-D BUILD_opencv_world=ON：只生成一个统一的lib，包含所有模块，比较方便配置环境。</p>
+<p>-D BUILD_opencv_gapi=OFF：<code>ade/util/assert.hpp: No such file or directory</code>，tool-chain doesn’t support ADE，so disabled。</p>
+<p><br/></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># read_video_test.cpp</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;opencv2/videoio.hpp&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;opencv2/opencv.hpp&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">VideoCapture <span class="title">cap</span><span class="params">(<span class="string">&quot;test.mp4&quot;</span>)</span></span>;</span><br><span class="line">    <span class="keyword">if</span>(!cap.<span class="built_in">isOpened</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;read: test.mp4 failed.&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;read: test.mp4&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    Mat frame;</span><br><span class="line">    cap &gt;&gt; frame;</span><br><span class="line">    <span class="built_in">imwrite</span>(<span class="string">&quot;test_frame_0.png&quot;</span>, frame);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;output: test_frame_0.png&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    cap.<span class="built_in">release</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Makefile</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">OPENCV_INC        := -I./libopencv_3403/<span class="keyword">include</span>/opencv4</span><br><span class="line">OPENCV_LIB_LD     := -L./libopencv_3403/lib</span><br><span class="line">OPENCV_LIBS       := -lstdc++ -lm -lopencv_world</span><br><span class="line"></span><br><span class="line"><span class="section">read_video_test: read_video_test.cpp</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(OPENCV_INC)</span> <span class="variable">$(OPENCV_LIB_LD)</span> <span class="variable">$(OPENCV_LIBS)</span> <span class="variable">$^</span> -o <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+<p><br/></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" class="archive-article-date">
-  	<time datetime="2021-09-22T06:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/">基于Keras的机器学习框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Thoughts/%E5%9C%A8%E6%AF%94%E8%BE%83%E4%B8%AD%E5%AD%98%E5%9C%A8/" class="archive-article-date">
-  	<time datetime="2021-09-13T01:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Thoughts/%E5%9C%A8%E6%AF%94%E8%BE%83%E4%B8%AD%E5%AD%98%E5%9C%A8/">在比较中存在</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/LearnMatrixByPython/" class="archive-article-date">
-  	<time datetime="2021-08-26T07:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/LearnMatrixByPython/">线性代数的Python示例</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/U%E7%9B%98%E8%88%AC%E4%B8%9D%E6%BB%91%E7%9A%84%E4%BA%91%E7%9B%98/" class="archive-article-date">
-  	<time datetime="2021-07-01T12:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/U%E7%9B%98%E8%88%AC%E4%B8%9D%E6%BB%91%E7%9A%84%E4%BA%91%E7%9B%98/">U盘般丝滑的云盘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/YMODEM%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/" class="archive-article-date">
-  	<time datetime="2021-06-30T15:12:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/YMODEM%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/">YMODEM协议中文翻译</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -403,7 +286,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -416,251 +299,139 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.wangeasy.com/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Reflections/%E3%80%8A%E5%88%98%E6%93%8E%E8%A5%BF%E6%96%B9%E7%8E%B0%E4%BB%A3%E6%80%9D%E6%83%B3%E8%AE%B2%E4%B9%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-06-19T09:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E6%A8%A1%E6%9D%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">嵌入式工程编译模板</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Reflections/%E3%80%8A%E5%88%98%E6%93%8E%E8%A5%BF%E6%96%B9%E7%8E%B0%E4%BB%A3%E6%80%9D%E6%83%B3%E8%AE%B2%E4%B9%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《刘擎西方现代思想讲义》读书笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-zlib"><span class="toc-number">1.</span> <span class="toc-text">编译 zlib</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-GPAC"><span class="toc-number">2.</span> <span class="toc-text">编译 GPAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-libx264"><span class="toc-number">3.</span> <span class="toc-text">编译 libx264</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-FFMPEG"><span class="toc-number">4.</span> <span class="toc-text">编译 FFMPEG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91-Eigen"><span class="toc-number">5.</span> <span class="toc-text">交叉编译 Eigen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-OpenCV"><span class="toc-number">6.</span> <span class="toc-text">编译 OpenCV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">7.</span> <span class="toc-text">测试</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%85%B3%E4%BA%8EQT%E7%9A%84%E5%87%A0%E4%B8%AA%E7%96%91%E9%97%AE/" class="archive-article-date">
-  	<time datetime="2021-05-01T09:26:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%85%B3%E4%BA%8EQT%E7%9A%84%E5%87%A0%E4%B8%AA%E7%96%91%E9%97%AE/">关于QT的几个疑问</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/" class="archive-article-date">
-  	<time datetime="2021-05-01T05:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/">QT UI进阶 - 透明圆角阴影效果</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E4%BA%A7%E5%93%81%E5%90%88%E6%A0%BC%E7%8E%87%E9%A2%84%E4%BC%B0%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-04-25T15:51:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E4%BA%A7%E5%93%81%E5%90%88%E6%A0%BC%E7%8E%87%E9%A2%84%E4%BC%B0%E9%97%AE%E9%A2%98/">一批产品要达到90%的合格率，需要测试多少个合格？</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/" class="archive-article-date">
-  	<time datetime="2021-04-16T13:48:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/">手写HTTP报文</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">« Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/3/">Next »</a>
-    </nav>
   
 
 
@@ -696,8 +467,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
