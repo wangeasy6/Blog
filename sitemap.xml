@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.wangeasy.com/Technology/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2023-07-31</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/Technology/Sublime-Text/</loc>
+    
+    <lastmod>2023-07-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/</loc>
+    
+    <lastmod>2023-07-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.wangeasy.com/Technology/STM32-Keil%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/</loc>
+    
+    <lastmod>2023-06-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.wangeasy.com/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/</loc>
     
     <lastmod>2023-06-05</lastmod>
@@ -37,23 +65,9 @@
   </url>
   
   <url>
-    <loc>http://www.wangeasy.com/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/</loc>
-    
-    <lastmod>2023-05-17</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.wangeasy.com/Technology/Windows%E4%B8%AD%E5%AF%B9%E6%A0%87%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</loc>
     
     <lastmod>2023-05-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wangeasy.com/Technology/Sublime-Text/</loc>
-    
-    <lastmod>2023-05-13</lastmod>
     
   </url>
   
@@ -145,13 +159,6 @@
     <loc>http://www.wangeasy.com/resources/JsonExample/json_example.json</loc>
     
     <lastmod>2021-10-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.wangeasy.com/Technology/STM32-Keil%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/</loc>
-    
-    <lastmod>2021-09-27</lastmod>
     
   </url>
   
@@ -466,7 +473,7 @@
 
   <url>
     <loc>http://www.wangeasy.com/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -474,70 +481,70 @@
   
   <url>
     <loc>http://www.wangeasy.com/tags/Python/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/Data/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/C/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/AI/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/Tools/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/Math/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/QT/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/tags/Algorithm/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -546,28 +553,28 @@
   
   <url>
     <loc>http://www.wangeasy.com/categories/Technology/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/categories/Reflections/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/categories/Games/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://www.wangeasy.com/categories/Thoughts/</loc>
-    <lastmod>2023-06-05</lastmod>
+    <lastmod>2023-07-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
