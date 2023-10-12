@@ -1,4 +1,4 @@
-# welcome to : www.wangeasy.com
+# welcome to : www.easywang.site
 User-agent: *
 Allow: /
 Allow: /archives/
@@ -17,5 +17,5 @@ Disallow: /img/
 Disallow: /page/
 Disallow: /tags/
 
-Sitemap: http://www.wangeasy.com/sitemap.xml
-Sitemap: http://www.wangeasy.com/baidusitemap.xml
+Sitemap: http://www.easywang.site/sitemap.xml
+Sitemap: http://www.easywang.site/baidusitemap.xml
