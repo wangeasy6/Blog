@@ -5,12 +5,12 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://www.wangeasy.com">
+  <link rel="dns-prefetch" href="http://www.easywang.site">
   <title>Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.wangeasy.com/index.html">
+<meta property="og:url" content="http://www.easywang.site/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:locale">
 <meta property="article:author" content="Easy Wang">
@@ -40,6 +40,8 @@
     var hm = document.createElement("script");
     if (document.domain == "easyw.gitee.io")
       hm.src = "https://hm.baidu.com/hm.js?5240da8f11edccdfa7405589d22a7e3d";
+    else if(document.domain == "www.easywang.site")
+      hm.src = "https://hm.baidu.com/hm.js?5a84bbb22cfd53fd085c296d3ca57f33";
     else if(document.domain == "www.wangeasy.com")
       hm.src = "https://hm.baidu.com/hm.js?cc89b5286b78acd05c6fffdb15a28160";
     else
@@ -200,9 +202,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在 Linux 中，存在 4 种时间类型，本篇以这 4 种类型为例，总结一下使用 C 语言的获取、计算方法。</p>
-<p>同时，存在以下 3 种计算机系统中常见的时间称呼及其意义：</p>
-<p><strong>UTC</strong>：协调世界时，又称世界标准时间（Universal Time Coordinated）。</p>
-<p><strong>GMT</strong>：格林尼治标准时间（旧译格林威治平均时间或格林威治标准时间；英语：Greenwich Mean Time）是指位于英国伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线。UTC 与格林尼治平均时(GMT, Greenwich Mean Time)一样，都与英国伦敦的本地时相同。</p>
+<p>同时，存在以下 3 种计算机系统中常见的关于时间的定义：</p>
+<p><strong>UTC</strong>：协调世界时，又称世界标准时间（Universal Time Coordinated）。是最主要的世界时间标准，其以原子时的秒长为基础，在时刻上尽量接近于格林威治标准时间。现行的协调世界时根据国际电信联盟的建议《Standard-frequency and time-signal emissions》(ITU-R TF.460-6)所确定。UTC基于国际原子时，并通过不规则的加入闰秒来抵消地球自转变慢的影响。闰秒在必要的时候会被插入到UTC中，以保证协调世界时（UTC）与世界时（UT1）相差不超过0.9秒。</p>
+<p><strong>GMT</strong>：格林尼治标准时间（旧译格林威治平均时间或格林威治标准时间；英语：Greenwich Mean Time）是指位于英国伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线。</p>
 <p><strong>CST</strong>：中国标准时间（China Standard Time），北京时间为 UTC+8，即东八区时间。</p>
         
           <a class="article-more-a" href="/Technology/C-Time/#more">more >></a>
