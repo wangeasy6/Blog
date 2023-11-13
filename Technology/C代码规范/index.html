@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://www.easywang.site">
   <title>C代码规范 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="编码规范 ANSI 编码。 一行一条语句。 行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。 缩进,统一采用 6 个空格，避免使用 Table。 换行,统一使用 Windows 风格，”\r\n”。 圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。 for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化">
+  <meta name="description" content="编码规范 ANSI 编码（文件名、注释、Log、Git commit 都使用英文） 一行一条语句 行长度：一行代码长度小于编辑器一行可视范围，超长使用 ‘\\’ 缩进：统一采用 4 个空格，避免使用 Table 换行：统一使用 Windows 风格，”\r\n” 圆括号：含有较多运算符、宏定义，使用圆括号避免运算符优先级问题 for循环：for语句的初始化或更新子句中使用逗号时，避免使用三个以上的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C代码规范">
 <meta property="og:url" content="http://www.easywang.site/Technology/C%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="编码规范 ANSI 编码。 一行一条语句。 行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。 缩进,统一采用 6 个空格，避免使用 Table。 换行,统一使用 Windows 风格，”\r\n”。 圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。 for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化">
+<meta property="og:description" content="编码规范 ANSI 编码（文件名、注释、Log、Git commit 都使用英文） 一行一条语句 行长度：一行代码长度小于编辑器一行可视范围，超长使用 ‘\\’ 缩进：统一采用 4 个空格，避免使用 Table 换行：统一使用 Windows 风格，”\r\n” 圆括号：含有较多运算符、宏定义，使用圆括号避免运算符优先级问题 for循环：for语句的初始化或更新子句中使用逗号时，避免使用三个以上的">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-08-01T15:06:12.000Z">
-<meta property="article:modified_time" content="2023-09-02T08:07:48.127Z">
+<meta property="article:modified_time" content="2023-10-31T09:57:49.000Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
@@ -209,65 +209,65 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h3><ul>
-<li>ANSI 编码。</li>
-<li>一行一条语句。</li>
-<li>行长度，一行代码长度小于编辑器一行可视范围，超长使用 ‘\’。</li>
-<li>缩进,统一采用 6 个空格，避免使用 Table。</li>
-<li>换行,统一使用 Windows 风格，”\r\n”。</li>
-<li>圆括号()，含有较多运算符、宏定义，使用圆括号避免运算符优先级问题。</li>
-<li>for循环，for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化，或for循环末尾使用单独的语句。</li>
+<li>ANSI 编码（文件名、注释、Log、Git commit 都使用英文）</li>
+<li>一行一条语句</li>
+<li>行长度：一行代码长度小于编辑器一行可视范围，超长使用 ‘\\’</li>
+<li>缩进：统一采用 4 个空格，避免使用 Table</li>
+<li>换行：统一使用 Windows 风格，”\r\n”</li>
+<li>圆括号：含有较多运算符、宏定义，使用圆括号避免运算符优先级问题</li>
+<li>for循环：for语句的初始化或更新子句中使用逗号时，避免使用三个以上的变量。若确实需要，可以在for循环之前初始化，或for循环末尾使用单独的语句</li>
 <li>灵活使用 const、static</li>
-<li>禁止调用 exit 等终止程序类代码。<span id="more"></span></li>
+<li>禁止调用 exit 等终止程序类代码<span id="more"></span></li>
 <li><p>switch语句</p>
 <ul>
-<li>switch语句中必须包含default分支。</li>
-<li>每个分支必须包含break。</li>
-<li>命中率高的case分支写在命中率低的分支前面。</li>
+<li>switch语句中必须包含default分支</li>
+<li>每个分支必须包含break</li>
+<li>命中率高的case分支写在命中率低的分支前面</li>
 </ul>
 </li>
 <li><p>初始化</p>
 <ul>
-<li>在声明局部变量的同时初始化。</li>
-<li>禁止直接使用未定义变量。</li>
-<li>避免使用空指针。</li>
-<li>避免在一个语句中给多个变量赋相同的值。 (foo_bar.fchar = bar_foo.lchar = ‘c’;)</li>
-<li>避免赋值运算放置于判断中。 ( if(a = b) )</li>
-<li>避免使用内嵌(embedded)赋值运算符试图提高运行时的效率，这是编译器的工作。(d = (a = b + c) + r;)</li>
+<li>在声明局部变量的同时初始化</li>
+<li>禁止直接使用未定义变量</li>
+<li>避免使用空指针</li>
+<li>避免在一个语句中给多个变量赋相同的值 （<code>foo_bar.fchar = bar_foo.lchar = &#39;c&#39;;</code>）</li>
+<li>避免赋值运算放置于判断中 （ <code>if（a = b）</code> ）</li>
+<li>避免使用内嵌（embedded）赋值运算符试图提高运行时的效率，这是编译器的工作（<code>d = （a = b + c） + r;</code>）</li>
 </ul>
 </li>
 <li><p>指针使用</p>
 <ul>
-<li>定义指针的时候必须要初始化。</li>
-<li>指针使用之前需要判断其是否为空。</li>
-<li>动态分配的内存一定要释放，并且释放后的指针需要设置为空。</li>
-<li>使用指针需要注意内存的分配和边界。</li>
+<li>定义指针的时候必须要初始化</li>
+<li>指针使用之前需要判断其是否为空</li>
+<li>动态分配的内存一定要释放，并且释放后的指针需要设置为空</li>
+<li>使用指针需要注意内存的分配和边界</li>
 </ul>
 </li>
 <li><p>花括号{}</p>
 <ul>
-<li>if/for/while 不可缺省(哪怕只有一行)。</li>
-<li>块包含。</li>
-<li>如果存在else if分支，则禁止省略else分支。</li>
+<li>if/for/while 不可缺省（哪怕只有一行）</li>
+<li>块包含</li>
+<li>如果存在else if分支，则禁止省略else分支</li>
 </ul>
 </li>
 <li><p>空格，应用于下列情况：</p>
 <ul>
-<li>运算符前后。</li>
-<li>非行尾的分号’;’ 逗号’,’之后。</li>
-<li>‘(‘之后，’)’之前。</li>
+<li>运算符前后</li>
+<li>非行尾的分号’;’ 逗号’,’之后</li>
+<li>‘（’之后，’）’之前</li>
 </ul>
 </li>
 <li><p>空行，用于将逻辑关联度相对较低的代码段分隔，应用于下列情况：</p>
 <ul>
-<li>两个函数之间。</li>
-<li>函数内的局部变量和第一条语句之间。</li>
-<li>块注释前后。</li>
-<li>函数内明显的逻辑不同。</li>
+<li>两个函数之间</li>
+<li>函数内的局部变量和第一条语句之间</li>
+<li>块注释前后</li>
+<li>函数内明显的逻辑不同</li>
 </ul>
 </li>
 <li><p>注释</p>
 <ul>
-<li>若有多个短注释出现在一大段代码中，它们应该具有相同的缩进。</li>
+<li>若有多个短注释出现在一大段代码中，它们应该具有相同的缩进</li>
 </ul>
 </li>
 <li><p>文档注释</p>
@@ -277,35 +277,35 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*@func 说明 ...</span><br><span class="line">*@param 类型 变量1 说明</span><br><span class="line">*@param 类型 变量2 说明</span><br><span class="line">*@return 说明</span><br><span class="line">*@autuor 作者</span><br><span class="line">*@date 日期</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></li>
 <li>review注释，reviewer在code review时如果发现代码中的问题，在问题代码前一行添加注释，说明问题，供开发人员参考使用；开发人员在更正问题后记录更正时间和作者。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">*&lt;code_review&gt; date codereviewer</span><br><span class="line">*&lt;question&gt; 问题描述</span><br><span class="line">*&lt;update&gt; data developer[附加说明]</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 <h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3></li>
-<li><p>采用统一命名( 文件名、函数名、变量名、结构体名、宏值 )。</p>
+<li><p>采用统一命名（ 文件名、函数名、变量名、结构体名、宏值 ）</p>
 <ul>
-<li>命名简洁,命名要能表达出函数的用途，统一使用英文单词或常用缩写，禁止拼音。</li>
-<li>函数、变量：驼峰式( getVolume )、小写+下划线( get_volume )。</li>
-<li>结构体、宏：大写+下划线( MAX_LENGTH )。</li>
-<li>函数名、结构体、全局变量、宏：使用模块名作为统一前缀，如 “nn_”。</li>
-<li>全局变量用 “g_” 作为前缀，控制全局变量数量，要加详细的注释说明。</li>
-<li>公用函数声明在 .h 文件中，使用 extern 修饰符。</li>
-<li>私用函数声明在 .c 文件中，使用 static 修饰符。</li>
+<li>命名简洁,命名要能表达出函数的用途，统一使用英文单词或常用缩写，禁止拼音</li>
+<li>函数、变量：驼峰式（ getVolume ）、小写+下划线（ get_volume ）</li>
+<li>结构体、宏：大写+下划线（ MAX_LENGTH ）</li>
+<li>函数名、结构体、全局变量、宏：使用模块名作为统一前缀，如 “nn_”</li>
+<li>全局变量用 “g_” 作为前缀，控制全局变量数量，要加详细的注释说明</li>
+<li>公用函数声明在 .h 文件中，使用 extern 修饰符</li>
+<li>私用函数声明在 .c 文件中，使用 static 修饰符</li>
 </ul>
 </li>
 <li><p>常用后缀</p>
 <ul>
-<li>max — 含义为某实体所能赋予的最大值。  (retry_max     //最多重试次数)</li>
-<li>count — 一个运行中的计数变量的当前值。(retry_count   //当前重试次数)</li>
-<li>key — 键值。</li>
+<li>max — 含义为某实体所能赋予的最大值（retry_max     //最多重试次数）</li>
+<li>count — 一个运行中的计数变量的当前值（retry_count   //当前重试次数）</li>
+<li>key — 键值</li>
 </ul>
 </li>
 <li><p>常用前缀</p>
 <ul>
-<li>is – 含义为代表一个问题，将获取答案。  (is_mute       //是否静音)</li>
-<li>get — 含义为取得一个数值。</li>
-<li>set — 含义为设定一个数值。</li>
+<li>is – 含义为代表一个问题，将获取答案（is_mute       //是否静音）</li>
+<li>get — 含义为取得一个数值</li>
+<li>set — 含义为设定一个数值</li>
 </ul>
 </li>
 </ul>
 <h3 id="Log规范"><a href="#Log规范" class="headerlink" title="Log规范"></a>Log规范</h3><ul>
-<li>出错类Log(必需) + 调试类Log(可通过宏控制)。</li>
-<li>LOG_TAG ( <strong>FUNCTION</strong>, <strong>LINE</strong> )。</li>
+<li>出错类Log（必需） + 调试类Log（可通过宏控制）</li>
+<li>LOG_TAG （ __FUNCTION__, __LINE__ ）</li>
 </ul>
 
       
