@@ -6,28 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>系统移植 - ARM裸机程序 | Easy Wang</title>
+  <title>Archives: 2024 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于 Exynos 4412 的系统移植记录，ARM 裸机程序。 试验环境：  CPU：Exynos 4412（ARM Coretex-A9 based Quad CPU） Board：iTOP-4412 POP 1GDDR Compiler：arm-linux-gnueabi-gcc（gcc version 7.5.0 (Linaro GCC 7.5-2019.12)）">
-<meta property="og:type" content="article">
-<meta property="og:title" content="系统移植 - ARM裸机程序">
-<meta property="og:url" content="http://www.easywang.site/Technology/%E7%B3%BB%E7%BB%9F%E7%A7%BB%E6%A4%8D_ARM%E8%A3%B8%E6%9C%BA%E7%A8%8B%E5%BA%8F/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Easy Wang">
+<meta property="og:url" content="http://www.easywang.site/archives/2024/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="基于 Exynos 4412 的系统移植记录，ARM 裸机程序。 试验环境：  CPU：Exynos 4412（ARM Coretex-A9 based Quad CPU） Board：iTOP-4412 POP 1GDDR Compiler：arm-linux-gnueabi-gcc（gcc version 7.5.0 (Linaro GCC 7.5-2019.12)）">
 <meta property="og:locale">
-<meta property="og:image" content="http://www.easywang.site/resources/porting/WTCON_register.png">
-<meta property="og:image" content="http://www.easywang.site/resources/porting/GPL2CON.png">
-<meta property="og:image" content="http://www.easywang.site/resources/porting/GPL2CON0.png">
-<meta property="og:image" content="http://www.easywang.site/resources/porting/GPL2DAT.png">
-<meta property="og:image" content="http://www.easywang.site/resources/porting/GPK1CON.png">
-<meta property="og:image" content="http://www.easywang.site/resources/porting/GPK1CON1.png">
-<meta property="og:image" content="http://www.easywang.site/resources/porting/GPK1DAT.png">
-<meta property="article:published_time" content="2023-11-13T15:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-13T15:15:57.497Z">
 <meta property="article:author" content="Easy Wang">
-<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.easywang.site/resources/porting/WTCON_register.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -188,157 +175,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-系统移植_ARM裸机程序" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      系统移植 - ARM裸机程序
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2024" class="archive-year">2024</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%AD%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2024-02-19T07:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-19</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%AD%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8/">嵌入式中的编译器</a>
     </h1>
   
 
-        
-        <a href="/Technology/%E7%B3%BB%E7%BB%9F%E7%A7%BB%E6%A4%8D_ARM%E8%A3%B8%E6%9C%BA%E7%A8%8B%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2023-11-13T15:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-13</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-            <span class="archive-article-date">
-                阅读量 <span id="busuanzi_value_page_pv"></span>
-            </span>
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基于 Exynos 4412 的系统移植记录，ARM 裸机程序。</p>
-<p>试验环境：</p>
-<ul>
-<li>CPU：Exynos 4412（ARM Coretex-A9 based Quad CPU）</li>
-<li>Board：iTOP-4412 POP 1GDDR</li>
-<li>Compiler：arm-linux-gnueabi-gcc（gcc version 7.5.0 (Linaro GCC 7.5-2019.12)）</li>
-</ul>
-<span id="more"></span>
-<p><br/></p>
-<h2 id="工程代码"><a href="#工程代码" class="headerlink" title="工程代码"></a>工程代码</h2><p>LED 闪烁代码目录：</p>
-<ul>
-<li>../CodeSign4SecureBoot_POP（从讯为开发板资料中拷贝）</li>
-<li>Makefile</li>
-<li>start.S</li>
-<li>led.c</li>
-</ul>
-<h3 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">CROSS := arm-linux-gnueabi</span><br><span class="line">POP_PRE = ../CodeSign4SecureBoot_POP</span><br><span class="line"></span><br><span class="line">%.o : %.S</span><br><span class="line">	<span class="variable">$(CROSS)</span>-gcc -o <span class="variable">$@</span> <span class="variable">$&lt;</span> -c -nostdlib</span><br><span class="line"></span><br><span class="line">%.o : %.c</span><br><span class="line">	<span class="variable">$(CROSS)</span>-gcc -o <span class="variable">$@</span> <span class="variable">$&lt;</span> -c -nostdlib</span><br><span class="line"></span><br><span class="line"><span class="section">led.bin: start.o led.o</span></span><br><span class="line">	<span class="variable">$(CROSS)</span>-ld -Ttext 0x0 -o led.elf <span class="variable">$^</span></span><br><span class="line">	<span class="variable">$(CROSS)</span>-objcopy -O binary led.elf led.bin</span><br><span class="line">	<span class="variable">$(CROSS)</span>-objdump -D led.elf &gt; led_elf.dis</span><br><span class="line"></span><br><span class="line"><span class="section">img: led.bin</span></span><br><span class="line">	cat <span class="variable">$(POP_PRE)</span>/E4412.S.BL1.SSCR.EVT1.1.bin <span class="variable">$(POP_PRE)</span>/E4412.BL2.TZ.SSCR.EVT1.1.bin <span class="variable">$(POP_PRE)</span>/all00_padding.bin led.bin <span class="variable">$(POP_PRE)</span>/E4412.TZ.SSCR.EVT1.1.bin &gt; led_img.bin</span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm *.o *.elf *.bin *.dis  -f</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="gcc-编译选项"><a href="#gcc-编译选项" class="headerlink" title="gcc 编译选项"></a>gcc 编译选项</h4><ul>
-<li><code>-c</code>：仅执行编译操作，不进行连接操作。</li>
-<li><code>-nostdlib</code>：用于告诉编译器不连接系统标准启动文件和标准库文件。此选项常用于裸机 bootloader、 linux 内核等程序，因为它们不需要启动文件、标准库文件。</li>
-<li><code>gcc-ld -Ttext</code>：链接器 ld 负责将这些段合并成最终的可执行文件或动态链接库。-Ttext 选项用于指定 .text 段在可执行文件中的起始地址。<code>-Ttext 0x0</code> 即将 .text 段的起地址设置为 0x0。</li>
-<li><p><code>gcc-objcopy</code>：用于将目标文件的内容复制到另一个目标文件中。具体而言，objcopy的作用可以分为以下几个方面：</p>
-<ul>
-<li>格式转换：objcopy可以将一个目标文件的格式转换为另一个格式。例如，可以将ELF格式的目标文件转换为COFF格式，或者将COFF格式的目标文件转换为ELF格式。</li>
-<li>剪切和提取objcopy可以从一个目标文件中剪切出一部分内容，并将其保存到一个新的目标文件中。这对于从一个目标文件中提取特定的节(section)或符号(symbol)非常有用。</li>
-<li>符号表操作：objcopy可以修改目标文件中的符号表，如更改符号的名称或属性。这在一些特殊的情况下非常有用，如在程序调试过程中修改符号信息。</li>
-<li>调试信息处理objcopy可以提取、剪切、合并或删除目标文件中的调试信息。这对于调试过程中的符号跟踪、代码优化或大型软件项目的构建很有帮助。</li>
-</ul>
-</li>
-<li><p><code>gcc-objcopy -O binary &lt;input_file&gt; &lt;output_file&gt;</code>：使用这个命令可以将目标文件（通常是可执行文件或者目标文件）转换成为一个纯粹的二进制文件，不包含任何元数据和头部信息（例如程序入口点、符号表等），只包含代码和数据的字节流。这个二进制文件通常可以用于嵌入式系统、固件更新等特应用中。</p>
-</li>
-</ul>
-<p><br/></p>
-<h3 id="start-S"><a href="#start-S" class="headerlink" title="start.S"></a>start.S</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//#define CONFIG_SYS_ICACHE_OFF  </span><br><span class="line"></span><br><span class="line">.global _start</span><br><span class="line"></span><br><span class="line">_start:</span><br><span class="line">	//disable watch dog (set 0x10060000 == 0)</span><br><span class="line">	ldr r0, =0x10060000</span><br><span class="line">	mov r1, #0</span><br><span class="line">	str r1, [r0]</span><br><span class="line"></span><br><span class="line">	//turn on icache</span><br><span class="line">	mrc	p15, 0, r0, c1, c0, 0</span><br><span class="line">	//bic r0, r0, #0x00002300	/* clear bits 13, 9:8 (--V- --RS) */</span><br><span class="line">	//bic r0, r0, #0x00000087	/* clear bits 7, 2:0 (B--- -CAM) */</span><br><span class="line">	//orr r0, r0, #0x00000002	/* set bit 2 (A) Align */</span><br><span class="line">	//orr r0, r0, #0x00001000	/* set bit 12 (I) I-Cache */</span><br><span class="line"></span><br><span class="line">#ifdef CONFIG_SYS_ICACHE_OFF</span><br><span class="line">	// clear bit 12 (I) I-cache</span><br><span class="line">	bic r0, r0, #0x00001000</span><br><span class="line">#else</span><br><span class="line">	// set bit 12 (I) I-cache</span><br><span class="line">	orr r0, r0, #0x00001000</span><br><span class="line">#endif</span><br><span class="line">	mcr	p15, 0, r0, c1, c0, 0</span><br><span class="line">	//mcr p15, 0, r0, c7, c5, 0	@ invalidate icache</span><br><span class="line"></span><br><span class="line">	//set stack</span><br><span class="line">	ldr sp, =0x02050000</span><br><span class="line"></span><br><span class="line">	bl led_blink</span><br><span class="line"></span><br><span class="line">// endless loop</span><br><span class="line">halt:</span><br><span class="line">	b halt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h4><ul>
-<li><p><code>.global _start</code>：<code>.globl</code> 定义一个全局标志，表明包含该标志的文件链接的任何文件都可以使用该符号，否则，仅在定义标志的文件中可见。</p>
-</li>
-<li><p><code>ldr&#123;&lt;size&gt;&#125;  Rx,=&lt;immediate|symbol&gt;</code>：Load register，从内存拷贝 指定大小 到寄存器。同样用法的另一个指令 <code>str</code> 用于从寄存器拷贝到内存。指定大小：</p>
-<ul>
-<li>b - unsigned byte</li>
-<li>h - unsigned half-word</li>
-<li>sb - signed byte</li>
-<li>sh - signed half-word</li>
-<li>sw - signed word</li>
-</ul>
-</li>
-<li><p><code>#0</code>：立即数寻址方式，代表数字0</p>
-</li>
-<li><p><code>[r0]</code>：以 r0 为地址的内存地址</p>
-</li>
-<li><p><code>mrc &lt;pnum&gt;, &lt;opcode1&gt;, &lt;Rd&gt;, &lt;CRn&gt;, &lt;CRm&gt;, &lt;opcode2&gt;</code>：Move to Register from Coprocessor，用于从协处理器寄存器（如CP15）中读取一个32位的数据。反向操作使用指令 <code>mcr</code>。其中：</p>
-<ul>
-<li><p><code>&lt;pnum&gt;</code>：协处理器的编号</p>
-</li>
-<li><p><code>&lt;opc1&gt;</code>：指定操作类型</p>
-</li>
-<li><p><code>&lt;Rd&gt;</code>：目标寄存器，用于接收来自协处理器的数据</p>
-</li>
-<li><p><code>&lt;Cp&gt;</code>：协处理器地址</p>
-</li>
-<li><p><code>&lt;Cn&gt;</code>：寄存器地址，用于选择协处理器的寄存器组</p>
-</li>
-<li><p><code>&lt;Cm&gt;</code>：寄存器地址，于选择协处理器解码的寄存器</p>
-<p><code>mrc    p15, 0, r0, c1, c0, 0</code> 将CP15的控制寄存器（c1）的值读入ARM寄存器R0</p>
-</li>
-</ul>
-</li>
-<li><p><code>bic &#123;S&#125; Rd, Rn, Operand2</code>：（Bit Clear）指令用于将寄存器中的指定位清零。将 <code>Rn</code> 中的指定位清零，并将结果存储在 <code>Rd</code> 中。操作数 <code>Operand2</code> 中指定了要清零的位。其中：</p>
-<ul>
-<li><code>&#123;S&#125;</code>：可选项，指定是否更新条件码。</li>
-<li><code>Rd</code>：目标寄存器，存储清零结果。</li>
-<li><code>Rn</code>：源寄存器，存储待清零的值。</li>
-<li><code>Operand2</code>：操作数，可以是立即数、寄存器或寄存器移位操作数。</li>
-</ul>
-</li>
-<li><p><code>orr Rd, Rn, Operand2</code>：该指令的作用是将 <code>Rn</code> 寄存器的值与 <code>Operand2</code> 的值进行逻辑或操作，结果存储在 <code>Rd</code> 寄存器中。这可以用来设置特定的位，或者将一组位的某些位置为1。</p>
-</li>
-<li><p>所有逻辑操作指令：</p>
-<ul>
-<li>and - Bitwise AND</li>
-<li>bic - Bitwise Bit Clear</li>
-<li>eor - Bitwise Exclusive OR</li>
-<li>eon - Bitwise Exclusive OR NOT</li>
-<li>orr - Bitwise OR</li>
-<li>orn - Bitwise OR NOT, and</li>
-<li>mvn - Bitwise NOT</li>
-</ul>
-</li>
-<li><p><code>b/bl</code>：b（branch）指令用于无条件地跳转到一个指定的地址或标签。bl（branch with link）指令也是用于跳转，但不同于b指令的是，bl指令在跳转之前会先将当前指令的下一条指令的地址保存到链接寄存器（LR）中，这样在跳转完成后，程序可以使用bx（或者mov + bx）指令将链接寄存器（LR）的值加载到程序计数器（PC）中，返回到原来的位置。bl指令通常用于实现函数调用。</p>
-</li>
-</ul>
-<h4 id="相关寄存器"><a href="#相关寄存器" class="headerlink" title="相关寄存器"></a>相关寄存器</h4><p><img src="/resources/porting/WTCON_register.png" alt="WTCON_register"></p>
-<p><br/></p>
-<h3 id="led-c"><a href="#led-c" class="headerlink" title="led.c"></a>led.c</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	GPL2CON	(*(volatile unsigned long *) 0x11000100)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	GPL2DAT	(*(volatile unsigned long *) 0x11000104)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	GPK1CON	(*(volatile unsigned long *) 0x11000060)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>	GPK1DAT	(*(volatile unsigned long *) 0x11000064)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//GPL2_0, GPK1_1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">delay</span><span class="params">(<span class="keyword">int</span> r0)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">int</span> count = r0;</span><br><span class="line">    <span class="keyword">while</span> (count--)</span><br><span class="line">        ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">led_blink</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GPL2CON = <span class="number">0x00000001</span>;</span><br><span class="line">	GPK1CON = <span class="number">0x00000010</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		GPL2DAT = <span class="number">1</span>;</span><br><span class="line">		GPK1DAT = <span class="number">0</span>;</span><br><span class="line">		delay(<span class="number">0x80000</span>);</span><br><span class="line">		GPL2DAT = <span class="number">0</span>;</span><br><span class="line">		GPK1DAT = <span class="number">0x2</span>;</span><br><span class="line">		delay(<span class="number">0x80000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="相关寄存器-1"><a href="#相关寄存器-1" class="headerlink" title="相关寄存器"></a>相关寄存器</h4><p><img src="/resources/porting/GPL2CON.png" alt="GPL2CON"></p>
-<p><img src="/resources/porting/GPL2CON0.png" alt="GPL2CON0"></p>
-<p><img src="/resources/porting/GPL2DAT.png" alt="GPL2DAT"></p>
-<p><img src="/resources/porting/GPK1CON.png" alt="GPK1CON"></p>
-<p><img src="/resources/porting/GPK1CON1.png" alt="GPK1CON1"></p>
-<p><img src="/resources/porting/GPK1DAT.png" alt="GPK1DAT"></p>
-<p><br/></p>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make img</span><br></pre></td></tr></table></figure>
-<h2 id="烧写"><a href="#烧写" class="headerlink" title="烧写"></a>烧写</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插入 SD 卡，显示为 /dev/sdb</span></span><br><span class="line">sudo dd iflag=dsync oflag=dsync <span class="keyword">if</span>=led_img.bin of=/dev/sdb seek=1</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -351,140 +237,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/%E7%B3%BB%E7%BB%9F%E7%A7%BB%E6%A4%8D_ARM%E8%A3%B8%E6%9C%BA%E7%A8%8B%E5%BA%8F/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/Technology/C-Time/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C Linux Time</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">工程代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile"><span class="toc-number">1.1.</span> <span class="toc-text">Makefile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#gcc-%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">gcc 编译选项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#start-S"><span class="toc-number">1.2.</span> <span class="toc-text">start.S</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">代码分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">相关寄存器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#led-c"><span class="toc-number">1.3.</span> <span class="toc-text">led.c</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%AF%84%E5%AD%98%E5%99%A8-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">相关寄存器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-number">1.4.</span> <span class="toc-text">编译</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%83%A7%E5%86%99"><span class="toc-number">2.</span> <span class="toc-text">烧写</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
+    </div></section>
   
 
-  
-
-  
-
-  
-    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
-      <div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'true' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
-            app_key: "qSkWaIIPWzNQirOz8LDaici7",
-            placeholder: "欢迎留言！",
-            avatar:""
-        });
-    }
-</script>
-    </section>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -494,7 +257,7 @@
  <div class="outer">
    <div id="footer-info">
      <div class="footer-left">
-       &copy; 2023 Easy Wang
+       &copy; 2024 Easy Wang
      </div>
      <div class="footer-right">
          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -519,8 +282,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

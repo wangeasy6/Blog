@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://www.easywang.site/resources/STM32/stm32F1固件库文件间的关系.png">
 <meta property="article:published_time" content="2021-09-27T13:28:12.000Z">
-<meta property="article:modified_time" content="2023-06-17T16:12:27.484Z">
+<meta property="article:modified_time" content="2023-11-27T04:35:23.479Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
@@ -214,31 +214,29 @@
 <p>趁着最近又要用STM32开发，记一下笔记。</p>
 <span id="more"></span>
 <p><br/></p>
-<h2 id="软硬件环境"><a href="#软硬件环境" class="headerlink" title="软硬件环境"></a>软硬件环境</h2><p><strong>硬件：</strong></p>
-<p>STM103CBT6</p>
-<p><strong>IDE：</strong></p>
-<p>Keil 5.36</p>
+<h2 id="软硬件环境"><a href="#软硬件环境" class="headerlink" title="软硬件环境"></a>软硬件环境</h2><p><strong>硬件：</strong>STM103CBT6</p>
+<p><strong>IDE：</strong>Keil 5.36</p>
 <p><br/></p>
 <h2 id="库函数开发简介"><a href="#库函数开发简介" class="headerlink" title="库函数开发简介"></a>库函数开发简介</h2><p>基于STM32的软件开发分为3代：</p>
 <p>第一代：寄存器开发</p>
-<p>第二代：标准库开发</p>
-<p>第三代：HAL\LL库 + STM32 CubeMX工具开发  </p>
-<p>标准库提供了CMSIS层的抽象，HAL\LL库提供了STM32不同系列的抽象。</p>
-<p>我们选择用库函数的形式进行开发。</p>
+<p>第二代：标准库开发（Standard Peripheral Library：简写SPL）</p>
+<p>第三代：HAL（Hardware Abstraction Layer，硬件抽象层库）\LL（Low-Layer，底层库）库 + STM32 CubeMX工具开发  </p>
+<p>标准库和 HAL\LL 都是遵循了 CMSIS 标准的软件抽象层。标准外设库是在寄存器的基础上进行了一次简单封装，主要是面向过程的嵌入式系统开发人员（因为现在ST官方主推STM32CubeMX，所以停止了对SPL的更新）。HAL针对的是具有一定嵌入式基础的开发人员，HAL具有很好的移植性。LL库相对HAL，具有简单的结构，针对之前从事SPL（标准外设库），或寄存器开发的人员。</p>
+<p>此示例基于标准库。</p>
 <p>首先需要下载 STM32F10x 标准固件库<a href="/resources/STM32/en.stsw-stm32054_v3.5.0.zip">快速下载地址</a>/<a target="_blank" rel="noopener" href="https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-standard-peripheral-libraries/stsw-stm32054.html#design-scroll">官网地址</a>。在官网地址上，在“More from the product line”这一栏下，有STM32其它系列（F0、F1、F3、F2、F4、L1）的固件下载地址。</p>
 <p>在实际的软件开发中，可以把工程中的文件分为3层，如下所示：</p>
 <p><img src="/resources/STM32/stm32F1固件库文件间的关系.png" width="500" height="688"/></p>
 <p>其中和软件相关的就是CMSIS层和用户层。</p>
-<h3 id="什么是CMSIS？"><a href="#什么是CMSIS？" class="headerlink" title="什么是CMSIS？"></a>什么是CMSIS？</h3><p>ST公司生产的STM32采用的是Cortex-M3内核，该内核是ARM公司设计的一个处理器体系架构，而ARM公司并不生产芯片，而是出售其芯片技术授权。</p>
+<h3 id="什么是CMSIS？"><a href="#什么是CMSIS？" class="headerlink" title="什么是CMSIS？"></a>什么是CMSIS？</h3><p>CMSIS：Cortex Microcontroller Software Interface Standard，ARM Cortex™ 微控制器软件接口标准。</p>
+<p>ARM 公司本身并不靠自有的设计来制造或出售 CPU，而是将处理器架构授权给有兴趣的厂家。</p>
+<p>ST 公司生产的STM32采用的是Cortex-M内核，由于基于 Cortex 核的芯片厂商很多，不只是 ST 公司，为了解决不同厂家的 Cortex 核芯片软件兼容的问题，ARM 和这些厂家就建立了这套 CMSIS 标准。</p>
 <p>ST公司或其他芯片生产厂商如TI，负责设计的是在内核之外的部件，如芯片内部的模数转换外设ADC、串口UART、定时器TIM等。</p>
-<p>因为基于Cortex的某系列芯片采用的内核都是相同的，区别主要为核外的片上外设的差异。为了解决不同芯片厂商生产的芯片软件移植困难，ARM与芯片厂商建立了CMSIS标准。</p>
-<p>CMSIS：Cortex Microcontroller Software Interface Standard，ARM Cortex™ 微控制器软件接口标准。</p>
-<p>所谓CMSIS标准，实际是建立了一个软件抽象层。CMSIS核心层包括：</p>
+<p>CMSIS 实际是建立了一个软件抽象层，通过固定函数名或者命名规范来达到软件操作的一致性。CMSIS核心层包括：</p>
 <ol>
 <li>内核函数层：其中包含用于访问内核寄存器的名称、地址定义，主要由ARM公司提供。</li>
 <li>设备外设访问层：包含片上的核外外设的地址和中断定义，主要由芯片生产商提供。</li>
 </ol>
-<p>所以CMSIS层由厂商提供后，不用修改，直接包含进工程即可。</p>
+<p>所以 CMSIS 层由厂商提供后，不用修改，直接包含进工程即可。</p>
 <p>我们需要修改的主要在用户区。</p>
 <p><br/></p>
 <h3 id="从0配置一个工程模板"><a href="#从0配置一个工程模板" class="headerlink" title="从0配置一个工程模板"></a>从0配置一个工程模板</h3><p>拿到STM32固件库之后，我们就可以配置一个基于库函数的<a href="/resources/STM32/LedTest.zip">工程模板</a>了。</p>
@@ -473,7 +471,7 @@
  <div class="outer">
    <div id="footer-info">
      <div class="footer-left">
-       &copy; 2023 Easy Wang
+       &copy; 2024 Easy Wang
      </div>
      <div class="footer-right">
          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
