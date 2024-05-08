@@ -18,13 +18,9 @@ date: 2021-09-27 21:28:12
 
 ## 软硬件环境
 
-**硬件：**
+**硬件：**STM103CBT6
 
-STM103CBT6
-
-**IDE：**
-
-Keil 5.36
+**IDE：**Keil 5.36
 
 <br/>
 
@@ -34,13 +30,13 @@ Keil 5.36
 
 第一代：寄存器开发
 
-第二代：标准库开发
+第二代：标准库开发（Standard Peripheral Library：简写SPL）
 
-第三代：HAL\LL库 + STM32 CubeMX工具开发  
+第三代：HAL（Hardware Abstraction Layer，硬件抽象层库）\LL（Low-Layer，底层库）库 + STM32 CubeMX工具开发  
 
-标准库提供了CMSIS层的抽象，HAL\LL库提供了STM32不同系列的抽象。
+标准库和 HAL\LL 都是遵循了 CMSIS 标准的软件抽象层。标准外设库是在寄存器的基础上进行了一次简单封装，主要是面向过程的嵌入式系统开发人员（因为现在ST官方主推STM32CubeMX，所以停止了对SPL的更新）。HAL针对的是具有一定嵌入式基础的开发人员，HAL具有很好的移植性。LL库相对HAL，具有简单的结构，针对之前从事SPL（标准外设库），或寄存器开发的人员。
 
-我们选择用库函数的形式进行开发。
+此示例基于标准库。
 
 首先需要下载 STM32F10x 标准固件库[快速下载地址](/resources/STM32/en.stsw-stm32054_v3.5.0.zip)/[官网地址](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-standard-peripheral-libraries/stsw-stm32054.html#design-scroll)。在官网地址上，在“More from the product line”这一栏下，有STM32其它系列（F0、F1、F3、F2、F4、L1）的固件下载地址。
 
@@ -50,22 +46,24 @@ Keil 5.36
 
 其中和软件相关的就是CMSIS层和用户层。
 
-### 什么时CMSIS？
-
-ST公司生产的STM32采用的是Cortex-M3内核，该内核是ARM公司设计的一个处理器体系架构，而ARM公司并不生产芯片，而是出售其芯片技术授权。
-
-ST公司或其他芯片生产厂商如TI，负责设计的是在内核之外的部件，如芯片内部的模数转换外设ADC、串口UART、定时器TIM等。
-
-因为基于Cortex的某系列芯片采用的内核都是相同的，区别主要为核外的片上外设的差异。为了解决不同芯片厂商生产的芯片软件移植困难，ARM与芯片厂商建立了CMSIS标准。
+### 什么是CMSIS？
 
 CMSIS：Cortex Microcontroller Software Interface Standard，ARM Cortex™ 微控制器软件接口标准。
 
-所谓CMSIS标准，实际是建立了一个软件抽象层。CMSIS核心层包括：
+ARM 公司本身并不靠自有的设计来制造或出售 CPU，而是将处理器架构授权给有兴趣的厂家。
+
+ST 公司生产的STM32采用的是Cortex-M内核，由于基于 Cortex 核的芯片厂商很多，不只是 ST 公司，为了解决不同厂家的 Cortex 核芯片软件兼容的问题，ARM 和这些厂家就建立了这套 CMSIS 标准。
+
+ST公司或其他芯片生产厂商如TI，负责设计的是在内核之外的部件，如芯片内部的模数转换外设ADC、串口UART、定时器TIM等。
+
+
+
+CMSIS 实际是建立了一个软件抽象层，通过固定函数名或者命名规范来达到软件操作的一致性。CMSIS核心层包括：
 
 1. 内核函数层：其中包含用于访问内核寄存器的名称、地址定义，主要由ARM公司提供。
 2. 设备外设访问层：包含片上的核外外设的地址和中断定义，主要由芯片生产商提供。
 
-所以CMSIS层由厂商提供后，不用修改，直接包含进工程即可。
+所以 CMSIS 层由厂商提供后，不用修改，直接包含进工程即可。
 
 我们需要修改的主要在用户区。
 

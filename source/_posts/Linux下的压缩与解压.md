@@ -46,8 +46,12 @@ Linux中常见压缩格式的压缩与解压方法。
 
 压缩：`tar cvfz FileName.tar.gz DirName`
 压缩（排除某类文件）：`tar cvfz FileName.tar.gz --exclude=*.md DirName`
+压缩（仅压缩当前文件夹中的文件，排除所有文件夹）：`ls -l | grep "^-" | awk '{print $9}' | xargs tar cvzf ../FileName.tar.gz`
 解压：`tar xvfz FileName.tar.gz`
 解压（指定目录）：`tar xvfz FileName.tar.gz -C DirName`
+
+`ls -l | grep "^-"`：用来把当前目录下所有文件列出来，不包括子目录
+`awk '{print $9}'`：用来把 `ls` 和 `grep` 输出的文件名取出来
 
 ### .bz2
 
@@ -65,6 +69,28 @@ Linux中常见压缩格式的压缩与解压方法。
 
 压缩：`tar cvfJ FileName.tar.xz DirName`
 解压：`tar xvfJ FileName.tar.xz`
+
+### 压缩分卷与解压
+
+**压缩分卷：**
+
+```bash
+split -b 4000k skype_backup.tar.gz skype_backup_20090626.tar.gz. –verbose
+$ ls
+skype_backup
+skype_backup_20090626.tar.gz.aa
+skype_backup_20090626.tar.gz.ab
+skype_backup_20090626.tar.gz.ac
+skype_backup_20090626.tar.gz.ad
+```
+
+**解压：**
+
+```bash
+cat skype_backup_20090626.tar.gz.* > skype_backup_cat.tar.gz
+```
+
+
 
 ### .Z
 
@@ -95,7 +121,7 @@ Linux中常见压缩格式的压缩与解压方法。
 压缩：`rar a FileName.rar DirName`
 解压：`rar x -y FileName.rar [DirName]`
 
-Tips：解压到指定的目录，要先创建目录
+Tips：解压到指定的目录，要先创建目录；待解压包分为part1、part2... 时，指定第一个，会自动解压后续文件
 
 
 ### 参考

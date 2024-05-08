@@ -17,6 +17,10 @@ tags:
 
 ## Anaconda 安装
 
+https://repo.anaconda.com/archive/Anaconda3-2023.03-1-Windows-x86_64.exe
+
+添加路径 `C:\ProgramData\anaconda3\condabin` 到 PATH
+
 
 ### 换中科大源地址
 
@@ -46,5 +50,4 @@ conda config --show-sources
 |                              |                                              |
 |                              |                                              |
 |                              |                                              |
-
 

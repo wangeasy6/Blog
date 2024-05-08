@@ -1,10 +1,11 @@
 ---
-title: RV1126交叉编译带FFMPEG的OpenCV
+title: 交叉编译带FFMPEG的OpenCV
 toc: true
 categories:
-  - null
+  - Technology
 tags:
-  - null
+  - 嵌入式
+date: 2023-06-05 13:50:00
 ---
 
 编译OpenCV版本：
@@ -17,7 +18,6 @@ tags:
 
 * 芯片：SD3403
 * 工具链：aarch64-mix210-linux-gcc
-* Target：aarch64-linux-gnu
 * 版本：gcc version 7.3.0 (HC&C V1R3C00SPC200B042_20221123)
 
 编译环境：
@@ -48,10 +48,10 @@ make install
 # 拷贝库到交叉编译器的 usr 目录下
 cd ../libz_3403
 sudo cp -r sudo cp -r include/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/include/
-sudo cp lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/
+sudo cp -r lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/
 ```
 
-
+<br/>
 
 ### 编译 GPAC
 
@@ -89,7 +89,7 @@ collect2: error: ld returned 1 exit status
 Makefile:382: recipe for target '../bin/gcc/libgpac.so' failed
 ```
 
-
+<br/>
 
 ### 编译 libx264
 
@@ -100,10 +100,22 @@ Download ：http://download.videolan.org/x264/snapshots/x264-snapshot-20191217-2
 ```sh
 tar xfj x264-snapshot-20191217-2245.tar.bz2
 cd x264-snapshot-20191217-2245
-./configure --prefix=../libx264_3403 --enable-shared --enable-pic --host=aarch64-linux --cross-prefix=aarch64-mix210-linux- --enable-mp4
+# 修改 configure，打开 mp4 支持
+vim configure
+# mp4="yes"
+
+./configure --prefix=../libx264_3403 --enable-shared --enable-pic --host=aarch64-linux --cross-prefix=aarch64-mix210-linux-
+
+make
+make install
+
+# 拷贝库到交叉编译器的 usr 目录下
+cd ../libx264_3403
+sudo cp -r include/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/include/
+sudo cp -r lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/
 ```
 
-
+<br/>
 
 ### 编译 FFMPEG
 
@@ -124,7 +136,6 @@ mkdir ../libffmpeg_3403
 --enable-protocol=udp \
 --enable-demuxer=rtsp \
 --enable-demuxer=rtp \
---enable-libxvid \
 --enable-libx264 \
 --enable-avresample \
 --enable-swscale \
@@ -141,66 +152,14 @@ mkdir ../libffmpeg_3403
 
 make -j4
 make install
+
+# 拷贝库到交叉编译器的 usr 目录下
+cd ../libffmpeg_3403
+sudo cp -r include/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/include/
+sudo cp -r lib/* /opt/linux/x86-arm/aarch64-mix210-linux/target/usr/lib/
 ```
 
-报错：
-
-```
-ERROR: libdc1394-2 not found using pkg-config
-ERROR: libmp3lame >= 3.98.3 not found
-ERROR: libopencore_amrnb not found
-ERROR: libopencore_amrwb not found
-ERROR: libopenjp2 >= 2.1.0 not found using pkg-config
-ERROR: libtheora not found
-ERROR: libv4l2 not found using pkg-config
-ERROR: vorbis not found using pkg-config
-ERROR: x264 not found using pkg-config
-ERROR: x265 not found using pkg-config
-ERROR: libxvid not found
-```
-
-
-
-```shell
-# --enable-libx264
-# 解决 ERROR: libx264 not found
-# 包下载地址 http://ftp.videolan.org/pub/videolan/x264/snapshots/
-tar xf x264-snapshot-20191217-2245.tar.bz2 
-mkdir x264_build
-cd x264-snapshot-20191217-2245
-source setenv_rv1126_ffmpeg.sh
-./configure --enable-shared --prefix=../x264_build --host=arm-linux-gnueabihf
-make && make install
-cd -
-rm -f x264-snapshot-20191217-2245.tar.bz2
-rm -rf x264-snapshot-20191217-2245
-```
-
-
-
-
-
-```
-./configure \
-    --prefix=../ffmpeg-4.2.9_build \
-    --enable-shared \
-    --disable-static \
-    --enable-avresample \
-    --enable-swscale \
-    --enable-avformat \
-    --enable-avcodec \
-    --enable-nonfree \
-    --enable-gpl \
-    --enable-version3 \
-    --enable-cross-compile \
-    --arch=arm \
-    --target-os=linux \
-    --cross-prefix=arm-linux-gnueabihf-
-
-
-make
-make install
-```
+<br/>
 
 ### 交叉编译 Eigen
 
@@ -208,7 +167,7 @@ make install
 
 Download：https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz
 
-vim toolchain.cmake
+vim toolchain_3403.cmake
 
 ```cmake
 set(TOOLCHAIN_PRE aarch64-mix210-linux-)
@@ -221,45 +180,99 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PRE}g++)
 编译：
 
 ```shell
-mkdir -p build && cd build && mkdir ../../libeigen
-cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake -D CMAKE_INSTALL_PREFIX=../../libeigen_3403 ..
+mkdir -p build && cd build && mkdir ../../libeigen_3403
+cmake -D CMAKE_TOOLCHAIN_FILE=../../toolchain_3403.cmake -D CMAKE_INSTALL_PREFIX=../../libeigen_3403 ..
 make install
 ```
 
-
+<br/>
 
 ### 编译 OpenCV
 
  Download：[Releases - OpenCV](https://opencv.org/releases/)
 
-把 libffmpeg 放到 编译器的 usr/lib 下：
+官方下载地址：
 
-```sh
-cp ffmpeg-4.2.9_build/lib/* /home/easy/code/RV1126/prebuilts/gcc/linux-x86/arm/gcc-arm-8.3-2019.03-x86_64-arm-linux-gnueabihf/libc/usr/lib
-```
+[Releases · opencv/opencv (github.com)](https://github.com/opencv/opencv/releases)
+
+镜像下载：
+
+https://www.raoyunsoft.com/opencv/opencv-4.7.0/opencv-4.7.0.zip
+
+https://www.raoyunsoft.com/opencv/opencv_contrib/opencv_contrib-4.7.0.zip
 
 编译：
 
 ```shell
 mkdir -p build && cd build
-cmake -D CMAKE_TOOLCHAIN_FILE=toolchain.cmake \
+#FFMPEG 库使用了 pkgpackge
+export PKG_CONFIG_LIBDIR=$PWD/../../libffmpeg_3403/lib/pkgconfig/
+cmake -D CMAKE_TOOLCHAIN_FILE=../../toolchain_3403.cmake \
 -D CMAKE_BUILD_TYPE=Release \
 -D ENABLE_CXX11=ON \
 -D BUILD_opencv_world=ON \
--D EIGEN_DIR=../../libeigen_1126/share/eigen3/cmake/ \
 -D WITH_EIGEN=ON \
 -D OPENCV_FFMPEG_USE_FIND_PACKAGE=ON \
--D FFMPEG_DIR=/home/easy/code/OpenSources/opencv_1126/libffmpeg_1126 \
 -D WITH_FFMPEG=ON \
 -D WITH_1394=OFF \
--D CMAKE_INSTALL_PREFIX=../../libopencv_1126 \
+-D CMAKE_INSTALL_PREFIX=../../libopencv_3403 \
+-D BUILD_opencv_gapi=OFF \
+-D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.7.0/modules \
 ..
 
+make
+make install
 ```
 
 -D BUILD_opencv_world=ON：只生成一个统一的lib，包含所有模块，比较方便配置环境。
 
--D EIGEN_DIR：指定包含 Eigen3Config.cmake 的目录
+-D BUILD_opencv_gapi=OFF：`ade/util/assert.hpp: No such file or directory`，tool-chain doesn't support ADE，so disabled。
 
--D FFMPEG_DIR：指定包含 FFMPEGConfig.cmake 的目录
+<br/>
+
+### 测试
+
+```c++
+# read_video_test.cpp
+#include <iostream>
+#include "opencv2/videoio.hpp"
+#include "opencv2/opencv.hpp"
+
+using namespace std;
+using namespace cv;
+
+int main(void)
+{
+    VideoCapture cap("test.mp4");
+    if(!cap.isOpened())
+    {
+        cout << "read: test.mp4 failed." << endl;
+        return 0;
+    }
+    cout << "read: test.mp4" << endl;
+
+    Mat frame;
+    cap >> frame;
+    imwrite("test_frame_0.png", frame);
+    cout << "output: test_frame_0.png" << endl;
+
+    cap.release();
+    return 0;
+}
+```
+
+Makefile
+
+```makefile
+OPENCV_INC        := -I./libopencv_3403/include/opencv4
+OPENCV_LIB_LD     := -L./libopencv_3403/lib
+OPENCV_LIBS       := -lstdc++ -lm -lopencv_world
+
+read_video_test: read_video_test.cpp
+	$(CC) $(OPENCV_INC) $(OPENCV_LIB_LD) $(OPENCV_LIBS) $^ -o $@
+```
+
+<br/>
+
+
 

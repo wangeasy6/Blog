@@ -16,37 +16,39 @@ tag:
 
 **汇总**
 
+“Preferences”，点击“Settings”，在settings-User中添加行：
+
 ```
 {
 	"font_size": 14,
 	"preview_on_click": false,
 	"tab_size": 4,"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"show_encoding": true,
+	"show_line_endings": true
 }
 ```
 
 **设置缩进**
 
 * 右下角可进行方便设置 Space/Tab，Width
-* “Preferences”，点击“Settings”，在settings-User中添加行：
-  `"tab_size": 4,"translate_tabs_to_spaces": true,`
+* `"tab_size": 4,"translate_tabs_to_spaces": true,`
 
 **设置删除多余空格**
 
-* “Preferences”，点击“Settings”，在settings-User中添加行：
 `"trim_trailing_white_space_on_save": true,`
 
 **设置打开文件不覆盖**
 
-* “Preferences”，点击“Settings”，在settings-User中添加行：
-
-  `"preview_on_click": false,`
+`"preview_on_click": false,`
 
 **设置自动换行**
 
-* “Preferences”，点击“Settings”，在settings-User中添加行：
+`"word_wrap" : true,`
 
-  `"word_wrap" : true,`
+**设置默认打开编码**
+
+`"default_encoding": "GB18030",`
 
 <br/>
 
@@ -140,10 +142,6 @@ tag:
 
 ### CMake 语法高亮
 
-**1. 下载 cmake 语法高亮包**
+`ctrl + shift + P` 输入 `Install Package`
 
-地址：[https://github.com/zyxar/Sublim](https://link.zhihu.com/?target=https%3A//github.com/zyxar/Sublime-CMakeLists)
-
-**2. 放到 Sublime Text 3 插件目录**
-
-Sublime 的插件目录可以通过**首选项--->浏览插件目录**的方式打开。然后将下载的高亮包解压在该目录。
+输入 CMake ，在搜索到的列表中第一个就是你要下载的插件

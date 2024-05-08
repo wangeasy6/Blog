@@ -4,7 +4,7 @@
 
 # Site
 title: Easy Wang
-subtitle: 无惧·无界·无我
+subtitle: 无惧·无欲·无界·无我
 description:
 keywords:
 author: Easy Wang
@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.wangeasy.com
+url: http://www.easywang.site
 root: /
 permalink: :category/:title/
 permalink_defaults:

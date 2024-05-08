@@ -233,7 +233,7 @@ vim会在找到第一个目标字符（“xx”）后显示下面信息并要求
 | `:set [no]wrap` | 打开/关闭自动换行 |
 | `:set list` | 将TAB符号以^I显示，行尾显示$字符 |
 | `:set tabstop=4` | 设置读取到的tab制表符的显示宽度 |
-| `:set shftwidth=4` | 设置tab制表符宽度 |
+| `:set shiftwidth=4` | 设置tab制表符宽度 |
 | `:set expandtab` | 将tab转成space，实际存储也是space |
 | `:retab!` | 将既有的tab转成space，可在上一条命名后调用 |
 | `:set listchars=tab:>-,trail:-` | TAB显示为">---"，行尾空格显示为"-"（tab:后可设置任意两个字符，trail:后可设置任意一个字符） |
