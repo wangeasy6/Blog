@@ -3,7 +3,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)
 
 ## Introduction
-:computer: This is my own website at [www.easywang.site](https://www.easywang.site) since 2018.07.19
+:computer: This is my own website at [www.easywang.site](https://www.easywang.site) since 2023.10.12
 
 ## Framework
 :white_check_mark: [Hexo](https://github.com/hexojs/hexo)
