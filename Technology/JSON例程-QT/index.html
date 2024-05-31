@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>Archives | Easy Wang</title>
+  <title>JSON例程-QT | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.easywang.site/archives/page/4/index.html">
+  <meta name="description" content="补充一个 QT 版本的 JSON 例程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON例程-QT">
+<meta property="og:url" content="http://www.easywang.site/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="补充一个 QT 版本的 JSON 例程。">
 <meta property="og:locale">
+<meta property="og:image" content="http://www.easywang.site/resources/JsonExample/json_qt.jpg">
+<meta property="article:published_time" content="2024-05-31T14:37:00.000Z">
+<meta property="article:modified_time" content="2024-05-31T14:54:54.016Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="QT">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.easywang.site/resources/JsonExample/json_qt.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -175,508 +182,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JSON例程-QT" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSON例程-QT
+    </h1>
+  
+
+        
+        <a href="/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/" class="archive-article-date">
+  	<time datetime="2024-05-31T14:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-31</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/resources/JsonExample/json_qt.jpg" width="512" height="256"/></p>
+<p>补充一个 QT 版本的 JSON 例程。</p>
+<span id="more"></span>
+<p><br/></p>
+<h3 id="JSON示例"><a href="#JSON示例" class="headerlink" title="JSON示例"></a><a href="/resources/JsonExample/json_example.json">JSON示例</a></h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;体检报告&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;personnel&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;张三&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;height&quot;</span><span class="punctuation">:</span> <span class="number">175</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;is_married&quot;</span><span class="punctuation">:</span><span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;advice&quot;</span><span class="punctuation">:</span><span class="literal"><span class="keyword">null</span></span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;李四&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;height&quot;</span><span class="punctuation">:</span><span class="number">172.5</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;is_married&quot;</span><span class="punctuation">:</span><span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;advice&quot;</span><span class="punctuation">:</span><span class="string">&quot;随访观察&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>此示例包含了所有 JSON 元素，包括：对象（object）、数组（array）、字符串（<em>string</em>）、数值(number)、<code>true</code>、<code>false</code>、 <code>null</code>。</p>
+<h3 id="QT-示例"><a href="#QT-示例" class="headerlink" title="QT 示例"></a><a href="/resources/JsonExample/json_example.py">QT 示例</a></h3><p>保存 JSON 示例为文件 <code>json_example.json</code>，放置在程序同一目录。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QCoreApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDebug&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QFile&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTextStream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QJsonDocument&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QJsonObject&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QJsonArray&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    QString file_path =<span class="string">&quot;./json_example.json&quot;</span>;</span><br><span class="line">    <span class="function">QFile <span class="title">json_fd</span><span class="params">(file_path)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打开文件以供读取</span></span><br><span class="line">    <span class="keyword">if</span> (!json_fd.<span class="built_in">open</span>(QIODevice::ReadOnly | QIODevice::Text)) &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;Unable to open file&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">QTextStream <span class="title">in</span><span class="params">(&amp;json_fd)</span></span>;</span><br><span class="line">    QString json_str = in.<span class="built_in">readAll</span>();</span><br><span class="line">    json_fd.<span class="built_in">close</span>();</span><br><span class="line">    <span class="comment">// qDebug().noquote() &lt;&lt; json_str;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 JSON 字符串转换为 QJsonDocument</span></span><br><span class="line">    QJsonDocument jsonDoc = QJsonDocument::<span class="built_in">fromJson</span>(json_str.<span class="built_in">toUtf8</span>());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查 JSON 是否有效</span></span><br><span class="line">    <span class="keyword">if</span> (jsonDoc.<span class="built_in">isNull</span>()) &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;Invalid JSON&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取 QJsonObject</span></span><br><span class="line">    QJsonObject jsonObj = jsonDoc.<span class="built_in">object</span>();</span><br><span class="line">    <span class="comment">// 读取数据</span></span><br><span class="line">    <span class="built_in">qDebug</span>() &lt;&lt; jsonObj[<span class="string">&quot;name&quot;</span>].<span class="built_in">isString</span>() &lt;&lt; jsonObj[<span class="string">&quot;name&quot;</span>].<span class="built_in">toString</span>();</span><br><span class="line">    QJsonArray jsonArray = jsonObj[<span class="string">&quot;personnel&quot;</span>].<span class="built_in">toArray</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> QJsonValue &amp;person : jsonArray) &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; person[<span class="string">&quot;name&quot;</span>].<span class="built_in">toString</span>();</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; person[<span class="string">&quot;height&quot;</span>].<span class="built_in">toDouble</span>();</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; person[<span class="string">&quot;is_married&quot;</span>].<span class="built_in">toBool</span>();</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; person[<span class="string">&quot;advice&quot;</span>].<span class="built_in">toString</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">write</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    QString out_file_name = <span class="string">&quot;output.json&quot;</span>;</span><br><span class="line">    <span class="function">QFile <span class="title">json_fd</span><span class="params">(out_file_name)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打开文件以供读写</span></span><br><span class="line">    <span class="keyword">if</span> (!json_fd.<span class="built_in">open</span>(QIODevice::WriteOnly | QIODevice::Text)) &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;Unable to open file&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 QJsonObject</span></span><br><span class="line">    QJsonObject jsonObj;</span><br><span class="line">    jsonObj[<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;体检报告&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 QJsonArray</span></span><br><span class="line">    QJsonArray person_list;</span><br><span class="line"></span><br><span class="line">    QJsonObject person;</span><br><span class="line">    person[<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;张三&quot;</span>;</span><br><span class="line">    person[<span class="string">&quot;height&quot;</span>] = <span class="number">175</span>;</span><br><span class="line">    person[<span class="string">&quot;is_married&quot;</span>] = <span class="literal">false</span>;</span><br><span class="line">    person[<span class="string">&quot;advice&quot;</span>] = <span class="built_in">QJsonValue</span>();    <span class="comment">// The default is to create a Null value.</span></span><br><span class="line">    person_list.<span class="built_in">append</span>(person);</span><br><span class="line">    person[<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;李四&quot;</span>;</span><br><span class="line">    person[<span class="string">&quot;height&quot;</span>] = <span class="number">172.5</span>;</span><br><span class="line">    person[<span class="string">&quot;is_married&quot;</span>] = <span class="literal">true</span>;</span><br><span class="line">    person[<span class="string">&quot;advice&quot;</span>] = <span class="string">&quot;随访观察&quot;</span>;</span><br><span class="line">    person_list.<span class="built_in">append</span>(person);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 QJsonArray 添加到 QJsonObject</span></span><br><span class="line">    jsonObj[<span class="string">&quot;personnel&quot;</span>] = person_list;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建 QJsonDocument</span></span><br><span class="line">    <span class="function">QJsonDocument <span class="title">jsonDoc</span><span class="params">(jsonObj)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 QJsonDocument 转换为 JSON 字符串</span></span><br><span class="line">    QByteArray jsonData = jsonDoc.<span class="built_in">toJson</span>(QJsonDocument::Indented);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写入数据到文件</span></span><br><span class="line">    <span class="keyword">if</span> (json_fd.<span class="built_in">write</span>(jsonData) == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;Failed to write to file&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">qDebug</span>() &lt;&lt; <span class="string">&quot;Written successfully&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    json_fd.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">read</span>();</span><br><span class="line">    <span class="built_in">write</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">true &quot;体检报告&quot;</span><br><span class="line">&quot;张三&quot;</span><br><span class="line">175</span><br><span class="line">false</span><br><span class="line">&quot;&quot;</span><br><span class="line">&quot;李四&quot;</span><br><span class="line">172.5</span><br><span class="line">true</span><br><span class="line">&quot;随访观察&quot;</span><br><span class="line">Written successfully</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%8A%80%E8%83%BD%E5%AF%BC%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2021-02-04T15:32:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%8A%80%E8%83%BD%E5%AF%BC%E5%9B%BE/">嵌入式工程师技能导图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%9F%BA%E4%BA%8E51job%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-11-10T15:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%9F%BA%E4%BA%8E51job%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/">基于51job的嵌入式软件行业分析</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/" class="archive-article-date">
-  	<time datetime="2020-10-30T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/Technology/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音视频开发基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/">51Job数据抓取</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.</span> <span class="toc-text">JSON示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QT-%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">QT 示例</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Python%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7/" class="archive-article-date">
-  	<time datetime="2020-10-20T09:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Python%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7/">Python编码格式化工具</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Python%E5%9F%BA%E7%A1%80%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-10-16T07:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Python%E5%9F%BA%E7%A1%80%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6/">Python基础图表绘制</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Thoughts/%E5%A4%9A%E5%85%83%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-09-26T18:01:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Thoughts/%E5%A4%9A%E5%85%83%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B/">多元思维模型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8FWeb%EF%BC%88Nginx%E3%80%81C++%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-09-25T03:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8FWeb%EF%BC%88Nginx%E3%80%81C++%EF%BC%89/">嵌入式Web(Nginx、C++)</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Python%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-08-20T08:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Python%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/">Python语言特性总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/CSharp%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2020-08-03T07:37:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/CSharp%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">C# - Unit Test</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/PM-Tools/" class="archive-article-date">
-  	<time datetime="2020-06-17T15:43:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/PM-Tools/">项目管理 - 工具箱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">« Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/5/">Next »</a>
-    </nav>
   
 
 
@@ -712,8 +420,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
