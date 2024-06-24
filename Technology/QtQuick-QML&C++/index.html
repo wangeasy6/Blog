@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>Category: Technology | Easy Wang</title>
+  <title>QtQuick QML&amp;C++混合编程 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.easywang.site/categories/Technology/page/4/index.html">
+  <meta name="description" content="QtQuick QML 和 C++ 混合编程，总结了以下 6 种方式：  在QML中读写C++类的属性（MEMBER）  在QML中读写C++类的属性（READ&#x2F;WRITE）  在QML中使用C++对象  在QML中通过信号槽操纵C++类  在C++中连接信号槽操纵QML界面  在C++中继承QQuickItem实现QML界面元素   试验环境：  Qt Creator 13.0.1(Windo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QtQuick QML&amp;C++混合编程">
+<meta property="og:url" content="http://www.easywang.site/Technology/QtQuick-QML&C++/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="QtQuick QML 和 C++ 混合编程，总结了以下 6 种方式：  在QML中读写C++类的属性（MEMBER）  在QML中读写C++类的属性（READ&#x2F;WRITE）  在QML中使用C++对象  在QML中通过信号槽操纵C++类  在C++中连接信号槽操纵QML界面  在C++中继承QQuickItem实现QML界面元素   试验环境：  Qt Creator 13.0.1(Windo">
 <meta property="og:locale">
+<meta property="og:image" content="http://www.easywang.site/resources/QtQuick/cpp_integration_demo.gif">
+<meta property="article:published_time" content="2024-06-21T16:05:00.000Z">
+<meta property="article:modified_time" content="2024-06-24T02:17:52.543Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="QT">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.easywang.site/resources/QtQuick/cpp_integration_demo.gif">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -175,56 +182,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-QtQuick-QML&amp;C++" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      QtQuick QML&amp;C++混合编程
+    </h1>
+  
+
+        
+        <a href="/Technology/QtQuick-QML&C++/" class="archive-article-date">
+  	<time datetime="2024-06-21T16:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-22</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="\resources\QtQuick\cpp_integration_demo.gif" alt="cpp_integration_demo.gif"></p>
+<p>QtQuick QML 和 C++ 混合编程，总结了以下 6 种方式：</p>
+<ul>
+<li><p>在QML中读写C++类的属性（MEMBER）</p>
+</li>
+<li><p>在QML中读写C++类的属性（READ/WRITE）</p>
+</li>
+<li><p>在QML中使用C++对象</p>
+</li>
+<li><p>在QML中通过信号槽操纵C++类</p>
+</li>
+<li><p>在C++中连接信号槽操纵QML界面</p>
+</li>
+<li><p>在C++中继承QQuickItem实现QML界面元素</p>
+</li>
+</ul>
+<p>试验环境：</p>
+<ul>
+<li>Qt Creator 13.0.1(Windows)</li>
+<li>Qt6 6.2</li>
+</ul>
+<span id="more"></span>
+<p><br/></p>
+<h1 id="传统方法：使用信号槽"><a href="#传统方法：使用信号槽" class="headerlink" title="传统方法：使用信号槽"></a>传统方法：使用信号槽</h1><h2 id="在C-中通过信号槽操纵QML界面"><a href="#在C-中通过信号槽操纵QML界面" class="headerlink" title="在C++中通过信号槽操纵QML界面"></a>在C++中通过信号槽操纵QML界面</h2><p>在 QtWidgets 开发中，我们使用 <code>.ui</code> 和 <code>.qss</code> 来描绘界面元素，使用 C++ 获取控件，在 C++ 中通过信号槽绑定控件编写交互逻辑和运算逻辑。</p>
+<p>在 QtQuick 中，我们仍然能使用这种方式，但由于 QML 不仅能描述界面，而且也提供了绑定和部分计算的功能，这种开发方式在 QtQuick 中并不推荐，一般作为辅助开发方式。</p>
+<p>首先我们来看<strong>界面元素</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .qml</span></span><br><span class="line"><span class="title class_">Window</span> &#123;</span><br><span class="line">    <span class="attr">objectName</span>: <span class="string">&quot;rootObject&quot;</span>;</span><br><span class="line">    <span class="title class_">ColumnLayout</span> &#123;</span><br><span class="line">        <span class="attr">spacing</span>: <span class="number">10</span></span><br><span class="line">        <span class="title class_">Label</span> &#123;</span><br><span class="line">            <span class="attr">text</span>: <span class="string">&quot;在C++中通过\r\n信号槽操纵QML界面&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">            <span class="attr">objectName</span>: <span class="string">&quot;ccd2_ret&quot;</span></span><br><span class="line">            <span class="attr">color</span>: <span class="string">&quot;black&quot;</span></span><br><span class="line">            <span class="attr">width</span>: <span class="number">50</span></span><br><span class="line">            <span class="attr">height</span>: <span class="number">50</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title class_">Button</span> &#123;</span><br><span class="line">            <span class="attr">objectName</span>: <span class="string">&quot;ccd2_bt&quot;</span></span><br><span class="line">            <span class="attr">text</span>: <span class="title function_">qsTr</span>(<span class="string">&quot;Next Color&quot;</span>)</span><br><span class="line">            <span class="attr">checkable</span>: <span class="literal">false</span></span><br><span class="line">            font.<span class="property">pointSize</span>: <span class="number">10</span></span><br><span class="line">            scale : <span class="number">0.6</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里的关键点是设置 objectName，后面会通过这个在 C++ 中找到这个界面元素。</p>
+<p><strong>类定义：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// my_class.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ColorConn</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">enum</span> <span class="title class_">Colors</span>&#123;</span><br><span class="line">        Gray = <span class="number">0</span>,</span><br><span class="line">        Red,</span><br><span class="line">        Green,</span><br><span class="line">        Blue,</span><br><span class="line">        Max</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">ColorConn</span><span class="params">(QObject *parent = <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line">    <span class="function">QColor <span class="title">color</span><span class="params">(<span class="type">void</span>)</span> <span class="type">const</span> </span>&#123;<span class="keyword">return</span> _color;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">nextColor</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">colorChanged</span><span class="params">(<span class="type">const</span> QColor &amp;_color)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Colors _current_index = Gray;</span><br><span class="line">    QList&lt;QColor&gt; default_color = &#123;<span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0xD3</span>, <span class="number">0x00</span>, <span class="number">0x00</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0x00</span>, <span class="number">0xD3</span>, <span class="number">0x00</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xD3</span>)&#125;;</span><br><span class="line">    QColor _color = <span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>声明了一个当颜色变化的信号函数和一个改变颜色的槽函数。</p>
+<p><strong>函数实现：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// my_class.cpp</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ColorConn::nextColor</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    _current_index = <span class="built_in">static_cast</span>&lt;Colors&gt;(_current_index + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (_current_index == Max)</span><br><span class="line">    &#123;</span><br><span class="line">        _current_index = Gray;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _color = default_color[_current_index];</span><br><span class="line">    <span class="function">emit <span class="title">colorChanged</span><span class="params">(_color)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ColorConn::<span class="built_in">ColorConn</span>(QObject *parent)</span><br><span class="line">    : QObject&#123;parent&#125;</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>nextColor 在默认的 4 个颜色（灰、红、绿、蓝）中顺序切换。</p>
+<p><strong>在主函数中绑定：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line">    QObject * root = <span class="literal">NULL</span>;</span><br><span class="line">    QList&lt;QObject*&gt; rootObjects = engine.<span class="built_in">rootObjects</span>();</span><br><span class="line">    <span class="type">int</span> count = rootObjects.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; count; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(rootObjects.<span class="built_in">at</span>(i)-&gt;<span class="built_in">objectName</span>() == <span class="string">&quot;rootObject&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            root = rootObjects.<span class="built_in">at</span>(i);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ColorConn ccd2;</span><br><span class="line">    <span class="keyword">if</span>(root)</span><br><span class="line">    &#123;</span><br><span class="line">        QObject * color_ret = root-&gt;<span class="built_in">findChild</span>&lt;QObject*&gt;(<span class="string">&quot;ccd2_ret&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(color_ret)</span><br><span class="line">        &#123;</span><br><span class="line">            color_ret-&gt;<span class="built_in">setProperty</span>(<span class="string">&quot;color&quot;</span>, ccd2.<span class="built_in">color</span>());</span><br><span class="line">            QObject::<span class="built_in">connect</span>(&amp;ccd2, &amp;ColorConn::colorChanged,</span><br><span class="line">                             [color_ret, &amp;ccd2]()&#123;color_ret-&gt;<span class="built_in">setProperty</span>(<span class="string">&quot;color&quot;</span>, ccd2.<span class="built_in">color</span>());&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        QObject * next_bt = root-&gt;<span class="built_in">findChild</span>&lt;QObject*&gt;(<span class="string">&quot;ccd2_bt&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(next_bt)</span><br><span class="line">        &#123;</span><br><span class="line">            QObject::<span class="built_in">connect</span>(next_bt, <span class="built_in">SIGNAL</span>(<span class="built_in">clicked</span>()),</span><br><span class="line">                             &amp;ccd2, <span class="built_in">SLOT</span>(<span class="built_in">nextColor</span>()));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>首先在根节点中找到 rootObject，然后在根节点中找到显示的 <code>Rectangle</code> 和按钮 <code>Button</code>，为它们连接信号槽函数。</p>
+<p>整个程序的执行顺序是：点击按钮后，调用 nextColor 槽函数改变颜色，并发出颜色已改变的信号，然后设置显示方块的颜色。</p>
+<p>通过元对象系统，可以查询 QObject 的某个派生类的类名、有哪些信号、槽、属性、可调用方法等信息。对于使用 Q_PROPERTY 定义的属性，可以使用 QObject 的 property() 方法访问属性，如果该属性定义了 WRITE 方法，还可以使用 setProperty() 修改属性。另外也可以使用 QMetaObject::invokeMethod() 调用 QObject 的某个注册到元对象系统中的方法。</p>
+<p><strong>总结：</strong></p>
+<p>可以看到，在 QtWidgets 开发中，使用界面元素不用这么麻烦。那是因为在 QtWidgets 中，<code>.ui</code> 会被 Qt 的 ui 处理工具 uic 转换为标准 C++ 文件，对于界面元素的索引，是非常方便的。</p>
+<p>而在 QtQuick 中，界面元素运行在一个独立的 ECMA 环境中，和 C++ 环境为平行关系。而要使用界面元素，则要通过类似于 DOM 的 API 去查找。</p>
+<p><br/></p>
+<h2 id="在QML中通过信号槽操纵C-类"><a href="#在QML中通过信号槽操纵C-类" class="headerlink" title="在QML中通过信号槽操纵C++类"></a>在QML中通过信号槽操纵C++类</h2><p>（先看“在 QML 中使用 C++”，再看此小节，这里主要是因为归类，放到了此处）</p>
+<p>折中于“在 C++ 中实现，在 C++ 中绑定” 和 “在C++中实现，导出属性到 QML”，也可以“在C++中实现信号槽，导出到 QML，在 QML 中绑定信号槽”。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// my_class.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ColorClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Q_OBJECT</span></span><br><span class="line"><span class="function">    <span class="title">Q_PROPERTY</span><span class="params">(QColor color READ color NOTIFY colorChanged)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span>:</span></span><br><span class="line"><span class="function">    enum Colors&#123;</span></span><br><span class="line">        Gray = <span class="number">0</span>,</span><br><span class="line">        Red,</span><br><span class="line">        Green,</span><br><span class="line">        Blue,</span><br><span class="line">        Max</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">Q_ENUM</span>(Colors)</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">ColorClass</span><span class="params">(QObject *parent = <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line">    <span class="function">QColor <span class="title">color</span><span class="params">(<span class="type">void</span>)</span> <span class="type">const</span> </span>&#123;<span class="keyword">return</span> _color;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function">Q_INVOKABLE <span class="type">void</span> <span class="title">nextColor</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">colorChanged</span><span class="params">(<span class="type">const</span> QColor &amp;_color)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Colors _current_index = Gray;</span><br><span class="line">    QList&lt;QColor&gt; default_color = &#123;<span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0xD3</span>, <span class="number">0x00</span>, <span class="number">0x00</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0x00</span>, <span class="number">0xD3</span>, <span class="number">0x00</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xD3</span>)&#125;;</span><br><span class="line">    QColor _color = <span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里的关键是，使用 Q_INVOKABLE 声明的函数，可以在 QML 中直接调用。</p>
+<p><br/></p>
+<h1 id="在-QML-中使用-C"><a href="#在-QML-中使用-C" class="headerlink" title="在 QML 中使用 C++"></a>在 QML 中使用 C++</h1><p>QtQuick 推荐的开发方式是在 QML 中使用 C++。</p>
+<p>Qt 提供了两种在 QML 环境中使用 C++ 对象的方式：</p>
+<ul>
+<li>在 C++ 中实现一个类，注册为 QML 环境的一个类型，在 QML 环境中使用该类型创建对象。（继承 Q_Object 或 QQuickItem）</li>
+<li>在 C++ 中构造一个对象，将这个对象设置为 QML 的上下文属性，在 QML 环境中直接使用该属性。（不能通过类名来引用枚举值）</li>
+</ul>
+<p><br/></p>
+<h2 id="在QML中读写C-类的属性"><a href="#在QML中读写C-类的属性" class="headerlink" title="在QML中读写C++类的属性"></a>在QML中读写C++类的属性</h2><p>在 C++ 中，使用 Q_PROPERTY 宏声明继承 QObject 的类中的属性，可以导入QML，并在 QML 中访问。</p>
+<h3 id="READ-WRITE-声明"><a href="#READ-WRITE-声明" class="headerlink" title="READ/WRITE 声明"></a>READ/WRITE 声明</h3><p>先看 C++ 声明：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// my_class.h</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ColorPropertyRW</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Q_OBJECT</span></span><br><span class="line"><span class="function">    <span class="title">Q_PROPERTY</span><span class="params">(QColor color READ color WRITE setColor NOTIFY colorChanged)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span>:</span></span><br><span class="line"><span class="function">    explicit ColorPropertyRW(QObject *parent =</span> <span class="literal">nullptr</span>);</span><br><span class="line">    <span class="function">QColor <span class="title">color</span><span class="params">(<span class="type">void</span>)</span> <span class="type">const</span> </span>&#123;<span class="keyword">return</span> _color;&#125;;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setColor</span><span class="params">(QColor color)</span></span>&#123;_color = color; <span class="function">emit <span class="title">colorChanged</span><span class="params">(_color)</span></span>;&#125;;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">colorChanged</span><span class="params">(<span class="type">const</span> QColor &amp;_color)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    QColor _color = <span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在主函数中注册 QML 类型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">qmlRegisterType</span>&lt;ColorPropertyRW&gt;(<span class="string">&quot;easy.qt.ColorPropertyRW&quot;</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="string">&quot;ColorPropertyRW&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>在 QML 中引入并使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> easy.<span class="property">qt</span>.<span class="property">ColorPropertyRW</span> <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">    <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">        <span class="attr">color</span>: <span class="string">&quot;#EEEEEE&quot;</span></span><br><span class="line">        <span class="title class_">Layout</span>.<span class="property">preferredWidth</span>: <span class="number">150</span></span><br><span class="line">        <span class="title class_">Layout</span>.<span class="property">preferredHeight</span>: <span class="number">150</span></span><br><span class="line"></span><br><span class="line">        <span class="title class_">ColorPropertyRW</span> &#123;</span><br><span class="line">            <span class="attr">id</span>: color_p2</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="title class_">ColumnLayout</span> &#123;</span><br><span class="line">            <span class="attr">spacing</span>: <span class="number">10</span></span><br><span class="line">            <span class="title class_">Label</span> &#123;</span><br><span class="line">                <span class="attr">text</span>: <span class="string">&quot;在QML中读写\r\nC++类的属性(RW)&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">                <span class="attr">color</span>: color_p2.<span class="property">color</span></span><br><span class="line">                <span class="attr">width</span>: <span class="number">50</span></span><br><span class="line">                <span class="attr">height</span>: <span class="number">50</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title class_">Rectangle</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">width</span>: <span class="number">120</span></span><br><span class="line">                <span class="attr">height</span>: <span class="number">35</span></span><br><span class="line">                <span class="attr">color</span>: <span class="string">&quot;#FFFFFF&quot;</span></span><br><span class="line">                border.<span class="property">color</span>: <span class="string">&quot;grey&quot;</span></span><br><span class="line"></span><br><span class="line">                <span class="title class_">TextInput</span> &#123;</span><br><span class="line">                    anchors.<span class="property">fill</span>: parent</span><br><span class="line">                    anchors.<span class="property">margins</span>: <span class="number">2</span></span><br><span class="line">                    font.<span class="property">pointSize</span>: <span class="number">10</span></span><br><span class="line">                    selectByMouse : <span class="literal">true</span></span><br><span class="line">                    <span class="attr">text</span>: <span class="string">&quot;#DDDDDD&quot;</span></span><br><span class="line"></span><br><span class="line">                    <span class="attr">onEditingFinished</span>: color_p2.<span class="property">color</span> = text</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>如上所示，我们在 QML 中实例化了一个 id 为 color_p2 的 ColorPropertyRW 类对象，并将其 color 属性和显示的 Rectangle 的颜色绑定（READ），在 TextInput 中输入完颜色后回车，便会触发 onEditingFinished 并将输入值写回到 color（WRITE），同时改变了 Rectangle 的颜色（NOTIFY）。</p>
+<p>Q_PROPERTY 宏还有很多其它的参数，用于提供不同的暴露效果，详情如下所示：</p>
+<h4 id="Q-PROPERTY"><a href="#Q-PROPERTY" class="headerlink" title="Q_PROPERTY"></a>Q_PROPERTY</h4><p>Q_PROPERTY 宏用于声明继承 QObject 的类中的属性。属性的行为类似于类数据成员，但它们具有可通过 元对象系统 访问的附加功能。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Q_PROPERTY</span>(type <span class="built_in">name</span></span><br><span class="line">           (READ getFunction [WRITE setFunction] |</span><br><span class="line">            MEMBER memberName [(READ getFunction | WRITE setFunction)])</span><br><span class="line">           [RESET resetFunction]</span><br><span class="line">           [NOTIFY notifySignal]</span><br><span class="line">           [REVISION <span class="type">int</span> | <span class="built_in">REVISION</span>(<span class="type">int</span>[, <span class="type">int</span>])]</span><br><span class="line">           [DESIGNABLE <span class="type">bool</span>]</span><br><span class="line">           [SCRIPTABLE <span class="type">bool</span>]</span><br><span class="line">           [STORED <span class="type">bool</span>]</span><br><span class="line">           [USER <span class="type">bool</span>]</span><br><span class="line">           [BINDABLE bindableProperty]</span><br><span class="line">           [CONSTANT]</span><br><span class="line">           [FINAL]</span><br><span class="line">           [REQUIRED])</span><br></pre></td></tr></table></figure>
+<p>属性名称和类型以及 <code>READ</code> 函数是必要的。<code>type</code>可以是 <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qvariant.html">QVariant</a> 支持的任何类型，也可以是用户定义的类型。其他项目是可选的，但 <code>WRITE</code> 功能是常见的。除 <code>USER</code> 之外，其他属性默认为 <code>true</code>，默认为 <code>false</code>。<code>READ</code>、<code>WRITE</code> 和 <code>RESET</code> 功能可以继承，它们也可以是虚拟的。当它们在使用多重继承的类中继承时，它们必须来自第一个继承的类。</p>
+<ul>
+<li><p><code>READ</code>：用于读取属性值。如果未指定 <code>MEMBER</code> 变量，则 <code>READ</code> 是必须声明的。<code>getFunction</code> 必须返回属性的类型或对该类型的 const 引用（推荐）。</p>
+</li>
+<li><p><code>WRITE</code>：用于设置属性值。只读属性不需要 <code>WRITE</code> 函数。<code>setFunction</code> 必须返回 <code>void</code>，并且必须只接受一个参数，可以是属性的类型，也可以是指向该类型的指针或引用。如果同时指定 <code>BINDABLE</code> 和 <code>WRITE</code>，默认则将从 <code>BINDABLE</code> 生成 <code>WRITE</code> 访问器。生成的 <code>WRITE</code> 访问器不会显式发出任何用 <code>NOTIFY</code> 声明的信号。您应该将信号注册为 <code>BINDABLE</code> 的更改处理程序，例如使用 <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qobjectbindableproperty.html#Q_OBJECT_BINDABLE_PROPERTY">Q_OBJECT_BINDABLE_PROPERTY</a>。</p>
+</li>
+<li><p><code>MEMBER</code>：声明成员变量可读可写的快速方法，而无需创建 <code>READ</code> 和 <code>WRITE</code> 访问器函数。如果需要控制变量访问，除了 <code>MEMBER</code> 变量关联之外，仍然可以使用 <code>READ</code> 或 <code>WRITE</code> 访问器函数（但不能同时使用两者）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">Q_PROPERTY</span>(QColor color MEMBER m_color NOTIFY colorChanged)</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">colorChanged</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    QColor  m_color;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>RESET</code>：它用于将属性设置回其上下文特定的默认值。 <code>resetFunction</code> 必须返回 void 并且不带任何参数。（什么条件会触发）</p>
+</li>
+<li><p><code>NOTIFY</code>：如果定义了，它应该指定该类中的一个现有信号，每当属性值发生变化时就会发出该信号。<code>MEMBER</code> 变量的 <code>NOTIFY</code> 信号必须采用零个或一个参数，该参数必须与属性具有相同的类型。该参数将采用属性的新值。 <code>NOTIFY</code>信号仅应在属性确实发生更改时发出，以避免在 QML 中不必要地重新评估绑定。当通过 Qt API（QObject::setProperty、QMetaProperty 等）更改属性时，会自动发出该信号，但直接更改 <code>MEMBER</code> 时不会发出该信号。当定义一个非常量的属性时，如果缺少了 <code>NOTIFY</code>，会提示 <code>Warns when a non-CONSTANT Q_PROPERTY is missing a NOTIFY signal.</code>，因为数据绑定实际上依赖于 <code>NOTIFY</code>。</p>
+</li>
+<li><p><code>REVISION</code>：它定义了要在 API 的特定修订版中使用的属性及其通知程序信号（通常用于暴露 QML）。如果不包含，则默认为 0。</p>
+</li>
+<li><p><code>DESIGNABLE</code>：指示该属性是否应在 GUI 设计工具（例如 Qt Designer）的属性编辑器中可见。大多数属性都是可设计的（默认为 true）。有效值为 true 和 false。</p>
+</li>
+<li><p><code>SCRIPTABLE</code>：指示脚本引擎是否可以访问此属性（默认为 true）。有效值为 true 和 false。</p>
+</li>
+<li><p><code>STORED</code>：指示该属性是否应被视为独立存在或取决于其他值。它还指示在存储对象状态时是否必须保存属性值。大多数属性都是 STORED （默认为 true），但例如 QWidget::minimumWidth() 的 STORED false，因为它的值只是从属性 QWidget::minimumSize() 的宽度部分获取。</p>
+</li>
+<li><p><code>USER</code>：指示该属性是否被指定为该类的面向用户的属性或用户可编辑的属性。通常，每个类只有一个 USER 属性（默认 false）。例如，QAbstractButton::checked 是（可检查）按钮的用户可编辑属性。请注意，QItemDelegate 获取并设置小部件的 USER 属性。</p>
+</li>
+<li><p><code>BINDABLE</code>：指示该属性支持绑定，并且可以通过元对象系统 (QMetaProperty) 设置和检查对此属性的绑定。 <code>bindableProperty</code> 声明一个 <code>QBindable&lt;T&gt;</code> 类型的类成员，其中 T 是属性类型。该属性是在 Qt 6.0 中引入的。</p>
+</li>
+<li><p><code>CONSTANT</code>：表明属性值是常量。对于给定的对象实例，常量属性的 <code>READ</code> 方法每次调用时都必须返回相同的值。对于对象的不同实例，该常量值可能不同。常量属性不能有 <code>WRITE</code> 方法或 <code>NOTIFY</code> 信号。</p>
+</li>
+<li><p><code>FINAL</code>：表明该属性不会被派生类覆盖。在某些情况下，这可以用于性能优化，但 moc 不强制执行。必须小心，切勿覆盖 <code>FINAL</code> 属性。</p>
+</li>
+<li><p><code>REQUIRED</code>：表明该属性应由该类的使用者设置。这不是由 moc 强制执行的，并且对于暴露于 QML 的类来说最有用。在 QML 中，除非设置了所有必需属性，否则无法实例化具有 <code>REQUIRED</code> 属性的类。</p>
+</li>
+</ul>
+<h5 id="Q-REVISION"><a href="#Q-REVISION" class="headerlink" title="Q_REVISION"></a>Q_REVISION</h5><p>将此宏应用于成员函数的声明，以使用元对象系统中的修订号来标记它们。宏写在返回类型之前，如下例所示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Window</span> : <span class="keyword">public</span> QWidget</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Q_OBJECT</span></span><br><span class="line"><span class="function">    <span class="title">Q_PROPERTY</span><span class="params">(<span class="type">int</span> normalProperty READ normalProperty)</span></span></span><br><span class="line"><span class="function">    <span class="title">Q_PROPERTY</span><span class="params">(<span class="type">int</span> newProperty READ newProperty REVISION(<span class="number">2</span>, <span class="number">1</span>))</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span>:</span></span><br><span class="line"><span class="function">    Window();</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">normalProperty</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">newProperty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">normalMethod</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="built_in">Q_REVISION</span>(<span class="number">2</span>, <span class="number">1</span>) <span class="function"><span class="type">void</span> <span class="title">newMethod</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当使用元对象系统将对象动态公开给另一个 API 时，可以用于匹配其他 API 的多个版本所期望的版本。</p>
+<p>考虑以下简化示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Window window;</span><br><span class="line"><span class="type">int</span> expectedRevision = <span class="number">0</span>;</span><br><span class="line"><span class="type">const</span> QMetaObject *windowMetaObject = window.<span class="built_in">metaObject</span>();</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i &lt; windowMetaObject-&gt;<span class="built_in">methodCount</span>(); i++)</span><br><span class="line">    <span class="keyword">if</span> (windowMetaObject-&gt;<span class="built_in">method</span>(i).<span class="built_in">revision</span>() &lt;= expectedRevision)</span><br><span class="line">        <span class="built_in">exposeMethod</span>(windowMetaObject-&gt;<span class="built_in">method</span>(i));</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i &lt; windowMetaObject-&gt;<span class="built_in">propertyCount</span>(); i++)</span><br><span class="line">    <span class="keyword">if</span> (windowMetaObject-&gt;<span class="built_in">property</span>(i).<span class="built_in">revision</span>() &lt;= expectedRevision)</span><br><span class="line">        <span class="built_in">exposeProperty</span>(windowMetaObject-&gt;<span class="built_in">property</span>(i));</span><br></pre></td></tr></table></figure>
+<p>使用与前面的示例相同的 Window 类，只有当预期版本为 2.1 或更高版本时，newProperty 和 newMethod 才会在此代码中公开。</p>
+<p><br/></p>
+<h3 id="MEMBER-声明"><a href="#MEMBER-声明" class="headerlink" title="MEMBER 声明"></a>MEMBER 声明</h3><p>所以根据 Q_PROPERTY 的定义，ColorPropertyRW 可以替换为以下等同的定义：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ColorPropertyM</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Q_OBJECT</span></span><br><span class="line"><span class="function">    <span class="title">Q_PROPERTY</span><span class="params">(QColor color MEMBER _color NOTIFY colorChanged)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span>:</span></span><br><span class="line"><span class="function">    explicit ColorPropertyM(QObject *parent =</span> <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">colorChanged</span><span class="params">(<span class="type">const</span> QColor &amp;_color)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    QColor _color = <span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>此定义更为简便，省却了读写函数，默认将其和成员变量绑定。除了类名，其它部分代码基本上不用变。</p>
+<p><br/></p>
+<h2 id="在QML中使用C-对象"><a href="#在QML中使用C-对象" class="headerlink" title="在QML中使用C++对象"></a>在QML中使用C++对象</h2><p>除了将类导入到 QML，还可以单独将 C++ 对象引入到 QML，如下所示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line">    ColorPropertyM color_p3;</span><br><span class="line"></span><br><span class="line">    QQmlApplicationEngine engine;</span><br><span class="line">    engine.<span class="built_in">rootContext</span>()-&gt;<span class="built_in">setContextProperty</span>(<span class="string">&quot;color_p3&quot;</span>, &amp;color_p3);</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h2 id="在C-中继承QQuickItem实现QML界面元素"><a href="#在C-中继承QQuickItem实现QML界面元素" class="headerlink" title="在C++中继承QQuickItem实现QML界面元素"></a>在C++中继承QQuickItem实现QML界面元素</h2><p>超出了 QML 作显示，C++ 作后台计算的开发模式，也可以在 C++ 中通过继承 QQuickItem 直接实现 QML 界面元素，用于需要定制特殊界面元素的情况，特别是界面和计算结合得比较紧密的情形（因为 QML 本身也提供了良好的扩展性，但更偏显示方向）。</p>
+<p>C++ 声明：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// my_item.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> MY_ITEM_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MY_ITEM_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QObject&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QQuickItem&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QSGSimpleRectNode&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTimer&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyRect</span> : <span class="keyword">public</span> QQuickItem</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function">Q_OBJECT</span></span><br><span class="line"><span class="function">    QML_ELEMENT</span></span><br><span class="line"><span class="function">    <span class="title">Q_PROPERTY</span><span class="params">(QColor color READ color NOTIFY colorChanged)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">public</span>:</span></span><br><span class="line"><span class="function">    explicit MyRect(QQuickItem *parent =</span> <span class="literal">nullptr</span>);</span><br><span class="line">    ~<span class="built_in">MyRect</span>();</span><br><span class="line">    <span class="keyword">enum</span> <span class="title class_">Colors</span>&#123;</span><br><span class="line">        Gray = <span class="number">0</span>,</span><br><span class="line">        Red,</span><br><span class="line">        Green,</span><br><span class="line">        Blue,</span><br><span class="line">        Max</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">Q_ENUM</span>(Colors)</span><br><span class="line">    <span class="function">QColor <span class="title">color</span><span class="params">(<span class="type">void</span>)</span> <span class="type">const</span> </span>&#123;<span class="keyword">return</span> _color;&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function">Q_INVOKABLE <span class="type">void</span> <span class="title">nextColor</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">componentComplete</span><span class="params">()</span> <span class="keyword">override</span></span>;</span><br><span class="line">    <span class="function">QSGNode *<span class="title">updatePaintNode</span><span class="params">(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *updatePaintNodeData)</span> <span class="keyword">override</span></span>;</span><br><span class="line"></span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">colorChanged</span><span class="params">(<span class="type">const</span> QColor &amp;_color)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    QSGSimpleRectNode *_node;</span><br><span class="line">    QTimer _timer;</span><br><span class="line">    Colors _current_index = Gray;</span><br><span class="line">    QList&lt;QColor&gt; default_color = &#123;<span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0xD3</span>, <span class="number">0x00</span>, <span class="number">0x00</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0x00</span>, <span class="number">0xD3</span>, <span class="number">0x00</span>),</span><br><span class="line">                                   <span class="built_in">QColor</span>(<span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xD3</span>)&#125;;</span><br><span class="line">    QColor _color = <span class="built_in">QColor</span>(<span class="number">0xDD</span>, <span class="number">0xDD</span>, <span class="number">0xDD</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">// MY_ITEM_H</span></span></span><br></pre></td></tr></table></figure>
+<p>需要注意的是，此处的类名需要以大写字母开头，否则会报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invalid QML element name &quot;my_item&quot;; type names must begin with an uppercase letter</span><br></pre></td></tr></table></figure>
+<p>C++ 实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// my_item.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;my_item.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MyRect::<span class="built_in">MyRect</span>(QQuickItem *parent)</span><br><span class="line">    : <span class="built_in">QQuickItem</span>(parent), _node(<span class="literal">nullptr</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">setFlag</span>(QQuickItem::ItemHasContents, <span class="literal">true</span>);     <span class="comment">// 标记这个item有视觉内容并且应由场景图渲染</span></span><br><span class="line">    _timer.<span class="built_in">setInterval</span>(<span class="number">1000</span>);</span><br><span class="line">    QObject::<span class="built_in">connect</span>(&amp;_timer, <span class="built_in">SIGNAL</span>(<span class="built_in">timeout</span>()),</span><br><span class="line">                     <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">nextColor</span>()));</span><br><span class="line">    _timer.<span class="built_in">start</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyRect::~<span class="built_in">MyRect</span>()</span><br><span class="line">&#123;</span><br><span class="line">    _timer.<span class="built_in">stop</span>();</span><br><span class="line">    <span class="comment">// if (_node) &#123;</span></span><br><span class="line">    <span class="comment">//     delete _node;    // 会被父级Item自动清理</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyRect::nextColor</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    _current_index = <span class="built_in">static_cast</span>&lt;Colors&gt;(_current_index + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (_current_index == Max)</span><br><span class="line">    &#123;</span><br><span class="line">        _current_index = Gray;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    _color = default_color[_current_index];</span><br><span class="line">    <span class="function">emit <span class="title">colorChanged</span><span class="params">(_color)</span></span>;</span><br><span class="line">    <span class="built_in">update</span>();                               <span class="comment">// 将对 updatePaintNode() 的调用列入计划表</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyRect::componentComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QQuickItem::<span class="built_in">componentComplete</span>();</span><br><span class="line">    <span class="keyword">if</span> (!_node) &#123;</span><br><span class="line">        _node = <span class="keyword">new</span> <span class="built_in">QSGSimpleRectNode</span>();    <span class="comment">// 创建一个新的矩形节点</span></span><br><span class="line">        _node-&gt;<span class="built_in">setRect</span>(<span class="built_in">boundingRect</span>());     <span class="comment">// 设置矩形的边界</span></span><br><span class="line">        <span class="built_in">setImplicitWidth</span>(<span class="number">50</span>);               <span class="comment">// 设置默认宽度</span></span><br><span class="line">        <span class="built_in">setImplicitHeight</span>(<span class="number">50</span>);              <span class="comment">// 设置默认高度</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">QSGNode *<span class="title">MyRect::updatePaintNode</span><span class="params">(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *updatePaintNodeData)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (_node) &#123;</span><br><span class="line">        _node-&gt;<span class="built_in">setColor</span>(_color);            <span class="comment">// 设置矩形颜色</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在内部定义了一个Timer，每隔 1s 改变一次颜色。</p>
+<p>导入 QML：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="built_in">qmlRegisterType</span>&lt;MyRect&gt;(<span class="string">&quot;easy.qt.MyRect&quot;</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="string">&quot;MyRect&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>在 QML 中显示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> easy.<span class="property">qt</span>.<span class="property">MyRect</span> <span class="number">1.0</span></span><br><span class="line">    <span class="title class_">Rectangle</span> &#123;</span><br><span class="line">        <span class="attr">color</span>: <span class="string">&quot;#EEEEEE&quot;</span></span><br><span class="line">        <span class="title class_">Layout</span>.<span class="property">preferredWidth</span>: <span class="number">150</span></span><br><span class="line">        <span class="title class_">Layout</span>.<span class="property">preferredHeight</span>: <span class="number">150</span></span><br><span class="line"></span><br><span class="line">        <span class="title class_">ColumnLayout</span> &#123;</span><br><span class="line">            <span class="attr">spacing</span>: <span class="number">10</span></span><br><span class="line">            <span class="title class_">Label</span> &#123;</span><br><span class="line">                <span class="attr">text</span>: <span class="string">&quot;在C++中继承\r\nQQuickItem\r\n实现QML界面元素&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title class_">MyRect</span> &#123;</span><br><span class="line">                <span class="attr">width</span>: <span class="number">50</span></span><br><span class="line">                <span class="attr">height</span>: <span class="number">50</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="updatePaintNode"><a href="#updatePaintNode" class="headerlink" title="updatePaintNode"></a>updatePaintNode</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QSGNode *QQuickItem::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *updatePaintNodeData)</span><br></pre></td></tr></table></figure>
+<p>当需要将 Item 的状态与场景图同步时在渲染线程上调用。</p>
+<p>如果用户在项目上设置了 QQuickItem::ItemHasContents 标志，则该函数将作为 QQuickItem::update() 的结果被调用。</p>
+<p>该函数应返回该项目的场景图子树的根。大多数实现将返回一个包含该项目的视觉表示的 QSGGeometryNode。 oldNode 是上次调用该函数时返回的节点。 updatePaintNodeData 提供指向与此 QQuickItem 关联的 QSGTransformNode 的指针。</p>
+<p>执行此函数时，主线程被阻塞，因此可以安全地从 QQuickItem 实例和主线程中的其他对象读取值。</p>
+<p>如果没有调用 QQuickItem::updatePaintNode() 导致实际的场景图更改，例如 QSGNode::markDirty() 或添加和删除节点，则底层实现可能会决定不再渲染场景，因为视觉结果是相同的。</p>
+<p>警告：至关重要的是，图形操作和与场景图的交互仅发生在渲染线程上，主要是在 QQuickItem::updatePaintNode() 调用期间。最好的经验法则是仅在 QQuickItem::updatePaintNode() 函数中使用带有“QSG”前缀的类。</p>
+<p>警告：此函数在渲染线程上调用。这意味着创建的任何 QObject 或线程本地存储都将与渲染线程具有关联性，因此在此函数中执行渲染以外的任何操作时请务必小心。与信号类似，这些信号将在渲染线程上发出，因此通常会通过排队连接传递。</p>
+<p>注意：所有带有 QSG 前缀的类都应该仅在场景图的渲染线程上使用。有关详细信息，参阅 <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qtquick-visualcanvas-scenegraph.html#scene-graph-and-rendering">场景图和渲染</a>。</p>
+<p>另参见 <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qsgmaterial.html">QSGMaterial</a>, <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qsggeometrynode.html">QSGGeometryNode</a>, <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qsggeometry.html">QSGGeometry</a>, <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qsgflatcolormaterial.html">QSGFlatColorMaterial</a>, <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qsgtexturematerial.html">QSGTextureMaterial</a>, <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qsgnode.html#markDirty">QSGNode::markDirty</a>(), <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qquickitem.html#graphics-resource-handling">Graphics Resource Handling</a>.</p>
+<p><br/></p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><h2 id="属性绑定-vs-信号连接"><a href="#属性绑定-vs-信号连接" class="headerlink" title="属性绑定 vs 信号连接"></a>属性绑定 vs 信号连接</h2><p>属性绑定允许一个对象的属性值与另一个属性或表达式相关联。当绑定的源属性发生变化时，目标属性会自动更新以反映新的值。这是一种数据流的方式，通常用于实现数据模型和视图之间的同步。</p>
+<p><strong>特点</strong>:</p>
+<ul>
+<li>是一种单向的数据绑定。</li>
+<li>用于在属性值之间建立动态的联系。</li>
+<li>当源属性改变时，目标属性会自动更新。</li>
+</ul>
+<p>信号连接用于在对象的信号（当某个事件发生时发出的通知）和槽（响应信号的函数）之间建立联系。当信号被触发时，连接的槽函数会被调用。</p>
+<p><strong>特点</strong>:</p>
+<ul>
+<li>用于对象之间的事件通信。</li>
+<li>是一种双向的通信机制，可以传递参数。</li>
+<li>通常用于响应用户交互或其他事件。</li>
+</ul>
+<p><br/></p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.easywang.site/resources/QtQuick/cppintegration -O cppintegration.zip</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><p>《Qt Quick核心编程》</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hsy12342611/article/details/133309866">C++与QML交互总结二_qml c++ 调用 四种方式-CSDN博客</a></p>
+</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30574227/article/details/128853333">QML自学之路(六)-用C++语言编写QML对象类型_qml 创建单例qml对象-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/properties.html">The Property System</a></li>
+<li><a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qqmlengine.html#qmlRegisterType">QQmlEngine Class | qmlRegisterType</a></li>
+<li><a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qquickitem.html">QQuickItem Class</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%9F%BA%E4%BA%8E51job%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2020-11-10T15:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%9F%BA%E4%BA%8E51job%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/">基于51job的嵌入式软件行业分析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -237,436 +405,139 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/QtQuick-QML&C++/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/" class="archive-article-date">
-  	<time datetime="2020-10-30T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/Reflections/%E3%80%8A%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《社会心理学》读后感</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/">51Job数据抓取</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%EF%BC%9A%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%8F%B7%E6%A7%BD"><span class="toc-number">1.</span> <span class="toc-text">传统方法：使用信号槽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8C-%E4%B8%AD%E9%80%9A%E8%BF%87%E4%BF%A1%E5%8F%B7%E6%A7%BD%E6%93%8D%E7%BA%B5QML%E7%95%8C%E9%9D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">在C++中通过信号槽操纵QML界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8QML%E4%B8%AD%E9%80%9A%E8%BF%87%E4%BF%A1%E5%8F%B7%E6%A7%BD%E6%93%8D%E7%BA%B5C-%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">在QML中通过信号槽操纵C++类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8-QML-%E4%B8%AD%E4%BD%BF%E7%94%A8-C"><span class="toc-number">2.</span> <span class="toc-text">在 QML 中使用 C++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8QML%E4%B8%AD%E8%AF%BB%E5%86%99C-%E7%B1%BB%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">在QML中读写C++类的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#READ-WRITE-%E5%A3%B0%E6%98%8E"><span class="toc-number">2.1.1.</span> <span class="toc-text">READ&#x2F;WRITE 声明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Q-PROPERTY"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">Q_PROPERTY</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Q-REVISION"><span class="toc-number">2.1.1.1.1.</span> <span class="toc-text">Q_REVISION</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MEMBER-%E5%A3%B0%E6%98%8E"><span class="toc-number">2.1.2.</span> <span class="toc-text">MEMBER 声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8QML%E4%B8%AD%E4%BD%BF%E7%94%A8C-%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.2.</span> <span class="toc-text">在QML中使用C++对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8C-%E4%B8%AD%E7%BB%A7%E6%89%BFQQuickItem%E5%AE%9E%E7%8E%B0QML%E7%95%8C%E9%9D%A2%E5%85%83%E7%B4%A0"><span class="toc-number">2.3.</span> <span class="toc-text">在C++中继承QQuickItem实现QML界面元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#updatePaintNode"><span class="toc-number">2.3.1.</span> <span class="toc-text">updatePaintNode</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Tips"><span class="toc-number">3.</span> <span class="toc-text">Tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E7%BB%91%E5%AE%9A-vs-%E4%BF%A1%E5%8F%B7%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.1.</span> <span class="toc-text">属性绑定 vs 信号连接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">源码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Python%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7/" class="archive-article-date">
-  	<time datetime="2020-10-20T09:24:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Python%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7/">Python编码格式化工具</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Python%E5%9F%BA%E7%A1%80%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-10-16T07:16:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Python%E5%9F%BA%E7%A1%80%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6/">Python基础图表绘制</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8FWeb%EF%BC%88Nginx%E3%80%81C++%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-09-25T03:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8FWeb%EF%BC%88Nginx%E3%80%81C++%EF%BC%89/">嵌入式Web(Nginx、C++)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Python%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-08-20T08:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Python%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/">Python语言特性总结</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/CSharp%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2020-08-03T07:37:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/CSharp%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">C# - Unit Test</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/PM-Tools/" class="archive-article-date">
-  	<time datetime="2020-06-17T15:43:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/PM-Tools/">项目管理 - 工具箱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/DL%20-%20Mnist/" class="archive-article-date">
-  	<time datetime="2020-06-15T12:57:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/DL%20-%20Mnist/">DL - Minst</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/CSharp%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-04-11T15:38:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/CSharp%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/">C#代码小结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/Technology/page/3/">« Prev</a><a class="page-number" href="/categories/Technology/">1</a><a class="page-number" href="/categories/Technology/page/2/">2</a><a class="page-number" href="/categories/Technology/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/categories/Technology/page/5/">5</a><a class="page-number" href="/categories/Technology/page/6/">6</a><a class="extend next" rel="next" href="/categories/Technology/page/5/">Next »</a>
-    </nav>
   
 
 
@@ -702,10 +573,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
