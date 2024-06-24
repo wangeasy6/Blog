@@ -282,6 +282,32 @@ tags:
 
 <br/>
 
+#### 10.video vs gif
+
+当有一些演示是，可以放 video 链接并设置为自动循环播放 或者 gif，以下是 2 种方式在 hexo 中的具体实现方法。
+
+比较来说，视频因为有帧间压缩，所以数据量更小，gif 即使使用了 4 桢/s，也比较大。mp4 vs gif ：225KB vs 2.82MB。
+
+但因为 gif 没有桢间压缩，所以没有动态模糊，看着比较清楚，适合画面较小、时间较短（<5s）的演示内容。
+
+示例如下：
+
+```markdown
+<video width="1022" height="214" muted autoplay loop>
+<source src="\resources\QtQuick\cpp_integration_demo.mp4"  type="video/mp4">
+</video>
+
+![cpp_integration_demo.gif](\resources\QtQuick\cpp_integration_demo.gif)
+```
+
+<video width="1022" height="214" muted autoplay loop>
+<source src="\resources\QtQuick\cpp_integration_demo.mp4"  type="video/mp4">
+</video>
+
+![cpp_integration_demo.gif](\resources\QtQuick\cpp_integration_demo.gif)
+
+<br/>
+
 ### 四、Valine评论系统
 
 #### 搭建

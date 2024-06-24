@@ -264,6 +264,6 @@ int main()
 ## 源码
 
 ```shell
-wget http://easyw.gitee.io/resources/C-Json/c_json_example -O c_json_example.tar.gz
+wget https://www.easywang.site/resources/C-Json/c_json_example -O c_json_example.tar.gz
 ```
 

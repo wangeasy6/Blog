@@ -23,3 +23,5 @@ tags:
 
 根据 [PotPlayer播放4k视频色彩失真偏红/绿/灰解决办法-potplayer疑难杂症](https://www.potplay.net/potplayer-4k-green-red) 的说法，是 Atmos.DV 格式解码问题，暂时无解。
 
+## 截取视频
+

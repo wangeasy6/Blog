@@ -24,10 +24,12 @@ tags:
 
 LED 闪烁代码目录：
 
-* ../CodeSign4SecureBoot_POP（从讯为开发板资料中拷贝）
-* Makefile
-* start.S
-* led.c
+* CodeSign4SecureBoot_POP/（从讯为开发板资料中拷贝）
+* bare_led/
+  * Makefile
+  * start.S
+  * led.c
+
 
 ### Makefile
 
