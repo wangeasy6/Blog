@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://www.easywang.site/resources/QtQuick/cpp_integration_demo.gif">
 <meta property="article:published_time" content="2024-06-21T16:05:00.000Z">
-<meta property="article:modified_time" content="2024-06-24T02:17:52.543Z">
+<meta property="article:modified_time" content="2024-07-02T09:38:40.147Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="QT">
 <meta name="twitter:card" content="summary">
@@ -79,7 +79,7 @@
 		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">无惧·无欲·无界·无我</p>
+		<p class="header-subtitle">追求卓越，成功就会不期而至</p>
 		
 
 		<nav class="header-menu">
@@ -276,8 +276,10 @@
 <p>Q_PROPERTY 宏还有很多其它的参数，用于提供不同的暴露效果，详情如下所示：</p>
 <h4 id="Q-PROPERTY"><a href="#Q-PROPERTY" class="headerlink" title="Q_PROPERTY"></a>Q_PROPERTY</h4><p>Q_PROPERTY 宏用于声明继承 QObject 的类中的属性。属性的行为类似于类数据成员，但它们具有可通过 元对象系统 访问的附加功能。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Q_PROPERTY</span>(type <span class="built_in">name</span></span><br><span class="line">           (READ getFunction [WRITE setFunction] |</span><br><span class="line">            MEMBER memberName [(READ getFunction | WRITE setFunction)])</span><br><span class="line">           [RESET resetFunction]</span><br><span class="line">           [NOTIFY notifySignal]</span><br><span class="line">           [REVISION <span class="type">int</span> | <span class="built_in">REVISION</span>(<span class="type">int</span>[, <span class="type">int</span>])]</span><br><span class="line">           [DESIGNABLE <span class="type">bool</span>]</span><br><span class="line">           [SCRIPTABLE <span class="type">bool</span>]</span><br><span class="line">           [STORED <span class="type">bool</span>]</span><br><span class="line">           [USER <span class="type">bool</span>]</span><br><span class="line">           [BINDABLE bindableProperty]</span><br><span class="line">           [CONSTANT]</span><br><span class="line">           [FINAL]</span><br><span class="line">           [REQUIRED])</span><br></pre></td></tr></table></figure>
-<p>属性名称和类型以及 <code>READ</code> 函数是必要的。<code>type</code>可以是 <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qvariant.html">QVariant</a> 支持的任何类型，也可以是用户定义的类型。其他项目是可选的，但 <code>WRITE</code> 功能是常见的。除 <code>USER</code> 之外，其他属性默认为 <code>true</code>，默认为 <code>false</code>。<code>READ</code>、<code>WRITE</code> 和 <code>RESET</code> 功能可以继承，它们也可以是虚拟的。当它们在使用多重继承的类中继承时，它们必须来自第一个继承的类。</p>
+<p>属性名称和类型以及 <code>READ</code> 函数是必要的。其他项目是可选的，但 <code>WRITE</code> 功能是常见的。除 <code>USER</code> 之外，其他属性默认为 <code>true</code>，默认为 <code>false</code>。<code>READ</code>、<code>WRITE</code> 和 <code>RESET</code> 功能可以继承，它们也可以是虚拟的。当它们在使用多重继承的类中继承时，它们必须来自第一个继承的类。</p>
 <ul>
+<li><p><code>type</code>可以是 <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qvariant.html">QVariant</a> 支持的任何类型，也可以是用户定义的类型。此时，C++ 中的基础类型会被解释为QML中的基础类型，例如 QString -&gt; String，QList -&gt; Array。</p>
+</li>
 <li><p><code>READ</code>：用于读取属性值。如果未指定 <code>MEMBER</code> 变量，则 <code>READ</code> 是必须声明的。<code>getFunction</code> 必须返回属性的类型或对该类型的 const 引用（推荐）。</p>
 </li>
 <li><p><code>WRITE</code>：用于设置属性值。只读属性不需要 <code>WRITE</code> 函数。<code>setFunction</code> 必须返回 <code>void</code>，并且必须只接受一个参数，可以是属性的类型，也可以是指向该类型的指针或引用。如果同时指定 <code>BINDABLE</code> 和 <code>WRITE</code>，默认则将从 <code>BINDABLE</code> 生成 <code>WRITE</code> 访问器。生成的 <code>WRITE</code> 访问器不会显式发出任何用 <code>NOTIFY</code> 声明的信号。您应该将信号注册为 <code>BINDABLE</code> 的更改处理程序，例如使用 <a target="_blank" rel="noopener" href="https://doc.qt.io/qt-6/qobjectbindableproperty.html#Q_OBJECT_BINDABLE_PROPERTY">Q_OBJECT_BINDABLE_PROPERTY</a>。</p>
@@ -477,8 +479,8 @@
     </a>
   
   
-    <a href="/Reflections/%E3%80%8A%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《社会心理学》读后感</div>
+    <a href="/Technology/QtQuick-QML&C++-DESKTOP-LAG1OA6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">QtQuick QML&amp;C++混合编程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -702,6 +704,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Badminton</a>
               </li>
             
             <div class="clearfix"></div>
