@@ -2,9 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.easywang.site/Technology/Qt-SignalsSlots/</loc>
+    
+    <lastmod>2024-08-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.easywang.site/Sport/%E7%BE%BD%E6%AF%9B%E7%90%83-%E4%B8%93%E5%AE%B6%E6%8A%8A%E8%84%89-%E6%8A%80%E6%9C%AF%E7%82%B9%E8%84%89%E7%BB%9C/</loc>
     
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.easywang.site/Thoughts/%E7%BB%9D%E5%AF%B9%E7%9C%9F%E7%90%86/</loc>
+    
+    <lastmod>2024-07-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -39,15 +57,6 @@
   
   <url>
     <loc>http://www.easywang.site/Technology/QtQuick-QML&JS/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/Technology/QtQuick-QML&C++-DESKTOP-LAG1OA6/</loc>
     
     <lastmod>2024-06-24</lastmod>
     
@@ -140,15 +149,6 @@
     <loc>http://www.easywang.site/Technology/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8/</loc>
     
     <lastmod>2024-03-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/Thoughts/%E7%BB%9D%E5%AF%B9%E7%9C%9F%E7%90%86/</loc>
-    
-    <lastmod>2024-02-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -479,15 +479,6 @@
   </url>
   
   <url>
-    <loc>http://www.easywang.site/Technology/%E5%85%B3%E4%BA%8EQT%E7%9A%84%E5%87%A0%E4%B8%AA%E7%96%91%E9%97%AE/</loc>
-    
-    <lastmod>2021-07-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.easywang.site/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8FWeb%EF%BC%88Nginx%E3%80%81C++%EF%BC%89/</loc>
     
     <lastmod>2021-06-30</lastmod>
@@ -742,7 +733,7 @@
 
   <url>
     <loc>http://www.easywang.site/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -750,91 +741,91 @@
   
   <url>
     <loc>http://www.easywang.site/tags/Python/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Data/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/C/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/AI/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Tools/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Math/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/QT/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Algorithm/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/C/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Badminton/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -843,35 +834,35 @@
   
   <url>
     <loc>http://www.easywang.site/categories/Technology/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/categories/Reflections/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/categories/Games/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/categories/Thoughts/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/categories/Sport/</loc>
-    <lastmod>2024-07-20</lastmod>
+    <lastmod>2024-08-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
