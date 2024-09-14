@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://www.easywang.site/resources/sublime/replace_line_breaks.png">
 <meta property="article:published_time" content="2018-10-17T08:57:00.000Z">
-<meta property="article:modified_time" content="2023-08-28T08:04:07.000Z">
+<meta property="article:modified_time" content="2024-08-30T06:42:43.399Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
@@ -351,10 +351,15 @@
 <li>Project -&gt; Refresh Folders</li>
 </ul>
 <h3 id="开启时禁止打开上次未退出文件"><a href="#开启时禁止打开上次未退出文件" class="headerlink" title="开启时禁止打开上次未退出文件"></a>开启时禁止打开上次未退出文件</h3><ul>
-<li>从菜单栏开始，依次选择：首选项—-设置 - 用户</li>
-<li>接着在打开的文件的末尾(花括号上方)追加以下内容：<code>&quot;remember_open_files&quot;: false</code></li>
-<li>再保存文件。从菜单栏依次选择：文件—-保存</li>
-<li>最后，退出sublime编辑器，再次启动sublime，软件的自动记忆打开功能就关闭了</li>
+<li><p>从菜单栏开始，依次选择：首选项—-设置 - 用户</p>
+</li>
+<li><p>接着在打开的文件的末尾追加以下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;hot_exit&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;remember_open_files&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再保存文件。从菜单栏依次选择：文件—-保存</p>
+</li>
+<li><p>最后，退出sublime编辑器，再次启动sublime，软件的自动记忆打开功能就关闭了</p>
+</li>
 </ul>
 <p>如果SMB关闭了，上次又打开了过多的文件，那么重启 Sublime 就可能启动不了。</p>
 <p>方法一：</p>
