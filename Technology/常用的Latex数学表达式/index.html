@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://www.easywang.site/resources/Cover/latex.jpg">
 <meta property="article:published_time" content="2021-11-06T09:03:00.000Z">
-<meta property="article:modified_time" content="2022-08-28T16:09:50.000Z">
+<meta property="article:modified_time" content="2024-09-22T12:50:20.920Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
@@ -361,26 +361,6 @@
 </tbody>
 </table>
 </div>
-<h2 id="正负号"><a href="#正负号" class="headerlink" title="正负号"></a>正负号</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>数学式</th>
-<th>Latex表达式</th>
-<th>数学式</th>
-<th>Latex表达式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$a \pm b$</td>
-<td><code>a \pm b</code></td>
-<td>$a \mp b$</td>
-<td><code>a \mp b</code></td>
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h2><div class="table-container">
 <table>
 <thead>
@@ -429,6 +409,26 @@
 </tbody>
 </table>
 </div>
+<h2 id="正负号"><a href="#正负号" class="headerlink" title="正负号"></a>正负号</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数学式</th>
+<th>Latex表达式</th>
+<th>数学式</th>
+<th>Latex表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$a \pm b$</td>
+<td><code>a \pm b</code></td>
+<td>$a \mp b$</td>
+<td><code>a \mp b</code></td>
+</tr>
+</tbody>
+</table>
+</div>
 <h2 id="绝对值"><a href="#绝对值" class="headerlink" title="绝对值"></a>绝对值</h2><div class="table-container">
 <table>
 <thead>
@@ -441,6 +441,26 @@
 <tr>
 <td>$\left&#124; a \right&#124;$</td>
 <td>\left&#124; a \right&#124;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="无线循环小数"><a href="#无线循环小数" class="headerlink" title="无线循环小数"></a>无线循环小数</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数学式</th>
+<th>Latex表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$1.\dot{3}$</td>
+<td>1.\dot{3}</td>
+</tr>
+<tr>
+<td>$1.\dot{1}2\dot{5}$</td>
+<td>1.\dot{1}2\dot{5}</td>
 </tr>
 </tbody>
 </table>
@@ -503,7 +523,7 @@
 <td><code>\underset&#123;\text&#123;under&#125;&#125;&#123;=&#125;</code></td>
 </tr>
 <tr>
-<td>$a \xlongequal[over]{under} b$</td>
+<td>$\require{extpfeil} a \xlongequal[over]{under} b$</td>
 <td><code>a \xlongequal[over]&#123;under&#125; b</code></td>
 </tr>
 </tbody>
@@ -643,7 +663,7 @@
 </thead>
 <tbody>
 <tr>
-<td>$f(x) = \begin{cases} x^2 &amp; x \ge 0 \\ x &amp; x &lt; 0 \end{cases}$</td>
+<td>$f(x) = \begin{cases} x^2 &amp; x \ge 0 \ x &amp; x &lt; 0 \end{cases}$</td>
 <td><code>f(x) = \begin&#123;cases&#125; x^2 &amp; x \ge 0 \\ x &amp; x &lt; 0 \end&#123;cases&#125;</code></td>
 </tr>
 </tbody>
@@ -761,36 +781,36 @@
 \begin{vmatrix}
 a & b \\
 c & d
-\end{vmatrix}</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure>
+\end{vmatrix}</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;vmatrix&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>矩阵：</strong></p>
 <script type="math/tex; mode=display">
 \begin{bmatrix}
 a & b \\
 c & d
-\end{bmatrix}</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
+\end{bmatrix}</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;bmatrix&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">
 \begin{pmatrix}
 a & b \\
 c & d
-\end{pmatrix}</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;pmatrix&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;pmatrix&#125;</span><br></pre></td></tr></table></figure>
+\end{pmatrix}</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;pmatrix&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;pmatrix&#125;</span><br></pre></td></tr></table></figure>
 <script type="math/tex; mode=display">
 \begin{Bmatrix}
 a & b \\
 c & d
-\end{Bmatrix}</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;Bmatrix&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;Bmatrix&#125;</span><br></pre></td></tr></table></figure>
+\end{Bmatrix}</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;Bmatrix&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;Bmatrix&#125;</span><br></pre></td></tr></table></figure>
 <p>矩阵范数：</p>
 <script type="math/tex; mode=display">
 \begin{Vmatrix}
 a & b \\
 c & d
-\end{Vmatrix}</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;Vmatrix&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;Vmatrix&#125;</span><br></pre></td></tr></table></figure>
+\end{Vmatrix}</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;Vmatrix&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;Vmatrix&#125;</span><br></pre></td></tr></table></figure>
 <p>带省略的矩阵：</p>
 <script type="math/tex; mode=display">
 \begin{bmatrix}
 a & \cdots & b \\
 \vdots & \ddots & \vdots \\
 c & \cdots & d
-\end{bmatrix}</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">a &amp; \cdots &amp; b \\</span><br><span class="line">\vdots &amp; \ddots &amp; \vdots \\</span><br><span class="line">c &amp; \cdots &amp; d</span><br><span class="line">\end&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
+\end{bmatrix}</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;bmatrix&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> <span class="keyword">\cdots</span> <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\vdots</span> <span class="built_in">&amp;</span> <span class="keyword">\ddots</span> <span class="built_in">&amp;</span> <span class="keyword">\vdots</span> <span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> <span class="keyword">\cdots</span> <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure>
 <p>横三点是\cdots，竖三点为\vdots，而斜三点为\ddots</p>
 <h3 id="矩阵内加划分线条"><a href="#矩阵内加划分线条" class="headerlink" title="矩阵内加划分线条"></a>矩阵内加划分线条</h3><p>在矩阵内我们有时候需要加上各种线条，尤其在分块矩阵的时候特别管用。但这时如果还用matrix环境就比较麻烦了。通常我们用array的方式来实现。</p>
 <p>在array环境下，表示对齐方式的字母中间加上一个小竖线就可以在矩阵里面生成竖线了。</p>
@@ -800,7 +820,7 @@ c & \cdots & d
 a & b \\
 c & d
 \end{array}
-\right ]</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\left [</span><br><span class="line">\begin&#123;array&#125;&#123;c|c&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right ]</span><br></pre></td></tr></table></figure>
+\right ]</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\left</span> [</span><br><span class="line"><span class="keyword">\begin</span>&#123;array&#125;&#123;c|c&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;array&#125;</span><br><span class="line"><span class="keyword">\right</span> ]</span><br></pre></td></tr></table></figure>
 <p>而横线则是在每一行的末尾（或者下一行的开头）加上\hline</p>
 <script type="math/tex; mode=display">
 \left [
@@ -809,7 +829,7 @@ a & b \\
 \hline
 c & d
 \end{array}
-\right ]</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\left [</span><br><span class="line">\begin&#123;array&#125;&#123;c&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">\hline</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right ]</span><br></pre></td></tr></table></figure>
+\right ]</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\left</span> [</span><br><span class="line"><span class="keyword">\begin</span>&#123;array&#125;&#123;c&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\hline</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;array&#125;</span><br><span class="line"><span class="keyword">\right</span> ]</span><br></pre></td></tr></table></figure>
 <p>竖虚线是冒号，横虚线是\hdashline</p>
 <script type="math/tex; mode=display">
 \left [
@@ -818,7 +838,7 @@ a & b \\
 \hdashline
 c & d
 \end{array}
-\right ]</script><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\left [</span><br><span class="line">\begin&#123;array&#125;&#123;c:c&#125;</span><br><span class="line">a &amp; b \\</span><br><span class="line">\hdashline</span><br><span class="line">c &amp; d</span><br><span class="line">\end&#123;array&#125;</span><br><span class="line">\right ]</span><br></pre></td></tr></table></figure>
+\right ]</script><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\left</span> [</span><br><span class="line"><span class="keyword">\begin</span>&#123;array&#125;&#123;c:c&#125;</span><br><span class="line">a <span class="built_in">&amp;</span> b <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\hdashline</span></span><br><span class="line">c <span class="built_in">&amp;</span> d</span><br><span class="line"><span class="keyword">\end</span>&#123;array&#125;</span><br><span class="line"><span class="keyword">\right</span> ]</span><br></pre></td></tr></table></figure>
 <p><br/></p>
 <h2 id="概率与统计"><a href="#概率与统计" class="headerlink" title="概率与统计"></a>概率与统计</h2><div class="table-container">
 <table>
@@ -867,6 +887,9 @@ c & d
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf">莱斯大学LaTex Math在线PDF手册</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266267223">如何用latex编写矩阵（包括各类复杂、大型矩阵）？</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.mathjax.org/en/latest/">MathJax Documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.mathjax.org/en/latest/input/tex/macros/index.html">Supported TeX/LaTeX commands — MathJax</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.mathjax.org/en/latest/input/tex/extensions/index.html">The TeX/LaTeX Extension List — MathJax</a></li>
 </ul>
 
       
@@ -1000,7 +1023,7 @@ c & d
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="toc-number">1.</span> <span class="toc-text">希腊字母</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E5%86%99%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="toc-number">1.1.</span> <span class="toc-text">小写希腊字母</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%86%99%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="toc-number">1.2.</span> <span class="toc-text">大写希腊字母</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E8%B4%9F%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">正负号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%98%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%80%BC"><span class="toc-number">5.</span> <span class="toc-text">绝对值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E7%AC%A6%E5%8F%B7"><span class="toc-number">6.</span> <span class="toc-text">关系表达符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%EF%BC%88%E5%B9%82%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">指数（幂）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%A0%B9%E5%8F%B7"><span class="toc-number">8.</span> <span class="toc-text">开根号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-number">9.</span> <span class="toc-text">对数运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-number">10.</span> <span class="toc-text">三角函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%AE%B5%E5%87%BD%E6%95%B0"><span class="toc-number">11.</span> <span class="toc-text">分段函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E5%92%8C%E7%AC%A6%E5%8F%B7"><span class="toc-number">12.</span> <span class="toc-text">求和符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E7%A7%AF%E7%AC%A6%E5%8F%B7"><span class="toc-number">13.</span> <span class="toc-text">求积符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%81%E9%99%90"><span class="toc-number">14.</span> <span class="toc-text">极限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-number">15.</span> <span class="toc-text">微积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="toc-number">16.</span> <span class="toc-text">线性代数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%86%85%E5%8A%A0%E5%88%92%E5%88%86%E7%BA%BF%E6%9D%A1"><span class="toc-number">16.1.</span> <span class="toc-text">矩阵内加划分线条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1"><span class="toc-number">17.</span> <span class="toc-text">概率与统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">18.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="toc-number">1.</span> <span class="toc-text">希腊字母</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E5%86%99%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="toc-number">1.1.</span> <span class="toc-text">小写希腊字母</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%86%99%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D"><span class="toc-number">1.2.</span> <span class="toc-text">大写希腊字母</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%98%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">乘法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">除法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E8%B4%9F%E5%8F%B7"><span class="toc-number">4.</span> <span class="toc-text">正负号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%80%BC"><span class="toc-number">5.</span> <span class="toc-text">绝对值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E5%BE%AA%E7%8E%AF%E5%B0%8F%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">无线循环小数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E8%A1%A8%E8%BE%BE%E7%AC%A6%E5%8F%B7"><span class="toc-number">7.</span> <span class="toc-text">关系表达符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%EF%BC%88%E5%B9%82%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">指数（幂）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%A0%B9%E5%8F%B7"><span class="toc-number">9.</span> <span class="toc-text">开根号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-number">10.</span> <span class="toc-text">对数运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-number">11.</span> <span class="toc-text">三角函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%AE%B5%E5%87%BD%E6%95%B0"><span class="toc-number">12.</span> <span class="toc-text">分段函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E5%92%8C%E7%AC%A6%E5%8F%B7"><span class="toc-number">13.</span> <span class="toc-text">求和符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E7%A7%AF%E7%AC%A6%E5%8F%B7"><span class="toc-number">14.</span> <span class="toc-text">求积符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%81%E9%99%90"><span class="toc-number">15.</span> <span class="toc-text">极限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-number">16.</span> <span class="toc-text">微积分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="toc-number">17.</span> <span class="toc-text">线性代数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%86%85%E5%8A%A0%E5%88%92%E5%88%86%E7%BA%BF%E6%9D%A1"><span class="toc-number">17.1.</span> <span class="toc-text">矩阵内加划分线条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1"><span class="toc-number">18.</span> <span class="toc-text">概率与统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">19.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1107,8 +1130,8 @@ MathJax.Hub.Config({
 MathJax.Hub.Queue(function() {
     var all = MathJax.Hub.getAllJax(), i;
     for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
 });
 </script>
 
