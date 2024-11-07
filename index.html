@@ -177,6 +177,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-iTOP-4412-3rd-Openssh" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/iTOP-4412-3rd-Openssh/">iTOP-4412 第三方软件移植-Openssh</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/iTOP-4412-3rd-Openssh/" class="archive-article-date">
+  	<time datetime="2024-11-07T16:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-08</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>想要使用 scp 方便地通过网络下载文件到开发板，想要通过 ssh 网络登录到开发板，就需要编译和部署 openssh，但是 busybox 默认是不带 openssh 的，这时候就需要我们手动编译了。</p>
+<p>试验环境：</p>
+<ul>
+<li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
+<li><strong>Compiler:</strong> arm-linux-gnueabi-gcc version 4.4.1 (Sourcery G++ Lite 2009q3-67)</li>
+<li><strong>Kernel:</strong> linux-3.0.15</li>
+<li><strong>Root FS:</strong> busybox-1.22.1</li>
+</ul>
+<p>编译版本：</p>
+<ul>
+<li>zlib-1.2.8（dep）</li>
+<li>openssl-1.1.0l（dep）</li>
+<li>openssh-9.3p1</li>
+</ul>
+        
+          <a class="article-more-a" href="/Technology/iTOP-4412-3rd-Openssh/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/iTOP-4412-3rd-Openssh/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-iTOP-4412-Driver-I2C" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -184,7 +288,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/iTOP-4412-Driver-I2C/">系统移植 iTOP-4412 I2C 驱动</a>
+      <a class="article-title" href="/Technology/iTOP-4412-Driver-I2C/">iTOP-4412 I2C 驱动移植</a>
     </h1>
   
 
@@ -201,8 +305,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I2C总线仅仅使用SCL、SDA这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和PCB板布线空间的占用。因此，I2C总线非常广泛地应用在EEPROM、实时钟、小型LCD等设备与CPU的接口中。</p>
-<p>此篇通过 I2C 设备驱动移植来学习 Linux 设备驱动的编写。</p>
+        <p>I2C 总线仅仅使用 SCL、SDA 这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和 PCB 板布线空间的占用。因此，I2C 总线非常广泛地应用在 EEPROM、实时钟、小型 LCD 等设备与 CPU 的接口中。</p>
+<p>此篇通过 I2C 设备驱动移植来学习一下 Linux 设备驱动的编写。</p>
 <p>试验环境：</p>
 <ul>
 <li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
@@ -983,98 +1087,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/Reflections/%E3%80%8A%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%8B%E8%AF%BB%E5%90%8E%E6%84%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JSON例程-QT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/">JSON例程-QT</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/" class="archive-article-date">
-  	<time datetime="2024-05-31T14:37:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-31</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/JsonExample/json_qt.jpg" width="512" height="256"/></p>
-<p>补充一个 QT 版本的 JSON 例程。</p>
-        
-          <a class="article-more-a" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/">展开全文 >></a>
         </p>
       
 

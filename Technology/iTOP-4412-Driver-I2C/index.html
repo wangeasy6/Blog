@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>系统移植 iTOP-4412 I2C 驱动 | Easy Wang</title>
+  <title>iTOP-4412 I2C 驱动移植 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I2C总线仅仅使用SCL、SDA这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和PCB板布线空间的占用。因此，I2C总线非常广泛地应用在EEPROM、实时钟、小型LCD等设备与CPU的接口中。 此篇通过 I2C 设备驱动移植来学习 Linux 设备驱动的编写。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compiler: arm-linux">
+  <meta name="description" content="I2C 总线仅仅使用 SCL、SDA 这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和 PCB 板布线空间的占用。因此，I2C 总线非常广泛地应用在 EEPROM、实时钟、小型 LCD 等设备与 CPU 的接口中。 此篇通过 I2C 设备驱动移植来学习一下 Linux 设备驱动的编写。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统移植 iTOP-4412 I2C 驱动">
+<meta property="og:title" content="iTOP-4412 I2C 驱动移植">
 <meta property="og:url" content="http://www.easywang.site/Technology/iTOP-4412-Driver-I2C/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="I2C总线仅仅使用SCL、SDA这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和PCB板布线空间的占用。因此，I2C总线非常广泛地应用在EEPROM、实时钟、小型LCD等设备与CPU的接口中。 此篇通过 I2C 设备驱动移植来学习 Linux 设备驱动的编写。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compiler: arm-linux">
+<meta property="og:description" content="I2C 总线仅仅使用 SCL、SDA 这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和 PCB 板布线空间的占用。因此，I2C 总线非常广泛地应用在 EEPROM、实时钟、小型 LCD 等设备与 CPU 的接口中。 此篇通过 I2C 设备驱动移植来学习一下 Linux 设备驱动的编写。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compil">
 <meta property="og:locale">
 <meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-connection1.png">
 <meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-Signal-SP.png">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-Addr10.png">
 <meta property="og:image" content="http://www.easywang.site/resources/porting/BH1750-InstructionSet.png">
 <meta property="article:published_time" content="2024-11-07T07:52:00.000Z">
-<meta property="article:modified_time" content="2024-11-07T07:52:29.217Z">
+<meta property="article:modified_time" content="2024-11-07T16:08:10.027Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      系统移植 iTOP-4412 I2C 驱动
+      iTOP-4412 I2C 驱动移植
     </h1>
   
 
@@ -215,8 +215,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I2C总线仅仅使用SCL、SDA这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和PCB板布线空间的占用。因此，I2C总线非常广泛地应用在EEPROM、实时钟、小型LCD等设备与CPU的接口中。</p>
-<p>此篇通过 I2C 设备驱动移植来学习 Linux 设备驱动的编写。</p>
+        <p>I2C 总线仅仅使用 SCL、SDA 这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和 PCB 板布线空间的占用。因此，I2C 总线非常广泛地应用在 EEPROM、实时钟、小型 LCD 等设备与 CPU 的接口中。</p>
+<p>此篇通过 I2C 设备驱动移植来学习一下 Linux 设备驱动的编写。</p>
 <p>试验环境：</p>
 <ul>
 <li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
@@ -478,6 +478,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/Technology/iTOP-4412-3rd-Openssh/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iTOP-4412 第三方软件移植-Openssh
+        
+      </div>
+    </a>
   
   
     <a href="/Thoughts/mind-processing-unit/" id="article-nav-older" class="article-nav-link-wrap">

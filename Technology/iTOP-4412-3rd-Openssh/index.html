@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>心智处理器 | Easy Wang</title>
+  <title>iTOP-4412 第三方软件移植-Openssh | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345LifeTimeLoop()&amp;#123;    吃饭;    睡觉;    打豆豆;&amp;#125; 人的大脑其实在很多时候都类似于一个单核处理器，关键在于我们的调度和执行。">
+  <meta name="description" content="想要使用 scp 方便地通过网络下载文件到开发板，想要通过 ssh 网络登录到开发板，就需要编译和部署 openssh，但是 busybox 默认是不带 openssh 的，这时候就需要我们手动编译了。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compiler: arm-linux-gnueabi-gcc version 4.4.1 (Sourcery">
 <meta property="og:type" content="article">
-<meta property="og:title" content="心智处理器">
-<meta property="og:url" content="http://www.easywang.site/Thoughts/mind-processing-unit/index.html">
+<meta property="og:title" content="iTOP-4412 第三方软件移植-Openssh">
+<meta property="og:url" content="http://www.easywang.site/Technology/iTOP-4412-3rd-Openssh/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="12345LifeTimeLoop()&amp;#123;    吃饭;    睡觉;    打豆豆;&amp;#125; 人的大脑其实在很多时候都类似于一个单核处理器，关键在于我们的调度和执行。">
+<meta property="og:description" content="想要使用 scp 方便地通过网络下载文件到开发板，想要通过 ssh 网络登录到开发板，就需要编译和部署 openssh，但是 busybox 默认是不带 openssh 的，这时候就需要我们手动编译了。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compiler: arm-linux-gnueabi-gcc version 4.4.1 (Sourcery">
 <meta property="og:locale">
-<meta property="article:published_time" content="2024-10-14T06:30:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T14:04:13.731Z">
+<meta property="article:published_time" content="2024-11-07T16:06:00.000Z">
+<meta property="article:modified_time" content="2024-11-07T16:17:42.074Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -179,20 +180,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mind-processing-unit" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-iTOP-4412-3rd-Openssh" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      心智处理器
+      iTOP-4412 第三方软件移植-Openssh
     </h1>
   
 
         
-        <a href="/Thoughts/mind-processing-unit/" class="archive-article-date">
-  	<time datetime="2024-10-14T06:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-14</time>
+        <a href="/Technology/iTOP-4412-3rd-Openssh/" class="archive-article-date">
+  	<time datetime="2024-11-07T16:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-08</time>
 </a>
         
 
@@ -207,12 +208,61 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LifeTimeLoop()&#123;</span><br><span class="line">    吃饭;</span><br><span class="line">    睡觉;</span><br><span class="line">    打豆豆;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>人的大脑其实在很多时候都类似于一个单核处理器，关键在于我们的调度和执行。</p>
+        <p>想要使用 scp 方便地通过网络下载文件到开发板，想要通过 ssh 网络登录到开发板，就需要编译和部署 openssh，但是 busybox 默认是不带 openssh 的，这时候就需要我们手动编译了。</p>
+<p>试验环境：</p>
+<ul>
+<li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
+<li><strong>Compiler:</strong> arm-linux-gnueabi-gcc version 4.4.1 (Sourcery G++ Lite 2009q3-67)</li>
+<li><strong>Kernel:</strong> linux-3.0.15</li>
+<li><strong>Root FS:</strong> busybox-1.22.1</li>
+</ul>
+<p>编译版本：</p>
+<ul>
+<li>zlib-1.2.8（dep）</li>
+<li>openssl-1.1.0l（dep）</li>
+<li>openssh-9.3p1</li>
+</ul>
 <span id="more"></span>
 <p><br/></p>
-<h2 id="调度流程"><a href="#调度流程" class="headerlink" title="调度流程"></a>调度流程</h2><p>其调度流程类比如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">任务表&#123;</span><br><span class="line">    项目计划表,</span><br><span class="line">    年计划表,</span><br><span class="line">    月计划表,</span><br><span class="line">    周计划表,</span><br><span class="line">    日计划表（每日事项、从以上计划中筛选出来的任务）,</span><br><span class="line">    ToDoList（杂项）</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">全局数据: 任务表、中断事务表、日志</span><br><span class="line"></span><br><span class="line">硬中断:</span><br><span class="line">    保存（当前任务数据）</span><br><span class="line">    执行中断请求</span><br><span class="line"></span><br><span class="line">软中断（杂事）:</span><br><span class="line">    保存（当前任务数据）</span><br><span class="line">    加入中断事务表（中断事件）</span><br><span class="line">    <span class="keyword">if</span> 中断事件优先级 <span class="keyword">is</span> Max:</span><br><span class="line">        执行中断事件</span><br><span class="line">        删除中断事务表（中断事件）</span><br><span class="line">        更新日志</span><br><span class="line"></span><br><span class="line">中断注册:</span><br><span class="line">    硬中断（吃喝拉撒、身体不适等）</span><br><span class="line">    软中断（杂事）</span><br><span class="line"></span><br><span class="line">获取任务:</span><br><span class="line">    遍历任务表、中断事务表</span><br><span class="line">    判断任务优先级（紧急程度 &amp; 重要程度）</span><br><span class="line">    <span class="keyword">return</span> 下一任务</span><br><span class="line"></span><br><span class="line">执行任务：</span><br><span class="line">    分解任务</span><br><span class="line">    更新任务表（分解任务）</span><br><span class="line">    <span class="keyword">for</span> 子任务 <span class="keyword">in</span> 分解任务:</span><br><span class="line">        执行子任务</span><br><span class="line">        <span class="keyword">if</span> timeout:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    更新任务表（当前状态）</span><br><span class="line">    更新日志</span><br><span class="line"></span><br><span class="line">main():</span><br><span class="line">    <span class="keyword">while</span>:</span><br><span class="line">        next_task = 获取任务()</span><br><span class="line">        set_timeout_may_be()</span><br><span class="line">        <span class="keyword">if</span> next_task:</span><br><span class="line">            执行任务()</span><br><span class="line">            have_a_rest_may_be()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            flow_for_a_period_of_time()</span><br></pre></td></tr></table></figure>
+<p>默认已将交叉工具编译链在环境变量中配好。</p>
+<h2 id="zlib"><a href="#zlib" class="headerlink" title="zlib"></a>zlib</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> output/zlib <span class="comment"># mkdir output first</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://www.zlib.net/fossils/zlib-1.2.8.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar xzf zlib-1.2.8.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> zlib-1.2.8/</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> CC=arm-none-linux-gnueabi-gcc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./configure --prefix=../output/zlib</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<p>（此步骤非部署 openssh 的必要操作）因为 zlib 是很多软件的依赖，所以把它放到编译器的默认文件夹也是一个省事的做法。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tree output/zlib/</span></span><br><span class="line">output/zlib/</span><br><span class="line">├── include</span><br><span class="line">│   ├── zconf.h</span><br><span class="line">│   └── zlib.h</span><br><span class="line">├── lib</span><br><span class="line">│   ├── libz.a</span><br><span class="line">│   ├── libz.so -&gt; libz.so.1.2.8</span><br><span class="line">│   ├── libz.so.1 -&gt; libz.so.1.2.8</span><br><span class="line">│   ├── libz.so.1.2.8</span><br><span class="line">│   └── pkgconfig</span><br><span class="line">│       └── zlib.pc</span><br><span class="line">└── share</span><br><span class="line">    └── man</span><br><span class="line">        └── man3</span><br><span class="line">            └── zlib.3</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cp</span> output/zlib/include/* /home/easy/Code/4412_test/arm-2009q3/arm-none-linux-gnueabi/libc/usr/include/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cp</span> output/zlib/lib/libz* /home/easy/Code/4412_test/arm-2009q3/arm-none-linux-gnueabi/libc/usr/lib/</span></span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h2 id="openssl"><a href="#openssl" class="headerlink" title="openssl"></a>openssl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> output/openssl <span class="comment"># mkdir output first</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://www.openssl.org/source/old/1.1.0/openssl-1.1.0l.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar xzf openssl-1.1.0l.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> openssl-1.1.0l/</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">export</span> CC= <span class="comment"># clear zlib CC set, use --cross-compile-prefix</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./Configure linux-armv4 no-async  shared --cross-compile-prefix=arm-none-linux-gnueabi- --prefix=<span class="variable">$PWD</span>/../output/openssl/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>--cross-compile-prefix：编译器前缀。如果此时环境变量中存在正确的 CC 配置（在编译 zlib 时配置的），则不要再设置此项，会产生叠加而导致此项设置有误，或者如使用上述命令先清除 CC 配置。</li>
+<li>--prefix：安装地址，需要使用绝对路径。</li>
+</ul>
+<p><br/></p>
+<h2 id="openssh"><a href="#openssh" class="headerlink" title="openssh"></a>openssh</h2><p>依赖于 zlib、openssl。</p>
+<p>编译：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mkdir</span> output/openssh <span class="comment"># mkdir output first</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://cdn.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-9.3p1.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar xzf openssh-9.3p1.tar.gz</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> openssh-9.3p1/</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进行 strip 处理</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./configure CC=arm-none-linux-gnueabi-gcc --host=arm-linux-gnueabi --prefix=<span class="string">&quot;&quot;</span> --with-zlib=<span class="variable">$PWD</span>/../output/zlib --with-ssl-dir=<span class="variable">$PWD</span>/../output/openssl --disable-strip</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make -j 4</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make install-nokeys DESTDIR=<span class="variable">$PWD</span>/../output/openssh STRIP_OPT=<span class="string">&quot;-s --strip-program=arm-none-linux-gnueabi-strip&quot;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>CC：编译器。</li>
+<li>--host：目标板的设备属性。</li>
+<li>--prefix：目标安装地址。scp 传输文件时，默认使用 <code>$(prefix)/bin/ssh</code> 来传输文件，因为使用的是 busybox，所以此处置空。不指定时，默认为 <code>/usr/local</code>。</li>
+<li>--with-zlib：zlib 的安装地址。</li>
+<li>--with-ssl-dir：ssl 的安装地址，同 openssl 的安装地址。</li>
+<li>DESTDIR：install 导出文件的位置。</li>
+<li>STRIP_OPT：<code>strip</code> 程序用于从二进制文件（如可执行文件、库文件等）中移除不必要的信息。这些信息通常包括符号、重定位表和其他调试信息。处理后的程序可以显著减少二进制文件的大小、略微提高程序的启动速度、增大逆向难度。总结：在软件调试过程中，保留信息有利于定位问题；在嵌入式程序发布中，<strong>建议进行 strip 处理</strong>。如不要进行 strip 处理，不填此项即可</li>
+</ul>
+<p><br/></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="部署-scp"><a href="#部署-scp" class="headerlink" title="部署 scp"></a>部署 scp</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cp -r output/zlib/lib/libz.* ../rootfs_patch/lib/</span><br><span class="line"></span><br><span class="line">cp -r output/openssl/bin/* ../rootfs_patch/bin/</span><br><span class="line">cp -r output/openssl/lib/* ../rootfs_patch/lib/</span><br><span class="line">cp -r output/openssl/ssl ../rootfs_patch/etc/</span><br><span class="line"></span><br><span class="line">mkdir ../rootfs_patch/sbin ../rootfs_patch/bin ../rootfs_patch/.ssh</span><br><span class="line">cp -r output/openssh/bin/* ../rootfs_patch/bin/</span><br><span class="line">cp -r output/openssh/etc/* ../rootfs_patch/etc/</span><br><span class="line">cp -r output/openssh/libexec ../rootfs_patch/</span><br><span class="line">cp -r output/openssh/sbin/* ../rootfs_patch/sbin/</span><br><span class="line"></span><br><span class="line">rm -rf ../rootfs_patch/lib/pkgconfig</span><br></pre></td></tr></table></figure>
+<p>../rootfs_patch 相当于根文件夹，对应放入到开发板的 / 目录下，即完成部署。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">[root@iTOP-4412]$ </span><span class="language-bash"><span class="built_in">mkdir</span> ~/.ssh</span></span><br><span class="line"><span class="meta prompt_">[root@iTOP-4412]$ </span><span class="language-bash">scp easy@192.168.0.111:~/test .</span></span><br><span class="line">[10009.789940] [dm96-TxRound].4 for LEN_ODD tail_room +1, rslt add 1</span><br><span class="line">The authenticity of host &#x27;192.168.0.111 (192.168.0.111)&#x27; can&#x27;t be established.</span><br><span class="line">ED25519 key fingerprint is SHA256:xxxxx/xxxxxxxxxxxxxxxx/xxxxxxx.</span><br><span class="line">This key is not known by any other names.</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="line">Warning: Permanently added &#x27;192.168.0.111&#x27; (ED25519) to the list of known hosts.</span><br><span class="line">easy@192.168.0.111&#x27;s password:</span><br><span class="line">test                                       0%    0     0.0K</span><br><span class="line">test                                     100% 1100   168.6KB/s   00:00</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="部署-sshd"><a href="#部署-sshd" class="headerlink" title="部署 sshd"></a>部署 sshd</h3><p><strong>编辑 /etc/passwd</strong>，增加一行：<code>sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</code>。否则报错：Privilege separation user sshd does not exist。</p>
+<p><strong>修改 sshd_config</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+<p>否则无法使用 root 账户登录。</p>
+<p><strong>设置 root 密码</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">[root@iTOP-4412]$ </span><span class="language-bash">passwd root</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入 2 遍密码</span></span><br></pre></td></tr></table></figure>
+<p><strong>启动 sshd</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">[root@iTOP-4412]$ </span><span class="language-bash">/sbin/sshd</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">需要使用绝对路径启动，否则报错：sshd re-exec requires execution with an absolute path</span></span><br></pre></td></tr></table></figure>
+<p><strong>登录测试</strong>：</p>
+<p>使用另外一台可以使用 ssh 的电脑，或者使用 XShell 等 ssh 工具连接。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh root@192.168.0.200</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入密码</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -221,13 +271,24 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
         		</li>
       		
 		</ul>
@@ -282,7 +343,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Thoughts/mind-processing-unit/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/iTOP-4412-3rd-Openssh/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +357,9 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/iTOP-4412-Driver-I2C/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iTOP-4412 I2C 驱动移植
-        
-      </div>
-    </a>
   
-  
-    <a href="/Technology/Qt-SignalsSlots/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Qt - 信号槽机制</div>
+    <a href="/Technology/iTOP-4412-Driver-I2C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iTOP-4412 I2C 驱动移植</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -334,7 +386,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">调度流程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#zlib"><span class="toc-number">1.</span> <span class="toc-text">zlib</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#openssl"><span class="toc-number">2.</span> <span class="toc-text">openssl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#openssh"><span class="toc-number">3.</span> <span class="toc-text">openssh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2"><span class="toc-number">4.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-scp"><span class="toc-number">4.1.</span> <span class="toc-text">部署 scp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-sshd"><span class="toc-number">4.2.</span> <span class="toc-text">部署 sshd</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
