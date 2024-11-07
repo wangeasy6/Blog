@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.easywang.site/Technology/iTOP-4412-Driver-I2C/</loc>
+    <lastmod>2024-11-07</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/git/</loc>
+    <lastmod>2024-11-03</lastmod>
+  </url>
+  <url>
     <loc>http://www.easywang.site/Thoughts/mind-processing-unit/</loc>
     <lastmod>2024-10-21</lastmod>
   </url>
@@ -131,10 +139,6 @@
   <url>
     <loc>http://www.easywang.site/Technology/Ubuntu%E7%BC%96%E8%AF%91%E5%B8%A6ffmpeg%E7%9A%84opencv4.7.0/</loc>
     <lastmod>2023-05-26</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/git/</loc>
-    <lastmod>2023-05-25</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/Technology/Windows%E4%B8%AD%E5%AF%B9%E6%A0%87%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</loc>

@@ -6,15 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>Easy Wang</title>
+  <title>系统移植 iTOP-4412 I2C 驱动 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.easywang.site/page/7/index.html">
+  <meta name="description" content="I2C总线仅仅使用SCL、SDA这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和PCB板布线空间的占用。因此，I2C总线非常广泛地应用在EEPROM、实时钟、小型LCD等设备与CPU的接口中。 此篇通过 I2C 设备驱动移植来学习 Linux 设备驱动的编写。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compiler: arm-linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统移植 iTOP-4412 I2C 驱动">
+<meta property="og:url" content="http://www.easywang.site/Technology/iTOP-4412-Driver-I2C/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="I2C总线仅仅使用SCL、SDA这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和PCB板布线空间的占用。因此，I2C总线非常广泛地应用在EEPROM、实时钟、小型LCD等设备与CPU的接口中。 此篇通过 I2C 设备驱动移植来学习 Linux 设备驱动的编写。 试验环境：  Board: iTOP-4412 POP 1G Elite（精英板） Compiler: arm-linux">
 <meta property="og:locale">
+<meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-connection1.png">
+<meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-Signal-SP.png">
+<meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-Signals.jpeg">
+<meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-Addr7.png">
+<meta property="og:image" content="http://www.easywang.site/resources/porting/I2C-Addr10.png">
+<meta property="og:image" content="http://www.easywang.site/resources/porting/BH1750-InstructionSet.png">
+<meta property="article:published_time" content="2024-11-07T07:52:00.000Z">
+<meta property="article:modified_time" content="2024-11-07T07:52:29.217Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.easywang.site/resources/porting/I2C-connection1.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -175,358 +187,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-我想当个作家" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-iTOP-4412-Driver-I2C" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/Thoughts/%E6%88%91%E6%83%B3%E5%BD%93%E4%B8%AA%E4%BD%9C%E5%AE%B6/">我想当个作家</a>
+    <h1 class="article-title" itemprop="name">
+      系统移植 iTOP-4412 I2C 驱动
     </h1>
   
 
         
-        <a href="/Thoughts/%E6%88%91%E6%83%B3%E5%BD%93%E4%B8%AA%E4%BD%9C%E5%AE%B6/" class="archive-article-date">
-  	<time datetime="2019-10-18T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+        <a href="/Technology/iTOP-4412-Driver-I2C/" class="archive-article-date">
+  	<time datetime="2024-11-07T07:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-07</time>
 </a>
         
 
         <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
         
 
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>故事，每个人都写过，甚至是说故事，讲笑话，都不在话下。</p>
-<p>但有的人说故事活灵活现，讲笑话令人捧腹，这里面的顶尖人才竟能以此为业，当作家、做编剧、演脱口秀，甚至是做导演拍电影儿，这就是更复杂、更丰富的艺术了。</p>
-<p>我等凡人，接触得多了，自然是心向往之，竟也出现了我是不是也能做到的妄想。</p>
-        
-          <a class="article-more-a" href="/Thoughts/%E6%88%91%E6%83%B3%E5%BD%93%E4%B8%AA%E4%BD%9C%E5%AE%B6/#more">more >></a>
-        
-      
+        <p>I2C总线仅仅使用SCL、SDA这两根信号线就实现了设备之间的数据交互，极大地简化了对硬件资源和PCB板布线空间的占用。因此，I2C总线非常广泛地应用在EEPROM、实时钟、小型LCD等设备与CPU的接口中。</p>
+<p>此篇通过 I2C 设备驱动移植来学习 Linux 设备驱动的编写。</p>
+<p>试验环境：</p>
+<ul>
+<li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
+<li><strong>Compiler:</strong> arm-linux-gnueabi-gcc version 4.4.1 (Sourcery G++ Lite 2009q3-67)</li>
+<li><strong>Kernel:</strong> linux-3.0.15</li>
+<li><strong>Root FS:</strong> busybox-1.22.1</li>
+<li><strong>I2C Device</strong>: BH1750</li>
+</ul>
+<span id="more"></span>
+<p><br/></p>
+<h2 id="I2C-传输"><a href="#I2C-传输" class="headerlink" title="I2C 传输"></a>I2C 传输</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>I2C（Inter-Integrated Circuit，内部集成电路总线）是一种同步的、多主机、多从机、打包的串行通信协议，用于连接低速率外部设备到微控制器和类似的系统中。</p>
+<p>以下是I2C总线的一些关键特点和介绍：</p>
+<ol>
+<li><p><strong>同步通信</strong>：I2C总线数据传输是由时钟信号同步的。</p>
+</li>
+<li><p><strong>多主机和多从机</strong>：I2C总线支持多个主机（可以发送数据的设备）和多个从机（接收数据的设备）。</p>
+</li>
+<li><p><strong>串行通信</strong>：I2C使用两条线进行通信：数据线（SDA）和时钟线（SCL）。所有设备共享这两条线。</p>
+</li>
+<li><p><strong>地址空间</strong>：I2C协议允许每个从机设备有一个唯一的地址，这样主机就可以通过发送正确的地址来选择特定的从机进行通信。</p>
+</li>
+<li><p><strong>数据包传输</strong>：I2C通信是通过数据包进行的，每个数据包包括起始条件、设备地址、读写位、数据字节和停止条件。</p>
+</li>
+<li><p><strong>速度</strong>：I2C有不同的速度模式，包括标准模式（最高 100 kbit/s）、快速模式（最高 400 kbit/s）、快速模式Plus（最高 1 Mbit/s）和高速模式（最高 3.4 Mbit/s），更高速率的器件兼容低速模式。</p>
+</li>
+<li><p><strong>电源和地线</strong>：除了SDA和SCL线外，I2C总线设备还需要连接电源（VCC）和地线（GND）。</p>
+</li>
+<li><p><strong>上拉电阻</strong>：在SDA和SCL线上通常需要外部的上拉电阻，以确保在没有设备驱动这些线时，它们能够保持高电平。</p>
+</li>
+<li><p><strong>仲裁和冲突检测</strong>：I2C协议包括仲裁机制，以解决多个主机同时尝试控制总线的情况。此外，还有冲突检测机制，以确保数据传输的完整性。</p>
+</li>
+<li><p><strong>扩展性</strong>：I2C总线可以通过添加更多的从机设备来扩展，只要总线上的电容和电阻在规定的范围内。</p>
+</li>
+<li><p><strong>应用广泛</strong>：I2C总线广泛应用于各种电子设备中，包括传感器、显示器、存储器、音频设备等。</p>
+</li>
+</ol>
+<p>I2C总线因其简单、灵活和成本效益高而被广泛采用，特别是在嵌入式系统中。</p>
+<h3 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a>硬件连接</h3><p>一个典型的 I2C 硬件连接如下图所示：</p>
+<p><img src="\resources\porting\I2C-connection1.png" alt="I2C-connection"></p>
+<p>在常见的应用中，通常只有一个主设备。而 I2C 总线的多主机功能允许通过外部连接到生产线快速测试和调整最终用户的设备。</p>
+<p>每个从设备都有一个唯一的地址识别。</p>
+<h3 id="传输时序"><a href="#传输时序" class="headerlink" title="传输时序"></a>传输时序</h3><p>参见视频讲解：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RzxJeMEdy">一次讲透I2C总线时序图，单片机IIC通信协议底层【洋桃电子大百科P28】</a></p>
+<p>已知，在同一条线上，只能有2种状态：高电平 和 低电平。那么 I2C 是如何使用这 2 条线的 2 种状态来传输数据的呢？</p>
+<p>在数字电路中，我们将高电平视为 1，将低电平视为 0。</p>
+<p>为了避免总线信号的混乱，要求各设备连接到总线的输出端必须是开漏输出或集电极开路输出的结构。总线空闲时，上拉电阻使 SDA 和 SCL 线都保持高电平。为了使上拉电阻有效，连接到总线的器件输出级必须是漏极开路或集电极开路。根据开漏输出或集电极开路输出信号的“线与”逻辑，I2C 总线上任意器件输出低电平都会使相应总线上的信号线变低。</p>
+<p>SDA 线上的数据必须在时钟的高电平周期保持稳定。数据线的高或低电平状态只有在 SCL 线的时钟信号是低电平时才能改变。</p>
+<p>一个完整的数据包由 开始信号（S）、寻址命令、数据传输、答信号（ACK）、结束信号（P） 组成：</p>
+<ul>
+<li><p>开始信号：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。</p>
+</li>
+<li><p>结束信号：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。</p>
+<p><img src="\resources\porting\I2C-Signal-SP.png" alt="I2C-Signal-SP"></p>
+</li>
+<li><p>在开始信号和结束信号之间以字节为单位传输数据，每个字节后必须跟一个响应位，每次传输可以发送的字节数量不受限制。数据是一位一位地进行传输，先传输高位（MSB），再传输低位（LSB）。</p>
+</li>
+<li><p>应答信号：接收设备在接收到 8bit 数据后，在第 9 个时钟周期，向发送设备发送低电平，表示成功收到数据。</p>
+<p><img src="\resources\porting\I2C-Signals.jpeg" alt="I2C-Signals"></p>
+</li>
+</ul>
+<p>总线在起始条件后被认为处于忙的状态，在停止条件的某段时间后，总线被认为再次处于空闲状态。</p>
+<p><strong>设备地址</strong></p>
+<p>I2C 设备用一个 7 位或 10 位的数字，唯一标识自己。在地址匹配后，从设备做出应答并执行对应操作。I2C 设备地址由固定部分和可编程部分构成。这样 I2C 总线就可以支持一个 I2C 总线上挂载多个同样的器件，而地址不同。I2C 地址的可编程部分最大数量就是可以连接到 I2C 总线上相同器件的数量。一般可编程的部分的值，由特定引脚的电器连接决定。例如，I2C 器件用 7 为地址来标识自己，有 4 个固定的和 3 个可编程的地址位，那么相同的总线上共可以连接 8 个相同的器件。</p>
+<p><strong>总线寻址</strong></p>
+<p>I2C 总线的寻址过程是通常在起始信号后的第一个字节决定了主机选择哪一个从机。例外的情况是可以寻址所有器件的广播地址，使用这个地址时理论上所有器件都会发出一个响应，但是也可以使器件忽略这个地址。</p>
+<p>第一个字节的头 7 位组成了从机地址，第 8 位它决定了数据传输的方向，第一个字节的最低位是 0 表示主机会写信息到被选中的从机；1  表示主机会向从机读信息。如下图所示：</p>
+<p><img src="\resources\porting\I2C-Addr7.png" alt="I2C-Addr7"></p>
+<p>10 位寻址和 7 位寻址兼容，而且可以混合使用。10 位寻址过程是起始信号后的头两个字节，通常决定了主机要寻址哪个从机。若第一个字节的头 5 位是 11110，则代表使用 10 位寻址，而第一个字节的 6、7 位 + 第二个字节 8 位 组成了 10 位寻址，第一个字节的 6、7 位为 10 位地址的两个最高位（MSB）。第一个字节的第 8 位是 R/W 位，决定了数据传输的方向，0 表示主机会写信息到被选中的从机；1  表示主机会向从机读信息。如下图所示：</p>
+<p><img src="\resources\porting\I2C-Addr10.png" alt="I2C-Addr10"></p>
+<p><br/></p>
+<h2 id="BH1750"><a href="#BH1750" class="headerlink" title="BH1750"></a>BH1750</h2><p>实际使用模块：<a target="_blank" rel="noopener" href="https://detail.tmall.com/item.htm?_u=u1nungt9a60f&amp;id=543135220776&amp;spm=a1z09.2.0.0.77712e8dCIcbPw">Risym GY-302 BH1750 光强度光照度模块</a></p>
+<h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>BH1750是一款高精度的数字光照强度传感器，由罗姆（ROHM）半导体集团出品。以下是BH1750的一些基本特性和简介：</p>
+<ol>
+<li><strong>两线式串行总线接口</strong>：具有I2C总线接口，支持快速或标准模式（F/S模式），使得连接和使用变得简单。</li>
+<li><strong>可选择2种I2C从地址</strong>：支持两种I2C地址，可以通过 ADDR 引脚的电平来选择。（ADDR 引脚浮空或接地时地址为 0x23，接电源时地址为 0x5C）</li>
+<li><strong>内置16位AD转换器</strong>：内置了16位的模数转换器，能够将光照强度转换为数字信号，无需额外的计算。</li>
+<li><strong>宽泛的测量范围</strong>：光照度测量范围是1-65535lx。</li>
+<li><strong>近似人眼的光谱反应能力</strong>：光谱响应接近人眼，能够更准确地模拟人对光线的感知。</li>
+<li><strong>光源依赖性小</strong>：受红外线影响很小，适用于多种光源，如白炽灯、荧光灯、卤素灯、白光LED、太阳光等。</li>
+<li><strong>光噪声抑制功能</strong>：具备50Hz/60Hz光噪声抑制功能，提高测量的准确性。</li>
+</ol>
+<p>BH1750 广泛应用于移动手机、LCD电视、电脑PC、掌上游戏机、数码相机、数码摄像机、汽车导航、PDA、LCD显示屏幕等设备中，用于调节背光亮度或智能灯光控制。</p>
+<h3 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h3><p>BH1750 支持 6 种读取模式，这里选择 One Time H-Resolution Mode，命令码为 0x20。</p>
+<p><img src="\resources\porting\BH1750-InstructionSet.png" alt="BH1750-InstructionSet"></p>
+<h4 id="循环单次读取流程"><a href="#循环单次读取流程" class="headerlink" title="循环单次读取流程"></a>循环单次读取流程</h4><ul>
+<li><p>Power Down：write 0x00</p>
+</li>
+<li><p>Power On：write 0x01</p>
+</li>
+<li><p>Reset：write 0x07</p>
+</li>
+<li><p>read():</p>
+<ul>
+<li>One Time H-Resolution：write 0x20</li>
+<li>Measurement Time：sleep_ms(180)</li>
+<li>read(2)</li>
+<li>计算</li>
+</ul>
+</li>
+</ul>
+<h3 id="驱动程序"><a href="#驱动程序" class="headerlink" title="驱动程序"></a>驱动程序</h3><h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4><p>在 Linux 驱动架构中，和 I2C 相关的有以下 4 个方面：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bus    -&gt; Algorithm</span><br><span class="line">          Adapter</span><br><span class="line">Device -&gt; Driver</span><br><span class="line">          Client</span><br></pre></td></tr></table></figure>
+<p>Algorithm 驱动程序包含可用于整类I2C适配器的通用代码。每个特定的适配器驱动程序要么依赖于一个算法驱动程序，要么包含自己的实现。</p>
+<p>Driver 驱动程序（是的，这听起来很荒谬，抱歉）包含访问某种类型设备的通用代码。每个检测到的设备在客户端结构中都有自己的数据。通常，驱动程序和客户端比算法和适配器集成得更紧密。</p>
+<p>对于给定的配置，需要 I2C 总线的驱动程序和 I2C 设备的驱动程序（通常每个设备一个驱动程序）。</p>
+<p>目前，Linux 仅在主模式下运行I2C（或SMBus）；不能使用这些 API 使 Linux 系统表现为从属/设备，无论是使用自定义协议还是模拟其他设备。</p>
+<p>一个具体的I2C设备驱动由 i2c_driver 的形式进行组织，用于将设备挂接于I2C总线，组织好了后，再完成设备本身所属类型的驱动。</p>
+<h4 id="内核编译-vs-模块加载"><a href="#内核编译-vs-模块加载" class="headerlink" title="内核编译 vs 模块加载"></a>内核编译 vs 模块加载</h4><p>在Linux系统中，驱动程序可以以两种方式被集成到系统中：编译到内核（Built-in）和作为模块加载（Loadable Module）。</p>
+<p>这两种方式有以下主要区别：</p>
+<p><strong>编译到内核（Built-in）</strong></p>
+<ul>
+<li><strong>集成方式</strong>：驱动代码直接编译到内核镜像中，成为内核的一部分。</li>
+<li><strong>启动速度</strong>：因为驱动已经集成在内核中，系统启动时不需要额外加载驱动，所以启动速度更快。</li>
+<li><strong>系统资源占用</strong>：即使驱动不被使用，其代码也会占用系统内存。</li>
+<li><strong>灵活性</strong>：驱动一旦编译到内核中，就无法在不重新编译内核的情况下更换或升级驱动。</li>
+<li><strong>错误影响</strong>：驱动中的错误可能会影响到整个系统的稳定性。</li>
+<li><strong>调试难度</strong>：如果驱动出现问题，可能需要重新编译内核才能修复。</li>
+</ul>
+<p><strong>模块加载（Loadable Module）</strong></p>
+<ul>
+<li><strong>集成方式</strong>：驱动作为独立的模块编译，可以在系统运行时动态加载和卸载。</li>
+<li><strong>启动速度</strong>：系统启动时不需要加载所有驱动，只有当需要时才加载特定的驱动模块，这可能会稍微增加启动时间。</li>
+<li><strong>系统资源占用</strong>：只有当模块被加载时，其代码才会占用系统内存，未加载的模块不会占用内存。</li>
+<li><strong>灵活性</strong>：模块可以在不重启系统的情况下加载和卸载，方便升级和更换驱动。</li>
+<li><strong>错误影响</strong>：模块中的错误通常不会影响到整个系统的稳定性，因为模块是可以被隔离和卸载的。</li>
+<li><strong>调试难度</strong>：如果模块出现问题，可以单独卸载并重新加载，或者重新编译后加载，不需要重新启动整个系统。</li>
+</ul>
+<p><strong>总结</strong></p>
+<ul>
+<li><strong>编译到内核</strong>适合那些始终需要并且对启动速度有要求的驱动。</li>
+<li><strong>模块加载</strong>提供了更高的灵活性和更好的资源管理，适合那些不是始终需要或者经常更新的驱动。</li>
+</ul>
+<p>在实际应用中，大多数驱动程序都是作为模块来实现的，这样可以提供更好的系统稳定性和灵活性。开发者可以根据具体的需求和场景来选择最合适的集成方式。</p>
+<h4 id="作为模块加载"><a href="#作为模块加载" class="headerlink" title="作为模块加载"></a>作为模块加载</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bh1750.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/kernel.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/i2c.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/input.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/delay.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/slab.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/platform_device.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;asm/uaccess.h&gt;</span> </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/miscdevice.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEVICE_NAME  <span class="string">&quot;bh1750&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BH1750_I2C_ADDR 0x23</span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_board_info</span> <span class="title">my_bh1750_info</span> =</span> &#123;</span><br><span class="line">	I2C_BOARD_INFO(DEVICE_NAME, BH1750_I2C_ADDR),</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_client</span> *<span class="title">bh1750_client</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">bh1750_open_func</span><span class="params">(<span class="keyword">struct</span> inode * ind, <span class="keyword">struct</span> file *filp)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">uint8_t</span> cmd[] = &#123;<span class="number">0x00</span>, <span class="number">0x01</span>, <span class="number">0x07</span>&#125;;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msgs</span>[] =</span> &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd[<span class="number">0</span>],</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd[<span class="number">1</span>],</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd[<span class="number">2</span>],</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> ret = i2c_transfer(bh1750_client-&gt;adapter, msgs, <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		pr_err(<span class="string">&quot;read reg error!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">ssize_t</span> <span class="title function_">bh1750_read_func</span><span class="params">(<span class="keyword">struct</span> file *filp, <span class="type">char</span> __user *buffer, <span class="type">size_t</span> count, <span class="type">loff_t</span> *ppos)</span>&#123;</span><br><span class="line">	<span class="type">uint8_t</span> readbuf[<span class="number">2</span>] =&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">uint32_t</span> light_intensity_32 = <span class="number">0</span>;</span><br><span class="line">	<span class="type">uint16_t</span> light_intensity = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="type">uint8_t</span> cmd = <span class="number">0x20</span>;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msg_send</span>[1] =</span> &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msgs_read</span>[1] =</span> &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">1</span>,</span><br><span class="line">			.len	= <span class="number">2</span>,</span><br><span class="line">			.buf	= readbuf,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> ret = i2c_transfer(bh1750_client-&gt;adapter, msg_send, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		pr_err(<span class="string">&quot;write cmd error!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	mdelay(<span class="number">180</span>);</span><br><span class="line"></span><br><span class="line">	ret = i2c_transfer(bh1750_client-&gt;adapter, msgs_read, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		pr_err(<span class="string">&quot;read reg error!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// printk(&quot;Read data: %x %x\n&quot;, readbuf[0], readbuf[1]);</span></span><br><span class="line"></span><br><span class="line">	light_intensity_32 = (readbuf[<span class="number">0</span>]&lt;&lt;<span class="number">8</span> | readbuf[<span class="number">1</span>]) * <span class="number">10</span> / <span class="number">12</span>;</span><br><span class="line">	light_intensity = light_intensity_32;</span><br><span class="line">    <span class="comment">// printk(&quot;Lux value: %d\n&quot;, light_intensity);</span></span><br><span class="line"></span><br><span class="line">	ret = copy_to_user(buffer,&amp;light_intensity,<span class="number">2</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span> <span class="title">bh1750_ops</span> =</span> &#123;</span><br><span class="line">	.owner 	= THIS_MODULE,</span><br><span class="line">	.open 	= bh1750_open_func,</span><br><span class="line">	.read 	= bh1750_read_func,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">miscdevice</span> <span class="title">bh1750_dev</span> =</span> &#123;</span><br><span class="line">	.minor	= MISC_DYNAMIC_MINOR,</span><br><span class="line">	.fops	= &amp;bh1750_ops,</span><br><span class="line">	.name	= DEVICE_NAME,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_device_id</span> <span class="title">bh1750_id</span>[] =</span> &#123;</span><br><span class="line">	&#123; DEVICE_NAME, <span class="number">0</span> &#125;,</span><br><span class="line">	&#123; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> __init <span class="title function_">bh1750_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">i2c_adapter</span> *<span class="title">i2c_adap</span>;</span></span><br><span class="line">    i2c_adap = i2c_get_adapter(<span class="number">7</span>);</span><br><span class="line">    printk(<span class="string">&quot;i2c_get_adapter: i2c-%d\n&quot;</span>, i2c_adap-&gt;nr);</span><br><span class="line">    <span class="comment">// bh1750_client = i2c_new_probed_device(i2c_adap, &amp;my_i2c_dev_info, addr_list, NULL);</span></span><br><span class="line">    bh1750_client = i2c_new_device(i2c_adap, &amp;my_bh1750_info);</span><br><span class="line">    i2c_put_adapter(i2c_adap);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (bh1750_client)</span><br><span class="line">    &#123;</span><br><span class="line">		misc_register(&amp;bh1750_dev);</span><br><span class="line">		printk(<span class="string">&quot;%s init: addr=0x%x @ IIC%d, irq=%d\n&quot;</span>,</span><br><span class="line">			bh1750_client-&gt;name,bh1750_client-&gt;addr,bh1750_client-&gt;adapter-&gt;nr,bh1750_client-&gt;irq);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> -ENODEV;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">static</span> <span class="type">void</span> __exit <span class="title function_">bh1750_exit</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	misc_deregister(&amp;bh1750_dev);</span><br><span class="line">	i2c_unregister_device(bh1750_client);</span><br><span class="line">	printk(<span class="string">&quot;== %s\n&quot;</span>, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(bh1750_init);</span><br><span class="line">module_exit(bh1750_exit);</span><br><span class="line"></span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;EasyWang&quot;</span>);</span><br><span class="line">MODULE_DESCRIPTION(<span class="string">&quot;BH1750_I2CTest&quot;</span>);</span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL v2&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>编译文件：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Makefile</span></span><br><span class="line">obj-m += bh1750.o</span><br><span class="line"></span><br><span class="line">KDIR := ../../iTop4412_Kernel_3.0	<span class="comment"># Kernel root folder</span></span><br><span class="line">CC := arm-none-linux-gnueabi-gcc	<span class="comment"># Target board compiler</span></span><br><span class="line"></span><br><span class="line">PWD := <span class="variable">$(<span class="built_in">shell</span> pwd)</span> </span><br><span class="line"></span><br><span class="line"><span class="section">all: ko test				# make</span></span><br><span class="line"></span><br><span class="line"><span class="section">ko:	bh1750.c				# make ko</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> -C <span class="variable">$(KDIR)</span> M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"></span><br><span class="line"><span class="section">test: bh1750_misc_read.c	# make test</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$&lt;</span> -o bh1750_read</span><br><span class="line">	</span><br><span class="line"><span class="section">clean:  </span></span><br><span class="line">	rm *.mod.c *.o *.ko  modules.* Module.* bh1750_read</span><br></pre></td></tr></table></figure>
+<p>bh1750_misc_read.c 见<a href="#读取测试">读取测试</a>。</p>
+<h4 id="编译到内核"><a href="#编译到内核" class="headerlink" title="编译到内核"></a>编译到内核</h4><p>添加编译选项：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iTop4412_Kernel_3.0/drivers/i2c/chips/Kconfig</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Miscellaneous I2C chip drivers configuration</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">menu <span class="string">&quot;Miscellaneous I2C Chip support&quot;</span></span><br><span class="line"></span><br><span class="line">config SENSOR_ROHM_BH1721</span><br><span class="line">	tristate <span class="string">&quot;Rohm BH1721 Light Sensor&quot;</span></span><br><span class="line">	depends on EXPERIMENTAL</span><br><span class="line">	help</span><br><span class="line">	  If you say yes here you get support for Rohm BH1721 Light Sensor.</span><br><span class="line"></span><br><span class="line">config SENSOR_ROHM_BH1750</span><br><span class="line">	tristate <span class="string">&quot;Rohm BH1750 Light Sensor&quot;</span></span><br><span class="line">	depends on EXPERIMENTAL</span><br><span class="line">	help</span><br><span class="line">	  If you say yes here you get support for Rohm BH1750 Light Sensor.</span><br><span class="line"></span><br><span class="line">endmenu</span><br></pre></td></tr></table></figure>
+<p>修改编译脚本：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iTop4412_Kernel_3.0/drivers/i2c/chips/Makefile</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Makefile for miscellaneous I2C chip drivers.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">obj-<span class="variable">$(CONFIG_SENSOR_ROHM_BH1721)</span>	+= rohm_bh1721.o</span><br><span class="line">obj-<span class="variable">$(CONFIG_SENSOR_ROHM_BH1750)</span>	+= rohm_bh1750.o</span><br></pre></td></tr></table></figure>
+<p>驱动文件：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iTop4412_Kernel_3.0/drivers/i2c/chips/rohm_bh1750.c</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/kernel.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/module.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/i2c.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/input.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/delay.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/slab.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/platform_device.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;asm/uaccess.h&gt;</span> </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;linux/miscdevice.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DEVICE_NAME  <span class="string">&quot;bh1750&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BH1750_I2C_ADDR 0x23</span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_client</span> *<span class="title">bh1750_client</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">bh1750_open_func</span><span class="params">(<span class="keyword">struct</span> inode * ind, <span class="keyword">struct</span> file *filp)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">uint8_t</span> cmd[] = &#123;<span class="number">0x00</span>, <span class="number">0x01</span>, <span class="number">0x07</span>&#125;;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msgs</span>[] =</span> &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd[<span class="number">0</span>],</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd[<span class="number">1</span>],</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd[<span class="number">2</span>],</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> ret = i2c_transfer(bh1750_client-&gt;adapter, msgs, <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		pr_err(<span class="string">&quot;read reg error!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">ssize_t</span> <span class="title function_">bh1750_read_func</span><span class="params">(<span class="keyword">struct</span> file *filp, <span class="type">char</span> __user *buffer, <span class="type">size_t</span> count, <span class="type">loff_t</span> *ppos)</span>&#123;</span><br><span class="line">	<span class="type">uint8_t</span> readbuf[<span class="number">2</span>] =&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="type">uint32_t</span> light_intensity_32 = <span class="number">0</span>;</span><br><span class="line">	<span class="type">uint16_t</span> light_intensity = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="type">uint8_t</span> cmd = <span class="number">0x20</span>;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msg_send</span>[1] =</span> &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">0</span>,</span><br><span class="line">			.len	= <span class="number">1</span>,</span><br><span class="line">			.buf	= &amp;cmd,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">i2c_msg</span> <span class="title">msgs_read</span>[1] =</span> &#123;</span><br><span class="line">		&#123;</span><br><span class="line">			.addr	= bh1750_client-&gt;addr,</span><br><span class="line">			.flags	= <span class="number">1</span>,</span><br><span class="line">			.len	= <span class="number">2</span>,</span><br><span class="line">			.buf	= readbuf,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> ret = i2c_transfer(bh1750_client-&gt;adapter, msg_send, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		pr_err(<span class="string">&quot;write cmd error!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	mdelay(<span class="number">180</span>);</span><br><span class="line"></span><br><span class="line">	ret = i2c_transfer(bh1750_client-&gt;adapter, msgs_read, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>) &#123;</span><br><span class="line">		pr_err(<span class="string">&quot;read reg error!\n&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// printk(&quot;Read data: %x %x\n&quot;, readbuf[0], readbuf[1]);</span></span><br><span class="line"></span><br><span class="line">	light_intensity_32 = (readbuf[<span class="number">0</span>]&lt;&lt;<span class="number">8</span> | readbuf[<span class="number">1</span>]) * <span class="number">10</span> / <span class="number">12</span>;</span><br><span class="line">	light_intensity = light_intensity_32;</span><br><span class="line">    <span class="comment">// printk(&quot;Lux value: %d\n&quot;, light_intensity);</span></span><br><span class="line"></span><br><span class="line">	ret = copy_to_user(buffer,&amp;light_intensity,<span class="number">2</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">file_operations</span> <span class="title">bh1750_ops</span> =</span> &#123;</span><br><span class="line">	.owner 	= THIS_MODULE,</span><br><span class="line">	.open 	= bh1750_open_func,</span><br><span class="line">	.read 	= bh1750_read_func,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">miscdevice</span> <span class="title">bh1750_dev</span> =</span> &#123;</span><br><span class="line">	.minor	= MISC_DYNAMIC_MINOR,</span><br><span class="line">	.fops	= &amp;bh1750_ops,</span><br><span class="line">	.name	= DEVICE_NAME,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">bh1750_probe</span><span class="params">(<span class="keyword">struct</span> i2c_client *client, <span class="type">const</span> <span class="keyword">struct</span> i2c_device_id *id)</span></span><br><span class="line">&#123;</span><br><span class="line">	bh1750_client = client;</span><br><span class="line">	printk(<span class="string">&quot;%s init: addr=0x%x @ IIC%d, irq=%d\n&quot;</span>,</span><br><span class="line">		bh1750_client-&gt;name,bh1750_client-&gt;addr,bh1750_client-&gt;adapter-&gt;nr,bh1750_client-&gt;irq);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (bh1750_client)</span><br><span class="line">    &#123;</span><br><span class="line">		misc_register(&amp;bh1750_dev);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> -ENODEV;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> __devexit <span class="title function_">bh1750_remove</span><span class="params">(<span class="keyword">struct</span> i2c_client *client)</span></span><br><span class="line">&#123;</span><br><span class="line">	misc_deregister(&amp;bh1750_dev);</span><br><span class="line">	printk(<span class="string">&quot;== %s\n&quot;</span>, __func__);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_device_id</span> <span class="title">bh1750_id</span>[] =</span></span><br><span class="line">&#123;</span><br><span class="line">	&#123; DEVICE_NAME, <span class="number">0</span> &#125;,</span><br><span class="line">	&#123; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="class"><span class="keyword">struct</span> <span class="title">i2c_driver</span> <span class="title">bh1750_driver</span> =</span></span><br><span class="line">&#123;</span><br><span class="line">	.probe		= bh1750_probe,</span><br><span class="line">	.remove		= __devexit_p(bh1750_remove),</span><br><span class="line">	.id_table	= bh1750_id,</span><br><span class="line">	.driver = &#123;</span><br><span class="line">		.name	= DEVICE_NAME,</span><br><span class="line">		.owner = THIS_MODULE,</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> __init <span class="title function_">bh1750_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> i2c_add_driver(&amp;bh1750_driver);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">static</span> <span class="type">void</span> __exit <span class="title function_">bh1750_exit</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">	i2c_del_driver(&amp;bh1750_driver);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module_init(bh1750_init);</span><br><span class="line">module_exit(bh1750_exit);</span><br><span class="line"></span><br><span class="line">MODULE_AUTHOR(<span class="string">&quot;EasyWang&quot;</span>);</span><br><span class="line">MODULE_DESCRIPTION(<span class="string">&quot;BH1750_I2CTest&quot;</span>);</span><br><span class="line">MODULE_LICENSE(<span class="string">&quot;GPL v2&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><code>make meunconfig</code> 打开 <code>CONFIG_SENSOR_ROHM_BH1750</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Device Drivers  ---&gt;</span><br><span class="line">    &lt;*&gt; I2C support  ---&gt;</span><br><span class="line">        Miscellaneous I2C Chip support  ---&gt;</span><br><span class="line">            &lt;*&gt; Rohm BH1750 Light Sensor</span><br></pre></td></tr></table></figure>
+<p>在板级文件：arch\arm\mach-exynos\mach-itop4412.c 中添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">static struct i2c_board_info i2c_devs7[] __initdata = &#123;</span><br><span class="line">#ifdef CONFIG_SENSOR_ROHM_BH1750</span><br><span class="line">	&#123;</span><br><span class="line">        I2C_BOARD_INFO(&quot;bh1750&quot;, 0x23),</span><br><span class="line">        .type		= &quot;bh1750&quot;,</span><br><span class="line">        .platform_data	= NULL,</span><br><span class="line">        .irq = IRQ_EINT(0),</span><br><span class="line">     &#125;</span><br><span class="line">#endif</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">static void __init smdk4x12_machine_init(void)</span><br><span class="line">&#123;</span><br><span class="line">	s3c_i2c7_set_platdata(NULL);</span><br><span class="line">	i2c_register_board_info(7, i2c_devs7, ARRAY_SIZE(i2c_devs7));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>加载信息如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[    4.040677] i2c /dev entries driver</span><br><span class="line">[    4.045122] bh1750 init: addr=0x23 @ IIC7, irq=352</span><br></pre></td></tr></table></figure>
+<p>另记一个手动将设备添加到 /dev 的方法（此处因注册 misc 会自动添加）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> /sys/class/misc/bh1750/dev </span><br><span class="line">10:50</span><br><span class="line">$ <span class="built_in">mknod</span> /dev/bh1750_0 c 10 50</span><br></pre></td></tr></table></figure>
+<h3 id="读取测试"><a href="#读取测试" class="headerlink" title="读取测试"></a>读取测试</h3><p>在驱动加载好之后，就可以使用用户程序读取 BH1750 的值了。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bh1750_misc_read.c</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span>    <span class="comment">// open</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span>   <span class="comment">// read, close</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span>    <span class="comment">// printf</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> &#123;</span><br><span class="line">    <span class="type">int</span> fd;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">short</span> light_intensity = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(argc == <span class="number">2</span>)</span><br><span class="line">        fd = open(argv[<span class="number">1</span>], O_RDONLY|O_NONBLOCK);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        fd = open(<span class="string">&quot;/dev/bh1750&quot;</span>, O_RDONLY|O_NONBLOCK);</span><br><span class="line">    <span class="keyword">if</span> (fd &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        perror(<span class="string">&quot;open&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;device open success.\r\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> ret = read(fd, &amp;light_intensity, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Read size: %d.\r\n&quot;</span>, ret);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ret == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Read light intensity: %d lux.\r\n&quot;</span>, light_intensity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;device close success.\r\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">device open success.</span><br><span class="line">Read size: 2.</span><br><span class="line">Read light intensity: 205 lux.</span><br><span class="line">device close success.</span><br></pre></td></tr></table></figure>
+<h2 id="i2ctool-i2cdetect"><a href="#i2ctool-i2cdetect" class="headerlink" title="i2ctool(i2cdetect)"></a>i2ctool(i2cdetect)</h2><h3 id="编译部署"><a href="#编译部署" class="headerlink" title="编译部署"></a>编译部署</h3><p>源码仓库：<a target="_blank" rel="noopener" href="https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git/">i2c-tools/i2c-tools.git - I2C and SMBus user-space tools</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.kernel.org/pub/scm/utils/i2c-tools/i2c-tools.git/snapshot/i2c-tools-4.4.tar.gz</span><br><span class="line">tar xzf i2c-tools-4.4.tar.gz</span><br><span class="line">cd i2c-tools-4.4/</span><br><span class="line"></span><br><span class="line">make CC=arm-none-linux-gnueabi-gcc BUILD_DYNAMIC_LIB=1 BUILD_STATIC_LIB=0</span><br><span class="line">make CC=arm-none-linux-gnueabi-gcc AR=arm-none-linux-gnueabi-ar STRIP=arm-none-linux-gnueabi-strip strip</span><br><span class="line">mkdir ../output/i2c-tools</span><br><span class="line">make PREFIX=../output/i2c-tools install</span><br></pre></td></tr></table></figure>
+<p>得到文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">output/i2c-tools/</span><br><span class="line">├── bin</span><br><span class="line">│   ├── ddcmon</span><br><span class="line">│   ├── decode-dimms</span><br><span class="line">│   ├── decode-edid</span><br><span class="line">│   └── decode-vaio</span><br><span class="line">├── include</span><br><span class="line">│   └── i2c</span><br><span class="line">│       └── smbus.h</span><br><span class="line">├── lib</span><br><span class="line">│   ├── libi2c.a</span><br><span class="line">│   ├── libi2c.so -&gt; libi2c.so.0</span><br><span class="line">│   ├── libi2c.so.0 -&gt; libi2c.so.0.1.1</span><br><span class="line">│   └── libi2c.so.0.1.1</span><br><span class="line">├── sbin</span><br><span class="line">│   ├── i2cdetect</span><br><span class="line">│   ├── i2cdump</span><br><span class="line">│   ├── i2cget</span><br><span class="line">│   ├── i2cset</span><br><span class="line">│   ├── i2c-stub-from-dump</span><br><span class="line">│   └── i2ctransfer</span><br><span class="line">└── share</span><br><span class="line">    └── man</span><br><span class="line">        ├── man1</span><br><span class="line">        │   ├── decode-dimms.1</span><br><span class="line">        │   └── decode-vaio.1</span><br><span class="line">        ├── man3</span><br><span class="line">        │   └── libi2c.3</span><br><span class="line">        └── man8</span><br><span class="line">            ├── i2cdetect.8</span><br><span class="line">            ├── i2cdump.8</span><br><span class="line">            ├── i2cget.8</span><br><span class="line">            ├── i2cset.8</span><br><span class="line">            ├── i2c-stub-from-dump.8</span><br><span class="line">            └── i2ctransfer.8</span><br></pre></td></tr></table></figure>
+<p>将 lib/ 和 sbin/ 下的文件放置到开发板的对应目录即完成部署。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>调试 BH1750 示例（挂在 i2c-7，设备地址为 0x23）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">i2cdetect -y 7</span></span><br><span class="line">     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f</span><br><span class="line">00:                         -- -- -- -- -- -- -- -- </span><br><span class="line">10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- </span><br><span class="line">20: -- -- -- 23 -- -- -- -- -- -- -- -- -- -- -- -- </span><br><span class="line">30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- </span><br><span class="line">40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- </span><br><span class="line">50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- </span><br><span class="line">60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- </span><br><span class="line">70: -- -- -- -- -- -- -- --</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">i2cset -y 7 0x23 0</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">i2cset -y 7 0x23 1</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">i2cset -y 7 0x23 0x20</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">i2ctransfer -y 7 r2@0x23</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.i2c-bus.org/specification/">Specification - I2C Bus</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.nxp.com/docs/en/user-guide/UM10204.pdf">I2C-bus specification and user manual</a></li>
+<li>宋宝华.Linux设备驱动开发详解:基于最新的Linux 4.0内核[M].机械工业出版社,2015.</li>
+<li>华清远见嵌入式学院,刘洪涛,秦山虎.ARM嵌入式体系结构与接口技术:Cortex-A9版.北京:人民邮电出版社,2017.</li>
+<li>数据手册：BH1750FVI.pdf</li>
+</ul>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Thoughts/%E6%88%91%E6%83%B3%E5%BD%93%E4%B8%AA%E4%BD%9C%E5%AE%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-人人都是产品经理2-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Reflections/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/">《人人都是产品经理2.0》读后笔记</a>
-    </h1>
-  
-
-        
-        <a href="/Reflections/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/" class="archive-article-date">
-  	<time datetime="2019-08-06T12:57:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>包干到户解放了农民的生产力，作为网络新时代的民工，也需要相应的合作模式（方法论体系）才能解放其巨大的生产力。</p>
-        
-          <a class="article-more-a" href="/Reflections/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Reflections/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-参《天道》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Reflections/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/">参《天道》</a>
-    </h1>
-  
-
-        
-        <a href="/Reflections/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2019-03-23T02:26:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>《天道》是上映于2006年的一部电视剧，原著豆豆《遥远的救世主》。</p>
-        
-          <a class="article-more-a" href="/Reflections/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Reflections/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《人性的弱点》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Reflections/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/">《人性的弱点》</a>
-    </h1>
-  
-
-        
-        <a href="/Reflections/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2018-10-21T12:00:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>人性是兼具天使和恶魔的综合体，本我和超我的伴生体，阴与阳的和谐统一。所以卡耐基用了《人性的优点》和《人性的弱点》两本书来总结人性的种种突出特质。<br>卡耐基说，人并非理想生物，他们由情感驱使，被偏见支配，傲慢与虚荣是他们的动力之源。<br>每个人都有这样的背书，每个人都带有这样的原罪，了解这些不仅让我们更了解他人，还让我们更了解我们自己，更重要的是了解怎么和他人相处。</p>
-        
-          <a class="article-more-a" href="/Reflections/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Reflections/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Sublime-Text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/Sublime-Text/">Sublime Text</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/Sublime-Text/" class="archive-article-date">
-  	<time datetime="2018-10-17T08:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-17</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>响应超快，超好用的文本编辑器。<br>
-        
-          <a class="article-more-a" href="/Technology/Sublime-Text/#more">more >></a>
-        
       
 
       
@@ -539,7 +398,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
         		</li>
       		
 		</ul>
@@ -559,16 +418,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/Sublime-Text/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/iTOP-4412-Driver-I2C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/Thoughts/mind-processing-unit/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">心智处理器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -583,439 +501,55 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《奇葩说》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Reflections/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/">《奇葩说》</a>
-    </h1>
-  
-
-        
-        <a href="/Reflections/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2018-10-08T03:55:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在看过《娱乐至死》之后，即使在减少了娱乐摄入的情况下，依然坚持要看《奇葩说》，《奇葩说》可以说是我最喜欢的网综了。<br>
-        
-          <a class="article-more-a" href="/Reflections/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Reflections/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#I2C-%E4%BC%A0%E8%BE%93"><span class="toc-number">1.</span> <span class="toc-text">I2C 传输</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.2.</span> <span class="toc-text">硬件连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E6%97%B6%E5%BA%8F"><span class="toc-number">1.3.</span> <span class="toc-text">传输时序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BH1750"><span class="toc-number">2.</span> <span class="toc-text">BH1750</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="toc-number">2.2.</span> <span class="toc-text">数据传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%8D%95%E6%AC%A1%E8%AF%BB%E5%8F%96%E6%B5%81%E7%A8%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">循环单次读取流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text">驱动程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="toc-number">2.3.1.</span> <span class="toc-text">相关知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91-vs-%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.3.2.</span> <span class="toc-text">内核编译 vs 模块加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E4%B8%BA%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD"><span class="toc-number">2.3.3.</span> <span class="toc-text">作为模块加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%88%B0%E5%86%85%E6%A0%B8"><span class="toc-number">2.3.4.</span> <span class="toc-text">编译到内核</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%B5%8B%E8%AF%95"><span class="toc-number">2.4.</span> <span class="toc-text">读取测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i2ctool-i2cdetect"><span class="toc-number">3.</span> <span class="toc-text">i2ctool(i2cdetect)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E9%83%A8%E7%BD%B2"><span class="toc-number">3.1.</span> <span class="toc-text">编译部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">3.2.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-工作两年回首" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/">工作两年回首</a>
-    </h1>
   
 
-        
-        <a href="/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/" class="archive-article-date">
-  	<time datetime="2018-09-26T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近感悟颇多，不由得想要把它们整理一下，记录下来，算作总结，也方便以后印证。<br>
-        
-          <a class="article-more-a" href="/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python学习笔记</a>
-    </h1>
   
 
-        
-        <a href="/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2018-08-06T08:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>包含pip的使用、注释文档、源码加密、ini配置、Logging模块等内容。</p>
-        
-          <a class="article-more-a" href="/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C语言特性总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/">C语言特性总结</a>
-    </h1>
   
 
-        
-        <a href="/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2018-08-06T04:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。<br>在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。<br>在这里总结一下 C语言 中包含的所有语法特性及基础概念。</p>
-        
-          <a class="article-more-a" href="/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-自由意志与随机性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/">自由意志与随机性</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        
-        <a href="/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2018-08-03T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Me：一直以来，我都在思考一个问题，那就是人或者是生命是否有真正的自由意志<br>Her： 哦，这话怎么说<br>
-        
-          <a class="article-more-a" href="/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next »</a>
-    </nav>
+
   
 
 
@@ -1050,8 +584,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
