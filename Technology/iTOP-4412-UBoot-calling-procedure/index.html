@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>Archives | Easy Wang</title>
+  <title>iTOP-4412 UBoot 调用过程梳理 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.easywang.site/archives/page/8/index.html">
+  <meta name="description" content="基于讯为源码（ iTop4412_uboot_20151119.tar.gz ）的 UBoot 调用过程梳理。  Board: iTOP-4412 POP 1G Elite（精英板） Boot Loader: u-boot-2010.03">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iTOP-4412 UBoot 调用过程梳理">
+<meta property="og:url" content="http://www.easywang.site/Technology/iTOP-4412-UBoot-calling-procedure/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="基于讯为源码（ iTop4412_uboot_20151119.tar.gz ）的 UBoot 调用过程梳理。  Board: iTOP-4412 POP 1G Elite（精英板） Boot Loader: u-boot-2010.03">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-11-15T08:51:00.000Z">
+<meta property="article:modified_time" content="2024-11-15T08:51:58.085Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -175,48 +180,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iTOP-4412-UBoot-calling-procedure" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iTOP-4412 UBoot 调用过程梳理
+    </h1>
+  
+
+        
+        <a href="/Technology/iTOP-4412-UBoot-calling-procedure/" class="archive-article-date">
+  	<time datetime="2024-11-15T08:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-15</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于讯为源码（ <code>iTop4412_uboot_20151119.tar.gz</code> ）的 UBoot 调用过程梳理。</p>
+<ul>
+<li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
+<li><strong>Boot Loader:</strong> u-boot-2010.03</li>
+</ul>
+<span id="more"></span>
+<p><br/></p>
+<h3 id="stage-1（汇编）"><a href="#stage-1（汇编）" class="headerlink" title="stage 1（汇编）"></a>stage 1（汇编）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># ENTRY(_start) @ u-boot.lds</span><br><span class="line">_start:                                         # cpu/arm_cortexa9/start.S</span><br><span class="line">    # b reset:                                  # cpu/arm_cortexa9/start.S</span><br><span class="line">    # set the cpu to SVC32 mode and IRQ &amp; FIQ disable</span><br><span class="line">    # cache_init</span><br><span class="line">    # Read booting information</span><br><span class="line">    bl lowlevel_init:                           # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        # PS-Hold high</span><br><span class="line">        bl mem_ctrl_asm_init:                   # cpu/arm_cortexa9/s5pc210/cpu_init_POP.S</span><br><span class="line">        bl system_clock_init                    # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl 1f                                   # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl uart_asm_init                        # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl onenandcon_init                      # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl nand_asm_init                        # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">    # get ready to call C functions</span><br><span class="line">    beq after_copy:                             # cpu/arm_cortexa9/start.S</span><br><span class="line">        stack_setup                             # cpu/arm_cortexa9/start.S</span><br><span class="line">        clear_bss                               # cpu/arm_cortexa9/start.S</span><br><span class="line">        clbss_l                                 # cpu/arm_cortexa9/start.S</span><br><span class="line">        ldr pc, _start_armboot                  # cpu/arm_cortexa9/start.S</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="stage-2（C）"><a href="#stage-2（C）" class="headerlink" title="stage 2（C）"></a>stage 2（C）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib_arm/board.c</span></span><br><span class="line"></span><br><span class="line">start_armboot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Setup gd</span></span><br><span class="line">    &#123;   <span class="comment">// init_sequence[]</span></span><br><span class="line">        board_init();</span><br><span class="line">        interrupt_init();</span><br><span class="line">        env_init();</span><br><span class="line">        init_baudrate();</span><br><span class="line">        serial_init();</span><br><span class="line">        console_init_f();</span><br><span class="line">        off_charge();</span><br><span class="line">        display_banner();</span><br><span class="line">        print_cpuinfo();</span><br><span class="line">        checkboard();</span><br><span class="line">        dram_init();</span><br><span class="line">        display_dram_config();</span><br><span class="line">    &#125;</span><br><span class="line">    mem_malloc_init();</span><br><span class="line">    mmc_initialize(gd-&gt;bd);</span><br><span class="line">    env_relocate();</span><br><span class="line">    serial_initialize();</span><br><span class="line">    stdio_init();</span><br><span class="line">    jumptable_init();</span><br><span class="line">    enable_interrupts();</span><br><span class="line">    board_late_init();</span><br><span class="line">    recovery_preboot();</span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        main_loop ();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="main-loop"><a href="#main-loop" class="headerlink" title="main loop"></a>main loop</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// common/main.c</span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> __inline__ <span class="type">int</span> <span class="title function_">abortboot</span><span class="params">(<span class="type">int</span> bootdelay)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> <span class="built_in">abort</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hit any key to stop autoboot: %2d &quot;</span>, bootdelay);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ((bootdelay &gt; <span class="number">0</span>) &amp;&amp; (!<span class="built_in">abort</span>)) &#123;</span><br><span class="line">        <span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">        --bootdelay;</span><br><span class="line">        <span class="comment">/* delay 100 * 10ms */</span></span><br><span class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>; !<span class="built_in">abort</span> &amp;&amp; i&lt;<span class="number">100</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tstc()) &#123;   <span class="comment">/* we got a key press   */</span></span><br><span class="line">                <span class="built_in">abort</span>  = <span class="number">1</span>; <span class="comment">/* don&#x27;t auto boot  */</span></span><br><span class="line">                bootdelay = <span class="number">0</span>;  <span class="comment">/* no more delay    */</span></span><br><span class="line">                (<span class="type">void</span>) getc();  <span class="comment">/* consume input    */</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            udelay(<span class="number">10000</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\b\b\b%2d &quot;</span>, bootdelay);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    putc(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">abort</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main_loop()</span><br><span class="line">&#123;</span><br><span class="line">    bootdelay = strtol( getenv(<span class="string">&quot;bootdelay&quot;</span>) );</span><br><span class="line">    s = getenv (<span class="string">&quot;bootcmd&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (bootdelay &gt;= <span class="number">0</span> &amp;&amp; s &amp;&amp; !abortboot (bootdelay)) &#123;</span><br><span class="line">        run_command (s, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        len = readline (CONFIG_SYS_PROMPT);</span><br><span class="line">        flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (len &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">strcpy</span> (lastcommand, console_buffer);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (len == <span class="number">0</span>)</span><br><span class="line">            flag |= CMD_FLAG_REPEAT;    <span class="comment">// The enter key repeats the previous command</span></span><br><span class="line"></span><br><span class="line">        run_command (lastcommand, flag);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h3 id="run-command"><a href="#run-command" class="headerlink" title="run command"></a>run command</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// common/command.c</span></span><br><span class="line"></span><br><span class="line"><span class="type">cmd_tbl_t</span> *<span class="title function_">find_cmd_tbl</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *cmd, <span class="type">cmd_tbl_t</span> *table, <span class="type">int</span> table_len)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">cmd_tbl_t</span> *cmdtp;</span><br><span class="line">    <span class="keyword">for</span> (cmdtp = table; cmdtp != table + table_len; cmdtp++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strncmp</span> (cmd, cmdtp-&gt;name, len) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> cmdtp;   <span class="comment">/* match */</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;            <span class="comment">/* not found or ambiguous command */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">cmd_tbl_t</span> *<span class="title function_">find_cmd</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *cmd)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len = &amp;__u_boot_cmd_end - &amp;__u_boot_cmd_start;</span><br><span class="line">    <span class="keyword">return</span> find_cmd_tbl(cmd, &amp;__u_boot_cmd_start, len);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// common/main.c</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">run_command</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *cmd, <span class="type">int</span> flag)</span></span><br><span class="line">&#123;</span><br><span class="line">    line[][] = split(cmd, <span class="string">&quot;;&quot;</span>);                     <span class="comment">// 伪代码，主要作用是将读到的命令根据;号分行执行</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i &lt; len(line); i++) &#123;</span><br><span class="line">        parse_line(line[i]);                        <span class="comment">// 伪代码，主要作用是将每行命令做解析，获取 参数个数-argc 和 参数列表-argv</span></span><br><span class="line">        cmdtp = find_cmd(line[i][<span class="number">0</span>]);</span><br><span class="line">        <span class="comment">/* found - check max args */</span></span><br><span class="line">        (cmdtp-&gt;cmd) (cmdtp, flag, argc, argv);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，<code>run_command</code> 的主要过程是在 <code>&amp;__u_boot_cmd_end - &amp;__u_boot_cmd_start</code> 之间匹配输入命令的字符串。</p>
+<p>在头文件中有如下声明：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// include/command.h</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmd_tbl_s</span> &#123;</span></span><br><span class="line">    <span class="type">char</span>        *name;      <span class="comment">/* Command Name         */</span></span><br><span class="line">    <span class="type">int</span>     maxargs;        <span class="comment">/* maximum number of arguments  */</span></span><br><span class="line">    <span class="type">int</span>     repeatable;     <span class="comment">/* autorepeat allowed?      */</span></span><br><span class="line">    <span class="comment">/* Implementation function  */</span></span><br><span class="line">    <span class="type">int</span>     (*cmd)(<span class="keyword">struct</span> cmd_tbl_s *, <span class="type">int</span>, <span class="type">int</span>, <span class="type">char</span> *[]);</span><br><span class="line">    <span class="type">char</span>        *usage;     <span class="comment">/* Usage message    (short) */</span></span><br><span class="line">    <span class="type">char</span>        *help;      <span class="comment">/* Help  message    (long)  */</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">cmd_tbl_s</span>    <span class="title">cmd_tbl_t</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="type">cmd_tbl_t</span>  __u_boot_cmd_start;</span><br><span class="line"><span class="keyword">extern</span> <span class="type">cmd_tbl_t</span>  __u_boot_cmd_end;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> Struct_Section  __attribute__ ((unused,section (<span class="string">&quot;.u_boot_cmd&quot;</span>)))</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> U_BOOT_CMD(name,maxargs,rep,cmd,usage,help) \</span></span><br><span class="line"><span class="meta">cmd_tbl_t __u_boot_cmd_##name Struct_Section = &#123;#name, maxargs, rep, cmd, usage&#125;</span></span><br></pre></td></tr></table></figure>
+<p>链接文件中又有如下声明：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// u-boot.lds</span></span><br><span class="line"></span><br><span class="line">__u_boot_cmd_start = .;</span><br><span class="line">.u_boot_cmd : &#123; *(.u_boot_cmd) &#125;</span><br><span class="line">__u_boot_cmd_end = .;</span><br></pre></td></tr></table></figure>
+<p>此声明意思如下：将声明 section 为 <code>.u_boot_cmd</code> 的变量都将被存放在 <code>.u_boot_cmd</code> 段中，<code>.u_boot_cmd</code> 段在 <code>__u_boot_cmd_start</code> 和 <code>__u_boot_cmd_end</code> 地址之间。</p>
+<p>结合头文件声明，我们可以使用 <code>U_BOOT_CMD</code> 来”注册”运行命令。以 bdinfo 命令为例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cmd_bdinfo.c</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">do_bdinfo</span> <span class="params">( <span class="type">cmd_tbl_t</span> *cmdtp, <span class="type">int</span> flag, <span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* implementation */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">U_BOOT_CMD(</span><br><span class="line">	bdinfo,	<span class="number">1</span>,	<span class="number">1</span>,	do_bdinfo,</span><br><span class="line">	<span class="string">&quot;print Board Info structure&quot;</span>,</span><br><span class="line">	<span class="string">&quot;&quot;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>通过编译产生的 <code>System.map</code> 可以查到当前 U-Boot 支持的所有命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">c3e40bb4 A __u_boot_cmd_start</span><br><span class="line">c3e40bb4 D __u_boot_cmd_bdinfo</span><br><span class="line">c3e40bcc D __u_boot_cmd_go</span><br><span class="line">c3e40be4 D __u_boot_cmd_reset</span><br><span class="line">c3e40bfc D __u_boot_cmd_bootm</span><br><span class="line">c3e40c14 D __u_boot_cmd_boot</span><br><span class="line">c3e40c2c D __u_boot_cmd_bootd</span><br><span class="line">c3e40c44 D __u_boot_cmd_iminfo</span><br><span class="line">c3e40c5c D __u_boot_cmd_coninfo</span><br><span class="line">c3e40c74 D __u_boot_cmd_echo</span><br><span class="line">c3e40c8c D __u_boot_cmd_bootelf</span><br><span class="line">c3e40ca4 D __u_boot_cmd_bootvx</span><br><span class="line">c3e40cbc D __u_boot_cmd_ext2ls</span><br><span class="line">c3e40cd4 D __u_boot_cmd_ext2load</span><br><span class="line">c3e40cec D __u_boot_cmd_ext2format</span><br><span class="line">c3e40d04 D __u_boot_cmd_ext3format</span><br><span class="line">c3e40d1c D __u_boot_cmd_fastboot</span><br><span class="line">c3e40d34 D __u_boot_cmd_sdfuse</span><br><span class="line">c3e40d4c D __u_boot_cmd_fatload</span><br><span class="line">c3e40d64 D __u_boot_cmd_fatls</span><br><span class="line">c3e40d7c D __u_boot_cmd_fatinfo</span><br><span class="line">c3e40d94 D __u_boot_cmd_fatformat</span><br><span class="line">c3e40dac D __u_boot_cmd_fdt</span><br><span class="line">c3e40dc4 D __u_boot_cmd_help</span><br><span class="line">c3e40ddc D __u_boot_cmd_question_mark</span><br><span class="line">c3e40df4 D __u_boot_cmd_itest</span><br><span class="line">c3e40e0c D __u_boot_cmd_loads</span><br><span class="line">c3e40e24 D __u_boot_cmd_loadb</span><br><span class="line">c3e40e3c D __u_boot_cmd_loady</span><br><span class="line">c3e40e54 D __u_boot_cmd_max8997</span><br><span class="line">c3e40e6c D __u_boot_cmd_mdmup</span><br><span class="line">c3e40e84 D __u_boot_cmd_md</span><br><span class="line">c3e40e9c D __u_boot_cmd_mm</span><br><span class="line">c3e40eb4 D __u_boot_cmd_nm</span><br><span class="line">c3e40ecc D __u_boot_cmd_mw</span><br><span class="line">c3e40ee4 D __u_boot_cmd_cp</span><br><span class="line">c3e40efc D __u_boot_cmd_cmp</span><br><span class="line">c3e40f14 D __u_boot_cmd_crc32</span><br><span class="line">c3e40f2c D __u_boot_cmd_base</span><br><span class="line">c3e40f44 D __u_boot_cmd_loop</span><br><span class="line">c3e40f5c D __u_boot_cmd_mtest</span><br><span class="line">c3e40f74 D __u_boot_cmd_sleep</span><br><span class="line">c3e40f8c D __u_boot_cmd_mmcinfo</span><br><span class="line">c3e40fa4 D __u_boot_cmd_emmc</span><br><span class="line">c3e40fbc D __u_boot_cmd_mmc</span><br><span class="line">c3e40fd4 D __u_boot_cmd_fdisk</span><br><span class="line">c3e40fec D __u_boot_cmd_movi</span><br><span class="line">c3e41004 D __u_boot_cmd_saveenv</span><br><span class="line">c3e4101c D __u_boot_cmd_editenv</span><br><span class="line">c3e41034 D __u_boot_cmd_printenv</span><br><span class="line">c3e4104c D __u_boot_cmd_setenv</span><br><span class="line">c3e41064 D __u_boot_cmd_run</span><br><span class="line">c3e4107c D __u_boot_cmd_source</span><br><span class="line">c3e41094 D __u_boot_cmd_dnw</span><br><span class="line">c3e410ac D __u_boot_cmd_version</span><br><span class="line">c3e410c4 D __u_boot_cmd_imxtract</span><br><span class="line">c3e410dc A __u_boot_cmd_end</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2018-08-06T04:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/">C语言特性总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -229,292 +264,139 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/iTOP-4412-UBoot-calling-procedure/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2018-08-03T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/Technology/iTOP-4412-3rd-Openssh/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iTOP-4412 第三方软件移植-Openssh</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/">自由意志与随机性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#stage-1%EF%BC%88%E6%B1%87%E7%BC%96%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">stage 1（汇编）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stage-2%EF%BC%88C%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">stage 2（C）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#main-loop"><span class="toc-number">3.</span> <span class="toc-text">main loop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run-command"><span class="toc-number">4.</span> <span class="toc-text">run command</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/C%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  	<time datetime="2018-08-01T15:06:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/C%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">C代码规范</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/git/" class="archive-article-date">
-  	<time datetime="2018-08-01T14:04:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/git/">Git使用手记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2018-07-31T02:06:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8/">电脑安装应用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Reflections/%E3%80%8A%E5%A8%B1%E4%B9%90%E8%87%B3%E6%AD%BB%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2018-07-29T14:04:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Reflections/%E3%80%8A%E5%A8%B1%E4%B9%90%E8%87%B3%E6%AD%BB%E3%80%8B/">《娱乐至死》</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2018-07-18T08:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/">方便的 Hexo 博客系统</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/7/">« Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><span class="page-number current">8</span>
-    </nav>
   
 
 
@@ -550,8 +432,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
