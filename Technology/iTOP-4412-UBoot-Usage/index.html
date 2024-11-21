@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>Archives | Easy Wang</title>
+  <title>iTOP-4412 UBoot 使用笔记 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.easywang.site/archives/page/4/index.html">
+  <meta name="description" content="基于讯为开发板 - iTOP-4412 POP 1G Elite（精英板）的 UBoot 使用笔记。  UBoot version: iTop4412_uboot_20151119.tar.gz, Based on u-boot-2010.03. Linux version1: iTop4412_Kernel_3.0_20160811.tar.gz, Based on v3.0.15. Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iTOP-4412 UBoot 使用笔记">
+<meta property="og:url" content="http://www.easywang.site/Technology/iTOP-4412-UBoot-Usage/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="基于讯为开发板 - iTOP-4412 POP 1G Elite（精英板）的 UBoot 使用笔记。  UBoot version: iTop4412_uboot_20151119.tar.gz, Based on u-boot-2010.03. Linux version1: iTop4412_Kernel_3.0_20160811.tar.gz, Based on v3.0.15. Linux">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-11-20T14:42:00.000Z">
+<meta property="article:modified_time" content="2024-11-21T08:57:41.690Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
@@ -175,36 +180,124 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iTOP-4412-UBoot-Usage" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/STM32-Keil%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2021-09-27T13:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/STM32-Keil%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/">STM32库函数开发Keil工程搭建</a>
+    <h1 class="article-title" itemprop="name">
+      iTOP-4412 UBoot 使用笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/Technology/iTOP-4412-UBoot-Usage/" class="archive-article-date">
+  	<time datetime="2024-11-20T14:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-20</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于讯为开发板 - iTOP-4412 POP 1G Elite（精英板）的 UBoot 使用笔记。</p>
+<ul>
+<li>UBoot version: <a target="_blank" rel="noopener" href="https://github.com/TOPEET-Develop/iTop4412_uboot_public_merge">iTop4412_uboot_20151119.tar.gz</a>, Based on u-boot-2010.03.</li>
+<li>Linux version1: <a target="_blank" rel="noopener" href="https://github.com/TOPEET-Develop/iTop4412_kernel_public_merge">iTop4412_Kernel_3.0_20160811.tar.gz</a>, Based on v3.0.15.</li>
+<li>Linux version2: <a target="_blank" rel="noopener" href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-4.19.323.tar.gz">linux-4.19.323</a></li>
+</ul>
+<span id="more"></span>
+<p><br/></p>
+<h2 id="启动日志"><a href="#启动日志" class="headerlink" title="启动日志"></a>启动日志</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">OK</span><br><span class="line"></span><br><span class="line">U-Boot 2010.03-dirty (Nov 18 2024 - 22:28:36) for iTOP-4412 Android</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CPU:	SMDK4412-AP1.1 [e4412211]</span><br><span class="line">	APLL = 1000MHz, MPLL = 800MHz</span><br><span class="line">	ARM_CLOCK = 1000MHz</span><br><span class="line">PMIC:	S5M8767(VER5.0)</span><br><span class="line">Board:	iTOP-4412Quad</span><br><span class="line">POP type: POP for C220</span><br><span class="line">DRAM:	1023 MB</span><br><span class="line">MMC:   max_emmc_clock:40 MHZ</span><br><span class="line">Set CLK to 400 KHz</span><br><span class="line">EMMC CLOCK OUTPUT:: 400KHz -[div:50]</span><br><span class="line">response timeout error : 00000104 cmd 8</span><br><span class="line">response timeout error : 00000104 cmd 55</span><br><span class="line">max_emmc_clock:40 MHZ</span><br><span class="line">Input CLK [ 50 MHz] is higher than limit [40 MHZ]</span><br><span class="line">Set CLK to 40000 KHz</span><br><span class="line">EMMC clock output: 40000 KHz</span><br><span class="line">max_emmc_clock:40 MHZ</span><br><span class="line">Input CLK [ 50 MHz] is higher than limit [40 MHZ]</span><br><span class="line">Set CLK to 40000 KHz</span><br><span class="line">EMMC clock output: 40000 KHz</span><br><span class="line">[mmc_init] err:0</span><br><span class="line">MMC0:	7456 MB</span><br><span class="line">SD sclk_mmc is 400K HZ</span><br><span class="line">SD sclk_mmc is 50000K HZ</span><br><span class="line">SD sclk_mmc is 50000K HZ</span><br><span class="line">[mmc_init] err:0</span><br><span class="line">MMC1:	1940 MB</span><br><span class="line">*** Warning - using default environment</span><br><span class="line"></span><br><span class="line">In:    serial</span><br><span class="line">Out:   serial</span><br><span class="line">Err:   serial</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Checking Boot Mode ... SDMMC</span><br><span class="line">SYSTEM ENTER NORMAL BOOT MODE</span><br><span class="line">Hit any key to stop autoboot:  0 </span><br><span class="line">iTOP-4412 $ </span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h1 id="存储情况"><a href="#存储情况" class="headerlink" title="存储情况"></a>存储情况</h1><h2 id="板载-EMMC"><a href="#板载-EMMC" class="headerlink" title="板载 EMMC"></a>板载 EMMC</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ mmcinfo 0</span><br><span class="line">Device: S5P_MSHC4</span><br><span class="line">Manufacturer ID: 15</span><br><span class="line">OEM: 100</span><br><span class="line">Name: 8WPD3 </span><br><span class="line">Tran Speed: 0</span><br><span class="line">Rd Block Len: 512</span><br><span class="line">MMC version 4.0</span><br><span class="line">High Capacity: Yes</span><br><span class="line">Size: 7456MB (block: 15269888)</span><br><span class="line">Bus Width: 2-bit</span><br><span class="line"></span><br><span class="line">iTOP-4412 $ fdisk -p 0</span><br><span class="line"></span><br><span class="line">partion <span class="comment">#    size(MB)     block start #    block count    partition_Id </span></span><br><span class="line">   1          5050          4881129        10344411          0x0C </span><br><span class="line">   2          1027            44781         2104707          0x83 </span><br><span class="line">   3          1027          2149488         2104707          0x83 </span><br><span class="line">   4           306          4254195          626934          0x83</span><br></pre></td></tr></table></figure>
+<h2 id="TF-卡"><a href="#TF-卡" class="headerlink" title="TF 卡"></a>TF 卡</h2><p>在 Ubuntu 上使用更完整的 <code>fdisk</code>(fdisk from util-linux 2.34) 进行查看：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ mmcinfo 1 </span><br><span class="line">Device: S3C_HSMMC2</span><br><span class="line">Manufacturer ID: 12</span><br><span class="line">OEM: 3456</span><br><span class="line">Name: SD    </span><br><span class="line">Tran Speed: 0</span><br><span class="line">Rd Block Len: 512</span><br><span class="line">SD version 1.10</span><br><span class="line">High Capacity: No</span><br><span class="line">Size: 1940MB (block: 3973120)</span><br><span class="line">Bus Width: 2-bit</span><br><span class="line"></span><br><span class="line">Ubuntu $ fdisk /dev/sdb</span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): p</span><br><span class="line">Disk /dev/sdb: 1.92 GiB, 2034237440 bytes, 3973120 sectors</span><br><span class="line">Disk model: Storage Device  </span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disklabel <span class="built_in">type</span>: dos</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line">Device     Boot   Start     End Sectors   Size Id Type</span><br><span class="line">/dev/sdb1       3368295 3947159  578865 282.7M  c W95 FAT32 (LBA)</span><br><span class="line">/dev/sdb2         34965 2132864 2097900     1G 83 Linux</span><br><span class="line">/dev/sdb3       2132865 2750579  617715 301.6M 83 Linux</span><br><span class="line">/dev/sdb4       2750580 3368294  617715 301.6M 83 Linux</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): F</span><br><span class="line">Unpartitioned space /dev/sdb: 28.7 MiB, 29436416 bytes, 57493 sectors</span><br><span class="line">Units: sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line"></span><br><span class="line">  Start     End Sectors  Size</span><br><span class="line">   2048   34964   32917 16.1M</span><br><span class="line">3948544 3973119   24576   12M</span><br></pre></td></tr></table></figure>
+<p>除了正常的分区以外，2048  - 34964 还预留了约 16MB 的未分区区域，用于原始数据的读写（dd@Ubuntu, mmc@UBoot）。</p>
+<p>除此以外，1 - 2048 这约 1MB 的区域，同样可以用于原始数据的读写，一般用于放置 UBoot，因为除了第一个 block 默认用于放置 mbr 分区表，加载程序会从此开始读指令。</p>
+<p><br/></p>
+<h1 id="U-Boot-常用命令"><a href="#U-Boot-常用命令" class="headerlink" title="U-Boot 常用命令"></a>U-Boot 常用命令</h1><h2 id="help"><a href="#help" class="headerlink" title="?/help"></a>?/help</h2><p>要使用完整的 help，需要修复一个Bug：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--- a/iTop4412_uboot/common/cmd_help.c</span></span><br><span class="line"><span class="comment">+++ b/iTop4412_uboot/common/cmd_help.c</span></span><br><span class="line"><span class="meta">@@ -27,7 +27,7 @@</span></span><br><span class="line"> int do_help(cmd_tbl_t * cmdtp, int flag, int argc, char *argv[])</span><br><span class="line"> &#123;</span><br><span class="line">        return _do_help(&amp;__u_boot_cmd_start,</span><br><span class="line"><span class="deletion">-                       ((cmd_tbl_t *)(&amp;__u_boot_cmd_end) - (cmd_tbl_t *)(&amp;__u_boot_cmd_start))/sizeof(cmd_tbl_t *),</span></span><br><span class="line"><span class="addition">+                       &amp;__u_boot_cmd_end - &amp;__u_boot_cmd_start,</span></span><br><span class="line">                        cmdtp, flag, argc, argv);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>获取全部的简要帮助信息：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> </span><br><span class="line">?       - <span class="built_in">alias</span> <span class="keyword">for</span> <span class="string">&#x27;help&#x27;</span></span><br><span class="line">base    - <span class="built_in">print</span> or <span class="built_in">set</span> address offset</span><br><span class="line">bdinfo  - <span class="built_in">print</span> Board Info structure</span><br><span class="line">boot    - boot default, i.e., run <span class="string">&#x27;bootcmd&#x27;</span></span><br><span class="line">bootd   - boot default, i.e., run <span class="string">&#x27;bootcmd&#x27;</span></span><br><span class="line">bootelf - Boot from an ELF image <span class="keyword">in</span> memory</span><br><span class="line">bootm   - boot application image from memory</span><br><span class="line">bootvx  - Boot vxWorks from an ELF image</span><br><span class="line">cmp     - memory compare</span><br><span class="line">coninfo - <span class="built_in">print</span> console devices and information</span><br><span class="line"><span class="built_in">cp</span>      - memory copy</span><br><span class="line">crc32   - checksum calculation</span><br><span class="line">dnw     - dnw     - initialize USB device and ready to receive <span class="keyword">for</span> Windows server (specific)</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>    - <span class="built_in">echo</span> args to console</span><br><span class="line">editenv - edit environment variable</span><br><span class="line">emmc    - Open/Close eMMC boot Partition</span><br><span class="line">ext2format- ext2format - disk format by ext2</span><br><span class="line"></span><br><span class="line">ext2load- load binary file from a Ext2 filesystem</span><br><span class="line">ext2ls  - list files <span class="keyword">in</span> a directory (default /)</span><br><span class="line">ext3format- ext3format - disk format bt ext3</span><br><span class="line"></span><br><span class="line">fastboot- fastboot- use USB Fastboot protocol</span><br><span class="line"></span><br><span class="line">fatformat- fatformat - disk format by FAT32</span><br><span class="line"></span><br><span class="line">fatinfo - fatinfo - <span class="built_in">print</span> information about filesystem</span><br><span class="line">fatload - fatload - load binary file from a dos filesystem</span><br><span class="line"></span><br><span class="line">fatls   - list files <span class="keyword">in</span> a directory (default /)</span><br><span class="line">fdisk   - fdisk	- fdisk <span class="keyword">for</span> sd/mmc.</span><br><span class="line"></span><br><span class="line">fdt     - flattened device tree utility commands</span><br><span class="line">go      - start application at address <span class="string">&#x27;addr&#x27;</span></span><br><span class="line"><span class="built_in">help</span>    - <span class="built_in">print</span> <span class="built_in">command</span> description/usage</span><br><span class="line">iminfo  - <span class="built_in">print</span> header information <span class="keyword">for</span> application image</span><br><span class="line">imxtract- extract a part of a multi-image</span><br><span class="line">itest   - <span class="built_in">return</span> <span class="literal">true</span>/false on <span class="built_in">integer</span> compare</span><br><span class="line">loadb   - load binary file over serial line (kermit mode)</span><br><span class="line">loads   - load S-Record file over serial line</span><br><span class="line">loady   - load binary file over serial line (ymodem mode)</span><br><span class="line">loop    - infinite loop on address range</span><br><span class="line">max8997 - max8997     - Test the MAX8997 (I2C Interface.)</span><br><span class="line"></span><br><span class="line">md      - memory display</span><br><span class="line">mdmup   - mdmup - modem upgrade support</span><br><span class="line"></span><br><span class="line">mm      - memory modify (auto-incrementing address)</span><br><span class="line">mmc     - MMC sub system</span><br><span class="line">mmcinfo - mmcinfo &lt;dev num&gt;-- display MMC info</span><br><span class="line">movi    - movi	- sd/mmc r/w sub system <span class="keyword">for</span> SMDK board</span><br><span class="line"></span><br><span class="line">mtest   - simple RAM <span class="built_in">read</span>/write <span class="built_in">test</span></span><br><span class="line">mw      - memory write (fill)</span><br><span class="line">nm      - memory modify (constant address)</span><br><span class="line"><span class="built_in">printenv</span>- <span class="built_in">print</span> environment variables</span><br><span class="line">reset   - Perform RESET of the CPU</span><br><span class="line">run     - run commands <span class="keyword">in</span> an environment variable</span><br><span class="line">saveenv - save environment variables to persistent storage</span><br><span class="line">sdfuse  - sdfuse  - <span class="built_in">read</span> images from FAT partition of SD card and write them to booting device.</span><br><span class="line"></span><br><span class="line">setenv  - <span class="built_in">set</span> environment variables</span><br><span class="line"><span class="built_in">sleep</span>   - delay execution <span class="keyword">for</span> some time</span><br><span class="line"><span class="built_in">source</span>  - run script from memory</span><br><span class="line">version - <span class="built_in">print</span> monitor version</span><br></pre></td></tr></table></figure>
+<p>获取特定指令的详细信息：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> base</span><br><span class="line">base - <span class="built_in">print</span> or <span class="built_in">set</span> address offset</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">base </span><br><span class="line">    - <span class="built_in">print</span> address offset <span class="keyword">for</span> memory commands</span><br><span class="line">base off</span><br><span class="line">    - <span class="built_in">set</span> address offset <span class="keyword">for</span> memory commands to <span class="string">&#x27;off&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h2 id="环境变量相关"><a href="#环境变量相关" class="headerlink" title="环境变量相关"></a>环境变量相关</h2><h3 id="bdinfo"><a href="#bdinfo" class="headerlink" title="bdinfo"></a>bdinfo</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bdinfo - print Board Info structure</span></span><br><span class="line">iTOP-4412 $ bdinfo</span><br><span class="line">arch_number = 0x00000B16</span><br><span class="line">env_t       = 0x00000000</span><br><span class="line">boot_params = 0x40000100</span><br><span class="line">DRAM bank   = 0x00000000</span><br><span class="line">-&gt; start    = 0x40000000</span><br><span class="line">-&gt; size     = 0x10000000</span><br><span class="line">DRAM bank   = 0x00000001</span><br><span class="line">-&gt; start    = 0x50000000</span><br><span class="line">-&gt; size     = 0x10000000</span><br><span class="line">DRAM bank   = 0x00000002</span><br><span class="line">-&gt; start    = 0x60000000</span><br><span class="line">-&gt; size     = 0x10000000</span><br><span class="line">DRAM bank   = 0x00000003</span><br><span class="line">-&gt; start    = 0x70000000</span><br><span class="line">-&gt; size     = 0x0FF00000</span><br><span class="line">DRAM bank   = 0x00000004</span><br><span class="line">-&gt; start    = 0x00000000</span><br><span class="line">-&gt; size     = 0x00000000</span><br><span class="line">DRAM bank   = 0x00000005</span><br><span class="line">-&gt; start    = 0x00000000</span><br><span class="line">-&gt; size     = 0x00000000</span><br><span class="line">DRAM bank   = 0x00000006</span><br><span class="line">-&gt; start    = 0x00000000</span><br><span class="line">-&gt; size     = 0x00000000</span><br><span class="line">DRAM bank   = 0x00000007</span><br><span class="line">-&gt; start    = 0x00000000</span><br><span class="line">-&gt; size     = 0x00000000</span><br><span class="line">baudrate    = 115200 bps</span><br></pre></td></tr></table></figure>
+<p>arch_number 在 <code>include/configs/itop_4412_android.h</code> 的 <code>MACH_TYPE</code> 定义。</p>
+<h3 id="printenv"><a href="#printenv" class="headerlink" title="printenv"></a>printenv</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> <span class="built_in">printenv</span></span><br><span class="line"><span class="built_in">printenv</span> - <span class="built_in">print</span> environment variables</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line"><span class="built_in">printenv</span> </span><br><span class="line">    - <span class="built_in">print</span> values of all environment variables</span><br><span class="line"><span class="built_in">printenv</span> name ...</span><br><span class="line">    - <span class="built_in">print</span> value of environment variable <span class="string">&#x27;name&#x27;</span></span><br><span class="line">iTOP-4412 $ <span class="built_in">printenv</span></span><br><span class="line">bootdelay=2</span><br><span class="line">baudrate=115200</span><br><span class="line">stdin=serial</span><br><span class="line">stdout=serial</span><br><span class="line">stderr=serial</span><br><span class="line">bootcmd=movi <span class="built_in">read</span> kernel 40008000;bootm 40008000 40d00000</span><br><span class="line"></span><br><span class="line">Environment size: 127/16380 bytes</span><br></pre></td></tr></table></figure>
+<h3 id="setenv"><a href="#setenv" class="headerlink" title="setenv"></a>setenv</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> setenv</span><br><span class="line">setenv - <span class="built_in">set</span> environment variables</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">setenv name value ...</span><br><span class="line">    - <span class="built_in">set</span> environment variable <span class="string">&#x27;name&#x27;</span> to <span class="string">&#x27;value ...&#x27;</span></span><br><span class="line">setenv name</span><br><span class="line">    - delete environment variable <span class="string">&#x27;name&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Example</span></span><br><span class="line">iTOP-4412 <span class="variable">$setenv</span> bootcmd <span class="string">&#x27;mmc read 1 0x40008000 0x1000 0x5000;mmc read 1 0x43000000 0x800 0x80;bootm 0x40008000 0x42000000 0x43000000&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="saveenv"><a href="#saveenv" class="headerlink" title="saveenv"></a>saveenv</h3><p>将环境变量保存到持久存储。</p>
+<p><br/></p>
+<h2 id="给-mmc-分区"><a href="#给-mmc-分区" class="headerlink" title="给 mmc 分区"></a>给 mmc 分区</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2GB TF card test example.</span></span><br><span class="line">iTOP-4412 $ fdisk -c 1 300 300 300</span><br><span class="line">iTOP-4412 $ fdisk -p 1</span><br><span class="line"></span><br><span class="line">partion <span class="comment">#    size(MB)     block start #    block count    partition_Id </span></span><br><span class="line">   1          1005          1888110         2059050          0x0C </span><br><span class="line">   2           301            34965          617715          0x83 </span><br><span class="line">   3           301           652680          617715          0x83 </span><br><span class="line">   4           301          1270395          617715          0x83</span><br><span class="line">iTOP-4412 $ fatformat mmc 1:1</span><br><span class="line">iTOP-4412 $ ext3format mmc 1:2</span><br><span class="line">iTOP-4412 $ ext3format mmc 1:3</span><br><span class="line">iTOP-4412 $ ext3format mmc 1:4</span><br></pre></td></tr></table></figure>
+<h3 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> fdisk</span><br><span class="line">fdisk - fdisk	- fdisk <span class="keyword">for</span> sd/mmc.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">fdisk -c &lt;device_num&gt; [&lt;sys. part size(MB)&gt; &lt;user part size&gt; &lt;cache part size&gt;]	- create partition.</span><br><span class="line">fdisk -p &lt;device_num&gt;	- <span class="built_in">print</span> partition information</span><br></pre></td></tr></table></figure>
+<p>后 3 个参数，分别指代 sys，user，cache 的大小，如果不指定：</p>
+<ul>
+<li>对于 device 0：分别默认为 1G，1G，300M，分区标志为 0x83。</li>
+<li>对于 device 1，分别默认为 1G，300M，300M，分区标志为 0x83。</li>
+</ul>
+<p>多余的存储空间，将作自动分为一个盘，分区标志为 0x0C。</p>
+<p>需要注意的是，多余的空间默认是 p1，然后才是顺序的参数指定的大小。</p>
+<p>分区标志（partition_Id）：</p>
+<ul>
+<li>0x05：扩展分区</li>
+<li>0x07：HPFS/NTFS分区</li>
+<li>0x83：Linux分区</li>
+<li>0x0B：FAT32分区</li>
+<li>0x0C：FAT32分区</li>
+<li>0x0F：扩展分区</li>
+<li>0x1C：隐藏的FAT32分区</li>
+<li>0xEE：GPT分区</li>
+</ul>
+<h3 id="fatformat"><a href="#fatformat" class="headerlink" title="fatformat"></a>fatformat</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> fatformat</span><br><span class="line">fatformat - fatformat - disk format by FAT32</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">fatformat &lt;interface(only support mmc)&gt; &lt;dev:partition num&gt;</span><br><span class="line">	- format by FAT32 on <span class="string">&#x27;interface&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ext3format"><a href="#ext3format" class="headerlink" title="ext3format"></a>ext3format</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> ext3format</span><br><span class="line">ext3format - ext3format - disk format bt ext3</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">ext3format 	- format by ext3 on <span class="string">&#x27;interface&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>在 Ubuntu 系统下，可以使用 mkfs.ext3 来实现同样的功能。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext3 /dev/sdxp             # x 代表 device_num, p 代表 partition_num</span><br><span class="line">mkfs.ext3 -b 4096 /dev/sdxp     # -b 选项用于指定块大小，单位为字节。4096 是一个常见的块大小。</span><br><span class="line">mkfs.ext3 -L mylabel /dev/sdxp	# -L 选项用于设置文件系统的卷标（label）。</span><br><span class="line">mkfs.ext3 -F /dev/sdxp			# -F 选项用于强制格式化，即使设备或分区已经挂载。</span><br></pre></td></tr></table></figure>
+<p>mkfs 命令簇包含以下格式的文件系统格式化处理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.bfs       mkfs.exfat     mkfs.ext4      mkfs.minix     mkfs.reiserfs  </span><br><span class="line">mkfs.btrfs     mkfs.ext2      mkfs.f2fs      mkfs.msdos     mkfs.vfat      </span><br><span class="line">mkfs.cramfs    mkfs.ext3      mkfs.fat       mkfs.ntfs      mkfs.xfs</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h2 id="读写存储"><a href="#读写存储" class="headerlink" title="读写存储"></a>读写存储</h2><h3 id="mmc"><a href="#mmc" class="headerlink" title="mmc"></a>mmc</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> mmc</span><br><span class="line">mmc - MMC sub system</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">mmc <span class="built_in">read</span> &lt;device num&gt; addr blk<span class="comment"># cnt</span></span><br><span class="line">mmc write &lt;device num&gt; addr blk<span class="comment"># cnt</span></span><br><span class="line">mmc rescan &lt;device num&gt;</span><br><span class="line">mmc erase &lt;boot | user&gt; &lt;device num&gt; &lt;start block&gt; &lt;block count&gt;</span><br><span class="line">mmc list - lists available devices</span><br><span class="line"></span><br><span class="line"><span class="comment"># mmc read example:</span></span><br><span class="line"><span class="comment"># ######### mmc read/write device mem_addr   block_start block_count</span></span><br><span class="line">iTOP-4412 $ mmc <span class="built_in">read</span>       1      0x43000000 0x800       0x80</span><br></pre></td></tr></table></figure>
+<p>block_size = 512 Byte</p>
+<p><strong>read</strong>：从 mmc 的 block_start 位置读 count 个 block 到 内存地址。</p>
+<p><strong>write</strong>：从内存地址读 count 个 block，写入 mmc 的 block_start 位置。</p>
+<p>mem_addr, block_start, block_count 用 16 进制数表示。</p>
+<h3 id="fatload"><a href="#fatload" class="headerlink" title="fatload"></a>fatload</h3><p>从 TF 卡加载，并启动内核：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> fatload</span><br><span class="line">fatload - fatload - load binary file from a dos filesystem</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">fatload &lt;interface&gt; &lt;dev[:part]&gt;  &lt;addr&gt; &lt;filename&gt; [bytes]</span><br><span class="line">    - load binary file <span class="string">&#x27;filename&#x27;</span> from <span class="string">&#x27;dev&#x27;</span> on <span class="string">&#x27;interface&#x27;</span></span><br><span class="line">      to address <span class="string">&#x27;addr&#x27;</span> from dos filesystem</span><br><span class="line"></span><br><span class="line">iTOP-4412 $ fatload mmc 1:1 40008000 /sdupdate/zImage</span><br></pre></td></tr></table></figure>
+<h3 id="sdfuse"><a href="#sdfuse" class="headerlink" title="sdfuse"></a>sdfuse</h3><p>快捷地将 TF 卡的文件写入 MMC0（板载MMC）的工具。将对应的文件放入到 TF 卡的 FAT 磁盘的 <code>/sdupdate</code> 文件夹下，就可以开始烧写了。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ sdfuse flashall</span><br><span class="line"><span class="comment"># flashall 包含以下单项</span></span><br><span class="line"></span><br><span class="line">iTOP-4412 $ sdfuse flash kernel zImage</span><br><span class="line">SD sclk_mmc is 400K HZ</span><br><span class="line">SD sclk_mmc is 50000K HZ</span><br><span class="line">SD sclk_mmc is 50000K HZ</span><br><span class="line">[Fusing Image from SD Card.]</span><br><span class="line">[Partition table on MoviNAND]</span><br><span class="line">ptn 0 name=<span class="string">&#x27;bootloader&#x27;</span> start=0x0 len=N/A (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 1 name=<span class="string">&#x27;kernel&#x27;</span> start=N/A len=N/A (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 2 name=<span class="string">&#x27;ramdisk&#x27;</span> start=N/A len=0x300000(~3072KB) (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 3 name=<span class="string">&#x27;Recovery&#x27;</span> start=N/A len=0x600000(~6144KB) (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 4 name=<span class="string">&#x27;system&#x27;</span> start=0x15DDA00 len=0x403B0600(~1052353KB) </span><br><span class="line">ptn 5 name=<span class="string">&#x27;userdata&#x27;</span> start=0x4198E000 len=0x403B0600(~1052353KB) </span><br><span class="line">ptn 6 name=<span class="string">&#x27;cache&#x27;</span> start=0x81D3E600 len=0x1321EC00(~313467KB) </span><br><span class="line">ptn 7 name=<span class="string">&#x27;fat&#x27;</span> start=0x94F5D200 len=0x3BAFB600(~977901KB) </span><br><span class="line">Partition: kernel, File: /sdupdate/zImage</span><br><span class="line">Partition1: Start Address(0x336567), Size(0x8d531)</span><br><span class="line">reading /sdupdate/zImage</span><br><span class="line">6774472 (0x00675ec8) bytes <span class="built_in">read</span></span><br><span class="line">flashing <span class="string">&#x27;kernel&#x27;</span></span><br><span class="line">writing kernel.. 1120, 20480 </span><br><span class="line">MMC write: dev <span class="comment"># 1, block # 1120, count 20480. 20480 blocks write finish</span></span><br><span class="line">20480 blocks written: OK</span><br><span class="line">completed</span><br><span class="line">partition <span class="string">&#x27;kernel&#x27;</span> flashed</span><br><span class="line"></span><br><span class="line"><span class="comment"># sdfuse flash kernel 其实是下面 2 条命令的结合，实现从 SD 卡读指定文件到内存，再从内存写入 MMC0 的 kernel 位置</span></span><br><span class="line"><span class="comment"># fatload mmc 1:1 40008000 /sdupdate/zImage</span></span><br><span class="line"><span class="comment"># mmc write 0 40008000 0x460 0x5000</span></span><br><span class="line"><span class="comment"># (0x460 == 1120, 0x5000 == 20480)</span></span><br><span class="line"><span class="comment"># 下同</span></span><br><span class="line"></span><br><span class="line">iTOP-4412 $ sdfuse flash bootloader u-boot-iTOP-4412.bin</span><br><span class="line">iTOP-4412 $ sdfuse flash ramdisk ramdisk-uboot.img</span><br><span class="line">iTOP-4412 $ sdfuse flash system system.img</span><br></pre></td></tr></table></figure>
+<p>默认使用哪个mmc启动，就写入哪个mmc。</p>
+<p>详情：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ sdfuse flash ramdisk ramdisk-uboot.img</span><br><span class="line">SD sclk_mmc is 400K HZ</span><br><span class="line">SD sclk_mmc is 50000K HZ</span><br><span class="line">SD sclk_mmc is 50000K HZ</span><br><span class="line">[Fusing Image from SD Card.]</span><br><span class="line">[Partition table on MoviNAND]</span><br><span class="line">ptn 0 name=<span class="string">&#x27;bootloader&#x27;</span> start=0x0 len=N/A (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 1 name=<span class="string">&#x27;kernel&#x27;</span> start=N/A len=N/A (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 2 name=<span class="string">&#x27;ramdisk&#x27;</span> start=N/A len=0x300000(~3072KB) (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 3 name=<span class="string">&#x27;Recovery&#x27;</span> start=N/A len=0x600000(~6144KB) (use hard-coded info. (cmd: movi))</span><br><span class="line">ptn 4 name=<span class="string">&#x27;system&#x27;</span> start=0x15DDA00 len=0x403B0600(~1052353KB) </span><br><span class="line">ptn 5 name=<span class="string">&#x27;userdata&#x27;</span> start=0x4198E000 len=0x403B0600(~1052353KB) </span><br><span class="line">ptn 6 name=<span class="string">&#x27;cache&#x27;</span> start=0x81D3E600 len=0x1321EC00(~313467KB) </span><br><span class="line">ptn 7 name=<span class="string">&#x27;fat&#x27;</span> start=0x94F5D200 len=0x3BAFB600(~977901KB) </span><br><span class="line">Partition: ramdisk, File: /sdupdate/ramdisk-uboot.img</span><br><span class="line">Partition1: Start Address(0x1ccf6e), Size(0x1f6b2a)</span><br><span class="line">reading /sdupdate/ramdisk-uboot.img</span><br><span class="line">651926 (0x0009f296) bytes <span class="built_in">read</span></span><br><span class="line">flashing <span class="string">&#x27;ramdisk&#x27;</span></span><br><span class="line">writing RFS.. 21600, 1274 </span><br><span class="line">MMC write: dev <span class="comment"># 1, block # 21600, count 1274. 1274 blocks write finish</span></span><br><span class="line">1274 blocks verify1: OK</span><br><span class="line">completed</span><br><span class="line">partition <span class="string">&#x27;ramdisk&#x27;</span> flashed</span><br></pre></td></tr></table></figure>
+<h3 id="movi"><a href="#movi" class="headerlink" title="movi"></a>movi</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> movi</span><br><span class="line">movi - sd/mmc r/w sub system <span class="keyword">for</span> SMDK board</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">movi init - Initialize moviNAND and show card info</span><br><span class="line">movi <span class="built_in">read</span>  &#123;u-boot | kernel&#125; &#123;addr&#125; - Read data from sd/mmc</span><br><span class="line">movi write &#123;fwbl1 | u-boot | kernel&#125; &#123;addr&#125; - Write data to sd/mmc</span><br><span class="line">movi <span class="built_in">read</span>  rootfs &#123;addr&#125; [bytes(hex)] - Read rootfs data from sd/mmc by size</span><br><span class="line">movi write rootfs &#123;addr&#125; [bytes(hex)] - Write rootfs data to sd/mmc by size</span><br><span class="line">movi <span class="built_in">read</span>  &#123;sector<span class="comment">#&#125; &#123;bytes(hex)&#125; &#123;addr&#125; - instead of this, you can use &quot;mmc read&quot;</span></span><br><span class="line">movi write &#123;sector<span class="comment">#&#125; &#123;bytes(hex)&#125; &#123;addr&#125; - instead of this, you can use &quot;mmc write&quot;</span></span><br></pre></td></tr></table></figure>
+<p>从最后 2 条可以看出，movi 最终调用的是 mmc，比 mmc 提供了更便捷的读取 u-boot、kernel、rootfs 的方法。</p>
+<p><br/></p>
+<h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><h3 id="boot-bootd"><a href="#boot-bootd" class="headerlink" title="boot/bootd"></a>boot/bootd</h3><p>boot default, run ‘bootcmd’.</p>
+<h3 id="bootm"><a href="#bootm" class="headerlink" title="bootm"></a>bootm</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> bootm</span><br><span class="line">bootm - boot application image from memory</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">bootm [addr [arg ...]]</span><br><span class="line">    - boot application image stored <span class="keyword">in</span> memory</span><br><span class="line">	passing arguments <span class="string">&#x27;arg ...&#x27;</span>; when booting a Linux kernel,</span><br><span class="line">	<span class="string">&#x27;arg&#x27;</span> can be the address of an initrd image</span><br><span class="line">	When booting a Linux kernel <span class="built_in">which</span> requires a flat device-tree</span><br><span class="line">	a third argument is required <span class="built_in">which</span> is the address of the</span><br><span class="line">	device-tree blob. To boot that kernel without an initrd image,</span><br><span class="line">	use a <span class="string">&#x27;-&#x27;</span> <span class="keyword">for</span> the second argument. If you <span class="keyword">do</span> not pass a third</span><br><span class="line">	a bd_info struct will be passed instead</span><br><span class="line"></span><br><span class="line">Sub-commands to <span class="keyword">do</span> part of the bootm sequence.  The sub-commands must be</span><br><span class="line">issued <span class="keyword">in</span> the order below (it<span class="string">&#x27;s ok to not issue all sub-commands):</span></span><br><span class="line"><span class="string">	start [addr [arg ...]]</span></span><br><span class="line"><span class="string">	loados  - load OS image</span></span><br><span class="line"><span class="string">	fdt     - relocate flat device tree</span></span><br><span class="line"><span class="string">	cmdline - OS specific command line processing/setup</span></span><br><span class="line"><span class="string">	bdt     - OS specific bd_t processing</span></span><br><span class="line"><span class="string">	prep    - OS specific prep before relocation or go</span></span><br><span class="line"><span class="string">	go      - start OS</span></span><br></pre></td></tr></table></figure>
+<h3 id="go"><a href="#go" class="headerlink" title="go"></a>go</h3><p>一般用于调试裸机程序。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ <span class="built_in">help</span> go</span><br><span class="line">go - start application at address <span class="string">&#x27;addr&#x27;</span></span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">go addr [arg ...]</span><br><span class="line">    - start application at address <span class="string">&#x27;addr&#x27;</span></span><br><span class="line">      passing <span class="string">&#x27;arg&#x27;</span> as arguments</span><br></pre></td></tr></table></figure>
+<p><br/></p>
+<h1 id="启动-Kernel"><a href="#启动-Kernel" class="headerlink" title="启动 Kernel"></a>启动 Kernel</h1><h2 id="v3-0-15"><a href="#v3-0-15" class="headerlink" title="v3.0.15"></a>v3.0.15</h2><p>将编译好的 zImage、system.img 放到 TF 卡的 /sdupdate。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">iTOP-4412 $ sdfuse flash kernel zImage</span><br><span class="line">iTOP-4412 $ sdfuse flash system system.img</span><br><span class="line"></span><br><span class="line"><span class="comment"># boot from EMMC</span></span><br><span class="line"><span class="comment"># bootcmd=movi read kernel 40008000;bootm 40008000</span></span><br><span class="line">iTOP-4412 $ movi <span class="built_in">read</span> kernel 40008000</span><br><span class="line">reading kernel.. 1120, 20480 </span><br><span class="line">MMC <span class="built_in">read</span>: dev <span class="comment"># 0, block # 1120, count 20480 ...20480 blocks read: OK</span></span><br><span class="line">completed</span><br><span class="line">iTOP-4412 $ bootm 40008000</span><br><span class="line">Boot with zImage</span><br><span class="line">Wrong Ramdisk Image Format</span><br><span class="line">[err] boot_get_ramdisk</span><br><span class="line"><span class="comment">## Transferring control to Linux (at address 40008000) ...</span></span><br><span class="line"></span><br><span class="line">Starting kernel ...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Starting with bi_boot_params.</span><br><span class="line">Uncompressing Linux... <span class="keyword">done</span>, booting the kernel.</span><br><span class="line">[    0.000000] Initializing cgroup subsys cpu</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="v4-19-323"><a href="#v4-19-323" class="headerlink" title="v4.19.323"></a>v4.19.323</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># @Ubuntu, TF card display as /dev/sdb.</span></span><br><span class="line">ubuntu $ sudo <span class="built_in">dd</span> iflag=dsync oflag=dsync <span class="keyword">if</span>=<span class="built_in">arch</span>/arm/boot/zImage of=/dev/sdb seek=4096</span><br><span class="line">ubuntu $ sudo <span class="built_in">dd</span> iflag=dsync oflag=dsync <span class="keyword">if</span>=<span class="built_in">arch</span>/arm/boot/dts/exynos4412-itop-elite.dtb of=/dev/sdb seek=2048</span><br><span class="line"><span class="comment"># @ arch/arm/boot/dts/exynos4412-itop-elite.dts</span></span><br><span class="line"><span class="comment"># bootargs = &quot;root=/dev/mmcblk0p2 rw console=ttySAC2,115200 init=/linuxrc rootwait&quot;;</span></span><br><span class="line">ubuntu $ <span class="built_in">mkdir</span> tf_system</span><br><span class="line">ubuntu $ sudo mount /dev/sdb2 tf_system</span><br><span class="line">ubuntu $ sudo <span class="built_in">cp</span> -r rootfs/* tf_system</span><br><span class="line">ubuntu $ sudo umount tf_system</span><br><span class="line"></span><br><span class="line"><span class="comment"># boot from TF card</span></span><br><span class="line"><span class="comment"># bootcmd=mmc read 1 0x40008000 0x1000 0x5000;mmc read 1 0x43000000 0x800 0x80;bootm 0x40008000 0x42000000 0x43000000</span></span><br><span class="line"></span><br><span class="line">iTOP-4412 $ mmc <span class="built_in">read</span> 1 0x40008000 0x1000 0x5000;mmc <span class="built_in">read</span> 1 0x43000000 0x800 0x80;bootm 0x40008000 0x42000000 0x43000000</span><br><span class="line"></span><br><span class="line">MMC <span class="built_in">read</span>: dev <span class="comment"># 1, block # 4096, count 20480 ...20480 blocks read: OK</span></span><br><span class="line"></span><br><span class="line">MMC <span class="built_in">read</span>: dev <span class="comment"># 1, block # 2048, count 128 ...128 blocks read: OK</span></span><br><span class="line">Boot with zImage</span><br><span class="line">Wrong Ramdisk Image Format</span><br><span class="line">[err] boot_get_ramdisk</span><br><span class="line"><span class="comment">## Transferring control to Linux (at address 40008000) ...</span></span><br><span class="line"></span><br><span class="line">Starting kernel ...</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Uncompressing Linux... <span class="keyword">done</span>, booting the kernel.</span><br><span class="line">[    0.000000] Booting Linux on physical CPU 0xa00</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>由于使用了设备树文件作为启动项，为了支持传入 dtb，需要修改以下代码：</p>
+<p>（主要作用是把 ramdisk 屏蔽，把 dtb 的地址传给 Kernel。由于 ramdisk 被屏蔽了，所以地址 0x42000000 其实只起一个占位作用。）</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--- a/iTop4412_uboot/include/configs/itop_4412_android.h</span></span><br><span class="line"><span class="comment">+++ b/iTop4412_uboot/include/configs/itop_4412_android.h</span></span><br><span class="line"><span class="meta">@@ -31,6 +31,7 @@</span></span><br><span class="line"> #define CONFIG_S5PC210      1       /* in a SAMSUNG S5PC210 SoC */</span><br><span class="line"> #define CONFIG_SMDKC210     1</span><br><span class="line"> #define CONFIG_DEVICE_STRING    &quot;iTOP-4412&quot;</span><br><span class="line"><span class="addition">+#define CONFIG_OF_LIBFDT 1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--- a/iTop4412_uboot/common/cmd_bootm.c</span></span><br><span class="line"><span class="comment">+++ b/iTop4412_uboot/common/cmd_bootm.c</span></span><br><span class="line"><span class="meta">@@ -294,6 +294,8 @@</span> int bootm_start(cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])</span><br><span class="line">        if (((images.os.type == IH_TYPE_KERNEL) ||</span><br><span class="line">             (images.os.type == IH_TYPE_MULTI)) &amp;&amp;</span><br><span class="line">            (images.os.os == IH_OS_LINUX)) &#123;</span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+#if defined(CONFIG_OF_RAMDISK)</span></span><br><span class="line">                /* find ramdisk */</span><br><span class="line">                ret = boot_get_ramdisk (argc, argv, &amp;images, IH_INITRD_ARCH,</span><br><span class="line">                                &amp;images.rd_start, &amp;images.rd_end);</span><br><span class="line"><span class="meta">@@ -301,9 +303,10 @@</span> int bootm_start(cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])</span><br><span class="line">                        puts (&quot;Ramdisk image is corrupt or invalid\n&quot;);</span><br><span class="line">                        return 1;</span><br><span class="line">                &#125;</span><br><span class="line"><span class="addition">+#endif</span></span><br><span class="line"> </span><br><span class="line"> #if defined(CONFIG_OF_LIBFDT)</span><br><span class="line"><span class="deletion">-#if defined(CONFIG_PPC) || defined(CONFIG_M68K) || defined(CONFIG_SPARC)</span></span><br><span class="line"><span class="addition">+// #if defined(CONFIG_PPC) || defined(CONFIG_M68K) || defined(CONFIG_SPARC)</span></span><br><span class="line">                /* find flattened device tree */</span><br><span class="line">                ret = boot_get_fdt (flag, argc, argv, &amp;images,</span><br><span class="line">                                    &amp;images.ft_addr, &amp;images.ft_len);</span><br><span class="line"><span class="meta">@@ -313,7 +316,7 @@</span> int bootm_start(cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">                set_working_fdt_addr(images.ft_addr);</span><br><span class="line"><span class="deletion">-#endif</span></span><br><span class="line"><span class="addition">+// #endif</span></span><br><span class="line"> #endif</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">--- a/iTop4412_uboot/common/image.c</span></span><br><span class="line"><span class="comment">+++ b/iTop4412_uboot/common/image.c</span></span><br><span class="line"><span class="meta">@@ -1176,6 +1176,7 @@</span> static int fit_check_fdt (const void *fit, int fdt_noffset, int verify)</span><br><span class="line">  *      0 - success</span><br><span class="line">  *      1 - failure</span><br><span class="line">  */</span><br><span class="line"><span class="addition">+#if defined(CONFIG_SYS_BOOTMAPSZ)</span></span><br><span class="line"> int boot_relocate_fdt (struct lmb *lmb, ulong bootmap_base,</span><br><span class="line">                char **of_flat_tree, ulong *of_size)</span><br><span class="line"> &#123;</span><br><span class="line"><span class="meta">@@ -1255,6 +1256,7 @@</span> int boot_relocate_fdt (struct lmb *lmb, ulong bootmap_base,</span><br><span class="line"> error:</span><br><span class="line">        return 1;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="addition">+#endif /* CONFIG_SYS_BOOTMAPSZ */</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -216,7 +309,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -229,440 +322,139 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/iTOP-4412-UBoot-Usage/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" class="archive-article-date">
-  	<time datetime="2021-09-22T06:03:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/Technology/iTOP-4412-UBoot-startup-procedure/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iTOP-4412 UBoot 启动过程梳理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/">基于Keras的机器学习框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">AI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%97%A5%E5%BF%97"><span class="toc-number">1.</span> <span class="toc-text">启动日志</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E6%83%85%E5%86%B5"><span class="toc-number"></span> <span class="toc-text">存储情况</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%BF%E8%BD%BD-EMMC"><span class="toc-number">1.</span> <span class="toc-text">板载 EMMC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TF-%E5%8D%A1"><span class="toc-number">2.</span> <span class="toc-text">TF 卡</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#U-Boot-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number"></span> <span class="toc-text">U-Boot 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#help"><span class="toc-number">1.</span> <span class="toc-text">?&#x2F;help</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9B%B8%E5%85%B3"><span class="toc-number">2.</span> <span class="toc-text">环境变量相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bdinfo"><span class="toc-number">2.1.</span> <span class="toc-text">bdinfo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#printenv"><span class="toc-number">2.2.</span> <span class="toc-text">printenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setenv"><span class="toc-number">2.3.</span> <span class="toc-text">setenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#saveenv"><span class="toc-number">2.4.</span> <span class="toc-text">saveenv</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%99-mmc-%E5%88%86%E5%8C%BA"><span class="toc-number">3.</span> <span class="toc-text">给 mmc 分区</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fdisk"><span class="toc-number">3.1.</span> <span class="toc-text">fdisk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fatformat"><span class="toc-number">3.2.</span> <span class="toc-text">fatformat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ext3format"><span class="toc-number">3.3.</span> <span class="toc-text">ext3format</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%86%99%E5%AD%98%E5%82%A8"><span class="toc-number">4.</span> <span class="toc-text">读写存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mmc"><span class="toc-number">4.1.</span> <span class="toc-text">mmc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fatload"><span class="toc-number">4.2.</span> <span class="toc-text">fatload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sdfuse"><span class="toc-number">4.3.</span> <span class="toc-text">sdfuse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#movi"><span class="toc-number">4.4.</span> <span class="toc-text">movi</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text">启动命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#boot-bootd"><span class="toc-number">5.1.</span> <span class="toc-text">boot&#x2F;bootd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootm"><span class="toc-number">5.2.</span> <span class="toc-text">bootm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#go"><span class="toc-number">5.3.</span> <span class="toc-text">go</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8-Kernel"><span class="toc-number"></span> <span class="toc-text">启动 Kernel</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#v3-0-15"><span class="toc-number">1.</span> <span class="toc-text">v3.0.15</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v4-19-323"><span class="toc-number">2.</span> <span class="toc-text">v4.19.323</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Thoughts/%E5%9C%A8%E6%AF%94%E8%BE%83%E4%B8%AD%E5%AD%98%E5%9C%A8/" class="archive-article-date">
-  	<time datetime="2021-09-13T01:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Thoughts/%E5%9C%A8%E6%AF%94%E8%BE%83%E4%B8%AD%E5%AD%98%E5%9C%A8/">在比较中存在</a>
-    </h1>
+        
+    </div>
+</aside>
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Thoughts//" class="article-tag-list-link color4">Thoughts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/LearnMatrixByPython/" class="archive-article-date">
-  	<time datetime="2021-08-26T07:43:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/LearnMatrixByPython/">线性代数的Python示例</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/U%E7%9B%98%E8%88%AC%E4%B8%9D%E6%BB%91%E7%9A%84%E4%BA%91%E7%9B%98/" class="archive-article-date">
-  	<time datetime="2021-07-01T12:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/U%E7%9B%98%E8%88%AC%E4%B8%9D%E6%BB%91%E7%9A%84%E4%BA%91%E7%9B%98/">U盘般丝滑的云盘</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/YMODEM%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/" class="archive-article-date">
-  	<time datetime="2021-06-30T15:12:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/YMODEM%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/">YMODEM协议中文翻译</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Reflections/%E3%80%8A%E5%88%98%E6%93%8E%E8%A5%BF%E6%96%B9%E7%8E%B0%E4%BB%A3%E6%80%9D%E6%83%B3%E8%AE%B2%E4%B9%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2021-06-19T09:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Reflections/%E3%80%8A%E5%88%98%E6%93%8E%E8%A5%BF%E6%96%B9%E7%8E%B0%E4%BB%A3%E6%80%9D%E6%83%B3%E8%AE%B2%E4%B9%89%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">《刘擎西方现代思想讲义》读书笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Reflections//" class="article-tag-list-link color2">Reflections</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/" class="archive-article-date">
-  	<time datetime="2021-05-01T05:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/">QT UI进阶 - 透明圆角阴影效果</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">QT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E4%BA%A7%E5%93%81%E5%90%88%E6%A0%BC%E7%8E%87%E9%A2%84%E4%BC%B0%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-04-25T15:51:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E4%BA%A7%E5%93%81%E5%90%88%E6%A0%BC%E7%8E%87%E9%A2%84%E4%BC%B0%E9%97%AE%E9%A2%98/">一批产品要达到90%的合格率，需要测试多少个合格？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/" class="archive-article-date">
-  	<time datetime="2021-04-16T13:48:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/">手写HTTP报文</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">« Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/5/">Next »</a>
-    </nav>
   
 
 
@@ -698,8 +490,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

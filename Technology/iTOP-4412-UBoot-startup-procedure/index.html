@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>iTOP-4412 UBoot 调用过程梳理 | Easy Wang</title>
+  <title>iTOP-4412 UBoot 启动过程梳理 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于讯为源码（ iTop4412_uboot_20151119.tar.gz ）的 UBoot 调用过程梳理。  Board: iTOP-4412 POP 1G Elite（精英板） Boot Loader: u-boot-2010.03">
+  <meta name="description" content="基于讯为源码（ iTop4412_uboot_20151119.tar.gz ）的 UBoot 启动过程梳理。  Board: iTOP-4412 POP 1G Elite（精英板） Boot Loader: u-boot-2010.03">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iTOP-4412 UBoot 调用过程梳理">
-<meta property="og:url" content="http://www.easywang.site/Technology/iTOP-4412-UBoot-calling-procedure/index.html">
+<meta property="og:title" content="iTOP-4412 UBoot 启动过程梳理">
+<meta property="og:url" content="http://www.easywang.site/Technology/iTOP-4412-UBoot-startup-procedure/index.html">
 <meta property="og:site_name" content="Easy Wang">
-<meta property="og:description" content="基于讯为源码（ iTop4412_uboot_20151119.tar.gz ）的 UBoot 调用过程梳理。  Board: iTOP-4412 POP 1G Elite（精英板） Boot Loader: u-boot-2010.03">
+<meta property="og:description" content="基于讯为源码（ iTop4412_uboot_20151119.tar.gz ）的 UBoot 启动过程梳理。  Board: iTOP-4412 POP 1G Elite（精英板） Boot Loader: u-boot-2010.03">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-11-15T08:51:00.000Z">
-<meta property="article:modified_time" content="2024-11-15T08:51:58.085Z">
+<meta property="article:modified_time" content="2024-11-18T07:39:56.384Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
@@ -180,19 +180,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-iTOP-4412-UBoot-calling-procedure" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-iTOP-4412-UBoot-startup-procedure" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iTOP-4412 UBoot 调用过程梳理
+      iTOP-4412 UBoot 启动过程梳理
     </h1>
   
 
         
-        <a href="/Technology/iTOP-4412-UBoot-calling-procedure/" class="archive-article-date">
+        <a href="/Technology/iTOP-4412-UBoot-startup-procedure/" class="archive-article-date">
   	<time datetime="2024-11-15T08:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-15</time>
 </a>
         
@@ -208,14 +208,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基于讯为源码（ <code>iTop4412_uboot_20151119.tar.gz</code> ）的 UBoot 调用过程梳理。</p>
+        <p>基于讯为源码（ <a target="_blank" rel="noopener" href="https://github.com/TOPEET-Develop/iTop4412_uboot_public_merge">iTop4412_uboot_20151119.tar.gz</a> ）的 UBoot 启动过程梳理。</p>
 <ul>
 <li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
 <li><strong>Boot Loader:</strong> u-boot-2010.03</li>
 </ul>
 <span id="more"></span>
 <p><br/></p>
-<h3 id="stage-1（汇编）"><a href="#stage-1（汇编）" class="headerlink" title="stage 1（汇编）"></a>stage 1（汇编）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># ENTRY(_start) @ u-boot.lds</span><br><span class="line">_start:                                         # cpu/arm_cortexa9/start.S</span><br><span class="line">    # b reset:                                  # cpu/arm_cortexa9/start.S</span><br><span class="line">    # set the cpu to SVC32 mode and IRQ &amp; FIQ disable</span><br><span class="line">    # cache_init</span><br><span class="line">    # Read booting information</span><br><span class="line">    bl lowlevel_init:                           # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        # PS-Hold high</span><br><span class="line">        bl mem_ctrl_asm_init:                   # cpu/arm_cortexa9/s5pc210/cpu_init_POP.S</span><br><span class="line">        bl system_clock_init                    # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl 1f                                   # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl uart_asm_init                        # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl onenandcon_init                      # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl nand_asm_init                        # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">    # get ready to call C functions</span><br><span class="line">    beq after_copy:                             # cpu/arm_cortexa9/start.S</span><br><span class="line">        stack_setup                             # cpu/arm_cortexa9/start.S</span><br><span class="line">        clear_bss                               # cpu/arm_cortexa9/start.S</span><br><span class="line">        clbss_l                                 # cpu/arm_cortexa9/start.S</span><br><span class="line">        ldr pc, _start_armboot                  # cpu/arm_cortexa9/start.S</span><br></pre></td></tr></table></figure>
+<h3 id="stage-1（汇编）"><a href="#stage-1（汇编）" class="headerlink" title="stage 1（汇编）"></a>stage 1（汇编）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># ENTRY(_start) @ u-boot.lds</span><br><span class="line">_start:                                         # cpu/arm_cortexa9/start.S</span><br><span class="line">    # b reset:                                  # cpu/arm_cortexa9/start.S</span><br><span class="line">    # set the cpu to SVC32 mode and IRQ &amp; FIQ disable</span><br><span class="line">    # cache_init</span><br><span class="line">    # Read booting information</span><br><span class="line">    bl lowlevel_init:                           # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        # PS-Hold high</span><br><span class="line">        bl mem_ctrl_asm_init:                   # cpu/arm_cortexa9/s5pc210/cpu_init_POP.S</span><br><span class="line">        bl system_clock_init                    # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl 1f                                   # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl uart_asm_init                        # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">        bl onenandcon_init                      # board/samsung/smdkc210/lowlevel_init_POP.S</span><br><span class="line">    # get ready to call C functions</span><br><span class="line">    beq after_copy:                             # cpu/arm_cortexa9/start.S</span><br><span class="line">        stack_setup                             # cpu/arm_cortexa9/start.S</span><br><span class="line">        clear_bss                               # cpu/arm_cortexa9/start.S</span><br><span class="line">        clbss_l                                 # cpu/arm_cortexa9/start.S</span><br><span class="line">        ldr pc, _start_armboot                  # cpu/arm_cortexa9/start.S</span><br></pre></td></tr></table></figure>
 <p><br/></p>
 <h3 id="stage-2（C）"><a href="#stage-2（C）" class="headerlink" title="stage 2（C）"></a>stage 2（C）</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib_arm/board.c</span></span><br><span class="line"></span><br><span class="line">start_armboot()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Setup gd</span></span><br><span class="line">    &#123;   <span class="comment">// init_sequence[]</span></span><br><span class="line">        board_init();</span><br><span class="line">        interrupt_init();</span><br><span class="line">        env_init();</span><br><span class="line">        init_baudrate();</span><br><span class="line">        serial_init();</span><br><span class="line">        console_init_f();</span><br><span class="line">        off_charge();</span><br><span class="line">        display_banner();</span><br><span class="line">        print_cpuinfo();</span><br><span class="line">        checkboard();</span><br><span class="line">        dram_init();</span><br><span class="line">        display_dram_config();</span><br><span class="line">    &#125;</span><br><span class="line">    mem_malloc_init();</span><br><span class="line">    mmc_initialize(gd-&gt;bd);</span><br><span class="line">    env_relocate();</span><br><span class="line">    serial_initialize();</span><br><span class="line">    stdio_init();</span><br><span class="line">    jumptable_init();</span><br><span class="line">    enable_interrupts();</span><br><span class="line">    board_late_init();</span><br><span class="line">    recovery_preboot();</span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        main_loop ();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br/></p>
@@ -312,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/iTOP-4412-UBoot-calling-procedure/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/iTOP-4412-UBoot-startup-procedure/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,6 +325,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/Technology/iTOP-4412-UBoot-Usage/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iTOP-4412 UBoot 使用笔记
+        
+      </div>
+    </a>
   
   
     <a href="/Technology/iTOP-4412-3rd-Openssh/" id="article-nav-older" class="article-nav-link-wrap">
