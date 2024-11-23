@@ -341,7 +341,9 @@ Q_PROPERTY(type name
            [REQUIRED])
 ```
 
-属性名称和类型以及 `READ` 函数是必要的。`type `可以是 [QVariant](https://doc.qt.io/qt-6/qvariant.html) 支持的任何类型，也可以是用户定义的类型。其他项目是可选的，但 `WRITE` 功能是常见的。除 `USER` 之外，其他属性默认为 `true`，默认为 `false`。`READ`、`WRITE` 和 `RESET` 功能可以继承，它们也可以是虚拟的。当它们在使用多重继承的类中继承时，它们必须来自第一个继承的类。
+属性名称和类型以及 `READ` 函数是必要的。其他项目是可选的，但 `WRITE` 功能是常见的。除 `USER` 之外，其他属性默认为 `true`，默认为 `false`。`READ`、`WRITE` 和 `RESET` 功能可以继承，它们也可以是虚拟的。当它们在使用多重继承的类中继承时，它们必须来自第一个继承的类。
+
+* `type `可以是 [QVariant](https://doc.qt.io/qt-6/qvariant.html) 支持的任何类型，也可以是用户定义的类型。此时，C++ 中的基础类型会被解释为QML中的基础类型，例如 QString -> String，QList -> Array。
 
 * `READ`：用于读取属性值。如果未指定 `MEMBER` 变量，则 `READ` 是必须声明的。`getFunction` 必须返回属性的类型或对该类型的 const 引用（推荐）。
 

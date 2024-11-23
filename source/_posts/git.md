@@ -45,6 +45,24 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
 
   `git config -l`
 
+* 配置用户
+
+  ```sh
+  git config --global user.name "Your Name"
+  git config --global user.email "youremail@example.com"
+  ```
+
+* 清除用户配置
+
+  ```sh
+  git config --global --unset user.name
+  git config --global --unset user.email
+  
+  git config --local --unset user.name
+  git config --local --unset user.email
+  ```
+
+
 * 查看远程路径
   `git remote -v`
 
@@ -56,7 +74,7 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
 
 * 将修改的文件恢复为最近提交版本或添加之前
 
-`git checkout xx_file`
+  `git checkout xx_file`
 
 * 比较两次commit的差异
 
@@ -95,7 +113,7 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
   3、 把修改推到远程服务器
 
   `$ git push -f -u origin master`
-  
+
 * Git 查看某个版本修改了哪些文件
 
   `git diff hash1 hash2 --stat`
@@ -145,6 +163,29 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
   * 解决办法：`git config --global core.quotepath false`
 * Windows 中使用 TortoiseGit 打开 SMB 中的目录时，提示添加safy路径
     * 解决方法：`git config --global --add safe.directory *`
+
+### 文件拆分和合并
+
+gitee 和 github 都有单个文件不得大于 100M 的上传限制，所以对于有的单个文件就需要分成多个。
+
+以 gcc 编译器为例：
+
+分割命令
+
+```sh
+$ split -b 99m gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz_
+# 生成了以下 2 个文件
+# gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz_aa
+# gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz_ab
+```
+
+合并命令
+
+```sh
+cat gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz_* > gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
+```
+
+所以，对于下载之后对于前缀相同，后缀为 \_aa、\_bb 的文件需要执行合并操作以恢复文件。
 
 ### 参考
 

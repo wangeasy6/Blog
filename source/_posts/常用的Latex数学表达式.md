@@ -48,12 +48,6 @@ Latex 是一种基于ΤΕΧ的排版系统，对于生成复杂的数学公式�
 | $\Theta$   | \Theta    | $\Pi$     | \Pi     |
 | $\Phi$     | \Phi      |           |         |
 
-## 正负号
-
-| 数学式       | Latex表达式    | 数学式      | Latex表达式  |
-| ------------ | --------- | --------- | ------- |
-| $a \pm b$    | `a \pm b`   | $a \mp b$ | `a \mp b` |
-
 ## 乘法
 
 | 数学式       | Latex表达式    |
@@ -70,11 +64,24 @@ Latex 是一种基于ΤΕΧ的排版系统，对于生成复杂的数学公式�
 | $x = \dfrac a b$ | `\dfrac a b`（不压缩行间距） |
 | $a \div b$   | `a \div b`    |
 
+## 正负号
+
+| 数学式       | Latex表达式    | 数学式      | Latex表达式  |
+| ------------ | --------- | --------- | ------- |
+| $a \pm b$    | `a \pm b`   | $a \mp b$ | `a \mp b` |
+
 ## 绝对值
 
 | 数学式                         | Latex表达式                  |
 | ------------------------------ | --------------------------- |
 | $\left&#124; a \right&#124;$   | \left&#124; a \right&#124;  |
+
+## 无线循环小数
+
+| 数学式              | Latex表达式       |
+| ------------------- | ----------------- |
+| $1.\dot{3}$         | 1.\dot{3}         |
+| $1.\dot{1}2\dot{5}$ | 1.\dot{1}2\dot{5} |
 
 ## 关系表达符号
 
@@ -92,7 +99,7 @@ Latex 是一种基于ΤΕΧ的排版系统，对于生成复杂的数学公式�
 | $\equiv$   | `\equiv`    |
 | $\overset{over}{=}$ | `\overset{over}{=}` |
 | $\underset{\text{under}}{=}$ | `\underset{\text{under}}{=}` |
-| $a \xlongequal[over]{under} b$ | `a \xlongequal[over]{under} b` |
+| $\require{extpfeil} a \xlongequal[over]{under} b$ | `a \xlongequal[over]{under} b` |
 
 ## 指数（幂）
 
@@ -352,4 +359,7 @@ c & d
 
 * [莱斯大学LaTex Math在线PDF手册](https://www.caam.rice.edu/~heinken/latex/symbols.pdf)
 * [如何用latex编写矩阵（包括各类复杂、大型矩阵）？](https://zhuanlan.zhihu.com/p/266267223)
+* [MathJax Documentation](https://docs.mathjax.org/en/latest/)
+* [Supported TeX/LaTeX commands — MathJax](https://docs.mathjax.org/en/latest/input/tex/macros/index.html)
+* [The TeX/LaTeX Extension List — MathJax](https://docs.mathjax.org/en/latest/input/tex/extensions/index.html)
 
