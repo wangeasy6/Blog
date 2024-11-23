@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.easywang.site/Technology/iTOP-4412-3rd-Openssh/</loc>
+    <lastmod>2024-11-23</lastmod>
+  </url>
+  <url>
     <loc>http://www.easywang.site/Technology/iTOP-4412-UBoot-Usage/</loc>
+    <lastmod>2024-11-22</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/git/</loc>
     <lastmod>2024-11-21</lastmod>
   </url>
   <url>
@@ -9,16 +17,8 @@
     <lastmod>2024-11-18</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/iTOP-4412-3rd-Openssh/</loc>
-    <lastmod>2024-11-13</lastmod>
-  </url>
-  <url>
     <loc>http://www.easywang.site/Technology/iTOP-4412-Driver-I2C/</loc>
     <lastmod>2024-11-09</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/git/</loc>
-    <lastmod>2024-11-03</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/Thoughts/mind-processing-unit/</loc>
