@@ -155,6 +155,19 @@ Hexo 是基于 NodeJs 开发的。
 
   * 重新生成并发布，在浏览器刷新就能看到你的文章了。
 
+##### 命名规范
+
+由于 **文章文件名**、**categories**、**resources下的文件夹名**、**资源文件名** 会被包含在 URL 链接中，所以应尽量遵循以下规范：
+
+* 尽量使用 ASCII 码，不包含中文。
+* 统一使用小写字母，避免因服务器区分大小写导致访问错误。例： `c-in-the-project`。
+* 单词间用连字符 `-` 分隔，禁用下划线或空格。
+* 同一个系列使用同一前缀，方便按名称排序归类。例：
+  * `itop4412-3rd-openssh`
+  * `itop4412-driver-i2c`
+
+<br/>
+
 #### 2. 切换主题
 * 在 GitHub 上先找到自己想要的主题
   * [hexo.io/themes](https://hexo.io/themes/)
@@ -327,6 +340,114 @@ Valine 是一款基于[LeanCloud](https://leancloud.cn/)的评论系统，且支
 #### 文章阅读量统计
 
 [Hexo个人博客之yilia主题阅读量和文章字数统计](https://blog.csdn.net/weixin_43864927/article/details/106970576)
+
+<br/>
+
+### 五、支持 Mermaid 渲染
+
+在 Hexo 中支持 Mermaid 渲染，需通过插件配置和主题适配实现。以下是具体步骤及注意事项：
+
+---
+
+#### **一、安装插件**
+
+1. **安装 `hexo-filter-mermaid-diagrams` 插件**  
+   在 Hexo 根目录执行命令：  
+   ```bash
+   npm install hexo-filter-mermaid-diagrams --save
+   ```
+   
+2. **（可选）替换默认 Markdown 渲染器**  
+   若主题兼容性问题导致渲染失败，可卸载默认渲染器 `hexo-renderer-marked`，改用 `hexo-renderer-markdown-it`：  
+   
+   ```bash
+   npm uninstall hexo-renderer-marked --save
+   npm install hexo-renderer-markdown-it --save
+   ```
+   
+
+---
+
+#### **二、配置 Hexo 全局文件**
+1. **修改 `_config.yml`**  
+   在 Hexo 根目录的配置文件中添加以下内容：  
+   
+   ```yaml
+   # Mermaid 图表支持
+   mermaid:
+     enable: true
+     version: "latest"  # 或指定版本如 "8.13.8"
+     options:
+       # 可选参数，参考 Mermaid API 配置
+       theme: "default"  # 可选主题：default/dark/forest/neutral
+   ```
+   
+
+---
+
+#### **三、主题适配**
+不同主题需在布局文件中引入 Mermaid 的 JavaScript 库，常见方式如下：
+
+##### **1. yilia 主题**
+- 在主题配置文件 `_config.yml` 中启用 Mermaid：  
+  ```yaml
+  mermaid:
+    enable: true
+    theme: default
+  ```
+- 在布局文件（`after-footer.ejs`）中添加 JS 引用：  
+  ```html
+  <% if (theme.mermaid.enable){ %>
+  <% if (page.mermaid) { %>
+    <script src="https://unpkg.com/mermaid@latest/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({ theme: 'default' });
+    </script>
+  <% } %>
+  <% } %>
+  ```
+  
+
+​	为了减少不包含 mermaid 的文章的加载速度，在文章 title 中包含 `mermaid: true` 的才会加载此 JS。
+
+---
+
+#### **四、调整样式（可选）**
+
+若需修改 Mermaid 背景色或样式，在主题的自定义 CSS 文件（`main.0cf68a.css`）中添加：  
+```css
+.mermaid {background: transparent !important;}
+```
+
+
+---
+
+#### **五、使用示例**
+
+在 Markdown 中通过代码块声明 Mermaid 图表：  
+````markdown
+```mermaid
+graph LR
+  A[开始] --> B{判断}
+  B -->|条件1| C[执行操作]
+  B -->|条件2| D[结束]
+```
+````
+支持图表类型包括流程图（`graph`）、时序图（`sequenceDiagram`）、甘特图（`gantt`）等。
+
+---
+
+#### **六、验证与调试**
+
+1. 执行生成命令：  
+   ```bash
+   hexo clean && hexo g
+   ```
+2. 若图表未渲染，检查浏览器控制台是否有 JS 加载错误，确保 CDN 链接有效。
+
+---
+
+通过以上步骤，Hexo 博客即可支持 Mermaid 图表渲染，适用于技术文档、流程图解等场景。不同主题的配置细节可能略有差异，建议参考主题官方文档。
 
 <br/>
 

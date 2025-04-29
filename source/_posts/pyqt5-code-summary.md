@@ -6,7 +6,7 @@ categories:
   - Technology
 tags:
   - Python
-  - QT
+  - Qt
 ---
 
 ![PyQt.jpg](/resources/PyQt5小结/PyQt.jpg)

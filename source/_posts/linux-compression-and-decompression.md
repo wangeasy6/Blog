@@ -123,6 +123,18 @@ cat skype_backup_20090626.tar.gz.* > skype_backup_cat.tar.gz
 
 Tips：解压到指定的目录，要先创建目录；待解压包分为part1、part2... 时，指定第一个，会自动解压后续文件
 
+### 解压撤回
+
+即删除刚解压的文件。
+
+```sh
+# 解压示例：
+$ tar xvfz FileName.tar.gz
+# 撤回操作：
+$ tar tf FileName.tar.gz | xargs rm -rf
+# 要注意的是，如果是合并到了其它文件夹，强制删除目录可能会删除其它文件。使用 -f 不会删除目录，但是可能会残留一些空目录。
+```
+
 
 ### 参考
 

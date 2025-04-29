@@ -46,9 +46,11 @@ tag:
 
 `"word_wrap" : true,`
 
-**设置默认打开编码**
+**设置默认文件编码**
 
-`"default_encoding": "GB18030",`
+`"default_encoding": "UTF-8",` 用于设置新建文件的默认编码格式。
+
+`"fallback_encoding": "UTF-8",` 用于设置在无法识别文件编码时使用的后备编码。
 
 <br/>
 
@@ -125,9 +127,11 @@ tag:
 
 ### 开启时禁止打开上次未退出文件
 
+方法一：
+
 * 从菜单栏开始，依次选择：首选项---设置 - 用户
 
-* 接着在打开的文件的末尾追加以下内容：
+* 接着在打开的文件（或直接修改C:\Users\用户\AppData\Roaming\Sublime Text\Packages\User\Preferences.sublime-settings）的末尾追加以下内容：
 
   ```json
   {
@@ -142,13 +146,9 @@ tag:
 
 如果SMB关闭了，上次又打开了过多的文件，那么重启 Sublime 就可能启动不了。
 
-方法一：
-
-* 删除此目录下的所有文件：C:\Users\用户\AppData\Roaming\Sublime Text\Local\
-
 方法二：
 
-* 直接修改C:\Users\用户\AppData\Roaming\Sublime Text\Packages\User\Preferences.sublime-settings，添加`"remember_open_files": false`
+* 删除此目录下的所有文件：C:\Users\用户\AppData\Roaming\Sublime Text\Local\
 
 ### CMake 语法高亮
 

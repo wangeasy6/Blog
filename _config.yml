@@ -127,3 +127,9 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+mermaid:
+  enable: true
+  version: "latest"
+  options:
+    theme: "default"

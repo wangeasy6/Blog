@@ -5,14 +5,14 @@ categories:
   - Technology
 tags:
   - 树莓派
-  - QT
+  - Qt
 date: 2021-02-11 23:56:30
 ---
 
 
 ![qtvirtualkeyboard.png](/resources/Cover/qtvirtualkeyboard.png)
 
-QT作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。
+Qt作为一个桌面程序设计框架，软键盘应该很简单吧，没想到搞了好几天才获得了一个可以用的键盘。所以记录一下。
 
 限定条件比较多，树莓派，Qt Widgets，想要使用软键盘。
 
@@ -50,7 +50,7 @@ Qt Quick在C++之外，同时启动了一个QML的engine。在使用的时候不
 
 ### 关键代码
 
-#### QT及软键盘插件安装
+#### Qt及软键盘插件安装
 
 ```
 sudo apt-get install -y qt5-default

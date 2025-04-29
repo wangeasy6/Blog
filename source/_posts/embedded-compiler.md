@@ -171,7 +171,37 @@ arch [-vendor] [-os] [-(gnu)abi]
 
 **gnueabi 和 gnueabihf 的区别：**
 
-这两个交叉编译器分别适用于 armel 和 armhf 两个不同的架构，armel 和 armhf 这两种架构在对待浮点运算采取了不同的策略（有 fpu 的 ARM 才能支持这两种浮点运算策略）
+`gnueabi` 和 `gnueabihf` 是两个针对 ARM 架构的不同的交叉编译器，它们的主要区别在于浮点运算的处理方式。以下是它们之间的主要区别：
+
+1. **架构支持**：
+   - `gnueabi`：对应于 `armel` 架构，即 ARM EABI Little-endian（小端）架构。
+   - `gnueabihf`：对应于 `armhf` 架构，即 ARM Hard Float（硬浮点）架构。
+2. **浮点运算处理**：
+   - `gnueabi`：默认使用 `softfp` 模式，这意味着即使 ARM 处理器有浮点运算单元（FPU），编译器也会通过普通寄存器传递浮点参数，这样可以减少中断时需要保存的寄存器数量，降低中断负荷，但需要在计算前将参数从普通寄存器转换为浮点格式。
+   - `gnueabihf`：默认使用 `hard` 模式，这意味着 ARM 处理器会使用 FPU 进行浮点计算，并且浮点参数也通过 FPU 的浮点寄存器传递，这样可以避免参数转换，提高性能，但会增加中断时的负荷。
+3. **兼容性**：
+   - `gnueabi` 与 `softfp` 和 `hard` 模式都是兼容的，但 `gnueabihf` 和 `softfp` 模式之间不兼容。
+
+总结来说，`gnueabi` 和 `gnueabihf` 的选择取决于目标硬件是否支持硬浮点运算以及对性能和资源消耗的具体需求。如果目标设备有 FPU 并且对性能要求较高，可以选择 `gnueabihf`；如果对资源消耗有限制或者目标设备不支持硬浮点，可以选择 `gnueabi`。
+
+**如何查看 CPU 有没有 FPU：**
+
+使用命令`cat /proc/cpuinfo`，以 Exynos 4412 为例：
+
+```sh
+[root@iTOP-4412]# cat /proc/cpuinfo 
+processor	: 0
+model name	: ARMv7 Processor rev 0 (v7l)
+BogoMIPS	: 67.20
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpd32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x3
+CPU part	: 0xc09
+CPU revision	: 0
+```
+
+CPU 特性列表中：**VFP (Vector Floating Point)**：这是ARM为其Cortex-A系列处理器设计的SIMD技术，用于提高多媒体和信号处理的速度和效率。如果CPU支持VFP，那么它具有浮点运算单元（FPU）。`vfp`、`vfpv3` 和 `vfpd32` 表示CPU具有不同版本的VFP支持。`half` 表明CPU支持半精度浮点数，这也是FPU功能的一部分。`fastmult` 表明CPU具有快速乘法能力，这也是FPU的一部分。
 
 ### 常用编译器
 
@@ -186,6 +216,8 @@ arch [-vendor] [-os] [-(gnu)abi]
 **树莓派（Raspberry Pi）**：arm-linux-gnueabihf
 
 **香橙派（Orange Pi） 5B**：aarch64-linux-gnu
+
+**iTop4412（SAMSUNG EXYNOS 4412）**：arm-linux-gnueabihf
 
 参考：[GCC 编译器套件说明_arm-linux-gnueabihf-gcc-CSDN博客](https://blog.csdn.net/qq_42992084/article/details/129190911)
 

@@ -5,7 +5,7 @@ toc: true
 categories:
   - Technology
 tags:
-  - QT
+  - Qt
 ---
 
 <img src="/resources/Cover/qt_signal_and_slot.png" width=480 height=240 />

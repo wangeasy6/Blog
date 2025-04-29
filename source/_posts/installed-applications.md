@@ -95,3 +95,37 @@ Keil
 [CMake](https://cmake.org/download/#latest)
 
 [格式工厂](http://www.pcgeshi.com/)
+
+<br/>
+
+## 快捷键设置
+
+| 软件        | 按键                   | 功能                        | 作用范围 |
+| ----------- | ---------------------- | --------------------------- | -------- |
+| 通用        | Ctrl+A                 | 全选                        | 局部     |
+| 通用        | Ctrl+X                 | 剪切                        | 局部     |
+| 通用        | Ctrl+C                 | 复制                        | 局部     |
+| 通用        | Ctrl+V                 | 粘贴                        | 局部     |
+| 通用        | Ctrl+Z                 | 撤销上一步                  | 局部     |
+| 微信        | Alt+A                  | 截图                        | 全局     |
+| 微信        | Ctrl+Enter             | 输入框中回车                | 局部     |
+| QQ          | Ctrl+Enter / Alt+Enter | 输入框中回车                | 局部     |
+| Everything  | Ctrl+Shift+F           | 显示窗口（自定义）          | 全局     |
+| 网易云音乐  | Ctrl+Alt+P             | 播放/暂停（自定义）         | 全局     |
+| 网易云音乐  | Ctrl+Alt+Left          | 上一首（自定义）            | 全局     |
+| 网易云音乐  | Ctrl+Alt+Right         | 下一首（自定义）            | 全局     |
+| 网易云音乐  | Ctrl+Alt+Up            | 音量加（自定义）            | 全局     |
+| 网易云音乐  | Ctrl+Alt+Doen          | 音量减（自定义）            | 全局     |
+| 网易云音乐  | Ctrl+Alt+D             | 打开/关闭歌词（自定义）     | 全局     |
+| foobar2000  | Ctrl+Shift+P           | 播放/暂停（自定义）         | 全局     |
+| foobar2000  | Ctrl+Shift+Left        | 上一首（自定义）            | 全局     |
+| foobar2000  | Ctrl+Shift+Right       | 下一首（自定义）            | 全局     |
+| foobar2000  | Ctrl+Shift+Up          | 音量加（自定义）            | 全局     |
+| foobar2000  | Ctrl+Shift+Doen        | 音量减（自定义）            | 全局     |
+| Steam       | F12                    | 截图（自定义）              | 全局     |
+| Steam       | Ctrl+F11               | 视频录制开始/暂停（自定义） | 全局     |
+| Steam (TTS) | F10                    | 隐藏操作板（自定义）        | 局部     |
+| Excel       | Ctrl+H                 | 使用高度调整宏（自定义）    | 局部     |
+| Excel       | Alt+Enter              | 单元格中回车                | 局部     |
+| 永劫无间    | X                      | 一键振捣（自定义）          | 局部     |
+

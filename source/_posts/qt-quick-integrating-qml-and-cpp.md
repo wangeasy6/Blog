@@ -5,7 +5,7 @@ toc: true
 categories:
   - Technology
 tags:
-  - QT
+  - Qt
 ---
 
 ![cpp_integration_demo.gif](\resources\QtQuick\cpp_integration_demo.gif)

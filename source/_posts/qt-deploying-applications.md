@@ -5,7 +5,7 @@ toc: true
 categories:
   - Technology
 tags:
-  - QT
+  - Qt
 ---
 
 当我们使用 Debug 或 Release 模式编译出一个调试完成 Qt 程序，获取到的可执行文件往往还不能执行，获取一个完整的可供安装的文件集合往往还需要经过一些步骤。其中也有一些需要注意的知识点。

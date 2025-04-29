@@ -5,7 +5,7 @@ toc: true
 categories:
   - Technology
 tags:
-  - QT
+  - Qt
 ---
 
 在 QtWidgets 中，可以使用 qss 对一批需要相同样式的控件进行设置，避免大量的重复代码。

@@ -5,7 +5,7 @@ toc: true
 categories:
   - Technology
 tags:
-  - QT
+  - Qt
 ---
 
 QML 语言使用类似 JSON 的语法，并允许将各种表达式和方法定义为 JavaScript 函数。它还允许用户导入 JavaScript 文件并使用这些导入提供的功能。

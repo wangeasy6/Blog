@@ -1,16 +1,16 @@
 ---
-title: JSON例程-QT
+title: JSON例程-Qt
 date: 2024-5-31 22:37:00
 toc: true
 categories:
   - Technology
 tags:
-  - QT
+  - Qt
 ---
 
 <img src="/resources/JsonExample/json_qt.jpg" width="512" height="256"/>
 
-补充一个 QT 版本的 JSON 例程。
+补充一个 Qt 版本的 JSON 例程。
 
 <!--more-->
 
@@ -40,7 +40,7 @@ tags:
 
 此示例包含了所有 JSON 元素，包括：对象（object）、数组（array）、字符串（*string*）、数值(number)、`true`、`false`、 `null`。
 
-### [QT 示例](/resources/JsonExample/json_example.py)
+### [Qt 示例](/resources/JsonExample/json_example.py)
 
 保存 JSON 示例为文件 `json_example.json`，放置在程序同一目录。
 
