@@ -177,20 +177,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Linux常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-c-time" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Linux常用命令</a>
+      <a class="article-title" href="/Technology/c-time/">C Linux Time</a>
     </h1>
   
 
         
-        <a href="/Technology/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2023-07-31T09:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
+        <a href="/Technology/c-time/" class="archive-article-date">
+  	<time datetime="2023-09-06T13:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-06</time>
 </a>
         
 
@@ -201,399 +201,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/resources/Cover/linux-wallpaper.jpg" alt="linux-wallpaper.jpg"></p>
+        <p>在 Linux 中，存在 4 种时间类型，本篇以这 4 种类型为例，总结一下使用 C 语言的获取、计算方法。</p>
+<p>同时，存在以下 3 种计算机系统中常见的关于时间的定义：</p>
+<p><strong>UTC</strong>：协调世界时，又称世界标准时间（Universal Time Coordinated）。是最主要的世界时间标准，其以原子时的秒长为基础，在时刻上尽量接近于格林威治标准时间。现行的协调世界时根据国际电信联盟的建议《Standard-frequency and time-signal emissions》(ITU-R TF.460-6)所确定。UTC基于国际原子时，并通过不规则的加入闰秒来抵消地球自转变慢的影响。闰秒在必要的时候会被插入到UTC中，以保证协调世界时（UTC）与世界时（UT1）相差不超过0.9秒。</p>
+<p><strong>GMT</strong>：格林尼治标准时间（旧译格林威治平均时间或格林威治标准时间；英语：Greenwich Mean Time）是指位于英国伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线。</p>
+<p><strong>CST</strong>：中国标准时间（China Standard Time），北京时间为 UTC+8，即东八区时间。</p>
         
-          <a class="article-more-a" href="/Technology/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-交叉编译带FFMPEG的OpenCV" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/">交叉编译带FFMPEG的OpenCV</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/" class="archive-article-date">
-  	<time datetime="2023-06-05T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-05</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>编译OpenCV版本：</p>
-<ul>
-<li>OpenCV 4.7.0（with contribute）</li>
-<li>FFMPEG 4.2.9（with x264）</li>
-<li>Eigen 3.4.0</li>
-</ul>
-<p>交叉编译目标：</p>
-<ul>
-<li>芯片：SD3403</li>
-<li>工具链：aarch64-mix210-linux-gcc</li>
-<li>版本：gcc version 7.3.0 (HC&amp;C V1R3C00SPC200B042_20221123)</li>
-</ul>
-<p>编译环境：</p>
-<ul>
-<li>Ubuntu 18.04.6 LTS</li>
-<li>x86_64-linux-gnu</li>
-</ul>
-        
-          <a class="article-more-a" href="/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-嵌入式工程编译模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E6%A8%A1%E6%9D%BF/">嵌入式工程编译模板</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-  	<time datetime="2023-05-26T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/Cover/compile.png" alt="compile.png"></p>
-<p>嵌入式项目中多用 makefile 或者 cmake 来编译代码，基于这两种自动化编译框架，记录一个模板，以供日后使用。</p>
-        
-          <a class="article-more-a" href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E6%A8%A1%E6%9D%BF/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Ubuntu编译带ffmpeg的opencv4.7.0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/Ubuntu%E7%BC%96%E8%AF%91%E5%B8%A6ffmpeg%E7%9A%84opencv4.7.0/">Ubuntu编译带ffmpeg的opencv4.7.0</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/Ubuntu%E7%BC%96%E8%AF%91%E5%B8%A6ffmpeg%E7%9A%84opencv4.7.0/" class="archive-article-date">
-  	<time datetime="2023-05-26T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><ul>
-<li>Ubuntu 18.04.6 LTS<ul>
-<li>gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)</li>
-<li>Target: x86_64-linux-gnu</li>
-</ul>
-</li>
-<li>opencv-4.7.0</li>
-<li>ffmpeg-4.2.9</li>
-</ul>
-        
-          <a class="article-more-a" href="/Technology/Ubuntu%E7%BC%96%E8%AF%91%E5%B8%A6ffmpeg%E7%9A%84opencv4.7.0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/Ubuntu%E7%BC%96%E8%AF%91%E5%B8%A6ffmpeg%E7%9A%84opencv4.7.0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-in-the-project" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/C-in-the-project/">项目中的 C</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/C-in-the-project/" class="archive-article-date">
-  	<time datetime="2023-05-08T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-08</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/Cover/C-in-the-project.png" alt="C-in-the-project.png"></p>
-<p>在项目中或者开源代码中，有很多很实用的 C 代码，总结在此，方便复用。</p>
-        
-          <a class="article-more-a" href="/Technology/C-in-the-project/#more">more >></a>
+          <a class="article-more-a" href="/Technology/c-time/#more">more >></a>
         
       
 
@@ -628,7 +242,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/C-in-the-project/">展开全文 >></a>
+          <a class="article-more-a" href="/Technology/c-time/">展开全文 >></a>
         </p>
       
 
@@ -658,20 +272,20 @@
 
 
   
-    <article id="post-Linux下的压缩与解压" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-json-example-c" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/">Linux下的压缩与解压</a>
+      <a class="article-title" href="/Technology/json-example-c/">C Json Example</a>
     </h1>
   
 
         
-        <a href="/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/" class="archive-article-date">
-  	<time datetime="2023-01-04T07:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-04</time>
+        <a href="/Technology/json-example-c/" class="archive-article-date">
+  	<time datetime="2023-09-06T12:34:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-06</time>
 </a>
         
 
@@ -682,13 +296,102 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Linux中常见压缩格式的压缩与解压方法。</p>
-<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
-<li>Ubuntu 22.04.1 LTS</li>
-<li>x86_64</li>
-</ul>
+        <p>C 读写 <a target="_blank" rel="noopener" href="https://www.json.org/json-zh.html">JSON</a> 的代码示例，基于 <a target="_blank" rel="noopener" href="https://github.com/DaveGamble/cJSON">cJSON</a> 和 <a target="_blank" rel="noopener" href="https://github.com/ibireme/yyjson">yyjson</a>。</p>
+<p>cJSON：<a target="_blank" rel="noopener" href="https://github.com/DaveGamble/cJSON/releases/tag/v1.7.16">Release 1.7.16</a></p>
+<p>yyjson：<a target="_blank" rel="noopener" href="https://github.com/ibireme/yyjson/releases/tag/0.7.0">Release 0.7.0</a></p>
         
-          <a class="article-more-a" href="/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/#more">more >></a>
+          <a class="article-more-a" href="/Technology/json-example-c/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/json-example-c/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux-common-commands" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/linux-common-commands/">Linux常用命令</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/linux-common-commands/" class="archive-article-date">
+  	<time datetime="2023-07-31T09:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-31</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/resources/Cover/linux-wallpaper.jpg" alt="linux-wallpaper.jpg"></p>
+        
+          <a class="article-more-a" href="/Technology/linux-common-commands/#more">more >></a>
         
       
 
@@ -723,7 +426,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/">展开全文 >></a>
+          <a class="article-more-a" href="/Technology/linux-common-commands/">展开全文 >></a>
         </p>
       
 
@@ -753,19 +456,504 @@
 
 
   
-    <article id="post-算法之复杂度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-cross-compile-opencv-with-ffmpeg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A4%8D%E6%9D%82%E5%BA%A6/">算法之复杂度</a>
+      <a class="article-title" href="/Technology/cross-compile-opencv-with-ffmpeg/">交叉编译带FFMPEG的OpenCV</a>
     </h1>
   
 
         
-        <a href="/Technology/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="archive-article-date">
+        <a href="/Technology/cross-compile-opencv-with-ffmpeg/" class="archive-article-date">
+  	<time datetime="2023-06-05T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-05</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>编译OpenCV版本：</p>
+<ul>
+<li>OpenCV 4.7.0（with contribute）</li>
+<li>FFMPEG 4.2.9（with x264）</li>
+<li>Eigen 3.4.0</li>
+</ul>
+<p>交叉编译目标：</p>
+<ul>
+<li>芯片：SD3403</li>
+<li>工具链：aarch64-mix210-linux-gcc</li>
+<li>版本：gcc version 7.3.0 (HC&amp;C V1R3C00SPC200B042_20221123)</li>
+</ul>
+<p>编译环境：</p>
+<ul>
+<li>Ubuntu 18.04.6 LTS</li>
+<li>x86_64-linux-gnu</li>
+</ul>
+        
+          <a class="article-more-a" href="/Technology/cross-compile-opencv-with-ffmpeg/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/cross-compile-opencv-with-ffmpeg/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-embedded-project-compile-template" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/embedded-project-compile-template/">嵌入式工程编译模板</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/embedded-project-compile-template/" class="archive-article-date">
+  	<time datetime="2023-05-26T03:11:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/resources/Cover/compile.png" alt="compile.png"></p>
+<p>嵌入式项目中多用 makefile 或者 cmake 来编译代码，基于这两种自动化编译框架，记录一个模板，以供日后使用。</p>
+        
+          <a class="article-more-a" href="/Technology/embedded-project-compile-template/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/embedded-project-compile-template/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ubuntu-compile-opencv-4-7-0-with-ffmpeg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/ubuntu-compile-opencv-4-7-0-with-ffmpeg/">Ubuntu编译带ffmpeg的opencv4.7.0</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/ubuntu-compile-opencv-4-7-0-with-ffmpeg/" class="archive-article-date">
+  	<time datetime="2023-05-26T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><ul>
+<li>Ubuntu 18.04.6 LTS<ul>
+<li>gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)</li>
+<li>Target: x86_64-linux-gnu</li>
+</ul>
+</li>
+<li>opencv-4.7.0</li>
+<li>ffmpeg-4.2.9</li>
+</ul>
+        
+          <a class="article-more-a" href="/Technology/ubuntu-compile-opencv-4-7-0-with-ffmpeg/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/ubuntu-compile-opencv-4-7-0-with-ffmpeg/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-c-in-the-project" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/c-in-the-project/">项目中的 C</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/c-in-the-project/" class="archive-article-date">
+  	<time datetime="2023-05-08T14:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-08</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/resources/Cover/C-in-the-project.png" alt="C-in-the-project.png"></p>
+<p>在项目中或者开源代码中，有很多很实用的 C 代码，总结在此，方便复用。</p>
+        
+          <a class="article-more-a" href="/Technology/c-in-the-project/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/c-in-the-project/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux-compression-and-decompression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/linux-compression-and-decompression/">Linux下的压缩与解压</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/linux-compression-and-decompression/" class="archive-article-date">
+  	<time datetime="2023-01-04T07:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-04</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Linux中常见压缩格式的压缩与解压方法。</p>
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
+<li>Ubuntu 22.04.1 LTS</li>
+<li>x86_64</li>
+</ul>
+        
+          <a class="article-more-a" href="/Technology/linux-compression-and-decompression/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/linux-compression-and-decompression/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-algorithmic-complexity" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/algorithmic-complexity/">算法之复杂度</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/algorithmic-complexity/" class="archive-article-date">
   	<time datetime="2022-10-25T09:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-25</time>
 </a>
         
@@ -780,7 +968,7 @@
         <p>算法中基本操作重复执行的次数是问题规模$n$的某个函数，用$T(n)$表示，$n$称为问题的规模。</p>
 <p>在复杂度的度量上，我们使用相对增长率来分析算法，使用渐进记号来表述算法复杂度。</p>
         
-          <a class="article-more-a" href="/Technology/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A4%8D%E6%9D%82%E5%BA%A6/#more">more >></a>
+          <a class="article-more-a" href="/Technology/algorithmic-complexity/#more">more >></a>
         
       
 
@@ -815,7 +1003,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A4%8D%E6%9D%82%E5%BA%A6/">展开全文 >></a>
+          <a class="article-more-a" href="/Technology/algorithmic-complexity/">展开全文 >></a>
         </p>
       
 
@@ -845,19 +1033,19 @@
 
 
   
-    <article id="post-常用的Latex数学表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-common-latex-mathematical-expressions" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/%E5%B8%B8%E7%94%A8%E7%9A%84Latex%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/">常用的Latex数学表达式</a>
+      <a class="article-title" href="/Technology/common-latex-mathematical-expressions/">常用的Latex数学表达式</a>
     </h1>
   
 
         
-        <a href="/Technology/%E5%B8%B8%E7%94%A8%E7%9A%84Latex%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
+        <a href="/Technology/common-latex-mathematical-expressions/" class="archive-article-date">
   	<time datetime="2021-11-06T09:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-06</time>
 </a>
         
@@ -872,7 +1060,7 @@
         <p><img src="/resources/Cover/latex.jpg" alt="Cover.jpg"></p>
 <p>Latex 是一种基于ΤΕΧ的排版系统，对于生成复杂的数学公式，LaTeX表现的尤为出色，因此它非常适用于生成高印刷质量的科技和数学类文档。</p>
         
-          <a class="article-more-a" href="/Technology/%E5%B8%B8%E7%94%A8%E7%9A%84Latex%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more">more >></a>
+          <a class="article-more-a" href="/Technology/common-latex-mathematical-expressions/#more">more >></a>
         
       
 
@@ -907,184 +1095,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/%E5%B8%B8%E7%94%A8%E7%9A%84Latex%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JSON例程-CShape" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-CShape/">JSON例程-C#</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/JSON%E4%BE%8B%E7%A8%8B-CShape/" class="archive-article-date">
-  	<time datetime="2021-10-28T08:58:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-28</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/JsonExample/json_cshape.jpg" width="512" height="256"/></p>
-<p>JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。</p>
-<p>它基于 ECMAScript (欧洲计算机协会制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。</p>
-<p>简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。</p>
-        
-          <a class="article-more-a" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-CShape/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-CShape/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JSON例程-Python3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-Python3/">JSON例程-Python3</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/JSON%E4%BE%8B%E7%A8%8B-Python3/" class="archive-article-date">
-  	<time datetime="2021-10-27T15:27:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-27</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/JsonExample/json_python.jpg" width="512" height="256"/></p>
-<p>JSON（JavaScript Object Notation）是一种轻量级的数据交换格式。</p>
-<p>它基于 ECMAScript (欧洲计算机协会制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。</p>
-<p>简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。</p>
-        
-          <a class="article-more-a" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-Python3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/JSON%E4%BE%8B%E7%A8%8B-Python3/">展开全文 >></a>
+          <a class="article-more-a" href="/Technology/common-latex-mathematical-expressions/">展开全文 >></a>
         </p>
       
 
@@ -1128,7 +1139,7 @@
  <div class="outer">
    <div id="footer-info">
      <div class="footer-left">
-       &copy; 2024 Easy Wang
+       &copy; 2025 Easy Wang
      </div>
      <div class="footer-right">
          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1192,6 +1203,10 @@ MathJax.Hub.Queue(function() {
 </script>
 
 
+
+
+
+
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -1228,35 +1243,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Math</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1272,11 +1267,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Math</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Badminton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>

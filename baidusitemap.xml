@@ -1,11 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.easywang.site/Technology/iTOP-4412-3rd-Openssh/</loc>
+    <loc>http://www.easywang.site/Technology/hexo-blog-system/</loc>
+    <lastmod>2025-04-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/test-case-writing-guide-for-pure-software/</loc>
+    <lastmod>2025-04-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/installed-applications/</loc>
+    <lastmod>2025-04-27</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/cpp-stl-basics/</loc>
+    <lastmod>2025-03-26</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/sublime-text/</loc>
+    <lastmod>2025-03-24</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/raspberry-pi-qtwidgets-soft-keyboard/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/qt-quick-integrating-qml-and-js/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/qt-quick-integrating-qml-and-cpp/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/qt-quick-custom-control-style/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/qt-signals-and-slots/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/qt-deploying-applications/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/qt-ui-advanced-transparent-rounded-corner-shadow-effect/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/pyqt5-code-summary/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/json-example-qt/</loc>
+    <lastmod>2025-02-05</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/embedded-compiler/</loc>
+    <lastmod>2024-11-24</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/linux-compression-and-decompression/</loc>
+    <lastmod>2024-11-24</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/itop4412-3rd-openssh/</loc>
     <lastmod>2024-11-23</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/iTOP-4412-UBoot-Usage/</loc>
+    <loc>http://www.easywang.site/Technology/itop4412-uboot-usage/</loc>
     <lastmod>2024-11-22</lastmod>
   </url>
   <url>
@@ -13,11 +77,11 @@
     <lastmod>2024-11-21</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/iTOP-4412-UBoot-startup-procedure/</loc>
+    <loc>http://www.easywang.site/Technology/itop4412-uboot-startup-procedure/</loc>
     <lastmod>2024-11-18</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/iTOP-4412-Driver-I2C/</loc>
+    <loc>http://www.easywang.site/Technology/itop4412-driver-i2c/</loc>
     <lastmod>2024-11-09</lastmod>
   </url>
   <url>
@@ -25,7 +89,7 @@
     <lastmod>2024-10-21</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E5%B8%B8%E7%94%A8%E7%9A%84Latex%E6%95%B0%E5%AD%A6%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <loc>http://www.easywang.site/Technology/common-latex-mathematical-expressions/</loc>
     <lastmod>2024-09-22</lastmod>
   </url>
   <url>
@@ -33,43 +97,15 @@
     <lastmod>2024-09-22</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Sublime-Text/</loc>
-    <lastmod>2024-08-30</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/Qt-SignalsSlots/</loc>
-    <lastmod>2024-08-03</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Thoughts/%E7%BB%9D%E5%AF%B9%E7%9C%9F%E7%90%86/</loc>
+    <loc>http://www.easywang.site/Thoughts/absolute-truth/</loc>
     <lastmod>2024-07-29</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Qt-DeployingApplications/</loc>
-    <lastmod>2024-07-19</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/QtQuick-QML&C++/</loc>
-    <lastmod>2024-07-02</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/QtQuick-Custom-Control-Style/</loc>
+    <loc>http://www.easywang.site/Technology/json-example-c/</loc>
     <lastmod>2024-06-24</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/QtQuick-QML&JS/</loc>
-    <lastmod>2024-06-24</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/C-Json/</loc>
-    <lastmod>2024-06-24</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/Hexo%20%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2024-06-22</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80/</loc>
+    <loc>http://www.easywang.site/Technology/audio-video-development-fundamentals/</loc>
     <lastmod>2024-06-17</lastmod>
   </url>
   <url>
@@ -77,47 +113,35 @@
     <lastmod>2024-06-11</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E7%B3%BB%E7%BB%9F%E7%A7%BB%E6%A4%8D-ARM%E8%A3%B8%E6%9C%BA%E7%A8%8B%E5%BA%8F/</loc>
+    <loc>http://www.easywang.site/Technology/system-porting-arm-bare-metal-program/</loc>
     <lastmod>2024-06-05</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <loc>http://www.easywang.site/Technology/linux-common-commands/</loc>
     <lastmod>2024-06-05</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/JSON%E4%BE%8B%E7%A8%8B-QT/</loc>
-    <lastmod>2024-05-31</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/AStyle%20%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://www.easywang.site/Technology/note-astyle/</loc>
     <lastmod>2024-05-09</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Games/%E6%B4%BE%E5%AF%B9%E6%B8%B8%E6%88%8F/</loc>
+    <loc>http://www.easywang.site/Games/party-game/</loc>
     <lastmod>2024-04-16</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%BA%94%E7%94%A8/</loc>
-    <lastmod>2024-03-20</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E4%B8%AD%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8/</loc>
-    <lastmod>2024-02-21</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/C-in-the-project/</loc>
+    <loc>http://www.easywang.site/Technology/c-in-the-project/</loc>
     <lastmod>2024-02-16</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/STM32-Keil%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA/</loc>
+    <loc>http://www.easywang.site/Technology/stm32-keil-project-setup/</loc>
     <lastmod>2023-11-27</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E7%B3%BB%E7%BB%9F%E7%A7%BB%E6%A4%8D-Kconfig/</loc>
+    <loc>http://www.easywang.site/Technology/system-porting-kconfig/</loc>
     <lastmod>2023-11-16</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/C%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/</loc>
+    <loc>http://www.easywang.site/Technology/c-naming-convention/</loc>
     <lastmod>2023-10-31</lastmod>
   </url>
   <url>
@@ -125,15 +149,15 @@
     <lastmod>2023-10-25</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/C-Time/</loc>
+    <loc>http://www.easywang.site/Technology/c-time/</loc>
     <lastmod>2023-09-06</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/C%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/</loc>
+    <loc>http://www.easywang.site/Technology/c-language-features/</loc>
     <lastmod>2023-09-02</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E6%A8%A1%E6%9D%BF/</loc>
+    <loc>http://www.easywang.site/Technology/embedded-project-compile-template/</loc>
     <lastmod>2023-08-25</lastmod>
   </url>
   <url>
@@ -141,103 +165,87 @@
     <lastmod>2023-08-09</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Linux%E4%B8%8B%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B/</loc>
-    <lastmod>2023-07-17</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E5%B8%A6FFMPEG%E7%9A%84OpenCV/</loc>
+    <loc>http://www.easywang.site/Technology/cross-compile-opencv-with-ffmpeg/</loc>
     <lastmod>2023-06-05</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Ubuntu%E7%BC%96%E8%AF%91%E5%B8%A6ffmpeg%E7%9A%84opencv4.7.0/</loc>
+    <loc>http://www.easywang.site/Technology/ubuntu-compile-opencv-4-7-0-with-ffmpeg/</loc>
     <lastmod>2023-05-26</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Windows%E4%B8%AD%E5%AF%B9%E6%A0%87%E7%9A%84Linux%E5%91%BD%E4%BB%A4/</loc>
+    <loc>http://www.easywang.site/Technology/windows-commands-look-like-linux/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/PyQt5%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/</loc>
-    <lastmod>2022-12-22</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/%E7%AE%97%E6%B3%95%E4%B9%8B%E5%A4%8D%E6%9D%82%E5%BA%A6/</loc>
+    <loc>http://www.easywang.site/Technology/algorithmic-complexity/</loc>
     <lastmod>2022-12-13</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/RaspberryPi/</loc>
+    <loc>http://www.easywang.site/Technology/raspberry-pi/</loc>
     <lastmod>2022-03-10</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Thoughts/%E6%88%91%E6%83%B3%E5%BD%93%E4%B8%AA%E4%BD%9C%E5%AE%B6/</loc>
+    <loc>http://www.easywang.site/Thoughts/i-want-to-be-a-writer/</loc>
     <lastmod>2022-02-16</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://www.easywang.site/Technology/python-study-notes/</loc>
     <lastmod>2021-12-23</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E6%A0%91%E8%8E%93%E6%B4%BEQtWidgets%E8%BD%AF%E9%94%AE%E7%9B%98/</loc>
-    <lastmod>2021-12-22</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/JSON%E4%BE%8B%E7%A8%8B-CShape/</loc>
+    <loc>http://www.easywang.site/Technology/json-example-cshape/</loc>
     <lastmod>2021-11-04</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/JSON%E4%BE%8B%E7%A8%8B-Python3/</loc>
+    <loc>http://www.easywang.site/Technology/json-example-python3/</loc>
     <lastmod>2021-10-28</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E5%9F%BA%E4%BA%8EKeras%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/</loc>
+    <loc>http://www.easywang.site/Technology/machine-learning-framework-based-on-keras/</loc>
     <lastmod>2021-09-22</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/DL%20-%20Mnist/</loc>
+    <loc>http://www.easywang.site/Technology/dl-mnist/</loc>
     <lastmod>2021-09-22</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Thoughts/%E5%9C%A8%E6%AF%94%E8%BE%83%E4%B8%AD%E5%AD%98%E5%9C%A8/</loc>
+    <loc>http://www.easywang.site/Thoughts/%E2%80%8Bexist-in-comparison/</loc>
     <lastmod>2021-09-13</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/LearnMatrixByPython/</loc>
+    <loc>http://www.easywang.site/Technology/learn-matrix-by-python/</loc>
     <lastmod>2021-09-07</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/C++%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</loc>
+    <loc>http://www.easywang.site/Technology/cpp-naming-convention/</loc>
     <lastmod>2021-09-03</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/QT%20UI%E8%BF%9B%E9%98%B6%20-%20%E9%80%8F%E6%98%8E%E5%9C%86%E8%A7%92%E9%98%B4%E5%BD%B1%E6%95%88%E6%9E%9C/</loc>
+    <loc>http://www.easywang.site/Technology/python-language-features/</loc>
     <lastmod>2021-09-03</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Python%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2021-09-03</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/%E4%BA%A7%E5%93%81%E5%90%88%E6%A0%BC%E7%8E%87%E9%A2%84%E4%BC%B0%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://www.easywang.site/Technology/product-qualification-rate-estimation-problem/</loc>
     <lastmod>2021-08-26</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/U%E7%9B%98%E8%88%AC%E4%B8%9D%E6%BB%91%E7%9A%84%E4%BA%91%E7%9B%98/</loc>
+    <loc>http://www.easywang.site/Technology/one-drive/</loc>
     <lastmod>2021-08-16</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8FWeb%EF%BC%88Nginx%E3%80%81C++%EF%BC%89/</loc>
+    <loc>http://www.easywang.site/Technology/embedded-web-nginx-cpp/</loc>
     <lastmod>2021-06-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%8A%80%E8%83%BD%E5%AF%BC%E5%9B%BE/</loc>
+    <loc>http://www.easywang.site/Technology/embedded-engineer-skill-roadmap/</loc>
     <lastmod>2021-06-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E5%9F%BA%E4%BA%8E51job%E7%9A%84%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%A1%8C%E4%B8%9A%E5%88%86%E6%9E%90/</loc>
+    <loc>http://www.easywang.site/Technology/embedded-industry-analysis-based-on-51job/</loc>
     <lastmod>2021-06-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/YMODEM%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/</loc>
+    <loc>http://www.easywang.site/Technology/ymodem-chinese-translation/</loc>
     <lastmod>2021-06-30</lastmod>
   </url>
   <url>
@@ -245,43 +253,43 @@
     <lastmod>2021-06-19</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E6%89%8B%E5%86%99HTTP%E6%8A%A5%E6%96%87/</loc>
+    <loc>http://www.easywang.site/Technology/handwritten-http-message/</loc>
     <lastmod>2021-04-16</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Thoughts/%E9%9F%B3%E4%B9%90%E7%9A%84%E6%84%8F%E4%B9%89/</loc>
+    <loc>http://www.easywang.site/Thoughts/music-meaning/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E5%8F%B7%E8%A7%84%E5%AE%9A&%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B8%83%E6%B5%81/</loc>
+    <loc>http://www.easywang.site/Technology/software-versioning-and-release-process/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Thoughts/%E5%A4%9A%E5%85%83%E6%80%9D%E7%BB%B4%E6%A8%A1%E5%9E%8B/</loc>
+    <loc>http://www.easywang.site/Thoughts/multidimensional-thinking-models/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Python%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B7%A5%E5%85%B7/</loc>
+    <loc>http://www.easywang.site/Technology/python-code-formatting-tool/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/Python%E5%9F%BA%E7%A1%80%E5%9B%BE%E8%A1%A8%E7%BB%98%E5%88%B6/</loc>
+    <loc>http://www.easywang.site/Technology/python-basic-chart-drawing/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/PM-Tools/</loc>
+    <loc>http://www.easywang.site/Technology/pm-tools/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/CSharp%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</loc>
+    <loc>http://www.easywang.site/Technology/csharp-unit-test/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/CSharp%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%BB%93/</loc>
+    <loc>http://www.easywang.site/Technology/csharp-code-summary/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/51Job%E6%95%B0%E6%8D%AE%E6%8A%93%E5%8F%96/</loc>
+    <loc>http://www.easywang.site/Technology/crawling-data-from-51job/</loc>
     <lastmod>2020-10-30</lastmod>
   </url>
   <url>
@@ -297,11 +305,11 @@
     <lastmod>2020-09-14</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Thoughts/%E5%B7%A5%E4%BD%9C%E4%B8%A4%E5%B9%B4%E5%9B%9E%E9%A6%96/</loc>
+    <loc>http://www.easywang.site/Thoughts/two-years-work-retrospective/</loc>
     <lastmod>2020-09-07</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Thoughts/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7/</loc>
+    <loc>http://www.easywang.site/Thoughts/free-will-and-randomness/</loc>
     <lastmod>2020-09-07</lastmod>
   </url>
   <url>

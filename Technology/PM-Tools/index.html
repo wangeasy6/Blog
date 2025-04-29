@@ -11,7 +11,7 @@
   <meta name="description" content="《产品经理》是思想工具，而项目管理方法才是真正的锄头。 但是，当我看到《PMBOK》这本大部头的时候，感觉实在是挥不动。 所以我着手于自己眼前的一亩三分地，从整套的管理方法中抽丝剥茧，找出了目前我急用的一些工具，整理如下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目管理 - 工具箱">
-<meta property="og:url" content="http://www.easywang.site/Technology/PM-Tools/index.html">
+<meta property="og:url" content="http://www.easywang.site/Technology/pm-tools/index.html">
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="《产品经理》是思想工具，而项目管理方法才是真正的锄头。 但是，当我看到《PMBOK》这本大部头的时候，感觉实在是挥不动。 所以我着手于自己眼前的一亩三分地，从整套的管理方法中抽丝剥茧，找出了目前我急用的一些工具，整理如下。">
 <meta property="og:locale">
@@ -188,7 +188,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PM-Tools" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-pm-tools" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -200,7 +200,7 @@
   
 
         
-        <a href="/Technology/PM-Tools/" class="archive-article-date">
+        <a href="/Technology/pm-tools/" class="archive-article-date">
   	<time datetime="2020-06-17T15:43:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
 </a>
         
@@ -289,7 +289,7 @@
 <p><img src="/resources/pm_tools/甘特图生成器.png" alt="甘特图生成器.png"></p>
 <p>每一行，文件：文件路径；表名：数据所在的Sheel名称；Line：从多少行开始，到多少行结束；事件列：事件简述所在的列，以数字表示，如D == 4；开始时间列：开始时间所在列，以数字表示；结束时间列：结束时间或者完成时间所在列，以数字表示。</p>
 <p>点击“Add Input Line”可以新增一行，如果不想重复输入，可以写成一个Json文件，点击“Load Config”可以加载配置文件。例如，对WBS任务分解表-示例可写如下配置：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;Input&quot;</span>:</span><br><span class="line">    [</span><br><span class="line">        &#123;<span class="attr">&quot;file&quot;</span>:<span class="string">&quot;./WBS任务分解表-示例.xlsx&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;sheet_title&quot;</span>:<span class="string">&quot;WBS&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;line_start&quot;</span>:<span class="string">&quot;3&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;line_end&quot;</span>:<span class="string">&quot;8&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;activity_col&quot;</span>:<span class="string">&quot;4&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;start_time_col&quot;</span>:<span class="string">&quot;8&quot;</span>,</span><br><span class="line">         <span class="attr">&quot;end_time_col&quot;</span>:<span class="string">&quot;9&quot;</span>&#125;</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="attr">&quot;Output&quot;</span>: &#123;<span class="attr">&quot;path&quot;</span>:<span class="string">&quot;.&quot;</span>,<span class="attr">&quot;file&quot;</span>:<span class="string">&quot;Gantt.xlsx&quot;</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;Input&quot;</span><span class="punctuation">:</span></span><br><span class="line">    <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span><span class="attr">&quot;file&quot;</span><span class="punctuation">:</span><span class="string">&quot;./WBS任务分解表-示例.xlsx&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;sheet_title&quot;</span><span class="punctuation">:</span><span class="string">&quot;WBS&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;line_start&quot;</span><span class="punctuation">:</span><span class="string">&quot;3&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;line_end&quot;</span><span class="punctuation">:</span><span class="string">&quot;8&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;activity_col&quot;</span><span class="punctuation">:</span><span class="string">&quot;4&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;start_time_col&quot;</span><span class="punctuation">:</span><span class="string">&quot;8&quot;</span><span class="punctuation">,</span></span><br><span class="line">         <span class="attr">&quot;end_time_col&quot;</span><span class="punctuation">:</span><span class="string">&quot;9&quot;</span><span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">&quot;Output&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span><span class="attr">&quot;path&quot;</span><span class="punctuation">:</span><span class="string">&quot;.&quot;</span><span class="punctuation">,</span><span class="attr">&quot;file&quot;</span><span class="punctuation">:</span><span class="string">&quot;Gantt.xlsx&quot;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>下方的文件夹、文件名用来指示甘特图表输出的路径及名称。</p>
 <p>最后点击“开始生成”。</p>
 <p>最后，如果想要使用此程序，可以下载“<a target="_blank" rel="noopener" href="https://gitee.com/EasyW/EasyW/blob/master/resources/pm_tools/GantCharGenerator-EXE.zip">GantCharGenerator-EXE.zip</a>”，解压后双击即可运行。</p>
@@ -393,7 +393,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/PM-Tools/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/Technology/pm-tools/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -407,7 +407,7 @@
   
 <nav id="article-nav">
   
-    <a href="/Technology/CSharp%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Technology/csharp-unit-test/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -417,7 +417,7 @@
     </a>
   
   
-    <a href="/Technology/DL%20-%20Mnist/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/Technology/dl-mnist/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">DL - Minst</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -497,7 +497,7 @@
  <div class="outer">
    <div id="footer-info">
      <div class="footer-left">
-       &copy; 2024 Easy Wang
+       &copy; 2025 Easy Wang
      </div>
      <div class="footer-right">
          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -561,6 +561,10 @@ MathJax.Hub.Queue(function() {
 </script>
 
 
+
+
+
+
     
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
@@ -597,35 +601,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Data</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Math</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">QT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,11 +625,31 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Data</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Math</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Badminton</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>
