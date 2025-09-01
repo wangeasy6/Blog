@@ -1,24 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.easywang.site/Technology/itop4412-ubuntu/</loc>
+    <lastmod>2025-09-01</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/itop4412-overview/</loc>
+    <lastmod>2025-09-01</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/itop4412-driver-i2c/</loc>
+    <lastmod>2025-08-23</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/python-study-notes/</loc>
+    <lastmod>2025-08-04</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/sublime-text/</loc>
+    <lastmod>2025-07-22</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/git/</loc>
+    <lastmod>2025-05-12</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/json-example-qt/</loc>
+    <lastmod>2025-05-08</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/json-example-python3/</loc>
+    <lastmod>2025-05-08</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/json-example-cshape/</loc>
+    <lastmod>2025-05-08</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/json-example-c/</loc>
+    <lastmod>2025-05-08</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/qt-quick-integrating-qml-and-cpp/</loc>
+    <lastmod>2025-05-08</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/Technology/test-case-writing-guide-for-pure-software/</loc>
+    <lastmod>2025-04-30</lastmod>
+  </url>
+  <url>
     <loc>http://www.easywang.site/Technology/hexo-blog-system/</loc>
     <lastmod>2025-04-29</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/test-case-writing-guide-for-pure-software/</loc>
-    <lastmod>2025-04-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/installed-applications/</loc>
-    <lastmod>2025-04-27</lastmod>
-  </url>
-  <url>
     <loc>http://www.easywang.site/Technology/cpp-stl-basics/</loc>
     <lastmod>2025-03-26</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/sublime-text/</loc>
-    <lastmod>2025-03-24</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/Technology/raspberry-pi-qtwidgets-soft-keyboard/</loc>
@@ -26,10 +62,6 @@
   </url>
   <url>
     <loc>http://www.easywang.site/Technology/qt-quick-integrating-qml-and-js/</loc>
-    <lastmod>2025-02-05</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/qt-quick-integrating-qml-and-cpp/</loc>
     <lastmod>2025-02-05</lastmod>
   </url>
   <url>
@@ -53,15 +85,11 @@
     <lastmod>2025-02-05</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/json-example-qt/</loc>
-    <lastmod>2025-02-05</lastmod>
-  </url>
-  <url>
     <loc>http://www.easywang.site/Technology/embedded-compiler/</loc>
     <lastmod>2024-11-24</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/linux-compression-and-decompression/</loc>
+    <loc>http://www.easywang.site/Technology/linux-compression-and-decompression(tar-untar)/</loc>
     <lastmod>2024-11-24</lastmod>
   </url>
   <url>
@@ -73,16 +101,8 @@
     <lastmod>2024-11-22</lastmod>
   </url>
   <url>
-    <loc>http://www.easywang.site/Technology/git/</loc>
-    <lastmod>2024-11-21</lastmod>
-  </url>
-  <url>
     <loc>http://www.easywang.site/Technology/itop4412-uboot-startup-procedure/</loc>
     <lastmod>2024-11-18</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/itop4412-driver-i2c/</loc>
-    <lastmod>2024-11-09</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/Thoughts/mind-processing-unit/</loc>
@@ -99,10 +119,6 @@
   <url>
     <loc>http://www.easywang.site/Thoughts/absolute-truth/</loc>
     <lastmod>2024-07-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/json-example-c/</loc>
-    <lastmod>2024-06-24</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/Technology/audio-video-development-fundamentals/</loc>
@@ -187,18 +203,6 @@
   <url>
     <loc>http://www.easywang.site/Thoughts/i-want-to-be-a-writer/</loc>
     <lastmod>2022-02-16</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/python-study-notes/</loc>
-    <lastmod>2021-12-23</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/json-example-cshape/</loc>
-    <lastmod>2021-11-04</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/json-example-python3/</loc>
-    <lastmod>2021-10-28</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/Technology/machine-learning-framework-based-on-keras/</loc>

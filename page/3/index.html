@@ -84,7 +84,7 @@
 	        
 				<li><a href="/categories/Reflections">观后</a></li>
 	        
-				<li><a href="/categories/Thoughts">随笔</a></li>
+				<li><a href="/categories/Thoughts">随想</a></li>
 	        
 			</ul>
 		</nav>
@@ -160,7 +160,7 @@
 		        
 					<li style="width: 25%"><a href="/categories/Reflections">观后</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/Thoughts">随笔</a></li>
+					<li style="width: 25%"><a href="/categories/Thoughts">随想</a></li>
 		        
 				</ul>
 			</nav>
@@ -176,6 +176,196 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-system-porting-kconfig" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/system-porting-kconfig/">系统移植 - Kconfig</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/system-porting-kconfig/" class="archive-article-date">
+  	<time datetime="2023-11-14T09:43:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-14</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kconfig 是最初为了 Linux 内核开发的基于选择的配置系统。作为一套先进的编译选项配置系统，不止 Linux 内核项目，U-Boot、BusyBox、Buildroot、KDE 等众多项目也在使用 Kconfig。</p>
+<p>大多数用户通过图形菜单界面与 Kconfig 交互，通常通过运行 <code>make menuconfig</code> 来运行。在此界面中，用户选择所需要的选项，并保存配置文件，然后将其作为编译过程的输入。</p>
+<p>菜单和配置选项由散布在源代码树中的 KConfig 文件定义。Kconfig 文件的格式在 <a target="_blank" rel="noopener" href="https://www.kernel.org/doc/html/next/kbuild/kconfig-language.html">Kconfig Language</a>  中有详细描述。</p>
+        
+          <a class="article-more-a" href="/Technology/system-porting-kconfig/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/system-porting-kconfig/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-system-porting-arm-bare-metal-program" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/system-porting-arm-bare-metal-program/">系统移植 - ARM裸机程序</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/system-porting-arm-bare-metal-program/" class="archive-article-date">
+  	<time datetime="2023-11-13T15:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-13</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于 Exynos 4412 的系统移植记录，ARM 裸机程序。</p>
+<p>试验环境：</p>
+<ul>
+<li>SoC：Samsung Exynos 4412（ARM Coretex-A9 based Quad CPU）</li>
+<li>Board：iTOP-4412 POP 1GDDR</li>
+<li>Compiler：arm-linux-gnueabi-gcc（gcc version 7.5.0 (Linaro GCC 7.5-2019.12)）</li>
+</ul>
+        
+          <a class="article-more-a" href="/Technology/system-porting-arm-bare-metal-program/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/system-porting-arm-bare-metal-program/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-c-time" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -279,7 +469,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/json-example-c/">C Json Example</a>
+      <a class="article-title" href="/Technology/json-example-c/">JSON例程 - C</a>
     </h1>
   
 
@@ -846,19 +1036,19 @@
 
 
   
-    <article id="post-linux-compression-and-decompression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-linux-compression-and-decompression(tar-untar)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/linux-compression-and-decompression/">Linux下的压缩与解压</a>
+      <a class="article-title" href="/Technology/linux-compression-and-decompression(tar-untar)/">Linux下的压缩与解压</a>
     </h1>
   
 
         
-        <a href="/Technology/linux-compression-and-decompression/" class="archive-article-date">
+        <a href="/Technology/linux-compression-and-decompression(tar-untar)/" class="archive-article-date">
   	<time datetime="2023-01-04T07:35:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-04</time>
 </a>
         
@@ -876,7 +1066,7 @@
 <li>x86_64</li>
 </ul>
         
-          <a class="article-more-a" href="/Technology/linux-compression-and-decompression/#more">more >></a>
+          <a class="article-more-a" href="/Technology/linux-compression-and-decompression(tar-untar)/#more">more >></a>
         
       
 
@@ -911,191 +1101,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/linux-compression-and-decompression/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-algorithmic-complexity" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/algorithmic-complexity/">算法之复杂度</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/algorithmic-complexity/" class="archive-article-date">
-  	<time datetime="2022-10-25T09:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-25</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>算法中基本操作重复执行的次数是问题规模$n$的某个函数，用$T(n)$表示，$n$称为问题的规模。</p>
-<p>在复杂度的度量上，我们使用相对增长率来分析算法，使用渐进记号来表述算法复杂度。</p>
-        
-          <a class="article-more-a" href="/Technology/algorithmic-complexity/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/algorithmic-complexity/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-common-latex-mathematical-expressions" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/common-latex-mathematical-expressions/">常用的Latex数学表达式</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/common-latex-mathematical-expressions/" class="archive-article-date">
-  	<time datetime="2021-11-06T09:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/Cover/latex.jpg" alt="Cover.jpg"></p>
-<p>Latex 是一种基于ΤΕΧ的排版系统，对于生成复杂的数学公式，LaTeX表现的尤为出色，因此它非常适用于生成高印刷质量的科技和数学类文档。</p>
-        
-          <a class="article-more-a" href="/Technology/common-latex-mathematical-expressions/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Math</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/common-latex-mathematical-expressions/">展开全文 >></a>
+          <a class="article-more-a" href="/Technology/linux-compression-and-decompression(tar-untar)/">展开全文 >></a>
         </p>
       
 
@@ -1127,7 +1133,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/2/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next »</a>
     </nav>
   
 

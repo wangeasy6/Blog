@@ -1,0 +1,532 @@
+OK
+
+U-Boot 2010.03-dirty (Nov 22 2024 - 17:09:59) for iTOP-4412 Android
+
+
+CPU:	SMDK4412-AP1.1 [e4412211]
+	APLL = 1000MHz, MPLL = 800MHz
+	ARM_CLOCK = 1000MHz
+PMIC:	S5M8767(VER5.0)
+Board:	iTOP-4412Quad
+POP type: POP for C220
+DRAM:	1023 MB
+MMC:   max_emmc_clock:40 MHZ
+Set CLK to 400 KHz
+EMMC CLOCK OUTPUT:: 400KHz -[div:50]
+response timeout error : 00000104 cmd 8
+response timeout error : 00000104 cmd 55
+max_emmc_clock:40 MHZ
+Input CLK [ 50 MHz] is higher than limit [40 MHZ]
+Set CLK to 40000 KHz
+EMMC clock output: 40000 KHz
+max_emmc_clock:40 MHZ
+Input CLK [ 50 MHz] is higher than limit [40 MHZ]
+Set CLK to 40000 KHz
+EMMC clock output: 40000 KHz
+[mmc_init] err:0
+MMC0:	7456 MB
+SD sclk_mmc is 400K HZ
+SD sclk_mmc is 50000K HZ
+SD sclk_mmc is 50000K HZ
+[mmc_init] err:0
+MMC1:	14804 MB
+*** Warning - using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+
+
+Checking Boot Mode ... SDMMC
+SYSTEM ENTER NORMAL BOOT MODE
+Hit any key to stop autoboot:  0 
+
+MMC read: dev # 1, block # 4096, count 20480 ...20480 blocks read: OK
+
+MMC read: dev # 1, block # 2048, count 128 ...128 blocks read: OK
+Boot with zImage
+Wrong Ramdisk Image Format
+[err] boot_get_ramdisk
+## Transferring control to Linux (at address 40008000) ...
+
+Starting kernel ...
+
+
+Starting with fdt-0x43000000
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Booting Linux on physical CPU 0xa00
+[    0.000000] Linux version 4.19.323 (easy@ubuntu) (gcc version 7.5.0 (Linaro GCC 7.5-2019.12)) #12 SMP PREEMPT Tue Dec 3 15:13:46 CST 2024
+[    0.000000] CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: TOPEET iTop 4412 Elite board based on Exynos4412
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] Reserved memory: created DMA memory pool at 0x7f800000, size 8 MiB
+[    0.000000] OF: reserved mem: initialized node region_mfc_right, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0x7d400000, size 36 MiB
+[    0.000000] OF: reserved mem: initialized node region_mfc_left, compatible id shared-dma-pool
+[    0.000000] cma: Reserved 96 MiB at 0x77400000
+[    0.000000] Samsung CPU ID: 0xe4412211
+[    0.000000] Running under secure firmware.
+[    0.000000] percpu: Embedded 17 pages/cpu s38504 r8192 d22936 u69632
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 249344
+[    0.000000] Kernel command line: root=/dev/mmcblk0p2 rw console=ttySAC2,115200 init=/linuxrc rootwait
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 872368K/1003520K available (10240K kernel code, 795K rwdata, 3236K rodata, 1024K init, 7523K bss, 32848K reserved, 98304K cma-reserved, 118784K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xf0800000 - 0xff800000   ( 240 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xf0000000   ( 768 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0x(ptrval) - 0x(ptrval)   (11232 kB)
+[    0.000000]       .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)
+[    0.000000]       .data : 0x(ptrval) - 0x(ptrval)   ( 796 kB)
+[    0.000000]        .bss : 0x(ptrval) - 0x(ptrval)   (7524 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Running RCU self tests
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU lockdep checking is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[    0.000000] 	Tasks RCU enabled.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] L2C: platform modifies aux control register: 0x02070000 -> 0x3e470001
+[    0.000000] L2C: platform provided aux values permit register corruption.
+[    0.000000] L2C: DT/platform modifies aux control register: 0x02070000 -> 0x3e470001
+[    0.000000] L2C-310 enabling early BRESP for Cortex-A9
+[    0.000000] L2C-310: enabling full line of zeros but not enabled in Cortex-A9
+[    0.000000] L2C-310 ID prefetch enabled, offset 8 lines
+[    0.000000] L2C-310 dynamic clock gating enabled, standby mode enabled
+[    0.000000] L2C-310 cache controller enabled, 16 ways, 1024 kB
+[    0.000000] L2C-310: CACHE_ID 0x4100c4c8, AUX_CTRL 0x7e470001
+[    0.000000] Exynos4x12 clocks: sclk_apll = 500000000, sclk_mpll = 800000000
+[    0.000000] 	sclk_epll = 96000000, sclk_vpll = 350000000, arm_clk = 1000000000
+[    0.000000] Switching to timer-based delay loop, resolution 41ns
+[    0.000000] clocksource: mct-frc: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+[    0.000005] sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 89478484971ns
+[    0.000540] Console: colour dummy device 80x30
+[    0.000574] Lock dependency validator: Copyright (c) 2006 Red Hat, Inc., Ingo Molnar
+[    0.000588] ... MAX_LOCKDEP_SUBCLASSES:  8
+[    0.000602] ... MAX_LOCK_DEPTH:          48
+[    0.000615] ... MAX_LOCKDEP_KEYS:        8191
+[    0.000628] ... CLASSHASH_SIZE:          4096
+[    0.000641] ... MAX_LOCKDEP_ENTRIES:     32768
+[    0.000653] ... MAX_LOCKDEP_CHAINS:      65536
+[    0.000666] ... CHAINHASH_SIZE:          32768
+[    0.000678]  memory used by lock dependency info: 4655 kB
+[    0.000692]  per task-struct memory footprint: 1536 bytes
+[    0.000769] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.000789] CPU: Testing write buffer coherency: ok
+[    0.000862] CPU0: Spectre v2: using BPIALL workaround
+[    0.000878] pid_max: default: 32768 minimum: 301
+[    0.001168] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.001191] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.004255] CPU0: thread -1, cpu 0, socket 10, mpidr 80000a00
+[    0.006290] Setting up static identity map for 0x40100000 - 0x40100060
+[    0.006724] rcu: Hierarchical SRCU implementation.
+[    0.010954] smp: Bringing up secondary CPUs ...
+[    0.012860] CPU1: thread -1, cpu 1, socket 10, mpidr 80000a01
+[    0.012869] CPU1: Spectre v2: using BPIALL workaround
+[    0.015069] CPU2: thread -1, cpu 2, socket 10, mpidr 80000a02
+[    0.015077] CPU2: Spectre v2: using BPIALL workaround
+[    0.016774] CPU3: thread -1, cpu 3, socket 10, mpidr 80000a03
+[    0.016782] CPU3: Spectre v2: using BPIALL workaround
+[    0.017109] smp: Brought up 1 node, 4 CPUs
+[    0.017128] SMP: Total of 4 processors activated (192.00 BogoMIPS).
+[    0.017143] CPU: All CPU(s) started in SVC mode.
+[    0.019712] devtmpfs: initialized
+[    0.055702] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    0.057526] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.057575] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.060708] pinctrl core: initialized pinctrl subsystem
+[    0.062494] /soc/lcd0-power-domain@10023c80 has as child subdomain: /soc/tv-power-domain@10023c20.
+[    0.065919] NET: Registered protocol family 16
+[    0.069154] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.072765] cpuidle: using governor menu
+[    0.073301] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.073376] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.093654] genirq: irq_chip COMBINER did not update eff. affinity mask of irq 69
+[    0.286956] SCSI subsystem initialized
+[    0.287492] usbcore: registered new interface driver usbfs
+[    0.287644] usbcore: registered new interface driver hub
+[    0.287748] usbcore: registered new device driver usb
+[    0.288773] s3c-i2c 13860000.i2c: slave address 0x00
+[    0.288811] s3c-i2c 13860000.i2c: bus frequency set to 390 KHz
+[    0.290072] s3c-i2c 13860000.i2c: i2c-0: S3C I2C adapter
+[    0.290379] s3c-i2c 13870000.i2c: slave address 0x00
+[    0.290401] s3c-i2c 13870000.i2c: bus frequency set to 390 KHz
+[    0.291449] sec_pmic 1-0066: No interrupt specified, no interrupts
+[    0.296990] VDD_ALIVE: Bringing 1000000uV into 1100000-1100000uV
+[    0.302584] VDD10_MPLL: Bringing 1100000uV into 1000000-1000000uV
+[    0.304539] VDD10_XPLL: Bringing 1100000uV into 1000000-1000000uV
+[    0.307232] VDD33_LCD: Bringing 3000000uV into 3300000-3300000uV
+[    0.310596] VDD33_UOTG: Bringing 3000000uV into 3300000-3300000uV
+[    0.318842] VDD28_CAM: Bringing 3000000uV into 2800000-2800000uV
+[    0.320686] VDD28_AF: Bringing 3000000uV into 2800000-2800000uV
+[    0.322482] VDDA28_2M: Bringing 3300000uV into 2800000-2800000uV
+[    0.324847] VDD33_A31: Bringing 3000000uV into 3300000-3300000uV
+[    0.326508] VDD18_CAM: Bringing 1200000uV into 1800000-1800000uV
+[    0.329634] DVDD12: Bringing 1800000uV into 1200000-1200000uV
+[    0.338232] pvdd_buck7: Bringing 2050000uV into 2000000-2000000uV
+[    0.343289] s3c-i2c 13870000.i2c: i2c-1: S3C I2C adapter
+[    0.343623] s3c-i2c 138a0000.i2c: slave address 0x10
+[    0.343646] s3c-i2c 138a0000.i2c: bus frequency set to 97 KHz
+[    0.344410] s3c-i2c 138a0000.i2c: i2c-4: S3C I2C adapter
+[    0.344702] s3c-i2c 138c0000.i2c: slave address 0x00
+[    0.344723] s3c-i2c 138c0000.i2c: bus frequency set to 97 KHz
+[    0.345195] s3c-i2c 138c0000.i2c: i2c-6: S3C I2C adapter
+[    0.345484] s3c-i2c 138d0000.i2c: slave address 0x00
+[    0.345505] s3c-i2c 138d0000.i2c: bus frequency set to 97 KHz
+[    0.345955] s3c-i2c 138d0000.i2c: i2c-7: S3C I2C adapter
+[    0.347709] Advanced Linux Sound Architecture Driver Initialized.
+[    0.349349] nfc: nfc_init: NFC Core ver 0.1
+[    0.349551] NET: Registered protocol family 39
+[    0.350574] clocksource: Switched to clocksource mct-frc
+[    0.548511] NET: Registered protocol family 2
+[    0.548857] IP idents hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.550783] tcp_listen_portaddr_hash hash table entries: 512 (order: 2, 20480 bytes)
+[    0.550876] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.550988] TCP bind hash table entries: 8192 (order: 6, 294912 bytes)
+[    0.551863] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.552239] UDP hash table entries: 512 (order: 3, 40960 bytes)
+[    0.552389] UDP-Lite hash table entries: 512 (order: 3, 40960 bytes)
+[    0.552809] NET: Registered protocol family 1
+[    0.554351] RPC: Registered named UNIX socket transport module.
+[    0.554415] RPC: Registered udp transport module.
+[    0.554431] RPC: Registered tcp transport module.
+[    0.554447] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.556404] hw perfevents: no interrupt-affinity property for /soc/pmu, guessing.
+[    0.557217] hw perfevents: enabled with armv7_cortex_a9 PMU driver, 7 counters available
+[    0.561344] Initialise system trusted keyrings
+[    0.561932] workingset: timestamp_bits=30 max_order=18 bucket_order=0
+[    0.580328] NFS: Registering the id_resolver key type
+[    0.580471] Key type id_resolver registered
+[    0.580600] Key type id_legacy registered
+[    0.580737] romfs: ROMFS MTD (C) 2007 Red Hat, Inc.
+[    0.588115] Key type asymmetric registered
+[    0.588219] Asymmetric key parser 'x509' registered
+[    0.588423] bounce: pool size: 64 pages
+[    0.588509] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 248)
+[    0.588577] io scheduler noop registered
+[    0.588597] io scheduler deadline registered
+[    0.588920] io scheduler cfq registered (default)
+[    0.588942] io scheduler mq-deadline registered
+[    0.588960] io scheduler kyber registered
+[    0.592756] samsung-usb2-phy 125b0000.exynos-usbphy: 125b0000.exynos-usbphy supply vbus not found, using dummy regulator
+[    0.593176] samsung-usb2-phy 125b0000.exynos-usbphy: Linked as a consumer to regulator.0
+[    0.607299] dma-pl330 12680000.pdma: Loaded driver for PL330 DMAC-141330
+[    0.607323] dma-pl330 12680000.pdma: 	DBUFF-32x4bytes Num_Chans-8 Num_Peri-32 Num_Events-32
+[    0.613370] dma-pl330 12690000.pdma: Loaded driver for PL330 DMAC-141330
+[    0.613393] dma-pl330 12690000.pdma: 	DBUFF-32x4bytes Num_Chans-8 Num_Peri-32 Num_Events-32
+[    0.615146] dma-pl330 12850000.mdma: Loaded driver for PL330 DMAC-141330
+[    0.615168] dma-pl330 12850000.mdma: 	DBUFF-64x8bytes Num_Chans-8 Num_Peri-1 Num_Events-32
+[    0.752522] 13810000.serial: ttySAC1 at MMIO 0x13810000 (irq = 49, base_baud = 0) is a S3C6400/10
+[    0.753633] 13820000.serial: ttySAC2 at MMIO 0x13820000 (irq = 50, base_baud = 0) is a S3C6400/10
+[    1.770040] console [ttySAC2] enabled
+[    1.776886] iommu: Adding device 12c10000.mixer to group 0
+[    1.782266] exynos-mixer 12c10000.mixer: Linked as a consumer to 12e20000.sysmmu
+[    1.793068] exynos-hdmi 12d00000.hdmi: Linked as a consumer to regulator.8
+[    1.798658] exynos-hdmi 12d00000.hdmi: Linked as a consumer to regulator.10
+[    1.805712] OF: graph: no port node found in /soc/hdmi@12d00000
+[    1.814594] iommu: Adding device 10800000.g2d to group 1
+[    1.818525] exynos-drm-g2d 10800000.g2d: Linked as a consumer to 10a40000.sysmmu
+[    1.827160] iommu: Adding device 12810000.rotator to group 2
+[    1.831601] exynos-rotator 12810000.rotator: Linked as a consumer to 12a30000.sysmmu
+[    1.845204] [drm] Exynos DRM: using 12c10000.mixer device for DMA mapping operations
+[    1.852554] exynos-drm exynos-drm: bound 12c10000.mixer (ops mixer_component_ops)
+[    1.859226] exynos-drm exynos-drm: bound 12d00000.hdmi (ops hdmi_component_ops)
+[    1.866438] exynos-drm exynos-drm: bound exynos-drm-vidi (ops vidi_component_ops)
+[    1.874335] exynos-drm-g2d 10800000.g2d: The Exynos G2D (ver 4.1) successfully registered.
+[    1.882064] exynos-drm exynos-drm: bound 10800000.g2d (ops g2d_component_ops)
+[    1.889150] exynos-rotator 12810000.rotator: The exynos rotator has been probed successfully
+[    1.897589] exynos-drm exynos-drm: bound 12810000.rotator (ops rotator_component_ops)
+[    1.905394] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[    1.911986] [drm] No driver support for vblank timestamp query.
+[    1.918847] [drm] Cannot find any crtc or sizes
+[    1.922937] [drm] Cannot find any crtc or sizes
+[    1.927031] [drm] Cannot find any crtc or sizes
+[    1.934608] [drm] Initialized exynos 1.1.0 20180330 for exynos-drm on minor 0
+[    1.963220] brd: module loaded
+[    1.983896] loop: module loaded
+[    1.985578] the cryptoloop driver has been deprecated and will be removed in in Linux 5.16
+[    1.997009] usbcore: registered new interface driver r8152
+[    2.001194] usbcore: registered new interface driver asix
+[    2.006491] usbcore: registered new interface driver ax88179_178a
+[    2.012607] usbcore: registered new interface driver cdc_ether
+[    2.018361] usbcore: registered new interface driver dm9601
+[    2.024000] usbcore: registered new interface driver smsc75xx
+[    2.029684] usbcore: registered new interface driver smsc95xx
+[    2.035425] usbcore: registered new interface driver net1080
+[    2.041059] usbcore: registered new interface driver cdc_subset
+[    2.046917] usbcore: registered new interface driver zaurus
+[    2.052549] usbcore: registered new interface driver cdc_ncm
+[    2.060200] dwc2 12480000.hsotg: Linked as a consumer to regulator.15
+[    2.065653] dwc2 12480000.hsotg: Linked as a consumer to regulator.12
+[    2.072184] dwc2 12480000.hsotg: dwc2_check_params: Invalid parameter besl=1
+[    2.078626] dwc2 12480000.hsotg: dwc2_check_params: Invalid parameter g_np_tx_fifo_size=1024
+[    2.087187] dwc2 12480000.hsotg: EPs: 16, dedicated fifos, 7808 entries in SPRAM
+[    2.097694] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.102851] ehci-exynos: EHCI EXYNOS driver
+[    2.107689] exynos-ehci 12580000.ehci: EHCI Host Controller
+[    2.112855] exynos-ehci 12580000.ehci: new USB bus registered, assigned bus number 1
+[    2.120755] exynos-ehci 12580000.ehci: irq 47, io mem 0x12580000
+[    2.150596] exynos-ehci 12580000.ehci: USB 2.0 started, EHCI 1.00
+[    2.156173] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 4.19
+[    2.163539] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.170707] usb usb1: Product: EHCI Host Controller
+[    2.175527] usb usb1: Manufacturer: Linux 4.19.323 ehci_hcd
+[    2.181121] usb usb1: SerialNumber: 12580000.ehci
+[    2.187924] hub 1-0:1.0: USB hub found
+[    2.190359] hub 1-0:1.0: 3 ports detected
+[    2.196904] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    2.201690] ohci-exynos: OHCI EXYNOS driver
+[    2.207165] usbcore: registered new interface driver uas
+[    2.211249] usbcore: registered new interface driver usb-storage
+[    2.232321] usb3503 usb-hub: switched to HUB mode
+[    2.235560] usb3503 usb-hub: usb3503_probe: probed in hub mode
+[    2.242441] using random self ethernet address
+[    2.245830] using random host ethernet address
+[    2.251408] g_ether gadget: HOST MAC d6:86:6e:3c:de:41
+[    2.255363] g_ether gadget: MAC 6a:92:bb:6a:a5:c5
+[    2.260199] using random self ethernet address
+[    2.264566] using random host ethernet address
+[    2.269203] g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+[    2.275546] g_ether gadget: g_ether ready
+[    2.279628] dwc2 12480000.hsotg: bound driver g_ether
+[    2.290539] s3c-rtc 10070000.rtc: rtc disabled, re-enabling
+[    2.295527] s3c-rtc 10070000.rtc: rtc core: registered s3c as rtc0
+[    2.305068] s5m-rtc s5m-rtc: rtc core: registered s5m-rtc as rtc1
+[    2.309696] s5m-rtc s5m-rtc: Alarm IRQ not available
+[    2.314788] i2c /dev entries driver
+[    2.325267] exynos-tmu 100c0000.tmu: Linked as a consumer to regulator.16
+[    2.333485] s3c2410-wdt 10060000.watchdog: watchdog inactive, reset disabled, irq disabled
+[    2.341429] device-mapper: ioctl: 4.39.0-ioctl (2018-04-03) initialised: dm-devel@redhat.com
+[    2.349765] cpu cpu0: Linked as a consumer to regulator.30
+[    2.354566] cpu cpu0: Dropping the link to regulator.30
+[    2.361341] cpu cpu0: Linked as a consumer to regulator.30
+[    2.375450] sdhci: Secure Digital Host Controller Interface driver
+[    2.380156] sdhci: Copyright(c) Pierre Ossman
+[    2.385061] s3c-sdhci 12530000.sdhci: clock source 2: mmc_busclk.2 (88888889 Hz)
+[    2.392314] s3c-sdhci 12530000.sdhci: Got CD GPIO
+[    2.396845] s3c-sdhci 12530000.sdhci: Linked as a consumer to regulator.23
+[    2.403665] s3c-sdhci 12530000.sdhci: Linked as a consumer to regulator.17
+[    2.440857] mmc0: SDHCI controller on samsung-hsmmc [12530000.sdhci] using ADMA
+[    2.447290] Synopsys Designware Multimedia Card Interface Driver
+[    2.454697] dwmmc_exynos 12550000.mmc: IDMAC supports 32-bit address mode.
+[    2.460219] dwmmc_exynos 12550000.mmc: Using internal DMA controller.
+[    2.466592] dwmmc_exynos 12550000.mmc: Version ID is 240a
+[    2.472452] dwmmc_exynos 12550000.mmc: DW MMC controller at irq 107,32 bit host data width,128 deep fifo
+[    2.482135] dwmmc_exynos 12550000.mmc: Linked as a consumer to regulator.37
+[    2.488876] mmc_host mmc1: card is polling.
+[    2.506719] mmc_host mmc1: Bus speed (slot 0) = 50000000Hz (slot req 400000Hz, actual 396825HZ div = 63)
+[    2.535818] s5p-secss 10830000.sss: s5p-sss driver registered
+[    2.542491] usbcore: registered new interface driver usbhid
+[    2.546670] usbhid: USB HID core driver
+[    2.552002] exynos-bus soc:bus_dmc: Linked as a consumer to regulator.29
+[    2.558571] exynos-bus soc:bus_dmc: Dropping the link to regulator.29
+[    2.569285] exynos-bus soc:bus_leftbus: Linked as a consumer to regulator.31
+[    2.575032] exynos-bus soc:bus_leftbus: Dropping the link to regulator.31
+[    2.588957] exynos-ppmu: new PPMU device registered 106a0000.ppmu_dmc0 (ppmu-event3-dmc0)
+[    2.590591] usb 1-3: new high-speed USB device number 2 using exynos-ehci
+[    2.596172] exynos-ppmu: new PPMU device registered 106b0000.ppmu_dmc1 (ppmu-event3-dmc1)
+[    2.611689] exynos-ppmu: new PPMU device registered 112a0000.ppmu_rightbus (ppmu-event3-rightbus)
+[    2.619891] exynos-ppmu: new PPMU device registered 116a0000.ppmu_leftbus0 (ppmu-event3-leftbus)
+[    2.628317] mmc_host mmc1: Bus speed (slot 0) = 50000000Hz (slot req 52000000Hz, actual 50000000HZ div = 0)
+[    2.632630] exynos-adc 126c0000.adc: Linked as a consumer to regulator.3
+[    2.639056] mmc1: new DDR MMC card at address 0001
+[    2.652320] mmcblk1: mmc1:0001 8WPD3R 7.28 GiB 
+[    2.654301] NET: Registered protocol family 10
+[    2.656350] mmcblk1boot0: mmc1:0001 8WPD3R partition 1 4.00 MiB
+[    2.666982] mmcblk1boot1: mmc1:0001 8WPD3R partition 2 4.00 MiB
+[    2.667404] Segment Routing with IPv6
+[    2.672295] mmcblk1rpmb: mmc1:0001 8WPD3R partition 3 512 KiB, chardev (247:0)
+[    2.675392] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    2.685321] mmc0: new high speed SDHC card at address 0007
+[    2.685984]  mmcblk1: p1 p2 p3 p4
+[    2.689489] NET: Registered protocol family 17
+[    2.695554] mmcblk0: mmc0:0007 SD16G 14.5 GiB 
+[    2.697246] NET: Registered protocol family 15
+[    2.703807]  mmcblk0: p1 p2 p3 p4
+[    2.706280] Key type dns_resolver registered
+[    2.718226] Registering SWP/SWPB emulation handler
+[    2.723803] Loading compiled-in X.509 certificates
+[    2.794469] exynos-bus soc:bus_dmc: Linked as a consumer to regulator.29
+[    2.801255] usb 1-3: New USB device found, idVendor=0424, idProduct=3503, bcdDevice=a1.a0
+[    2.802384] exynos-bus: new bus device registered: soc:bus_dmc (100000 KHz ~ 400000 KHz)
+[    2.808016] usb 1-3: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+[    2.817627] exynos-bus: new bus device registered: soc:bus_acp (100000 KHz ~ 267000 KHz)
+[    2.824494] hub 1-3:1.0: USB hub found
+[    2.831996] exynos-bus: new bus device registered: soc:bus_c2c (100000 KHz ~ 400000 KHz)
+[    2.835256] hub 1-3:1.0: 3 ports detected
+[    2.847202] exynos-bus soc:bus_leftbus: Linked as a consumer to regulator.31
+[    2.855457] exynos-bus: new bus device registered: soc:bus_leftbus (100000 KHz ~ 200000 KHz)
+[    2.863682] exynos-bus: new bus device registered: soc:bus_rightbus (100000 KHz ~ 200000 KHz)
+[    2.872383] exynos-bus: new bus device registered: soc:bus_fsys (100000 KHz ~ 134000 KHz)
+[    2.880311] exynos-bus: new bus device registered: soc:bus_peri ( 50000 KHz ~ 100000 KHz)
+[    2.888121] exynos-bus: new bus device registered: soc:bus_mfc (100000 KHz ~ 200000 KHz)
+[    2.901289] input: gpio-keys as /devices/platform/gpio-keys/input/input0
+[    2.907867] s3c-rtc 10070000.rtc: hctosys: unable to read the hardware clock
+[    2.914203] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    2.927442] cfg80211: Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[    2.936410] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    2.942708] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    2.950275] cfg80211: failed to load regulatory.db
+[    3.005687] ALSA device list:
+[    3.007269]   No soundcards found.
+[    3.087788] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    3.096478] VFS: Mounted root (ext4 filesystem) on device 179:50.
+[    3.115523] devtmpfs: mounted
+[    3.120470] Freeing unused kernel memory: 1024K
+[    3.125075] Run /linuxrc as init process
+[    3.180731] usb 1-3.2: new high-speed USB device number 3 using exynos-ehci
+[    3.332111] usb 1-3.2: config 1 interface 0 altsetting 0 endpoint 0x83 has an invalid bInterval 0, changing to 7
+[    3.418252] usb 1-3.2: New USB device found, idVendor=0a46, idProduct=9621, bcdDevice= 1.01
+[    3.425358] usb 1-3.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.450754] dm9601 1-3.2:1.0 eth0: register 'dm9601' at usb-12580000.ehci-3.2, Davicom DM96xx USB 10/100 Ethernet, 00:00:ff:ff:00:00
+[    3.569857] systemd[1]: System time before build time, advancing clock.
+[    3.670263] random: systemd: uninitialized urandom read (16 bytes read)
+[    3.694516] systemd[1]: systemd 229 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ -LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN)
+[    3.713388] systemd[1]: Detected architecture arm.
+
+Welcome to Ubuntu 16.04.6 LTS!
+
+[    3.763893] systemd[1]: Set hostname to <iTop4412_Ubuntu16>.
+[    3.824762] random: systemd: uninitialized urandom read (16 bytes read)
+[    3.852946] random: systemd-gpt-aut: uninitialized urandom read (16 bytes read)
+[    4.275896] systemd[1]: Reached target Encrypted Volumes.
+[  OK  ] Reached target Encrypted Volumes.
+[    4.315536] systemd[1]: Listening on Journal Socket (/dev/log).
+[  OK  ] Listening on Journal Socket (/dev/log).
+[    4.384549] systemd[1]: Listening on udev Control Socket.
+[  OK  ] Listening on udev Control Socket.
+[    4.426788] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[  OK  ] Started Forward Password Requests to Wall Directory Watch.
+[    4.473259] systemd[1]: Listening on Journal Socket.
+[  OK  ] Listening on Journal Socket.
+[    4.511133] systemd[1]: Reached target Remote File Systems (Pre).
+[  OK  ] Reached target Remote File Systems (Pre).
+[    4.550986] systemd[1]: Reached target User and Group Name Lookups.
+[  OK  ] Reached target User and Group Name Lookups.
+[  OK  ] Created slice System Slice.
+         Starting Uncomplicated firewall...
+         Starting Set console keymap...
+[  OK  ] Listening on Syslog Socket.
+[  OK  ] Listening on udev Kernel Socket.
+         Starting Create Static Device Nodes in /dev...
+         Mounting Debug File System...
+[    4.835383] random: systemd-tmpfile: uninitialized urandom read (16 bytes read)
+[    4.846076] random: systemd-tmpfile: uninitialized urandom read (16 bytes read)
+[    4.852409] random: systemd-tmpfile: uninitialized urandom read (16 bytes read)
+[  OK  ] Reached target Swap.
+         Starting Remount Root and Kernel File Systems...
+[  OK  ] Listening on /dev/initctl Compatibility Named Pipe.
+[  OK  ] Created slice User and Session Slice.
+[  OK  ] Reached target Slices.
+         Starting Journal Service...
+         Starting Load Kernel Modules...
+[  OK  ] Reached target Remote File Systems.
+[  OK  ] Created slice system-serial\x2dgetty.slice.
+[  OK  ] Mounted Debug File System.
+[  OK  ] Started Uncomplicated firewall.
+[FAILED] Failed to start Set console keymap.
+See 'systemctl status keyboard-setup.service' for details.
+[  OK  ] Started Create Static Device Nodes in /dev.
+[  OK  ] Started Remount Root and Kernel File Systems.
+[  OK  ] Started Load Kernel Modules.
+[  OK  ] Started Journal Service.
+         Mounting Configuration File System...
+         Starting Apply Kernel Variables...
+         Starting udev Coldplug all Devices...
+         Starting Load/Save Random Seed...
+         Starting Flush Journal to Persistent Storage...
+         Starting udev Kernel Device Manager...
+[  OK  ] Reached target Local File Systems (Pre).
+[  OK  ] Reached target Local File Systems.
+         Starting Set console font and keymap...
+         Starting Tell Plymouth To Write Out Runtime Data...
+[  OK  ] Mounted Configuration File System.
+[  OK  ] Started Apply Kernel Variables.
+[  OK  ] Started Load/Save Random Seed.
+[FAILED] Failed to start Set console font and keymap.
+See 'systemctl status console-setup.service' for details.
+[  OK  ] Started Tell Plymouth To Write Out Runtime Data.
+[  OK  ] Started udev Kernel Device Manager.
+[  OK  ] Created slice system-getty.slice.
+         Starting Raise network interfaces...
+[  OK  ] Started Flush Journal to Persistent Storage.
+         Starting Create Volatile Files and Directories...
+[  OK  ] Started Create Volatile Files and Directories.
+         Starting Update UTMP about System Boot/Shutdown...
+         Starting Network Time Synchronization...
+[  OK  ] Started Network Time Synchronization.
+[  OK  ] Started Update UTMP about System Boot/Shutdown.
+[  OK  ] Reached target System Time Synchronized.
+[  OK  ] Started udev Coldplug all Devices.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Listening on Avahi mDNS/DNS-SD Stack Activation Socket.
+[  OK  ] Started Daily apt download activities.
+[  OK  ] Started Daily apt upgrade and clean activities.
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+[  OK  ] Reached target Sockets.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Reached target Timers.
+[  OK  ] Started Dispatch Password Requests to Console Directory Watch.
+[  OK  ] Reached target Paths.
+[  OK  ] Reached target Basic System.
+         Starting Accounts Service...
+         Starting Restore /etc/resolv.conf i...re the ppp link was shut down...
+         Starting Permit User Sessions...
+         Starting LSB: Set the CPU Frequency Scaling governor to "ondemand"...
+[  OK  ] Started Regular background program processing daemon.
+         Starting System Logging Service...
+[  OK  ] Started D-Bus System Message Bus.
+         Starting Network Manager...
+         Starting Avahi mDNS/DNS-SD Stack...
+         Starting Login Service...
+[  OK  ] Started System Logging Service.
+[  OK  ] Started Restore /etc/resolv.conf if...fore the ppp link was shut down.
+[  OK  ] Started Permit User Sessions.
+[  OK  ] Found device /dev/ttySAC2.
+[  OK  ] Started LSB: Set the CPU Frequency Scaling governor to "ondemand".
+[  OK  ] Started Raise network interfaces.
+[  OK  ] Started Avahi mDNS/DNS-SD Stack.
+[  OK  ] Started Network Manager.
+[  OK  ] Started Login Service.
+         Starting Network Manager Script Dispatcher Service...
+         Starting Authenticate and Authorize Users to Run Privileged Tasks...
+[  OK  ] Started ifup for eth0.
+[  OK  ] Reached target Network.
+         Starting OpenBSD Secure Shell server...
+         Starting /etc/rc.local Compatibility...
+         Starting Light Display Manager...
+[  OK  ] Started /etc/rc.local Compatibility.
+[  OK  ] Started Network Manager Script Dispatcher Service.
+[  OK  ] Started OpenBSD Secure Shell server.
+[  OK  ] Started Authenticate and Authorize Users to Run Privileged Tasks.
+[  OK  ] Started Accounts Service.
+[  OK  ] Started Light Display Manager.
+         Starting Hostname Service...
+         Starting Hold until boot process finishes up...
+[  OK  ] Started Hold until boot process finishes up.
+[  OK  ] Started Hostname Service.
+[  OK  ] Started Getty on tty1.
+[  OK  ] Started Serial Getty on ttySAC2.
+[  OK  ] Reached target Login Prompts.
+[  OK  ] Reached target Multi-User System.
+[  OK  ] Reached target Graphical Interface.
+         Starting Update UTMP about System Runlevel Changes...
+[  OK  ] Started Update UTMP about System Runlevel Changes.
+
+Ubuntu 16.04.6 LTS iTop4412_Ubuntu16 ttySAC2
+
+iTop4412_Ubuntu16 login: easy
+Password: 
+Last login: Tue Aug  5 15:28:44 UTC 2025 on ttySAC2
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.19.323 armv7l)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+easy@iTop4412_Ubuntu16:~$ 

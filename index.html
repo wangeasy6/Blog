@@ -84,7 +84,7 @@
 	        
 				<li><a href="/categories/Reflections">观后</a></li>
 	        
-				<li><a href="/categories/Thoughts">随笔</a></li>
+				<li><a href="/categories/Thoughts">随想</a></li>
 	        
 			</ul>
 		</nav>
@@ -160,7 +160,7 @@
 		        
 					<li style="width: 25%"><a href="/categories/Reflections">观后</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/Thoughts">随笔</a></li>
+					<li style="width: 25%"><a href="/categories/Thoughts">随想</a></li>
 		        
 				</ul>
 			</nav>
@@ -176,6 +176,203 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-itop4412-ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/itop4412-ubuntu/">系统移植 iTOP-4412 Ubuntu</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/itop4412-ubuntu/" class="archive-article-date">
+  	<time datetime="2025-08-28T05:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-28</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以 iTOP-4412 POP 1G 主板为基础，总结一下 Ubuntu 文件系统的移植。</p>
+<p>试验版本：ubuntu-base-16.04.6</p>
+        
+          <a class="article-more-a" href="/Technology/itop4412-ubuntu/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/itop4412-ubuntu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-itop4412-overview" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/itop4412-overview/">iTOP-4412 总览</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/itop4412-overview/" class="archive-article-date">
+  	<time datetime="2025-08-27T05:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-27</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/resources/itop4412-porting/overview.svg" alt="overview"></p>
+<p>讯为的 iTOP-4412 POP 1G Elite（精英板） 开发板，其核心如下所示：</p>
+<ul>
+<li><strong>SoC:</strong> Exynos 4412</li>
+<li><strong>ARM core:</strong> Cortex-A9 based Quad CPU</li>
+<li><strong>ARM architecture:</strong> ARMv7A</li>
+<li><strong>CPU Chip:</strong> SMDKC210 (s5pc220)</li>
+<li><strong>EMMC:</strong> 8GB (KLM8G1WEPD-B031)</li>
+</ul>
+<p>是一块主要用于学习 Linux 系统开法的开发板。在此基础，总结一下一个典型的 Linux 软件系统的组成，及其关键节点的执行、操作过程。</p>
+<p>试验环境：</p>
+<ul>
+<li><strong>Cross Compiler:</strong> <a target="_blank" rel="noopener" href="https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz">gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf</a></li>
+<li><strong>Build Environment:</strong> Ubuntu 20.04.6 x86_64</li>
+</ul>
+        
+          <a class="article-more-a" href="/Technology/itop4412-overview/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/itop4412-overview/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-test-case-writing-guide-for-pure-software" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -665,7 +862,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Technology/itop4412-driver-i2c/">iTOP-4412 I2C 驱动移植</a>
+      <a class="article-title" href="/Technology/itop4412-driver-i2c/">驱动移植 iTOP-4412 I2C 设备</a>
     </h1>
   
 
@@ -932,194 +1129,9 @@
 
 
   
-    <article id="post-羽毛球-专家把脉-技术点脉络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Sport/%E7%BE%BD%E6%AF%9B%E7%90%83-%E4%B8%93%E5%AE%B6%E6%8A%8A%E8%84%89-%E6%8A%80%E6%9C%AF%E7%82%B9%E8%84%89%E7%BB%9C/">羽毛球-专家把脉-技术点脉络</a>
-    </h1>
-  
-
-        
-        <a href="/Sport/%E7%BE%BD%E6%AF%9B%E7%90%83-%E4%B8%93%E5%AE%B6%E6%8A%8A%E8%84%89-%E6%8A%80%E6%9C%AF%E7%82%B9%E8%84%89%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2024-07-20T13:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-20</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/resources/Cover/羽毛球-专家把脉.png" alt="羽毛球-专家把脉.png"></p>
-<p>专家把脉是在我学习羽毛球的过程中，对我帮助最大的一个羽毛球教学系列。</p>
-<p>但是因为其重复冗长的地方颇多，所以首先进行了一个技术点切片（<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HSbTe9EJ1">专家把脉_技术点切片</a>），将其中的技术点讲解单独提取出来了。</p>
-<p>因为技术切片的分P还是按照的原视频来的，比较杂乱，所以又以技术点归类整理此篇技术点脉络文档，方便学习。</p>
-        
-          <a class="article-more-a" href="/Sport/%E7%BE%BD%E6%AF%9B%E7%90%83-%E4%B8%93%E5%AE%B6%E6%8A%8A%E8%84%89-%E6%8A%80%E6%9C%AF%E7%82%B9%E8%84%89%E7%BB%9C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Badminton</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Sport//" class="article-tag-list-link color1">Sport</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Sport/%E7%BE%BD%E6%AF%9B%E7%90%83-%E4%B8%93%E5%AE%B6%E6%8A%8A%E8%84%89-%E6%8A%80%E6%9C%AF%E7%82%B9%E8%84%89%E7%BB%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-qt-deploying-applications" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/qt-deploying-applications/">Qt 应用程序发布</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/qt-deploying-applications/" class="archive-article-date">
-  	<time datetime="2024-07-19T09:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-19</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当我们使用 Debug 或 Release 模式编译出一个调试完成 Qt 程序，获取到的可执行文件往往还不能执行，获取一个完整的可供安装的文件集合往往还需要经过一些步骤。其中也有一些需要注意的知识点。</p>
-        
-          <a class="article-more-a" href="/Technology/qt-deploying-applications/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/qt-deploying-applications/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
     </nav>
   
 
