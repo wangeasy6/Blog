@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.easywang.site/Technology/itop4412-driver-i2c-bh1750/</loc>
+    <lastmod>2025-09-02</lastmod>
+  </url>
+  <url>
     <loc>http://www.easywang.site/Technology/itop4412-busybox-137/</loc>
     <lastmod>2025-09-02</lastmod>
   </url>
@@ -11,10 +15,6 @@
   <url>
     <loc>http://www.easywang.site/Technology/itop4412-overview/</loc>
     <lastmod>2025-09-01</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Technology/itop4412-driver-i2c/</loc>
-    <lastmod>2025-08-23</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/Technology/python-study-notes/</loc>
