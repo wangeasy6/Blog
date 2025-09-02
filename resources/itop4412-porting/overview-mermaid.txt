@@ -1,0 +1,30 @@
+```mermaid
+---
+config:
+  flowchart:
+    curve: natural
+---
+flowchart LR
+	OM{OM}
+	subgraph Boot Loader
+		_[环境准备]
+		bootcmd{bootcmd}
+		_ -.-> bootcmd
+	end
+	subgraph Kernel
+		__[系统初始化]
+		bootargs{bootargs}
+		__ -.-> bootargs
+	end
+	subgraph root_fs[Root FS]
+		busybox[busybox]
+		ubuntu[ubuntu]
+		...
+	end
+	OM -. 从 TF 卡加载 .-> _
+	OM -. 从 EMMC 加载 .-> _
+	bootcmd -. 从 TF 卡加载 .-> __
+	bootcmd -. 从 EMMC 加载 .-> __
+	bootargs -. 从 TF 卡加载 .-> root_fs
+	bootargs -. 从 EMMC 加载 .-> root_fs
+```
