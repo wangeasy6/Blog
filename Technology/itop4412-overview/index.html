@@ -16,9 +16,9 @@
 <meta property="og:description" content="讯为的 iTOP-4412 POP 1G Elite（精英板） 开发板，其核心如下所示：  SoC: Exynos 4412 ARM core: Cortex-A9 based Quad CPU ARM architecture: ARMv7A CPU Chip: SMDKC210 (s5pc220) EMMC: 8GB (KLM8G1WEPD-B031)  是一块主要用于学习 Linux 系统">
 <meta property="og:locale">
 <meta property="og:image" content="http://www.easywang.site/resources/itop4412-porting/overview.svg">
-<meta property="og:image" content="c:/Users/MLoong/OneDrive/Blog/source/resources/itop4412-porting/booting-time-operation.png">
+<meta property="og:image" content="http://www.easywang.site/resources/itop4412-porting/booting-time-operation.png">
 <meta property="article:published_time" content="2025-08-27T05:30:00.000Z">
-<meta property="article:modified_time" content="2025-09-01T07:14:14.842Z">
+<meta property="article:modified_time" content="2025-09-18T07:10:18.892Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
@@ -406,7 +406,7 @@
 </table>
 </div>
 <p>无论从 eMMC 加载还是从 SD 卡加载，都需要先向对应的设备烧写好 Boot Loader。</p>
-<h3 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h3><p><img src="C:\Users\MLoong\OneDrive\Blog\source\resources\itop4412-porting\booting-time-operation.png" alt="booting-time-operation"></p>
+<h3 id="启动过程"><a href="#启动过程" class="headerlink" title="启动过程"></a>启动过程</h3><p><img src="/resources/itop4412-porting/booting-time-operation.png" alt="booting-time-operation"></p>
 <p>设备启动或从低电模式唤醒时，程序从 iROM 开始执行。</p>
 <p>① iROM 是一片芯片内部的 64K ROM，其中储存的是芯片出厂时烧写的固件，它会初始化 SoC 基本功能，如 时钟、堆栈。</p>
 <p>② 而后，根据 运行模式引脚（Operating Mode (OM) pins），从选定的启动设备加载 BL1 到 256K 的内部 SRAM。根据 secure boot 值，iROM 可能会对 BL1 进行完整性检查。</p>
@@ -760,23 +760,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,15 +772,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+                <a href="javascript:void(0)" class="js-tag color5">Math</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+                <a href="javascript:void(0)" class="js-tag color4">嵌入式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,15 +792,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Math</a>
+                <a href="javascript:void(0)" class="js-tag color3">AI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Qt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Badminton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>
