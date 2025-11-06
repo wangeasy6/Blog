@@ -177,6 +177,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-tlt113i-usb-over-network" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Technology/tlt113i-usb-over-network/">TLT113i USB over Network</a>
+    </h1>
+  
+
+        
+        <a href="/Technology/tlt113i-usb-over-network/" class="archive-article-date">
+  	<time datetime="2025-11-06T14:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-11-06</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="/Technology/tlt113i-usb-wifi-rtl8811cu/">上一篇</a>解决了无线连接的问题，图穷匕首现，用这个板子做 USB over Network 的主控，解决我远程使用 3D 打印机、HP 打印机的问题。经测试，USB Camera、U盘也可以使用。</p>
+<p>USB/IP 是一种基于网络的设备共享机制，可将电脑A（Server端）连接的USB设备通过网络共享给远程电脑B（Client端）。</p>
+<p>试验环境：</p>
+<ul>
+<li>Server端：软件：linux-kernel-tools-usbip；运行环境：<a target="_blank" rel="noopener" href="https://www.tronlong.com/Product/show/248.html">T113-i-MiniEVM | Tronlong</a>；编译环境：x86_64 Linux Ubuntu。</li>
+<li>Client端：软件：<a target="_blank" rel="noopener" href="https://github.com/vadimgrn/usbip-win2">vadimgrn/usbip-win2: USB/IP Client for Windows</a>；运行环境：Win11。</li>
+</ul>
+        
+          <a class="article-more-a" href="/Technology/tlt113i-usb-over-network/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/Technology/tlt113i-usb-over-network/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-tlt113i-usb-wifi-rtl8811cu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1014,101 +1111,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/Technology/itop4412-uboot-usage/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-itop4412-uboot-startup-procedure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Technology/itop4412-uboot-startup-procedure/">iTOP-4412 UBoot 启动过程梳理</a>
-    </h1>
-  
-
-        
-        <a href="/Technology/itop4412-uboot-startup-procedure/" class="archive-article-date">
-  	<time datetime="2024-11-15T08:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-11-15</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基于讯为源码（ <a target="_blank" rel="noopener" href="https://github.com/TOPEET-Develop/iTop4412_uboot_public_merge">iTop4412_uboot_20151119.tar.gz</a> ）的 UBoot 启动过程梳理。</p>
-<ul>
-<li><strong>Board:</strong> iTOP-4412 POP 1G Elite（精英板）</li>
-<li><strong>Boot Loader:</strong> u-boot-2010.03</li>
-</ul>
-        
-          <a class="article-more-a" href="/Technology/itop4412-uboot-startup-procedure/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/Technology/itop4412-uboot-startup-procedure/">展开全文 >></a>
         </p>
       
 
