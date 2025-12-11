@@ -2,7 +2,7 @@
 title: 交叉编译带FFMPEG的OpenCV
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 date: 2023-06-05 13:50:00

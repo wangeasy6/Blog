@@ -3,7 +3,7 @@ title: Sublime Text
 date: 2018-10-17 16:57:00
 toc: true
 categories:
-  - Technology
+  - tech
 tag:
   - Tools
 ---
@@ -152,6 +152,13 @@ tag:
 
 ### CMake 语法高亮
 
-`ctrl + shift + P` 输入 `Install Package`
+`ctrl + shift + P` 输入 `Install Package`。
 
-输入 CMake ，在搜索到的列表中第一个就是你要下载的插件
+输入 CMake ，在搜索到的列表中第一个就是你要下载的插件。
+
+### Rainbow CSV
+
+`ctrl + shift + P` 输入 `Install Package`。
+
+输入 Rainbow CSV，点击安装。
+

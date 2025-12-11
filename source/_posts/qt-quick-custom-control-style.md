@@ -3,7 +3,7 @@ title: QtQuick 自定义控件样式
 date: 2024-06-24 19:00:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Qt
 ---

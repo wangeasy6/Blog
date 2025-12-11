@@ -3,7 +3,7 @@ title: 嵌入式中的编译器
 date: 2024-02-19 15:48:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C
   - C++
@@ -14,12 +14,12 @@ tags:
 
 基于 GCC，本文涵盖以下几个方面：
 
-* [编译原理](/Technology/嵌入式中的编译器/#编译原理)
-* [Linux 程序结构](/Technology/嵌入式中的编译器/#Linux-可执行程序的结构)
-* [Linux 进程在内存中的布局](/Technology/嵌入式中的编译器/#Linux-进程在内存中的布局)
-* [C标准对应的GCC版本](/Technology/嵌入式中的编译器/#C标准对应的GCC版本)
-* [C++标准对应的GCC版本](/Technology/嵌入式中的编译器/#C-标准对应的GCC版本)
-* [升级交叉编译工具链](/Technology/嵌入式中的编译器/#升级交叉编译工具链)
+* [编译原理](/tech/嵌入式中的编译器/#编译原理)
+* [Linux 程序结构](/tech/嵌入式中的编译器/#Linux-可执行程序的结构)
+* [Linux 进程在内存中的布局](/tech/嵌入式中的编译器/#Linux-进程在内存中的布局)
+* [C标准对应的GCC版本](/tech/嵌入式中的编译器/#C标准对应的GCC版本)
+* [C++标准对应的GCC版本](/tech/嵌入式中的编译器/#C-标准对应的GCC版本)
+* [升级交叉编译工具链](/tech/嵌入式中的编译器/#升级交叉编译工具链)
 
 <!--more-->
 

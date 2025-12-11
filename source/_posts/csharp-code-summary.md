@@ -2,7 +2,7 @@
 title: 'C#代码小结'
 toc: true
 categories:
-  - Technology
+  - tech
 date: 2020-04-11 23:38:01
 ---
 

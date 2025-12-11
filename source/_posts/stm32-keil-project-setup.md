@@ -2,7 +2,7 @@
 title: STM32库函数开发Keil工程搭建
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 date: 2021-09-27 21:28:12

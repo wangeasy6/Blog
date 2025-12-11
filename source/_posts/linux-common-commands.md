@@ -3,7 +3,7 @@ title: Linux常用命令
 date: 2023-07-31 17:31:00
 toc: true
 categories:
-  - Technology
+  - tech
 tag:
   - Tools
 ---

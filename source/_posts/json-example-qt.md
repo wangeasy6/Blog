@@ -1,9 +1,9 @@
 ---
-title: JSON例程-Qt
+title: JSON例程 - Qt
 date: 2024-5-31 22:37:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Qt
 ---

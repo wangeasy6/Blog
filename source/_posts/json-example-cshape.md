@@ -1,9 +1,9 @@
 ---
-title: JSON例程-C#
+title: JSON例程 - C#
 date: 2021-10-28 16:58:29
 toc: true
 categories:
-  - Technology
+  - tech
 ---
 
 <img src="/resources/JsonExample/json_cshape.jpg" width="512" height="256"/>

@@ -3,7 +3,7 @@ title: 系统移植 - Kconfig
 date: 2023-11-14 17:43:04
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 ---

@@ -2,7 +2,7 @@
 title: 嵌入式工程编译模板
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 date: 2023-05-26 11:11:00

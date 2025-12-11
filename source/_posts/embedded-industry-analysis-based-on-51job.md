@@ -3,7 +3,7 @@ title: 基于51job的嵌入式软件行业分析
 date: 2020-11-10 23:14:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Python
   - Data
@@ -12,7 +12,7 @@ tags:
 
 ![cover.png](/resources/51job_data_analysis/cover.png)
 
-依靠上一篇的[51Job数据抓取](/Technology/51Job数据抓取/)程序，本篇我以嵌入式软件行业为例，基于51Job上的职位信息进行了一些简单的分析。
+依靠上一篇的[51Job数据抓取](/tech/51Job数据抓取/)程序，本篇我以嵌入式软件行业为例，基于51Job上的职位信息进行了一些简单的分析。
 
 只要稍微更改搜索关键词就可以十分方便的应用在其它行业。
 

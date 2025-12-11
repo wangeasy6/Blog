@@ -3,7 +3,7 @@ title: 嵌入式Web(Nginx、C++)
 date: 2020-09-25 11:35:01
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C++
   - 嵌入式

@@ -3,7 +3,7 @@ title: 方便的 Hexo 博客系统
 date: 2018-07-18 16:57:00
 toc: true
 categories:
-  - Technology
+  - tech
 tag:
   - Tools
 ---

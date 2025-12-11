@@ -1,9 +1,9 @@
 ---
-title: JSON例程-Python3
+title: JSON例程 - Python3
 date: 2021-10-27 23:27:29
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Python
 ---

@@ -3,7 +3,7 @@ title: 项目中的 C
 date: 2023-05-08 22:00:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C
 ---

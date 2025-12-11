@@ -2,7 +2,7 @@
 title: 项目管理 - 工具箱
 toc: true
 categories:
-  - Technology
+  - tech
 date: 2020-06-17 23:43:02
 ---
 

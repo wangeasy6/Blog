@@ -3,7 +3,7 @@ title: Qt - 信号槽机制
 date: 2024-08-03 17:00:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Qt
 ---

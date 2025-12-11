@@ -3,7 +3,7 @@ title: Python学习笔记
 date: 2018-08-06 16:14:01
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Python
 ---
@@ -12,7 +12,7 @@ tags:
 
 <!--more-->
 
-### 更换pip源到国内镜像
+## 更换pip源到国内镜像
 **pip常用命令：**
 
 查询可用版本：`pip insatall xx==`
@@ -47,7 +47,7 @@ tags:
 
 <br/>
 
-### 文档注释
+## 文档注释
 
 在Python中，出现在模块、函数、类、方法定义下的第一个语句如果是注释，会自动变成属性\_\_doc\_\_。
 
@@ -125,13 +125,13 @@ DESCRIPTION
 
 <br/>
 
-#### 注释风格
+### 注释风格
 
 对文档字符串的惯例是使用三重双引号”“”，第一句是以句号， 问号或惊叹号结尾的概述，接着是一个空行(或者该文档字符串单纯只有一行)， 接着是文档字符串剩下的部分。
 
 以下是人们常用的几种注释文档风格：
 
-**javadoc**
+#### javadoc
 
 这是曾经比较流行的一直类似于javadoc的风格。
 
@@ -146,7 +146,7 @@ This is a javadoc style.
 """
 ```
 
-**reST**
+#### reST
 
 这是现在流行的一种风格，reST风格，Sphinx的御用格式。
 
@@ -161,7 +161,7 @@ This is a reST style.
 """
 ```
 
-**Google风格**
+#### Google风格
 
 ```python
 """
@@ -179,7 +179,7 @@ Raises:
 """
 ```
 
-**Numpy风格**
+#### Numpy风格
 
 ```python
 """
@@ -211,7 +211,7 @@ OtherError
 
 <br/>
 
-### 源码加密
+## 源码加密
 
 Python 是以文本形式存储和运行的，在发布的时候常常需要将其加密。
 
@@ -243,7 +243,7 @@ Python 是以文本形式存储和运行的，在发布的时候常常需要将�
 
 <br/>
 
-### 加载.ini配置文件
+## 加载.ini配置文件
 
 使用ConfigParser来加载.ini配置文件
 
@@ -278,7 +278,7 @@ if __name__ == '__main__':
 
 <br/>
 
-### Logging
+## Logging
 
 使用logging包来管理Log。
 
@@ -349,3 +349,185 @@ if __name__ == '__main__':
 | %(relativeCreated)d | 输出日志信息时的，自Logger创建以 来的毫秒数； 日志事件发生的时间相对于logging模块加载时间的相对毫秒数 |
 | %(msecs)d           | 日志事件发生事件的毫秒部分。logging.basicConfig()中用了参数datefmt，将会去掉asctime中产生的毫秒部分，可以用这个加上 |
 
+<br/>
+
+## Windows 弹窗
+
+要在Python中实现Windows右下角的弹窗通知，可通过以下几种主流方案实现，各有适用场景和特点：
+
+------
+
+### 1. 使用 `plyer`（跨平台推荐）
+
+**特点**：支持Windows、macOS、Linux，无需针对系统单独适配。
+ ​**安装**​：
+
+```
+pip install plyer
+```
+
+**示例代码**：
+
+```
+from plyer import notification
+import time
+
+notification.notify(
+    title="任务完成提醒",  
+    message="您的Python脚本已执行完毕！",  
+    app_name="Python通知",  # 应用名称（可选）
+    timeout=10,            # 显示时长（秒）
+    # app_icon="path/to/icon.ico"  # 自定义图标（可选）
+)
+time.sleep(5)  # 确保通知显示完成
+```
+
+**适用场景**：需兼容多操作系统时优先选择。
+
+------
+
+### 2. 使用 `win10toast`（Windows专属）
+
+**特点**：仅支持Windows 10+，生成原生Toast通知，集成系统通知中心。
+ ​**安装**​：
+
+```
+pip install win10toast
+```
+
+**示例代码**：
+
+```
+from win10toast import ToastNotifier
+
+toaster = ToastNotifier()
+toaster.show_toast(
+    "系统提示",  
+    "文件下载已完成！",
+    duration=10,    # 显示时长
+    icon_path=None,  # 图标路径（可选）
+    threaded=True   # 非阻塞模式（避免卡住主线程）
+)
+```
+
+**适用场景**：仅需支持Windows且追求原生体验。
+
+------
+
+###  3. 使用 `tkinter`（内置库，无需安装）
+
+**特点**：Python标准GUI库，可自定义弹窗位置（如右下角），但非系统级通知。
+ ​**示例代码**​：
+
+```
+import tkinter as tk
+
+def show_popup():
+    root = tk.Tk()
+    root.withdraw()  # 隐藏主窗口
+    popup = tk.Toplevel()
+    popup.title("提示")
+    popup.geometry(f"+{popup.winfo_screenwidth()-300}+{popup.winfo_screenheight()-150}")  # 定位右下角
+    popup.attributes("-topmost", True)  # 置顶显示
+    label = tk.Label(popup, text="操作已执行！")
+    label.pack(padx=20, pady=20)
+    button = tk.Button(popup, text="关闭", command=popup.destroy)
+    button.pack(pady=10)
+    popup.mainloop()
+
+show_popup()
+```
+
+**适用场景**：需要高度自定义弹窗样式或位置时使用。
+
+------
+
+### 4. 使用 `winsdk_toast`（高级定制）
+
+**特点**：基于Windows SDK，支持复杂交互（如按钮、分组文本），适合深度定制。
+ ​**安装**​：
+
+```
+pip install winsdk_toast
+```
+
+**示例代码**：
+
+```
+from winsdk_toast import Notifier, Toast
+
+notifier = Notifier("MyApp")
+toast = Toast()
+toast.add_text("数据处理完成", hint_style="title")
+toast.add_text("点击查看详情")
+toast.add_action("关闭", arguments="dismiss")
+notifier.show(toast)
+```
+
+**适用场景**：需添加交互按钮或复杂布局的企业级应用。
+
+------
+
+### 方案对比与选择建议
+
+| **库**         | **适用平台**        | **安装命令**               | **特点**               | **推荐场景**            |
+| -------------- | ------------------- | -------------------------- | ---------------------- | ----------------------- |
+| `plyer`        | Windows/macOS/Linux | `pip install plyer`        | 跨平台，简单易用       | 多系统兼容需求          |
+| `win10toast`   | Windows 10+         | `pip install win10toast`   | 原生Toast通知          | 仅Windows，追求原生体验 |
+| `tkinter`      | 内置无需安装        | -                          | 高度自定义界面         | 需特定位置/样式的弹窗   |
+| `winsdk_toast` | Windows 8+          | `pip install winsdk_toast` | 支持交互按钮、复杂布局 | 企业级定制通知          |
+
+> 💡 **快速选择**：
+>
+> - 优先跨平台 → **`plyer`**
+> - 仅Windows且需原生通知 → **`win10toast`**
+> - 需自定义弹窗位置 → **`tkinter`**
+> - 需按钮交互或高级样式 → **`winsdk_toast`**
+
+实际开发中，若仅需基础通知，推荐 `plyer` 或 `win10toast`；若需深度集成Windows特性，可尝试 `winsdk_toast` 的XML模板定制（参考）。
+
+<br/>
+
+## 一键启动服务器
+
+用于快速共享当前目录的文件。
+
+```bash
+python -m http.server [8000]
+```
+
+- `8000` 是默认端口号（可改为其他端口）。
+- 默认监听 `0.0.0.0`（所有网络接口），添加 `--bind 127.0.0.1` 可限制为本地访问。
+- 访问：`http://localhost:8000`
+
+<br/>
+
+## 导出依赖
+
+使用 pipreqs@Win11。
+
+安装：
+
+```cmd
+pip install pipreqs
+# pipreqs==0.4.13
+```
+
+使用：
+
+```cmd
+python -m pipreqs.pipreqs ./
+# 遇到：UnicodeDecodeError，则指定编码：
+python -m pipreqs.pipreqs ./ --encoding=utf-8
+python -m pipreqs.pipreqs ./ --encoding='iso-8859-1' 
+```
+
+后续安装该项目的依赖时，即可直接使用：
+
+```cmd
+pip install -r requirements.txt
+```
+
+参考
+
+* [【python】一键导出当前环境依赖包，以及批量安装依赖包_pip导出环境安装包-CSDN博客](https://blog.csdn.net/anniaxie/article/details/135674651)

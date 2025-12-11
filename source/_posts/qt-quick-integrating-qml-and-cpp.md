@@ -3,7 +3,7 @@ title: QtQuick QML&C++混合编程
 date: 2024-06-22 00:05:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Qt
 ---
@@ -455,10 +455,14 @@ private:
 
 ```c++
 // main.cpp
+#include <QQmlContext>
+
+int main(int argc, char* argv[]) {
     ColorPropertyM color_p3;
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("color_p3", &color_p3);
+}
 ```
 
 <br/>

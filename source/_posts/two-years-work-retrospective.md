@@ -3,7 +3,7 @@ title: 工作两年回首
 date: 2018-09-26 15:14:10
 toc: true
 categories:
-  - Thoughts
+  - ithink
 ---
 
 最近感悟颇多，不由得想要把它们整理一下，记录下来，算作总结，也方便以后印证。

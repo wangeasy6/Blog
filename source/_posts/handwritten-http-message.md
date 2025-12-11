@@ -3,7 +3,7 @@ title: 手写HTTP报文
 date: 2021-04-16 21:48:06
 toc: true
 categories:
-  - Technology
+  - tech
 ---
 
 ![51job.jpg](/resources/Cover/http_tcp.jpg)

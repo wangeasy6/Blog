@@ -3,7 +3,7 @@ title: 绝对真理
 toc: true
 mathjax: true
 categories:
-  - Thoughts
+  - ithink
 date: 2020-04-27 22:31:31
 ---
 

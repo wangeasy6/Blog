@@ -3,7 +3,7 @@ title: Qt 应用程序发布
 date: 2024-07-19 17:21:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Qt
 ---

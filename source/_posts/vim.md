@@ -3,7 +3,7 @@ title: vim
 toc: true
 date: 2020-03-01 10:23:06
 categories:
-  - Technology
+  - tech
 tag:
   - Tools
 ---

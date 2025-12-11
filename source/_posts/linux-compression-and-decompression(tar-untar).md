@@ -3,7 +3,7 @@ title: Linux下的压缩与解压
 date: 2023-01-04 15:35:12
 toc: true
 categories:
-  - Technology
+  - tech
 tag:
   - Tools
 ---

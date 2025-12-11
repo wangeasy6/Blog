@@ -1,7 +1,7 @@
 ---
 title: U盘般丝滑的云盘
 categories:
-  - Technology
+  - tech
 tags:
   - Tools
 date: 2021-07-01 20:45:00

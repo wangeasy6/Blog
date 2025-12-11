@@ -3,7 +3,7 @@ title: iTOP-4412 UBoot 启动过程梳理
 date: 2024-11-15 16:51:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 ---

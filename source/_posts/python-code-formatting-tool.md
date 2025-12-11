@@ -3,7 +3,7 @@ title: Python编码格式化工具
 date: 2020-10-20 17:24:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Python
 ---

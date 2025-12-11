@@ -3,7 +3,7 @@ title: Qt UI进阶 - 透明圆角阴影效果
 date: 2021-05-01 13:11:06
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Qt
   - C++

@@ -2,7 +2,7 @@
 title: YMODEM协议中文翻译
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 date: 2021-06-30 23:12:33

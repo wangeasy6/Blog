@@ -3,7 +3,7 @@ title: 一批产品要达到90%的合格率，需要测试多少个合格？
 date: 2021-04-25 23:51:12
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Math
 ---

@@ -2,7 +2,7 @@
 title: 树莓派QtWidgets软键盘
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 树莓派
   - Qt

@@ -3,7 +3,7 @@ title: 系统移植 - ARM裸机程序
 date: 2023-11-13 23:00:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 ---

@@ -1,9 +1,9 @@
 ---
-title: C Json Example
+title: JSON例程 - C
 date: 2023-09-06 20:34:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C
 ---

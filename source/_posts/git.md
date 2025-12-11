@@ -3,7 +3,7 @@ title: Git使用手记
 date: 2018-08-01 22:04:12
 toc: true
 categories:
-  - Technology
+  - tech
 tag:
   - Tools
 ---
@@ -186,6 +186,34 @@ cat gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz_* > gcc-linaro-7.
 ```
 
 所以，对于下载之后对于前缀相同，后缀为 \_aa、\_bb 的文件需要执行合并操作以恢复文件。
+
+### GitHub 发布 Release
+
+#### 1. 创建版本标签
+
+```bash
+git tag -a v1.0.0 -m "Initial release"
+git push origin v1.0.0  # 推送tag到远程仓库
+```
+
+#### 2. 手动发布
+
+- 访问仓库的`Releases`页面 → 点击`Draft new release`
+
+- 选择已推送的tag版本（如`v1.0.0`）
+
+- 填写版本说明（支持Markdown格式），建议包含：
+
+- ```
+  ## 新特性
+  - 新增XXX功能
+  ## 修复
+  - 解决YYY问题
+  ```
+
+- 拖拽或选择生成的安装包文件（如.exe、.zip、.whl等）到附件区域
+
+- 点击Publish release完成发布。
 
 ### 参考
 

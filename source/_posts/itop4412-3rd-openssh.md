@@ -3,7 +3,7 @@ title: iTOP-4412 第三方软件移植-Openssh
 date: 2024-11-08 00:06:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 ---

@@ -2,7 +2,7 @@
 title: Ubuntu编译带ffmpeg的opencv4.7.0
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 date: 2023-05-26 10:00:00

@@ -2,7 +2,7 @@
 title: 在比较中存在
 toc: true
 categories:
-  - Thoughts
+  - ithink
 date: 2021-09-13 09:42:00
 ---
 

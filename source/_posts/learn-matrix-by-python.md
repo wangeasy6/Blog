@@ -3,7 +3,7 @@ title: 线性代数的Python示例
 date: 2021-08-26 15:43:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Python
   - Math

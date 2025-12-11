@@ -2,7 +2,7 @@
 title: 'DL - Minst'
 toc: true
 categories:
-  - Technology
+  - tech
 tag:
   - AI
 date: 2020-06-15 20:57:08

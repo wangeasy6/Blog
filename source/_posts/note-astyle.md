@@ -3,7 +3,7 @@ title: AStyle 使用笔记
 date: 2023-12-29 22:49:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Tools
 ---

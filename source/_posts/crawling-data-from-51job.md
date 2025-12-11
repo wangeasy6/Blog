@@ -3,7 +3,7 @@ title: 51Job数据抓取
 date: 2020-10-30 19:00:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Python
   - Data

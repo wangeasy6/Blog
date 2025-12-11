@@ -3,7 +3,7 @@ title: 多元思维模型
 date: 2020-09-27 02:01:00
 toc: true
 categories:
-  - Thoughts
+  - ithink
 ---
 
 ![cover.jpg](/resources/multiple_thinking_model/cover.jpg)
@@ -83,6 +83,8 @@ categories:
 由于理性人通过比较成本和收益做出决策，所以他们会对激励做出反应。
 
 例如，当苹果价格上涨的时候，人们决定少吃苹果。同时，苹果园决定加大苹果种植面积。换言之，市场上的价格对消费者和生产者都产生了激励。
+
+和控制论中的**正反馈调节**、**负反馈调节**相通。
 
 <br/>
 

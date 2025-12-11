@@ -2,7 +2,7 @@
 title: 基于Keras的机器学习框架
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - AI
 date: 2021-09-22 14:03:08

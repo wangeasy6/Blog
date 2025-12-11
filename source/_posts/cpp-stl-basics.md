@@ -3,7 +3,7 @@ title: C++ STL 基础
 data: 2025-03-01 21:14:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C++
 ---
@@ -46,11 +46,11 @@ Container 通过 Allocator 取得存储空间，Algorithm 通过 Iterator 存取
 
 | 容器                                                         | 描述                 | 底层数据结构 | 时间复杂度                                                | 有无序 | 可不可重复 | 其他                                                        |
 | ------------------------------------------------------------ | -------------------- | ------------ | --------------------------------------------------------- | ------ | ---------- | ----------------------------------------------------------- |
-| [array](/Technology/Cpp-STL-Basics/#array)                       | 固定大小的连续数组   | 数组         | 随机读改 O(1)                                             | 无序   | 可重复     | 支持随机访问                                                |
-| [vector](/Technology/Cpp-STL-Basics/#vector) | 可调整大小的连续数组 | 数组         | 随机读改、尾部插入、尾部删除 O(1) 头部插入、头部删除 O(n) | 无序   | 可重复     | 支持随机访问                                                |
-| [deque](/Technology/Cpp-STL-Basics/#deque) | 双端队列             | 双端队列     | 头尾插入、头尾删除 O(1)                                   | 无序   | 可重复     | 一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问 |
-| [forward_list](/Technology/Cpp-STL-Basics/#forward_list) | 单向链表             | 单向链表     | 插入、删除 O(1)                                           | 无序   | 可重复     | 不支持随机访问                                              |
-| [list](/Technology/Cpp-STL-Basics/#list) | 双向链表             | 双向链表     | 插入、删除 O(1)                                           | 无序   | 可重复     | 不支持随机访问                                              |
+| [array](/tech/Cpp-STL-Basics/#array)                       | 固定大小的连续数组   | 数组         | 随机读改 O(1)                                             | 无序   | 可重复     | 支持随机访问                                                |
+| [vector](/tech/Cpp-STL-Basics/#vector) | 可调整大小的连续数组 | 数组         | 随机读改、尾部插入、尾部删除 O(1) 头部插入、头部删除 O(n) | 无序   | 可重复     | 支持随机访问                                                |
+| [deque](/tech/Cpp-STL-Basics/#deque) | 双端队列             | 双端队列     | 头尾插入、头尾删除 O(1)                                   | 无序   | 可重复     | 一个中央控制器 + 多个缓冲区，支持首尾快速增删，支持随机访问 |
+| [forward_list](/tech/Cpp-STL-Basics/#forward_list) | 单向链表             | 单向链表     | 插入、删除 O(1)                                           | 无序   | 可重复     | 不支持随机访问                                              |
+| [list](/tech/Cpp-STL-Basics/#list) | 双向链表             | 双向链表     | 插入、删除 O(1)                                           | 无序   | 可重复     | 不支持随机访问                                              |
 
 #### 容器适配器
 
@@ -58,9 +58,9 @@ Container 通过 Allocator 取得存储空间，Algorithm 通过 Iterator 存取
 
 | 容器                                                     | 描述                                                         | 底层数据结构      | 时间复杂度              | 有无序 | 可不可重复 | 其他                                                         |
 | -------------------------------------------------------- | ------------------------------------------------------------ | ----------------- | ----------------------- | ------ | ---------- | ------------------------------------------------------------ |
-| [stack](/Technology/Cpp-STL-Basics/#stack)                   | 栈（后进先出）                                               | deque / list      | 顶部插入、顶部删除 O(1) | 无序   | 可重复     | deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 |
-| [queue](/Technology/Cpp-STL-Basics/#queue)                   | 队列（先进先出）                                             | deque / list      | 尾部插入、头部删除 O(1) | 无序   | 可重复     | deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 |
-| [priority_queue](/Technology/Cpp-STL-Basics/#priority_queue) | 元素的次序是由作用于所存储的值对上的某种谓词决定的的一种队列 | vector + max-heap | 插入、删除 O(log2n)     | 有序   | 可重复     | vector容器+heap处理规则                                      |
+| [stack](/tech/Cpp-STL-Basics/#stack)                   | 栈（后进先出）                                               | deque / list      | 顶部插入、顶部删除 O(1) | 无序   | 可重复     | deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 |
+| [queue](/tech/Cpp-STL-Basics/#queue)                   | 队列（先进先出）                                             | deque / list      | 尾部插入、头部删除 O(1) | 无序   | 可重复     | deque 或 list 封闭头端开口，不用 vector 的原因应该是容量大小有限制，扩容耗时 |
+| [priority_queue](/tech/Cpp-STL-Basics/#priority_queue) | 元素的次序是由作用于所存储的值对上的某种谓词决定的的一种队列 | vector + max-heap | 插入、删除 O(log2n)     | 有序   | 可重复     | vector容器+heap处理规则                                      |
 
 #### 关联容器
 
@@ -68,10 +68,10 @@ Container 通过 Allocator 取得存储空间，Algorithm 通过 Iterator 存取
 
 | 容器                                                         | 描述                  | 底层数据结构 | 时间复杂度                | 有无序 | 可不可重复 | 其他 |
 | ------------------------------------------------------------ | --------------------- | ------------ | ------------------------- | ------ | ---------- | ---- |
-| [set](/Technology/Cpp-STL-Basics/#set) | 集合                  | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 不可重复   |      |
-| [multiset](/Technology/Cpp-STL-Basics/#multiset) | 可重复集合            | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 可重复     |      |
-| [map](/Technology/Cpp-STL-Basics/#map) | 由 键-值 对组成的集合 | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 不可重复   |      |
-| [multimap](/Technology/Cpp-STL-Basics/#multimap) | 可重复 map            | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 可重复     |      |
+| [set](/tech/Cpp-STL-Basics/#set) | 集合                  | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 不可重复   |      |
+| [multiset](/tech/Cpp-STL-Basics/#multiset) | 可重复集合            | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 可重复     |      |
+| [map](/tech/Cpp-STL-Basics/#map) | 由 键-值 对组成的集合 | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 不可重复   |      |
+| [multimap](/tech/Cpp-STL-Basics/#multimap) | 可重复 map            | 红黑树       | 插入、删除、查找 O(log2n) | 有序   | 可重复     |      |
 
 ##### 使用类型
 
@@ -86,10 +86,10 @@ Container 通过 Allocator 取得存储空间，Algorithm 通过 Iterator 存取
 
 | 容器                                                         | 描述           | 底层数据结构 | 时间复杂度                      | 有无序 | 可不可重复 | 其他 |
 | ------------------------------------------------------------ | -------------- | ------------ | ------------------------------- | ------ | ---------- | ---- |
-| [unordered_set](/Technology/Cpp-STL-Basics/#unordered_set) | 无序集合       | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 不可重复   |      |
-| [unordered_multiset](/Technology/Cpp-STL-Basics/#unordered_multiset) | 无序可重复集合 | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 可重复     |      |
-| [unordered_map](/Technology/Cpp-STL-Basics/#unordered_map) | 无序 map       | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 不可重复   |      |
-| [unordered_multimap](/Technology/Cpp-STL-Basics/#unordered_multimap) | 无序可重复 map | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 可重复     |      |
+| [unordered_set](/tech/Cpp-STL-Basics/#unordered_set) | 无序集合       | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 不可重复   |      |
+| [unordered_multiset](/tech/Cpp-STL-Basics/#unordered_multiset) | 无序可重复集合 | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 可重复     |      |
+| [unordered_map](/tech/Cpp-STL-Basics/#unordered_map) | 无序 map       | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 不可重复   |      |
+| [unordered_multimap](/tech/Cpp-STL-Basics/#unordered_multimap) | 无序可重复 map | 哈希表       | 插入、删除、查找 O(1) 最差 O(n) | 无序   | 可重复     |      |
 
 <br />
 

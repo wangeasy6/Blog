@@ -2,7 +2,7 @@
 title: 音乐的意义
 date: 2020-06-11 21:56:20
 categories:
-  - Thoughts
+  - ithink
 ---
 
 ![music.jpg](/resources/Cover/music.jpg)

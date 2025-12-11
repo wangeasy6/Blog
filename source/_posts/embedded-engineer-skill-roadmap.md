@@ -2,7 +2,7 @@
 title: 嵌入式工程师技能导图
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 date: 2021-02-04 23:32:51
@@ -11,7 +11,7 @@ date: 2021-02-04 23:32:51
 
 ![cover.jpg](/resources/embedded_skills/cover.jpg)
 
-使用[51Job数据抓取](/Technology/51Job数据抓取/)程序，基于各个公司对于嵌入式岗位的职位要求信息，我手动整理了一份[嵌入式工程师技能导图](/resources/embedded_skills/嵌入式工程师技能导图.xmind)。
+使用[51Job数据抓取](/tech/51Job数据抓取/)程序，基于各个公司对于嵌入式岗位的职位要求信息，我手动整理了一份[嵌入式工程师技能导图](/resources/embedded_skills/嵌入式工程师技能导图.xmind)。
 
 <!--more-->
 

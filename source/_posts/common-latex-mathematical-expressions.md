@@ -3,7 +3,7 @@ title: 常用的Latex数学表达式
 date: 2021-11-06 17:03:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Math
 ---

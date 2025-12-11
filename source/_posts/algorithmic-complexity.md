@@ -3,7 +3,7 @@ title: 算法之复杂度
 date: 2022-10-25 17:25:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Algorithm
 ---

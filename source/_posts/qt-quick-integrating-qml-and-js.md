@@ -3,7 +3,7 @@ title: QtQuick QML&JS混合编程
 date: 2024-06-24 15:00:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Qt
 ---

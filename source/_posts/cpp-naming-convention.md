@@ -3,7 +3,7 @@ title: C++命名规范
 date: 2019-11-27 17:28:08
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C++
 ---

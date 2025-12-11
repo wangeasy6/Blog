@@ -3,7 +3,7 @@ title: C Linux Time
 date: 2023-09-06 21:54:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C
 ---

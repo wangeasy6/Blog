@@ -3,7 +3,7 @@ title: Python基础图表绘制
 date: 2020-10-16 15:16:29
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - Python
 ---

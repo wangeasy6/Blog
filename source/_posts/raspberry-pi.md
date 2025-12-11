@@ -3,30 +3,30 @@ title: Raspberry Pi 手记
 date: 2020-02-11 10:08:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 树莓派
 ---
 
 ### 主题
-* [ 开机更新 ](/Technology/RaspberryPi/#开机更新)
-* [ 更换源地址到国内镜像 ](/Technology/RaspberryPi/#更换源地址到国内镜像)
-* [ 更换pip源到国内镜像 ](/Technology/RaspberryPi/#更换pip源到国内镜像)
-* [ 开启Root权限 ](/Technology/RaspberryPi/#开启Root权限)
-* [ 命令行配置无线网络连接 ](/Technology/RaspberryPi/#命令行配置无线网络连接)
-* [ 配置网口为固定IP ](/Technology/RaspberryPi/#配置网口为固定IP)
-* [ 树莓派3B使用UART ](/Technology/RaspberryPi/#树莓派3B使用UART)
-* [ 配置固定USB端口名称 ](/Technology/RaspberryPi/#配置固定USB端口名称)
-* [ 树莓派开启SSH ](/Technology/RaspberryPi/#树莓派开启SSH)
-* [声音输出设置](Technology/RaspberryPi/#声音输出设置)
-* [ 开启远程桌面 ](/Technology/RaspberryPi/#开启远程桌面)
-* [ 树莓派开启Samba ](/Technology/RaspberryPi/#树莓派开启Samba)
-* [ 切换屏幕分辨率 ](/Technology/RaspberryPi/#切换屏幕分辨率)
-* [ 树莓派横竖屏转换 ](/Technology/RaspberryPi/#树莓派横竖屏转换)
-* [ 截屏 ](/Technology/RaspberryPi/#截屏)
-* [ 中文输入 ](/Technology/RaspberryPi/#树莓派中文输入)
-* [ 软键盘 ](/Technology/RaspberryPi/#树莓派软键盘)
-* [ rar解压缩 ](/Technology/RaspberryPi/#rar解压缩)
+* [ 开机更新 ](/tech/RaspberryPi/#开机更新)
+* [ 更换源地址到国内镜像 ](/tech/RaspberryPi/#更换源地址到国内镜像)
+* [ 更换pip源到国内镜像 ](/tech/RaspberryPi/#更换pip源到国内镜像)
+* [ 开启Root权限 ](/tech/RaspberryPi/#开启Root权限)
+* [ 命令行配置无线网络连接 ](/tech/RaspberryPi/#命令行配置无线网络连接)
+* [ 配置网口为固定IP ](/tech/RaspberryPi/#配置网口为固定IP)
+* [ 树莓派3B使用UART ](/tech/RaspberryPi/#树莓派3B使用UART)
+* [ 配置固定USB端口名称 ](/tech/RaspberryPi/#配置固定USB端口名称)
+* [ 树莓派开启SSH ](/tech/RaspberryPi/#树莓派开启SSH)
+* [声音输出设置](tech/RaspberryPi/#声音输出设置)
+* [ 开启远程桌面 ](/tech/RaspberryPi/#开启远程桌面)
+* [ 树莓派开启Samba ](/tech/RaspberryPi/#树莓派开启Samba)
+* [ 切换屏幕分辨率 ](/tech/RaspberryPi/#切换屏幕分辨率)
+* [ 树莓派横竖屏转换 ](/tech/RaspberryPi/#树莓派横竖屏转换)
+* [ 截屏 ](/tech/RaspberryPi/#截屏)
+* [ 中文输入 ](/tech/RaspberryPi/#树莓派中文输入)
+* [ 软键盘 ](/tech/RaspberryPi/#树莓派软键盘)
+* [ rar解压缩 ](/tech/RaspberryPi/#rar解压缩)
 
 硬件环境：**Raspberry Pi 3B+**
 

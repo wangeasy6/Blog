@@ -3,7 +3,7 @@ title: C代码规范
 date: 2018-08-01 23:06:12
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C
 ---

@@ -3,7 +3,7 @@ title: 我想当个作家
 toc: true
 date: 2019-10-18 21:00:00
 categories:
-  - Thoughts
+  - ithink
 ---
 
 故事，每个人都写过，甚至是说故事，讲笑话，都不在话下。

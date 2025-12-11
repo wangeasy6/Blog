@@ -3,7 +3,7 @@ title: Windows中对标的Linux命令
 date: 2019-11-25 16:54:12
 toc: true
 categories:
-  - Technology
+  - tech
 ---
 
 在Windows环境下打开工程，找到某个文件引用关系，但是又找不到文件的时候，总是怀念Linux中的find命令。

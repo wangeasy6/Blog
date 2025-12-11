@@ -3,7 +3,7 @@ title: C语言特性总结
 date: 2018-08-06 12:35:01
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - C
 ---

@@ -3,7 +3,7 @@ title: 心智处理器
 toc: true
 date: 2024-10-14 14:30:00
 categories:
-  - Thoughts
+  - ithink
 ---
 
 

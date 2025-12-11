@@ -3,7 +3,7 @@ title: iTOP-4412 UBoot 使用笔记
 date: 2024-11-20 22:42:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 ---

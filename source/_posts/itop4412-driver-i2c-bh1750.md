@@ -1,9 +1,9 @@
 ---
-title: iTOP-4412 I2C 驱动移植
+title: 驱动移植 iTOP-4412 BH1750(I2C)
 date: 2024-11-07 15:52:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 嵌入式
 ---
@@ -134,7 +134,7 @@ BH1750 广泛应用于移动手机、LCD电视、电脑PC、掌上游戏机、�
 
 BH1750 支持 6 种读取模式，这里选择 One Time H-Resolution Mode，命令码为 0x20。
 
-![BH1750-InstructionSet](\resources\porting\BH1750-InstructionSet.png)
+![BH1750-InstructionSet](\resources\itop4412-porting\bh1750\BH1750-InstructionSet.png)
 
 #### 循环单次读取流程
 
@@ -150,6 +150,25 @@ BH1750 支持 6 种读取模式，这里选择 One Time H-Resolution Mode，命�
   * Measurement Time：sleep_ms(180)
   * read(2)
   * 计算
+
+### 硬件连接
+
+| BH1750      | 开发板                |
+| ----------- | --------------------- |
+| VCC（3-5V） | GPIO - DC3.3V (11)    |
+| GND         | GPIO - GND (9)        |
+| SCL         | CAMERA - I2C_SCL7 (4) |
+| SDA         | CAMERA - I2C_SDA7 (2) |
+
+开发板端口：
+
+<img src="/resources/itop4412-porting/itop-4412-gpio.png" width=800 />
+
+<img src="/resources/itop4412-porting/board-camera-port.png" width=600 />
+
+实际连接图：
+
+<img src="/resources/itop4412-porting/bh1750/bh1750-connect.jpeg" height=500 />
 
 ### 驱动程序
 
@@ -344,7 +363,7 @@ PWD := $(shell pwd)
 all: ko test				# make
 
 ko:	bh1750.c				# make ko
-	$(MAKE) -C $(KDIR) M=$(PWD) modules
+	$(MAKE) ARCH=arm -C $(KDIR) M=$(PWD) modules
 
 test: bh1750_misc_read.c	# make test
 	$(CC) $< -o bh1750_read

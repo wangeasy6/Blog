@@ -3,7 +3,7 @@ title: 音视频开发基础
 date: 2024-05-07 22:00:00
 toc: true
 categories:
-  - Technology
+  - tech
 tags:
   - 音视频
 ---
