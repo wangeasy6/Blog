@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.easywang.site/iplay/party-games/</loc>
+    <lastmod>2025-12-11</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/iplay/%E3%80%8A%E7%8E%B0%E4%BB%A3%E8%89%BA%E6%9C%AF%E3%80%8B-%E7%AD%96%E8%AE%BA/</loc>
+    <lastmod>2025-12-11</lastmod>
+  </url>
+  <url>
     <loc>http://www.easywang.site/iplay/%E7%BE%BD%E6%AF%9B%E7%90%83-%E4%B8%93%E5%AE%B6%E6%8A%8A%E8%84%89-%E6%8A%80%E6%9C%AF%E7%82%B9%E8%84%89%E7%BB%9C/</loc>
     <lastmod>2025-12-11</lastmod>
   </url>
@@ -335,13 +343,5 @@
   <url>
     <loc>http://www.easywang.site/ithink/two-years-work-retrospective/</loc>
     <lastmod>2025-12-11</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Games/party-game/</loc>
-    <lastmod>2024-04-16</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/Games/%E3%80%8A%E7%8E%B0%E4%BB%A3%E8%89%BA%E6%9C%AF%E3%80%8B-%E7%AD%96%E8%AE%BA/</loc>
-    <lastmod>2020-10-30</lastmod>
   </url>
 </urlset> 

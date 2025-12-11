@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.easywang.site/iplay/party-games/</loc>
+    
+    <lastmod>2025-12-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.easywang.site/iplay/%E3%80%8A%E7%8E%B0%E4%BB%A3%E8%89%BA%E6%9C%AF%E3%80%8B-%E7%AD%96%E8%AE%BA/</loc>
+    
+    <lastmod>2025-12-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.easywang.site/iplay/%E7%BE%BD%E6%AF%9B%E7%90%83-%E4%B8%93%E5%AE%B6%E6%8A%8A%E8%84%89-%E6%8A%80%E6%9C%AF%E7%82%B9%E8%84%89%E7%BB%9C/</loc>
     
     <lastmod>2025-12-11</lastmod>
@@ -758,15 +776,6 @@
   </url>
   
   <url>
-    <loc>http://www.easywang.site/Games/party-game/</loc>
-    
-    <lastmod>2024-04-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://www.easywang.site/my-recommendation/index.html</loc>
     
     <lastmod>2023-01-12</lastmod>
@@ -779,15 +788,6 @@
     <loc>http://www.easywang.site/resources/JsonExample/json_example.json</loc>
     
     <lastmod>2021-10-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/resources/fund/xiaoh12-fund/fund_detail/Readme.html</loc>
-    
-    <lastmod>2021-05-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -812,18 +812,18 @@
   </url>
   
   <url>
-    <loc>http://www.easywang.site/resources/51job_data_analysis/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%9F%8E%E5%B8%82%E7%83%AD%E5%8A%9B%E5%9B%BE.html</loc>
+    <loc>http://www.easywang.site/resources/fund/xiaoh12-fund/fund_detail/Readme.html</loc>
     
-    <lastmod>2020-11-08</lastmod>
+    <lastmod>2021-05-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://www.easywang.site/Games/%E3%80%8A%E7%8E%B0%E4%BB%A3%E8%89%BA%E6%9C%AF%E3%80%8B-%E7%AD%96%E8%AE%BA/</loc>
+    <loc>http://www.easywang.site/resources/51job_data_analysis/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%9F%8E%E5%B8%82%E7%83%AD%E5%8A%9B%E5%9B%BE.html</loc>
     
-    <lastmod>2020-10-30</lastmod>
+    <lastmod>2020-11-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -857,42 +857,7 @@
 
   
   <url>
-    <loc>http://www.easywang.site/tags/Algorithm/</loc>
-    <lastmod>2025-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2025-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.easywang.site/tags/C/</loc>
-    <lastmod>2025-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/tags/Math/</loc>
-    <lastmod>2025-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/tags/C/</loc>
-    <lastmod>2025-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -906,7 +871,28 @@
   </url>
   
   <url>
-    <loc>http://www.easywang.site/tags/Data/</loc>
+    <loc>http://www.easywang.site/tags/Qt/</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.easywang.site/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.easywang.site/tags/C/</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.easywang.site/tags/Algorithm/</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -920,6 +906,13 @@
   </url>
   
   <url>
+    <loc>http://www.easywang.site/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.easywang.site/tags/Tools/</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -927,14 +920,21 @@
   </url>
   
   <url>
-    <loc>http://www.easywang.site/tags/Qt/</loc>
+    <loc>http://www.easywang.site/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://www.easywang.site/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
+    <loc>http://www.easywang.site/tags/Math/</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.easywang.site/tags/Data/</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -950,7 +950,7 @@
 
   
   <url>
-    <loc>http://www.easywang.site/categories/Games/</loc>
+    <loc>http://www.easywang.site/categories/iplay/</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -972,13 +972,6 @@
   
   <url>
     <loc>http://www.easywang.site/categories/reflection/</loc>
-    <lastmod>2025-12-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/categories/iplay/</loc>
     <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
