@@ -16,8 +16,13 @@
 <meta property="og:description" content="桌游模拟器（Tabletop Simulator，简称 TTS）作为桌游的通用模拟器，不仅提供了基础的物理模拟，还提供了一个 Lua 脚本运行环境，其在基础的桌游基础上，提供了一些列的操作接口，使得可以完成线下无法做到的自动Setup、拿取&#x2F;分发物品、终局结算等等电子游戏的功能，简化了玩家操作，让大家更加专注于策略层面。 📢 传统的桌游就是把一堆卡牌和Token拿来移去，好耗时好麻烦，而桌游模拟">
 <meta property="og:locale">
 <meta property="og:image" content="http://www.easywang.site/resources/tts-script/atom-lua-package-menu.png">
+<meta property="og:image" content="http://www.easywang.site/resources/tts-script/msg-test.png">
+<meta property="og:image" content="http://www.easywang.site/resources/tts-script/log-test.png">
+<meta property="og:image" content="http://www.easywang.site/resources/tts-script/log_max_table_depth.png">
+<meta property="og:image" content="http://www.easywang.site/resources/tts-script/setting-keys.png">
+<meta property="og:image" content="http://www.easywang.site/resources/tts-script/bind-hotkey.png">
 <meta property="article:published_time" content="2026-02-10T04:27:00.000Z">
-<meta property="article:modified_time" content="2026-02-10T05:02:14.141Z">
+<meta property="article:modified_time" content="2026-03-05T12:55:46.027Z">
 <meta property="article:author" content="Easy Wang">
 <meta property="article:tag" content="iplay">
 <meta name="twitter:card" content="summary">
@@ -222,7 +227,7 @@
       
         <p>桌游模拟器（Tabletop Simulator，简称 TTS）作为桌游的通用模拟器，不仅提供了基础的物理模拟，还提供了一个 Lua 脚本运行环境，其在基础的桌游基础上，提供了一些列的操作接口，使得可以完成线下无法做到的自动Setup、拿取/分发物品、终局结算等等电子游戏的功能，简化了玩家操作，让大家更加专注于策略层面。</p>
 <p>📢 传统的桌游就是把一堆卡牌和Token拿来移去，好耗时好麻烦，而桌游模拟器就是在传统的桌游上加入脚本好好玩！！！</p>
-<p>除了官方的API文档，和桌游模拟器脚本相关的中文资料十分稀少，所以在这里做一些总结，以供大家入门和参考。</p>
+<p>除了官方的API文档，和桌游模拟器脚本相关的中文资料十分稀少，所以在这里做一些总结，以供大家入门和参考。有任何一门编程语言的基础学起来应该都不难，对于会 Python 或者 JavaScript 等脚本语言的来说就更简单了。</p>
 <p>适验版本：TTS v14.1.8，Lua 版本 v5.2。</p>
 <span id="more"></span>
 <p><br/></p>
@@ -247,7 +252,7 @@
 <p>根据以下指引安装 Atom（试验版本：v1.60.0）和 插件：<a target="_blank" rel="noopener" href="https://github.com/Berserk-Games/atom-tabletopsimulator-lua/releases/tag/13.2.0">Release 13.2.0 · Berserk-Games/atom-tabletopsimulator-lua · GitHub</a></p>
 <p>安装后，在 Atom 中点击 <code>Packages</code> 如图所示：</p>
 <p><img src="/resources/tts-script/atom-lua-package-menu.png" alt=""></p>
-<p>创建本地游戏和上传新游戏的流程不变，只是简化了修改流程。</p>
+<p>创建本地游戏和上传新游戏的流程不变，但简化了修改流程。</p>
 <h3 id="修改流程"><a href="#修改流程" class="headerlink" title="修改流程"></a>修改流程</h3><ol>
 <li><p>在 TTS 中，进入一个本地游戏。</p>
 </li>
@@ -259,12 +264,26 @@
 <li><p>修改完成后，按快捷键 <code>Ctrl+Shift+S</code>，即会触发游戏 <code>保存并播放</code>。</p>
 </li>
 </ol>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>编辑器与 TTS 之间的通信通过两个本地主机TCP连接进行：一个由TTS监听消息，另一个由编辑器监听消息。所有通信消息均为 JSON，通过 messageID 字段区分不同功能的消息。</p>
+<p>Atom 监听端口 39998 的本地主机TCP连接。在 TTS 中 新建对象、新建对象脚本、加载新游戏、print 输出、Lua错误、调用sendExternalMessage、游戏保存 时，会发送消息给此端口。</p>
+<p>TTS 监听端口 39999 的本地主机TCP连接。在 Atom 中执行 获取Lua脚本、保存并播放、发送自定义消息、执行Lua代码 时，会发送消息给此端口。</p>
+<p>具体 JSON 定义参见：<a target="_blank" rel="noopener" href="https://api.tabletopsimulator.com/externaleditorapi/">External Editor API - Tabletop Simulator API</a></p>
 <p><br/></p>
-<h2 id="Lua-基础"><a href="#Lua-基础" class="headerlink" title="Lua 基础"></a>Lua 基础</h2><ul>
+<h2 id="Lua-基础"><a href="#Lua-基础" class="headerlink" title="Lua 基础"></a>Lua 基础</h2><p>和其他语言相比，Lua 较为不同的点：</p>
+<ul>
 <li><strong>仅在函数内使用的变量，一定要加 local 声明</strong>：函数中所有没有 local 修饰的变量都默认是全局变量，对于一些通用的变量名来说，会带来诸多非预期的改变。</li>
 <li>在 Lua 索引值是以 <strong>1</strong> 为起始，但你也可以指定 0 开始。</li>
-<li>要计算数组的长度（即数组中元素的个数），你可以使用 <strong>#</strong> 操作符。</li>
+<li>要计算数组的长度（即获得数组元素的个数），在变量前加 <code>#</code> 号。</li>
 </ul>
+<p><br/></p>
+<h2 id="TTS-Lua-基础"><a href="#TTS-Lua-基础" class="headerlink" title="TTS Lua 基础"></a>TTS Lua 基础</h2><h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>游戏场景中的所有物体都是一个对象（Object），如果一个物体被放在 袋子/牌堆 里，它将不存在于场景中。而一个牌堆被拿得只剩下一张牌，牌堆也会不存在。</p>
+<h3 id="Player"><a href="#Player" class="headerlink" title="Player"></a>Player</h3><p>每位玩家被分配一种颜色，观众为“灰色”，主持人为“黑色”。如果你针对某个玩家，需要根据他们所在座位的颜色来识别。</p>
+<h3 id="Global-Script"><a href="#Global-Script" class="headerlink" title="Global Script"></a>Global Script</h3><p>每个游戏/存档都有一个全局脚本，不会绑定在任何特定对象上。</p>
+<p>全局脚本只有一个，而且它始终存在。</p>
+<h3 id="Object-Scripts"><a href="#Object-Scripts" class="headerlink" title="Object Scripts"></a>Object Scripts</h3><p>每个游戏内的对象也可能附带脚本。</p>
+<p>默认情况下，新创建的对象不会附加脚本。不过，你可以创建/编辑某个对象的脚本：右键点击对象，选择<code>Lua编辑器</code>。</p>
+<h3 id="GUID"><a href="#GUID" class="headerlink" title="GUID"></a>GUID</h3><p>在桌面模拟器中，GUID 是一个独特的 6 字符字符串，可用于识别游戏中的对象。对于场景中存在的对象，会自动分配 GUID。</p>
+<p>如果一个对象被复制，有时它会在一帧内保持相同的 GUID，然后引擎才会为新对象分配新的 GUID。容器（袋子/牌堆等）中的物体不会自动分配新的GUID，只有当它们的内容物被移到场景中时才会有。</p>
 <p><br/></p>
 <h2 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h2><h3 id="初始代码"><a href="#初始代码" class="headerlink" title="初始代码"></a>初始代码</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--[[ Lua code. See documentation: https://api.tabletopsimulator.com/ --]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--[[ The onLoad event is called after the game save finishes loading. --]]</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onLoad</span><span class="params">()</span></span></span><br><span class="line">    <span class="comment">--[[ print(&#x27;onLoad!&#x27;) --]]</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--[[ The onUpdate event is called once per frame. --]]</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onUpdate</span><span class="params">()</span></span></span><br><span class="line">    <span class="comment">--[[ print(&#x27;onUpdate loop!&#x27;) --]]</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>默认的全局脚本，定义了两个事件函数：</p>
@@ -272,6 +291,82 @@
 <li><code>onLoad()</code>：游戏加载完成后调用 onLoad。</li>
 <li><code>onUpdate()</code>：每帧调用一次 onUpdate。</li>
 </ul>
+<p><br/></p>
+<h3 id="消息输出"><a href="#消息输出" class="headerlink" title="消息输出"></a>消息输出</h3><h4 id="在屏幕中央或游戏消息框显示"><a href="#在屏幕中央或游戏消息框显示" class="headerlink" title="在屏幕中央或游戏消息框显示"></a>在屏幕中央或游戏消息框显示</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">Return</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>broadcastToAll(string message, color message_tint)</code></td>
+<td style="text-align:left">向所有玩家打印屏幕信息，以及他们的游戏内聊天。</td>
+<td style="text-align:left">bool</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>broadcastToColor(string message, string player_color, color message_tint)</code></td>
+<td style="text-align:left">向指定的玩家打印屏幕上的信息，以及他们的游戏内聊天。</td>
+<td style="text-align:left">bool</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>print(string message)</code></td>
+<td style="text-align:left">它会在聊天中打印字符串，只有主机能看到。用于调试脚本。</td>
+<td style="text-align:left">nil</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>printToAll(string message, color message_tint)</code></td>
+<td style="text-align:left">把消息打印到所有连接玩家的聊天里。</td>
+<td style="text-align:left">bool</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>printToColor(string message, string player_color, color message_tint)</code></td>
+<td style="text-align:left">向特定玩家颜色打印消息。</td>
+<td style="text-align:left">bool</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">msgTest</span><span class="params">()</span></span></span><br><span class="line">  <span class="comment">-- 向所有玩家的屏幕及其消息框输出消息，不指定消息颜色时默认为白色</span></span><br><span class="line">  broadcastToAll(<span class="string">&quot;broadcastToAll&quot;</span>)</span><br><span class="line">    <span class="comment">-- 向所有玩家的屏幕及其消息框输出消息，并指定消息颜色为红色</span></span><br><span class="line">  broadcastToAll(<span class="string">&quot;broadcastToAll Red&quot;</span>, &#123;<span class="number">0.856</span>, <span class="number">0.1</span>, <span class="number">0.094</span>&#125;)</span><br><span class="line">    <span class="comment">-- 向白色玩家的屏幕及其消息框输出消息，并指定消息颜色为白色</span></span><br><span class="line">  broadcastToColor(<span class="string">&quot;broadcastToAll White Blue&quot;</span>, <span class="string">&quot;White&quot;</span>, &#123;<span class="number">0.118</span>, <span class="number">0.53</span>, <span class="number">1</span>&#125;)</span><br><span class="line"></span><br><span class="line">  <span class="comment">-- 只会显示在房主的消息框，一般用于调试</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;print&quot;</span>)</span><br><span class="line">    <span class="comment">-- print 和 broadcast 的用法基本一直，只是 print 的消息只显示在消息框，而不会显示在屏幕中央</span></span><br><span class="line">  printToAll(<span class="string">&quot;printToAll Yellow&quot;</span>, <span class="string">&quot;Yellow&quot;</span>)</span><br><span class="line">  printToColor(<span class="string">&quot;printToAll White Green&quot;</span>, <span class="string">&quot;White&quot;</span>, <span class="string">&quot;Green&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>以上示例中使用的 color 数据均来自于 TTS 自定义的玩家颜色：<a target="_blank" rel="noopener" href="https://api.tabletopsimulator.com/player/colors/">Colors - Tabletop Simulator API</a>。对于 TTS 定义的 12 个颜色来说，可以直接使用它们的字符串作为 color 类型参数，TTS 会自动转换为对应的 color 值。</p>
+<p><img src="/resources/tts-script/msg-test.png" alt="msg-test.png"></p>
+<p><br/></p>
+<h4 id="在系统控制台显示"><a href="#在系统控制台显示" class="headerlink" title="在系统控制台显示"></a>在系统控制台显示</h4><p>除了提供主机专用的消息显示通道，log 还提供了自动解析 table 为字符串显示的便利。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数名</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">Return</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>log(var value, string label, string tags)</code></td>
+<td style="text-align:left">向主机的系统控制台发送消息。（快捷键：~）</td>
+<td style="text-align:left">bool</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>logString(var value, string label, string tags, bool concise, bool displayTag)</code></td>
+<td style="text-align:left">返回一个格式类似于log（…）输出的字符串。</td>
+<td style="text-align:left">string</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>logStyle(string tag, color tint, string prefix, string postfix)</code></td>
+<td style="text-align:left">为日志的指定标签类型设置样式选项。</td>
+<td style="text-align:left">bool</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logTest</span><span class="params">()</span></span></span><br><span class="line">  <span class="comment">-- 以 error 的风格打印 string 类型的消息到系统控制台</span></span><br><span class="line">  <span class="built_in">log</span>(<span class="string">&quot;Something unexpected happened.&quot;</span>, <span class="string">&quot;Oh no!&quot;</span>, <span class="string">&quot;error&quot;</span>)</span><br><span class="line">  <span class="comment">-- 以 info 的风格打印 table 类型的消息到系统控制台</span></span><br><span class="line">  <span class="built_in">log</span>(getSeatedPlayers(), <span class="string">&quot;getSeatedPlayers&quot;</span>, <span class="string">&quot;info&quot;</span>)</span><br><span class="line">  <span class="comment">-- 以 log 的形式解析成 string 后输出</span></span><br><span class="line">  broadcastToAll(logString(getSeatedPlayers()))</span><br><span class="line">  <span class="comment">-- 自定义 seats 风格</span></span><br><span class="line">  logStyle(<span class="string">&quot;seats&quot;</span>, &#123;<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>&#125;, <span class="string">&quot;Start List&quot;</span>, <span class="string">&quot;End List&quot;</span>)</span><br><span class="line">  <span class="comment">-- 使用 seats 风格打印</span></span><br><span class="line">  <span class="built_in">log</span>(Player.getAvailableColors(), <span class="literal">nil</span>, <span class="string">&quot;seats&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><img src="/resources/tts-script/log-test.png" alt="log-test.png"></p>
+<p>其解析深度可以通过 <code>log_max_table_depth</code> 配置。</p>
+<p><img src="/resources/tts-script/log_max_table_depth.png" alt="log_max_table_depth.png"></p>
 <p><br/></p>
 <h3 id="获取玩家人数"><a href="#获取玩家人数" class="headerlink" title="获取玩家人数"></a>获取玩家人数</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> seated_players_number = #getSeatedPlayers()</span><br></pre></td></tr></table></figure>
 <ul>
@@ -329,8 +424,15 @@
 <ul>
 <li><strong>params</strong>：跨对象调用时，只允许传递一个参数，如果想要传递多个参数，需要先封装为一个 Table 类型的变量。</li>
 </ul>
-<h4 id="对象脚本中调用全局函数"><a href="#对象脚本中调用全局函数" class="headerlink" title="对象脚本中调用全局函数"></a>对象脚本中调用全局函数</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> workers_number = Global.call(<span class="string">&quot;getNumberForSupplemment&quot;</span>, params)</span><br></pre></td></tr></table></figure>
-<p>在对象脚本中调用 Global 脚本中的 getNumberForSupplemment 函数。</p>
+<h4 id="对象脚本中调用全局函数"><a href="#对象脚本中调用全局函数" class="headerlink" title="对象脚本中调用全局函数"></a>对象脚本中调用全局函数</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> workers_number = Global.call(<span class="string">&quot;getNumber&quot;</span>, params)</span><br></pre></td></tr></table></figure>
+<p>在对象脚本中调用 Global 脚本中的 getNumber 函数。</p>
+<p><br/></p>
+<h3 id="控制其它玩家转到房主当前视角"><a href="#控制其它玩家转到房主当前视角" class="headerlink" title="控制其它玩家转到房主当前视角"></a>控制其它玩家转到房主当前视角</h3><p>同步房主的视角给其它玩家（自动同步鼠标位置、旋转角度，暂时只支持固定的俯仰角、距离）：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onLoad</span><span class="params">()</span></span></span><br><span class="line">    addHotkey(<span class="string">&quot;Fllow Me&quot;</span>, fllowMe, <span class="literal">false</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fllowMe</span><span class="params">(playerColor, hoveredObject, pointerPosition, isKeyUp)</span></span></span><br><span class="line">  <span class="comment">-- Only admin can do</span></span><br><span class="line">  <span class="keyword">if</span> Player[playerColor].admin <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">local</span> parameters = &#123;&#125;</span><br><span class="line">    parameters.position = pointerPosition</span><br><span class="line">    parameters.pitch = <span class="number">90</span>       <span class="comment">-- Fixed pitch</span></span><br><span class="line">    parameters.distance = <span class="number">20</span>    <span class="comment">-- Fixed distance</span></span><br><span class="line">    <span class="comment">-- Get rotation</span></span><br><span class="line">    <span class="keyword">local</span> y_pos = Player[playerColor].getPointerRotation()</span><br><span class="line">    <span class="keyword">if</span> y_pos &lt; <span class="number">180</span> <span class="keyword">then</span></span><br><span class="line">      parameters.yaw = <span class="number">180</span> + y_pos</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      parameters.yaw = y_pos - <span class="number">180</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _,player <span class="keyword">in</span> <span class="built_in">ipairs</span>(getSeatedPlayers()) <span class="keyword">do</span></span><br><span class="line">      <span class="keyword">if</span> player != playerColor <span class="keyword">then</span></span><br><span class="line">        Player[player].lookAt(parameters)</span><br><span class="line">        broadcastToColor(<span class="string">&quot;同步了房主视角&quot;</span>, player, playerColor)</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    broadcastToColor(<span class="string">&quot;向其他玩家同步了视角&quot;</span>, playerColor, playerColor)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>重新加载脚本后，点击<code>设置</code> - <code>游戏按键</code>，添加对应的快捷键：</p>
+<p><img src="/resources/tts-script/setting-keys.png" alt="setting-keys.png"></p>
+<p><img src="/resources/tts-script/bind-hotkey.png" alt="bind-hotkey.png"></p>
+<p>设置完成后，按按键 K 即可同步当前视角给其它玩家。</p>
 <p><br/></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>官方 API：<a target="_blank" rel="noopener" href="https://api.tabletopsimulator.com/">Introduction - Tabletop Simulator API</a></li>
@@ -461,7 +563,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E7%BA%A6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">简约开发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Atom-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">Atom 环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%B5%81%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">修改流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lua-%E5%9F%BA%E7%A1%80"><span class="toc-number">3.</span> <span class="toc-text">Lua 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-number">4.</span> <span class="toc-text">代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">初始代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%8E%A9%E5%AE%B6%E4%BA%BA%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">获取玩家人数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A7%B0"><span class="toc-number">4.3.</span> <span class="toc-text">获取玩家名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%89%E9%92%AE"><span class="toc-number">4.4.</span> <span class="toc-text">创建按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">4.5.</span> <span class="toc-text">对象操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E4%BF%A1%E6%81%AF"><span class="toc-number">4.6.</span> <span class="toc-text">获取对象信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%8C%E5%A0%86%E6%93%8D%E4%BD%9C"><span class="toc-number">4.7.</span> <span class="toc-text">牌堆操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%80%E5%8C%BA%E5%9F%9F%E6%89%80%E6%9C%89%E7%9A%84%E7%89%A9%E5%93%81"><span class="toc-number">4.8.</span> <span class="toc-text">获取某一区域所有的物品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E5%A0%86%E7%89%A9%E5%93%81%E4%B8%AD%E8%BF%87%E6%BB%A4%E6%9F%90%E4%B8%80%E7%B1%BB%E7%89%A9%E5%93%81"><span class="toc-number">4.9.</span> <span class="toc-text">从一堆物品中过滤某一类物品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%AF%B9%E8%B1%A1%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-number">4.10.</span> <span class="toc-text">跨对象函数调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">4.10.1.</span> <span class="toc-text">调用某个对象的函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%B0%83%E7%94%A8%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0"><span class="toc-number">4.10.2.</span> <span class="toc-text">对象脚本中调用全局函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E7%BA%A6%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">简约开发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Atom-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">Atom 环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%B5%81%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">修改流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">实现原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lua-%E5%9F%BA%E7%A1%80"><span class="toc-number">3.</span> <span class="toc-text">Lua 基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TTS-Lua-%E5%9F%BA%E7%A1%80"><span class="toc-number">4.</span> <span class="toc-text">TTS Lua 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object"><span class="toc-number">4.1.</span> <span class="toc-text">Object</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Player"><span class="toc-number">4.2.</span> <span class="toc-text">Player</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Global-Script"><span class="toc-number">4.3.</span> <span class="toc-text">Global Script</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-Scripts"><span class="toc-number">4.4.</span> <span class="toc-text">Object Scripts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GUID"><span class="toc-number">4.5.</span> <span class="toc-text">GUID</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="toc-number">5.</span> <span class="toc-text">代码片段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">5.1.</span> <span class="toc-text">初始代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E8%BE%93%E5%87%BA"><span class="toc-number">5.2.</span> <span class="toc-text">消息输出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%AD%E5%A4%AE%E6%88%96%E6%B8%B8%E6%88%8F%E6%B6%88%E6%81%AF%E6%A1%86%E6%98%BE%E7%A4%BA"><span class="toc-number">5.2.1.</span> <span class="toc-text">在屏幕中央或游戏消息框显示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E7%B3%BB%E7%BB%9F%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%98%BE%E7%A4%BA"><span class="toc-number">5.2.2.</span> <span class="toc-text">在系统控制台显示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%8E%A9%E5%AE%B6%E4%BA%BA%E6%95%B0"><span class="toc-number">5.3.</span> <span class="toc-text">获取玩家人数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%8E%A9%E5%AE%B6%E5%90%8D%E7%A7%B0"><span class="toc-number">5.4.</span> <span class="toc-text">获取玩家名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8C%89%E9%92%AE"><span class="toc-number">5.5.</span> <span class="toc-text">创建按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">5.6.</span> <span class="toc-text">对象操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AF%B9%E8%B1%A1%E4%BF%A1%E6%81%AF"><span class="toc-number">5.7.</span> <span class="toc-text">获取对象信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%8C%E5%A0%86%E6%93%8D%E4%BD%9C"><span class="toc-number">5.8.</span> <span class="toc-text">牌堆操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%80%E5%8C%BA%E5%9F%9F%E6%89%80%E6%9C%89%E7%9A%84%E7%89%A9%E5%93%81"><span class="toc-number">5.9.</span> <span class="toc-text">获取某一区域所有的物品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E4%B8%80%E5%A0%86%E7%89%A9%E5%93%81%E4%B8%AD%E8%BF%87%E6%BB%A4%E6%9F%90%E4%B8%80%E7%B1%BB%E7%89%A9%E5%93%81"><span class="toc-number">5.10.</span> <span class="toc-text">从一堆物品中过滤某一类物品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%AF%B9%E8%B1%A1%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="toc-number">5.11.</span> <span class="toc-text">跨对象函数调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%9F%90%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">5.11.1.</span> <span class="toc-text">调用某个对象的函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%B0%83%E7%94%A8%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0"><span class="toc-number">5.11.2.</span> <span class="toc-text">对象脚本中调用全局函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%85%B6%E5%AE%83%E7%8E%A9%E5%AE%B6%E8%BD%AC%E5%88%B0%E6%88%BF%E4%B8%BB%E5%BD%93%E5%89%8D%E8%A7%86%E8%A7%92"><span class="toc-number">5.12.</span> <span class="toc-text">控制其它玩家转到房主当前视角</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
