@@ -3,7 +3,7 @@ title: Party Games
 date: 2019-12-08 22:28:47
 toc: true
 categories:
-  - Games
+  - iplay
 ---
 
 ![img](/resources/Cover/party_games.jpg)

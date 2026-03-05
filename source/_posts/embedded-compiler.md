@@ -130,13 +130,13 @@ Linux程序在内存中的结构可以分为以下几个部分：
 
 ## C++标准对应的GCC版本
 
-|                           | C++98        | C++11        | C++14        | C++17        | C++20              |
-| ------------------------- | ------------ | ------------ | ------------ | ------------ | ------------------ |
-| **available**             |              | 4.3          | 4.8          | 5            | 8                  |
-| **feature-complete**      |              | 4.8.1        | 5            | 9            | still experimental |
-| **as default**            | GCC< 6.1     |              | 6.1<=GCC<=10 | 11<=GCC      |                    |
-| **command-line flag**     | -std=c++98   | -std=c++11   | -std=c++14   | -std=c++17   | -std=c++20         |
-| **enable GNU extensions** | -std=gnu++98 | -std=gnu++11 | -std=gnu++14 | -std=gnu++17 | -std=gnu++20       |
+|                           | C++98        | C++11        | C++14        | C++17        | C++20        | C++23        |
+| ------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
+| **available**             |              | 4.3          | 4.8          | 5            | 8            | 11           |
+| **feature-complete**      |              | 4.8.1        | 5            | 9            | 11           | 13           |
+| **as default**            | GCC< 6.1     |              | 6.1<=GCC<=10 | 11<=GCC      | 16<=GCC      |              |
+| **command-line flag**     | -std=c++98   | -std=c++11   | -std=c++14   | -std=c++17   | -std=c++20   | -std=c++23   |
+| **enable GNU extensions** | -std=gnu++98 | -std=gnu++11 | -std=gnu++14 | -std=gnu++17 | -std=gnu++20 | -std=gnu++23 |
 
 参考：
 
