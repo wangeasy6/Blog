@@ -4,15 +4,13 @@ date: 2026-02-10 12:27:00
 toc: true
 categories:
   - tech
-tags:
-  - iplay
 ---
 
-桌游模拟器（Tabletop Simulator，简称 TTS）作为桌游的通用模拟器，不仅提供了基础的物理模拟，还提供了一个 Lua 脚本运行环境，其在基础的桌游基础上，提供了一些列的操作接口，使得可以完成线下无法做到的自动Setup、拿取/分发物品、终局结算等等电子游戏的功能，简化了玩家操作，让大家更加专注于策略层面。
+📢 传统的桌游就是把一堆卡牌和Token拿来移去，好耗时好麻烦，而桌游模拟器就是在传统的桌游上加入脚本好好玩！！！📢
 
-📢 传统的桌游就是把一堆卡牌和Token拿来移去，好耗时好麻烦，而桌游模拟器就是在传统的桌游上加入脚本好好玩！！！
+桌游模拟器（Tabletop Simulator，简称 TTS）不仅提供了桌游卡牌、Token等操作的物理模拟，还提供了一个 Lua 脚本运行环境，Lua 操作接口使得线下无法做到的自动Setup、拿取/分发物品、终局结算等等电子游戏的功能得以实现。此功能可以大大简化玩家操作，让玩家更加专注于策略层面。
 
-除了官方的API文档，和桌游模拟器脚本相关的中文资料十分稀少，所以在这里做一些总结，以供大家入门和参考。有任何一门编程语言的基础学起来应该都不难，对于会 Python 或者 JavaScript 等脚本语言的来说就更简单了。
+但是除了官方的API文档，和桌游模拟器脚本相关的中文资料十分稀少，所以在这里做一些总结，以供大家参考。（有任意一门编程语言基础的学起来应该都不难，对于会 Python/JavaScript 等脚本语言的来说就更简单了）
 
 适验版本：TTS v14.1.8，Lua 版本 v5.2。
 
@@ -25,7 +23,7 @@ tags:
 1. **创建本地游戏**：对于想要更改的游戏点击 `游戏` - `保存和载入` - `保存游戏`，输入名称。这一步是对于开发中的游戏建立一个本地存档，否则在更改脚本时会报错。
 
 2. **修改游戏**：
-   * 可以通过点击顶部栏的 `MOD` - `脚本` 来访问游戏内的Lua编辑器，或右键点击对象，选择脚本，然后从上下文菜单中选择 Lua编辑器。
+   * 可以通过点击顶部栏的 `MOD` - `脚本` 来访问游戏内的Lua编辑器，或右键点击对象，选择脚本，然后从上下文菜单中选择 Lua 编辑器。
    * 在Lua编辑器中，编辑器左侧的标签页允许你在全局脚本和对象脚本之间切换。
    * 将右侧的代码全部复制并保存为本地文件（*.lua），使用任意一款代码编辑工具编写代码。
    * 代码写好后，复制全部代码粘贴回TTS的代码编辑器，点击 `保存并播放` 按钮提交修改到存档文件，游戏会自动重新加载。 `保存并播放` 只会提交你的脚本更改，任何非脚本的更改都会丢失。
@@ -38,9 +36,9 @@ tags:
 
 ## Atom 环境搭建
 
-使用简约开发流程时，需要不断地把代码复制进复制出，十分地麻烦，而搭建一个 Atom 的开发环境，不仅可以自行获取脚本，还有行号、语法高亮、自动补全和现代化的外观等诸多好处。
+使用简约开发流程时，需要不断地把代码复制进复制出，十分地麻烦。而搭建一个 Atom 的开发环境，不仅可以自行获取脚本，还有行号、语法高亮、自动补全和现代化的外观等诸多好处。
 
-根据以下指引安装 Atom（试验版本：v1.60.0）和 插件：[Release 13.2.0 · Berserk-Games/atom-tabletopsimulator-lua · GitHub](https://github.com/Berserk-Games/atom-tabletopsimulator-lua/releases/tag/13.2.0)
+根据以下指引安装 Atom（适验版本：v1.60.0）和 插件：[Release 13.2.0 · Berserk-Games/atom-tabletopsimulator-lua · GitHub](https://github.com/Berserk-Games/atom-tabletopsimulator-lua/releases/tag/13.2.0)
 
 安装后，在 Atom 中点击 `Packages` 如图所示：
 
@@ -460,22 +458,33 @@ local workers_number = Global.call("getNumber", params)
 
 <br/>
 
-### 控制其它玩家转到房主当前视角
+### 控制玩家视角转到房主鼠标位置
 
-同步房主的视角给其它玩家（自动同步鼠标位置、旋转角度，暂时只支持固定的俯仰角、距离）：
+以房主鼠标位置为屏幕中心，同步视角给其它玩家（自动同步鼠标位置、旋转角度，暂时只支持固定俯仰角-90°、距离-15）。主要用于初次游戏时讲解规则的场景，使用 Tab 标记也不能保证所有人跟着你的视角走。
+
+将游戏保存，然后打开保存的文件后修改脚本，添加以下内容：
 
 ```lua
 function onLoad()
+    -- 添加下面这一行到已有的 onLoad() 函数里（不要覆盖 onLoad() 函数）
     addHotkey("Fllow Me", fllowMe, false)
 end
 
-function fllowMe(playerColor, hoveredObject, pointerPosition, isKeyUp)
+function fllowMe(playerColor, hoveredObject, pointerPosition, isKeyUp, distance, pitch)
   -- Only admin can do
   if Player[playerColor].admin then
     local parameters = {}
     parameters.position = pointerPosition
-    parameters.pitch = 90       -- Fixed pitch
-    parameters.distance = 20    -- Fixed distance
+    if distance then
+      parameters.distance = distance
+    else
+      parameters.distance = 15    -- Fixed distance
+    end
+    if pitch then
+      parameters.pitch = pitch
+    else
+      parameters.pitch = 90       -- Fixed pitch
+    end
     -- Get rotation
     local y_pos = Player[playerColor].getPointerRotation()
     if y_pos < 180 then
@@ -485,13 +494,22 @@ function fllowMe(playerColor, hoveredObject, pointerPosition, isKeyUp)
     end
 
     for _,player in ipairs(getSeatedPlayers()) do
+      Player[player].lookAt(parameters)
       if player != playerColor then
-        Player[player].lookAt(parameters)
         broadcastToColor("同步了房主视角", player, playerColor)
       end
     end
     broadcastToColor("向其他玩家同步了视角", playerColor, playerColor)
   end
+end
+
+function kan(distance, pitch)
+  for _, playerColor in ipairs(getSeatedPlayers()) do
+    if Player[playerColor].admin == true then
+      fllowMe( playerColor, "", Player[playerColor].getPointerPosition(), false, distance, pitch)
+    end
+  end
+  return "其他玩家的视角同步完毕，房主视角回车后转到！"
 end
 ```
 
@@ -502,6 +520,21 @@ end
 ![bind-hotkey.png](/resources/tts-script/bind-hotkey.png)
 
 设置完成后，按按键 K 即可同步当前视角给其它玩家。
+
+想要调整视角距离和俯仰角可以在控制台中执行以下命令：
+
+```lua
+-- 设置距离，使用默认俯仰角
+lua kan(10)
+-- 设置距离以及俯仰角
+lua kan(10,70)
+```
+
+同步视角的距离最小值为 10，俯仰角的最大值为 90。
+
+在使用此命令同步时，其他人会马上转到此视角，而房主需要在进一步操作（回车或者点击）后才会转到视角。
+
+目前限制了只有房主才能使用视角同步功能，可以根据具体情况放开权限。
 
 <br/>
 

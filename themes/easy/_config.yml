@@ -1,10 +1,11 @@
 # Header
 
 menu:
+  技术: /categories/tech
   推荐: /my-recommendation
-  技术: /categories/Technology
-  观后: /categories/Reflections
-  随笔: /categories/Thoughts
+  观后: /categories/reflection
+  我想: /categories/ithink
+  我玩: /categories/iplay
 
 # SubNav
 subnav:
@@ -17,7 +18,7 @@ subnav:
   #jianshu: "#"
   douban: "https://www.douban.com/people/EasyW"
   #segmentfault: "#"
-  #bilibili: "#"
+  bilibili: "https://space.bilibili.com/646441654"
   #acfun: "#"
   mail: "mailto:w3cbe@foxmail.com"
   #facebook: "#"

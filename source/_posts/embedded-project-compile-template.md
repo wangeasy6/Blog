@@ -24,13 +24,13 @@ date: 2023-05-26 11:11:00
 
 ```
 /
-	ai_lib/
-		include/ai.h
-		lib/libai.so
-	libopencv/*
-	src/
-		test.cpp
-	CMakeLists.txt
+    ai_lib/
+        include/ai.h
+        lib/libai.so
+    libopencv/*
+    src/
+        test.cpp
+    Makefile
 ```
 
 Makefile
@@ -84,13 +84,13 @@ CC：指定交叉编译工具
 
 ````
 /
-	ai_lib/
-		include/ai.h
-		lib/libai.so
-	libopencv/*
-	src/
-		test.cpp
-	CMakeLists.txt
+    ai_lib/
+        include/ai.h
+        lib/libai.so
+    libopencv/*
+    src/
+        test.cpp
+    CMakeLists.txt
 ````
 
 CMakeLists.txt
