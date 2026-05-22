@@ -37,6 +37,7 @@ git的客户端软件直接在[git官网上下载](https://git-scm.com/downloads
   * 使用命令 `git --bare init /home/git/myRep`，初始化仓库
   * 在gitClient上，通过git clone命令进行克隆远程仓库
     * Git clone git@gitServer:/home/git/myRep
+  * 想让 TortoiseGit 也使用密钥，配置：`git config --global core.sshCommand "ssh -i C:/Users/xxx/.ssh/id_rsa"`
 
 <br/>
 
