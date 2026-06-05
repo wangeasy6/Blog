@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.easywang.site/tech/linux-processes-and-threads/</loc>
+    
+    <lastmod>2026-06-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.easywang.site/tech/audio-video-development-fundamentals/</loc>
+    
+    <lastmod>2026-06-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.easywang.site/tech/electronic-device-housing-design/</loc>
     
     <lastmod>2026-05-22</lastmod>
@@ -165,15 +183,6 @@
   
   <url>
     <loc>http://www.easywang.site/tech/algorithmic-complexity/</loc>
-    
-    <lastmod>2025-12-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.easywang.site/tech/audio-video-development-fundamentals/</loc>
     
     <lastmod>2025-12-11</lastmod>
     
@@ -895,7 +904,7 @@
 
   <url>
     <loc>http://www.easywang.site/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -903,98 +912,98 @@
   
   <url>
     <loc>http://www.easywang.site/tags/C/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Python/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Qt/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/C/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Algorithm/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/AI/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Tools/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Math/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Data/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/Badminton/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/tags/3D/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1003,28 +1012,28 @@
   
   <url>
     <loc>http://www.easywang.site/categories/iplay/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/categories/ithink/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/categories/tech/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://www.easywang.site/categories/reflection/</loc>
-    <lastmod>2026-05-22</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
