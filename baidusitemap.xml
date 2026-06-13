@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.easywang.site/tech/linux-processes-and-threads/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <loc>http://www.easywang.site/tech/linux-network-programming/</loc>
+    <lastmod>2026-06-13</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/tech/hexo-blog-system/</loc>
+    <lastmod>2026-06-13</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/tech/tts-tabletop-simulator-scripting-code-sinppets/</loc>
+    <lastmod>2026-06-12</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/tech/audio-video-development-fundamentals/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/tech/linux-processes-and-threads/</loc>
+    <lastmod>2026-06-05</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/tech/electronic-device-housing-design/</loc>
@@ -27,10 +39,6 @@
   <url>
     <loc>http://www.easywang.site/tech/linux-io-multiplexing-select/</loc>
     <lastmod>2026-05-10</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/tech/tts-tabletop-simulator-scripting-code-sinppets/</loc>
-    <lastmod>2026-04-03</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/tech/embedded-project-compile-template/</loc>
@@ -146,10 +154,6 @@
   </url>
   <url>
     <loc>http://www.easywang.site/tech/handwritten-http-message/</loc>
-    <lastmod>2025-12-11</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/tech/hexo-blog-system/</loc>
     <lastmod>2025-12-11</lastmod>
   </url>
   <url>
