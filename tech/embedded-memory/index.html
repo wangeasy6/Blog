@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.easywang.site">
-  <title>Easy Wang</title>
+  <title>存储器 | Easy Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Easy Wang">
-<meta property="og:url" content="http://www.easywang.site/page/9/index.html">
+  <meta name="description" content="本篇从物理层面对计算机系统中的存储器做了一个梳理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="存储器">
+<meta property="og:url" content="http://www.easywang.site/tech/embedded-memory/index.html">
 <meta property="og:site_name" content="Easy Wang">
+<meta property="og:description" content="本篇从物理层面对计算机系统中的存储器做了一个梳理。">
 <meta property="og:locale">
+<meta property="og:image" content="http://www.easywang.site/resources/embedded/memory/memory.png">
+<meta property="article:published_time" content="2026-07-07T11:56:00.000Z">
+<meta property="article:modified_time" content="2026-07-07T12:31:54.300Z">
 <meta property="article:author" content="Easy Wang">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.easywang.site/resources/embedded/memory/memory.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -185,358 +192,1478 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-i-want-to-be-a-writer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-embedded-memory" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/ithink/i-want-to-be-a-writer/">我想当个作家</a>
+    <h1 class="article-title" itemprop="name">
+      存储器
     </h1>
   
 
         
-        <a href="/ithink/i-want-to-be-a-writer/" class="archive-article-date">
-  	<time datetime="2019-10-18T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+        <a href="/tech/embedded-memory/" class="archive-article-date">
+  	<time datetime="2026-07-07T11:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-07-07</time>
 </a>
         
 
         <!-- 不蒜子计数器 -->
+        
+            <span class="archive-article-date">
+                阅读量 <span id="busuanzi_value_page_pv"></span>
+            </span>
         
 
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>故事，每个人都写过，甚至是说故事，讲笑话，都不在话下。</p>
-<p>但有的人说故事活灵活现，讲笑话令人捧腹，这里面的顶尖人才竟能以此为业，当作家、做编剧、演脱口秀，甚至是做导演拍电影儿，这就是更复杂、更丰富的艺术了。</p>
-<p>我等凡人，接触得多了，自然是心向往之，竟也出现了我是不是也能做到的妄想。</p>
-        
-          <a class="article-more-a" href="/ithink/i-want-to-be-a-writer/#more">more >></a>
-        
-      
+        <p><img src="/resources/embedded/memory/memory.png" alt="memory.png"></p>
+<p>本篇从<strong>物理层面</strong>对计算机系统中的存储器做了一个梳理。</p>
+<span id="more"></span>
+<p><br/></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>冯·诺依曼在研究 EDVAC 机时提出了“存储程序”的概念，“存储程序”的思想奠定了现代计算机的基本结构，以此概念为基础的各类计算机通称为冯·诺依曼机。</p>
+<p>在此类计算机中，指令和数据以同等地位存储（都以二进制形式存放）在存储器中。控制器不断地从存储器中取出指令和原始数据（指令由操作码和地址码组成，操作码指出操作的类型，地址码指出操作数的地址），给到运算器进行运算，以此运行并直到程序结束。</p>
+<p>基于以上信息，对于计算机中的存储器，可以有如下定义：能够<strong>存储二进制内容</strong>并提供了计算机<strong>读取</strong>（和 <strong>写入</strong>）操作的部件。</p>
+<p><br/></p>
+<h3 id="基本分类"><a href="#基本分类" class="headerlink" title="基本分类"></a>基本分类</h3><h4 id="按易失性"><a href="#按易失性" class="headerlink" title="按易失性"></a>按易失性</h4><h5 id="易失存储"><a href="#易失存储" class="headerlink" title="易失存储"></a>易失存储</h5><p>断电后数据就丢失的存储器。本质是<strong>靠电维持数据</strong>：</p>
+<ul>
+<li><strong>SRAM</strong>：用”触发器（4-6 个晶体管锁状态）”存，断电才丢，不用刷新，所以叫”静态”——但依然易失。</li>
+<li><strong>DRAM</strong>：用”电容存电荷”表示 0/1，电容会漏电，不仅断电丢，还得<strong>定时刷新</strong>（毫秒级）才能不掉，所以叫”动态”。</li>
+</ul>
+<h5 id="非易失存储"><a href="#非易失存储" class="headerlink" title="非易失存储"></a>非易失存储</h5><p>断电后数据不丢失的存储器。本质是<strong>不靠持续供电维持数据</strong>：</p>
+<ul>
+<li><strong>Flash / EEPROM（浮栅）</strong>：电子被困在浮栅极里，没电也跑不掉。</li>
+<li><strong>HDD（磁）</strong>：磁性材料剩磁记录，纯物理，电都断了十几年数据还在。</li>
+<li><strong>光盘（坑+反射）</strong>：聚碳酸酯压出的凹坑，物理结构，最”非易失”。</li>
+<li><strong>新型：FeRAM（铁电）、MRAM（磁阻）、PCRAM/ReRAM（相变/阻变）</strong>：靠极化、磁态、材料相态存，电断也不变。</li>
+</ul>
+<h5 id="易失-vs-非易失"><a href="#易失-vs-非易失" class="headerlink" title="易失 vs 非易失"></a>易失 vs 非易失</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"><strong>易失性</strong></th>
+<th style="text-align:left"><strong>非易失性</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">代表</td>
+<td style="text-align:left">SRAM、DRAM</td>
+<td style="text-align:left">ROM、Flash、HDD、SSD</td>
+</tr>
+<tr>
+<td style="text-align:left">掉电</td>
+<td style="text-align:left">数据清空</td>
+<td style="text-align:left">数据保留</td>
+</tr>
+<tr>
+<td style="text-align:left">速度</td>
+<td style="text-align:left">纳秒级</td>
+<td style="text-align:left">Flash 毫秒级，硬盘更慢</td>
+</tr>
+<tr>
+<td style="text-align:left">用途</td>
+<td style="text-align:left">跑程序、临时数据</td>
+<td style="text-align:left">固件、系统、文件</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
+<h4 id="按-RAM-ROM"><a href="#按-RAM-ROM" class="headerlink" title="按 RAM/ROM"></a>按 RAM/ROM</h4><h5 id="RAM-vs-ROM"><a href="#RAM-vs-ROM" class="headerlink" title="RAM vs ROM"></a>RAM vs ROM</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>RAM</th>
+<th>ROM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>中文</td>
+<td>随机访问存储器</td>
+<td>只读存储器</td>
+</tr>
+<tr>
+<td>英文</td>
+<td>Random Access Memory</td>
+<td>Read-Only Memory</td>
+</tr>
+<tr>
+<td>直意</td>
+<td>指的是当存储器中的数据被读取或写入时，所需要的时间与这段信息所在的位置无关。</td>
+<td>指的是存储数据在任何情况下都不会改变，只能读取，但不能变更数据。</td>
+</tr>
+<tr>
+<td>泛指</td>
+<td>易失存储、随机读写</td>
+<td>非易失存储、只读+难写</td>
+</tr>
+<tr>
+<td>读速度</td>
+<td>SRAM（1~10ns）、DRAM（10~100ns）</td>
+<td>Mask ROM（100ns）、NOR Flash（随机读，50~100ns）、NAND Flash（页读，50~100us）</td>
+</tr>
+<tr>
+<td>写速度</td>
+<td>读写速度相同</td>
+<td>NOR Flash（页写，1~5ms）、NAND Flash（页写，200~3ms）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意</strong>：</p>
+<ul>
+<li><strong>随机存取</strong>：相对地，有串行访问存储器包括顺序访问存储器（如：磁带）和直接访问存储器（如：磁盘）。 </li>
+</ul>
+<h5 id="历史遗留问题"><a href="#历史遗留问题" class="headerlink" title="历史遗留问题"></a>历史遗留问题</h5><p>实际上，RAM / ROM 是两个<strong>不同维度</strong>的旧分类混在一起：</p>
+<ul>
+<li><strong>易失性维度</strong>：易失（RAM）vs 非易失（ROM）</li>
+<li><strong>读写方式维度</strong>：随便写（RAM）vs 只读/难写（ROM）</li>
+</ul>
+<p>这两个维度<strong>并不完全正交</strong>，也没绑定死。</p>
+<p>例如，Flash 属于 EEPROM，但又能写。手机参数里”8+256G”的 256G 厂商叫 ROM，本质是 NAND Flash——<strong>可擦写、非易失</strong>。它既不”Read-Only”，也不是传统 ROM 工艺，只是因为”非易失主存”这个生态位被历史叫成了 ROM。这里 ROM 已经退化成”掉电不丢的主存”的代称。</p>
+<p>例如，NVRAM（非易失 RAM）。</p>
+<ul>
+<li><strong>电池备份 SRAM</strong>：工控机里给 SRAM 挂颗纽扣电池（CMOS RAM 存 BIOS 设置），掉电也不丢 → 看起来像 ROM，本质是 RAM。</li>
+<li><strong>nvSRAM / FeRAM / MRAM</strong>：用特殊工艺做到”RAM 的速度 + 非易失”，直接把两个维度捏一起了。</li>
+<li><strong>早期游戏卡带</strong>：《塞尔达》存档用电池+SRAM，既当 RAM 用（运行时写存档），又当 ROM 用（掉电能存）。</li>
+</ul>
+<p><br/></p>
+<h4 id="按是否可直接寻址"><a href="#按是否可直接寻址" class="headerlink" title="按是否可直接寻址"></a>按是否可直接寻址</h4><p>在计算机组成原理中，按是否可直接寻址，可分为以下两大类：</p>
+<ul>
+<li><strong>主存储器（内存）</strong>：挂载在数据总线，CPU 可直接寻址，速度快但容量较小、断电丢失（RAM）或不可写（ROM）。 <ul>
+<li>RAM：高速缓存/Cache（SRAM）、内存条（DRAM）</li>
+<li>ROM：BIOS、固件</li>
+</ul>
+</li>
+<li><strong>辅助存储器（外存）</strong>：挂载在 I/O 总线，CPU 不能直接寻址，需通过 I/O 接口访问，速度慢但容量大、断电不丢数据。 <ul>
+<li>机械硬盘 HDD、固态硬盘 SSD、U 盘（闪存）、光盘等</li>
+</ul>
+</li>
+</ul>
+<p><br/></p>
+<h3 id="关键性能指标"><a href="#关键性能指标" class="headerlink" title="关键性能指标"></a>关键性能指标</h3><ul>
+<li><strong>容量</strong>：能存多少字节（B / KB / MB / GB / TB）</li>
+<li><strong>速度</strong>：存取时间、读写带宽</li>
+<li><strong>单位成本</strong>：容量与价格的比值</li>
+</ul>
+<p>三者往往互相制约，所以计算机系统才采用”寄存器 → Cache → 内存 → 外存”的<strong>多级存储体系</strong>来平衡。</p>
+<p><br/></p>
+<h2 id="易失性存储"><a href="#易失性存储" class="headerlink" title="易失性存储"></a>易失性存储</h2><h3 id="SRAM"><a href="#SRAM" class="headerlink" title="SRAM"></a><strong>SRAM</strong></h3><p><strong>静态随机存取存储器（Static Random-Access Memory，SRAM）。</strong></p>
+<p>静态是指这种存储器只要保持通电，里面储存的数据就可以恒常保持。当电力供应停止时，SRAM 储存的数据会消失（被称为 Volatile memory）。</p>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>一个 SRAM bit 用 <strong>6 个晶体管（T）</strong>搭成一个<strong>双稳态触发器</strong>（俩反相器交叉耦合 + 2 个访问控制管）：</p>
+<ul>
+<li>状态 1：左高右低</li>
+<li>状态 0：左低右高</li>
+</ul>
+<p><strong>“静态”</strong>：只要电不断，触发器自己就能”锁”住状态，<strong>不需要刷新电路</strong>。</p>
+<p><br/></p>
+<h3 id="DRAM"><a href="#DRAM" class="headerlink" title="DRAM"></a><strong>DRAM</strong></h3><p><strong>动态随机存取存储器（Dynamic Random Access Memory，DRAM）。</strong></p>
+<p>动态是指这种存储器需要定时刷新（周期性充电）才能保持数据。当电力供应停止时，SRAM 储存的数据会消失（被称为 Volatile memory）。</p>
+<h4 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h4><p>一个 DRAM bit 用 <strong>1 个晶体管（T） + 1 个电容（C）存</strong>，靠电容里的电荷有没有来表示 0/1。</p>
+<p>相比之下在 SRAM 上一个比特通常需要六个晶体管，DRAM 的优势在于结构简单。正因这缘故，DRAM 拥有非常高的密度，单位体积的容量较高因此成本较低。但相反的，DRAM 也有访问速度较慢，耗电量较大的缺点。 </p>
+<p><strong>“动态”</strong>：电容再小也有<strong>漏电流</strong>（晶体管关断不完全 + 电容本身隧道漏），电荷会慢慢跑掉。温度越高漏越快，常温下一个 DRAM cell 的电荷大概 <strong>几十 ms ~ 几百 ms</strong> 就漏光了，所以 DRAM 控制器必须<strong>定期（典型 64ms 或 32ms 内）把所有行遍历读一遍再写回去</strong>，这叫 <strong>Refresh</strong>，这就是 <strong>Dynamic</strong> 的意思。</p>
+<p><br/></p>
+<h3 id="SRAM-vs-DRAM"><a href="#SRAM-vs-DRAM" class="headerlink" title="SRAM vs DRAM"></a>SRAM vs DRAM</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>SRAM</th>
+<th>DRAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>晶体管/bit</td>
+<td><strong>6T</strong>（多）</td>
+<td><strong>1T1C</strong>（少）</td>
+</tr>
+<tr>
+<td>容量密度</td>
+<td>低，一片 die 存不了多少</td>
+<td>高，单条能几十 GB</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>1~10 ns，接近 CPU</td>
+<td>10~100 ns</td>
+</tr>
+<tr>
+<td>刷新</td>
+<td>不需要</td>
+<td>必须毫秒级刷新</td>
+</tr>
+<tr>
+<td>功耗</td>
+<td>静态漏电极小，但面积大总功耗不低</td>
+<td>刷新+电容充放电，动态功耗大</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>贵（面积大）</td>
+<td>便宜（密度高）</td>
+</tr>
+<tr>
+<td>易失性</td>
+<td>易失</td>
+<td>易失</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>寄存器、CPU Cache（L1/L2/L3）、高速缓冲</td>
+<td>内存条（DDR4/DDR5）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
+<h3 id="ADRAM"><a href="#ADRAM" class="headerlink" title="ADRAM"></a>ADRAM</h3><p><strong>异步动态随机存取存储器（Asynchronous DRAM，ADRAM）。</strong></p>
+<p><strong>CPU 和 存储控制器 之间没有统一时钟</strong>，所有时序靠”延时参数”硬等，而不是靠时钟沿对齐。是 DRAM 最早、最”原始”的形态，SDRAM（同步 DRAM）之前的 DRAM，默认就是 ADRAM。</p>
+<h4 id="“异步”"><a href="#“异步”" class="headerlink" title="“异步”"></a>“异步”</h4><p>CPU / 内存控制器 和 DRAM 之间<strong>没有共享时钟信号</strong>。</p>
+<p><strong>控制器按时序表数节拍</strong>：发一个命令（ACT、READ、PRE 等）→ <strong>等一堆纳秒参数</strong>（tRCD、tRP、CL…）再去下一步。例如，”行激活后至少等 20ns 才能读”。</p>
+<h4 id="ADRAM-的演化"><a href="#ADRAM-的演化" class="headerlink" title="ADRAM 的演化"></a>ADRAM 的演化</h4><p>纯 ADRAM 太慢，后来在”异步”框架里打了几个补丁，诞生了几个过渡形态：</p>
+<ol>
+<li><strong>FPM DRAM（Fast Page Mode，快页模式）</strong><ul>
+<li>打开一行后，同一行内多次 CAS 读不同列，<strong>不用每次重开 RAS</strong></li>
+<li>486 / 早期 Pentium 用，比纯 ADRAM 快一截</li>
+</ul>
+</li>
+<li><strong>EDO DRAM（Extended Data Out，扩展数据输出）</strong><ul>
+<li>FPM 的改进：上一次读的数据还没撤，下一次 CAS 就可以发过来 → <strong>CAS 重叠</strong></li>
+<li>Pentium MMX 时代主流，号称”比 FPM 快 ~15~30%”</li>
+</ul>
+</li>
+<li><strong>BEDO DRAM（Burst EDO）</strong><ul>
+<li>EDO + 突发计数器，能自动吐连续列，算往 SDRAM 过渡的试探。</li>
+</ul>
+</li>
+</ol>
+<p>然后 <strong>1997 年前后 SDRAM 出现</strong>——加 CLK 引脚，命令在时钟沿锁， bursting 标准化，ADRAM 家族就退场了。</p>
+<p>目前有些低功耗 IoT 芯片搭配的 PSRAM 接口还是半异步的，省个时钟 pin。还在跑 486/586 老设备的，可能还能见到 EDO SIMM 或 FPM。</p>
+<p><br/></p>
+<h3 id="SDRAM"><a href="#SDRAM" class="headerlink" title="SDRAM"></a>SDRAM</h3><p><strong>同步动态随机存取內存（Synchronous DRAM，SDRAM）。</strong></p>
+<p>是有一个同步接口的 DRAM。这使得 SDRAM 与没有同步接口的异步 DRAM 相比，可以有一个更复杂的操作模式。 </p>
+<h4 id="“同步”"><a href="#“同步”" class="headerlink" title="“同步”"></a>“同步”</h4><p>ADRAM 的痛点：没时钟，控制器发完 RAS 得掐表等 tRCD ns、等 CL ns，频率一上去 ns 参数就难调，跨制程移植也麻烦。</p>
+<p>SDRAM 的解法：<strong>加一根 CLK 引脚</strong>，所有关键信号都在时钟沿（上升沿）采样：</p>
+<ul>
+<li>命令（ACT / READ / WRITE / PRE / REF 等）→ 时钟沿锁</li>
+<li>地址 → 时钟沿锁</li>
+<li>数据（早期 SDR）→ 时钟沿出</li>
+</ul>
+<p>控制器不再数 ns，改<strong>数时钟周期</strong>：”CL=3”意思是读命令发出后第 3 个时钟沿出数据。这样频率从 66 MHz → 100 → 133 MHz 一路顺上去，时序参数只要改周期数。</p>
+<h4 id="Burst（突发）传输"><a href="#Burst（突发）传输" class="headerlink" title="Burst（突发）传输"></a>Burst（突发）传输</h4><p>ADRAM 的 FPM/EDO 虽然也能连读，但不标准。SDRAM <strong>原生支持 Burst</strong>：</p>
+<ul>
+<li>你发一次 READ 命令 + 起始列地址</li>
+<li>后面<strong>连续 1/2/4/8/full page 个列</strong>自动吐出来，不用每个列都发一次 CAS</li>
+<li>接口上命令带宽省了，连续访问（顺序程序/大数组）吞吐直接拉</li>
+</ul>
+<h4 id="Bank-结构"><a href="#Bank-结构" class="headerlink" title="Bank 结构"></a>Bank 结构</h4><p>SDRAM 开始引入 <strong>Multi-Bank</strong>（典型 4 个 Bank），这是和 ADRAM 单阵列的另一个大区别：</p>
+<ul>
+<li>存储阵列切成 Bank0~Bank3，每个 Bank 独立有行缓冲</li>
+<li>可以 Bank0 在读、Bank1 在激活、Bank2 在预充电 → <strong>命令重叠，隐藏 tRCD / tRP</strong></li>
+<li>这就是”Bank Interleaving（交错）”，让总线利用率上去</li>
+</ul>
+<p>后来 DDR 扩到 4/8 Bank，DDR4 又加 Bank Group，思路都是从 SDRAM 这 4-Bank 来的。</p>
+<h3 id="ADRAM-vs-SDRAM"><a href="#ADRAM-vs-SDRAM" class="headerlink" title="ADRAM vs SDRAM"></a>ADRAM vs SDRAM</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"><strong>ADRAM / EDO</strong></th>
+<th style="text-align:left"><strong>SDRAM（及后续 DDR）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">时钟</td>
+<td style="text-align:left"><strong>无 CLK，异步</strong></td>
+<td style="text-align:left">有 CLK，同步</td>
+</tr>
+<tr>
+<td style="text-align:left">协同方式</td>
+<td style="text-align:left">延时参数硬等（tRCD/CL/tRP 按 ns）</td>
+<td style="text-align:left">时钟周期数（比如 CL=3 就是 3 个 CLK）</td>
+</tr>
+<tr>
+<td style="text-align:left">频率</td>
+<td style="text-align:left">最高几十 MHz（EDO 约 66 MHz）</td>
+<td style="text-align:left">SDRAM 100→133，DDR5 已经 8000+</td>
+</tr>
+<tr>
+<td style="text-align:left">突发</td>
+<td style="text-align:left">EDO 勉强支持，不标准</td>
+<td style="text-align:left">原生 burst 长度 4/8</td>
+</tr>
+<tr>
+<td style="text-align:left">控制器复杂度</td>
+<td style="text-align:left">要数 ns，跨制程/电压要重调</td>
+<td style="text-align:left">数 CLK 就行，好移植</td>
+</tr>
+<tr>
+<td style="text-align:left">现状</td>
+<td style="text-align:left">淘汰，仅老资料/工控古董可见</td>
+<td style="text-align:left">主流（DDR4/DDR5）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
+<h3 id="DDR"><a href="#DDR" class="headerlink" title="DDR"></a>DDR</h3><p><strong>双倍数据率同步动态随机存储器（英语：Double Data Rate Synchronous Dynamic Random Access Memory，简称 DDR SDRAM 或 DDR）。</strong></p>
+<p>为具有双倍数据速率的 SDRAM，其传输速度为系统主频的两倍。（SDRAM 只在时钟上升期进行数据传输；DDR 在一个时钟周期内可传输两次数据，也就是在时钟的上升期和下降期各传输一次数据。）</p>
+<p><strong>发布日期</strong>：1998 年，<strong>研发厂商：</strong>Samsung、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JEDEC">JEDEC 固态技术协会</a>。</p>
+<p><strong>JEDEC 标准</strong>（<a target="_blank" rel="noopener" href="https://www.jedec.org/standards-documents/docs/jesd-79f">JEDEC JESD79F</a>）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>标准名称</th>
+<th>I/O 总线主频 (MHz)</th>
+<th>核心周期 (ns)</th>
+<th>存储器主频 (MHz)</th>
+<th>数据速率 (MT/s)</th>
+<th>模块名称</th>
+<th>极限传输率 (MB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDR-200</td>
+<td>100</td>
+<td>10</td>
+<td>100</td>
+<td>200</td>
+<td>PC-1600</td>
+<td>1600</td>
+</tr>
+<tr>
+<td>DDR-266</td>
+<td>133</td>
+<td>7.5</td>
+<td>133</td>
+<td>266</td>
+<td>PC-2100</td>
+<td>2100</td>
+</tr>
+<tr>
+<td>DDR-333</td>
+<td>166</td>
+<td>6</td>
+<td>166</td>
+<td>333</td>
+<td>PC-2700</td>
+<td>2700</td>
+</tr>
+<tr>
+<td>DDR-400</td>
+<td>200</td>
+<td>5</td>
+<td>200</td>
+<td>400</td>
+<td>PC-3200</td>
+<td>3200</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>MT/s</strong>：（megatransfers per second）是非正式术语，指的是在给定的数据传输通道中，每秒发生的数据传输操作次数。也被称为<strong>采样率</strong>，即每秒捕获的数据样本数，每个样本通常发生在时钟沿。</p>
+<h4 id="世代"><a href="#世代" class="headerlink" title="世代"></a>世代</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">DDR SDRAM 标准</th>
+<th style="text-align:center">I/O 总线主频 (MHz)</th>
+<th style="text-align:center">存储器主频(MHz)</th>
+<th style="text-align:center">预取队列</th>
+<th style="text-align:center">数据速率 (MT/s)</th>
+<th style="text-align:center">工作电压</th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DIMM">DIMM</a> pins</th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SO-DIMM">SO-DIMM</a> pins</th>
+<th style="text-align:center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=MicroDIMM&amp;action=edit&amp;redlink=1">MicroDIMM</a> pins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>DDR</strong></td>
+<td style="text-align:center">100–200</td>
+<td style="text-align:center">100–200</td>
+<td style="text-align:center">2n</td>
+<td style="text-align:center">200–400</td>
+<td style="text-align:center">2.5/2.6</td>
+<td style="text-align:center">184</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">172</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR2_SDRAM">DDR2</a></td>
+<td style="text-align:center">200–533</td>
+<td style="text-align:center">100–266</td>
+<td style="text-align:center">4n</td>
+<td style="text-align:center">400–1066</td>
+<td style="text-align:center">1.8</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">214</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR3_SDRAM">DDR3</a></td>
+<td style="text-align:center">400–1066</td>
+<td style="text-align:center">100–266</td>
+<td style="text-align:center">8n</td>
+<td style="text-align:center">800–2400</td>
+<td style="text-align:center">1.5</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">204</td>
+<td style="text-align:center">214</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR4_SDRAM">DDR4</a></td>
+<td style="text-align:center">800–1600</td>
+<td style="text-align:center">200–400</td>
+<td style="text-align:center">8n</td>
+<td style="text-align:center">1600–5067</td>
+<td style="text-align:center">1.2</td>
+<td style="text-align:center">288</td>
+<td style="text-align:center">260</td>
+<td style="text-align:center">214</td>
+</tr>
+<tr>
+<td style="text-align:center"><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR5_SDRAM">DDR5</a></td>
+<td style="text-align:center">1600–3600</td>
+<td style="text-align:center">200–450</td>
+<td style="text-align:center">16n</td>
+<td style="text-align:center">3200–7200</td>
+<td style="text-align:center">1.1</td>
+<td style="text-align:center">288</td>
+<td style="text-align:center">262</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="预取（Prefetch）"><a href="#预取（Prefetch）" class="headerlink" title="预取（Prefetch）"></a>预取（Prefetch）</h4><p>DRAM 存储阵列（core）因为电容充电的物理限制，<strong>内核时钟频率长期卡在 100–200 MHz 上下</strong>，但外部 IO 早就要跑到 400/800/1600 MHz 了。怎么办？</p>
+<p>解法：内核一次多读几倍的数据放到缓冲区，IO 端用更高的时钟把这些数据传输出去。</p>
+<p><strong>用 DDR3 8n 举个具体例子</strong>：</p>
+<ul>
+<li>DRAM <strong>内核频率</strong> 100–333 MHz（受电容限制上不去）</li>
+<li>内核一次读 <strong>8 × 64bit = 512bit</strong> 进 prefetch buffer</li>
+<li>IO 端用 <strong>8 倍速率</strong>（800–1333 MHz）把这批数据发出去</li>
+<li><strong>对外表现</strong>：<ul>
+<li>数据：100 MHz（存储器主频） × 8（预取）= <strong>800 MT/s</strong></li>
+<li>数据传输：400MHz（I/O 总线主频） x 2（DDR 双沿） = <strong>800 MT/s</strong></li>
+<li>传输速率：800 MT/s x 64bit（同步传输带宽/比特宽） = <strong>6.4 GB/s</strong></li>
+</ul>
+</li>
+</ul>
+<p><br/></p>
+<h4 id="DDR2"><a href="#DDR2" class="headerlink" title="DDR2"></a>DDR2</h4><p><strong>第二代双倍数据率同步动态随机存储器（英语：Double-Data-Rate Two Synchronous Dynamic Random Access Memory，一般称为DDR2 SDRAM）。</strong></p>
+<p><strong>发布日期</strong>：2003 年，<strong>研发厂商：</strong>Samsung、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JEDEC">JEDEC 固态技术协会</a>。</p>
+<p><strong>主要升级</strong>：</p>
+<ul>
+<li><strong>速率与预取</strong>：预取由 2n 升级为 4n，核心频率不变的情况下速率翻倍。</li>
+<li><strong>工作电压 / 功耗</strong>：工作电压由 2.5V 下降到 1.8V，功耗和发热更小，对电池类 / 密闭设备更友好。</li>
+</ul>
+<p><strong>JEDEC 标准</strong>（<a target="_blank" rel="noopener" href="http://www.jedec.org/download/search/JESD208.pdf">JEDEC JESD 2</a>）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>标准名称</th>
+<th>I/O 总线主频 (MHz)</th>
+<th>核心周期 (ns)</th>
+<th>存储器主频 (MHz)</th>
+<th>数据速率 (MT/s)</th>
+<th>比特宽 (bit)</th>
+<th>模块名称</th>
+<th>极限传输率 (GB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDR2-400</td>
+<td>200</td>
+<td>10</td>
+<td>100</td>
+<td>400</td>
+<td>64b (8B)</td>
+<td>PC2-3200</td>
+<td>3.2</td>
+</tr>
+<tr>
+<td>DDR2-533</td>
+<td>266</td>
+<td>7.5</td>
+<td>133</td>
+<td>533</td>
+<td>64b (8B)</td>
+<td>PC2-4200 PC2-4300</td>
+<td>4.3</td>
+</tr>
+<tr>
+<td>DDR2-667</td>
+<td>333</td>
+<td>6</td>
+<td>166</td>
+<td>667</td>
+<td>64b (8B)</td>
+<td>PC2-5300 PC2-5400</td>
+<td>5.3</td>
+</tr>
+<tr>
+<td>DDR2-800</td>
+<td>400</td>
+<td>5</td>
+<td>200</td>
+<td>800</td>
+<td>64b (8B)</td>
+<td>PC2-6400</td>
+<td>6.4</td>
+</tr>
+<tr>
+<td>DDR2-1066</td>
+<td>533</td>
+<td>3.75</td>
+<td>266</td>
+<td>1066</td>
+<td>64b (8B)</td>
+<td>PC2-8500 PC2-8600</td>
+<td>8.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
+<h4 id="DDR3"><a href="#DDR3" class="headerlink" title="DDR3"></a>DDR3</h4><p><strong>第三代双倍资料率同步动态随机存储器（英语：Double-Data-Rate Three Synchronous Dynamic Random Access Memory，一般称为DDR3 SDRAM）。</strong></p>
+<p><strong>发布日期</strong>：2007 年，<strong>研发厂商：</strong><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JEDEC">JEDEC 固态技术协会</a>。</p>
+<p><strong>主要升级</strong>：</p>
+<ul>
+<li><strong>速率与预取</strong>：预取由 4n 升级为 8n，核心频率不变的情况下速率翻倍。</li>
+<li><strong>工作电压 / 功耗</strong>：工作电压由 1.8V 下降到 1.5V，功耗和发热更小，对电池类 / 密闭设备更友好。</li>
+<li><strong>寻址与容量</strong>：BA0–BA1（2bit bank）= 4 bank 升级为 BA0–BA2（3bit bank）= 8 bank，单 Die 容量翻倍（DDR2:256Mb-4Gb，DDR3:512Mb-8Gb）。</li>
+</ul>
+<p><strong>JEDEC 标准</strong>（<a target="_blank" rel="noopener" href="https://www.jedec.org/sites/default/files/docs/JESD79-3D.pdf">JESD79-3</a>）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>标准名称</th>
+<th>I/O 总线主频 (MHz)</th>
+<th>核心周期 (ns)</th>
+<th>内存时钟频率 (MHz)</th>
+<th>数据速率 (MT/s)</th>
+<th>比特宽 (bit)</th>
+<th>模块名称</th>
+<th>极限传输率 (GB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDR3-800</td>
+<td>400</td>
+<td>10</td>
+<td>100</td>
+<td>800</td>
+<td>64b (8B)</td>
+<td>PC3-6400</td>
+<td>6.4</td>
+</tr>
+<tr>
+<td>DDR3-1066</td>
+<td>$533 \dfrac 1 3$</td>
+<td>7.5</td>
+<td>$133 \dfrac 1 3$</td>
+<td>$1066 \dfrac 2 3$</td>
+<td>64b (8B)</td>
+<td>PC3-8500</td>
+<td>$8 \dfrac 8 {15}$</td>
+</tr>
+<tr>
+<td>DDR3-1333</td>
+<td>$666 \dfrac 2 3$</td>
+<td>6</td>
+<td>$166 \dfrac 2 3$</td>
+<td>$1333 \dfrac 1 3$</td>
+<td>64b (8B)</td>
+<td>PC3-10600</td>
+<td>$10 \dfrac 2 3$</td>
+</tr>
+<tr>
+<td>DDR3-1600</td>
+<td>800</td>
+<td>5</td>
+<td>200</td>
+<td>1600</td>
+<td>64b (8B)</td>
+<td>PC3-12800</td>
+<td>12.8</td>
+</tr>
+<tr>
+<td>DDR3-1866</td>
+<td>$933 \dfrac 1 3$</td>
+<td>$4 \dfrac 2 7$</td>
+<td>$233 \dfrac 1 3$</td>
+<td>$1866 \dfrac 2 3$</td>
+<td>64b (8B)</td>
+<td>PC3-14900</td>
+<td>$14 \dfrac {14}{15}$</td>
+</tr>
+<tr>
+<td>DDR3-2133</td>
+<td>$1066 \dfrac 2 3$</td>
+<td>3.75</td>
+<td>$266 \dfrac 2 3$</td>
+<td>$2133 \dfrac 1 3$</td>
+<td>64b (8B)</td>
+<td>PC3-17000</td>
+<td>$17 \dfrac 1 {15}$</td>
+</tr>
+<tr>
+<td>DDR3-2400</td>
+<td>1200</td>
+<td>$3 \dfrac 1 3$</td>
+<td>300</td>
+<td>2400</td>
+<td>64b (8B)</td>
+<td>PC3-19200</td>
+<td>19.2</td>
+</tr>
+<tr>
+<td>DDR3-2666</td>
+<td>$1333 \dfrac 1 3$</td>
+<td>3</td>
+<td>$333 \dfrac 1 3$</td>
+<td>$2666 \dfrac 2 3$</td>
+<td>64b (8B)</td>
+<td>PC3-21333</td>
+<td>$21 \dfrac 1 3$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
+<h4 id="DDR4"><a href="#DDR4" class="headerlink" title="DDR4"></a>DDR4</h4><p><strong>第四代双倍数据率同步动态随机存储器（英语：Double-Data-Rate Fourth Generation Synchronous Dynamic Random Access Memory，简称为DDR4 SDRAM）。</strong></p>
+<p><strong>主要升级</strong>：</p>
+<ul>
+<li><strong>速率与预取</strong>：预取位不变，但引入了 <strong>Bank Group 架构</strong>（每颗芯片内分 4 个 bank group，可并行访问），等效把内部数据率又翻了近一倍。</li>
+<li><strong>工作电压 / 功耗</strong>：工作电压由 1.5V 下降到 1.2V，功耗和发热更小，对电池类 / 密闭设备更友好。</li>
+<li><strong>单 Die 容量</strong>：4 个 bank group 将单条容量也 x4 了，单 Die 2Gb - 16Gb。</li>
+</ul>
+<p><strong>发布日期</strong>：2014年，<strong>研发厂商：</strong><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JEDEC">JEDEC 固态技术协会</a>。</p>
+<p><strong>JEDEC 标准</strong>（<a target="_blank" rel="noopener" href="https://web.archive.org/web/20131203053617/http://www.softnology.biz/pdf/JESD79-4 DDR4 SDRAM.pdf">JEDEC JESD79-4</a>）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标准名称</th>
+<th style="text-align:center">I/O总线主频 (MHz)</th>
+<th style="text-align:center">存储器主频 (MHz)</th>
+<th style="text-align:center">数据传输率 (MT/s)</th>
+<th style="text-align:center">模块名称</th>
+<th style="text-align:center">峰值带宽 (MB/s)</th>
+<th style="text-align:center">时序 (CL-tRCD-tRP)</th>
+<th style="text-align:center">CAS延时周期 (ns)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">DDR4-1600J*<br/>DDR4-1600K<br/>DDR4-1600L</td>
+<td style="text-align:center">800</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">1600</td>
+<td style="text-align:center">PC4-1600 或 PC4-12800</td>
+<td style="text-align:center">12800</td>
+<td style="text-align:center">10-10-10<br/>11-11-11<br/>12-12-12</td>
+<td style="text-align:center">12.5<br/>13.75<br/>15</td>
+</tr>
+<tr>
+<td style="text-align:center">DDR4-1866L*<br/>DDR4-1866M<br/>DDR4-1866N</td>
+<td style="text-align:center">933.33</td>
+<td style="text-align:center">233.33</td>
+<td style="text-align:center">1866.67</td>
+<td style="text-align:center">PC4-1866 或 PC4-14900</td>
+<td style="text-align:center">14933.33</td>
+<td style="text-align:center">12-12-12<br/>13-13-13<br/>14-14-14</td>
+<td style="text-align:center">12.857<br/>13.929<br/>15</td>
+</tr>
+<tr>
+<td style="text-align:center">DDR4-2133N*<br/>DDR4-2133P<br/>DDR4-2133R</td>
+<td style="text-align:center">1066.67</td>
+<td style="text-align:center">266.67</td>
+<td style="text-align:center">2133.33</td>
+<td style="text-align:center">PC4-2133 或 PC4-17000</td>
+<td style="text-align:center">17066.67</td>
+<td style="text-align:center">14-14-14<br/>15-15-15<br/>16-16-16</td>
+<td style="text-align:center">13.125<br/>14.063<br/>15</td>
+</tr>
+<tr>
+<td style="text-align:center">DDR4-2400P*<br/>DDR4-2400R<br/>DDR4-2400U</td>
+<td style="text-align:center">1200</td>
+<td style="text-align:center">300</td>
+<td style="text-align:center">2400</td>
+<td style="text-align:center">PC4-2400 或 PC4-19200</td>
+<td style="text-align:center">19200</td>
+<td style="text-align:center">15-15-15<br/>16-16-16<br/>18-18-18</td>
+<td style="text-align:center">12.5<br/>13.33<br/>15</td>
+</tr>
+<tr>
+<td style="text-align:center">DDR4-2666T<br/>DDR4-2666U<br/>DDR4-2666V<br/>DDR4-2666W</td>
+<td style="text-align:center">1333</td>
+<td style="text-align:center">325</td>
+<td style="text-align:center">2666</td>
+<td style="text-align:center">PC4-21333</td>
+<td style="text-align:center">21333</td>
+<td style="text-align:center">17-17-17<br/>18-18-18<br/>19-19-19<br/>20-20-20</td>
+<td style="text-align:center">12.75<br/>13.50<br/>14.25<br/>15</td>
+</tr>
+<tr>
+<td style="text-align:center">DDR4-2933V<br/>DDR4-2933W<br/>DDR4-2933Y<br/>DDR4-2933AA</td>
+<td style="text-align:center">1466.5</td>
+<td style="text-align:center">366.6</td>
+<td style="text-align:center">2933</td>
+<td style="text-align:center">PC4-23466</td>
+<td style="text-align:center">23466</td>
+<td style="text-align:center">19-19-19<br/>20-20-20<br/>21-21-21<br/>22-22-22</td>
+<td style="text-align:center">12.96<br/>13.64<br/>14.32<br/>15</td>
+</tr>
+<tr>
+<td style="text-align:center">DDR4-3200W<br/>DDR4-3200AA<br/>DDR4-3200AC</td>
+<td style="text-align:center">1600</td>
+<td style="text-align:center">400</td>
+<td style="text-align:center">3200</td>
+<td style="text-align:center">PC4-25600</td>
+<td style="text-align:center">25600</td>
+<td style="text-align:center">20-20-20<br/>22-22-22<br/>24-24-24</td>
+<td style="text-align:center">12.50<br/>13.75<br/>15</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>时序参数</strong>（单位是<strong>时钟周期（tick）</strong>，不是纳秒——所以同样 CL 值，频率越高实际延迟越低）：</p>
+<ul>
+<li><strong>tRAS（行激活时长，Active to Precharge）</strong>：一行打开之后，至少要维持多久才能关。</li>
+<li><strong>tRP（Row Precharge Time，行预充电时间）</strong>：关掉当前行，重新打开另一行之间要隔多久。</li>
+<li><strong>tRCD（RAS to CAS Delay，行到列延迟）</strong>：行地址发出去之后，等多久才能发列地址。<ul>
+<li><strong>RAS</strong> = <strong>Row Address Strobe</strong>（行地址选通）</li>
+<li><strong>CAS</strong> = <strong>Column Address Strobe</strong>（列地址选通）</li>
+</ul>
+</li>
+<li><strong>CL（CAS Latency，列地址 strobe 延迟）</strong>：行已经打开了，发出列地址之后，等多久数据才吐出来。</li>
+<li><strong>tRFC（Refresh Cycle Time）</strong>：刷新一行 bank 的时间，DDR5 因为 bank 多，tRFC 数值很大（几百），对性能也有影响。</li>
+<li><strong>tWR（Write Recovery）</strong>：写完后到 precharge 前要等多久。</li>
+<li><strong>tRTP（Read to Precharge）</strong>：读完后到 precharge 的间隔。</li>
+<li><strong>tFAW（Four Activate Window）</strong>：4 个 ACT 命令在同类 bank 里的最小窗口，限制突发激活。</li>
+<li><strong>tWTR (L/S)（Write to Read，Long/Short）</strong>：写转读的最小间隔。</li>
+<li><strong>CR（Command Rate，1T/2T）</strong>：一个命令槽里发几个 rank 的命令，1T 更激进。</li>
+</ul>
+<p><br/></p>
+<h4 id="DDR5"><a href="#DDR5" class="headerlink" title="DDR5"></a>DDR5</h4><p><strong>第五代双倍资料率同步动态随机存储器（英语：double data rate fifth-generation synchronous dynamic random-access memory，缩写DDR5 SDRAM）。</strong></p>
+<p><strong>发布日期</strong>：2020年7月14日，<strong>研发厂商：</strong><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/JEDEC">JEDEC 固态技术协会</a>。</p>
+<p><strong>主要升级</strong>：</p>
+<ul>
+<li><strong>预取与突发长度</strong>：</li>
+<li><strong>Bank Group</strong>：DDR4 16 Bank，4 Bank Group；DDR5：<strong>32 Bank，8 Bank Group</strong>，并行度翻倍，控制器可以交错更多 Bank，高并发下吞吐更稳。</li>
+<li><strong>通道结构</strong>：DDR4 一条 DIMM = 一个 <strong>64-bit</strong> 通道，要双通道得插两条；DDR5 一条 DIMM 内部拆成 <strong>两个独立的 32-bit 子通道</strong>（x32 + x32），CPU 可以并行调度两个子通道，访问粒度更小，浪费更少。</li>
+<li><strong>单 Die 容量</strong>：Bank x2，Bank Group x2，总体容量 x4，单条 8Gb - 32Gb。</li>
+<li><strong>工作电压</strong>：<strong>1.1V</strong>，看着只降 0.1V，但配合 PMIC 本地供电，实际能效提升更明显。</li>
+<li><strong>电源管理</strong>：电源管理芯片（PMIC）集成到 DIMM 上，主板只送 12V（或 5V），PMIC 本地降压出 VDD 1.1V / VDDQ 1.1V / VPP 1.8V / VDDSPD 1.8V，电压容差从 DDR4 的 ±5%（±60mV）收严到 <strong>±2.5%（±28mV）</strong>，提高了高频下的信号完整性。</li>
+</ul>
+<p><strong>JEDEC 标准</strong>（<a target="_blank" rel="noopener" href="https://www.jedec.org/standards-documents/docs/jesd79-5d">JEDEC JESD79-5</a>）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>标准名称</strong></th>
+<th style="text-align:left"><strong>I/O 总线主频 (MHz)</strong></th>
+<th style="text-align:left"><strong>存储器主频 (MHz)</strong></th>
+<th style="text-align:left"><strong>数据速率 (MT/s)</strong></th>
+<th>工作电压</th>
+<th style="text-align:left"><strong>模块名</strong></th>
+<th style="text-align:left"><strong>极限传输率 (GB/s)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DDR5-3200</td>
+<td style="text-align:left">1600</td>
+<td style="text-align:left">200</td>
+<td style="text-align:left">3200</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-25600</td>
+<td style="text-align:left">25.6</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-3600</td>
+<td style="text-align:left">1800</td>
+<td style="text-align:left">225</td>
+<td style="text-align:left">3600</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-28800</td>
+<td style="text-align:left">28.8</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-4000</td>
+<td style="text-align:left">2000</td>
+<td style="text-align:left">250</td>
+<td style="text-align:left">4000</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-32000</td>
+<td style="text-align:left">32.0</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-4400</td>
+<td style="text-align:left">2200</td>
+<td style="text-align:left">275</td>
+<td style="text-align:left">4400</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-35200</td>
+<td style="text-align:left">35.2</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-4800</td>
+<td style="text-align:left">2400</td>
+<td style="text-align:left">300</td>
+<td style="text-align:left">4800</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-38400</td>
+<td style="text-align:left">38.4</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-5200</td>
+<td style="text-align:left">2600</td>
+<td style="text-align:left">325</td>
+<td style="text-align:left">5200</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-41600</td>
+<td style="text-align:left">41.6</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-5600</td>
+<td style="text-align:left">2800</td>
+<td style="text-align:left">350</td>
+<td style="text-align:left">5600</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-44800</td>
+<td style="text-align:left">44.8</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-6000</td>
+<td style="text-align:left">3000</td>
+<td style="text-align:left">375</td>
+<td style="text-align:left">6000</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-48000</td>
+<td style="text-align:left">48.0</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-6400</td>
+<td style="text-align:left">3200</td>
+<td style="text-align:left">400</td>
+<td style="text-align:left">6400</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-51200</td>
+<td style="text-align:left">51.2</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-6800</td>
+<td style="text-align:left">3400</td>
+<td style="text-align:left">425</td>
+<td style="text-align:left">6800</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-54400</td>
+<td style="text-align:left">54.4</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-7200</td>
+<td style="text-align:left">3600</td>
+<td style="text-align:left">450</td>
+<td style="text-align:left">7200</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-57600</td>
+<td style="text-align:left">57.6</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-7600</td>
+<td style="text-align:left">3800</td>
+<td style="text-align:left">475</td>
+<td style="text-align:left">7600</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-60800</td>
+<td style="text-align:left">60.8</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-8000</td>
+<td style="text-align:left">4000</td>
+<td style="text-align:left">500</td>
+<td style="text-align:left">8000</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-64000</td>
+<td style="text-align:left">64.0</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-8400</td>
+<td style="text-align:left">4200</td>
+<td style="text-align:left">525</td>
+<td style="text-align:left">8400</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-67200</td>
+<td style="text-align:left">67.2</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-8800</td>
+<td style="text-align:left">4400</td>
+<td style="text-align:left">550</td>
+<td style="text-align:left">8800</td>
+<td>1.1V</td>
+<td style="text-align:left">PC5-70400</td>
+<td style="text-align:left">70.4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="CL-延迟"><a href="#CL-延迟" class="headerlink" title="CL 延迟"></a>CL 延迟</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>标准名</strong></th>
+<th style="text-align:left"><strong>CL-tRCD-tRP (Class-A)</strong></th>
+<th style="text-align:left"><strong>CL 绝对延迟 (ns)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">DDR5-3200</td>
+<td style="text-align:left">22-22-22</td>
+<td style="text-align:left">13.75</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-3600</td>
+<td style="text-align:left">26-26-26</td>
+<td style="text-align:left">14.43</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-4000</td>
+<td style="text-align:left">28-28-28</td>
+<td style="text-align:left">14.0</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-4400</td>
+<td style="text-align:left">32-32-32</td>
+<td style="text-align:left">14.55</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-4800</td>
+<td style="text-align:left">34-34-34</td>
+<td style="text-align:left">14.17</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-5200</td>
+<td style="text-align:left">38-38-38</td>
+<td style="text-align:left">14.62</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-5600</td>
+<td style="text-align:left">40-40-40</td>
+<td style="text-align:left">14.29</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-6000</td>
+<td style="text-align:left">42-42-42</td>
+<td style="text-align:left">14.0</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-6400</td>
+<td style="text-align:left">46-46-46</td>
+<td style="text-align:left">14.38</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-6800</td>
+<td style="text-align:left">48-48-48</td>
+<td style="text-align:left">14.12</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-7200</td>
+<td style="text-align:left">52-52-52</td>
+<td style="text-align:left">14.44</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-7600</td>
+<td style="text-align:left">54-54-54</td>
+<td style="text-align:left">14.21</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-8000</td>
+<td style="text-align:left">56-56-56</td>
+<td style="text-align:left">14.0</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-8400</td>
+<td style="text-align:left">60-60-60</td>
+<td style="text-align:left">14.29</td>
+</tr>
+<tr>
+<td style="text-align:left">DDR5-8800</td>
+<td style="text-align:left">62-62-62</td>
+<td style="text-align:left">14.09</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
+<h3 id="GDDR"><a href="#GDDR" class="headerlink" title="GDDR"></a>GDDR</h3><p><strong>图形双倍数据速率 SDRAM（Graphics Double Data Rate SDRAM，GDDR SDRAM）。</strong></p>
+<p>是专为显卡设计的高性能 DDR 存储器，也被叫做帧缓存，它的作用是用来存储显卡芯片处理过或者即将提取的渲染数据。其工作频率、电压等参数区别于标准DDR内存。</p>
+<p>GDDR 追求的是极致带宽——显卡需要同时处理海量图形数据，比如 4K 纹理或实时光影效果，这就要求内存传输速度超快。GDDR6/GDDR7 的带宽远超同代 DDR，但代价是功耗更高，发热也更明显。</p>
+<p><br/></p>
+<h3 id="LPDDR"><a href="#LPDDR" class="headerlink" title="LPDDR"></a>LPDDR</h3><p><strong>低功耗双倍速率 SDRAM（Low Power Double Data Rate SDRAM，LPDDR SDRAM）。</strong></p>
+<p>又称为 mDDR(Mobile DDR SDRAM)，是美国 JEDEC 固态技术协会（JEDEC Solid State Technology Association）面向低功耗内存而制定的通信标准，以低功耗和小体积著称，专门用于移动式电子产品。</p>
+<p>其特征主要有三点：</p>
+<ol>
+<li>与此前标准（LPDDR）相比，加大了节能技术的支持；</li>
+<li>非易失性内存（闪存）和易失性内存（SDRAM）可共用接口；</li>
+<li>扩大了支持的内存容量和特性范围。</li>
+</ol>
+<p><br/></p>
+<h2 id="非易失性存储"><a href="#非易失性存储" class="headerlink" title="非易失性存储"></a>非易失性存储</h2><h3 id="Mask-ROM"><a href="#Mask-ROM" class="headerlink" title="Mask ROM"></a>Mask ROM</h3><p><strong>掩膜ROM（Mask ROM）是一种在芯片制造过程中，通过光刻掩膜版将数据永久性地“写入”到半导体中的只读存储器。</strong></p>
+<p><strong>核心特点</strong>：</p>
+<p>内部结构：核心是一个由晶体管（通常是MOSFET）构成的二维存储阵列。</p>
+<p>只读：数据一旦在工厂制造时写入，就无法再修改。（”真 ROM”）</p>
+<p>非易失性：断电后数据永久保存。</p>
+<p>成本极低：在大批量生产时，单位成本非常低廉。</p>
+<p>高密度、高可靠性：存储结构简单，芯片面积小，抗干扰能力强。  </p>
+<p><br/></p>
+<h3 id="PROM"><a href="#PROM" class="headerlink" title="PROM"></a>PROM</h3><p>可编程只读存储器（Programmable ROM，PROM）其内部有行列式的镕丝，可依用户（厂商）的需要，利用电流将其烧断，以写入所需的数据及程序，镕丝一经烧断便无法再恢复，亦即数据无法再更改。  </p>
+<p><br/></p>
+<h3 id="OTPROM"><a href="#OTPROM" class="headerlink" title="OTPROM"></a>OTPROM</h3><p>一次编程只读存储器（One Time Programmable Read Only Memory，OTPROM）内部所用的芯片与写入原理同EPROM，但是为了节省成本，封装上不设置透明窗，因此编程写入之后就不能再抹除改写。 </p>
+<p>PROM 从诞生那天起，定义里就自带”one-time”这个属性。后来为了强调这点，常叫 OTPROM，在业内 PROM 和 OTPROM 指的是一个东西。</p>
+<p><br/></p>
+<h3 id="EPROM"><a href="#EPROM" class="headerlink" title="EPROM"></a><strong>EPROM</strong></h3><p><strong>可擦除可编程只读存储器</strong>（英语：Erasable Programmable Read Only Memory），由以色列工程师 Dov Frohman 发明，是一种断电后仍能保留数据的计算机存储芯片——即非易失性的（非易失性）。它是一组浮栅晶体管，被一个提供比电子电路中常用电压更高电压的电子器件分别编程。一旦编程完成后，EPROM只能用强紫外线照射来擦除。通过封装顶部能看见硅片的透明窗口，很容易识别EPROM，这个窗口同时用来进行紫外线擦除。 </p>
+<p>一片编程后的 EPROM，可以保持其数据大约 10～20 年，并能无限次读取。擦除窗口必须保持覆盖，以防偶然被阳光擦除。老式计算机的BIOS)芯片，一般是EPROM，擦除窗口往往被印有BIOS发行商名称、版本和版权声明的标签所覆盖。 </p>
+<p>一些在闪存出现前生产的微控制器，具有使用 EPROM 来存储程序的版本，以利于程序开发；因为，如使用一次性可编程器件，在调试时将造成严重浪费。 </p>
+<p><br/></p>
+<h3 id="EEPROM"><a href="#EEPROM" class="headerlink" title="EEPROM"></a><strong>EEPROM</strong></h3><p>写作<strong>E2PROM</strong>，全称<strong>电可擦除可编程只读存储器</strong> （英语：<strong>Electrically-Erasable Programmable Read-Only Memory</strong>），是一种可以通过电子方式多次复写的半导体存储设备。相比 EPROM，EEPROM不需要用紫外线照射，也不需取下，就可以用特定的电压，来抹除芯片上的信息，以便写入新的数据。</p>
+<p>EEPROM有四种工作模式：读取模式、写入模式、擦除模式、校验模式。读取时，芯片只需要 Vcc 低电压（一般+5V）供电。编程写入时，芯片通过Vpp（一般+25V,  较新者可能使用 12V 或  5V）获得编程电压，并通过PGM编程脉冲（一般50ms）写入数据。擦除时，只需使用Vpp高电压，不需要紫外线，便可以擦除指定地址的内容。为保证写入正确，在每写入一块数据后，都需要进行类似于读取的校验步骤，若错误就重新写入。现今的  EEPROM 通常已不再需要使用额外的 Vpp 电压，且写入时间也已有缩短。 </p>
+<p>由于EEPROM的优秀性能，以及在在线操作的便利，它被广泛用于需要经常擦除的BIOS芯片以及闪存芯片，并逐步替代部分有断电保留需要的RAM芯片，甚至取代部分的硬盘功能（固态硬盘）。它与高速RAM成为当前（21世纪00年代）最常用且发展最快的两种存储技术。</p>
+<p><br/></p>
+<h3 id="闪存（Flash-Memory）"><a href="#闪存（Flash-Memory）" class="headerlink" title="闪存（Flash Memory）"></a>闪存（Flash Memory）</h3><p><strong>快闪存储器</strong>（英语：<strong>flash memory</strong>），是一种电子式可清除程序化只读存储器的形式，允许在操作中被多次擦或写的存储器。这种科技主要用于一般性数据存储，以及在计算机与其他数字产品间交换传输数据，如储存卡与U盘。闪存是一种特殊的、以宏块抹写的 EEPROM。早期的闪存进行一次抹除，就会清除掉整颗芯片上的数据。 </p>
+<p>闪存的成本远较可以字节为单位写入的 EEPROM 来的低，也因此成为非易失性固态存储最重要也最广为采纳的技术。像是 PDA、笔记本电脑、数字随身听、数字相机与手机上均可见到闪存。此外，闪存在游戏主机上的采用也日渐增加，藉以取代存储游戏数据用的 EEPROM 或带有电池的 SRAM。 </p>
+<p>闪存是非易失性的存储器。这表示单就保存数据而言，它是不需要消耗电力的。与硬盘相比，闪存也有更佳的动态抗震性。这些特性正是闪存被移动设备广泛采用的原因。闪存还有一项特性：当它被制成储存卡时非常可靠──即使浸在水中也足以抵抗高压与极端的温度。闪存的写入速度往往明显慢于读取速度。 </p>
+<p>虽然闪存在技术上属于 EEPROM，但是“EEPROM”这个字眼通常特指非快闪式、以小区块为清除单位的 EEPROM。它们典型的清除单位是字节。因为老式的EEPROM 抹除循环相当缓慢，相较之下快闪记体较大的抹除区块在写入大量数据时带给其显著的速度优势。 </p>
+<p>闪存又分为 NOR 与 NAND 两型，闪存最常见的封装方式是 TSOP48 和 BGA，在逻辑接口上的标准则由于厂商阵营而区分为两种：ONFI 和 Toggle。手机上的闪存常常以 eMMC 方式存在。</p>
+<p><br/></p>
+<h4 id="NOR-Flash"><a href="#NOR-Flash" class="headerlink" title="NOR Flash"></a>NOR Flash</h4><p>从 NOR Flash 读取数据的方式与从 RAM 读取数据相近，只要提供数据的地址，数据总线就可以正确的导出数据。基于以上原因，多数微处理器可以将 NOR Flash当作原地运行（Execute in place, XIP）存储器使用，这意味着存储在 NOR Flash 上的程序不需复制到 RAM 就可以直接运行。</p>
+<p>由于 NOR Flash 没有原生坏区管理，所以一旦存储区块发生毁损，软件或驱动程序必须接手这个问题，否则可能会导致设备发生异常。在解锁、抹除或写入 NOR Flash 区块时，特殊的指令会先写入已绘测的记忆区的第一页。接着快闪记忆芯片会提供可用的指令清单给实体驱动程序，而这些指令是由 通用闪存接口（Common Flash memory Interface, CFI）所界定的。与用于随机存取的ROM不同，NOR Flash也可以用在存储设备上；不过与 NAND Flash 相比，NOR Flash的写入速度一般来说会慢很多。NOR Flash 最常见用途之一就是 BIOS ROM芯片。</p>
+<p><br/></p>
+<h4 id="NAND-Flash"><a href="#NAND-Flash" class="headerlink" title="NAND Flash"></a>NAND Flash</h4><p>东芝在1989年发表了NAND Flash架构，这种存储器的访问方式类似硬盘、储存卡之类的区块性存储设备，每个区块由数个页所构成。一般来说这些页的大小为512或2048或4096字节。在各个页之间彼此的连接区域会有几个字节（一般而言是数据大小的1/32），这些空间用于存储错误修正码的校验和。以下是一些典型的区块大小： </p>
+<ul>
+<li>每32个512+ 16位组的页为1个大小是16KB的区块</li>
+<li>每64个2048+ 64位组的页为1个大小是128KB的区块</li>
+<li>每64个4096+128位组的页为1个大小是256KB的区块</li>
+<li>每128个4096+128位组的页为1个大小是512KB的区块</li>
+</ul>
+<p>读取与写入动作可以以“页”为单位偏移量进行，抹除动作只能以“区块”为单位偏移量进行。NAND Flash还有一项限制就是区块内的数据只能序列性的写入。操作次数（Number of Operations, NOPs）则代表“页”可以被写入的次数。目前MLC的NOPs是1；而SLC则是4。NAND Flash也需要由设备驱动程序软件或分离的控制器芯片来进行坏区管理，例如SD卡内部便包含实行坏区管理与耗损平衡的电路。当一个逻辑区被高端软件访问时，逻辑区对应到实体区的工作则由驱动程序或控制器进行。 </p>
+<h5 id="eMMC"><a href="#eMMC" class="headerlink" title="eMMC"></a>eMMC</h5><p>eMMC（embedded MultiMediaCard）是把 <strong>NAND 闪存 + 主控 + 协议接口</strong> 封装在一个 BGA 芯片里、<strong>直接焊在主板上</strong>的嵌入式存储，相当于”焊死的 SD 卡”。2011 年JEDEC 发布标准以来，一直是中低端手机、平板、电视盒子、开发板、车载车机的标配。</p>
+<p><strong>基本构成</strong></p>
+<p>eMMC 内部其实是个”三合一”小模组：</p>
+<ul>
+<li><strong>NAND Flash</strong>：真正存数据的地方，一般是 TLC/QLC</li>
+<li><strong>Flash Controller（主控）</strong>：管磨损均衡、ECC、坏块管理、FTL——这部分是它比裸 NAND 好用的原因</li>
+<li><strong>标准接口</strong>：CLK / CMD / 8bit 数据线（半双工并行），走 JEDEC 定义的 eMMC 协议</li>
+</ul>
+<p>对外只露一组引脚，主机 CPU 不用操心 NAND 怎么擦写，发命令就行——这也是”嵌入式”的便利点。</p>
+<p><strong>版本演进</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><strong>版本</strong></th>
+<th style="text-align:left"><strong>年份</strong></th>
+<th style="text-align:left"><strong>理论最高（顺序）</strong></th>
+<th style="text-align:left"><strong>备注</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">eMMC 4.5</td>
+<td style="text-align:left">2011</td>
+<td style="text-align:left">104 MB/s</td>
+<td style="text-align:left">HS200 之前</td>
+</tr>
+<tr>
+<td style="text-align:left">eMMC 5.0</td>
+<td style="text-align:left">2013</td>
+<td style="text-align:left">200 MB/s（HS200）</td>
+<td style="text-align:left">引入缓存、RPMB 安全分区</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>eMMC 5.1</strong></td>
+<td style="text-align:left">2015</td>
+<td style="text-align:left"><strong>400 MB/s（HS400）</strong></td>
+<td style="text-align:left">目前天花板，再无 6.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>eMMC 5.1 之后 JEDEC 没继续推下一代 eMMC 了，路线让给了 <strong>UFS</strong>。（eMMC 5.1 同价位 UFS 2.2 体验会更好（随机读写翻倍））</p>
+<p><strong>性能特点</strong></p>
+<ul>
+<li><strong>顺序读写</strong>：5.1 标称 400 MB/s，实测一般 <strong>250~350 MB/s</strong></li>
+<li><strong>随机 4K</strong>：<strong>~30~50 MB/s，IOPS 几千到一万出头</strong>——这是瓶颈，开 APP、加载小文件明显比 UFS/NVMe 慢</li>
+<li><strong>半双工 8bit 并行总线</strong>：同一时刻只能读或只能写，不能同时收发；UFS 是全双工串行，差距就在这</li>
+<li><strong>接口是 8bit 数据线 + CLK + CMD</strong>，BGA 封装一般 153/169 球，焊死不能换</li>
+</ul>
+<p><strong>和相近介质对比</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>eMMC</th>
+<th>SD 卡</th>
+<th>UFS（2.2/3.1/4.0）</th>
+<th>NVMe SSD（PCIe）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>形态</td>
+<td>焊死 BGA</td>
+<td>可插拔</td>
+<td>焊死 BGA</td>
+<td>M.2 或可插拔</td>
+</tr>
+<tr>
+<td>总线</td>
+<td>8bit 并行半双工</td>
+<td>4bit 并行</td>
+<td>全双工串行（类似 SCSI）</td>
+<td>PCIe 全双工</td>
+</tr>
+<tr>
+<td>顺序</td>
+<td>~300 MB/s</td>
+<td>~100 MB/s（UHS-I）</td>
+<td>1~4 GB/s</td>
+<td>3~14 GB/s</td>
+</tr>
+<tr>
+<td>随机</td>
+<td>弱</td>
+<td>很弱</td>
+<td>中</td>
+<td>强</td>
+</tr>
+<tr>
+<td>成本</td>
+<td><strong>最低</strong></td>
+<td>低但贵于 eMMC/TB</td>
+<td>中</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
+<h4 id="NOR-vs-NAND"><a href="#NOR-vs-NAND" class="headerlink" title="NOR vs NAND"></a>NOR vs NAND</h4><p>NOR型与NAND型闪存最主要的两个差异点如下： </p>
+<ul>
+<li>连接个别记忆单元的方法不同</li>
+<li>读取写入存储器的接口不同（NOR型闪存允许随机存取，而NAND型闪存只能允许页访问）</li>
+</ul>
+<p>以上两点是相关的NAND型闪存研发所做出的设计抉择。NAND型闪存发展的一个目标是为了减少所需的芯片面积来实现给定的闪存容量，从而降低每比特的成本，并推升芯片最大容量，如此就可与磁性存储设备相互竞争，如硬盘。 </p>
+<p>NOR和NAND型闪存由记忆单元间的内部连接结构而得名。NOR型闪存内部记忆单元以平行方式连接到比特线，允许个别读取与程序化记忆单元。这种记忆单元的平行连接类似于CMOS   NOR闸中的晶体管平行连接。NAND型闪存内部记忆单元以顺序方式连接，类似于NAND闸。顺序连接方式所占空间较平行连接方式为小，降低了NAND型闪存的成本。 </p>
+<p>NOR型闪存面世后，成为比现有的 EPROM 与 EEPROM 存储器更经济、更方便的复写型只读存储器。因此，随机存取的读取电路是需要的。然而，NOR型闪存当成只读存储器使用时的读取次数在预期上通常远大于写入次数，所以其内含的写入电路是相当慢的，并且只提供区块抹除功能。另一方面，使用闪存的应用，如取代硬盘，无需字符组层级的地址线，因为字符组层级的地址线只会增加无谓的复杂度与成本。 </p>
+<p>因为采用顺序连接方式及去除字符组的接触点，NAND型闪存记忆单元的大型闸格所占面积只有NOR型记忆单元的60%（假设采用相同的 CMOS 制程，如130nm、90nm或65nm）。NAND型存储器的设计者理解到闪存的面积，在移除外部地址线及数据总线电路后，将可进一步缩小。取而代之的是，外部设备可使用顺序访问命令与数据寄存器与NAND型闪存沟通，由存储器内部获取所需数据并将其输出。选择这种设计方式使得NAND型闪存无法随机存取，但是NAND型闪存的主要目标是取代硬盘，而不是只读存储器。</p>
+<h3 id="光盘"><a href="#光盘" class="headerlink" title="光盘"></a>光盘</h3><p>光盘（Optical Disc）是一种用<strong>激光读写数据的圆形存储介质</strong>，从 1980 年代至今已经迭代了四十多年，是很多人童年里 MP3、电影、游戏的载体。</p>
+<h4 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h4><p>光盘表面布满了微小的<strong>凹坑（pit）和平面（land）</strong>，激光头照射上去时：</p>
+<ul>
+<li>凹坑 / 平面的反射光相位不同 → 被读取为 <strong>0 和 1</strong></li>
+<li>写入时（一次性或可逆），通过激光加热改变染料层或相变材料的状态</li>
+<li>从内圈螺旋向外读取，轨道间距只有 <strong>1.6μm（CD）~ 0.32μm（BD）</strong></li>
+</ul>
+<h4 id="主流规格"><a href="#主流规格" class="headerlink" title="主流规格"></a>主流规格</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>出现年</th>
+<th>容量（单面）</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CD</strong></td>
+<td>1982</td>
+<td>700 MB</td>
+<td>音乐、早期软件</td>
+</tr>
+<tr>
+<td><strong>DVD</strong></td>
+<td>1995</td>
+<td>4.7 GB（单层）/ 8.5 GB（双层）</td>
+<td>电影、系统安装盘</td>
+</tr>
+<tr>
+<td><strong>BD（蓝光）</strong></td>
+<td>2006</td>
+<td>25 GB（单层）/ 50 GB（双层）/ 100 GB（三层）</td>
+<td>高清电影、大容量归档</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>波长也从 CD 的 <strong>780nm（红外）</strong> → DVD 的 <strong>650nm（红）</strong> → BD 的 <strong>405nm（蓝紫）</strong> 一路缩短，所以能刻更密的轨道、存更多数据。</p>
+<h4 id="常见后缀含义"><a href="#常见后缀含义" class="headerlink" title="常见后缀含义"></a>常见后缀含义</h4><ul>
+<li><strong>-ROM</strong>：出厂压好，只能读（买来的电影碟、游戏碟）</li>
+<li><strong>-R</strong>：一次写入，写完不能改（刻录备份）</li>
+<li><strong>-RW / -RE</strong>：可擦重写（相变材料，次数有限）</li>
+</ul>
+<h4 id="为什么现在少见了"><a href="#为什么现在少见了" class="headerlink" title="为什么现在少见了"></a>为什么现在少见了</h4><ul>
+<li>U 盘 / SSD 速度快、不怕划</li>
+<li>网盘 + 流媒体基本替代了”搬运数据”和”看片”两个场景</li>
+<li>光盘怕晒、怕潮、怕划，<strong>寿命标称 10~30 年但实际往往更短</strong></li>
+</ul>
+<p>不过它在 <strong>冷备份（离线防勒索病毒）</strong>、<strong>音乐发烧友（CD 抓轨 vs 流媒体音质争议）</strong>、<strong>长期归档（M-DISC 号称能存 1000 年）</strong> 这几个 niche 里还在用。</p>
+<p><br/></p>
+<h3 id="磁带"><a href="#磁带" class="headerlink" title="磁带"></a>磁带</h3><p>磁带（Magnetic Tape）是<strong>用涂了磁性颗粒的长条塑料带卷起来存数据</strong>的老祖宗级介质，1951 年 IBM 701 就开始用了。它看着比光盘、硬盘还”古董”，但今天在<strong>冷数据归档</strong>领域依然无可替代——你存在云盘里的老照片，底层大概率就躺在某家数据中心的磁带库里。</p>
+<h4 id="基本原理-1"><a href="#基本原理-1" class="headerlink" title="基本原理"></a>基本原理</h4><ul>
+<li>一条聚乙酯带基，涂上一层 <strong>氧化铁 / 铬 dioxide / 金属磁粉</strong>，磁头通电改变磁粉极性来记录 0/1</li>
+<li>数据是<strong>顺序写入</strong>的：磁带从头跑到尾，像录音带一样，没有”寻道”概念，但有”快进/倒带”</li>
+<li>现代磁带主流是 <strong>LTO（Linear Tape-Open）</strong> 格式，半英寸宽，一卷绕在盒里</li>
+</ul>
+<h4 id="关键规格演进（LTO-系列）"><a href="#关键规格演进（LTO-系列）" class="headerlink" title="关键规格演进（LTO 系列）"></a>关键规格演进（LTO 系列）</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>代次</th>
+<th>年份</th>
+<th>原生容量（单盒）</th>
+<th>压缩后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LTO-5</td>
+<td>2010</td>
+<td>1.5 TB</td>
+<td>3 TB</td>
+</tr>
+<tr>
+<td>LTO-7</td>
+<td>2016</td>
+<td>6 TB</td>
+<td>15 TB</td>
+</tr>
+<tr>
+<td>LTO-8</td>
+<td>2017</td>
+<td>12 TB</td>
+<td>30 TB</td>
+</tr>
+<tr>
+<td>LTO-9</td>
+<td>2021</td>
+<td><strong>18 TB</strong></td>
+<td><strong>45 TB</strong></td>
+</tr>
+<tr>
+<td>LTO-10（路线图）</td>
+<td>待发布</td>
+<td>~30 TB</td>
+<td>~75 TB</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>注：压缩比是 2.5:1 标称，实际看数据类型，文本能压，视频照片基本压不动。</em></p>
+<p>速度方面，LTO-9 持续传输约 <strong>400 MB/s</strong>，比 HDD 还快一截——前提是你能连续喂得动。</p>
+<h4 id="和-HDD-光盘比"><a href="#和-HDD-光盘比" class="headerlink" title="和 HDD / 光盘比"></a>和 HDD / 光盘比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>磁带 (LTO-9)</th>
+<th>HDD (企业 20T)</th>
+<th>蓝光 (BD XL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单介质容量</td>
+<td><strong>18~45 TB</strong></td>
+<td>20~24 TB</td>
+<td>100 GB</td>
+</tr>
+<tr>
+<td>单价/TB</td>
+<td><strong>最低，约 15~25 元/TB</strong></td>
+<td>约 80~120 元/TB</td>
+<td>贵得离谱</td>
+</tr>
+<tr>
+<td>随机访问</td>
+<td>极差，得倒带</td>
+<td>一般</td>
+<td>还行</td>
+</tr>
+<tr>
+<td>寿命</td>
+<td><strong>30 年+</strong>（冷存）</td>
+<td>5~10 年</td>
+<td>10~30 年</td>
+</tr>
+<tr>
+<td>抗震/便携</td>
+<td>盒装耐造</td>
+<td>怕摔</td>
+<td>怕划</td>
+</tr>
+<tr>
+<td>读写方式</td>
+<td>顺序，需专用驱动器</td>
+<td>随机</td>
+<td>随机</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><blockquote>
+<p>全球约 <strong>60~80% 的冷数据</strong> 存在磁带上——包括 AWS Glacier、Google、阿里云的归档层，底层都是磁带库机器人自动换带。</p>
+</blockquote>
+<p>几个不可替代的点：</p>
+<ul>
+<li><strong>容量/TB 成本碾压一切</strong>：云厂商算过账，冷数据放磁带比放 HDD 省一半以上电费+硬件</li>
+<li><strong>Air-gap 天然防勒索</strong>：拔下来锁柜子里，病毒碰不到，金融机构、政府归档最爱这点</li>
+<li><strong>寿命长、静态省电</strong>：磁带不插电躺着就行，HDD 不转也得定期通电自检</li>
+<li><strong>LTO 路线图稳定</strong>：每代容量翻倍，且<strong>向下兼容两代读、一代写</strong>（LTO-9 能读 LTO-8/7，能写 LTO-8）</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li><strong>顺序访问的诅咒</strong>：想读某个文件，得”倒带”定位，随机读 IOPS 基本为 0，只适合”写了就封存、偶尔捞一次”的场景</li>
+<li><strong>驱动器贵</strong>：LTO-9 外置驱动器一台 <strong>8000~15000 元</strong>，个人玩不起，基本是企业/影视后期工作室才配</li>
+<li><strong>磁带也怕环境</strong>：虽然标称 30 年，但湿度、磁场、霉变照样废，得放恒温恒湿柜</li>
+<li><strong>LTO 加密密钥丢了 = 数据全灭</strong>：这点比 HDD 狠，HDD 还能找数据恢复公司拆盘，磁带密钥丢了真没戏</li>
+</ul>
+<h4 id="现在的典型用途"><a href="#现在的典型用途" class="headerlink" title="现在的典型用途"></a>现在的典型用途</h4><ul>
+<li><strong>云厂商冷归档层</strong>（Glacier Deep Archive、Azure Archive 这种几分钱/GB/月的档位）</li>
+<li><strong>影视/科研大数据</strong>：拍一部 8K 电影 raw 素材几十 TB，磁带当”数字底片”封存</li>
+<li><strong>银行/医院/政府</strong>：合规要求数据留 30 年，磁带 + Air-gap 是标配</li>
+<li><strong>个人基本不用</strong>：除非你是摄影师囤了几百 TB 素材，否则家用 NAS + HDD 就够了</li>
+</ul>
+<p><br/></p>
+<h3 id="机械硬盘"><a href="#机械硬盘" class="headerlink" title="机械硬盘"></a>机械硬盘</h3><p>机械硬盘（Hard Disk Drive, HDD）是用<strong>磁头在高速旋转的盘片上读写数据</strong>的存储设备，1962 年 IBM 推出第一款，至今仍是”大容量廉价存储”的主力。</p>
+<h4 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h4><ul>
+<li><strong>盘片（Platter）</strong>：铝合金或玻璃基底，表面涂磁性涂层，双面都能存数据，一块硬盘一般 1~9 张叠在一起转</li>
+<li><strong>主轴电机</strong>：带动盘片转，常见 <strong>5400 / 7200 / 10000 RPM</strong>，企业级有 15000 的</li>
+<li><strong>磁头（Head）</strong>：悬在盘片上方几纳米处，”飞”着读写，不接触（接触就划盘了）</li>
+<li><strong>音圈电机</strong>：控制磁头径向移动定位磁道</li>
+<li><strong>控制电路</strong>：负责接口通信、缓存、转速控制</li>
+</ul>
+<p>数据以<strong>同心圆磁道 + 扇区</strong>的方式存在盘片上，磁头寻道 → 等盘片转到对应扇区 → 读写，这就是 HDD 天生慢的根源。</p>
+<h4 id="主流规格-1"><a href="#主流规格-1" class="headerlink" title="主流规格"></a>主流规格</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>尺寸</td>
+<td><strong>3.5 寸</strong> / 2.5 寸</td>
+<td>3.5 容量大、台式机/NAS用；2.5 薄、笔记本用，基本被 SSD 取代了</td>
+</tr>
+<tr>
+<td>转速</td>
+<td>5400 / 7200 / 10000 RPM</td>
+<td>5400 安静省电，7200 主流，10000+ 基本绝迹</td>
+</tr>
+<tr>
+<td>接口</td>
+<td>SATA / SAS / NVMe（桥接）</td>
+<td>家用 SATA 足矣，企业 SAS</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td>64MB ~ 512MB</td>
+<td>越大对随机读写越有帮助</td>
+</tr>
+<tr>
+<td>单盘容量</td>
+<td>1TB ~ 24TB+</td>
+<td>家用 4~8T 甜点，企业 20T+ 用氦气封装</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="性能特点"><a href="#性能特点" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>顺序读写</strong>：100~250 MB/s，看转速和密度，还凑合</li>
+<li><strong>随机读写（4K）</strong>：<strong>0.5~2 MB/s，IOPS 几十到两百</strong>，这是 HDD 最痛的地方——磁头要物理挪位置，数据库、系统盘根本扛不住</li>
+<li><strong>延迟</strong>：毫秒级，比 SSD 的微秒级差三个数量级</li>
+</ul>
+<h4 id="和-SSD-比"><a href="#和-SSD-比" class="headerlink" title="和 SSD 比"></a>和 SSD 比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HDD</th>
+<th>SSD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>容量单价</td>
+<td><strong>便宜，1TB 只要几十块</strong></td>
+<td>贵，1TB 三百上下</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>顺序还行，随机拉胯</td>
+<td>全方位碾压</td>
+</tr>
+<tr>
+<td>抗震</td>
+<td>怕摔怕震</td>
+<td>随便造</td>
+</tr>
+<tr>
+<td>寿命</td>
+<td>理论上擦写无限，但机械会老化</td>
+<td>TBW 限制，但日常够用十年</td>
+</tr>
+<tr>
+<td>功耗噪音</td>
+<td>有转动声、发热大</td>
+<td>静音</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="现在还能干啥"><a href="#现在还能干啥" class="headerlink" title="现在还能干啥"></a>现在还能干啥</h4><p>HDD 没死，只是退到”<strong>容量敏感、性能不敏感</strong>“的场景：</p>
+<ul>
+<li><strong>NAS / 家用仓库盘</strong>：存电影、照片、备份，4~16T 性价比无敌</li>
+<li><strong>监控录像</strong>：7×24 连续写</li>
+<li><strong>企业冷数据</strong>：对象存储的后端，磁带太慢、SSD 太贵，HDD 卡中间</li>
+<li><strong>装机别买 HDD 装系统</strong>——开机两分钟那种体验劝退</li>
+</ul>
+<blockquote>
+<p>💡 买 HDD 认准用途：家用仓储选 <strong>CMR（垂直记录）</strong>，避开 <strong>SMR（叠瓦）</strong> 的坑（尤其是当 NAS 盘时，SMR 随机写会掉速到怀疑人生）。西数 HC 系列、希捷 IronWolf 基本都是 CMR，绿盘蓝盘低端容易撞上 SMR，下单前查一下型号。</p>
+</blockquote>
+<p><br/></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《Linux 设备驱动开发详解 基于最新的Linux 4.0内核》，宋宝华 编著，机械工业出版社</li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR_SDRAM">DDR SDRAM - 维基百科，自由的百科全书</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR2_SDRAM">DDR2 SDRAM - 维基百科，自由的百科全书</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR3_SDRAM">DDR3 SDRAM - 维基百科，自由的百科全书</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR4_SDRAM">DDR4 SDRAM - 维基百科，自由的百科全书</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DDR5_SDRAM">DDR5 SDRAM - 维基百科，自由的百科全书</a></li>
+</ul>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ithink//" class="article-tag-list-link color2">ithink</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/ithink/i-want-to-be-a-writer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-人人都是产品经理2-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/reflection/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/">《人人都是产品经理2.0》读后笔记</a>
-    </h1>
-  
-
-        
-        <a href="/reflection/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/" class="archive-article-date">
-  	<time datetime="2019-08-06T12:57:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>包干到户解放了农民的生产力，作为网络新时代的民工，也需要相应的合作模式（方法论体系）才能解放其巨大的生产力。</p>
-        
-          <a class="article-more-a" href="/reflection/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reflection//" class="article-tag-list-link color1">reflection</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/reflection/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%862-0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-参《天道》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/reflection/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/">参《天道》</a>
-    </h1>
-  
-
-        
-        <a href="/reflection/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2019-03-23T02:26:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>《天道》是上映于2006年的一部电视剧，原著豆豆《遥远的救世主》。</p>
-        
-          <a class="article-more-a" href="/reflection/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reflection//" class="article-tag-list-link color1">reflection</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/reflection/%E5%8F%82%E3%80%8A%E5%A4%A9%E9%81%93%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《人性的弱点》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/reflection/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/">《人性的弱点》</a>
-    </h1>
-  
-
-        
-        <a href="/reflection/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2018-10-21T12:00:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>人性是兼具天使和恶魔的综合体，本我和超我的伴生体，阴与阳的和谐统一。所以卡耐基用了《人性的优点》和《人性的弱点》两本书来总结人性的种种突出特质。<br>卡耐基说，人并非理想生物，他们由情感驱使，被偏见支配，傲慢与虚荣是他们的动力之源。<br>每个人都有这样的背书，每个人都带有这样的原罪，了解这些不仅让我们更了解他人，还让我们更了解我们自己，更重要的是了解怎么和他人相处。</p>
-        
-          <a class="article-more-a" href="/reflection/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reflection//" class="article-tag-list-link color1">reflection</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/reflection/%E3%80%8A%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sublime-text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tech/sublime-text/">Sublime Text</a>
-    </h1>
-  
-
-        
-        <a href="/tech/sublime-text/" class="archive-article-date">
-  	<time datetime="2018-10-17T08:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-17</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>响应超快，超好用的文本编辑器。<br>
-        
-          <a class="article-more-a" href="/tech/sublime-text/#more">more >></a>
-        
       
 
       
@@ -549,7 +1676,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tools</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
         		</li>
       		
 		</ul>
@@ -569,16 +1696,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tech/sublime-text/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.easywang.site/tech/embedded-memory/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/tech/linux-network-programming/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux 网络编程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -593,439 +1779,55 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《奇葩说》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/reflection/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/">《奇葩说》</a>
-    </h1>
-  
-
-        
-        <a href="/reflection/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/" class="archive-article-date">
-  	<time datetime="2018-10-08T03:55:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-08</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在看过《娱乐至死》之后，即使在减少了娱乐摄入的情况下，依然坚持要看《奇葩说》，《奇葩说》可以说是我最喜欢的网综了。<br>
-        
-          <a class="article-more-a" href="/reflection/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/reflection//" class="article-tag-list-link color1">reflection</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/reflection/%E3%80%8A%E5%A5%87%E8%91%A9%E8%AF%B4%E3%80%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.</span> <span class="toc-text">定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%88%86%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">基本分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E6%98%93%E5%A4%B1%E6%80%A7"><span class="toc-number">1.1.1.</span> <span class="toc-text">按易失性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%93%E5%A4%B1%E5%AD%98%E5%82%A8"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">易失存储</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%9E%E6%98%93%E5%A4%B1%E5%AD%98%E5%82%A8"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">非易失存储</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%93%E5%A4%B1-vs-%E9%9D%9E%E6%98%93%E5%A4%B1"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">易失 vs 非易失</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89-RAM-ROM"><span class="toc-number">1.1.2.</span> <span class="toc-text">按 RAM&#x2F;ROM</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#RAM-vs-ROM"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">RAM vs ROM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">历史遗留问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E6%98%AF%E5%90%A6%E5%8F%AF%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="toc-number">1.1.3.</span> <span class="toc-text">按是否可直接寻址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.2.</span> <span class="toc-text">关键性能指标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%93%E5%A4%B1%E6%80%A7%E5%AD%98%E5%82%A8"><span class="toc-number">2.</span> <span class="toc-text">易失性存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SRAM"><span class="toc-number">2.1.</span> <span class="toc-text">SRAM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">工作原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DRAM"><span class="toc-number">2.2.</span> <span class="toc-text">DRAM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">工作原理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SRAM-vs-DRAM"><span class="toc-number">2.3.</span> <span class="toc-text">SRAM vs DRAM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADRAM"><span class="toc-number">2.4.</span> <span class="toc-text">ADRAM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%9C%E5%BC%82%E6%AD%A5%E2%80%9D"><span class="toc-number">2.4.1.</span> <span class="toc-text">“异步”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ADRAM-%E7%9A%84%E6%BC%94%E5%8C%96"><span class="toc-number">2.4.2.</span> <span class="toc-text">ADRAM 的演化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDRAM"><span class="toc-number">2.5.</span> <span class="toc-text">SDRAM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%9C%E5%90%8C%E6%AD%A5%E2%80%9D"><span class="toc-number">2.5.1.</span> <span class="toc-text">“同步”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Burst%EF%BC%88%E7%AA%81%E5%8F%91%EF%BC%89%E4%BC%A0%E8%BE%93"><span class="toc-number">2.5.2.</span> <span class="toc-text">Burst（突发）传输</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bank-%E7%BB%93%E6%9E%84"><span class="toc-number">2.5.3.</span> <span class="toc-text">Bank 结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ADRAM-vs-SDRAM"><span class="toc-number">2.6.</span> <span class="toc-text">ADRAM vs SDRAM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DDR"><span class="toc-number">2.7.</span> <span class="toc-text">DDR</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%96%E4%BB%A3"><span class="toc-number">2.7.1.</span> <span class="toc-text">世代</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%8F%96%EF%BC%88Prefetch%EF%BC%89"><span class="toc-number">2.7.2.</span> <span class="toc-text">预取（Prefetch）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DDR2"><span class="toc-number">2.7.3.</span> <span class="toc-text">DDR2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DDR3"><span class="toc-number">2.7.4.</span> <span class="toc-text">DDR3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DDR4"><span class="toc-number">2.7.5.</span> <span class="toc-text">DDR4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DDR5"><span class="toc-number">2.7.6.</span> <span class="toc-text">DDR5</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CL-%E5%BB%B6%E8%BF%9F"><span class="toc-number">2.7.6.1.</span> <span class="toc-text">CL 延迟</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GDDR"><span class="toc-number">2.8.</span> <span class="toc-text">GDDR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LPDDR"><span class="toc-number">2.9.</span> <span class="toc-text">LPDDR</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E6%98%93%E5%A4%B1%E6%80%A7%E5%AD%98%E5%82%A8"><span class="toc-number">3.</span> <span class="toc-text">非易失性存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mask-ROM"><span class="toc-number">3.1.</span> <span class="toc-text">Mask ROM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PROM"><span class="toc-number">3.2.</span> <span class="toc-text">PROM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OTPROM"><span class="toc-number">3.3.</span> <span class="toc-text">OTPROM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EPROM"><span class="toc-number">3.4.</span> <span class="toc-text">EPROM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EEPROM"><span class="toc-number">3.5.</span> <span class="toc-text">EEPROM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AA%E5%AD%98%EF%BC%88Flash-Memory%EF%BC%89"><span class="toc-number">3.6.</span> <span class="toc-text">闪存（Flash Memory）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NOR-Flash"><span class="toc-number">3.6.1.</span> <span class="toc-text">NOR Flash</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NAND-Flash"><span class="toc-number">3.6.2.</span> <span class="toc-text">NAND Flash</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#eMMC"><span class="toc-number">3.6.2.1.</span> <span class="toc-text">eMMC</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NOR-vs-NAND"><span class="toc-number">3.6.3.</span> <span class="toc-text">NOR vs NAND</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%89%E7%9B%98"><span class="toc-number">3.7.</span> <span class="toc-text">光盘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">3.7.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%B5%81%E8%A7%84%E6%A0%BC"><span class="toc-number">3.7.2.</span> <span class="toc-text">主流规格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%90%8E%E7%BC%80%E5%90%AB%E4%B9%89"><span class="toc-number">3.7.3.</span> <span class="toc-text">常见后缀含义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%8E%B0%E5%9C%A8%E5%B0%91%E8%A7%81%E4%BA%86"><span class="toc-number">3.7.4.</span> <span class="toc-text">为什么现在少见了</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E5%B8%A6"><span class="toc-number">3.8.</span> <span class="toc-text">磁带</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86-1"><span class="toc-number">3.8.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%A7%84%E6%A0%BC%E6%BC%94%E8%BF%9B%EF%BC%88LTO-%E7%B3%BB%E5%88%97%EF%BC%89"><span class="toc-number">3.8.2.</span> <span class="toc-text">关键规格演进（LTO 系列）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%92%8C-HDD-%E5%85%89%E7%9B%98%E6%AF%94"><span class="toc-number">3.8.3.</span> <span class="toc-text">和 HDD &#x2F; 光盘比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">3.8.4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">3.8.5.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E7%9A%84%E5%85%B8%E5%9E%8B%E7%94%A8%E9%80%94"><span class="toc-number">3.8.6.</span> <span class="toc-text">现在的典型用途</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98"><span class="toc-number">3.9.</span> <span class="toc-text">机械硬盘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">3.9.1.</span> <span class="toc-text">基本结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%B5%81%E8%A7%84%E6%A0%BC-1"><span class="toc-number">3.9.2.</span> <span class="toc-text">主流规格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">3.9.3.</span> <span class="toc-text">性能特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%92%8C-SSD-%E6%AF%94"><span class="toc-number">3.9.4.</span> <span class="toc-text">和 SSD 比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%B0%E5%9C%A8%E8%BF%98%E8%83%BD%E5%B9%B2%E5%95%A5"><span class="toc-number">3.9.5.</span> <span class="toc-text">现在还能干啥</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-two-years-work-retrospective" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ithink/two-years-work-retrospective/">工作两年回首</a>
-    </h1>
   
 
-        
-        <a href="/ithink/two-years-work-retrospective/" class="archive-article-date">
-  	<time datetime="2018-09-26T07:14:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-26</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近感悟颇多，不由得想要把它们整理一下，记录下来，算作总结，也方便以后印证。<br>
-        
-          <a class="article-more-a" href="/ithink/two-years-work-retrospective/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ithink//" class="article-tag-list-link color2">ithink</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/ithink/two-years-work-retrospective/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python-study-notes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tech/python-study-notes/">Python学习笔记</a>
-    </h1>
   
 
-        
-        <a href="/tech/python-study-notes/" class="archive-article-date">
-  	<time datetime="2018-08-06T08:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>包含pip的使用、注释文档、源码加密、ini配置、Logging模块等内容。</p>
-        
-          <a class="article-more-a" href="/tech/python-study-notes/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tech/python-study-notes/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-language-features" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tech/c-language-features/">C语言特性总结</a>
-    </h1>
   
 
-        
-        <a href="/tech/c-language-features/" class="archive-article-date">
-  	<time datetime="2018-08-06T04:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习一门编程语言，起初是学具体的语法，但是到后面我注意到不同的语言之间大多使用的一些相同的语法特性，语法特性和具体语法之间就如同”法”与”术”的关系，不同语言的语法其实是同一种”法”的不同变种实现。<br>在学习一个新的特性时，也就相当于掌握一种新的工具，为什么刚学习的时候觉得难，往往就是因为这种工具中包含了一些全新、以前未曾见过的概念，一旦我们理解和掌握之后，这一类的工具也就不会再有难度了。<br>在这里总结一下 C语言 中包含的所有语法特性及基础概念。</p>
-        
-          <a class="article-more-a" href="/tech/c-language-features/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tech/c-language-features/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-free-will-and-randomness" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/ithink/free-will-and-randomness/">自由意志与随机性</a>
-    </h1>
+    <section id="comments" style="margin:40px;padding:40px;background:#fff;">
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "vcapFhe7nHSJixIhrCcNKJEy-gzGzoHsz",
+            app_key: "qSkWaIIPWzNQirOz8LDaici7",
+            placeholder: "欢迎留言！",
+            avatar:""
+        });
+    }
+</script>
+    </section>
   
 
-        
-        <a href="/ithink/free-will-and-randomness/" class="archive-article-date">
-  	<time datetime="2018-08-03T08:55:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Me：一直以来，我都在思考一个问题，那就是人或者是生命是否有真正的自由意志<br>Her： 哦，这话怎么说<br>
-        
-          <a class="article-more-a" href="/ithink/free-will-and-randomness/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ithink//" class="article-tag-list-link color2">ithink</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/ithink/free-will-and-randomness/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next »</a>
-    </nav>
+
   
 
 
@@ -1060,8 +1862,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
