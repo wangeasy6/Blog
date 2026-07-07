@@ -70,6 +70,22 @@ TTS 监听端口 39999 的本地主机TCP连接。在 Atom 中执行 获取Lua�
 
 <br/>
 
+## 系统控制台简介
+
+如图所示，游戏左下角，点击波浪号，可以和系统控制台进行交互。
+
+![system-console](/resources/tts-script/system-console.png)
+
+此时可以在 聊天设置 中取消勾选 自动隐藏聊天，以方便调试。
+
+相关链接：
+
+* [System Console - Tabletop Simulator API](https://api.tabletopsimulator.com/systemconsole/)
+
+* [All Console Commands · Github|Tabletop-Simulator](https://github.com/Berserk-Games/Tabletop-Simulator-Console-Commands/blob/main/Commands.md#console-commands)
+
+<br/>
+
 ## Lua 基础
 
 和其他语言相比，Lua 较为不同的点：

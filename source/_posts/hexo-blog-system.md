@@ -319,6 +319,23 @@ tags:
 
 ![cpp_integration_demo.gif](\resources\QtQuick\cpp_integration_demo.gif)
 
+#### 11.解决链接双括号渲染问题
+
+对于链接  `[pages](https://man.cx/socket(2))` 会显示为 `pages)`，多一个括号。
+
+这是 **Markdown 原生语法的坑**，Markdown inline link 的格式是 `[text](url)`，解析器按 **括号配对** 来找 URL 的结尾——它看到 `socket(2)`里的那个 `)`就以为是 `()`闭合了。
+
+**修复方案1**：替换链接为URL encode 括号，即把 `(` 替换为 `%28`，`)` 替换为 `%29`。浏览器访问时会自动正确解码，**显示和跳转都没问题**。以此链接为例的操作：
+
+1. 在 Sublime Text 中使用正则表达式替换。
+2. 打开替换面板：`Ctrl + H`
+3. 点击左下角的 `.*`按钮启用正则表达式
+4. 查找框输入：`\((\d+)\)\)`
+5. 替换框输入：`%28$1%29)`
+6. 点击 `Replace All`
+
+**修复方案2**：直接写 HTML，`<a href="https://man.cx/socket(2)" target="_blank">pages</a>`。
+
 <br/>
 
 ### 四、Valine评论系统
