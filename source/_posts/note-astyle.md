@@ -27,6 +27,8 @@ AStyle(Artistic Style) 是一个免费、快速、小巧的代码格式化工具
 
 `astyle -A1 -t -p -n -z2 -r *.c `：将所有此目录及以下的 .c 文件进行格式化，allman 样式，tab 缩进，在操作符前后填充空格，不保留原始文件备份，使用 linux (LF) 换行符。
 
+使用配置文件格式化：`astyle --project=linux_app.astylerc -r *.c `，或者先设置环境变量：`export ARTISTIC_STYLE_OPTIONS=$(pwd)/linux-app.astylerc`。
+
 <br/>
 
 ### 使用说明
@@ -87,9 +89,54 @@ astyle [OPTIONS] File1 File2 File3 [...]
 
 ### 常用设置
 
-linux_app.astylerc
+#### Linux 内核代码风格
+
+参见：[Linux 内核代码风格 — The Linux Kernel documentation](https://docs.kernel.org/translations/zh_CN/process/coding-style.html)
 
 ```ini
+# linux-kernel.astylerc
+
+# 缩进：8 个空格（不使用 Tab 转空格）
+--indent=tab=8
+
+# 不转换已有的 Tab
+--convert-tabs
+
+# 大括号风格：Linux / 1TBS
+--style=1tbs
+
+# 大括号不额外缩进
+--indent-switches
+--indent-preproc-block
+
+# 每行最大长度（Linux 建议 80）
+--max-code-length=80
+--break-after-logical
+
+# 操作符前后加空格
+--pad-oper
+
+# 指针符号靠近类型（Linux 风格）
+--align-pointer=type
+
+# 函数大括号另起一行
+--break-blocks
+
+# 移除多余空行
+--delete-empty-lines
+
+# 保持注释格式
+--preserve-date
+--suffix=none
+```
+
+Linux 内核推荐使用 clang-format，参考：[clang-format — The Linux Kernel documentation](https://docs.kernel.org/dev-tools/clang-format.html#clang-format)。（从 v4.17（2018 年）开始，源码树根目录自带 `.clang-format`）
+
+#### Linux C APP
+
+```ini
+# linux-app.astylerc
+
 # -A1
 --style=allman
 
@@ -106,11 +153,22 @@ linux_app.astylerc
 --squeeze-lines=3
 ```
 
-运行：
 
-`astyle --project=linux_app.astylerc -r *.c `
 
-或者先设置环境变量：`export ARTISTIC_STYLE_OPTIONS=$(pwd)/linux_app.astylerc`
+#### Qt C++
 
-`astyle -r *.c,*.h,*.cpp`
+参见：[Qt Coding Style - Qt Wiki](https://wiki.qt.io/Qt_Coding_Style)
+
+```ini
+--style=kr 
+--indent=spaces=4 
+--align-pointer=name 
+--align-reference=name 
+--convert-tabs 
+--attach-namespaces
+--max-code-length=100 
+--max-instatement-indent=120 
+--pad-header
+--pad-oper
+```
 

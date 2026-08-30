@@ -21,7 +21,7 @@ LifeTimeLoop(){
 
 <br/>
 
-## 调度流程
+## 处理流程
 
 其调度流程类比如下：
 
@@ -78,4 +78,100 @@ main():
         else:
             flow_for_a_period_of_time()
 ```
+
+## 调度器
+
+### 数据结构
+
+#### 人生清单
+
+人生的意义是自己定义的，设立自己的终局目标即为设置了自己的人生算法的启发式，它将会指引你实现自己的意义。
+
+下载 [人生清单.xlsx](/resources/mind-processing-unit/人生清单.xlsx)，内容示例如下：
+
+![人生清单](/resources/mind-processing-unit/人生清单.png)
+
+#### 年度计划表
+
+**每年的元旦假期**:
+
+* 总结：上一年的 年度计划
+* 制定：下一年的 **年度计划表**、**季度计划表**、**月计划表**
+
+下载 [年度计划表.xlsx](/resources/mind-processing-unit/年度计划表.xlsx)，内容示例如下：
+
+![年度计划表](/resources/mind-processing-unit/年度计划表.png)
+
+#### 季度计划表
+
+**每季度末**：
+
+* 总结：本季度
+* 调整：下季度计划、年度计划、月计划
+
+下载 [季度计划表.xlsx](/resources/mind-processing-unit/季度计划表.xlsx)，内容示例如下：
+
+![季度计划表](/resources/mind-processing-unit/季度计划表.png)
+
+#### 月计划表
+
+**每月末当日**：
+
+* 总结：本月
+* 调整：下月计划、季度计划、年度计划
+* 制定：周计划
+
+下载 [月计划表.xlsx](/resources/mind-processing-unit/月计划表.xlsx)，内容示例如下：
+
+![月计划表](/resources/mind-processing-unit/月计划表.png)
+
+一个月的总工作日约为：20d - 22d，总工时约为：200h - 220h。
+
+#### 周计划表
+
+**每周日的晚上**：
+
+* 总结：本周
+* 调整：下周计划
+* 制定：日计划
+
+下载 [周计划表.xlsx](/resources/mind-processing-unit/周计划表.xlsx)，内容示例如下：
+
+![周计划表](/resources/mind-processing-unit/周计划表.png)
+
+每周的总工时约为：50h - 60h，可拆分为：上班 40h、下班 20h。
+
+#### 日程表
+
+**每天晚上**：
+
+* 总结：当日计划
+* 调整：明日计划
+
+下载 [每天三件事.xlsx](/resources/mind-processing-unit/每天三件事.xlsx)，内容示例如下：
+
+![每天三件事](/resources/mind-processing-unit/每天三件事.png)
+
+#### ToDo List
+
+以 A5 笔记本纸进行管理。
+
+#### 中断向量表
+
+以 A5 笔记本纸进行管理。
+
+#### 娱乐
+
+以 A5 笔记本纸进行管理。
+
+#### 日志
+
+日志模板。 
+
+
+
+## 待添加部分
+
+* 调度算法
+* 执行器
 

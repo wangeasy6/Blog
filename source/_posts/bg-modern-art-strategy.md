@@ -4,6 +4,8 @@ date: 2019-11-23 020:49:00
 toc: true
 categories:
   - iplay
+tags:
+  - 桌游
 ---
   ![modern-art](/resources/modern_art/modern_art.jpg)
 《Modern Art》是一款经济博弈类桌游，通过4轮名画拍卖，玩家轮番主持、叫价，最后钱最多的玩家赢得游戏。其面对面的博弈让人直呼过瘾，如果你是一个自诩智商还不错的人，那你应该会喜欢这款游戏的。
