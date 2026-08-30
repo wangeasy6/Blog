@@ -15,10 +15,17 @@
 <meta property="og:site_name" content="Easy Wang">
 <meta property="og:description" content="12345LifeTimeLoop()&amp;#123;    吃饭;    睡觉;    打豆豆;&amp;#125; 人的大脑其实在很多时候都类似于一个单核处理器，关键在于我们的调度和执行。">
 <meta property="og:locale">
+<meta property="og:image" content="http://www.easywang.site/resources/mind-processing-unit/人生清单.png">
+<meta property="og:image" content="http://www.easywang.site/resources/mind-processing-unit/年度计划表.png">
+<meta property="og:image" content="http://www.easywang.site/resources/mind-processing-unit/季度计划表.png">
+<meta property="og:image" content="http://www.easywang.site/resources/mind-processing-unit/月计划表.png">
+<meta property="og:image" content="http://www.easywang.site/resources/mind-processing-unit/周计划表.png">
+<meta property="og:image" content="http://www.easywang.site/resources/mind-processing-unit/每天三件事.png">
 <meta property="article:published_time" content="2024-10-14T06:30:00.000Z">
-<meta property="article:modified_time" content="2025-12-11T08:28:52.160Z">
+<meta property="article:modified_time" content="2026-08-23T07:23:09.866Z">
 <meta property="article:author" content="Easy Wang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.easywang.site/resources/mind-processing-unit/人生清单.png">
   
     <link rel="alternative" href="/atom.xml" title="Easy Wang" type="application/atom+xml">
   
@@ -221,8 +228,58 @@
 <p>人的大脑其实在很多时候都类似于一个单核处理器，关键在于我们的调度和执行。</p>
 <span id="more"></span>
 <p><br/></p>
-<h2 id="调度流程"><a href="#调度流程" class="headerlink" title="调度流程"></a>调度流程</h2><p>其调度流程类比如下：</p>
+<h2 id="处理流程"><a href="#处理流程" class="headerlink" title="处理流程"></a>处理流程</h2><p>其调度流程类比如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">任务表&#123;</span><br><span class="line">    项目计划表,</span><br><span class="line">    年计划表,</span><br><span class="line">    月计划表,</span><br><span class="line">    周计划表,</span><br><span class="line">    日计划表（每日事项、从以上计划中筛选出来的任务）,</span><br><span class="line">    ToDoList（杂项）</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">全局数据: 任务表、中断事务表、日志</span><br><span class="line"></span><br><span class="line">硬中断:</span><br><span class="line">    保存（当前任务数据）</span><br><span class="line">    执行中断请求</span><br><span class="line"></span><br><span class="line">软中断（杂事）:</span><br><span class="line">    保存（当前任务数据）</span><br><span class="line">    加入中断事务表（中断事件）</span><br><span class="line">    <span class="keyword">if</span> 中断事件优先级 <span class="keyword">is</span> Max:</span><br><span class="line">        执行中断事件</span><br><span class="line">        删除中断事务表（中断事件）</span><br><span class="line">        更新日志</span><br><span class="line"></span><br><span class="line">中断注册:</span><br><span class="line">    硬中断（吃喝拉撒、身体不适等）</span><br><span class="line">    软中断（杂事）</span><br><span class="line"></span><br><span class="line">获取任务:</span><br><span class="line">    遍历任务表、中断事务表</span><br><span class="line">    判断任务优先级（紧急程度 &amp; 重要程度）</span><br><span class="line">    <span class="keyword">return</span> 下一任务</span><br><span class="line"></span><br><span class="line">执行任务：</span><br><span class="line">    分解任务</span><br><span class="line">    更新任务表（分解任务）</span><br><span class="line">    <span class="keyword">for</span> 子任务 <span class="keyword">in</span> 分解任务:</span><br><span class="line">        执行子任务</span><br><span class="line">        <span class="keyword">if</span> timeout:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    更新任务表（当前状态）</span><br><span class="line">    更新日志</span><br><span class="line"></span><br><span class="line">main():</span><br><span class="line">    <span class="keyword">while</span>:</span><br><span class="line">        next_task = 获取任务()</span><br><span class="line">        set_timeout_may_be()</span><br><span class="line">        <span class="keyword">if</span> next_task:</span><br><span class="line">            执行任务()</span><br><span class="line">            have_a_rest_may_be()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            flow_for_a_period_of_time()</span><br></pre></td></tr></table></figure>
+<h2 id="调度器"><a href="#调度器" class="headerlink" title="调度器"></a>调度器</h2><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><h4 id="人生清单"><a href="#人生清单" class="headerlink" title="人生清单"></a>人生清单</h4><p>人生的意义是自己定义的，设立自己的终局目标即为设置了自己的人生算法的启发式，它将会指引你实现自己的意义。</p>
+<p>下载 <a href="/resources/mind-processing-unit/人生清单.xlsx">人生清单.xlsx</a>，内容示例如下：</p>
+<p><img src="/resources/mind-processing-unit/人生清单.png" alt="人生清单"></p>
+<h4 id="年度计划表"><a href="#年度计划表" class="headerlink" title="年度计划表"></a>年度计划表</h4><p><strong>每年的元旦假期</strong>:</p>
+<ul>
+<li>总结：上一年的 年度计划</li>
+<li>制定：下一年的 <strong>年度计划表</strong>、<strong>季度计划表</strong>、<strong>月计划表</strong></li>
+</ul>
+<p>下载 <a href="/resources/mind-processing-unit/年度计划表.xlsx">年度计划表.xlsx</a>，内容示例如下：</p>
+<p><img src="/resources/mind-processing-unit/年度计划表.png" alt="年度计划表"></p>
+<h4 id="季度计划表"><a href="#季度计划表" class="headerlink" title="季度计划表"></a>季度计划表</h4><p><strong>每季度末</strong>：</p>
+<ul>
+<li>总结：本季度</li>
+<li>调整：下季度计划、年度计划、月计划</li>
+</ul>
+<p>下载 <a href="/resources/mind-processing-unit/季度计划表.xlsx">季度计划表.xlsx</a>，内容示例如下：</p>
+<p><img src="/resources/mind-processing-unit/季度计划表.png" alt="季度计划表"></p>
+<h4 id="月计划表"><a href="#月计划表" class="headerlink" title="月计划表"></a>月计划表</h4><p><strong>每月末当日</strong>：</p>
+<ul>
+<li>总结：本月</li>
+<li>调整：下月计划、季度计划、年度计划</li>
+<li>制定：周计划</li>
+</ul>
+<p>下载 <a href="/resources/mind-processing-unit/月计划表.xlsx">月计划表.xlsx</a>，内容示例如下：</p>
+<p><img src="/resources/mind-processing-unit/月计划表.png" alt="月计划表"></p>
+<p>一个月的总工作日约为：20d - 22d，总工时约为：200h - 220h。</p>
+<h4 id="周计划表"><a href="#周计划表" class="headerlink" title="周计划表"></a>周计划表</h4><p><strong>每周日的晚上</strong>：</p>
+<ul>
+<li>总结：本周</li>
+<li>调整：下周计划</li>
+<li>制定：日计划</li>
+</ul>
+<p>下载 <a href="/resources/mind-processing-unit/周计划表.xlsx">周计划表.xlsx</a>，内容示例如下：</p>
+<p><img src="/resources/mind-processing-unit/周计划表.png" alt="周计划表"></p>
+<p>每周的总工时约为：50h - 60h，可拆分为：上班 40h、下班 20h。</p>
+<h4 id="日程表"><a href="#日程表" class="headerlink" title="日程表"></a>日程表</h4><p><strong>每天晚上</strong>：</p>
+<ul>
+<li>总结：当日计划</li>
+<li>调整：明日计划</li>
+</ul>
+<p>下载 <a href="/resources/mind-processing-unit/每天三件事.xlsx">每天三件事.xlsx</a>，内容示例如下：</p>
+<p><img src="/resources/mind-processing-unit/每天三件事.png" alt="每天三件事"></p>
+<h4 id="ToDo-List"><a href="#ToDo-List" class="headerlink" title="ToDo List"></a>ToDo List</h4><p>以 A5 笔记本纸进行管理。</p>
+<h4 id="中断向量表"><a href="#中断向量表" class="headerlink" title="中断向量表"></a>中断向量表</h4><p>以 A5 笔记本纸进行管理。</p>
+<h4 id="娱乐"><a href="#娱乐" class="headerlink" title="娱乐"></a>娱乐</h4><p>以 A5 笔记本纸进行管理。</p>
+<h4 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h4><p>日志模板。 </p>
+<h2 id="待添加部分"><a href="#待添加部分" class="headerlink" title="待添加部分"></a>待添加部分</h2><ul>
+<li>调度算法</li>
+<li>执行器</li>
+</ul>
 
       
 
@@ -344,7 +401,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">调度流程</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">处理流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">调度器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%BA%E7%94%9F%E6%B8%85%E5%8D%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">人生清单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B4%E5%BA%A6%E8%AE%A1%E5%88%92%E8%A1%A8"><span class="toc-number">2.1.2.</span> <span class="toc-text">年度计划表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A3%E5%BA%A6%E8%AE%A1%E5%88%92%E8%A1%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text">季度计划表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%88%E8%AE%A1%E5%88%92%E8%A1%A8"><span class="toc-number">2.1.4.</span> <span class="toc-text">月计划表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%A8%E8%AE%A1%E5%88%92%E8%A1%A8"><span class="toc-number">2.1.5.</span> <span class="toc-text">周计划表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E7%A8%8B%E8%A1%A8"><span class="toc-number">2.1.6.</span> <span class="toc-text">日程表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ToDo-List"><span class="toc-number">2.1.7.</span> <span class="toc-text">ToDo List</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E8%A1%A8"><span class="toc-number">2.1.8.</span> <span class="toc-text">中断向量表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A8%B1%E4%B9%90"><span class="toc-number">2.1.9.</span> <span class="toc-text">娱乐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">2.1.10.</span> <span class="toc-text">日志</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%85%E6%B7%BB%E5%8A%A0%E9%83%A8%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">待添加部分</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -553,6 +610,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">3D</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">桌游</a>
               </li>
             
             <div class="clearfix"></div>
