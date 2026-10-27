@@ -187,6 +187,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-introduction-to-3d-modeling-software" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tech/introduction-to-3d-modeling-software/">3D 建模软件简介</a>
+    </h1>
+  
+
+        
+        <a href="/tech/introduction-to-3d-modeling-software/" class="archive-article-date">
+  	<time datetime="2026-10-26T15:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-10-26</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>3D 建模软件很多，不同的软件不仅有自己的适用场景，还有不同的学习曲线和操作习惯，怎么选择对于新手是一个不小的问题。</p>
+<p>以下是对市面上常见 3D 建模软件的一个简单介绍，包含：</p>
+<ul>
+<li><a href="/tech/introduction-to-3d-modeling-software/#主要建模原理">主要建模原理</a></li>
+<li><a href="/tech/introduction-to-3d-modeling-software/#常见软件">常见软件</a></li>
+<li><a href="/tech/introduction-to-3d-modeling-software/#常见工作流">常见工作流</a></li>
+</ul>
+        
+          <a class="article-more-a" href="/tech/introduction-to-3d-modeling-software/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">3D</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/tech/introduction-to-3d-modeling-software/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-bg-explain-rules-clearly" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -995,106 +1092,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/tech/linux-io-multiplexing-poll/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux-io-multiplexing-select" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tech/linux-io-multiplexing-select/">Linux I/O 多路复用之 select</a>
-    </h1>
-  
-
-        
-        <a href="/tech/linux-io-multiplexing-select/" class="archive-article-date">
-  	<time datetime="2026-05-08T15:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-05-08</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Socket 出现之前，网络编程需要直接处理复杂的 TCP/IP 协议栈细节，不同厂商的 API 也不尽相同。</p>
-<p><strong>1983 年</strong>，加利福尼亚大学伯克利分校在发布的 <strong>4.2BSD</strong>（Berkeley Software Distribution）版本 Unix 系统中，做了一件影响深远的事：<strong>正式引入了 Socket（套接字）接口</strong>。</p>
-<p>有了 Socket，但早期的网络程序很快遇到了新问题：如何处理多个连接？最初的模型是“阻塞 I/O”，一个线程只能处理一个连接。当它从一个 socket 读取数据时，如果没有数据，整个程序就会卡在那里，无法响应其他连接。</p>
-<p>为了解决这个问题，<strong>select 系统调用</strong> 在 1983 年随着 4.2BSD 一同被创造了出来。</p>
-<p><strong>select 系统调用</strong> 允许程序同时监视多个文件描述符，检测它们的状态变化（如数据可读或可写），从而高效地管理多个 I/O 操作而不需为每个操作创建独立线程或进程。这种能力尤其在网络通信和服务器编程中提高了并发性能。<strong>select 系统调用</strong> 还支持非阻塞 I/O，允许程序在等待 I/O 事件的同时执行其他任务，有效利用 CPU 资源。</p>
-<p>自 <code>select()</code> 面世以来，在各种 Unix 变体（System V、AIX、SunOS、HP-UX 等）中被广泛实现，但每个系统的实现细节略有差异。<strong>1990</strong> 年，POSIX 标准（POSIX.1-1990）统一了相关规定。</p>
-        
-          <a class="article-more-a" href="/tech/linux-io-multiplexing-select/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">嵌入式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tech/linux-io-multiplexing-select/">展开全文 >></a>
         </p>
       
 

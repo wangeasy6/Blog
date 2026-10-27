@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.easywang.site/iplay/bg-explain-rules-clearly/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>http://www.easywang.site/tech/introduction-to-3d-modeling-software/</loc>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/tech/software-versioning-and-release-process/</loc>
+    <lastmod>2026-10-14</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/tech/communication-interface-chart-index/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
+    <loc>http://www.easywang.site/iplay/bg-explain-rules-clearly/</loc>
+    <lastmod>2026-08-28</lastmod>
   </url>
   <url>
     <loc>http://www.easywang.site/iplay/bg-modern-art-strategy/</loc>
@@ -306,10 +314,6 @@
   </url>
   <url>
     <loc>http://www.easywang.site/tech/raspberry-pi/</loc>
-    <lastmod>2025-12-11</lastmod>
-  </url>
-  <url>
-    <loc>http://www.easywang.site/tech/software-versioning-and-release-process/</loc>
     <lastmod>2025-12-11</lastmod>
   </url>
   <url>
