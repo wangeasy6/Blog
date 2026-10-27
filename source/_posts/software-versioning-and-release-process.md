@@ -73,6 +73,6 @@ categories:
 
 ### 参考
 
-* Github 起草的Semantic Versioning(语义化版本表示) —— [Semantic Versioning 2.0.0](https://link.zhihu.com/?target=http%3A//semver.org/) （中文版 [http://semver.org/lang/zh-CN/](https://link.zhihu.com/?target=http%3A//semver.org/lang/zh-CN/)）
+* Github 起草的[语义化版本 2.0.0 | Semantic Versioning](https://semver.org/lang/zh-CN/)
 
-* https://blog.csdn.net/d06110902002/article/details/81944568（）
+* https://blog.csdn.net/d06110902002/article/details/81944568
