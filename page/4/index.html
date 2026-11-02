@@ -187,6 +187,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-qt-quick-custom-control-style" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/tech/qt-quick-custom-control-style/">QtQuick 自定义控件样式</a>
+    </h1>
+  
+
+        
+        <a href="/tech/qt-quick-custom-control-style/" class="archive-article-date">
+  	<time datetime="2024-06-24T11:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-24</time>
+</a>
+        
+
+        <!-- 不蒜子计数器 -->
+        
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 QtWidgets 中，可以使用 qss 对一批需要相同样式的控件进行设置，避免大量的重复代码。</p>
+<p>然而在 QtQuick 中，qss 完全不支持了，但是对于上述需求依然是存在的，那么在 QML 中，要如何实现呢？</p>
+        
+          <a class="article-more-a" href="/tech/qt-quick-custom-control-style/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/tech/qt-quick-custom-control-style/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-qt-quick-integrating-qml-and-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1017,101 +1109,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/tech/system-porting-arm-bare-metal-program/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-c-time" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/tech/c-time/">C Linux Time</a>
-    </h1>
-  
-
-        
-        <a href="/tech/c-time/" class="archive-article-date">
-  	<time datetime="2023-09-06T13:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-09-06</time>
-</a>
-        
-
-        <!-- 不蒜子计数器 -->
-        
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 Linux 中，存在 4 种时间类型，本篇以这 4 种类型为例，总结一下使用 C 语言的获取、计算方法。</p>
-<p>同时，存在以下 3 种计算机系统中常见的关于时间的定义：</p>
-<p><strong>UTC</strong>：协调世界时，又称世界标准时间（Universal Time Coordinated）。是最主要的世界时间标准，其以原子时的秒长为基础，在时刻上尽量接近于格林威治标准时间。现行的协调世界时根据国际电信联盟的建议《Standard-frequency and time-signal emissions》(ITU-R TF.460-6)所确定。UTC基于国际原子时，并通过不规则的加入闰秒来抵消地球自转变慢的影响。闰秒在必要的时候会被插入到UTC中，以保证协调世界时（UTC）与世界时（UT1）相差不超过0.9秒。</p>
-<p><strong>GMT</strong>：格林尼治标准时间（旧译格林威治平均时间或格林威治标准时间；英语：Greenwich Mean Time）是指位于英国伦敦郊区的皇家格林尼治天文台的标准时间，因为本初子午线被定义在通过那里的经线。</p>
-<p><strong>CST</strong>：中国标准时间（China Standard Time），北京时间为 UTC+8，即东八区时间。</p>
-        
-          <a class="article-more-a" href="/tech/c-time/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/tech/c-time/">展开全文 >></a>
         </p>
       
 
